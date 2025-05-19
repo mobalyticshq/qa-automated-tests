@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5563","New game is missing in navbar","firefox","Mon May 19 20:47:25 GMT 2025","passed","Mon May 19 20:47:31 GMT 2025","","no-new-game-navbar.test.js","",""
+"","4792","New game is missing in navbar","chromium","Mon May 19 20:47:25 GMT 2025","passed","Mon May 19 20:47:30 GMT 2025","","no-new-game-navbar.test.js","",""
