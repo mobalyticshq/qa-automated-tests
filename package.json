@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx allure run -- npx playwright test",
+    "test": "npx allure run -- npx playwright test --reporter=list",
     "ui": "npx playwright test --ui",
     "open-report": "npx allure open ./allure-report/",
     "telegram": "java -DconfigFile=notifications/telegram.json -jar notifications/allure-notifications-4.9.0.jar"
