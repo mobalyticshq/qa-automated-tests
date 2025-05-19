@@ -14,7 +14,7 @@ on:
       BaseURL:
         description: "URL for tests"
         required: true
-        default: "https://mobalytics.gg/poe-2"
+        default: "https://mobalytics.gg"
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
