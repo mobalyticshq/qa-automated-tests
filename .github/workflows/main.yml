@@ -134,4 +134,4 @@ jobs:
 
       - name: Send Telegram notification
         run: |
-          java "-DconfigFile=notifications/tmp/telegram.json" -jar notifications/allure-notifications-4.9.0.jar
+          java "-DconfigFile=notifications/tmp/config.json" -jar notifications/allure-notifications-4.9.0.jar

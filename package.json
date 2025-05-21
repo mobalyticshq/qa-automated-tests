@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx allure run -- npx playwright test",
-    "ui": "npx playwright test --ui",
+    "test": "npx playwright test",
+    "ui": "npx allure run -- npx playwright test --ui",
+    "generateReport": "npx allure generate allure-results --clean -o allure-report",
     "open-report": "npx allure open ./allure-report/",
-    "telegram": "java -DconfigFile=notifications/telegram.json -jar notifications/allure-notifications-4.9.0.jar"
+    "telegram": "java -DconfigFile=notifications/config.json -jar notifications/allure-notifications-4.9.0.jar"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.19",
     "allure": "^3.0.0-beta.13",
+    "allure-commandline": "^2.34.0",
     "allure-playwright": "^3.2.2"
   }
 }
