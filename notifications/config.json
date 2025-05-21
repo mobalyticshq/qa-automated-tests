@@ -12,5 +12,10 @@
       "token": "$TELEGRAM_BOT_TOKEN",
       "chat": "$TELEGRAM_CHAT_ID",
       "replyTo": ""
+    },
+    "slack": {
+    "token": "$SLACK_TOKEN",
+    "chat": "$SLACK_CHAT_NAME",
+    "replyTo": ""
     }
   }
