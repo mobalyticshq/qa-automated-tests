@@ -123,14 +123,14 @@ jobs:
           publish_branch: gh-pages
           publish_dir: allure-history
 
-      - name: Generate telegram.json with the secrets
+      - name: Generate config.json with the secrets
         run: |
           mkdir -p notifications/tmp
           sed \
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
-            notifications/telegram.json > notifications/tmp/telegram.json
+            notifications/config.json > notifications/tmp/config.json
 
       - name: Send Telegram notification
         run: |
