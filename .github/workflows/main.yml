@@ -136,6 +136,6 @@ jobs:
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
-      - name: Send Telegram notification
+      - name: Send Telegram & Slack notification
         run: |
           java "-DconfigFile=notifications/tmp/config.json" -jar notifications/allure-notifications-4.9.0.jar
