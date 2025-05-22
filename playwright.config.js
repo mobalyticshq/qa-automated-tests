@@ -52,13 +52,21 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: "sitemap-tests",
       use: { ...devices["Desktop Chrome"] },
+      testMatch: "tests/sitemap.test.js",
     },
 
     {
-      name: "firefox",
+      name: "ngf-chromium",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: "tests/ngf.test.js",
+    },
+
+    {
+      name: "ngf-firefox",
       use: { ...devices["Desktop Firefox"] },
+      testMatch: "tests/ngf.test.js",
     },
 
     // {
