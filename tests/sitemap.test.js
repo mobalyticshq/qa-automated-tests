@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 const PROD_SITEMAP = "https://mobalytics.gg/sitemap.xml";
 const NEW_GAME_LINK = "https://mobalytics.gg/zzz/sitemap.xml";
 
-test(`There is no: ${NEW_GAME_LINK} in the: ${PROD_SITEMAP} list`, async ({
+test(`There is no a new game: ${NEW_GAME_LINK} in the: ${PROD_SITEMAP} list`, async ({
   page,
 }) => {
   await page.goto(PROD_SITEMAP);
