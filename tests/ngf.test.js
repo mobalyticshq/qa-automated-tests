@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const NEW_GAME = "ZZZ";
 
-test("There is no a new game in navbar on the produciton", async ({
+test("There is no a new game in navbar on the production", async ({
   page,
   baseURL,
 }) => {
