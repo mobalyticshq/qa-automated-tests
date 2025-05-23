@@ -9,11 +9,12 @@ test(`There is no a new game ${NEW_GAME} in the ${PROD_SITEMAP}`, async ({
   await test.step(`Go to ${PROD_SITEMAP}`, async () => {
     await page.goto(PROD_SITEMAP);
   });
+  
+  await test.step(`Expected Result: There is no ${NEW_GAME} in the ${PROD_SITEMAP}`, async () => {
+    await expect(page.locator("#folder0")).not.toContainText(NEW_GAME);
+  });
 });
 
-await test.step(`Expected Result: There is no ${NEW_GAME} in the ${PROD_SITEMAP}`, async () => {
-  await expect(page.locator("#folder0")).not.toContainText(NEW_GAME);
-});
 
 const SITEMAP_INDEX = "https://mobalytics.gg/sitemap_index.xml";
 

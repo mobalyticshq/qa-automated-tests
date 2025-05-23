@@ -1,10 +1,11 @@
 import { test, expect } from "@playwright/test";
 
+const NEW_GAME = "ZZZ";
+
 test("There is no a new game in navbar on the produciton", async ({
   page,
   baseURL,
 }) => {
-  const NEW_GAME = "ZZZ";
   await test.step(`Go to ${baseURL}`, async () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
   });
