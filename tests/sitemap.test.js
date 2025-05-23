@@ -73,7 +73,7 @@ test(`${DESTINY_2} is present in the: ${PROD_SITEMAP} list`, async ({
   page,
 }) => {
   await page.goto(PROD_SITEMAP);
-  await expect(page.locator("#folder0")).toContainText(LOST_ARK);
+  await expect(page.locator("#folder0")).toContainText(DESTINY_2);
 });
 
 const DIABLO_4 = "https://mobalytics.gg/diablo-4/sitemap.xml";

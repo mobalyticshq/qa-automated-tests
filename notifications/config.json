@@ -15,7 +15,7 @@
     },
     "slack": {
     "token": "$SLACK_TOKEN",
-    "chat": "$SLACK_CHAT_NAME",
+    "chat": "$SLACK_CHAT_ID",
     "replyTo": ""
     }
   }
