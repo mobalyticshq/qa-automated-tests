@@ -1,3 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","5814","There is no a new game in navbar on the produciton","firefox","Wed May 21 16:57:18 GMT 2025","passed","Wed May 21 16:57:24 GMT 2025","","no-new-game-navbar.test.js","",""
-"","4348","There is no a new game in navbar on the produciton","chromium","Wed May 21 16:57:18 GMT 2025","passed","Wed May 21 16:57:22 GMT 2025","","no-new-game-navbar.test.js","",""
