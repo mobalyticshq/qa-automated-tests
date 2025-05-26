@@ -1,0 +1,1 @@
+"Welcome" modal hasn't appear - hop to the next step
