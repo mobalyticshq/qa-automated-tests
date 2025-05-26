@@ -9,12 +9,12 @@ export const test = base.extend({
     await ngf.mainURLs.openDeadlockPage();
     await ngf.navbar.gotoSignInPage();
 
-    try {
-      await expect(ngf.signInPage.welcomeModal).toBeVisible();
-      await ngf.signInPage.closeWelcomeModal();
-    } catch {
-      // If modal doesn't appear - go to the next step
-    }
+    // try {
+    //   await expect(ngf.signInPage.welcomeModal).toBeVisible();
+    //   await ngf.signInPage.closeWelcomeModal();
+    // } catch {
+    //   // If modal doesn't appear - go to the next step
+    // }
 
     await ngf.signInPage.loginUser(
       USER_ROLES.admin_prod.email,
