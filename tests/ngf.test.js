@@ -22,7 +22,7 @@ test("Go to structure page", async ({ loginUser }) => {
 
   await loginUser.mainURLs.openStPage(stUrl);
 
-  await test.step(`Structure page is opened`, async () => {
+  await test.step(`Expected Result: Structure page is opened`, async () => {
     await expect(loginUser.stPage.createButton).toBeVisible();
   });
 });
