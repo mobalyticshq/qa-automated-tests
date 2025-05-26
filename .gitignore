@@ -9,4 +9,4 @@ node_modules/
 /allure-results
 /.vscode
 /.env
-
+/.DS_Store
