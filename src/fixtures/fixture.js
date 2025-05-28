@@ -9,11 +9,8 @@ export const test = base.extend({
     await ngf.mainURLs.openDeadlockPage();
     await ngf.navbar.gotoSignInPage();
 
-    try {
-      await expect(ngf.signInPage.welcomeModal).toBeVisible();
+    if (await ngf.signInPage.welcomeModal.isVisible()) {
       await ngf.signInPage.closeWelcomeModal();
-    } catch {
-      console.log(`"Welcome" modal hasn't appear - hop to the next step`);
     }
 
     await ngf.signInPage.loginUser(
