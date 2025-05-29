@@ -1,0 +1,29 @@
+{
+  date: 'Thu, 29 May 2025 15:20:35 GMT',
+  'content-type': 'application/json',
+  'content-length': '24',
+  connection: 'keep-alive',
+  'set-cookie': 'mobalytics_session_stg=MTc0ODUzMjAzNXxEaDI1VDBkNkR1NmRSaTZFT2N3T01uWklqV3g0TnNNYUs3cnVVU2kxWHd2QUFjNElNOXN0MmxGbXRzNkxQM21VcWVDV2FrdVdVeDhleTJxdTNTTHVqLWVxaV9rYlZBcGNJMS13SVh6cG9TeHpCN05KSkFSbEIxTUtoalkzRjk0SGV2aUo5QXFTdjYwUE5ySk1WLU9UMkY4TlhTVUdLaUl2eWxBODZBeVVUQnh4d3Vqdzc4aHNCcFFKVmlzMEc4QVZJTnJmcTM5OElIbjg5TEdWRVBWMTZSUUFER3VZOW5wdC15dz18ZsjReqAvkUIcXxuuDiNAiQvAe2JUCWi_iz-G_79u4BM=; Path=/; Domain=mobalytics.gg; Expires=Sun, 24 May 2026 15:20:34 GMT; Max-Age=31103999; HttpOnly; Secure; SameSite=None',
+  'x-moba-monitoring-endpoint': 'POST /api/graphql/v1/query',
+  'x-request-id': '1946d36a-abd5-4802-8867-dc6d61b2a681',
+  'x-envoy-upstream-service-time': '17',
+  'cf-cache-status': 'DYNAMIC',
+  'strict-transport-security': 'max-age=2592000; preload',
+  'x-content-type-options': 'nosniff',
+  'content-security-policy': "default-src * 'unsafe-inline' 'unsafe-eval' data: blob: data:; child-src *; frame-src *; connect-src * data:; font-src *; img-src * blob: data:; media-src * blob: data:; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; worker-src * blob: data:; manifest-src *; frame-ancestors *; form-action *; base-uri *;",
+  server: 'cloudflare',
+  'cf-ray': '9476fa05db4ae127-ORD',
+  'alt-svc': 'h3=":443"; ma=86400'
+}
+[
+  {
+    name: 'mobalytics_session_stg',
+    value: 'MTc0ODUzMjAzNXxEaDI1VDBkNkR1NmRSaTZFT2N3T01uWklqV3g0TnNNYUs3cnVVU2kxWHd2QUFjNElNOXN0MmxGbXRzNkxQM21VcWVDV2FrdVdVeDhleTJxdTNTTHVqLWVxaV9rYlZBcGNJMS13SVh6cG9TeHpCN05KSkFSbEIxTUtoalkzRjk0SGV2aUo5QXFTdjYwUE5ySk1WLU9UMkY4TlhTVUdLaUl2eWxBODZBeVVUQnh4d3Vqdzc4aHNCcFFKVmlzMEc4QVZJTnJmcTM5OElIbjg5TEdWRVBWMTZSUUFER3VZOW5wdC15dz18ZsjReqAvkUIcXxuuDiNAiQvAe2JUCWi_iz-G_79u4BM',
+    domain: 'stg.mobalytics.gg',
+    path: '/',
+    expires: -1,
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Lax'
+  }
+]
