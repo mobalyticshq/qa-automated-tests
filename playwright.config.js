@@ -60,14 +60,14 @@ export default defineConfig({
     {
       name: "ngf-chromium",
       use: { ...devices["Desktop Chrome"] },
-      testMatch: "tests/ngf.test.js",
+      testMatch: ["tests/ngf.test.js", "tests/permissions.test.js"],
     },
 
-    {
-      name: "ngf-firefox",
-      use: { ...devices["Desktop Firefox"] },
-      testMatch: "tests/ngf.test.js",
-    },
+    // {
+    //   name: "ngf-firefox",
+    //   use: { ...devices["Desktop Firefox"] },
+    //   testMatch: ["tests/ngf.test.js", "tests/permissions.test.js"],
+    // },
 
     // {
     //   name: "webkit",

@@ -1,18 +1,22 @@
-import { test as base, expect } from "@playwright/test";
+import {
+  test as base,
+  request as playwrightRequest,
+  expect,
+} from "@playwright/test";
 import { Ngf } from "../page-object/ngf";
 import { USER_ROLES } from "../setup/credentials";
 
 export const test = base.extend({
-  loginUser: async ({ page }, use) => {
+  uiAuth: async ({ page }, use) => {
     const ngf = new Ngf(page);
 
     await ngf.mainURLs.openDeadlockPage();
     await ngf.navbar.gotoSignInPage();
-
-    if (await ngf.signInPage.welcomeModal.isVisible()) {
-      await ngf.signInPage.closeWelcomeModal();
-    }
-
+    await test.step('Condition: Whether "Welcome" modal appears', async () => {
+      if (await ngf.signInPage.welcomeModal.isVisible()) {
+        await ngf.signInPage.closeWelcomeModal();
+      }
+    });
     await ngf.signInPage.loginUser(
       USER_ROLES.admin_prod.email,
       USER_ROLES.admin_prod.password
@@ -21,5 +25,57 @@ export const test = base.extend({
       await expect(page.getByRole("img", { name: "settings" })).toBeVisible();
     });
     await use(ngf);
+  },
+
+  apiAuth: async ({ request }, use) => {
+    // 1. Выполнить логин-запрос
+    const loginResponse = await request.post(
+      "https://stg.mobalytics.gg/api/account/gql/v1/query",
+      {
+        data: {
+          query: `
+          mutation SignIn {
+            signIn(
+              email: "${USER_ROLES.admin_stg.email}"
+              password: "${USER_ROLES.admin_stg.email}"
+            )
+          }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    await expect(loginResponse.ok()).toBeTruthy();
+    console.log(loginResponse.headers());
+
+    // 2. Получить set-cookie из ответа
+    const setCookieHeader = loginResponse.headers()["set-cookie"];
+    if (!setCookieHeader)
+      throw new Error("No set-cookie header in login response");
+
+    // 3. Преобразовать куки для Playwright
+    const cookies = setCookieHeader
+      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+      .map((cookieStr) => {
+        const [cookiePair, ...attributes] = cookieStr.split(";");
+        const [name, value] = cookiePair.split("=");
+        return {
+          name: name.trim(),
+          value: value.trim(),
+          domain: "stg.mobalytics.gg",
+          path: "/",
+          httpOnly: attributes.some(
+            (attr) => attr.trim().toLowerCase() === "httponly"
+          ),
+          secure: attributes.some(
+            (attr) => attr.trim().toLowerCase() === "secure"
+          ),
+        };
+      });
+    // console.log(cookies);
+    // 4. Передать куки в тест
+    await use({ cookies });
   },
 });

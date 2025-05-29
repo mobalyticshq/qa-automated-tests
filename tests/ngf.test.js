@@ -1,6 +1,7 @@
 import { expect } from "@playwright/test";
 import { test } from "../src/fixtures/index";
 import { Ngf } from "../src/page-object/ngf";
+import { USER_ROLES } from "../src/setup/credentials";
 
 const NEW_GAME = "ZZZ";
 
@@ -17,12 +18,16 @@ test("There is no a new game in navbar on the production", async ({
   });
 });
 
-test("Go to structure page", async ({ loginUser }) => {
-  let stUrl = "https://mobalytics.gg/elden-ring-nightreign/admin";
+test("Go to structure page", async ({ apiAuth, page }) => {
+  // Добавляем куки в браузерный контекст
+  await page.context().addCookies(apiAuth.cookies);
+console.log(await page.context().cookies());
+  const ngf = new Ngf(page);
+  let stUrl = "https://stg.mobalytics.gg/elden-ring-nightreign/admin";
 
-  await loginUser.mainURLs.openStPage(stUrl);
+  await ngf.mainURLs.openStPage(stUrl);
 
   await test.step(`Expected Result: Structure page is opened`, async () => {
-    await expect(loginUser.stPage.createButton).toBeVisible();
+    await expect(ngf.stPage.createButton).toBeVisible();
   });
 });

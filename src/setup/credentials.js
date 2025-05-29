@@ -11,4 +11,8 @@ export const USER_ROLES = {
     email: process.env.INTERNAL_WRITER_EMAIL,
     password: process.env.INTERNAL_WRITER_PASSWORD,
   },
+  admin_stg: {
+    email: process.env.ADMIN_STG_EMAIL,
+    password: process.env.ADMIN_STG_PASSWORD,
+  },
 };

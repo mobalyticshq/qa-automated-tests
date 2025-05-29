@@ -7,7 +7,9 @@ export class SignInPage {
     this.passwordInput = page.getByRole("textbox", { name: "Password" });
     this.signInButton = page.getByRole("button", { name: "Sign In" });
     this.consestButton = page.getByRole("button", { name: "Consent" });
-    this.welcomeModal = page.getByRole('heading', { name: 'Mobalytics asks for your' });
+    this.welcomeModal = page.getByRole("heading", {
+      name: "Mobalytics asks for your",
+    });
   }
 
   async loginUser(accountName, password) {
