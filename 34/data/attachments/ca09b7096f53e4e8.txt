@@ -1,0 +1,12 @@
+[
+  {
+    name: 'mobalytics_session_stg',
+    value: 'MTc0ODUzMjU0M3wxMHY4OUxmZDhMOW0wYzVhSnZrN1NMbXB1eFhhMnY4M0JlZWFrQjlreFByZU0yNWpxMlJraVphV3VJT05fcmFncHp1UUFUYnNOUjRZS3RmamJJRDdlNzVURWRoZGQtQ3Vva1E4a0R6aHEzdHBTT2VibGVyRWpUU1hYX3o5YW1uaXVYVXN0S0MzNjhvZHFCMmZISXZUaE45ZGVjVlZ6M0RnN0Z4YVhYOTdRRTg2bmJFbUN6QVBKdWhxM1p1b1FRRFQ0dXpKQWdoV0hnMllBS0c5MnZNOV9BMzNpeENYTmRWYzR2RT18V_LQE-bGqeTMB7iALUq6Ja3XCOYnusv77Q3jqhuzXAY',
+    domain: 'stg.mobalytics.gg',
+    path: '/',
+    expires: -1,
+    httpOnly: true,
+    secure: true,
+    sameSite: 'Lax'
+  }
+]
