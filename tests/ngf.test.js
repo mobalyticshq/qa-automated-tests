@@ -21,7 +21,7 @@ test("There is no a new game in navbar on the production", async ({
 test("Go to structure page", async ({ apiAuth, page }) => {
   // Добавляем куки в браузерный контекст
   await page.context().addCookies(apiAuth.cookies);
-console.log(await page.context().cookies());
+  console.log(await page.context().cookies());
   const ngf = new Ngf(page);
   let stUrl = "https://stg.mobalytics.gg/elden-ring-nightreign/admin";
 

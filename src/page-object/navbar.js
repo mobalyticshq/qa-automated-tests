@@ -4,7 +4,7 @@ export class Navbar {
   constructor(page) {
     this.page = page;
     this.signInButton = page.getByRole("button", { name: "sign in" });
-    this.navbar = page.getByText("LoLTFTVALLost ArkDestiny");
+    this.navbar = page.getByText("NightreignNewLoLTFTDiablo");
     this.profileDropdown = page.locator("#account_pulldown");
     this.profileButton = page.getByRole("link", { name: "View your profile" });
     this.profileNameMenu = (profileName) =>

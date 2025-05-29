@@ -48,7 +48,7 @@ export const test = base.extend({
       }
     );
     await expect(loginResponse.ok()).toBeTruthy();
-    console.log(loginResponse.headers());
+    // console.log(loginResponse.headers());
 
     // 2. Получить set-cookie из ответа
     const setCookieHeader = loginResponse.headers()["set-cookie"];
@@ -74,7 +74,6 @@ export const test = base.extend({
           ),
         };
       });
-    // console.log(cookies);
     // 4. Передать куки в тест
     await use({ cookies });
   },
