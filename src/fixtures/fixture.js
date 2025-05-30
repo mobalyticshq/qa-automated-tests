@@ -37,7 +37,7 @@ export const test = base.extend({
           mutation SignIn {
             signIn(
               email: "${USER_ROLES.admin_stg.email}"
-              password: "${USER_ROLES.admin_stg.email}"
+              password: "${USER_ROLES.admin_stg.password}"
             )
           }
         `,
