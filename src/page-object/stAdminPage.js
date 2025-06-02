@@ -1,10 +1,10 @@
 import { test } from "@playwright/test";
 
-export class StPage {
+export class StAdminPage {
   constructor(page) {
     this.page = page;
     this.createButton = page.getByTestId("create-button");
-    this.stPageTitle = (stPageName) => page.getByText(stPageName);
+    this.stAdminTitle = page.getByRole("heading", { name: "Structure Pages" });
     this.editButton = (stPageName) =>
       page
         .locator("div")

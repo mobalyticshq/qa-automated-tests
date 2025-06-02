@@ -12,11 +12,6 @@ export class Navbar {
     this.profileName = page.getByRole("link", {
       name: "Account details: ",
     });
-    this.profileNameMenu = page
-      .locator(
-        '[aria-label="Global Menu"] a[href="https://steamcommunity.com/my/"]'
-      )
-      .first();
   }
 
   async gotoSignInPage() {

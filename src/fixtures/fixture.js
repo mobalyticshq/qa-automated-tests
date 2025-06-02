@@ -48,7 +48,7 @@ export const test = base.extend({
       }
     );
     await expect(loginResponse.ok()).toBeTruthy();
-    // console.log(loginResponse.headers());
+    console.log(loginResponse.headers());
 
     // 2. Получить set-cookie из ответа
     const setCookieHeader = loginResponse.headers()["set-cookie"];
@@ -64,7 +64,7 @@ export const test = base.extend({
         return {
           name: name.trim(),
           value: value.trim(),
-          domain: "stg.mobalytics.gg",
+          domain: "mobalytics.gg",
           path: "/",
           httpOnly: attributes.some(
             (attr) => attr.trim().toLowerCase() === "httponly"

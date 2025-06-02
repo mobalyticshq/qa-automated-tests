@@ -4,17 +4,16 @@ import {
   Navbar,
   ProfilePage,
   MainPage,
-  EditProfilePage,
   GamePage,
-  ShoppingCart,
-  FriendsPage,
   MainURLs,
+  StAdminPage,
   StPage,
 } from "./index";
 
 export class Ngf {
   constructor(page) {
     this.page = page;
+    this.stAdminPage = new StAdminPage(page);
     this.stPage = new StPage(page);
     this.navbar = new Navbar(page);
     this.signInPage = new SignInPage(page);

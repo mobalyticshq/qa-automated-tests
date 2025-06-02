@@ -24,8 +24,8 @@ export class MainURLs {
   }
 
   async openDeadlockPage() {
-    await test.step(`Open url: https://mobalytics.gg/deadlock`, async () => {
-      await this.page.goto(`https://mobalytics.gg/deadlock`, { waitUntil: "domcontentloaded" });
+    await test.step(`Open url: https://stg.mobalytics.gg/deadlock`, async () => {
+      await this.page.goto(`https://stg.mobalytics.gg/deadlock`, { waitUntil: "domcontentloaded" });
     });
   }
 }

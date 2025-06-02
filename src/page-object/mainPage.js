@@ -1,4 +1,3 @@
-import { base } from "@faker-js/faker";
 import { test } from "@playwright/test";
 
 export class MainPage {

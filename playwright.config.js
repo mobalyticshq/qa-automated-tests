@@ -52,22 +52,42 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: "tests/auth.setup.test.js",
+    },
+
+    {
       name: "sitemap-tests",
       use: { ...devices["Desktop Chrome"] },
       testMatch: "tests/sitemap.test.js",
     },
 
     {
-      name: "ngf-chromium",
+      name: "permissions-chromium",
       use: { ...devices["Desktop Chrome"] },
-      testMatch: ["tests/ngf.test.js", "tests/permissions.test.js"],
+      testMatch: "tests/permissions.test.js",
     },
 
-    // {
-    //   name: "ngf-firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    //   testMatch: ["tests/ngf.test.js", "tests/permissions.test.js"],
-    // },
+    {
+      name: "ngf-chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: "playwright/.auth/userFile.json",
+      },
+      dependencies: ["setup"],
+      testMatch: ["tests/ngf.test.js"],
+    },
+
+    {
+      name: "ngf-firefox",
+      use: {
+        ...devices["Desktop Firefox"],
+        storageState: "playwright/.auth/userFile.json",
+      },
+      dependencies: ["setup"],
+      testMatch: ["tests/ngf.test.js"],
+    },
 
     // {
     //   name: "webkit",
