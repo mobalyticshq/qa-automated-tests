@@ -4,7 +4,7 @@ export class StPage {
   constructor(page) {
     this.page = page;
     this.createButton = page.getByTestId("create-button");
-    this.stPageTitle = (stPageName) => page.getByText(stPageName);
+    this.stPageTitle = page.getByTestId("document-controls-panel");
     this.editButton = (stPageName) =>
       page
         .locator("div")

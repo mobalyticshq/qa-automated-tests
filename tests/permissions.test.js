@@ -1,5 +1,6 @@
 import { USER_ROLES } from "../src/setup/credentials";
-import { test, expect } from "@playwright/test";
+import { expect } from "@playwright/test";
+import { test } from "../src/fixtures/index";
 import { Ngf } from "../src/page-object/ngf";
 
 test("UI login", async ({ page }) => {
@@ -21,35 +22,22 @@ test("UI login", async ({ page }) => {
   });
 });
 
-test("API login", async ({ request }) => {
-  const loginResponse = await request.post(
-    "https://stg.mobalytics.gg/api/account/gql/v1/query",
-    {
-      data: {
-        query: `
-          mutation SignIn {
-            signIn(
-              email: "${USER_ROLES.admin_stg.email}"
-              password: "${USER_ROLES.admin_stg.password}"
-            )
-          }
-        `,
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  await expect(loginResponse.ok()).toBeTruthy();
+test("API login", async ({ apiAuth, page, request }) => {
+  await page.context().addCookies(apiAuth.cookies);
   const authResponse = await request.post(
     "https://stg.mobalytics.gg/api/account/gql/v1/query",
     {
       data: {
         query: `
           query Auth {
-            auth {
-                token
-            }
+              auth {
+                  token
+              }
+              account {
+                  uid
+                  email
+                  login
+              }
           }
         `,
       },

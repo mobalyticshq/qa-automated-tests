@@ -19,10 +19,9 @@ test("There is no a new game in navbar on the production", async ({
   });
 });
 
-test(`Go to ${stAdminUrl} admin structure page`, async ({ page }) => {
-  // Добавляем куки в браузерный контекст
-  // await page.context().addCookies(apiAuth.cookies);
-  // console.log(await page.context().cookies());
+test(`Go to ${stAdminUrl} admin structure page`, async ({ apiAuth, page }) => {
+  await page.context().addCookies(apiAuth.cookies);
+
   const ngf = new Ngf(page);
 
   await ngf.mainURLs.openStPage(stAdminUrl);
@@ -31,23 +30,32 @@ test(`Go to ${stAdminUrl} admin structure page`, async ({ page }) => {
   });
 });
 
-test(`Open view mode ${stPageName} of the structure page`, async ({ page }) => {
+test(`Open view mode ${stPageName} of the structure page`, async ({
+  apiAuth,
+  page,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+
   const ngf = new Ngf(page);
 
   await ngf.mainURLs.openStPage(stAdminUrl);
   await ngf.stAdminPage.clickOnStWidget(stPageName);
   await test.step(`Expected Result: View mode of the ${stPageName} structure page is opened`, async () => {
-    await expect(ngf.stPage.stPageTitle(stPageName)).toContainText(stPageName);
+    await expect(ngf.stPage.stPageTitle).toContainText(stPageName);
   });
 });
 
-test(`Open edit mode of the ${stPageName} structure page`, async ({ page }) => {
+test(`Open edit mode of the ${stPageName} structure page`, async ({
+  apiAuth,
+  page,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+
   const ngf = new Ngf(page);
 
   await ngf.mainURLs.openStPage(stAdminUrl);
   await ngf.stAdminPage.clickEditButton(stPageName);
   await test.step(`Expected Result: Edit mode of the ${stPageName} structure page is opened`, async () => {
-    await expect(ngf.stPage.stPageTitle(stPageName)).toContainText(stPageName);
+    await expect(ngf.stPage.stPageTitle).toContainText(stPageName);
   });
 });
-

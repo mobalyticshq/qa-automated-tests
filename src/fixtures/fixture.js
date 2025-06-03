@@ -1,8 +1,4 @@
-import {
-  test as base,
-  request as playwrightRequest,
-  expect,
-} from "@playwright/test";
+import { test as base, expect } from "@playwright/test";
 import { Ngf } from "../page-object/ngf";
 import { USER_ROLES } from "../setup/credentials";
 
@@ -48,7 +44,7 @@ export const test = base.extend({
       }
     );
     await expect(loginResponse.ok()).toBeTruthy();
-    console.log(loginResponse.headers());
+    // console.log(loginResponse.headers());
 
     // 2. Получить set-cookie из ответа
     const setCookieHeader = loginResponse.headers()["set-cookie"];
@@ -60,18 +56,14 @@ export const test = base.extend({
       .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
       .map((cookieStr) => {
         const [cookiePair, ...attributes] = cookieStr.split(";");
-        const [name, value] = cookiePair.split("=");
+        const index = cookiePair.indexOf("=");
+        const name = cookiePair.slice(0, index).trim();
+        const value = cookiePair.slice(index + 1).trim();
         return {
           name: name.trim(),
           value: value.trim(),
-          domain: "mobalytics.gg",
+          domain: ".mobalytics.gg",
           path: "/",
-          httpOnly: attributes.some(
-            (attr) => attr.trim().toLowerCase() === "httponly"
-          ),
-          secure: attributes.some(
-            (attr) => attr.trim().toLowerCase() === "secure"
-          ),
         };
       });
     // 4. Передать куки в тест

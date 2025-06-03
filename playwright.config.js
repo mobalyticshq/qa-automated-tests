@@ -42,7 +42,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || "https://mobalytics.gg",
+    baseURL: process.env.BASE_URL || "https://stg.mobalytics.gg",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
@@ -51,11 +51,11 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: "setup",
-      use: { ...devices["Desktop Chrome"] },
-      testMatch: "tests/auth.setup.test.js",
-    },
+    // {
+    //   name: "setup",
+    //   use: { ...devices["Desktop Chrome"] },
+    //   testMatch: "tests/auth.setup.test.js",
+    // },
 
     {
       name: "sitemap-tests",
@@ -73,9 +73,9 @@ export default defineConfig({
       name: "ngf-chromium",
       use: {
         ...devices["Desktop Chrome"],
-        storageState: "playwright/.auth/userFile.json",
+        // storageState: "playwright/.auth/userFile.json",
       },
-      dependencies: ["setup"],
+      // dependencies: ["setup"],
       testMatch: ["tests/ngf.test.js"],
     },
 
@@ -83,9 +83,9 @@ export default defineConfig({
       name: "ngf-firefox",
       use: {
         ...devices["Desktop Firefox"],
-        storageState: "playwright/.auth/userFile.json",
+        // storageState: "playwright/.auth/userFile.json",
       },
-      dependencies: ["setup"],
+      // dependencies: ["setup"],
       testMatch: ["tests/ngf.test.js"],
     },
 
