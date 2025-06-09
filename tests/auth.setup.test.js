@@ -1,7 +1,6 @@
 import path from "node:path";
 import { USER_ROLES } from "../src/setup/credentials";
 import { test, expect } from "@playwright/test";
-import { Ngf } from "../src/page-object/ngf";
 
 const userFile = "playwright/.auth/userFile.json";
 

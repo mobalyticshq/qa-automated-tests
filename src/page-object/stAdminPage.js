@@ -3,8 +3,10 @@ import { test } from "@playwright/test";
 export class StAdminPage {
   constructor(page) {
     this.page = page;
-    this.createButton = page.getByTestId("create-button");
-    this.stAdminTitle = page.getByRole("heading", { name: "Structure Pages" });
+    this.createPageButton = page.getByTestId("create-button");
+    this.deleteButtonInModal = page.getByRole("button", { name: "Delete" });
+    this.stAdminTitle = (adminTitle) =>
+      page.getByRole("heading", { name: `${adminTitle}` });
     this.editButton = (stPageName) =>
       page
         .locator("div")
@@ -18,13 +20,19 @@ export class StAdminPage {
     this.stWidget = (stPageName) => page.getByText(`${stPageName}`);
   }
 
-  async clickOnStWidget(stPageName) {
+  async clickOnCreatePageButton() {
+    await test.step(`Go to the planner of the structure page`, async () => {
+      await this.createPageButton.click();
+    });
+  }
+
+  async clickOnStWidget(stPageName = "/1180") {
     await test.step(`Go to ${stPageName} structure page`, async () => {
       await this.stWidget(stPageName).click();
     });
   }
 
-  async clickEditButton(stPageName) {
+  async clickEditButton(stPageName = "/1180") {
     await test.step(`Click Edit button on ${stPageName} widget`, async () => {
       await this.editButton(stPageName).click();
     });
@@ -33,6 +41,7 @@ export class StAdminPage {
   async clickDeleteButton(stPageName) {
     await test.step(`Click Delete button on ${stPageName} widget`, async () => {
       await this.deleteButton(stPageName).click();
+      await this.deleteButtonInModal.click();
     });
   }
 }

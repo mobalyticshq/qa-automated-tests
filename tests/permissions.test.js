@@ -1,24 +1,24 @@
 import { USER_ROLES } from "../src/setup/credentials";
 import { expect } from "@playwright/test";
 import { test } from "../src/fixtures/index";
-import { Ngf } from "../src/page-object/ngf";
+import { Moba } from "../src/page-object/moba";
 
 test("UI login", async ({ page }) => {
-  const ngf = new Ngf(page);
+  const moba = new Moba(page);
 
-  await ngf.mainURLs.openDeadlockPage();
-  await ngf.navbar.gotoSignInPage();
+  await moba.mainURLs.openDeadlockPage();
+  await moba.navbar.gotoSignInPage();
   await test.step('Condition: Whether "Welcome" modal appears', async () => {
-    if (await ngf.signInPage.welcomeModal.isVisible()) {
-      await ngf.signInPage.closeWelcomeModal();
+    if (await moba.signInPage.welcomeModal.isVisible()) {
+      await moba.signInPage.closeWelcomeModal();
     }
   });
-  await ngf.signInPage.loginUser(
+  await moba.signInPage.loginUser(
     USER_ROLES.admin_stg.email,
     USER_ROLES.admin_stg.password
   );
   await test.step(`User is logged in`, async () => {
-    await expect(page.getByRole("img", { name: "settings" })).toBeVisible();
+    await expect(moba.navbar.settingsButton).toBeVisible();
   });
 });
 

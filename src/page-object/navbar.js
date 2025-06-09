@@ -3,8 +3,9 @@ import { test } from "@playwright/test";
 export class Navbar {
   constructor(page) {
     this.page = page;
+    this.settingsButton = page.getByRole("img", { name: "settings" });
     this.signInButton = page.getByRole("button", { name: "sign in" });
-    this.navbar = page.getByText("NightreignNewLoLTFTDiablo");
+    this.gameList = page.getByTestId("navbar-game-list");
     this.profileDropdown = page.locator("#account_pulldown");
     this.profileButton = page.getByRole("link", { name: "View your profile" });
     this.profileNameMenu = (profileName) =>

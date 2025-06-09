@@ -10,7 +10,7 @@ import {
   StPage,
 } from "./index";
 
-export class Ngf {
+export class Moba {
   constructor(page) {
     this.page = page;
     this.stAdminPage = new StAdminPage(page);

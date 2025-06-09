@@ -1,26 +1,26 @@
 import { test as base, expect } from "@playwright/test";
-import { Ngf } from "../page-object/ngf";
+import { Moba } from "../page-object/moba";
 import { USER_ROLES } from "../setup/credentials";
 
 export const test = base.extend({
   uiAuth: async ({ page }, use) => {
-    const ngf = new Ngf(page);
+    const moba = new Moba(page);
 
-    await ngf.mainURLs.openDeadlockPage();
-    await ngf.navbar.gotoSignInPage();
+    await moba.mainURLs.openDeadlockPage();
+    await moba.navbar.gotoSignInPage();
     await test.step('Condition: Whether "Welcome" modal appears', async () => {
-      if (await ngf.signInPage.welcomeModal.isVisible()) {
-        await ngf.signInPage.closeWelcomeModal();
+      if (await moba.signInPage.welcomeModal.isVisible()) {
+        await moba.signInPage.closeWelcomeModal();
       }
     });
-    await ngf.signInPage.loginUser(
+    await moba.signInPage.loginUser(
       USER_ROLES.admin_prod.email,
       USER_ROLES.admin_prod.password
     );
     await test.step(`User is logged in`, async () => {
-      await expect(page.getByRole("img", { name: "settings" })).toBeVisible();
+      await expect(moba.navbar.settingsButton).toBeVisible();
     });
-    await use(ngf);
+    await use(moba);
   },
 
   apiAuth: async ({ request }, use) => {
@@ -68,5 +68,31 @@ export const test = base.extend({
       });
     // 4. Передать куки в тест
     await use({ cookies });
+  },
+
+  cleanupPages: async ({ page, apiAuth }, use) => {
+    const stAdminUrl = "https://stg.mobalytics.gg/poe-2/admin";
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStPage(stAdminUrl);
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
   },
 });
