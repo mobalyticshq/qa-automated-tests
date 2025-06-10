@@ -8,12 +8,16 @@ import {
   MainURLs,
   StAdminPage,
   StPage,
+  UgProfilePage,
+  UgBuildPage,
 } from "./index";
 
 export class Moba {
   constructor(page) {
     this.page = page;
     this.stAdminPage = new StAdminPage(page);
+    this.ugProfilePage = new UgProfilePage(page);
+    this.ugBuildPage = new UgBuildPage(page);
     this.stPage = new StPage(page);
     this.navbar = new Navbar(page);
     this.signInPage = new SignInPage(page);

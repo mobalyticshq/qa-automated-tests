@@ -4,7 +4,7 @@ export class StAdminPage {
   constructor(page) {
     this.page = page;
     this.createPageButton = page.getByTestId("create-button");
-    this.deleteButtonInModal = page.getByRole("button", { name: "Delete" });
+    this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
     this.stAdminTitle = (adminTitle) =>
       page.getByRole("heading", { name: `${adminTitle}` });
     this.editButton = (stPageName) =>
@@ -41,7 +41,7 @@ export class StAdminPage {
   async clickDeleteButton(stPageName) {
     await test.step(`Click Delete button on ${stPageName} widget`, async () => {
       await this.deleteButton(stPageName).click();
-      await this.deleteButtonInModal.click();
+      await this.buttonDeleteInModal.click();
     });
   }
 }

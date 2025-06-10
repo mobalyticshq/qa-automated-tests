@@ -244,4 +244,179 @@ export const test = base.extend({
       }
     }
   },
+
+  cleanupUgZzzBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgZzzPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgMarvelRivalsPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgBazaarBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgBazaarPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgPoeBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgPoePage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgMhwBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgMhwPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgDeadlockBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgDeadlockPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgNightreignBuildPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openUgStgNightreignPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
 });

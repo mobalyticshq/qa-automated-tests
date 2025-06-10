@@ -7,3 +7,5 @@ export * from "./mainPage";
 export * from "./gamePage";
 export * from "./stAdminPage";
 export * from "./stPage";
+export * from "./ugProfilePage";
+export * from "./ugBuildPage";
