@@ -70,8 +70,7 @@ export const test = base.extend({
     await use({ cookies });
   },
 
-  cleanupPages: async ({ page, apiAuth }, use) => {
-    const stAdminUrl = "https://stg.mobalytics.gg/poe-2/admin";
+  cleanupStPoEPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageId) => {
@@ -84,7 +83,157 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStPage(stAdminUrl);
+      await moba.mainURLs.openStgPoeAdminPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStNightreignPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStgNightreignAdminPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStDeadlockPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStgDeadlockAdminPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStMhwPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStgMhwAdminPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStMarvelRivalsPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStgMarvelRivalsAdminPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStBazaarPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStgBazaarAdminPage();
+
+      for (const pageId of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageId);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageId}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStZzzPages: async ({ page, apiAuth }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageId) => {
+      pagesToCleanup.push(pageId);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuth.cookies);
+      await moba.mainURLs.openStgZzzAdminPage();
 
       for (const pageId of pagesToCleanup) {
         try {

@@ -3,7 +3,6 @@ import { test } from "../src/fixtures/index";
 import { Moba } from "../src/page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
-const stAdminUrl = "https://stg.mobalytics.gg/poe-2/admin";
 const NEW_GAME = "ZZZ";
 
 test("There is no a new game in navbar on the production", async ({
@@ -24,7 +23,7 @@ test(`Go to the admin structure page`, async ({ apiAuth, page }) => {
   let adminTitle = "Structure Pages";
   const moba = new Moba(page);
 
-  await moba.mainURLs.openStPage(stAdminUrl);
+  await moba.mainURLs.openStgPoeAdminPage();
   await test.step(`Expected Result: Admin structure page is opened`, async () => {
     await expect(moba.stAdminPage.createPageButton).toBeVisible();
     await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(
@@ -41,7 +40,7 @@ test(`Open a view mode of "/1180" structure page`, async ({
 
   const moba = new Moba(page);
 
-  await moba.mainURLs.openStPage(stAdminUrl);
+  await moba.mainURLs.openStgPoeAdminPage();
   await moba.stAdminPage.clickOnStWidget();
   await test.step(`Expected Result: View mode the /1180 structure page is opened`, async () => {
     await expect(moba.stPage.stPageTitle).toContainText("/1180");
@@ -56,7 +55,7 @@ test(`Open an edit mode of "/1180" structure page`, async ({
 
   const moba = new Moba(page);
 
-  await moba.mainURLs.openStPage(stAdminUrl);
+  await moba.mainURLs.openStgPoeAdminPage();
   await moba.stAdminPage.clickEditButton();
   await test.step(`Expected Result: Edit mode the "/1180" structure page is opened`, async () => {
     await expect(moba.stPage.stPageTitle).toContainText("/1180");
@@ -67,23 +66,169 @@ test(`Open an edit mode of "/1180" structure page`, async ({
 test(`Create a structure page on PoE project`, async ({
   apiAuth,
   page,
-  cleanupPages,
+  cleanupStPoEPages,
 }) => {
   await page.context().addCookies(apiAuth.cookies);
   const uniqueId = uuidv4();
   const pageId = `/qa-automation-st-page-${uniqueId}`;
   const moba = new Moba(page);
 
-  await moba.mainURLs.openStPage(stAdminUrl);
+  await moba.mainURLs.openStgPoeAdminPage();
   await moba.stAdminPage.clickOnCreatePageButton();
   await moba.stPage.addHeaderV2Widget();
   await moba.stPage.createStPage(pageId);
 
   // Регистрируем страницу для удаления
-  cleanupPages.addPageForCleanup(pageId);
+  cleanupStPoEPages.addPageForCleanup(pageId);
 
   await test.step(`Expected Result: Structure page is created on PoE project`, async () => {
-    await expect(moba.stPage.headerV2GamePoE).toContainText(`PoE 2`);
+    await expect(moba.stPage.headerV2PoE).toContainText("PoE 2");
+    await expect(moba.stPage.stPageTitle).toContainText(pageId);
+  });
+});
+
+test(`Create a structure page on Nightreign project`, async ({
+  apiAuth,
+  page,
+  cleanupStNightreignPages,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+  const uniqueId = uuidv4();
+  const pageId = `/qa-automation-st-page-${uniqueId}`;
+  const moba = new Moba(page);
+
+  await moba.mainURLs.openStgNightreignAdminPage();
+  await moba.stAdminPage.clickOnCreatePageButton();
+  await moba.stPage.addHeaderV2Widget();
+  await moba.stPage.createStPage(pageId);
+
+  // Регистрируем страницу для удаления
+  cleanupStNightreignPages.addPageForCleanup(pageId);
+
+  await test.step(`Expected Result: Structure page is created on Nightreign project`, async () => {
+    await expect(moba.stPage.headerV2Nightreign).toContainText("Nightreign");
+    await expect(moba.stPage.stPageTitle).toContainText(pageId);
+  });
+});
+
+test(`Create a structure page on Deadlock project`, async ({
+  apiAuth,
+  page,
+  cleanupStDeadlockPages,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+  const uniqueId = uuidv4();
+  const pageId = `/qa-automation-st-page-${uniqueId}`;
+  const moba = new Moba(page);
+
+  await moba.mainURLs.openStgDeadlockAdminPage();
+  await moba.stAdminPage.clickOnCreatePageButton();
+  await moba.stPage.addHeaderV2Widget();
+  await moba.stPage.createStPage(pageId);
+
+  // Регистрируем страницу для удаления
+  cleanupStDeadlockPages.addPageForCleanup(pageId);
+
+  await test.step(`Expected Result: Structure page is created on Deadlock project`, async () => {
+    await expect(moba.stPage.headerV2Deadlock).toContainText("Deadlock");
+    await expect(moba.stPage.stPageTitle).toContainText(pageId);
+  });
+});
+
+test(`Create a structure page on Mhw project`, async ({
+  apiAuth,
+  page,
+  cleanupStMhwPages,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+  const uniqueId = uuidv4();
+  const pageId = `/qa-automation-st-page-${uniqueId}`;
+  const moba = new Moba(page);
+
+  await moba.mainURLs.openStgMhwAdminPage();
+  await moba.stAdminPage.clickOnCreatePageButton();
+  await moba.stPage.addHeaderV2Widget();
+  await moba.stPage.createStPage(pageId);
+
+  // Регистрируем страницу для удаления
+  cleanupStMhwPages.addPageForCleanup(pageId);
+
+  await test.step(`Expected Result: Structure page is created on Monster Hunter Wilds project`, async () => {
+    await expect(moba.stPage.headerV2Mhw).toContainText("Monster Hunter Wilds");
+    await expect(moba.stPage.stPageTitle).toContainText(pageId);
+  });
+});
+
+// test(`Create a structure page on Bazaar project`, async ({
+//   apiAuth,
+//   page,
+//   cleanupStBazaarPages,
+// }) => {
+//   await page.context().addCookies(apiAuth.cookies);
+//   const uniqueId = uuidv4();
+//   const pageId = `/qa-automation-st-page-${uniqueId}`;
+//   const moba = new Moba(page);
+
+//   await moba.mainURLs.openStgBazaarAdminPage();
+//   await moba.stAdminPage.clickOnCreatePageButton();
+//   await moba.stPage.addHeaderV2Widget();
+//   await moba.stPage.createStPage(pageId);
+
+//   // Регистрируем страницу для удаления
+//   cleanupStBazaarPages.addPageForCleanup(pageId);
+
+//   await test.step(`Expected Result: Structure page is created on Bazaar project`, async () => {
+//     await expect(moba.stPage.headerV2Bazaar).toContainText("The Bazaar");
+//     await expect(moba.stPage.stPageTitle).toContainText(pageId);
+//   });
+// });
+
+test(`Create a structure page on Marvel Rivals project`, async ({
+  apiAuth,
+  page,
+  cleanupStMarvelRivalsPages,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+  const uniqueId = uuidv4();
+  const pageId = `/qa-automation-st-page-${uniqueId}`;
+  const moba = new Moba(page);
+
+  await moba.mainURLs.openStgMarvelRivalsAdminPage();
+  await moba.stAdminPage.clickOnCreatePageButton();
+  await moba.stPage.addHeaderV2Widget();
+  await moba.stPage.createStPage(pageId);
+
+  // Регистрируем страницу для удаления
+  cleanupStMarvelRivalsPages.addPageForCleanup(pageId);
+
+  await test.step(`Expected Result: Structure page is created on Marvel Rivals project`, async () => {
+    await expect(moba.stPage.headerV2MarvelRivals).toContainText(
+      "Marvel Rivals"
+    );
+    await expect(moba.stPage.stPageTitle).toContainText(pageId);
+  });
+});
+
+test(`Create a structure page on ZZZ project`, async ({
+  apiAuth,
+  page,
+  cleanupStZzzPages,
+}) => {
+  await page.context().addCookies(apiAuth.cookies);
+  const uniqueId = uuidv4();
+  const pageId = `/qa-automation-st-page-${uniqueId}`;
+  const moba = new Moba(page);
+
+  await moba.mainURLs.openStgZzzAdminPage();
+  await moba.stAdminPage.clickOnCreatePageButton();
+  await moba.stPage.addHeaderV2Widget();
+  await moba.stPage.createStPage(pageId);
+
+  // Регистрируем страницу для удаления
+  cleanupStZzzPages.addPageForCleanup(pageId);
+
+  await test.step(`Expected Result: Structure page is created on Marvel Rivals project`, async () => {
+    await expect(moba.stPage.headerV2Zzz).toContainText("ZZZ");
     await expect(moba.stPage.stPageTitle).toContainText(pageId);
   });
 });

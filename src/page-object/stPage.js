@@ -32,7 +32,19 @@ export class StPage {
     this.buttonCreateSaveInModal = page.getByRole("button", {
       name: "Create and Save",
     });
-    this.headerV2GamePoE = page.locator("#container").getByText("PoE");
+    this.headerV2PoE = page.locator("#container").getByText("PoE");
+    this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
+    this.headerV2Nightreign = page
+      .locator("#container")
+      .getByText("Nightreign");
+    this.headerV2Deadlock = page.locator("#container").getByText("Deadlock");
+    this.headerV2Bazaar = page.locator("#container").getByText("The Bazaar");
+    this.headerV2MarvelRivals = page
+      .locator("#container")
+      .getByText("Marvel Rivals");
+    this.headerV2Mhw = page
+      .locator("#container")
+      .getByText("Monster Hunter Wilds");
   }
 
   async clickCancelButton() {
@@ -52,7 +64,7 @@ export class StPage {
   }
 
   async createStPage(uuid) {
-    await test.step(`Create the structure page`, async () => {
+    await test.step(`Save the structure page`, async () => {
       await this.buttonCreateSave.click();
       await this.inputCreateSaveModal.click();
       await this.inputCreateSaveModal.fill(uuid);
