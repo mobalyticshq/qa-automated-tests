@@ -1,0 +1,58 @@
+Failed to cleanup page qa-automation-build-page-632bf1e0-d73e-4f13-9264-f131a81d411e: locator.click: Error: strict mode violation: locator('section').getByRole('button').filter({ hasText: /^$/ }) resolved to 3 elements:
+    1) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(2)
+    2) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(3)
+    3) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(4)
+
+Call log:
+  - waiting for locator('section').getByRole('button').filter({ hasText: /^$/ })
+
+    at /home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/ugProfilePage.js:46:30
+    at UgProfilePage.deleteBuild (/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/ugProfilePage.js:45:16)
+    at Object.cleanupUgZzzBuildPages (/home/runner/work/qa-automated-tests/qa-automated-tests/src/fixtures/fixture.js:265:36) {
+  [Symbol(step)]: {
+    stepId: 'pw:api@33',
+    location: {
+      file: '/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/ugProfilePage.js',
+      line: 46,
+      column: 30
+    },
+    category: 'pw:api',
+    title: 'locator.click(section >> internal:role=button >> internal:has-text=/^$/)',
+    apiName: 'locator.click',
+    params: {
+      selector: 'section >> internal:role=button >> internal:has-text=/^$/',
+      strict: true
+    },
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@33'
+    },
+    complete: [Function: complete],
+    endWallTime: 1749582127425,
+    error: {
+      message: "Error: locator.click: Error: strict mode violation: locator('section').getByRole('button').filter({ hasText: /^$/ }) resolved to 3 elements:\n" +
+        `    1) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(2)\n` +
+        `    2) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(3)\n` +
+        `    3) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(4)\n` +
+        '\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('section').getByRole('button').filter({ hasText: /^$/ })\x1B[22m\n",
+      stack: "Error: locator.click: Error: strict mode violation: locator('section').getByRole('button').filter({ hasText: /^$/ }) resolved to 3 elements:\n" +
+        `    1) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(2)\n` +
+        `    2) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(3)\n` +
+        `    3) <button class="x19l6gds x19jf9pv x78zum5 x6s0dn4 xl56j7k x167g77z xlkovuz x1ypdohk x1mx5ifq x1kylzug xsj9wuo x1g1qkmr x1717udv x1td3qas x10w6t97">…</button> aka locator('#container').getByRole('button').filter({ hasText: /^$/ }).nth(4)\n` +
+        '\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('section').getByRole('button').filter({ hasText: /^$/ })\x1B[22m\n" +
+        '\n' +
+        '    at /home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/ugProfilePage.js:46:30\n' +
+        '    at UgProfilePage.deleteBuild (/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/ugProfilePage.js:45:16)\n' +
+        '    at Object.cleanupUgZzzBuildPages (/home/runner/work/qa-automated-tests/qa-automated-tests/src/fixtures/fixture.js:265:36)',
+      cause: undefined
+    }
+  }
+}
