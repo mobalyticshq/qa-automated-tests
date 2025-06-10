@@ -31,22 +31,23 @@ test(`Go to the admin structure page`, async ({ apiAuth, page }) => {
   });
 });
 
-test(`Open a view mode of "/1180" structure page`, async ({
-  apiAuth,
-  page,
-}) => {
-  await page.context().addCookies(apiAuth.cookies);
+test.describe("Open St Pages in the different modes", () => {
+  test.describe.configure({ mode: "serial" });
+  test(`Open a view mode of "/1180" structure page`, async ({
+    apiAuth,
+    page,
+  }) => {
+    await page.context().addCookies(apiAuth.cookies);
 
-  const moba = new Moba(page);
+    const moba = new Moba(page);
 
-  await moba.mainURLs.openAdminStgPoePage();
-  await moba.stAdminPage.clickOnStWidget();
-  await test.step(`Expected Result: View mode the /1180 structure page is opened`, async () => {
-    await expect(moba.stPage.stPageTitle).toContainText("/1180");
+    await moba.mainURLs.openAdminStgPoePage();
+    await moba.stAdminPage.clickOnStWidget();
+    await test.step(`Expected Result: View mode the /1180 structure page is opened`, async () => {
+      await expect(moba.stPage.stPageTitle).toContainText("/1180");
+    });
   });
-});
 
-test.describe("Creating ST Pages", () => {
   test(`Open an edit mode of "/1180" structure page`, async ({
     apiAuth,
     page,
@@ -62,7 +63,8 @@ test.describe("Creating ST Pages", () => {
       await expect(moba.stPage.addSectionButton).toBeVisible();
     });
   });
-
+});
+test.describe("Creating ST Pages", () => {
   test(`Create a structure page on PoE project`, async ({
     apiAuth,
     page,

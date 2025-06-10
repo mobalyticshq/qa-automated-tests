@@ -83,7 +83,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgPoeAdminPage();
+      await moba.mainURLs.openAdminStgPoePage();
 
       for (const pageId of pagesToCleanup) {
         try {
@@ -108,7 +108,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgNightreignAdminPage();
+      await moba.mainURLs.openAdminStgNightreignPage();
 
       for (const pageId of pagesToCleanup) {
         try {
@@ -133,7 +133,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgDeadlockAdminPage();
+      await moba.mainURLs.openAdminStgDeadlockPage();
 
       for (const pageId of pagesToCleanup) {
         try {
@@ -158,7 +158,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgMhwAdminPage();
+      await moba.mainURLs.openAdminStgMhwPage();
 
       for (const pageId of pagesToCleanup) {
         try {
@@ -183,7 +183,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgMarvelRivalsAdminPage();
+      await moba.mainURLs.openAdminStgMarvelRivalsPage();
 
       for (const pageId of pagesToCleanup) {
         try {
@@ -208,7 +208,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgBazaarAdminPage();
+      await moba.mainURLs.openAdminStgBazaarPage();
 
       for (const pageId of pagesToCleanup) {
         try {
@@ -233,7 +233,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuth.cookies);
-      await moba.mainURLs.openStgZzzAdminPage();
+      await moba.mainURLs.openAdminStgZzzPage();
 
       for (const pageId of pagesToCleanup) {
         try {
