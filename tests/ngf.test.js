@@ -64,6 +64,7 @@ test.describe("Open St Pages in the different modes", () => {
     });
   });
 });
+
 test.describe("Creating ST Pages", () => {
   test(`Create a structure page on PoE project`, async ({
     apiAuth,

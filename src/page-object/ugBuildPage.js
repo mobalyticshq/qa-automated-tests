@@ -19,7 +19,7 @@ export class UgBuildPage {
   }
 
   async createBuild(pageId) {
-    await test.step("Go to Team Planner Page", async () => {
+    await test.step("Create a build page", async () => {
       //   await this.inputBuildName.click();
       await this.inputBuildName.fill(pageId);
       await this.buttonSaveDraft.click();
