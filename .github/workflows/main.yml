@@ -134,6 +134,8 @@ jobs:
           publish_dir: allure-history
 
       - name: Generate config.json with the secrets
+        if: always()
+        continue-on-error: true
         run: |
           mkdir -p notifications/tmp
           sed \
@@ -145,5 +147,7 @@ jobs:
             notifications/config.json > notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification
+        if: always()
+        continue-on-error: true
         run: |
           java "-DconfigFile=notifications/tmp/config.json" -jar notifications/allure-notifications-4.9.0.jar
