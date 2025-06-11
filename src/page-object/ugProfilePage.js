@@ -5,11 +5,13 @@ export class UgProfilePage {
     this.page = page;
     this.createButton = page.getByRole("button", { name: "Create" });
     this.deleteButton = page.getByRole("menuitem", { name: "Delete" });
-    this.buttonDeleteInModal = page.getByRole('button', { name: 'Delete' });
+    this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
     this.dotesButton = page
       .locator("section")
       .getByRole("button")
       .filter({ hasText: /^$/ });
+    this.buildWidget = (build) =>
+      page.getByRole("main").filter({ hasText: `${build}` });
     this.buildButton = page.getByRole("menuitem", {
       name: "Build Create a Build",
     });

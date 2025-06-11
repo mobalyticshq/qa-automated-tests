@@ -240,11 +240,7 @@ test.describe("Creating ST Pages", () => {
 });
 
 test.describe("Creating UG Pages", () => {
-  test(`Create a build page on ZZZ project`, async ({
-    apiAuth,
-    page,
-    cleanupUgZzzBuildPages,
-  }) => {
+  test(`Create a build page on ZZZ project`, async ({ apiAuth, page }) => {
     await page.context().addCookies(apiAuth.cookies);
     const uniqueId = uuidv4();
     const pageId = `qa-automation-build-page-${uniqueId}`;
@@ -255,10 +251,10 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPage.createBuild(pageId);
 
     //Регистрируем страницу для удаления
-    cleanupUgZzzBuildPages.addPageForCleanup(pageId);
+    // cleanupUgZzzBuildPages.addPageForCleanup(pageId);
 
     await test.step(`Expected Result: Build page is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.mainPage).toContainText("ZZZ Build");
+      await expect(moba.ugBuildPage.header).toContainText("ZZZ Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
     });
   });
@@ -266,7 +262,6 @@ test.describe("Creating UG Pages", () => {
   test(`Create a build page on Marvel Rivals project`, async ({
     apiAuth,
     page,
-    cleanupUgMarvelRivalsBuildPages,
   }) => {
     await page.context().addCookies(apiAuth.cookies);
     const uniqueId = uuidv4();
@@ -277,45 +272,34 @@ test.describe("Creating UG Pages", () => {
     await moba.ugProfilePage.gotoBuildPlannerPage();
     await moba.ugBuildPage.createBuild(pageId);
 
-    //Регистрируем страницу для удаления
-    cleanupUgMarvelRivalsBuildPages.addPageForCleanup(pageId);
-
     await test.step(`Expected Result: Build page is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.mainPage).toContainText(
+      await expect(moba.ugBuildPage.header).toContainText(
         "Marvel Rivals Build"
       );
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
     });
   });
 
-  // test(`Create a build page on Bazaar project`, async ({
-  //   apiAuth,
-  //   page,
-  //   cleanupUgBazaarBuildPages,
-  // }) => {
-  //   await page.context().addCookies(apiAuth.cookies);
-  //   const uniqueId = uuidv4();
-  //   const pageId = `qa-automation-build-page-${uniqueId}`;
-  //   const moba = new Moba(page);
-
-  //   await moba.mainURLs.openUgStgBazaarPage();
-  //   await moba.ugProfilePage.gotoBuildPlannerPage();
-  //   await moba.ugBuildPage.createBuild(pageId);
-
-  //   //Регистрируем страницу для удаления
-  //   cleanupUgBazaarBuildPages.addPageForCleanup(pageId);
-
-  //   await test.step(`Expected Result: Build page is created on Bazaar project`, async () => {
-  //     await expect(moba.ugBuildPage.mainPage).toContainText("The Bazaar Build");
-  //     await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
-  //   });
-  // });
-
-  test(`Create a build page on MHW project`, async ({
+  test(`Create a build page on Bazaar project`, async ({
     apiAuth,
     page,
-    cleanupUgMhwBuildPages,
   }) => {
+    await page.context().addCookies(apiAuth.cookies);
+    const uniqueId = uuidv4();
+    const pageId = `qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgStgBazaarPage();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPage.createBuild(pageId);
+
+    await test.step(`Expected Result: Build page is created on Bazaar project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
+    });
+  });
+
+  test(`Create a build page on MHW project`, async ({ apiAuth, page }) => {
     await page.context().addCookies(apiAuth.cookies);
     const uniqueId = uuidv4();
     const pageId = `qa-automation-build-page-${uniqueId}`;
@@ -325,22 +309,15 @@ test.describe("Creating UG Pages", () => {
     await moba.ugProfilePage.gotoBuildPlannerPage();
     await moba.ugBuildPage.createBuild(pageId);
 
-    //Регистрируем страницу для удаления
-    cleanupUgMhwBuildPages.addPageForCleanup(pageId);
-
     await test.step(`Expected Result: Build page is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.mainPage).toContainText(
+      await expect(moba.ugBuildPage.header).toContainText(
         "Monster Hunter Wilds Build"
       );
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
     });
   });
 
-  test(`Create a build page on Deadlock project`, async ({
-    apiAuth,
-    page,
-    cleanupUgDeadlockBuildPages,
-  }) => {
+  test(`Create a build page on Deadlock project`, async ({ apiAuth, page }) => {
     await page.context().addCookies(apiAuth.cookies);
     const uniqueId = uuidv4();
     const pageId = `qa-automation-build-page-${uniqueId}`;
@@ -350,20 +327,13 @@ test.describe("Creating UG Pages", () => {
     await moba.ugProfilePage.gotoBuildPlannerPage();
     await moba.ugBuildPage.createBuild(pageId);
 
-    //Регистрируем страницу для удаления
-    cleanupUgDeadlockBuildPages.addPageForCleanup(pageId);
-
     await test.step(`Expected Result: Build page is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.mainPage).toContainText("Deadlock Build");
+      await expect(moba.ugBuildPage.header).toContainText("Deadlock Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
     });
   });
 
-  test(`Create a build page on PoE project`, async ({
-    apiAuth,
-    page,
-    cleanupUgPoeBuildPages,
-  }) => {
+  test(`Create a build page on PoE project`, async ({ apiAuth, page }) => {
     await page.context().addCookies(apiAuth.cookies);
     const uniqueId = uuidv4();
     const pageId = `qa-automation-build-page-${uniqueId}`;
@@ -373,11 +343,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugProfilePage.gotoBuildPlannerPage();
     await moba.ugBuildPage.createBuild(pageId);
 
-    //Регистрируем страницу для удаления
-    cleanupUgPoeBuildPages.addPageForCleanup(pageId);
-
     await test.step(`Expected Result: Build page is created on PoE project`, async () => {
-      await expect(moba.ugBuildPage.mainPage).toContainText("PoE 2 Build");
+      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
     });
   });
@@ -385,7 +352,6 @@ test.describe("Creating UG Pages", () => {
   test(`Create a build page on Nightreign project`, async ({
     apiAuth,
     page,
-    cleanupUgNightreignBuildPages,
   }) => {
     await page.context().addCookies(apiAuth.cookies);
     const uniqueId = uuidv4();
@@ -396,11 +362,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugProfilePage.gotoBuildPlannerPage();
     await moba.ugBuildPage.createBuild(pageId);
 
-    //Регистрируем страницу для удаления
-    cleanupUgNightreignBuildPages.addPageForCleanup(pageId);
-
     await test.step(`Expected Result: Build page is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.mainPage).toContainText("Nightreign Build");
+      await expect(moba.ugBuildPage.header).toContainText("Nightreign Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageId);
     });
   });

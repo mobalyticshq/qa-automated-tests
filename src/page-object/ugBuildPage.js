@@ -14,13 +14,14 @@ export class UgBuildPage {
       name: "Save and Publish",
     });
     this.controlPanel = page.getByTestId("document-controls-panel");
-    // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
     this.mainPage = page.getByRole("main");
+    this.header = page.locator("section").first();
+    // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
   }
 
   async createBuild(pageId) {
     await test.step("Create a build page", async () => {
-      //   await this.inputBuildName.click();
+      await this.inputBuildName.click();
       await this.inputBuildName.fill(pageId);
       await this.buttonSaveDraft.click();
       await this.buttonSaveDraftInModal.click();
