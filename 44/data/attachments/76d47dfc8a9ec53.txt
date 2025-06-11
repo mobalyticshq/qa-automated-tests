@@ -1,0 +1,43 @@
+Failed to cleanup page /qa-automation-st-page-649a311d-8ba3-490f-b24d-315c98d3ad95: locator.click: Test ended.
+Call log:
+  - waiting for locator('div').filter({ hasText: /^\/qa-automation-st-page-649a311d-8ba3-490f-b24d-315c98d3ad95Edit$/ }).getByTestId('delete-button')
+
+    at /home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:43:43
+    at StAdminPage.clickDeleteButton (/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:42:16)
+    at Object.cleanupStDeadlockPages (/home/runner/work/qa-automated-tests/qa-automated-tests/src/fixtures/fixture.js:140:34) {
+  [Symbol(step)]: {
+    stepId: 'test.step@36',
+    category: 'test.step',
+    title: 'Click Delete button on /qa-automation-st-page-649a311d-8ba3-490f-b24d-315c98d3ad95 widget',
+    location: {
+      file: '/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js',
+      line: 42,
+      column: 16,
+      function: 'StAdminPage.clickDeleteButton'
+    },
+    box: undefined,
+    boxedStack: undefined,
+    steps: [ [Object] ],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'test.step@36'
+    },
+    complete: [Function: complete],
+    endWallTime: 1749648248393,
+    error: {
+      message: 'Error: locator.click: Test ended.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('div').filter({ hasText: /^\\/qa-automation-st-page-649a311d-8ba3-490f-b24d-315c98d3ad95Edit$/ }).getByTestId('delete-button')\x1B[22m\n",
+      stack: 'Error: locator.click: Test ended.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for locator('div').filter({ hasText: /^\\/qa-automation-st-page-649a311d-8ba3-490f-b24d-315c98d3ad95Edit$/ }).getByTestId('delete-button')\x1B[22m\n" +
+        '\n' +
+        '    at /home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:43:43\n' +
+        '    at StAdminPage.clickDeleteButton (/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:42:16)\n' +
+        '    at Object.cleanupStDeadlockPages (/home/runner/work/qa-automated-tests/qa-automated-tests/src/fixtures/fixture.js:140:34)',
+      cause: undefined
+    }
+  }
+}
