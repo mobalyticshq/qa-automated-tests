@@ -10,8 +10,8 @@ export class UgProfilePage {
       .locator("section")
       .getByRole("button")
       .filter({ hasText: /^$/ });
-    this.buildWidget = (build) =>
-      page.getByRole("main").filter({ hasText: `${build}` });
+    this.buildWidget = (pageName) =>
+      page.getByRole("main").filter({ hasText: `${pageName}` });
     this.buildButton = page.getByRole("menuitem", {
       name: "Build Create a Build",
     });
@@ -43,8 +43,8 @@ export class UgProfilePage {
       await this.guideButton.click();
     });
   }
-  async deleteBuild(pageId) {
-    await test.step(`Delete ${pageId} build page`, async () => {
+  async deleteBuild(pageName) {
+    await test.step(`Delete ${pageName} build page`, async () => {
       await this.dotesButton.click();
       await this.deleteButton.click();
       await this.buttonDeleteInModal.click();

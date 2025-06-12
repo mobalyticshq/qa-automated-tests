@@ -73,8 +73,8 @@ export const test = base.extend({
   cleanupStPoEPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -85,11 +85,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgPoePage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -98,8 +98,8 @@ export const test = base.extend({
   cleanupStNightreignPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -110,11 +110,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgNightreignPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -123,8 +123,8 @@ export const test = base.extend({
   cleanupStDeadlockPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -135,11 +135,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgDeadlockPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -148,8 +148,8 @@ export const test = base.extend({
   cleanupStMhwPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -160,11 +160,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgMhwPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -173,8 +173,8 @@ export const test = base.extend({
   cleanupStMarvelRivalsPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -185,11 +185,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgMarvelRivalsPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -198,8 +198,8 @@ export const test = base.extend({
   cleanupStBazaarPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -210,11 +210,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgBazaarPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -223,8 +223,8 @@ export const test = base.extend({
   cleanupStZzzPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -235,11 +235,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openAdminStgZzzPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.stAdminPage.clickDeleteButton(pageId);
+          await moba.stAdminPage.clickDeleteButton(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -248,8 +248,8 @@ export const test = base.extend({
   cleanupUgZzzBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -260,11 +260,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgZzzPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -273,8 +273,8 @@ export const test = base.extend({
   cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -285,11 +285,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgMarvelRivalsPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -298,8 +298,8 @@ export const test = base.extend({
   cleanupUgBazaarBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -310,11 +310,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgBazaarPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -323,8 +323,8 @@ export const test = base.extend({
   cleanupUgPoeBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -335,11 +335,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgPoePage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -348,8 +348,8 @@ export const test = base.extend({
   cleanupUgMhwBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -360,11 +360,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgMhwPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -373,8 +373,8 @@ export const test = base.extend({
   cleanupUgDeadlockBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -385,11 +385,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgDeadlockPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }
@@ -398,8 +398,8 @@ export const test = base.extend({
   cleanupUgNightreignBuildPages: async ({ page, apiAuth }, use) => {
     const pagesToCleanup = [];
 
-    const addPageForCleanup = (pageId) => {
-      pagesToCleanup.push(pageId);
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
     };
 
     await use({ addPageForCleanup });
@@ -410,11 +410,11 @@ export const test = base.extend({
       await page.context().addCookies(apiAuth.cookies);
       await moba.mainURLs.openUgStgNightreignPage();
 
-      for (const pageId of pagesToCleanup) {
+      for (const pageName of pagesToCleanup) {
         try {
-          await moba.ugProfilePage.deleteBuild(pageId);
+          await moba.ugProfilePage.deleteBuild(pageName);
         } catch (error) {
-          console.warn(`Failed to cleanup page ${pageId}:`, error);
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
       }
     }

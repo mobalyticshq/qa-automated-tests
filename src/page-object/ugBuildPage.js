@@ -19,10 +19,19 @@ export class UgBuildPage {
     // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
   }
 
-  async createBuild(pageId) {
+  async createBuild(pageName) {
     await test.step("Create a build page", async () => {
       await this.inputBuildName.click();
-      await this.inputBuildName.fill(pageId);
+      await this.inputBuildName.fill(pageName);
+      await this.buttonSaveDraft.click();
+      await this.buttonSaveDraftInModal.click();
+    });
+  }
+
+  async createGuide(pageName) {
+    await test.step("Create a build page", async () => {
+      await this.inputBuildName.click();
+      await this.inputBuildName.fill(pageName);
       await this.buttonSaveDraft.click();
       await this.buttonSaveDraftInModal.click();
     });
