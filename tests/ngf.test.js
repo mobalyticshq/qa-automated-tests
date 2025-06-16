@@ -559,4 +559,100 @@ test.describe("Checking permissions", () => {
     const role = json.data.poe2.permissions.user.role;
     expect(role).toBe("ADMIN");
   });
+
+  test("Check UI Internal Writer permission", async ({
+    page,
+    apiAuthInternalWriter,
+  }) => {
+    await page.context().addCookies(apiAuthInternalWriter.cookies);
+    const moba = new Moba(page);
+    const title = "Structure Pages";
+
+    await moba.mainURLs.openAdminStgPoePage();
+    await test.step(`User is logged in`, async () => {
+      await expect(moba.stAdminPage.createPageButton).toBeVisible();
+      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+    });
+  });
+
+  test("Check API Internal Writer permission", async ({
+    request,
+    apiAuthInternalWriter,
+  }) => {
+    const adminRoleResponse = await request.post(
+      "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
+      {
+        data: {
+          query: `
+            query Poe2 {
+                poe2 {
+                    id
+                    permissions {
+                        user {
+                            id
+                            role
+                        }
+                    }
+                }
+            }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    expect(adminRoleResponse.ok()).toBeTruthy();
+    const json = await adminRoleResponse.json();
+    const role = json.data.poe2.permissions.user.role;
+    expect(role).toBe("INTERNAL_WRITER");
+  });
+
+  test("Check UI Game Manager permission", async ({
+    page,
+    apiAuthGameManager,
+  }) => {
+    await page.context().addCookies(apiAuthGameManager.cookies);
+    const moba = new Moba(page);
+    const title = "Structure Pages";
+
+    await moba.mainURLs.openAdminStgPoePage();
+    await test.step(`User is logged in`, async () => {
+      await expect(moba.stAdminPage.createPageButton).toBeVisible();
+      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+    });
+  });
+
+  test("Check API Game Manager permission", async ({
+    request,
+    apiAuthGameManager,
+  }) => {
+    const adminRoleResponse = await request.post(
+      "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
+      {
+        data: {
+          query: `
+            query Poe2 {
+                poe2 {
+                    id
+                    permissions {
+                        user {
+                            id
+                            role
+                        }
+                    }
+                }
+            }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    expect(adminRoleResponse.ok()).toBeTruthy();
+    const json = await adminRoleResponse.json();
+    const role = json.data.poe2.permissions.user.role;
+    expect(role).toBe("GAME_MANAGER");
+  });
 });

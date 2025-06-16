@@ -70,6 +70,100 @@ export const test = base.extend({
     await use({ cookies });
   },
 
+  apiAuthInternalWriter: async ({ request }, use) => {
+    // 1. Выполнить логин-запрос
+    const loginResponse = await request.post(
+      "https://stg.mobalytics.gg/api/account/gql/v1/query",
+      {
+        data: {
+          query: `
+          mutation SignIn {
+            signIn(
+              email: "${USER_ROLES.internal_writer_stg.email}"
+              password: "${USER_ROLES.internal_writer_stg.password}"
+            )
+          }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    await expect(loginResponse.ok()).toBeTruthy();
+    // console.log(loginResponse.headers());
+
+    // 2. Получить set-cookie из ответа
+    const setCookieHeader = loginResponse.headers()["set-cookie"];
+    if (!setCookieHeader)
+      throw new Error("No set-cookie header in login response");
+
+    // 3. Преобразовать куки для Playwright
+    const cookies = setCookieHeader
+      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+      .map((cookieStr) => {
+        const [cookiePair, ...attributes] = cookieStr.split(";");
+        const index = cookiePair.indexOf("=");
+        const name = cookiePair.slice(0, index).trim();
+        const value = cookiePair.slice(index + 1).trim();
+        return {
+          name: name.trim(),
+          value: value.trim(),
+          domain: ".mobalytics.gg",
+          path: "/",
+        };
+      });
+    // 4. Передать куки в тест
+    await use({ cookies });
+  },
+
+  apiAuthGameManager: async ({ request }, use) => {
+    // 1. Выполнить логин-запрос
+    const loginResponse = await request.post(
+      "https://stg.mobalytics.gg/api/account/gql/v1/query",
+      {
+        data: {
+          query: `
+          mutation SignIn {
+            signIn(
+              email: "${USER_ROLES.game_manager_stg.email}"
+              password: "${USER_ROLES.game_manager_stg.password}"
+            )
+          }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    await expect(loginResponse.ok()).toBeTruthy();
+    // console.log(loginResponse.headers());
+
+    // 2. Получить set-cookie из ответа
+    const setCookieHeader = loginResponse.headers()["set-cookie"];
+    if (!setCookieHeader)
+      throw new Error("No set-cookie header in login response");
+
+    // 3. Преобразовать куки для Playwright
+    const cookies = setCookieHeader
+      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+      .map((cookieStr) => {
+        const [cookiePair, ...attributes] = cookieStr.split(";");
+        const index = cookiePair.indexOf("=");
+        const name = cookiePair.slice(0, index).trim();
+        const value = cookiePair.slice(index + 1).trim();
+        return {
+          name: name.trim(),
+          value: value.trim(),
+          domain: ".mobalytics.gg",
+          path: "/",
+        };
+      });
+    // 4. Передать куки в тест
+    await use({ cookies });
+  },
+
   cleanupStPoEPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
