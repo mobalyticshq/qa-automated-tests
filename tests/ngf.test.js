@@ -530,27 +530,7 @@ test.describe("Checking permissions", () => {
     });
   });
 
-  test("Check API admin permission", async ({ request }) => {
-    const loginAdminResponse = await request.post(
-      "https://stg.mobalytics.gg/api/account/gql/v1/query",
-      {
-        data: {
-          query: `
-          mutation SignIn {
-            signIn(
-              email: "${USER_ROLES.admin_stg.email}"
-              password: "${USER_ROLES.admin_stg.password}"
-            )
-          }
-        `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    expect(loginAdminResponse.ok()).toBeTruthy();
-
+  test("Check API admin permission", async ({ request, apiAuthAdmin }) => {
     const adminRoleResponse = await request.post(
       "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
       {
