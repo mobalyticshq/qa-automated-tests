@@ -6,7 +6,7 @@ export const test = base.extend({
   uiAuth: async ({ page }, use) => {
     const moba = new Moba(page);
 
-    await moba.mainURLs.openDeadlockPage();
+    await moba.mainURLs.openStgPoePage();
     await moba.navbar.gotoSignInPage();
     await test.step('Condition: Whether "Welcome" modal appears', async () => {
       if (await moba.signInPage.welcomeModal.isVisible()) {
@@ -23,7 +23,7 @@ export const test = base.extend({
     await use(moba);
   },
 
-  apiAuth: async ({ request }, use) => {
+  apiAuthAdmin: async ({ request }, use) => {
     // 1. Выполнить логин-запрос
     const loginResponse = await request.post(
       "https://stg.mobalytics.gg/api/account/gql/v1/query",
@@ -70,7 +70,7 @@ export const test = base.extend({
     await use({ cookies });
   },
 
-  cleanupStPoEPages: async ({ page, apiAuth }, use) => {
+  cleanupStPoEPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -82,7 +82,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgPoePage();
 
       for (const pageName of pagesToCleanup) {
@@ -95,7 +95,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStNightreignPages: async ({ page, apiAuth }, use) => {
+  cleanupStNightreignPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -107,7 +107,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgNightreignPage();
 
       for (const pageName of pagesToCleanup) {
@@ -120,7 +120,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStDeadlockPages: async ({ page, apiAuth }, use) => {
+  cleanupStDeadlockPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -132,7 +132,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgDeadlockPage();
 
       for (const pageName of pagesToCleanup) {
@@ -145,7 +145,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStMhwPages: async ({ page, apiAuth }, use) => {
+  cleanupStMhwPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -157,7 +157,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgMhwPage();
 
       for (const pageName of pagesToCleanup) {
@@ -170,7 +170,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStMarvelRivalsPages: async ({ page, apiAuth }, use) => {
+  cleanupStMarvelRivalsPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -182,7 +182,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgMarvelRivalsPage();
 
       for (const pageName of pagesToCleanup) {
@@ -195,7 +195,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStBazaarPages: async ({ page, apiAuth }, use) => {
+  cleanupStBazaarPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -207,7 +207,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgBazaarPage();
 
       for (const pageName of pagesToCleanup) {
@@ -220,7 +220,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStZzzPages: async ({ page, apiAuth }, use) => {
+  cleanupStZzzPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -232,7 +232,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminStgZzzPage();
 
       for (const pageName of pagesToCleanup) {
@@ -245,7 +245,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgZzzBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -257,7 +257,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgZzzPage();
 
       for (const pageName of pagesToCleanup) {
@@ -270,7 +270,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -282,7 +282,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgMarvelRivalsPage();
 
       for (const pageName of pagesToCleanup) {
@@ -295,7 +295,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgBazaarBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgBazaarBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -307,7 +307,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgBazaarPage();
 
       for (const pageName of pagesToCleanup) {
@@ -320,7 +320,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgPoeBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgPoeBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -332,7 +332,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgPoePage();
 
       for (const pageName of pagesToCleanup) {
@@ -345,7 +345,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgMhwBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgMhwBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -357,7 +357,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgMhwPage();
 
       for (const pageName of pagesToCleanup) {
@@ -370,7 +370,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgDeadlockBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgDeadlockBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -382,7 +382,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgDeadlockPage();
 
       for (const pageName of pagesToCleanup) {
@@ -395,7 +395,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgNightreignBuildPages: async ({ page, apiAuth }, use) => {
+  cleanupUgNightreignBuildPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -407,7 +407,7 @@ export const test = base.extend({
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
-      await page.context().addCookies(apiAuth.cookies);
+      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openUgStgNightreignPage();
 
       for (const pageName of pagesToCleanup) {

@@ -11,19 +11,9 @@ export class MainURLs {
     });
   }
 
-  async openDeadlockPage() {
-    await test.step(`Open url: https://stg.mobalytics.gg/deadlock`, async () => {
-      await this.page.goto(`https://stg.mobalytics.gg/deadlock`, {
-        waitUntil: "domcontentloaded",
-      });
-    });
-  }
-
   async openAdminStgPoePage() {
     await test.step(`Open 'PoE' ST admin page on stg`, async () => {
-      await this.page.goto(`https://stg.mobalytics.gg/poe-2/admin`, {
-        waitUntil: "domcontentloaded",
-      });
+      await this.page.goto(`https://stg.mobalytics.gg/poe-2/admin`);
     });
   }
 
@@ -148,6 +138,22 @@ export class MainURLs {
           waitUntil: "domcontentloaded",
         }
       );
+    });
+  }
+
+  async openStgPoePage() {
+    await test.step(`Open url: https://stg.mobalytics.gg/poe-2`, async () => {
+      await this.page.goto(`https://stg.mobalytics.gg/poe-2`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openStgDeadlockPage() {
+    await test.step(`Open url: https://stg.mobalytics.gg/deadlock`, async () => {
+      await this.page.goto(`https://stg.mobalytics.gg/deadlock`, {
+        waitUntil: "domcontentloaded",
+      });
     });
   }
 }

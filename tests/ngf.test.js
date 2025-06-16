@@ -1,6 +1,7 @@
 import { expect } from "@playwright/test";
 import { test } from "../src/fixtures/index";
 import { Moba } from "../src/page-object/moba";
+import { USER_ROLES } from "../src/setup/credentials";
 import { v4 as uuidv4 } from "uuid";
 
 test("There is no a new game in navbar on the production", async ({
@@ -18,8 +19,8 @@ test("There is no a new game in navbar on the production", async ({
 });
 
 test.describe("Open Admin Page & St Pages: view, edit", () => {
-  test(`Go to the admin structure page`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Go to the admin structure page`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     let adminTitle = "Structure Pages";
     const moba = new Moba(page);
 
@@ -33,10 +34,10 @@ test.describe("Open Admin Page & St Pages: view, edit", () => {
   });
 
   test(`Open a view mode of "/1180" structure page`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
 
     const moba = new Moba(page);
 
@@ -48,10 +49,10 @@ test.describe("Open Admin Page & St Pages: view, edit", () => {
   });
 
   test(`Open an edit mode of "/1180" structure page`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
 
     const moba = new Moba(page);
 
@@ -66,11 +67,11 @@ test.describe("Open Admin Page & St Pages: view, edit", () => {
 
 test.describe("Creating ST Pages", () => {
   test(`Create a structure page on PoE project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
     cleanupStPoEPages,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -90,11 +91,11 @@ test.describe("Creating ST Pages", () => {
   });
 
   test(`Create a structure page on Nightreign project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
     cleanupStNightreignPages,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -114,11 +115,11 @@ test.describe("Creating ST Pages", () => {
   });
 
   test(`Create a structure page on Deadlock project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
     cleanupStDeadlockPages,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -138,11 +139,11 @@ test.describe("Creating ST Pages", () => {
   });
 
   test(`Create a structure page on Mhw project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
     cleanupStMhwPages,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -164,11 +165,11 @@ test.describe("Creating ST Pages", () => {
   });
 
   // test(`Create a structure page on Bazaar project`, async ({
-  //   apiAuth,
+  //   apiAuthAdmin,
   //   page,
   //   cleanupStBazaarPages,
   // }) => {
-  //   await page.context().addCookies(apiAuth.cookies);
+  //   await page.context().addCookies(apiAuthAdmin.cookies);
   //   const uniqueId = uuidv4();
   //   const pageName = `/qa-automation-st-page-${uniqueId}`;
   //   const moba = new Moba(page);
@@ -188,11 +189,11 @@ test.describe("Creating ST Pages", () => {
   // });
 
   test(`Create a structure page on Marvel Rivals project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
     cleanupStMarvelRivalsPages,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -214,11 +215,11 @@ test.describe("Creating ST Pages", () => {
   });
 
   test(`Create a structure page on ZZZ project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
     cleanupStZzzPages,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -239,8 +240,8 @@ test.describe("Creating ST Pages", () => {
 });
 
 test.describe("Creating UG Pages", () => {
-  test(`Create a build page on ZZZ project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a build page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -259,10 +260,10 @@ test.describe("Creating UG Pages", () => {
   });
 
   test(`Create a build page on Marvel Rivals project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -279,8 +280,11 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Bazaar project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a build page on Bazaar project`, async ({
+    apiAuthAdmin,
+    page,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -295,8 +299,8 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on MHW project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a build page on MHW project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -313,8 +317,8 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on PoE project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a build page on PoE project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -330,10 +334,10 @@ test.describe("Creating UG Pages", () => {
   });
 
   test(`Create a build page on Nightreign project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -349,10 +353,10 @@ test.describe("Creating UG Pages", () => {
   });
 
   test(`Create a guide page on Nightreign project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -367,8 +371,8 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on PoE project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a guide page on PoE project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -383,8 +387,11 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Deadlock project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a build page on Deadlock project`, async ({
+    apiAuthAdmin,
+    page,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -399,8 +406,11 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Deadlock project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a guide page on Deadlock project`, async ({
+    apiAuthAdmin,
+    page,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -415,8 +425,8 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on MHW project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a guide page on MHW project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -435,10 +445,10 @@ test.describe("Creating UG Pages", () => {
 
   //* At this moment Bazaar guides isn't available
   // test(`Create a guide page on Bazaar project`, async ({
-  //   apiAuth,
+  //   apiAuthAdmin,
   //   page,
   // }) => {
-  //   await page.context().addCookies(apiAuth.cookies);
+  //   await page.context().addCookies(apiAuthAdmin.cookies);
   //   const uniqueId = uuidv4();
   //   const pageName = `qa-automation-guide-page-${uniqueId}`;
   //   const moba = new Moba(page);
@@ -454,10 +464,10 @@ test.describe("Creating UG Pages", () => {
   // });
 
   test(`Create a guide page on Marvel Rivals project`, async ({
-    apiAuth,
+    apiAuthAdmin,
     page,
   }) => {
-    await page.context().addCookies(apiAuth.cookies);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -474,8 +484,8 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on ZZZ project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a guide page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -490,8 +500,8 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a team page on ZZZ project`, async ({ apiAuth, page }) => {
-    await page.context().addCookies(apiAuth.cookies);
+  test(`Create a team page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
     const pageName = `qa-automation-team-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -504,5 +514,69 @@ test.describe("Creating UG Pages", () => {
       await expect(moba.ugBuildPage.header).toContainText("ZZZ Team");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
+  });
+});
+
+test.describe("Checking permissions", () => {
+  test("Check UI admin permission", async ({ page, apiAuthAdmin }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const moba = new Moba(page);
+    const title = "Structure Pages";
+
+    await moba.mainURLs.openAdminStgPoePage();
+    await test.step(`User is logged in`, async () => {
+      await expect(moba.stAdminPage.createPageButton).toBeVisible();
+      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+    });
+  });
+
+  test("Check API admin permission", async ({ request }) => {
+    const loginAdminResponse = await request.post(
+      "https://stg.mobalytics.gg/api/account/gql/v1/query",
+      {
+        data: {
+          query: `
+          mutation SignIn {
+            signIn(
+              email: "${USER_ROLES.admin_stg.email}"
+              password: "${USER_ROLES.admin_stg.password}"
+            )
+          }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    expect(loginAdminResponse.ok()).toBeTruthy();
+
+    const adminRoleResponse = await request.post(
+      "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
+      {
+        data: {
+          query: `
+            query Poe2 {
+                poe2 {
+                    id
+                    permissions {
+                        user {
+                            id
+                            role
+                        }
+                    }
+                }
+            }
+        `,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    expect(adminRoleResponse.ok()).toBeTruthy();
+    const json = await adminRoleResponse.json();
+    const role = json.data.poe2.permissions.user.role;
+    expect(role).toBe("ADMIN");
   });
 });
