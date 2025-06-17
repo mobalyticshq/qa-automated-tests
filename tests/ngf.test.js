@@ -17,53 +17,6 @@ test("There is no a new game in navbar on the production", async ({
   });
 });
 
-test.describe("Open Admin Page & St Pages: view, edit", () => {
-  test(`Go to the admin structure page`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
-    let adminTitle = "Structure Pages";
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openAdminStgPoePage();
-    await test.step(`Expected Result: Admin structure page is opened`, async () => {
-      await expect(moba.stAdminPage.createPageButton).toBeVisible();
-      await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(
-        adminTitle
-      );
-    });
-  });
-
-  test(`Open a view mode of "/1180" structure page`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
-
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openAdminStgPoePage();
-    await moba.stAdminPage.clickOnStWidget();
-    await test.step(`Expected Result: View mode the /1180 structure page is opened`, async () => {
-      await expect(moba.stPage.stPageTitle).toContainText("/1180");
-    });
-  });
-
-  test(`Open an edit mode of "/1180" structure page`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
-
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openAdminStgPoePage();
-    await moba.stAdminPage.clickEditButton();
-    await test.step(`Expected Result: Edit mode the "/1180" structure page is opened`, async () => {
-      await expect(moba.stPage.stPageTitle).toContainText("/1180");
-      await expect(moba.stPage.addSectionButton).toBeVisible();
-    });
-  });
-});
-
 test.describe("Creating ST Pages", () => {
   test(`Create a structure page on PoE project`, async ({
     apiAuthAdmin,
@@ -76,11 +29,11 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgPoePage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
-    // Регистрируем страницу для удаления
+    // Register page for deleting
     cleanupStPoEPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE project`, async () => {
@@ -100,7 +53,7 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgNightreignPage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
@@ -124,7 +77,7 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgDeadlockPage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
@@ -148,7 +101,7 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgMhwPage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
@@ -174,7 +127,7 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgBazaarPage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
@@ -198,7 +151,7 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgMarvelRivalsPage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
@@ -224,7 +177,7 @@ test.describe("Creating ST Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminStgZzzPage();
-    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
@@ -517,24 +470,103 @@ test.describe("Creating UG Pages", () => {
 });
 
 test.describe("Checking permissions", () => {
-  test("Check UI admin permission", async ({ page, apiAuthAdmin }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
-    const moba = new Moba(page);
-    const title = "Structure Pages";
+  test.describe("Checking Admin permission", () => {
+    test(`Users with the Admin role can access the Admin ST page`, async ({
+      apiAuthAdmin,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      let adminTitle = "Structure Pages";
+      const moba = new Moba(page);
 
-    await moba.mainURLs.openAdminStgPoePage();
-    await test.step(`User is logged in`, async () => {
-      await expect(moba.stAdminPage.createPageButton).toBeVisible();
-      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+      await moba.mainURLs.openAdminStgPoePage();
+      await test.step(`Expected Result: Admin structure page is opened`, async () => {
+        await expect(moba.stAdminPage.createPageButton).toBeVisible();
+        await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(
+          adminTitle
+        );
+      });
     });
-  });
 
-  test("Check API admin permission", async ({ request, apiAuthAdmin }) => {
-    const adminRoleResponse = await request.post(
-      "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
-      {
-        data: {
-          query: `
+    test('St Widget page contains "Edit" button, "Delete" button for Admin role', async ({
+      page,
+      apiAuthAdmin,
+    }) => {
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      const moba = new Moba(page);
+      let stWidgetName = "/home";
+
+      await moba.mainURLs.openAdminStgPoePage();
+
+      await test.step('Expected Result: St Widget contains "Edit" button', async () => {
+        await expect(moba.stAdminPage.editButton(stWidgetName)).toBeVisible();
+      });
+      await test.step('Expected Result: St Widget contains "Delete" button', async () => {
+        await expect(moba.stAdminPage.deleteButton(stWidgetName)).toBeVisible();
+      });
+    });
+
+    test(`View mode of the "/home" structure page is available for the Admin role`, async ({
+      apiAuthAdmin,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      let stWidgetName = "/home";
+
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openAdminStgPoePage();
+      await moba.stAdminPage.clickOnStWidget(stWidgetName);
+      await test.step(`Expected Result: View mode the "/home" structure page is opened`, async () => {
+        await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
+      });
+    });
+
+    test(`Edit mode of the "/home" structure page is available for the Admin role`, async ({
+      apiAuthAdmin,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      let stWidgetName = "/home";
+
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openAdminStgPoePage();
+      await moba.stAdminPage.clickEditButton(stWidgetName);
+      await test.step(`Expected Result: Edit mode the "/home" structure page is opened`, async () => {
+        await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
+        await expect(moba.stPage.addSectionButton).toBeVisible();
+      });
+    });
+
+    test(`The Admin role is allowed to publish structure pages`, async ({
+      apiAuthAdmin,
+      page,
+      cleanupStPoEPages,
+    }) => {
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      const uniqueId = uuidv4();
+      const pageName = `/qa-automation-st-page-${uniqueId}`;
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openAdminStgPoePage();
+      await moba.stAdminPage.gotoStPlannerPage();
+      await moba.stPage.addHeaderV2Widget();
+      await moba.stPage.createStPage(pageName);
+      cleanupStPoEPages.addPageForCleanup(pageName); // Register page for deleting
+      await moba.stPage.publishStPage();
+
+      await test.step(`Expected Result: The ST page: ${pageName} is published`, async () => {
+        await expect(moba.stPage.controlPanel).toContainText("Published");
+      });
+    });
+
+    test("Check API admin permission", async ({ request, apiAuthAdmin }) => {
+      const adminRoleResponse = await request.post(
+        "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
+        {
+          data: {
+            query: `
             query Poe2 {
                 poe2 {
                     id
@@ -547,42 +579,44 @@ test.describe("Checking permissions", () => {
                 }
             }
         `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    expect(adminRoleResponse.ok()).toBeTruthy();
-    const json = await adminRoleResponse.json();
-    const role = json.data.poe2.permissions.user.role;
-    expect(role).toBe("ADMIN");
-  });
-
-  test("Check UI Internal Writer permission", async ({
-    page,
-    apiAuthInternalWriter,
-  }) => {
-    await page.context().addCookies(apiAuthInternalWriter.cookies);
-    const moba = new Moba(page);
-    const title = "Structure Pages";
-
-    await moba.mainURLs.openAdminStgPoePage();
-    await test.step(`User is logged in`, async () => {
-      await expect(moba.stAdminPage.createPageButton).toBeVisible();
-      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      expect(adminRoleResponse.ok()).toBeTruthy();
+      const json = await adminRoleResponse.json();
+      const role = json.data.poe2.permissions.user.role;
+      expect(role).toBe("ADMIN");
     });
   });
 
-  test("Check API Internal Writer permission", async ({
-    request,
-    apiAuthInternalWriter,
-  }) => {
-    const adminRoleResponse = await request.post(
-      "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
-      {
-        data: {
-          query: `
+  test.describe("Checking Internal Writer permission", () => {
+    test("Check UI Internal Writer permission", async ({
+      page,
+      apiAuthInternalWriter,
+    }) => {
+      await page.context().addCookies(apiAuthInternalWriter.cookies);
+      const moba = new Moba(page);
+      const title = "Structure Pages";
+
+      await moba.mainURLs.openAdminStgPoePage();
+      await test.step(`User is logged in`, async () => {
+        await expect(moba.stAdminPage.createPageButton).toBeVisible();
+        await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+      });
+    });
+
+    test("Check API Internal Writer permission", async ({
+      request,
+      apiAuthInternalWriter,
+    }) => {
+      const adminRoleResponse = await request.post(
+        "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
+        {
+          data: {
+            query: `
             query Poe2 {
                 poe2 {
                     id
@@ -595,42 +629,44 @@ test.describe("Checking permissions", () => {
                 }
             }
         `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    expect(adminRoleResponse.ok()).toBeTruthy();
-    const json = await adminRoleResponse.json();
-    const role = json.data.poe2.permissions.user.role;
-    expect(role).toBe("INTERNAL_WRITER");
-  });
-
-  test("Check UI Game Manager permission", async ({
-    page,
-    apiAuthGameManager,
-  }) => {
-    await page.context().addCookies(apiAuthGameManager.cookies);
-    const moba = new Moba(page);
-    const title = "Structure Pages";
-
-    await moba.mainURLs.openAdminStgPoePage();
-    await test.step(`User is logged in`, async () => {
-      await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
-      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      expect(adminRoleResponse.ok()).toBeTruthy();
+      const json = await adminRoleResponse.json();
+      const role = json.data.poe2.permissions.user.role;
+      expect(role).toBe("INTERNAL_WRITER");
     });
   });
 
-  test("Check API Game Manager permission", async ({
-    request,
-    apiAuthGameManager,
-  }) => {
-    const adminRoleResponse = await request.post(
-      "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
-      {
-        data: {
-          query: `
+  test.describe("Checking Game Manager permission", () => {
+    test("Check UI Game Manager permission", async ({
+      page,
+      apiAuthGameManager,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      const moba = new Moba(page);
+      const title = "Structure Pages";
+
+      await moba.mainURLs.openAdminStgPoePage();
+      await test.step(`User is logged in`, async () => {
+        await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
+        await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+      });
+    });
+
+    test("Check API Game Manager permission", async ({
+      request,
+      apiAuthGameManager,
+    }) => {
+      const adminRoleResponse = await request.post(
+        "https://stg.mobalytics.gg/api/poe-2/v1/graphql/query",
+        {
+          data: {
+            query: `
             query Poe2 {
                 poe2 {
                     id
@@ -643,15 +679,16 @@ test.describe("Checking permissions", () => {
                 }
             }
         `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    expect(adminRoleResponse.ok()).toBeTruthy();
-    const json = await adminRoleResponse.json();
-    const role = json.data.poe2.permissions.user.role;
-    expect(role).toBe("GAME_MANAGER");
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      expect(adminRoleResponse.ok()).toBeTruthy();
+      const json = await adminRoleResponse.json();
+      const role = json.data.poe2.permissions.user.role;
+      expect(role).toBe("GAME_MANAGER");
+    });
   });
 });

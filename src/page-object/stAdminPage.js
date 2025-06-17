@@ -5,34 +5,40 @@ export class StAdminPage {
     this.page = page;
     this.createPageButton = page.getByTestId("create-button");
     this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
+    this.editButton = (stWidgetName) =>
+      page.getByText(`${stWidgetName}Edit`).getByTestId("edit-button");
+    this.editButton1 = page.getByTestId("edit-button");
+    this.deleteButton = (stWidgetName) =>
+      page.getByText(`${stWidgetName}Edit`).getByTestId("delete-button");
+    this.stWidget = (stWidgetName) => page.getByText(`${stWidgetName}Edit`);
     this.stAdminTitle = (adminTitle) =>
       page.getByRole("heading", { name: `${adminTitle}` });
-    this.editButton = (stPageName) =>
-      page
-        .locator("div")
-        .filter({ hasText: new RegExp(`^${stPageName}Edit$`) })
-        .getByTestId("edit-button");
-    this.deleteButton = (stPageName) =>
-      page
-        .locator("div")
-        .filter({ hasText: new RegExp(`^${stPageName}Edit$`) })
-        .getByTestId("delete-button");
+    // this.editButton = (stPageName) =>
+    //   page
+    //     .locator("div")
+    //     .filter({ hasText: new RegExp(`^${stPageName}Edit$`) })
+    //     .getByTestId("edit-button");
+    // this.deleteButton = (stPageName) =>
+    //   page
+    //     .locator("div")
+    //     .filter({ hasText: new RegExp(`^${stPageName}Edit$`) })
+    //     .getByTestId("delete-button");
     this.stWidget = (stPageName) => page.getByText(`${stPageName}`);
   }
 
-  async clickOnCreatePageButton() {
+  async gotoStPlannerPage() {
     await test.step(`Go to the planner of the structure page`, async () => {
       await this.createPageButton.click();
     });
   }
 
-  async clickOnStWidget(stPageName = "/1180") {
+  async clickOnStWidget(stPageName = "/home") {
     await test.step(`Go to ${stPageName} structure page`, async () => {
       await this.stWidget(stPageName).click();
     });
   }
 
-  async clickEditButton(stPageName = "/1180") {
+  async clickEditButton(stPageName = "/home") {
     await test.step(`Click Edit button on ${stPageName} widget`, async () => {
       await this.editButton(stPageName).click();
     });

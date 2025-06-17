@@ -8,7 +8,15 @@ export class StPage {
     });
     this.addSectionButton = page.getByRole("button", { name: "Add section" });
     this.editButton = page.getByTestId("ngf-st-edit-button");
-    this.publishButton = page.getByTestId("ngf-st-save-and-publish-button");
+    this.publishButton = page.getByTestId("ngf-st-publish-button");
+    this.buttonPublishInModal = page
+      .getByText(
+        "Publish pageIt will be visible to everyone via the assigned URL.CancelPublish"
+      )
+      .getByRole("button", { name: "Publish" });
+    this.dotsButton = page.getByTestId("ngf-st-draft-actions-menu");
+    this.deleteStPageButton = page.getByRole("menuitem", { name: "Delete" });
+    this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
     this.saveDraftButton = page.getByTestId("ngf-st-update-button");
     this.buttonCreateSave = page.getByTestId("ngf-st-create-button");
     this.seoButton = page.getByTestId("ngf-seo-settings-button");
@@ -16,6 +24,7 @@ export class StPage {
     this.createButton = page.getByTestId("ngf-st-create-button");
     this.resetButton = page.getByRole("button", { name: "Reset" });
     this.stPageTitle = page.getByTestId("document-controls-panel");
+    this.controlPanel = page.getByTestId("document-controls-panel");
     this.column1Auto = page
       .getByRole("button")
       .filter({ hasText: /^$/ })
@@ -69,6 +78,21 @@ export class StPage {
       await this.inputCreateSaveModal.click();
       await this.inputCreateSaveModal.fill(uuid);
       await this.buttonCreateSaveInModal.click();
+    });
+  }
+
+  async publishStPage() {
+    await test.step(`Publish the structure page`, async () => {
+      await this.publishButton.click();
+      await this.buttonPublishInModal.click();
+    });
+  }
+
+  async deleteStPage() {
+    await test.step(`Delete the structure page`, async () => {
+      await this.dotsButton.click();
+      await this.deleteStPageButton.click();
+      await this.buttonDeleteInModal.click();
     });
   }
 }

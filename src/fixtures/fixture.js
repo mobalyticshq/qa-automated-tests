@@ -182,6 +182,7 @@ export const test = base.extend({
       for (const pageName of pagesToCleanup) {
         try {
           await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
         } catch (error) {
           console.warn(`Failed to cleanup page ${pageName}:`, error);
         }
