@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
+const PROD_SITEMAP = "https://mobalytics.gg/sitemap.xml";
+
 test(`There is no a new game on prod sitemap`, async ({ page }) => {
-  const PROD_SITEMAP = "https://mobalytics.gg/sitemap.xml";
   const NEW_GAME = "https://mobalytics.gg/zzz/sitemap.xml";
 
   await test.step(`Open url: ${PROD_SITEMAP}`, async () => {

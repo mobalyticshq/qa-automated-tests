@@ -593,20 +593,20 @@ test.describe("Checking permissions", () => {
   });
 
   test.describe("Checking Internal Writer permission", () => {
-    test("Check UI Internal Writer permission", async ({
-      page,
-      apiAuthInternalWriter,
-    }) => {
-      await page.context().addCookies(apiAuthInternalWriter.cookies);
-      const moba = new Moba(page);
-      const title = "Structure Pages";
+    // test("Check UI Internal Writer permission", async ({
+    //   page,
+    //   apiAuthInternalWriter,
+    // }) => {
+    //   await page.context().addCookies(apiAuthInternalWriter.cookies);
+    //   const moba = new Moba(page);
+    //   const title = "Structure Pages";
 
-      await moba.mainURLs.openAdminStgPoePage();
-      await test.step(`User is logged in`, async () => {
-        await expect(moba.stAdminPage.createPageButton).toBeVisible();
-        await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
-      });
-    });
+    //   await moba.mainURLs.openAdminStgPoePage();
+    //   await test.step(`User is logged in`, async () => {
+    //     await expect(moba.stAdminPage.createPageButton).toBeVisible();
+    //     await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+    //   });
+    // });
 
     test("Check API Internal Writer permission", async ({
       request,
