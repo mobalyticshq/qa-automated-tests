@@ -1,7 +1,6 @@
 import { expect } from "@playwright/test";
 import { test } from "../src/fixtures/index";
 import { Moba } from "../src/page-object/moba";
-import { USER_ROLES } from "../src/setup/credentials";
 import { v4 as uuidv4 } from "uuid";
 
 test("There is no a new game in navbar on the production", async ({
@@ -164,29 +163,29 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  // test(`Create a structure page on Bazaar project`, async ({
-  //   apiAuthAdmin,
-  //   page,
-  //   cleanupStBazaarPages,
-  // }) => {
-  //   await page.context().addCookies(apiAuthAdmin.cookies);
-  //   const uniqueId = uuidv4();
-  //   const pageName = `/qa-automation-st-page-${uniqueId}`;
-  //   const moba = new Moba(page);
+  test(`Create a structure page on Bazaar project`, async ({
+    apiAuthAdmin,
+    page,
+    cleanupStBazaarPages,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-  //   await moba.mainURLs.openStgBazaarAdminPage();
-  //   await moba.stAdminPage.clickOnCreatePageButton();
-  //   await moba.stPage.addHeaderV2Widget();
-  //   await moba.stPage.createStPage(pageName);
+    await moba.mainURLs.openAdminStgBazaarPage();
+    await moba.stAdminPage.clickOnCreatePageButton();
+    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.createStPage(pageName);
 
-  //   // Регистрируем страницу для удаления
-  //   cleanupStBazaarPages.addPageForCleanup(pageName);
+    // Регистрируем страницу для удаления
+    cleanupStBazaarPages.addPageForCleanup(pageName);
 
-  //   await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Bazaar project`, async () => {
-  //     await expect(moba.stPage.headerV2Bazaar).toContainText("The Bazaar");
-  //     await expect(moba.stPage.stPageTitle).toContainText(pageName);
-  //   });
-  // });
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Bazaar project`, async () => {
+      await expect(moba.stPage.headerV2Bazaar).toContainText("The Bazaar");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
 
   test(`Create a structure page on Marvel Rivals project`, async ({
     apiAuthAdmin,
@@ -618,7 +617,7 @@ test.describe("Checking permissions", () => {
 
     await moba.mainURLs.openAdminStgPoePage();
     await test.step(`User is logged in`, async () => {
-      await expect(moba.stAdminPage.createPageButton).toBeVisible();
+      await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
       await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
     });
   });

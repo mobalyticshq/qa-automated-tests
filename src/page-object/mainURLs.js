@@ -44,7 +44,7 @@ export class MainURLs {
 
   async openAdminStgBazaarPage() {
     await test.step(`Open 'Bazaar' ST admin page on stg`, async () => {
-      await this.page.goto(`https://stg.mobalytics.gg/the-bazaar`, {
+      await this.page.goto(`https://stg.mobalytics.gg/the-bazaar/admin`, {
         waitUntil: "domcontentloaded",
       });
     });
