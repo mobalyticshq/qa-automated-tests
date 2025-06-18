@@ -10,6 +10,7 @@ import {
   StPage,
   UgProfilePage,
   UgBuildPage,
+  CardGalleryV2Widget,
 } from "./index";
 
 export class Moba {
@@ -26,5 +27,6 @@ export class Moba {
     this.mainPage = new MainPage(page);
     this.gamePage = new GamePage(page);
     this.mainURLs = new MainURLs(page);
+    this.cardGalleryV2Widget = new CardGalleryV2Widget(page);
   }
 }

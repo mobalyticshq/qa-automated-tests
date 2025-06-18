@@ -15,24 +15,47 @@ export class StPage {
       )
       .getByRole("button", { name: "Publish" });
     this.dotsButton = page.getByTestId("ngf-st-draft-actions-menu");
+    this.dotsButtonInWidget = page
+      .getByTestId("widget-actions-list")
+      .getByRole("button");
     this.deleteStPageButton = page.getByRole("menuitem", { name: "Delete" });
+    this.duplicateStPageButton = page.getByRole("menuitem", {
+      name: "Duplicate",
+    });
     this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
     this.saveDraftButton = page.getByTestId("ngf-st-update-button");
     this.buttonCreateSave = page.getByTestId("ngf-st-create-button");
     this.seoButton = page.getByTestId("ngf-seo-settings-button");
     this.cancelButton = page.getByRole("button", { name: "Cancel" });
-    this.createButton = page.getByTestId("ngf-st-create-button");
     this.resetButton = page.getByRole("button", { name: "Reset" });
     this.stPageTitle = page.getByTestId("document-controls-panel");
     this.controlPanel = page.getByTestId("document-controls-panel");
+    this.headerV2Widget = page.getByRole("heading", { name: "ZZZ Header V2" });
+    this.documentDiscoveryWidget = page.locator("section").nth(4);
+    this.cardGalleryV2Button = page.getByRole("menuitem", {
+      name: "Cards Gallery V2 Cards",
+    });
     this.column1Auto = page
       .getByRole("button")
       .filter({ hasText: /^$/ })
       .nth(1);
-    this.addWidgetButton = page
+    this.column1AutoEditMode = page
+      .getByRole("button", {
+        name: "Edit ZZZ Header V2",
+        exact: true,
+      })
+      .nth(1);
+    this.addWidgetButton1 = page
       .getByRole("button", { name: "columnAuto" })
       .getByRole("button");
-    this.headerV2 = page.getByRole("menuitem", {
+    this.addWidgetButton2 = page
+      .getByRole("button", { name: "columnAuto Edit ZZZ Header V2" })
+      .getByRole("button")
+      .nth(4);
+    this.dropdownMenuWidgets = page.getByText(
+      "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
+    );
+    this.headerV2Button = page.getByRole("menuitem", {
       name: "Header V2 Introduce users to",
     });
     this.inputCreateSaveModal = page.getByRole("textbox", {
@@ -40,6 +63,18 @@ export class StPage {
     });
     this.buttonCreateSaveInModal = page.getByRole("button", {
       name: "Create and Save",
+    });
+    this.documentDiscoveryButton = page.getByRole("menuitem", {
+      name: "Documents Discovery Discover",
+    });
+    this.seoModal = page.getByText("SEO settingsMeta titleMeta");
+    this.videoV2Button = page.getByRole("menuitem", {
+      name: "Video V2 Embed a video from a",
+    });
+    this.videoV2Widget = page.getByRole("heading", { name: "Video V2" });
+    this.linkButtonVideoV2 = page.getByText("Link");
+    this.inputVideoV2 = page.getByRole("textbox", {
+      name: "YouTube, Twitch or Vimeo link",
     });
     this.headerV2PoE = page.locator("#container").getByText("PoE");
     this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
@@ -67,8 +102,34 @@ export class StPage {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
-      await this.addWidgetButton.click();
-      await this.headerV2.click();
+      await this.addWidgetButton1.click();
+      await this.headerV2Button.click();
+    });
+  }
+
+  async addCardGalleryV2Widget() {
+    await test.step(`Add HeaderV2 widget on the structure page`, async () => {
+      await this.addSectionButton.click();
+      await this.addSectionButtonInModal.click();
+      await this.column1Auto.hover();
+      await this.addWidgetButton1.click();
+      await this.cardGalleryV2Button.click();
+    });
+  }
+
+  async addVideoInVideoV2Widget(link) {
+    await test.step(`Add VideoV2 widget on the structure page`, async () => {
+      await this.addSectionButton.click();
+      await this.addSectionButtonInModal.click();
+      await this.column1Auto.hover();
+      await this.addWidgetButton1.click();
+      // await this.dropdownMenuWidgets.evaluate((e) => (e.scrollTop += 700));
+      await this.page.keyboard.press("ArrowUp");
+      await this.page.keyboard.press("Enter");
+      // await this.videoV2Button.click();
+      await this.linkButtonVideoV2.click();
+      await this.inputVideoV2.click();
+      await this.inputVideoV2.fill(link);
     });
   }
 
@@ -93,6 +154,51 @@ export class StPage {
       await this.dotsButton.click();
       await this.deleteStPageButton.click();
       await this.buttonDeleteInModal.click();
+    });
+  }
+
+  async duplicateStPage(uuid) {
+    await test.step(`Duplicate the structure page`, async () => {
+      await this.dotsButton.click();
+      await this.duplicateStPageButton.click();
+
+      // Waiting for new tab
+      const [newPage] = await Promise.all([
+        this.page.context().waitForEvent("page"),
+      ]);
+      // Switch to a new tab
+      await newPage.waitForLoadState("networkidle");
+
+      // Creating new locators for the new tab
+      const buttonCreateSave = newPage.getByTestId("ngf-st-create-button");
+      const inputCreateSaveModal = newPage.getByRole("textbox", {
+        name: "Page Path",
+      });
+      const buttonCreateSaveInModal = newPage.getByRole("button", {
+        name: "Create and Save",
+      });
+
+      // Performs actions
+      await buttonCreateSave.click();
+      await inputCreateSaveModal.click();
+      await inputCreateSaveModal.fill(uuid);
+      await buttonCreateSaveInModal.click();
+    });
+  }
+
+  async editStPage() {
+    await test.step(`Add Document Discovery widget to the ST page in edit mode`, async () => {
+      await this.editButton.click();
+      await this.column1AutoEditMode.click();
+      await this.addWidgetButton2.click();
+      await this.documentDiscoveryButton.click();
+      await this.saveDraftButton.click();
+    });
+  }
+
+  async openSeoModal() {
+    await test.step(`Open SEO modal on the ST page`, async () => {
+      await this.seoButton.click();
     });
   }
 }
