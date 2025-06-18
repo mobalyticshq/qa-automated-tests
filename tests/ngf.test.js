@@ -469,7 +469,8 @@ test.describe("Creating UG Pages", () => {
 });
 
 test.describe("Checking role permissions", () => {
-  test.describe.serial("Checking Admin permission", () => {
+  test.describe("Checking Admin permission", () => {
+    // test.use({ mode: "default" });
     test(`Admin role has access to the Admin ST page`, async ({
       apiAuthAdmin,
       page,
