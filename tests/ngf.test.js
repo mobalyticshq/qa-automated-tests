@@ -480,14 +480,13 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminStgPoePage();
       await test.step(`Expected Result: Admin structure page is opened`, async () => {
-        await expect(moba.stAdminPage.createPageButton).toBeVisible();
         await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(
           adminTitle
         );
       });
     });
 
-    test('St Widget contains "Edit" button, "Delete" button for Admin role', async ({
+    test('St Widget contains "Edit" button, "Delete" button & "Create Page" button is present on ST page for Admin role', async ({
       page,
       apiAuthAdmin,
     }) => {
@@ -502,6 +501,9 @@ test.describe("Checking role permissions", () => {
       });
       await test.step('Expected Result: St Widget contains "Delete" button', async () => {
         await expect(moba.stAdminPage.deleteButton(stWidgetName)).toBeVisible();
+      });
+      await test.step('Expected Result: "Create Page" button is present on ST page for Admin role', async () => {
+        await expect(moba.stAdminPage.createPageButton).toBeVisible();
       });
     });
 
@@ -538,7 +540,7 @@ test.describe("Checking role permissions", () => {
       cleanupStPoEPages.addPageForCleanup(pageName); // Register page for deleting
       await moba.mainURLs.openAdminStgPoePage();
 
-      await test.step(`Expected Result: ST page: ${pageName} is duplicated under admin role`, async () => {
+      await test.step(`Expected Result: ST page: ${pageName} is duplicated under Admin role`, async () => {
         await expect(moba.stAdminPage.stWidget(pageName)).toContainText(
           pageName
         );
@@ -590,7 +592,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test(`The Admin role is allowed to publish structure pages`, async ({
+    test(`Admin role is allowed to publish structure pages`, async ({
       apiAuthAdmin,
       page,
       cleanupStZzzPages,
@@ -612,7 +614,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test(`The Admin role has access to SEO modal on the structure pages`, async ({
+    test(`Admin role has access to SEO modal on the structure pages`, async ({
       apiAuthAdmin,
       page,
     }) => {
@@ -624,8 +626,8 @@ test.describe("Checking role permissions", () => {
       await moba.stAdminPage.clickOnStWidget(stWidgetName);
       await moba.stPage.openSeoModal();
 
-      await test.step(`Expected Result: SEO modal is available for admin role`, async () => {
-        await expect(moba.stPage.seoModal).toBeVisible;
+      await test.step(`Expected Result: SEO modal is available for Admin role`, async () => {
+        await expect(moba.stPage.seoModal).toBeVisible();
       });
     });
 
@@ -652,7 +654,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test(`Admin role can add image (link) to the structure pages`, async ({
+    test(`Admin role can add image into widgets (link) to the structure pages`, async ({
       apiAuthAdmin,
       page,
       cleanupStZzzPages,
@@ -760,7 +762,7 @@ test.describe("Checking role permissions", () => {
   });
 
   test.describe("Checking Game Manager permission", () => {
-    test("Check UI Game Manager permission", async ({
+    test("Game Manager role has access to the Admin ST page", async ({
       page,
       apiAuthGameManager,
     }) => {
@@ -770,10 +772,170 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminStgPoePage();
       await test.step(`User is logged in`, async () => {
-        await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
         await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
       });
     });
+
+    test('St Widget contains only "Edit" button & "Create Page" button is missing on ST page for Game Manager role', async ({
+      page,
+      apiAuthGameManager,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      const moba = new Moba(page);
+      let stWidgetName = "/home";
+
+      await moba.mainURLs.openAdminStgNightreignPage();
+
+      await test.step('Expected Result: St Widget contains "Edit" button', async () => {
+        await expect(moba.stAdminPage.editButton(stWidgetName)).toBeVisible();
+      });
+      await test.step('Expected Result: St Widget contains "Delete" button', async () => {
+        await expect(
+          moba.stAdminPage.deleteButton(stWidgetName)
+        ).not.toBeVisible();
+      });
+      await test.step('Expected Result: "Create Page" button is missing on ST page for Game Manager role', async () => {
+        await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
+      });
+    });
+
+    test(`View mode of the "/home" structure page is available for the Game Manager role`, async ({
+      apiAuthGameManager,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      let stWidgetName = "/home";
+
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openAdminStgNightreignPage();
+      await moba.stAdminPage.clickOnStWidget(stWidgetName);
+      await test.step(`Expected Result: View mode the "/home" structure page is opened`, async () => {
+        await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
+      });
+    });
+
+    test(`Game Manager role can't publish ST pages`, async ({
+      apiAuthGameManager,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      let stWidgetName = "/qa-game-manager-can-not-publish";
+
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openAdminStgZzzPage();
+      await moba.stAdminPage.clickOnStWidget(stWidgetName);
+      await test.step(`Expected Result: "Publish" button is missing in the control panel on the ST page`, async () => {
+        await expect(moba.stPage.controlPanel).not.toContainText("Published");
+      });
+    });
+
+    test(`Game Manager role can't archive, duplicate ST pages`, async ({
+      apiAuthGameManager,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      let stWidgetName = "/qa-game-manager-can-not-publish";
+
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openAdminStgZzzPage();
+      await moba.stAdminPage.clickOnStWidget(stWidgetName);
+      await test.step(`Expected Result: "Dots" button is missing in the control panel on the ST page`, async () => {
+        await expect(moba.stPage.dotsButton).not.toBeVisible();
+      });
+    });
+
+    test(`Game Manager has access to SEO modal on the structure pages`, async ({
+      apiAuthGameManager,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      const moba = new Moba(page);
+      let stWidgetName = "/home";
+
+      await moba.mainURLs.openAdminStgZzzPage();
+      await moba.stAdminPage.clickOnStWidget(stWidgetName);
+      await moba.stPage.openSeoModal();
+
+      await test.step(`Expected Result: SEO modal is available for Game Manager role`, async () => {
+        await expect(moba.stPage.seoModal).toBeVisible();
+      });
+    });
+
+    // test(`Game Manager role can add VideoV2 widget (link) to the structure pages`, async ({
+    //   apiAuthGameManager,
+    //   page,
+    // }) => {
+    //   await page.context().addCookies(apiAuthGameManager.cookies);
+    //   const uniqueId = uuidv4();
+    //   const pageName = `/qa-automation-game-manager`;
+    //   const moba = new Moba(page);
+    //   let link = "https://youtu.be/g-qkY2yj4_A?si=senOMRXZQu9DivSQ";
+
+    //   await moba.mainURLs.openAdminStgMhwPage();
+    //   await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    //   await moba.stPage.addHeaderV2Widget();
+    //   await moba.stPage.addVideoV2Widget(link);
+    //   await moba.stPage.createStPage(pageName);
+    //   cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
+
+    //   await test.step(`Expected Result: VideoV2 widget is present in the ST page`, async () => {
+    //     await expect(moba.stPage.videoV2Widget).toBeVisible();
+    //   });
+    // });
+
+    // test(`Admin role can add image into widgets (link) to the structure pages`, async ({
+    //   apiAuthAdmin,
+    //   page,
+    //   cleanupStZzzPages,
+    // }) => {
+    //   await page.context().addCookies(apiAuthAdmin.cookies);
+    //   const uniqueId = uuidv4();
+    //   const pageName = `/qa-automation-st-page-${uniqueId}`;
+    //   const moba = new Moba(page);
+    //   let link =
+    //     "https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=1150/assets/diablo-4/images/background-images/classes/sorcerer.jpg";
+
+    //   await moba.mainURLs.openAdminStgZzzPage();
+    //   await moba.stAdminPage.gotoStPlannerPage();
+    //   await moba.stPage.addCardGalleryV2Widget();
+    //   await moba.cardGalleryV2Widget.addImageLink(link);
+    //   await moba.stPage.createStPage(pageName);
+    //   cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+
+    //   await test.step(`Expected Result: Image is present in the Card GalleryV2 widget on ST page`, async () => {
+    //     await expect(
+    //       moba.cardGalleryV2Widget.сardGalleryV2Widget
+    //     ).toBeVisible();
+    //   });
+    // });
+
+    // test(`Game Manager role can edit the structure page`, async ({
+    //   apiAuthGameManager,
+    //   page,
+    //   cleanupStZzzPages,
+    // }) => {
+    //   await page.context().addCookies(apiAuthGameManager.cookies);
+    //   const uniqueId = uuidv4();
+    //   const pageName = `/qa-game-manager-edit-function`;
+    //   const moba = new Moba(page);
+
+    //   await moba.mainURLs.openAdminStgZzzPage();
+    //   await moba.stAdminPage.clickOnStWidget(pageName);
+
+    //   await moba.stPage.createStPage(pageName);
+    //   cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+    //   await moba.stPage.editStPage();
+
+    //   await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
+    //     await expect(moba.stPage.headerV2Widget).toBeVisible();
+    //     await expect(moba.stPage.documentDiscoveryWidget).toBeVisible();
+    //     await expect(moba.stPage.addSectionButton).not.toBeVisible();
+    //     await expect(moba.stPage.dotsButton).toBeVisible();
+    //   });
+    // });
 
     test("Check API Game Manager permission", async ({
       request,

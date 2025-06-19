@@ -48,7 +48,7 @@ export class StPage {
     this.addWidgetButton1 = page
       .getByRole("button", { name: "columnAuto" })
       .getByRole("button");
-    this.addWidgetButton3 = page.locator('.xe8ttls > div > .x19l6gds');
+    this.addWidgetButton3 = page.locator(".xe8ttls > div > .x19l6gds");
     this.addWidgetButton2 = page
       .getByRole("button", { name: "columnAuto Edit ZZZ Header V2" })
       .getByRole("button")
@@ -124,13 +124,6 @@ export class StPage {
       // await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
-      // await this.page.waitForTimeout(3000);
-
-      // await this.dropdownMenuWidgets.evaluate((e) => (e.scrollTop += 700));
-      // await this.page.keyboard.press("ArrowUp");
-      // await this.page.waitForTimeout(3000);
-
-      // await this.page.keyboard.press("Enter");
       await this.videoV2Button.click();
       await this.linkButtonVideoV2.click();
       await this.inputVideoV2.click();
