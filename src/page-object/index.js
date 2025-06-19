@@ -9,4 +9,5 @@ export * from "./stAdminPage";
 export * from "./stPage";
 export * from "./ugProfilePage";
 export * from "./ugBuildPage";
+export * from "./homePage";
 export * from "./cardGalleryV2Widget";

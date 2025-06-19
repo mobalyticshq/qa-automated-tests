@@ -156,4 +156,12 @@ export class MainURLs {
       });
     });
   }
+
+  async openStgMhwPage() {
+    await test.step(`Open url: https://stg.mobalytics.gg/mhw`, async () => {
+      await this.page.goto(`https://stg.mobalytics.gg/mhw`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
 }

@@ -712,20 +712,31 @@ test.describe("Checking role permissions", () => {
   });
 
   test.describe("Checking Internal Writer permission", () => {
-    // test("Check UI Internal Writer permission", async ({
-    //   page,
-    //   apiAuthInternalWriter,
-    // }) => {
-    //   await page.context().addCookies(apiAuthInternalWriter.cookies);
-    //   const moba = new Moba(page);
-    //   const title = "Structure Pages";
+    test(`Internal Writer role has NO access to the Admin ST page`, async ({
+      apiAuthInternalWriter,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthInternalWriter.cookies);
+      const moba = new Moba(page);
 
-    //   await moba.mainURLs.openAdminStgPoePage();
-    //   await test.step(`User is logged in`, async () => {
-    //     await expect(moba.stAdminPage.createPageButton).toBeVisible();
-    //     await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
-    //   });
-    // });
+      await moba.mainURLs.openAdminStgMhwPage();
+      await test.step(`Expected Result: Admin structure page is opened`, async () => {
+        await expect(moba.stAdminPage.notFoundPage).toBeVisible();
+      });
+    });
+
+    test(`Internal Writer role has NO access to the control panel`, async ({
+      apiAuthInternalWriter,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthInternalWriter.cookies);
+      const moba = new Moba(page);
+
+      await moba.homePage.openStgMhwHomePage();
+      await test.step(`Expected Result: Control panel is missing for Internal Writer role`, async () => {
+        await expect(moba.homePage.controlPanel).not.toBeVisible();
+      });
+    });
 
     test("Check API Internal Writer permission", async ({
       request,
@@ -820,7 +831,7 @@ test.describe("Checking role permissions", () => {
       page,
     }) => {
       await page.context().addCookies(apiAuthGameManager.cookies);
-      let stWidgetName = "/qa-game-manager-can-not-publish";
+      let stWidgetName = "/qa-automation-game-manager-can-not-publish";
 
       const moba = new Moba(page);
 
@@ -836,7 +847,7 @@ test.describe("Checking role permissions", () => {
       page,
     }) => {
       await page.context().addCookies(apiAuthGameManager.cookies);
-      let stWidgetName = "/qa-game-manager-can-not-publish";
+      let stWidgetName = "/qa-automation-game-manager-can-not-publish";
 
       const moba = new Moba(page);
 

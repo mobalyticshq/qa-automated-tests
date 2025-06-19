@@ -3,6 +3,7 @@ import { test } from "@playwright/test";
 export class StAdminPage {
   constructor(page) {
     this.page = page;
+    this.notFoundPage = page.getByText("404The page you are looking");
     this.createPageButton = page.getByTestId("create-button");
     this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
     this.editButton = (stWidgetName) =>

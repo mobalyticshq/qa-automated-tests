@@ -10,6 +10,7 @@ import {
   StPage,
   UgProfilePage,
   UgBuildPage,
+  HomePage,
   CardGalleryV2Widget,
 } from "./index";
 
@@ -17,6 +18,7 @@ export class Moba {
   constructor(page) {
     this.page = page;
     this.stAdminPage = new StAdminPage(page);
+    this.homePage = new HomePage(page);
     this.ugProfilePage = new UgProfilePage(page);
     this.ugBuildPage = new UgBuildPage(page);
     this.stPage = new StPage(page);
