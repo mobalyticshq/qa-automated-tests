@@ -48,6 +48,7 @@ export class StPage {
     this.addWidgetButton1 = page
       .getByRole("button", { name: "columnAuto" })
       .getByRole("button");
+    this.addWidgetButton3 = page.locator('.xe8ttls > div > .x19l6gds');
     this.addWidgetButton2 = page
       .getByRole("button", { name: "columnAuto Edit ZZZ Header V2" })
       .getByRole("button")
@@ -117,16 +118,20 @@ export class StPage {
     });
   }
 
-  async addVideoInVideoV2Widget(link) {
+  async addVideoV2Widget(link) {
     await test.step(`Add VideoV2 widget on the structure page`, async () => {
-      await this.addSectionButton.click();
-      await this.addSectionButtonInModal.click();
+      // await this.addSectionButton.click();
+      // await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
-      await this.addWidgetButton1.click();
+      await this.addWidgetButton3.click();
+      // await this.page.waitForTimeout(3000);
+
       // await this.dropdownMenuWidgets.evaluate((e) => (e.scrollTop += 700));
-      await this.page.keyboard.press("ArrowUp");
-      await this.page.keyboard.press("Enter");
-      // await this.videoV2Button.click();
+      // await this.page.keyboard.press("ArrowUp");
+      // await this.page.waitForTimeout(3000);
+
+      // await this.page.keyboard.press("Enter");
+      await this.videoV2Button.click();
       await this.linkButtonVideoV2.click();
       await this.inputVideoV2.click();
       await this.inputVideoV2.fill(link);

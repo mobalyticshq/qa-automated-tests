@@ -470,7 +470,6 @@ test.describe("Creating UG Pages", () => {
 
 test.describe("Checking role permissions", () => {
   test.describe("Checking Admin permission", () => {
-    // test.use({ mode: "default" });
     test(`Admin role has access to the Admin ST page`, async ({
       apiAuthAdmin,
       page,
@@ -522,7 +521,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test(`Admin role is able to duplicate the structure page`, async ({
+    test(`Admin role can duplicate the structure page`, async ({
       apiAuthAdmin,
       page,
       cleanupStPoEPages,
@@ -546,10 +545,10 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test(`Admin role is able to edit the structure page`, async ({
+    test(`Admin role can edit the structure page`, async ({
       apiAuthAdmin,
       page,
-      cleanupStPoEPages,
+      cleanupStZzzPages,
     }) => {
       await page.context().addCookies(apiAuthAdmin.cookies);
       const uniqueId = uuidv4();
@@ -560,7 +559,7 @@ test.describe("Checking role permissions", () => {
       await moba.stAdminPage.gotoStPlannerPage();
       await moba.stPage.addHeaderV2Widget();
       await moba.stPage.createStPage(pageName);
-      // cleanupStPoEPages.addPageForCleanup(pageName); // Register page for deleting
+      cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
       await moba.stPage.editStPage();
 
       await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
@@ -571,7 +570,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test(`Admin role is able to delete the structure page on the ST page`, async ({
+    test(`Admin role can delete the structure page on the ST page`, async ({
       apiAuthAdmin,
       page,
     }) => {
@@ -643,7 +642,8 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminStgMhwPage();
       await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addVideoInVideoV2Widget(link);
+      await moba.stPage.addHeaderV2Widget();
+      await moba.stPage.addVideoV2Widget(link);
       await moba.stPage.createStPage(pageName);
       cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
 
