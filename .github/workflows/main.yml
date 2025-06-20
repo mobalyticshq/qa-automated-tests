@@ -1,5 +1,5 @@
 # Name workflow
-name: stg-mobalytics-tests
+name: mobalytics-tests
 
 # When launch auto-tests
 on:

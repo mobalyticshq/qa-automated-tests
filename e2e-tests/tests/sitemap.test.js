@@ -29,7 +29,7 @@ test(`New game is missing on prod sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Sitemap_index link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Sitemap_index link is present on sitemap`, async ({ page, baseURL }) => {
   const SITEMAP_INDEX = `${baseURL}/sitemap_index.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -41,7 +41,7 @@ test(`Sitemap_index link is present on stg sitemap`, async ({ page, baseURL }) =
   });
 });
 
-test("Product-sitemap link is present on stg sitemap", async ({ page, baseURL }) => {
+test(`Product-sitemap link is present on sitemap`, async ({ page, baseURL }) => {
   const PRODUCT_SITEMAP = `${baseURL}/product-sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -53,7 +53,7 @@ test("Product-sitemap link is present on stg sitemap", async ({ page, baseURL })
   });
 });
 
-test(`Valorant link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Valorant link is present on sitemap`, async ({ page, baseURL }) => {
   const VALORANT = `${baseURL}/valorant/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -65,7 +65,7 @@ test(`Valorant link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`TFT link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`TFT link is present on sitemap`, async ({ page, baseURL }) => {
   const TFT = `${baseURL}/tft/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -77,7 +77,7 @@ test(`TFT link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Set 14 link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Set 14 link is present on sitemap`, async ({ page, baseURL }) => {
   const SET14 = `${baseURL}/tft/set14/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -89,7 +89,7 @@ test(`Set 14 link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Set 10 link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Set 10 link is present on sitemap`, async ({ page, baseURL }) => {
   const SET10 = `${baseURL}/tft/set10/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -101,7 +101,7 @@ test(`Set 10 link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Lost Ark link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Lost Ark link is present on sitemap`, async ({ page, baseURL }) => {
   const LOST_ARK = `${baseURL}/lost-ark/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -113,7 +113,7 @@ test(`Lost Ark link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Destiny 2 link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Destiny 2 link is present on sitemap`, async ({ page, baseURL }) => {
   const DESTINY_2 = `${baseURL}/destiny-2/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -125,7 +125,7 @@ test(`Destiny 2 link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Diablo 4 link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Diablo 4 link is present on sitemap`, async ({ page, baseURL }) => {
   const DIABLO_4 = `${baseURL}/diablo-4/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -137,7 +137,7 @@ test(`Diablo 4 link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Elden Ring link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Elden Ring link is present on sitemap`, async ({ page, baseURL }) => {
   const ELDEN_RING = `${baseURL}/elden-ring-nightreign/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -149,7 +149,7 @@ test(`Elden Ring link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Marvel Rivals link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Marvel Rivals link is present on sitemap`, async ({ page, baseURL }) => {
   const MARVEL_RIVALS = `${baseURL}/marvel-rivals/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -161,7 +161,7 @@ test(`Marvel Rivals link is present on stg sitemap`, async ({ page, baseURL }) =
   });
 });
 
-test(`MHW link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`MHW link is present on sitemap`, async ({ page, baseURL }) => {
   const MHV = `${baseURL}/mhw/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -173,7 +173,7 @@ test(`MHW link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Deadlock link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Deadlock link is present on sitemap`, async ({ page, baseURL }) => {
   const DEADLOCK = `${baseURL}/deadlock/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -185,7 +185,7 @@ test(`Deadlock link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`PoE link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`PoE link is present on sitemap`, async ({ page, baseURL }) => {
   const POE_2 = `${baseURL}/poe-2/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {
@@ -197,7 +197,7 @@ test(`PoE link is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Bazaar link is present on stg sitemap`, async ({ page, baseURL }) => {
+test(`Bazaar link is present on sitemap`, async ({ page, baseURL }) => {
   const BAZAAR = `${baseURL}/the-bazaar/sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {

@@ -13,6 +13,16 @@ test(`There is "New Game" in the navbar on stg`, async ({ page }) => {
   });
 });
 
+test(`"New Game" is missing in the navbar on prod`, async ({ page }) => {
+  const NEW_GAME = "ZZZ";
+  const moba = new Moba(page);
+  await page.goto("https://mobalytics.gg/destiny-2");
+
+  await test.step(`Expected Result: There is no ${NEW_GAME} game in the navbar on prod`, async () => {
+    await expect(moba.navbar.gameList).not.toContainText(NEW_GAME);
+  });
+});
+
 test.describe("Creating ST Pages", () => {
   test(`Create a structure page on PoE project`, async ({
     apiAuthAdmin,
