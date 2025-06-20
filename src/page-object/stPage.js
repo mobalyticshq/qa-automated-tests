@@ -165,7 +165,7 @@ export class StPage {
         this.page.context().waitForEvent("page"),
       ]);
       // Switch to a new tab
-      await newPage.waitForLoadState("networkidle");
+      // await newPage.waitForLoadState("networkidle");
 
       // Creating new locators for the new tab
       const buttonCreateSave = newPage.getByTestId("ngf-st-create-button");

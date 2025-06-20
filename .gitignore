@@ -10,3 +10,5 @@
 /.vscode
 /.env
 /.DS_Store
+/.experiment/
+/.prod-tests/

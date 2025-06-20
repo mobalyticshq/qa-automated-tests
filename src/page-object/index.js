@@ -4,7 +4,6 @@ export * from "./signInPage";
 export * from "./accountPage";
 export * from "./profilePage";
 export * from "./mainPage";
-export * from "./gamePage";
 export * from "./stAdminPage";
 export * from "./stPage";
 export * from "./ugProfilePage";

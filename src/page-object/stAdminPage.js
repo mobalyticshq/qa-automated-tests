@@ -33,7 +33,7 @@ export class StAdminPage {
     });
   }
 
-  async clickOnStWidget(stPageName = "/home") {
+  async clickOnStWidget(stPageName) {
     await test.step(`Go to ${stPageName} structure page`, async () => {
       await this.stWidget(stPageName).click();
     });

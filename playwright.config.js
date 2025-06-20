@@ -1,20 +1,21 @@
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
 import os from "os";
+import dotenv from "dotenv";
+import path from "path";
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-import dotenv from "dotenv";
-import path from "path";
+
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./e2e-tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -42,7 +43,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || "https://mobalytics.gg",
+    baseURL: process.env.BASE_URL || "https://stg.mobalytics.gg",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
@@ -54,7 +55,7 @@ export default defineConfig({
     // {
     //   name: "setup",
     //   use: { ...devices["Desktop Chrome"] },
-    //   testMatch: "tests/auth.setup.test.js",
+    //   testMatch: ю /stg-tests/auth.setup.test.js",
     // },
 
     {
@@ -64,19 +65,13 @@ export default defineConfig({
     },
 
     {
-      name: "permissions-chromium",
-      use: { ...devices["Desktop Chrome"] },
-      testMatch: "tests/permissions.test.js",
-    },
-
-    {
       name: "ngf-chromium",
       use: {
         ...devices["Desktop Chrome"],
         // storageState: "playwright/.auth/userFile.json",
       },
       // dependencies: ["setup"],
-      testMatch: ["tests/ngf.test.js"],
+      testMatch: "tests/ngf.test.js",
     },
 
     {
@@ -86,12 +81,13 @@ export default defineConfig({
         // storageState: "playwright/.auth/userFile.json",
       },
       // dependencies: ["setup"],
-      testMatch: ["tests/ngf.test.js"],
+      testMatch: "tests/ngf.test.js",
     },
 
     // {
     //   name: "webkit",
     //   use: { ...devices["Desktop Safari"] },
+    // testMatch: ["e2e-tests/stg-tests/ngf.test.js"],
     // },
 
     /* Test against mobile viewports. */

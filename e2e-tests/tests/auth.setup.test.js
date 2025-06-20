@@ -1,5 +1,5 @@
 import path from "node:path";
-import { USER_ROLES } from "../src/setup/credentials";
+import { USER_ROLES } from "../../src/setup/credentials";
 import { test, expect } from "@playwright/test";
 
 const userFile = "playwright/.auth/userFile.json";
@@ -78,26 +78,26 @@ const userFile = "playwright/.auth/userFile.json";
 //   await page.context().storageState({ path: userFile });
 // });
 
-test("API login", async ({ page, request }) => {
-  const loginResponse = await request.post(
-    "https://stg.mobalytics.gg/api/account/gql/v1/query",
-    {
-      data: {
-        query: `
-          mutation SignIn {
-            signIn(
-              email: "${USER_ROLES.admin_stg.email}"
-              password: "${USER_ROLES.admin_stg.password}"
-            )
-          }
-        `,
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  await expect(loginResponse.ok()).toBeTruthy();
+// test("API login", async ({ page, request }) => {
+//   const loginResponse = await request.post(
+//     "https://stg.mobalytics.gg/api/account/gql/v1/query",
+//     {
+//       data: {
+//         query: `
+//           mutation SignIn {
+//             signIn(
+//               email: "${USER_ROLES.admin_stg.email}"
+//               password: "${USER_ROLES.admin_stg.password}"
+//             )
+//           }
+//         `,
+//       },
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     }
+//   );
+//   await expect(loginResponse.ok()).toBeTruthy();
 
-  await page.context().storageState({ path: userFile });
-});
+//   await page.context().storageState({ path: userFile });
+// });

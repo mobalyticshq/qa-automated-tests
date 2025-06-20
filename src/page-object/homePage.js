@@ -6,9 +6,9 @@ export class HomePage {
     this.controlPanel = page.getByTestId("document-controls-panel");
   }
 
-  async openStgMhwHomePage() {
-    await test.step(`Open url: https://stg.mobalytics.gg/mhw`, async () => {
-      await this.page.goto(`https://stg.mobalytics.gg/mhw`, {
+  async openMhwHomePage(baseURL) {
+    await test.step(`Open url: ${baseURL}/mhw`, async () => {
+      await this.page.goto(`${baseURL}/mhw`, {
         waitUntil: "domcontentloaded",
       });
     });

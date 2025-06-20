@@ -1,5 +1,5 @@
 # Name workflow
-name: mobalytics-tests
+name: stg-mobalytics-tests
 
 # When launch auto-tests
 on:
@@ -36,7 +36,7 @@ env:
   INTERNAL_WRITER_STG_PASSWORD: ${{ secrets.INTERNAL_WRITER_STG_PASSWORD }}
 
 jobs:
-  main-tests:
+  ngf-tests:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:

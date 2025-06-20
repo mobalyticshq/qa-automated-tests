@@ -3,80 +3,643 @@ import { Moba } from "../page-object/moba";
 import { USER_ROLES } from "../setup/credentials";
 
 export const test = base.extend({
-  uiAuth: async ({ page }, use) => {
-    const moba = new Moba(page);
+  // Stg
 
-    await moba.mainURLs.openStgPoePage();
-    await moba.navbar.gotoSignInPage();
-    await test.step('Condition: Whether "Welcome" modal appears', async () => {
-      if (await moba.signInPage.welcomeModal.isVisible()) {
-        await moba.signInPage.closeWelcomeModal();
-      }
-    });
-    await moba.signInPage.loginUser(
-      USER_ROLES.admin_prod.email,
-      USER_ROLES.admin_prod.password
-    );
-    await test.step(`User is logged in`, async () => {
-      await expect(moba.navbar.settingsButton).toBeVisible();
-    });
-    await use(moba);
-  },
+  // uiStgAuth: async ({ page }, use) => {
+  //   const moba = new Moba(page);
 
-  apiAuthAdmin: async ({ request }, use) => {
-    // 1. Выполнить логин-запрос
-    const loginResponse = await request.post(
-      "https://stg.mobalytics.gg/api/account/gql/v1/query",
-      {
-        data: {
-          query: `
+  //   await moba.mainURLs.openStgPoePage();
+  //   await moba.navbar.gotoSignInPage();
+  //   await test.step('Condition: Whether "Welcome" modal appears', async () => {
+  //     if (await moba.signInPage.welcomeModal.isVisible()) {
+  //       await moba.signInPage.closeWelcomeModal();
+  //     }
+  //   });
+  //   await moba.signInPage.loginUser(
+  //     USER_ROLES.admin_stg.email,
+  //     USER_ROLES.admin_stg.password
+  //   );
+  //   await test.step(`User is logged in`, async () => {
+  //     await expect(moba.navbar.settingsButton).toBeVisible();
+  //   });
+  //   await use(moba);
+  // },
+
+  // apiAuthAdmin: async ({ request }, use) => {
+  //   // 1. Выполнить логин-запрос
+  //   const loginResponse = await request.post(
+  //     "https://stg.mobalytics.gg/api/account/gql/v1/query",
+  //     {
+  //       data: {
+  //         query: `
+  //         mutation SignIn {
+  //           signIn(
+  //             email: "${USER_ROLES.admin_stg.email}"
+  //             password: "${USER_ROLES.admin_stg.password}"
+  //           )
+  //         }
+  //       `,
+  //       },
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   );
+  //   await expect(loginResponse.ok()).toBeTruthy();
+  //   // console.log(loginResponse.headers());
+
+  //   // 2. Получить set-cookie из ответа
+  //   const setCookieHeader = loginResponse.headers()["set-cookie"];
+  //   if (!setCookieHeader)
+  //     throw new Error("No set-cookie header in login response");
+
+  //   // 3. Преобразовать куки для Playwright
+  //   const cookies = setCookieHeader
+  //     .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+  //     .map((cookieStr) => {
+  //       const [cookiePair, ...attributes] = cookieStr.split(";");
+  //       const index = cookiePair.indexOf("=");
+  //       const name = cookiePair.slice(0, index).trim();
+  //       const value = cookiePair.slice(index + 1).trim();
+  //       return {
+  //         name: name.trim(),
+  //         value: value.trim(),
+  //         domain: ".mobalytics.gg",
+  //         path: "/",
+  //       };
+  //     });
+  //   // 4. Передать куки в тест
+  //   await use({ cookies });
+  // },
+
+  // apiStgAuthInternalWriter: async ({ request }, use) => {
+  //   // 1. Выполнить логин-запрос
+  //   const loginResponse = await request.post(
+  //     "https://stg.mobalytics.gg/api/account/gql/v1/query",
+  //     {
+  //       data: {
+  //         query: `
+  //         mutation SignIn {
+  //           signIn(
+  //             email: "${USER_ROLES.internal_writer_stg.email}"
+  //             password: "${USER_ROLES.internal_writer_stg.password}"
+  //           )
+  //         }
+  //       `,
+  //       },
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   );
+  //   await expect(loginResponse.ok()).toBeTruthy();
+  //   // console.log(loginResponse.headers());
+
+  //   // 2. Получить set-cookie из ответа
+  //   const setCookieHeader = loginResponse.headers()["set-cookie"];
+  //   if (!setCookieHeader)
+  //     throw new Error("No set-cookie header in login response");
+
+  //   // 3. Преобразовать куки для Playwright
+  //   const cookies = setCookieHeader
+  //     .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+  //     .map((cookieStr) => {
+  //       const [cookiePair, ...attributes] = cookieStr.split(";");
+  //       const index = cookiePair.indexOf("=");
+  //       const name = cookiePair.slice(0, index).trim();
+  //       const value = cookiePair.slice(index + 1).trim();
+  //       return {
+  //         name: name.trim(),
+  //         value: value.trim(),
+  //         domain: ".mobalytics.gg",
+  //         path: "/",
+  //       };
+  //     });
+  //   // 4. Передать куки в тест
+  //   await use({ cookies });
+  // },
+
+  // apiStgAuthGameManager: async ({ request }, use) => {
+  //   // 1. Выполнить логин-запрос
+  //   const loginResponse = await request.post(
+  //     "https://stg.mobalytics.gg/api/account/gql/v1/query",
+  //     {
+  //       data: {
+  //         query: `
+  //         mutation SignIn {
+  //           signIn(
+  //             email: "${USER_ROLES.game_manager_stg.email}"
+  //             password: "${USER_ROLES.game_manager_stg.password}"
+  //           )
+  //         }
+  //       `,
+  //       },
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   );
+  //   await expect(loginResponse.ok()).toBeTruthy();
+  //   // console.log(loginResponse.headers());
+
+  //   // 2. Получить set-cookie из ответа
+  //   const setCookieHeader = loginResponse.headers()["set-cookie"];
+  //   if (!setCookieHeader)
+  //     throw new Error("No set-cookie header in login response");
+
+  //   // 3. Преобразовать куки для Playwright
+  //   const cookies = setCookieHeader
+  //     .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+  //     .map((cookieStr) => {
+  //       const [cookiePair, ...attributes] = cookieStr.split(";");
+  //       const index = cookiePair.indexOf("=");
+  //       const name = cookiePair.slice(0, index).trim();
+  //       const value = cookiePair.slice(index + 1).trim();
+  //       return {
+  //         name: name.trim(),
+  //         value: value.trim(),
+  //         domain: ".mobalytics.gg",
+  //         path: "/",
+  //       };
+  //     });
+  //   // 4. Передать куки в тест
+  //   await use({ cookies });
+  // },
+
+  // cleanupStPoEPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminPoePage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //         // await moba.stPage.deleteStPage();
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupStNightreignPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminStgNightreignPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupStDeadlockPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminStgDeadlockPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupStMhwPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminStgMhwPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupStMarvelRivalsPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminStgMarvelRivalsPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupStBazaarPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminStgBazaarPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupStZzzPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openAdminStgZzzPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.stAdminPage.clickDeleteButton(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgZzzPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgMarvelRivalsPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgBazaarBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgBazaarPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgPoeBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgPoePage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgMhwBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgMhwPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgDeadlockBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgDeadlockPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // cleanupUgNightreignBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  //   const pagesToCleanup = [];
+
+  //   const addPageForCleanup = (pageName) => {
+  //     pagesToCleanup.push(pageName);
+  //   };
+
+  //   await use({ addPageForCleanup });
+
+  //   // Cleanup после теста
+  //   if (pagesToCleanup.length > 0) {
+  //     const moba = new Moba(page);
+  //     await page.context().addCookies(apiAuthAdmin.cookies);
+  //     await moba.mainURLs.openUgStgNightreignPage();
+
+  //     for (const pageName of pagesToCleanup) {
+  //       try {
+  //         await moba.ugProfilePage.deleteBuild(pageName);
+  //       } catch (error) {
+  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
+  //       }
+  //     }
+  //   }
+  // },
+
+  // Env-Override
+
+  // uiAuth: async ({ page }, use) => {
+  //   const moba = new Moba(page);
+
+  //   await moba.mainURLs.openStgPoePage();
+  //   await moba.navbar.gotoSignInPage();
+  //   await test.step('Condition: Whether "Welcome" modal appears', async () => {
+  //     if (await moba.signInPage.welcomeModal.isVisible()) {
+  //       await moba.signInPage.closeWelcomeModal();
+  //     }
+  //   });
+  //   await moba.signInPage.loginUser(
+  //     USER_ROLES.admin_stg.email,
+  //     USER_ROLES.admin_stg.password
+  //   );
+  //   await test.step(`User is logged in`, async () => {
+  //     await expect(moba.navbar.settingsButton).toBeVisible();
+  //   });
+  //   await use(moba);
+  // },
+
+  apiAuthAdmin: async ({ request, baseURL }, use) => {
+    if (baseURL.includes("stg.mobalytics.gg")) {
+      const loginResponse = await request.post(
+        "https://stg.mobalytics.gg/api/account/gql/v1/query",
+        {
+          data: {
+            query: `
+        mutation SignIn {
+          signIn(
+            email: "${USER_ROLES.admin_stg.email}"
+            password: "${USER_ROLES.admin_stg.password}"
+          )
+        }
+      `,
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await expect(loginResponse.ok()).toBeTruthy();
+      // console.log(loginResponse.headers());
+
+      // 2. Получить set-cookie из ответа
+      const setCookieHeader = loginResponse.headers()["set-cookie"];
+      if (!setCookieHeader)
+        throw new Error("No set-cookie header in login response");
+
+      // 3. Преобразовать куки для Playwright
+      const cookies = setCookieHeader
+        .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+        .map((cookieStr) => {
+          const [cookiePair, ...attributes] = cookieStr.split(";");
+          const index = cookiePair.indexOf("=");
+          const name = cookiePair.slice(0, index).trim();
+          const value = cookiePair.slice(index + 1).trim();
+          return {
+            name: name.trim(),
+            value: value.trim(),
+            domain: ".mobalytics.gg",
+            path: "/",
+          };
+        });
+      // 4. Передать куки в тест
+      await use({ cookies });
+    } else if (baseURL.includes("mobalytics.gg")) {
+      // 1. Выполнить логин-запрос
+      const loginResponse = await request.post(
+        "https://account.mobalytics.gg/api/graphql/v1/query",
+        {
+          data: {
+            query: `
           mutation SignIn {
             signIn(
-              email: "${USER_ROLES.admin_stg.email}"
-              password: "${USER_ROLES.admin_stg.password}"
+              email: "${USER_ROLES.admin_prod.email}"
+              password: "${USER_ROLES.admin_prod.password}"
             )
           }
         `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    await expect(loginResponse.ok()).toBeTruthy();
-    // console.log(loginResponse.headers());
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await expect(loginResponse.ok()).toBeTruthy();
+      // console.log(loginResponse.headers());
 
-    // 2. Получить set-cookie из ответа
-    const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader)
-      throw new Error("No set-cookie header in login response");
+      // 2. Получить set-cookie из ответа
+      const setCookieHeader = loginResponse.headers()["set-cookie"];
+      if (!setCookieHeader)
+        throw new Error("No set-cookie header in login response");
 
-    // 3. Преобразовать куки для Playwright
-    const cookies = setCookieHeader
-      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
-      .map((cookieStr) => {
-        const [cookiePair, ...attributes] = cookieStr.split(";");
-        const index = cookiePair.indexOf("=");
-        const name = cookiePair.slice(0, index).trim();
-        const value = cookiePair.slice(index + 1).trim();
-        return {
-          name: name.trim(),
-          value: value.trim(),
-          domain: ".mobalytics.gg",
-          path: "/",
-        };
-      });
-    // 4. Передать куки в тест
-    await use({ cookies });
+      // 3. Преобразовать куки для Playwright
+      const cookies = setCookieHeader
+        .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+        .map((cookieStr) => {
+          const [cookiePair, ...attributes] = cookieStr.split(";");
+          const index = cookiePair.indexOf("=");
+          const name = cookiePair.slice(0, index).trim();
+          const value = cookiePair.slice(index + 1).trim();
+          return {
+            name: name.trim(),
+            value: value.trim(),
+            domain: ".mobalytics.gg",
+            path: "/",
+          };
+        });
+      // 4. Передать куки в тест
+      await use({ cookies });
+    }
   },
 
-  apiAuthInternalWriter: async ({ request }, use) => {
-    // 1. Выполнить логин-запрос
-    const loginResponse = await request.post(
-      "https://stg.mobalytics.gg/api/account/gql/v1/query",
-      {
-        data: {
-          query: `
+  apiAuthInternalWriter: async ({ request, baseURL }, use) => {
+    if (baseURL.includes("stg.mobalytics.gg")) {
+      // 1. Выполнить логин-запрос
+      const loginResponse = await request.post(
+        "https://stg.mobalytics.gg/api/account/gql/v1/query",
+        {
+          data: {
+            query: `
           mutation SignIn {
             signIn(
               email: "${USER_ROLES.internal_writer_stg.email}"
@@ -84,46 +647,93 @@ export const test = base.extend({
             )
           }
         `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    await expect(loginResponse.ok()).toBeTruthy();
-    // console.log(loginResponse.headers());
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await expect(loginResponse.ok()).toBeTruthy();
+      // console.log(loginResponse.headers());
 
-    // 2. Получить set-cookie из ответа
-    const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader)
-      throw new Error("No set-cookie header in login response");
+      // 2. Получить set-cookie из ответа
+      const setCookieHeader = loginResponse.headers()["set-cookie"];
+      if (!setCookieHeader)
+        throw new Error("No set-cookie header in login response");
 
-    // 3. Преобразовать куки для Playwright
-    const cookies = setCookieHeader
-      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
-      .map((cookieStr) => {
-        const [cookiePair, ...attributes] = cookieStr.split(";");
-        const index = cookiePair.indexOf("=");
-        const name = cookiePair.slice(0, index).trim();
-        const value = cookiePair.slice(index + 1).trim();
-        return {
-          name: name.trim(),
-          value: value.trim(),
-          domain: ".mobalytics.gg",
-          path: "/",
-        };
-      });
-    // 4. Передать куки в тест
-    await use({ cookies });
+      // 3. Преобразовать куки для Playwright
+      const cookies = setCookieHeader
+        .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+        .map((cookieStr) => {
+          const [cookiePair, ...attributes] = cookieStr.split(";");
+          const index = cookiePair.indexOf("=");
+          const name = cookiePair.slice(0, index).trim();
+          const value = cookiePair.slice(index + 1).trim();
+          return {
+            name: name.trim(),
+            value: value.trim(),
+            domain: ".mobalytics.gg",
+            path: "/",
+          };
+        });
+      // 4. Передать куки в тест
+      await use({ cookies });
+    } else if (baseURL.includes("mobalytics.gg")) {
+      // 1. Выполнить логин-запрос
+      const loginResponse = await request.post(
+        "https://account.mobalytics.gg/api/graphql/v1/query",
+        {
+          data: {
+            query: `
+          mutation SignIn {
+            signIn(
+              email: "${USER_ROLES.internal_writer_prod.email}"
+              password: "${USER_ROLES.internal_writer_prod.password}"
+            )
+          }
+        `,
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await expect(loginResponse.ok()).toBeTruthy();
+      // console.log(loginResponse.headers());
+
+      // 2. Получить set-cookie из ответа
+      const setCookieHeader = loginResponse.headers()["set-cookie"];
+      if (!setCookieHeader)
+        throw new Error("No set-cookie header in login response");
+
+      // 3. Преобразовать куки для Playwright
+      const cookies = setCookieHeader
+        .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+        .map((cookieStr) => {
+          const [cookiePair, ...attributes] = cookieStr.split(";");
+          const index = cookiePair.indexOf("=");
+          const name = cookiePair.slice(0, index).trim();
+          const value = cookiePair.slice(index + 1).trim();
+          return {
+            name: name.trim(),
+            value: value.trim(),
+            domain: ".mobalytics.gg",
+            path: "/",
+          };
+        });
+      // 4. Передать куки в тест
+      await use({ cookies });
+    }
   },
 
-  apiAuthGameManager: async ({ request }, use) => {
-    // 1. Выполнить логин-запрос
-    const loginResponse = await request.post(
-      "https://stg.mobalytics.gg/api/account/gql/v1/query",
-      {
-        data: {
-          query: `
+  apiAuthGameManager: async ({ request, baseURL }, use) => {
+    if (baseURL.includes("stg.mobalytics.gg")) {
+      // 1. Выполнить логин-запрос
+      const loginResponse = await request.post(
+        "https://stg.mobalytics.gg/api/account/gql/v1/query",
+        {
+          data: {
+            query: `
           mutation SignIn {
             signIn(
               email: "${USER_ROLES.game_manager_stg.email}"
@@ -131,40 +741,86 @@ export const test = base.extend({
             )
           }
         `,
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    await expect(loginResponse.ok()).toBeTruthy();
-    // console.log(loginResponse.headers());
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await expect(loginResponse.ok()).toBeTruthy();
+      // console.log(loginResponse.headers());
 
-    // 2. Получить set-cookie из ответа
-    const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader)
-      throw new Error("No set-cookie header in login response");
+      // 2. Получить set-cookie из ответа
+      const setCookieHeader = loginResponse.headers()["set-cookie"];
+      if (!setCookieHeader)
+        throw new Error("No set-cookie header in login response");
 
-    // 3. Преобразовать куки для Playwright
-    const cookies = setCookieHeader
-      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
-      .map((cookieStr) => {
-        const [cookiePair, ...attributes] = cookieStr.split(";");
-        const index = cookiePair.indexOf("=");
-        const name = cookiePair.slice(0, index).trim();
-        const value = cookiePair.slice(index + 1).trim();
-        return {
-          name: name.trim(),
-          value: value.trim(),
-          domain: ".mobalytics.gg",
-          path: "/",
-        };
-      });
-    // 4. Передать куки в тест
-    await use({ cookies });
+      // 3. Преобразовать куки для Playwright
+      const cookies = setCookieHeader
+        .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+        .map((cookieStr) => {
+          const [cookiePair, ...attributes] = cookieStr.split(";");
+          const index = cookiePair.indexOf("=");
+          const name = cookiePair.slice(0, index).trim();
+          const value = cookiePair.slice(index + 1).trim();
+          return {
+            name: name.trim(),
+            value: value.trim(),
+            domain: ".mobalytics.gg",
+            path: "/",
+          };
+        });
+      // 4. Передать куки в тест
+      await use({ cookies });
+    } else if (baseURL.includes("mobalytics.gg")) {
+      // 1. Выполнить логин-запрос
+      const loginResponse = await request.post(
+        "https://account.mobalytics.gg/api/graphql/v1/query",
+        {
+          data: {
+            query: `
+          mutation SignIn {
+            signIn(
+              email: "${USER_ROLES.game_manager_prod.email}"
+              password: "${USER_ROLES.game_manager_prod.password}"
+            )
+          }
+        `,
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      await expect(loginResponse.ok()).toBeTruthy();
+      // console.log(loginResponse.headers());
+
+      // 2. Получить set-cookie из ответа
+      const setCookieHeader = loginResponse.headers()["set-cookie"];
+      if (!setCookieHeader)
+        throw new Error("No set-cookie header in login response");
+
+      // 3. Преобразовать куки для Playwright
+      const cookies = setCookieHeader
+        .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+        .map((cookieStr) => {
+          const [cookiePair, ...attributes] = cookieStr.split(";");
+          const index = cookiePair.indexOf("=");
+          const name = cookiePair.slice(0, index).trim();
+          const value = cookiePair.slice(index + 1).trim();
+          return {
+            name: name.trim(),
+            value: value.trim(),
+            domain: ".mobalytics.gg",
+            path: "/",
+          };
+        });
+      // 4. Передать куки в тест
+      await use({ cookies });
+    }
   },
 
-  cleanupStPoEPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStPoEPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -177,7 +833,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgPoePage();
+      await moba.mainURLs.openAdminPoePage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -190,7 +846,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStNightreignPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStNightreignPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -203,7 +859,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgNightreignPage();
+      await moba.mainURLs.openAdminNightreignPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -215,7 +871,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStDeadlockPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStDeadlockPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -228,7 +884,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgDeadlockPage();
+      await moba.mainURLs.openAdminDeadlockPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -240,7 +896,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStMhwPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStMhwPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -253,7 +909,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgMhwPage();
+      await moba.mainURLs.openAdminMhwPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -265,7 +921,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStMarvelRivalsPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStMarvelRivalsPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -278,7 +934,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgMarvelRivalsPage();
+      await moba.mainURLs.openAdminMarvelRivalsPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -290,7 +946,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStBazaarPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStBazaarPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -303,7 +959,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgBazaarPage();
+      await moba.mainURLs.openAdminBazaarPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -315,7 +971,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupStZzzPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupStZzzPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -328,7 +984,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminStgZzzPage();
+      await moba.mainURLs.openAdminZzzPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -340,7 +996,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -353,7 +1009,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgZzzPage();
+      await moba.mainURLs.openUgZzzPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -365,7 +1021,10 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgMarvelRivalsBuildPages: async (
+    { page, apiAuthAdmin, baseURL },
+    use
+  ) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -378,7 +1037,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgMarvelRivalsPage();
+      await moba.mainURLs.openUgMarvelRivalsPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -390,7 +1049,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgBazaarBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgBazaarBuildPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -403,7 +1062,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgBazaarPage();
+      await moba.mainURLs.openUgBazaarPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -415,7 +1074,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgPoeBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgPoeBuildPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -428,7 +1087,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgPoePage();
+      await moba.mainURLs.openUgPoePage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -440,7 +1099,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgMhwBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgMhwBuildPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -453,7 +1112,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgMhwPage();
+      await moba.mainURLs.openUgMhwPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -465,7 +1124,7 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgDeadlockBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgDeadlockBuildPages: async ({ page, apiAuthAdmin, baseURL }, use) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -478,7 +1137,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgDeadlockPage();
+      await moba.mainURLs.openUgDeadlockPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -490,7 +1149,10 @@ export const test = base.extend({
     }
   },
 
-  cleanupUgNightreignBuildPages: async ({ page, apiAuthAdmin }, use) => {
+  cleanupUgNightreignBuildPages: async (
+    { page, apiAuthAdmin, baseURL },
+    use
+  ) => {
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -503,7 +1165,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgStgNightreignPage();
+      await moba.mainURLs.openUgNightreignPage(baseURL);
 
       for (const pageName of pagesToCleanup) {
         try {

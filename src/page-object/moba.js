@@ -4,7 +4,6 @@ import {
   Navbar,
   ProfilePage,
   MainPage,
-  GamePage,
   MainURLs,
   StAdminPage,
   StPage,
@@ -27,7 +26,6 @@ export class Moba {
     this.accountPage = new AccountPage(page);
     this.profilePage = new ProfilePage(page);
     this.mainPage = new MainPage(page);
-    this.gamePage = new GamePage(page);
     this.mainURLs = new MainURLs(page);
     this.cardGalleryV2Widget = new CardGalleryV2Widget(page);
   }
