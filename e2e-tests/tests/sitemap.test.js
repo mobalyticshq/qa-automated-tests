@@ -41,7 +41,10 @@ test(`Sitemap_index link is present on sitemap`, async ({ page, baseURL }) => {
   });
 });
 
-test(`Product-sitemap link is present on sitemap`, async ({ page, baseURL }) => {
+test(`Product-sitemap link is present on sitemap`, async ({
+  page,
+  baseURL,
+}) => {
   const PRODUCT_SITEMAP = `${baseURL}/product-sitemap.xml`;
 
   await test.step(`Open url: ${env_sitemap}`, async () => {

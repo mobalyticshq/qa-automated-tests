@@ -3,7 +3,7 @@ import { test } from "../../src/fixtures/index";
 import { Moba } from "../../src/page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
-test(`There is "New Game" in the navbar on stg`, async ({ page }) => {
+test(`"New Game" is present in the navbar on STG`, async ({ page }) => {
   const NEW_GAME = "ZZZ";
   const moba = new Moba(page);
   await page.goto("https://stg.mobalytics.gg/destiny-2");
@@ -13,7 +13,7 @@ test(`There is "New Game" in the navbar on stg`, async ({ page }) => {
   });
 });
 
-test(`"New Game" is missing in the navbar on prod`, async ({ page }) => {
+test(`"New Game" is missing in the navbar on PROD`, async ({ page }) => {
   const NEW_GAME = "ZZZ";
   const moba = new Moba(page);
   await page.goto("https://mobalytics.gg/destiny-2");
@@ -517,7 +517,7 @@ test.describe("Creating UG Pages", () => {
 });
 
 test.describe("Checking role permissions", () => {
-  test.describe("Checking Admin permission", () => {
+  test.describe("Admin permission", () => {
     test(`Admin role has access to the Admin ST page`, async ({
       apiAuthAdmin,
       page,
@@ -773,7 +773,7 @@ test.describe("Checking role permissions", () => {
     });
   });
 
-  test.describe("Checking Internal Writer permission", () => {
+  test.describe("Internal Writer permission", () => {
     test(`Internal Writer role has NO access to the Admin ST page`, async ({
       apiAuthInternalWriter,
       page,
@@ -837,7 +837,7 @@ test.describe("Checking role permissions", () => {
     });
   });
 
-  test.describe("Checking Game Manager permission", () => {
+  test.describe("Game Manager permission", () => {
     test("Game Manager role has access to the Admin ST page", async ({
       page,
       apiAuthGameManager,
