@@ -1,0 +1,323 @@
+# Test info
+
+- Name: Creating UG Pages >> Create a build page on MHW project
+- Location: /home/runner/work/qa-automated-tests/qa-automated-tests/e2e-tests/tests/ngf.test.js:272:7
+
+# Error details
+
+```
+Error: expect(locator).toContainText(expected)
+
+Locator: locator('section').first()
+Expected string: "Monster Hunter Wilds Build"
+Received: <element(s) not found>
+Call log:
+  - expect.toContainText with timeout 5000ms
+  - waiting for locator('section').first()
+
+    at /home/runner/work/qa-automated-tests/qa-automated-tests/e2e-tests/tests/ngf.test.js:287:45
+    at /home/runner/work/qa-automated-tests/qa-automated-tests/e2e-tests/tests/ngf.test.js:286:16
+```
+
+# Page snapshot
+
+```yaml
+- link "Mobalytics":
+  - /url: /mhw
+  - img "Mobalytics"
+- link "League of Legends LoL":
+  - /url: https://mobalytics.gg/lol
+  - img "League of Legends"
+  - text: LoL
+- link "Teamfight Tactics TFT":
+  - /url: https://mobalytics.gg/tft
+  - img "Teamfight Tactics"
+  - text: TFT
+- link "Path of Exile 2 PoE 2":
+  - /url: https://mobalytics.gg/poe-2
+  - img "Path of Exile 2"
+  - text: PoE 2
+- link "Diablo 4 Diablo 4":
+  - /url: https://mobalytics.gg/diablo-4
+  - img "Diablo 4"
+  - text: Diablo 4
+- link "Elden Ring Nightreign Nightreign New":
+  - /url: https://mobalytics.gg/elden-ring-nightreign
+  - img "Elden Ring Nightreign"
+  - text: Nightreign New
+- link "Deadlock Deadlock":
+  - /url: https://mobalytics.gg/deadlock
+  - img "Deadlock"
+  - text: Deadlock
+- link "Valorant VAL":
+  - /url: https://mobalytics.gg/valorant
+  - img "Valorant"
+  - text: VAL
+- link "Monster Hunter Wilds Monster Hunter Wilds":
+  - /url: https://mobalytics.gg/mhw
+  - img "Monster Hunter Wilds"
+  - text: Monster Hunter Wilds
+- link "Destiny 2 Destiny 2":
+  - /url: https://mobalytics.gg/destiny-2
+  - img "Destiny 2"
+  - text: Destiny 2
+- link "Lost Ark Lost Ark":
+  - /url: https://mobalytics.gg/lost-ark
+  - img "Lost Ark"
+  - text: Lost Ark
+- button:
+  - img
+- link "The Bazaar The Bazaar":
+  - /url: https://mobalytics.gg/the-bazaar
+  - img "The Bazaar"
+  - text: The Bazaar
+- link "Marvel Rivals Marvel Rivals":
+  - /url: https://mobalytics.gg/marvel-rivals
+  - img "Marvel Rivals"
+  - text: Marvel Rivals
+- link "win logo Download app":
+  - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-mhw&utm_medium=homepage&utm_source=web
+  - button "win logo Download app":
+    - img "win logo"
+    - text: Download app
+- text: Community
+- button "Remove Ads"
+- img "settings"
+- img "support"
+- link "Home":
+  - /url: /mhw
+  - img "Home"
+- link "Profile":
+  - /url: /mhw/profile
+  - img "Profile"
+- link "Build Planner":
+  - /url: /mhw/planner/builds
+  - img "Build Planner"
+- link "Builds":
+  - /url: /mhw/builds
+  - img "Builds"
+- link "Weapons":
+  - /url: /mhw/weapons
+  - img "Weapons"
+- link "Monster Guides":
+  - /url: /mhw/monster-guides
+  - img "Monster Guides"
+- link "Guides":
+  - /url: /mhw/guides
+  - img "Guides"
+- main:
+  - iframe
+- complementary:
+  - text: Remove Ads
+  - iframe
+- banner: Advertisement Remove Ads
+- text: Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+- button "Remove ads"
+```
+
+# Test source
+
+```ts
+  187 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  188 |     const uniqueId = uuidv4();
+  189 |     const pageName = `/qa-automation-st-page-${uniqueId}`;
+  190 |     const moba = new Moba(page);
+  191 |
+  192 |     await moba.mainURLs.openAdminZzzPage(baseURL);
+  193 |     await moba.stAdminPage.gotoStPlannerPage();
+  194 |     await moba.stPage.addHeaderV2Widget();
+  195 |     await moba.stPage.createStPage(pageName);
+  196 |
+  197 |     cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+  198 |
+  199 |     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on ZZZ project`, async () => {
+  200 |       await expect(moba.stPage.headerV2Zzz).toContainText("ZZZ");
+  201 |       await expect(moba.stPage.stPageTitle).toContainText(pageName);
+  202 |     });
+  203 |   });
+  204 | });
+  205 |
+  206 | test.describe("Creating UG Pages", () => {
+  207 |   test(`Create a build page on ZZZ project`, async ({
+  208 |     apiAuthAdmin,
+  209 |     page,
+  210 |     baseURL,
+  211 |   }) => {
+  212 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  213 |     const uniqueId = uuidv4();
+  214 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  215 |     const moba = new Moba(page);
+  216 |
+  217 |     await moba.mainURLs.openUgZzzPage(baseURL);
+  218 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  219 |     await moba.ugBuildPage.createBuild(pageName);
+  220 |
+  221 |     //Register page for deleting
+  222 |     // cleanupUgZzzBuildPages.addPageForCleanup(pageName);
+  223 |
+  224 |     await test.step(`Expected Result: Build page with the name: ${pageName} is created on ZZZ project`, async () => {
+  225 |       await expect(moba.ugBuildPage.header).toContainText("ZZZ Build");
+  226 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  227 |     });
+  228 |   });
+  229 |
+  230 |   test(`Create a build page on Marvel Rivals project`, async ({
+  231 |     apiAuthAdmin,
+  232 |     page,
+  233 |     baseURL,
+  234 |   }) => {
+  235 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  236 |     const uniqueId = uuidv4();
+  237 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  238 |     const moba = new Moba(page);
+  239 |
+  240 |     await moba.mainURLs.openUgMarvelRivalsPage(baseURL);
+  241 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  242 |     await moba.ugBuildPage.createBuild(pageName);
+  243 |
+  244 |     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
+  245 |       await expect(moba.ugBuildPage.header).toContainText(
+  246 |         "Marvel Rivals Build"
+  247 |       );
+  248 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  249 |     });
+  250 |   });
+  251 |
+  252 |   test(`Create a build page on Bazaar project`, async ({
+  253 |     apiAuthAdmin,
+  254 |     page,
+  255 |     baseURL,
+  256 |   }) => {
+  257 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  258 |     const uniqueId = uuidv4();
+  259 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  260 |     const moba = new Moba(page);
+  261 |
+  262 |     await moba.mainURLs.openUgBazaarPage(baseURL);
+  263 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  264 |     await moba.ugBuildPage.createBuild(pageName);
+  265 |
+  266 |     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Bazaar project`, async () => {
+  267 |       await expect(moba.ugBuildPage.header).toContainText("The Bazaar Build");
+  268 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  269 |     });
+  270 |   });
+  271 |
+  272 |   test(`Create a build page on MHW project`, async ({
+  273 |     apiAuthAdmin,
+  274 |     page,
+  275 |     baseURL,
+  276 |   }) => {
+  277 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  278 |     const uniqueId = uuidv4();
+  279 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  280 |     const moba = new Moba(page);
+  281 |
+  282 |     await moba.mainURLs.openUgMhwPage(baseURL);
+  283 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  284 |     await moba.ugBuildPage.createBuild(pageName);
+  285 |
+  286 |     await test.step(`Expected Result: Build page with the name: ${pageName} is created on MHW project`, async () => {
+> 287 |       await expect(moba.ugBuildPage.header).toContainText(
+      |                                             ^ Error: expect(locator).toContainText(expected)
+  288 |         "Monster Hunter Wilds Build"
+  289 |       );
+  290 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  291 |     });
+  292 |   });
+  293 |
+  294 |   test(`Create a build page on PoE project`, async ({
+  295 |     apiAuthAdmin,
+  296 |     page,
+  297 |     baseURL,
+  298 |   }) => {
+  299 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  300 |     const uniqueId = uuidv4();
+  301 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  302 |     const moba = new Moba(page);
+  303 |
+  304 |     await moba.mainURLs.openUgPoePage(baseURL);
+  305 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  306 |     await moba.ugBuildPage.createBuild(pageName);
+  307 |
+  308 |     await test.step(`Expected Result: Build page with the name: ${pageName} is created on PoE project`, async () => {
+  309 |       await expect(moba.ugBuildPage.header).toContainText("PoE 2 Build");
+  310 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  311 |     });
+  312 |   });
+  313 |
+  314 |   test(`Create a build page on Nightreign project`, async ({
+  315 |     apiAuthAdmin,
+  316 |     page,
+  317 |     baseURL,
+  318 |   }) => {
+  319 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  320 |     const uniqueId = uuidv4();
+  321 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  322 |     const moba = new Moba(page);
+  323 |
+  324 |     await moba.mainURLs.openUgNightreignPage(baseURL);
+  325 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  326 |     await moba.ugBuildPage.createBuild(pageName);
+  327 |
+  328 |     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Nightreign project`, async () => {
+  329 |       await expect(moba.ugBuildPage.header).toContainText("Nightreign Build");
+  330 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  331 |     });
+  332 |   });
+  333 |
+  334 |   test(`Create a guide page on Nightreign project`, async ({
+  335 |     apiAuthAdmin,
+  336 |     page,
+  337 |     baseURL,
+  338 |   }) => {
+  339 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  340 |     const uniqueId = uuidv4();
+  341 |     const pageName = `qa-automation-guide-page-${uniqueId}`;
+  342 |     const moba = new Moba(page);
+  343 |
+  344 |     await moba.mainURLs.openUgNightreignPage(baseURL);
+  345 |     await moba.ugProfilePage.gotoGuidePlannerPage();
+  346 |     await moba.ugBuildPage.createGuide(pageName);
+  347 |
+  348 |     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Nightreign project`, async () => {
+  349 |       await expect(moba.ugBuildPage.header).toContainText("Nightreign Guide");
+  350 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  351 |     });
+  352 |   });
+  353 |
+  354 |   test(`Create a guide page on PoE project`, async ({
+  355 |     apiAuthAdmin,
+  356 |     page,
+  357 |     baseURL,
+  358 |   }) => {
+  359 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  360 |     const uniqueId = uuidv4();
+  361 |     const pageName = `qa-automation-guide-page-${uniqueId}`;
+  362 |     const moba = new Moba(page);
+  363 |
+  364 |     await moba.mainURLs.openUgPoePage(baseURL);
+  365 |     await moba.ugProfilePage.gotoGuidePlannerPage();
+  366 |     await moba.ugBuildPage.createGuide(pageName);
+  367 |
+  368 |     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE project`, async () => {
+  369 |       await expect(moba.ugBuildPage.header).toContainText("PoE 2 Guide");
+  370 |       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  371 |     });
+  372 |   });
+  373 |
+  374 |   test(`Create a build page on Deadlock project`, async ({
+  375 |     apiAuthAdmin,
+  376 |     page,
+  377 |     baseURL,
+  378 |   }) => {
+  379 |     await page.context().addCookies(apiAuthAdmin.cookies);
+  380 |     const uniqueId = uuidv4();
+  381 |     const pageName = `qa-automation-build-page-${uniqueId}`;
+  382 |     const moba = new Moba(page);
+  383 |
+  384 |     await moba.mainURLs.openUgDeadlockPage(baseURL);
+  385 |     await moba.ugProfilePage.gotoBuildPlannerPage();
+  386 |     await moba.ugBuildPage.createBuild(pageName);
+  387 |
+```
