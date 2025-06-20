@@ -14,6 +14,45 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
+// Receive environment
+const baseUrl = process.env.BASE_URL || "https://stg.mobalytics.gg";
+
+// Form the list of the projects depends on environment
+let projects = [
+  // {
+  //   name: "setup",
+  //   use: { ...devices["Desktop Chrome"] },
+  //   testMatch: ю /stg-tests/auth.setup.test.js",
+  // },
+
+  {
+    name: "sitemap-tests",
+    use: { ...devices["Desktop Chrome"] },
+    testMatch: "tests/sitemap.test.js",
+  },
+
+  {
+    name: "ngf-chromium",
+    use: {
+      ...devices["Desktop Chrome"],
+      // storageState: "playwright/.auth/userFile.json",
+    },
+    testMatch: "tests/ngf.test.js",
+  },
+];
+
+if (baseUrl.includes("stg")) {
+  projects.push({
+    name: "ngf-firefox",
+    use: {
+      ...devices["Desktop Firefox"],
+      // storageState: "playwright/.auth/userFile.json",
+    },
+    testMatch: "tests/ngf.test.js",
+  });
+}
+
 export default defineConfig({
   timeout: 60000,
   testDir: "./e2e-tests",
@@ -44,7 +83,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || "https://stg.mobalytics.gg",
+    // baseURL: process.env.BASE_URL || "https://stg.mobalytics.gg",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
@@ -52,65 +91,7 @@ export default defineConfig({
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    // {
-    //   name: "setup",
-    //   use: { ...devices["Desktop Chrome"] },
-    //   testMatch: ю /stg-tests/auth.setup.test.js",
-    // },
-
-    {
-      name: "sitemap-tests",
-      use: { ...devices["Desktop Chrome"] },
-      testMatch: "tests/sitemap.test.js",
-    },
-
-    {
-      name: "ngf-chromium",
-      use: {
-        ...devices["Desktop Chrome"],
-        // storageState: "playwright/.auth/userFile.json",
-      },
-      // dependencies: ["setup"],
-      testMatch: "tests/ngf.test.js",
-    },
-
-    {
-      name: "ngf-firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-        // storageState: "playwright/.auth/userFile.json",
-      },
-      // dependencies: ["setup"],
-      testMatch: "tests/ngf.test.js",
-    },
-
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    // testMatch: ["e2e-tests/stg-tests/ngf.test.js"],
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
-  ],
+  projects,
 
   /* Run your local dev server before starting the tests */
   // webServer: {

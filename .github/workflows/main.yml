@@ -148,6 +148,7 @@ jobs:
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
+            -e "s|\$BASE_URL|${BASE_URL}|g" \
             notifications/config.json > notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification
