@@ -89,8 +89,11 @@ jobs:
 
       - name: Launch auto-tests with ENV-override
         env:
-          BASE_URL: ${{ github.event.inputs.BaseURL }}
+          BASE_URL: ${{ github.event.inputs.BaseURL || 'pushed code from the local machine' }}
         run: npm test
+
+      - name: Debug BASE_URL
+        run: echo "BASE_URL is $BASE_URL"
 
       - name: Save playwright-results
         uses: actions/upload-artifact@v4
@@ -150,6 +153,9 @@ jobs:
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
             -e "s|\$BASE_URL|${{ env.BASE_URL }}|g" \
             notifications/config.json > notifications/tmp/config.json
+
+      - name: Show generated config.json
+        run: cat notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification
         if: always()
