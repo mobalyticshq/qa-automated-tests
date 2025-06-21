@@ -89,7 +89,7 @@ jobs:
 
       - name: Launch auto-tests with ENV-override
         env:
-          BASE_URL: ${{ github.event.inputs.BaseURL || 'pushed code to the repo from the local machine' }}
+          BASE_URL: ${{ github.event.inputs.BaseURL }}
         run: npm test
 
       - name: Debug BASE_URL
@@ -153,9 +153,6 @@ jobs:
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
             -e "s|\$BASE_URL|${{ github.event.inputs.BaseURL }}|g" \
             notifications/config.json > notifications/tmp/config.json
-
-      - name: Show generated config.json
-        run: cat notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification
         if: always()
