@@ -158,14 +158,14 @@ export class StPage {
   async duplicateStPage(uuid) {
     await test.step(`Duplicate the structure page`, async () => {
       await this.dotsButton.click();
-      await this.duplicateStPageButton.click();
 
-      // Waiting for new tab
+      // Creating a new tab
       const [newPage] = await Promise.all([
         this.page.context().waitForEvent("page"),
+        this.duplicateStPageButton.click(),
       ]);
-      // Switch to a new tab
-      await newPage.waitForLoadState("networkidle");
+      // Waiting for new tab
+      await newPage.waitForLoadState("domcontentloaded");
 
       // Creating new locators for the new tab
       const buttonCreateSave = newPage.getByTestId("ngf-st-create-button");
