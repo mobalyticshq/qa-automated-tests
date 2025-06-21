@@ -89,7 +89,7 @@ jobs:
 
       - name: Launch auto-tests with ENV-override
         env:
-          BASE_URL: ${{ github.event.inputs.BaseURL || 'pushed code from the local machine' }}
+          BASE_URL: ${{ github.event.inputs.BaseURL || 'pushed code to the repo from the local machine' }}
         run: npm test
 
       - name: Debug BASE_URL
@@ -151,7 +151,7 @@ jobs:
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
-            -e "s|\$BASE_URL|${{ env.BASE_URL }}|g" \
+            -e "s|\$BASE_URL|${{ github.event.inputs.BaseURL }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
       - name: Show generated config.json
