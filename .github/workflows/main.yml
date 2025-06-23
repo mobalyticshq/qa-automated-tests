@@ -92,9 +92,6 @@ jobs:
           BASE_URL: ${{ github.event.inputs.BaseURL }}
         run: npm test
 
-      - name: Debug BASE_URL
-        run: echo "BASE_URL is $BASE_URL"
-
       - name: Save playwright-results
         uses: actions/upload-artifact@v4
         if: always()

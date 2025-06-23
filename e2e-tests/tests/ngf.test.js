@@ -535,7 +535,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test('St Widget contains "Edit" button, "Delete" button & "Create Page" button is present on ST page for Admin role', async ({
+    test('St Widget contains "Edit" button, "Delete" button & "Create Page" button is present on ST Admin page for Admin role', async ({
       page,
       apiAuthAdmin,
       baseURL,
@@ -889,7 +889,7 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminNightreignPage(baseURL);
       await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await test.step(`Expected Result: View mode the "/home" structure page is opened`, async () => {
+      await test.step(`Expected Result: View mode the "/qa-not-delete-st-page" structure page is opened`, async () => {
         await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
       });
     });

@@ -13,7 +13,7 @@ test(`New game is present on stg sitemap`, async ({ page, baseURL }) => {
   });
 
   await test.step(`Expected Result: There is no ${NEW_GAME} in ${env_sitemap}`, async () => {
-    await expect(page.locator("#folder0")).not.toContainText(NEW_GAME);
+    await expect(page.locator("#folder0")).not.toContainText(NEW_GAME); //* Needs to remove ".not" in the expect when NEW GAME will be revealed on prod
   });
 });
 
