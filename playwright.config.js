@@ -23,7 +23,7 @@ let projects = [
   // {
   //   name: "setup",
   //   use: { ...devices["Desktop Chrome"] },
-  //   testMatch: ю /stg-tests/auth.setup.test.js",
+  //   testMatch: "/stg-tests/auth.setup.test.js",
   // },
 
   {
