@@ -13,7 +13,7 @@ Hey, folks! There are two ways to launch tests:
 
 2. Select the **mobalytics-tests** workflow from the Actions sidebar on the left side of the screen.
 
-3. Click the **Run workflow** button.
+3. Click the **Run workflow** button above the workflows list.
 
 4. Enter the complete link to PROD or STG into the input field exactly as shown below:
 
@@ -23,7 +23,6 @@ Hey, folks! There are two ways to launch tests:
    Then click the green **Run workflow** button.
 
    > You will see a message indicating "Workflow run was successfully requested."
-
    ![alt text](src/images/worklow_run.png)
 
 5. Refresh the page and navigate to the running workflow _(a yellow circle indicates the workflow is running)_.
@@ -55,7 +54,6 @@ Once the job is completed, you will receive one of two results:
 4. Click the link in the **deploy** job.
 
    > Your Allure Report will open, displaying the results from the latest test run.
-
    ![alt text](src/images/allure-report.png)
 
 <br>
@@ -76,8 +74,7 @@ Once the job is completed, you will receive one of two results:
    git clone https://github.com/mobalyticshq/qa-automated-tests.git
    ```
 
-   > After the repository has been cloned successfully, you will see a new folder created and a **done** status message in the terminal process.
-
+   > After the repository has been cloned successfully, you will see a new folder created and **done** status messages in the terminal process.
    ![alt text](src/images/clone-code-success.png)
 
 3. **Move Repository Content**
@@ -92,8 +89,7 @@ Once the job is completed, you will receive one of two results:
    npm install
    ```
 
-   > After installing dependencies you will see such kind of messages in the terminal.
-
+   > After installing dependencies, you will see the following messages in the terminal.
    ![alt text](src/images/install-dependecies.png)
 
 5. **Set Up the `.env` File**
@@ -109,13 +105,23 @@ Once the job is completed, you will receive one of two results:
    ```
 
    > You will see the results of all executed tests displayed in the terminal.
-
    ![alt text](src/images/results.png)
-   <br>
-   <br>
-   <br>
 
-> NOTE: The **stg** environment is set by default. To change the environment, navigate to the root project & find **playwright.config.js** file then update the environment settings in two places:
+
+7. **Access the Allure Report**
+
+   * To generate and open the Allure Report, use the following command in the terminal:
+
+   ```bash
+   npm run generate-report-locally
+   ```
+   > Allure Report will be generated and opened in a new window
+![alt text](src/images/allure-report3.png)
+
+   <br>
+   <br>
+   
+> *NOTE: The **stg** environment is set by default. To change the environment, navigate to the root project & find **playwright.config.js** file then update the environment settings in two places:*
 
    - `const baseUrl = process.env.BASE_URL || "https://stg.mobalytics.gg";`![alt text](src/images/config-environments.png)
 
