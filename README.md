@@ -98,11 +98,11 @@ Once the job is completed, you will receive one of two results:
 
 5. **Set Up the `.env` File**
 
-   - Download the `env` file from the _#team-qa_ channel and paste it into your root project folder (e.g., **test-repo**).
+   * Rename the file `.env.example` to `.env`, retrieve the correct credentials from the #team-qa Slack channel, and update your .env with those values.
 
 6. **Run the Tests**
 
-   - In the terminal, run tests using the following command:
+   * In the terminal, run tests using the following command:
 
    ```bash
    npm t
