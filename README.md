@@ -1,11 +1,11 @@
-# Instructions on How to Launch Automated Tests
+# Instruction on How to Launch Automated Tests
 
 ### Introduction
 
 Hey, folks! There are two ways to launch tests:
 
 - Using GitHub Actions (CI/CD)
-- On your local machine (your PC)
+- On your local machine (PC)
 
 ## Steps to Run Tests Using GitHub Actions
 
@@ -23,7 +23,7 @@ Hey, folks! There are two ways to launch tests:
    Then click the green **Run workflow** button.
 
    > You will see a message indicating "Workflow run was successfully requested."
-   ![alt text](src/images/worklow_run.png)
+   > ![alt text](src/images/worklow_run.png)
 
 5. Refresh the page and navigate to the running workflow _(a yellow circle indicates the workflow is running)_.
 
@@ -43,7 +43,7 @@ Once the job is completed, you will receive one of two results:
 
   ![alt text](src/images/red.png)
 
-## Steps to Access the Allure Report
+### Steps to Access the Allure Report
 
 1. Return to the **Actions** tab.
 
@@ -54,7 +54,7 @@ Once the job is completed, you will receive one of two results:
 4. Click the link in the **deploy** job.
 
    > Your Allure Report will open, displaying the results from the latest test run.
-   ![alt text](src/images/allure-report.png)
+   > ![alt text](src/images/allure-report.png)
 
 <br>
 <br>
@@ -75,54 +75,61 @@ Once the job is completed, you will receive one of two results:
    ```
 
    > After the repository has been cloned successfully, you will see a new folder created and **done** status messages in the terminal process.
-   ![alt text](src/images/clone-code-success.png)
+   > ![alt text](src/images/clone-code-success.png)
 
 3. **Move Repository Content**
 
    - Open the cloned **qa-automated-tests** folder and move all files and folders from inside this folder to your root project folder. (In this example, the root folder is named **test-repo**.)
 
 4. **Install Dependencies**
-
+     
+     If **Node.js** is not installed on your system, please install it first before running the following commands.
    - In the terminal, paste the following command and press **Enter**:
 
    ```bash
    npm install
+   npx playwright install
+   npm install -g allure
+   npm install -D allure-playwright
    ```
 
    > After installing dependencies, you will see the following messages in the terminal.
-   ![alt text](src/images/install-dependecies.png)
+   > ![alt text](src/images/install-dependecies.png)
 
 5. **Set Up the `.env` File**
 
-   * Rename the file `.env.example` to `.env`, retrieve the correct credentials from the #team-qa Slack channel, and update your .env with those values.
+   - Rename the file `.env.example` to `.env`, retrieve the correct credentials from the #team-qa Slack channel, and update your .env with those values.
 
 6. **Run the Tests**
 
-   * In the terminal, run tests using the following command:
+   - In the terminal, run tests using the following command:
 
    ```bash
    npm t
    ```
 
    > You will see the results of all executed tests displayed in the terminal.
-   ![alt text](src/images/results.png)
-
+   > ![alt text](src/images/results.png)
 
 7. **Access the Allure Report**
 
-   * To generate and open the Allure Report, use the following command in the terminal:
+   - To generate and open the Allure Report, use the following command in the terminal. Commands depend on your OS:
 
    ```bash
-   npm run generate-report-locally
+   npm run generate-report-mac
    ```
+   ```bash
+   npm run generate-report-win
+   ```
+
    > Allure Report will be generated and opened in a new window
-![alt text](src/images/allure-report3.png)
+   > ![alt text](src/images/allure-report3.png)
 
-   <br>
-   <br>
-   
-> *NOTE: The **stg** environment is set by default. To change the environment, navigate to the root project & find **playwright.config.js** file then update the environment settings in two places:*
+      <br>
+      <br>
 
-   - `const baseUrl = process.env.BASE_URL || "https://stg.mobalytics.gg";`![alt text](src/images/config-environments.png)
+> _NOTE: The **stg** environment is set by default. To change the environment, navigate to the root project & find **playwright.config.js** file then update the environment settings in two places:_
 
-   - `baseURL: process.env.BASE_URL || "https://stg.mobalytics.gg"`![alt text](src/images/config-environmetns2.png)
+- `const baseUrl = process.env.BASE_URL || "https://stg.mobalytics.gg";`![alt text](src/images/config-environments.png)
+
+- `baseURL: process.env.BASE_URL || "https://stg.mobalytics.gg"`![alt text](src/images/config-environmetns2.png)
