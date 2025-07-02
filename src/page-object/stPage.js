@@ -148,18 +148,18 @@ export class StPage {
     await test.step(`Upload file: ${fileName} to CDN in the VideoV2 widget`, async () => {
       let actualFilePath;
 
-      // Если файл содержит уникальный ID, создаем временную копию существующего файла
+      // If a file contains unique ID then create temporary copy of this file
       if (fileName.includes("video") && fileName.endsWith(".mp4")) {
-        // Используем базовый video.mp4 файл
+        // Copy file with unique ID
         const baseFilePath = path.join(__dirname, "../images/", "video.mp4");
         const tempFilePath = path.join(__dirname, "../images/", fileName);
 
         try {
-          // Копируем файл с новым именем
+          // Copy file with a new name
           fs.copyFileSync(baseFilePath, tempFilePath);
           actualFilePath = tempFilePath;
 
-          // Планируем удаление временного файла после теста
+          // Deleting file after test
           process.on("exit", () => {
             try {
               if (fs.existsSync(tempFilePath)) {
@@ -176,7 +176,7 @@ export class StPage {
           actualFilePath = baseFilePath;
         }
       } else {
-        // Используем файл как есть
+        // Use as is
         actualFilePath = path.join(__dirname, "../images/", fileName);
       }
 

@@ -201,10 +201,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgZzzPage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
-
-    //Register page for deleting
-    // cleanupUgZzzBuildPages.addPageForCleanup(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("ZZZ Build");
@@ -223,7 +220,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgMarvelRivalsPage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText(
@@ -244,7 +241,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgBazaarPage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Bazaar project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("The Bazaar Build");
@@ -260,7 +257,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgMhwPage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on MHW project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText(
@@ -278,7 +275,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgPoePage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on PoE project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("PoE 2 Build");
@@ -297,7 +294,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgNightreignPage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Nightreign project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Nightreign Build");
@@ -316,7 +313,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgNightreignPage();
     await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Nightreign project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Nightreign Guide");
@@ -332,7 +329,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgPoePage();
     await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("PoE 2 Guide");
@@ -351,7 +348,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgDeadlockPage();
     await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPage.createBuild(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Deadlock project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Deadlock Build");
@@ -370,7 +367,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgDeadlockPage();
     await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Deadlock project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Deadlock Guide");
@@ -386,7 +383,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgMhwPage();
     await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on MHW project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText(
@@ -427,7 +424,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgMarvelRivalsPage();
     await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText(
@@ -445,7 +442,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgZzzPage();
     await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("ZZZ Guide");
@@ -461,7 +458,7 @@ test.describe("Creating UG Pages", () => {
 
     await moba.mainURLs.openUgZzzPage();
     await moba.ugProfilePage.gotoTeamPlannerPage();
-    await moba.ugBuildPage.createGuide(pageName);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Team page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("ZZZ Team");
@@ -657,7 +654,7 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    test.only(`Admin role can upload an image to CDN on the ug page`, async ({
+    test(`Admin role can upload an image to CDN on the ug page`, async ({
       apiAuthAdmin,
       page,
     }) => {
@@ -669,22 +666,22 @@ test.describe("Checking role permissions", () => {
       await moba.mainURLs.openUgZzzPage();
       await moba.ugProfilePage.gotoBuildPlannerPage();
       await moba.ugBuildPlanner.uploadCoverImage(`telegram${uniqueId}.svg`);
-      await moba.ugBuildPlanner.createBuildPage(pageName);
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
         await expect(moba.ugBuildPage.coverImage).toBeVisible();
-        expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain(
-          "cdn.mobalytics.gg"
-        );
-        expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain(
-          "telegram"
-        );
-        expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain(
-          uniqueId
-        );
-        expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain(
-          ".svg"
-        );
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain("cdn.mobalytics.gg");
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain("telegram");
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain(uniqueId);
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain(".svg");
       });
     });
 

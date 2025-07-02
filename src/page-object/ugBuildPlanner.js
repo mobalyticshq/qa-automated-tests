@@ -9,41 +9,45 @@ const __dirname = path.dirname(__filename);
 export class UgBuildPlanner {
   constructor(page) {
     this.page = page;
-    this.coverImageButton = page.getByTestId(
-      "ug-document-edit-cover-image-button"
-    );
-    this.chooseFileButton = page
-      .getByText("Build Cover ImageCover Image(")
-      .getByRole("button", { name: "Choose file" });
-    this.applyButtonInCoverImageModal = page
-      .getByText("Build Cover ImageCover Image(")
-      .getByRole("button", { name: "Apply" });
     this.inputBuildName = page.locator("#title-id");
     this.buttonSaveDraft = page.getByTestId("ug-document-save-draft-button");
+    this.buttonResetBuild = page.getByRole("button", { name: "Reset Build" });
+    this.buttonCancelInModal = page.getByRole("button", { name: "Cancel" });
     this.buttonSaveDraftInModal = page.getByRole("button", {
       name: "Save as Draft",
     });
     this.buttonSavePublishInModal = page.getByRole("button", {
       name: "Save and Publish",
     });
+    this.coverImageButton = page.getByTestId('ug-document-edit-cover-image-button')
+    this.controlPanel = page.getByTestId("document-controls-panel");
+    this.mainPage = page.getByRole("main");
+    this.coverImage = page.locator('div[style*="cdn.mobalytics.gg"]').first();
+    // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
+    this.chooseFileButton = page
+      .getByText("Build Cover ImageCover Image(")
+      .getByRole("button", { name: "Choose file" });
+    this.applyButtonInCoverImageModal = page
+      .getByText("Build Cover ImageCover Image(")
+      .getByRole("button", { name: "Apply" });
   }
 
   async uploadCoverImage(fileName) {
     await test.step(`Upload file: ${fileName} to CDN in the Cover Image widget`, async () => {
       let actualFilePath;
 
-      // Если файл содержит уникальный ID, создаем временную копию существующего файла
+      // If a file contains unique ID then create temporary copy of this file
       if (fileName.includes("telegram") && fileName.endsWith(".svg")) {
-        // Используем базовый telegram.svg файл
+        // Use base file telegram.svg
         const baseFilePath = path.join(__dirname, "../images/", "telegram.svg");
         const tempFilePath = path.join(__dirname, "../images/", fileName);
 
         try {
-          // Копируем файл с новым именем
+          // Copy file with a new name
           fs.copyFileSync(baseFilePath, tempFilePath);
           actualFilePath = tempFilePath;
 
-          // Планируем удаление временного файла после теста
+          // Deleting file after test
           process.on("exit", () => {
             try {
               if (fs.existsSync(tempFilePath)) {
@@ -60,7 +64,7 @@ export class UgBuildPlanner {
           actualFilePath = baseFilePath;
         }
       } else {
-        // Используем файл как есть
+        // Use as is
         actualFilePath = path.join(__dirname, "../images/", fileName);
       }
 
@@ -73,8 +77,8 @@ export class UgBuildPlanner {
     });
   }
 
-  async createBuildPage(pageName) {
-    await test.step("Create a build page", async () => {
+  async createUgDraftPage(pageName) {
+    await test.step("Create a draft page", async () => {
       await this.inputBuildName.click();
       await this.inputBuildName.fill(pageName);
       await this.buttonSaveDraft.click();

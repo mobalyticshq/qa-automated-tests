@@ -13,14 +13,15 @@ export class UgBuildPage {
     this.buttonSavePublishInModal = page.getByRole("button", {
       name: "Save and Publish",
     });
+    this.header = page.locator("section").first();
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.mainPage = page.getByRole("main");
     this.coverImage = page.locator('div[style*="cdn.mobalytics.gg"]').first();
     // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
   }
 
-  async createBuildPage(pageName) {
-    await test.step("Create a build page", async () => {
+  async createUgDraftPage(pageName) {
+    await test.step("Create a draft page", async () => {
       await this.inputBuildName.click();
       await this.inputBuildName.fill(pageName);
       await this.buttonSaveDraft.click();
