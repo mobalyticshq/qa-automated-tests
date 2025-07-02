@@ -15,20 +15,11 @@ export class UgBuildPage {
     });
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.mainPage = page.getByRole("main");
-    this.header = page.locator("section").first();
+    this.coverImage = page.locator('div[style*="cdn.mobalytics.gg"]').first();
     // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
   }
 
-  async createBuild(pageName) {
-    await test.step("Create a build page", async () => {
-      await this.inputBuildName.click();
-      await this.inputBuildName.fill(pageName);
-      await this.buttonSaveDraft.click();
-      await this.buttonSaveDraftInModal.click();
-    });
-  }
-
-  async createGuide(pageName) {
+  async createBuildPage(pageName) {
     await test.step("Create a build page", async () => {
       await this.inputBuildName.click();
       await this.inputBuildName.fill(pageName);

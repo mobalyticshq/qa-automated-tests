@@ -11,12 +11,14 @@ import {
   UgBuildPage,
   HomePage,
   CardGalleryV2Widget,
+  UgBuildPlanner,
 } from "./index";
 
 export class Moba {
   constructor(page) {
     this.page = page;
     this.stAdminPage = new StAdminPage(page);
+    this.ugBuildPlanner = new UgBuildPlanner(page);
     this.homePage = new HomePage(page);
     this.ugProfilePage = new UgProfilePage(page);
     this.ugBuildPage = new UgBuildPage(page);

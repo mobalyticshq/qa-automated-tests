@@ -10,3 +10,4 @@ export * from "./ugProfilePage";
 export * from "./ugBuildPage";
 export * from "./homePage";
 export * from "./cardGalleryV2Widget";
+export * from "./ugBuildPlanner";

@@ -1,8 +1,17 @@
 import { test } from "@playwright/test";
+import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export class StPage {
   constructor(page) {
     this.page = page;
+    this.chooseFileButton = page.locator("#video-v2-0").getByRole("button", {
+      name: "Choose file",
+    });
     this.addSectionButtonInModal = page.getByRole("button", {
       name: "Add section",
     });
@@ -77,6 +86,10 @@ export class StPage {
     this.inputVideoV2 = page.getByRole("textbox", {
       name: "YouTube, Twitch or Vimeo link",
     });
+    // this.uploadButtonVideoV2 = page
+    //   .locator('button[type="button"]')
+    //   .filter({ hasText: "Choose file" })
+    //   .last(); // Последний элемент Choose file
     this.headerV2PoE = page.locator("#container").getByText("PoE");
     this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
     this.headerV2Nightreign = page
@@ -118,16 +131,59 @@ export class StPage {
     });
   }
 
-  async addVideoV2Widget(link) {
+  async addVideoV2Widget() {
     await test.step(`Add VideoV2 widget on the structure page`, async () => {
       // await this.addSectionButton.click();
       // await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
       await this.videoV2Button.click();
-      await this.linkButtonVideoV2.click();
-      await this.inputVideoV2.click();
-      await this.inputVideoV2.fill(link);
+      // await this.linkButtonVideoV2.click();
+      // await this.inputVideoV2.click();
+      // await this.inputVideoV2.fill(link);
+    });
+  }
+
+  async uploadVideo(fileName) {
+    await test.step(`Upload file: ${fileName} to CDN in the VideoV2 widget`, async () => {
+      let actualFilePath;
+
+      // Если файл содержит уникальный ID, создаем временную копию существующего файла
+      if (fileName.includes("video") && fileName.endsWith(".mp4")) {
+        // Используем базовый video.mp4 файл
+        const baseFilePath = path.join(__dirname, "../images/", "video.mp4");
+        const tempFilePath = path.join(__dirname, "../images/", fileName);
+
+        try {
+          // Копируем файл с новым именем
+          fs.copyFileSync(baseFilePath, tempFilePath);
+          actualFilePath = tempFilePath;
+
+          // Планируем удаление временного файла после теста
+          process.on("exit", () => {
+            try {
+              if (fs.existsSync(tempFilePath)) {
+                fs.unlinkSync(tempFilePath);
+              }
+            } catch (error) {
+              console.log(
+                `Warning: Could not delete temp file ${tempFilePath}`
+              );
+            }
+          });
+        } catch (error) {
+          console.log(`Warning: Could not create temp file, using base file`);
+          actualFilePath = baseFilePath;
+        }
+      } else {
+        // Используем файл как есть
+        actualFilePath = path.join(__dirname, "../images/", fileName);
+      }
+
+      const fileChooserPromise = this.page.waitForEvent("filechooser");
+      await this.chooseFileButton.click();
+      const fileChooser = await fileChooserPromise;
+      await fileChooser.setFiles(actualFilePath);
     });
   }
 
