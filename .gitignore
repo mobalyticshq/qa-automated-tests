@@ -1,0 +1,14 @@
+# Playwright
+.allure
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+allure-report
+allure-results
+.vscode
+.env
+.DS_Store
+data/
+*/data/attachments/*

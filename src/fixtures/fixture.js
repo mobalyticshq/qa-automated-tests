@@ -1,0 +1,508 @@
+import { test as base, expect } from "@playwright/test";
+import { Moba } from "../page-object/moba";
+import { USER_ROLES } from "../setup/credentials";
+
+export const test = base.extend({
+  apiAuthAdmin: async ({ request }, use) => {
+    // Clarify a correct endpoint depending on environment
+    let apiEndpoint;
+    if (process.env.BASE_URL === "https://mobalytics.gg") {
+      apiEndpoint = "https://account.mobalytics.gg/api/graphql/v1/query";
+    } else {
+      apiEndpoint = "https://stg.mobalytics.gg/api/account/gql/v1/query";
+    }
+    const loginResponse = await request.post(apiEndpoint, {
+      data: {
+        query: `
+        mutation SignIn {
+          signIn(
+            email: "${USER_ROLES.admin.email}"
+            password: "${USER_ROLES.admin.password}"
+          )
+        }
+      `,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    expect(loginResponse.ok()).toBeTruthy();
+    // console.log(loginResponse.headers());
+
+    // 2. Get set-cookie from response
+    const setCookieHeader = loginResponse.headers()["set-cookie"];
+    if (!setCookieHeader)
+      throw new Error("No set-cookie header in login response");
+
+    // 3. Transform cookie for Playwright
+    const cookies = setCookieHeader
+      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+      .map((cookieStr) => {
+        const [cookiePair, ...attributes] = cookieStr.split(";");
+        const index = cookiePair.indexOf("=");
+        const name = cookiePair.slice(0, index).trim();
+        const value = cookiePair.slice(index + 1).trim();
+        return {
+          name: name.trim(),
+          value: value.trim(),
+          domain: ".mobalytics.gg",
+          path: "/",
+        };
+      });
+    // 4. Pass cookie into test
+    await use({ cookies });
+  },
+
+  apiAuthInternalWriter: async ({ request }, use) => {
+    // Clarify a correct endpoint depending on environment
+    let apiEndpoint;
+    if (process.env.BASE_URL === "https://mobalytics.gg") {
+      apiEndpoint = "https://account.mobalytics.gg/api/graphql/v1/query";
+    } else {
+      apiEndpoint = "https://stg.mobalytics.gg/api/account/gql/v1/query";
+    }
+    // 1. Perform login-request
+    const loginResponse = await request.post(apiEndpoint, {
+      data: {
+        query: `
+        mutation SignIn {
+          signIn(
+            email: "${USER_ROLES.internal_writer.email}"
+            password: "${USER_ROLES.internal_writer.password}"
+          )
+        }
+      `,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    expect(loginResponse.ok()).toBeTruthy();
+    // console.log(loginResponse.headers());
+
+    // 2. Get set-cookie from response
+    const setCookieHeader = loginResponse.headers()["set-cookie"];
+    if (!setCookieHeader)
+      throw new Error("No set-cookie header in login response");
+
+    // 3. Transform cookie for Playwright
+    const cookies = setCookieHeader
+      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+      .map((cookieStr) => {
+        const [cookiePair, ...attributes] = cookieStr.split(";");
+        const index = cookiePair.indexOf("=");
+        const name = cookiePair.slice(0, index).trim();
+        const value = cookiePair.slice(index + 1).trim();
+        return {
+          name: name.trim(),
+          value: value.trim(),
+          domain: ".mobalytics.gg",
+          path: "/",
+        };
+      });
+    // 4. Pass cookie into test
+    await use({ cookies });
+  },
+
+  apiAuthGameManager: async ({ request }, use) => {
+    // Clarify a correct endpoint depending on environment
+    let apiEndpoint;
+    if (process.env.BASE_URL === "https://mobalytics.gg") {
+      apiEndpoint = "https://account.mobalytics.gg/api/graphql/v1/query";
+    } else {
+      apiEndpoint = "https://stg.mobalytics.gg/api/account/gql/v1/query";
+    }
+    // 1. Perform login-request
+    const loginResponse = await request.post(apiEndpoint, {
+      data: {
+        query: `
+        mutation SignIn {
+          signIn(
+            email: "${USER_ROLES.game_manager.email}"
+            password: "${USER_ROLES.game_manager.password}"
+          )
+        }
+      `,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    expect(loginResponse.ok()).toBeTruthy();
+    // console.log(loginResponse.headers());
+
+    // 2. Get set-cookie from response
+    const setCookieHeader = loginResponse.headers()["set-cookie"];
+    if (!setCookieHeader)
+      throw new Error("No set-cookie header in login response");
+
+    // 3. Transform cookie for Playwright
+    const cookies = setCookieHeader
+      .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
+      .map((cookieStr) => {
+        const [cookiePair, ...attributes] = cookieStr.split(";");
+        const index = cookiePair.indexOf("=");
+        const name = cookiePair.slice(0, index).trim();
+        const value = cookiePair.slice(index + 1).trim();
+        return {
+          name: name.trim(),
+          value: value.trim(),
+          domain: ".mobalytics.gg",
+          path: "/",
+        };
+      });
+    // 4. Pass cookie into test
+    await use({ cookies });
+  },
+
+  cleanupStPoEPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminPoePage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStNightreignPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminNightreignPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStDeadlockPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminDeadlockPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStMhwPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminMhwPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStMarvelRivalsPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminMarvelRivalsPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStBazaarPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminBazaarPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStZzzPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminZzzPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgZzzPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgMarvelRivalsPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgBazaarBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgBazaarPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgPoeBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgPoePage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgMhwBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgMhwPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgDeadlockBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgDeadlockPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupUgNightreignBuildPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openUgNightreignPage(process.env.BASE_URL);
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.ugProfilePage.deleteBuild(pageName);
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+});

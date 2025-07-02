@@ -1,0 +1,30 @@
+{
+  "name": "qa-automation-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "ui": "npx playwright test --ui",
+    "generate-report": "npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
+    "open-report": "npx allure open ./allure-report/",
+    "generate-report-mac": "rm -rf allure-report && npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
+    "generate-report-win": "rmdir /s /q allure-report 2>nul && npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
+    "telegram": "java -DconfigFile=notifications/config.json -jar notifications/allure-notifications-4.9.0.jar"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.19",
+    "allure": "^3.0.0-beta.15",
+    "allure-playwright": "^3.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "uuid": "^11.1.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "base": {
+    "project": "NGF",
+    "environment": "$BASE_URL",
+    "comment": "some comment",
+    "reportLink": "$REPORT_LINK_TELEGRAM",
+    "language": "en",
+    "allureFolder": "allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "$TELEGRAM_BOT_TOKEN",
+    "chat": "$TELEGRAM_CHAT_ID",
+    "replyTo": ""
+  },
+  "slack": {
+    "token": "$SLACK_TOKEN",
+    "chat": "$SLACK_CHAT_ID",
+    "replyTo": ""
+  }
+}
