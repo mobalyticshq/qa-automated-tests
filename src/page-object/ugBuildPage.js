@@ -17,6 +17,7 @@ export class UgBuildPage {
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.mainPage = page.getByRole("main");
     this.coverImage = page.locator('div[style*="cdn.mobalytics.gg"]').first();
+    this.videoGuideWidget = page.getByRole('heading', { name: 'Video Guide' });
     // this.header = page.locator("#ngfdocumentugwidgetheaderv1");
   }
 

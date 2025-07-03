@@ -168,7 +168,33 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminPoePage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminPoePage();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStDiablo4Pages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminDiablo4Page();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -194,7 +220,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminNightreignPage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminNightreignPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -219,7 +245,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminDeadlockPage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminDeadlockPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -244,7 +270,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminMhwPage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminMhwPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -269,7 +295,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminMarvelRivalsPage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminMarvelRivalsPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -294,7 +320,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminBazaarPage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminBazaarPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -319,7 +345,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openAdminZzzPage(process.env.BASE_URL);
+      await moba.mainURLs.openAdminZzzPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -344,7 +370,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgZzzPage(process.env.BASE_URL);
+      await moba.mainURLs.openUgZzzPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -369,7 +395,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgMarvelRivalsPage(process.env.BASE_URL);
+      await moba.mainURLs.openUgMarvelRivalsPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -394,7 +420,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgBazaarPage(process.env.BASE_URL);
+      await moba.mainURLs.openUgBazaarPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -419,7 +445,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgPoePage(process.env.BASE_URL);
+      await moba.mainURLs.openUgPoePage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -444,7 +470,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgMhwPage(process.env.BASE_URL);
+      await moba.mainURLs.openUgMhwPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -469,7 +495,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgDeadlockPage(process.env.BASE_URL);
+      await moba.mainURLs.openUgDeadlockPage();
 
       for (const pageName of pagesToCleanup) {
         try {
@@ -494,7 +520,7 @@ export const test = base.extend({
     if (pagesToCleanup.length > 0) {
       const moba = new Moba(page);
       await page.context().addCookies(apiAuthAdmin.cookies);
-      await moba.mainURLs.openUgNightreignPage(process.env.BASE_URL);
+      await moba.mainURLs.openUgNightreignPage();
 
       for (const pageName of pagesToCleanup) {
         try {

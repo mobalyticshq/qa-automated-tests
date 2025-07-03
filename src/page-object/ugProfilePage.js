@@ -43,6 +43,7 @@ export class UgProfilePage {
       await this.guideButton.click();
     });
   }
+  
   async deleteBuild(pageName) {
     await test.step(`Delete ${pageName} build page`, async () => {
       await this.dotesButton.click();

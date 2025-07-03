@@ -20,6 +20,30 @@ test(`Checking "New Game" in the navbar on STG/PRD`, async ({ page }) => {
 });
 
 test.describe("Creating ST Pages", () => {
+  test(`Create a structure page on Diablo4 project`, async ({
+    apiAuthAdmin,
+    page,
+    cleanupStDiablo4Pages,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminDiablo4Page();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.createStPage(pageName);
+
+    // Register page for deleting
+    cleanupStDiablo4Pages.addPageForCleanup(pageName);
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Diablo4 project`, async () => {
+      await expect(moba.stPage.headerV2Diablo4).toContainText("Diablo 4");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
+
   test(`Create a structure page on PoE project`, async ({
     apiAuthAdmin,
     page,
@@ -30,7 +54,7 @@ test.describe("Creating ST Pages", () => {
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
 
-    await moba.mainURLs.openAdminPoePage(process.env.BASE_URL);
+    await moba.mainURLs.openAdminPoePage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
@@ -193,6 +217,25 @@ test.describe("Creating ST Pages", () => {
 });
 
 test.describe("Creating UG Pages", () => {
+  test(`Create a guide page on Diablo4 project`, async ({
+    apiAuthAdmin,
+    page,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgDiablo4Page();
+    await moba.ugProfilePage.gotoGuidePlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Diablo4 project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Diablo 4 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a build page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
     await page.context().addCookies(apiAuthAdmin.cookies);
     const uniqueId = uuidv4();
@@ -644,7 +687,7 @@ test.describe("Checking role permissions", () => {
       await moba.stAdminPage.gotoStPlannerPage();
       await moba.stPage.addHeaderV2Widget();
       await moba.stPage.addVideoV2Widget();
-      await moba.stPage.uploadVideo(`video${uniqueId}.mp4`);
+      await moba.stPage.uploadVideo(`aqa-video${uniqueId}.mp4`);
       await moba.stPage.createStPage(pageName);
 
       cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
@@ -665,7 +708,7 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openUgZzzPage();
       await moba.ugProfilePage.gotoBuildPlannerPage();
-      await moba.ugBuildPlanner.uploadCoverImage(`telegram${uniqueId}.svg`);
+      await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
@@ -880,52 +923,54 @@ test.describe("Checking role permissions", () => {
       });
     });
 
-    // test(`Gfile uploadManager role can add VideoV2 widget (link) to the structure pages`, async ({
-    //   apiAuthGameManager,
-    //   page,
-    // }) => {
-    //   await page.context().addCookies(apiAuthGameManager.cookies);
-    //   const uniqueId = uuidv4();
-    //   const pageName = `/qa-automation-game-manageru    // await moba.mainURLs.openAdminMhwPage();
-    // await moba.stAdminPage.gotoStPlannerPage();
-    // await moba.stPage.addHeaderV2Widget();
-    // await moba.stPage.addVideoV2Widget();
-    // await moba.stPage.uploadFile(`video${uniqueId}.mp4`);
-    // await moba.stPage.createStPage(pageName);
+    test(`Game Manager can upload a video to CDN on the structure pages`, async ({
+      apiAuthGameManager,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      const uniqueId = uuidv4();
+      const pageName = `/qa-automation-st-page-${uniqueId}`;
+      const moba = new Moba(page);
 
-    // cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
+      await moba.mainURLs.openMhwBuildPlanner();
+      await moba.ugBuildPlanner.uploadVideo(`aqa-video${uniqueId}.mp4`);
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-    // await test.step(`Expected Result: VideoV2 widget is present in the ST page`, async () => {
-    //   await expect(moba.stPage.videoV2Widget).toBeVisible();
-    // });ideoV2Widget).toBeVisible();
-    //   });
-    // });
+      await test.step(`Expected Result: VideoV2 widget is present in the ST page`, async () => {
+        await expect(moba.ugBuildPage.videoGuideWidget).toBeVisible();
+      });
+    });
 
-    // test(`Admin role can add image into widgets (link) to the structure pages`, async ({
-    //   apiAuthAdmin,
-    //   page,
-    //   cleanupStZzzPages,
-    // }) => {
-    //   await page.context().addCookies(apiAuthAdmin.cookies);
-    //   const uniqueId = uuidv4();
-    //   const pageName = `/qa-automation-st-page-${uniqueId}`;
-    //   const moba = new Moba(page);
-    //   let link =
-    //     "https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=1150/assets/diablo-4/images/background-images/classes/sorcerer.jpg";
+    test(`Game Manager role can can upload an image to CDN on the ug page`, async ({
+      apiAuthGameManager,
+      page,
+    }) => {
+      await page.context().addCookies(apiAuthGameManager.cookies);
+      const uniqueId = uuidv4();
+      const pageName = `/qa-automation-build-page-${uniqueId}`;
+      const moba = new Moba(page);
 
-    //   await moba.mainURLs.openAdminZzzPage();
-    //   await moba.stAdminPage.gotoStPlannerPage();
-    //   await moba.stPage.addCardGalleryV2Widget();
-    //   await moba.cardGalleryV2Widget.addImageLink(link);
-    //   await moba.stPage.createStPage(pageName);
-    //   cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+      await moba.mainURLs.openUgZzzPage();
+      await moba.ugProfilePage.gotoBuildPlannerPage();
+      await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-    //   await test.step(`Expected Result: Image is present in the Card GalleryV2 widget on ST page`, async () => {
-    //     await expect(
-    //       moba.cardGalleryV2Widget.сardGalleryV2Widget
-    //     ).toBeVisible();
-    //   });
-    // });
+      await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
+        await expect(moba.ugBuildPage.coverImage).toBeVisible();
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain("cdn.mobalytics.gg");
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain("telegram");
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain(uniqueId);
+        expect(
+          await moba.ugBuildPage.coverImage.getAttribute("style")
+        ).toContain(".svg");
+      });
+    });
 
     // test(`Game Manager role can edit the structure page`, async ({
     //   apiAuthGameManager,
@@ -939,10 +984,10 @@ test.describe("Checking role permissions", () => {
 
     //   await moba.mainURLs.openAdminZzzPage();
     //   await moba.stAdminPage.clickOnStWidget(pageName);
-
-    //   await moba.stPage.createStPage(pageName);
-    //   cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
     //   await moba.stPage.editStPage();
+
+    //   // await moba.stPage.createStPage(pageName);
+    //   // cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
 
     //   await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
     //     await expect(moba.stPage.headerV2Widget).toBeVisible();

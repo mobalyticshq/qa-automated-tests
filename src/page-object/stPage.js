@@ -86,10 +86,7 @@ export class StPage {
     this.inputVideoV2 = page.getByRole("textbox", {
       name: "YouTube, Twitch or Vimeo link",
     });
-    // this.uploadButtonVideoV2 = page
-    //   .locator('button[type="button"]')
-    //   .filter({ hasText: "Choose file" })
-    //   .last(); // Последний элемент Choose file
+    this.headerV2Diablo4 = page.locator("#container").getByText("Diablo 4");
     this.headerV2PoE = page.locator("#container").getByText("PoE");
     this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
     this.headerV2Nightreign = page
@@ -149,9 +146,9 @@ export class StPage {
       let actualFilePath;
 
       // If a file contains unique ID then create temporary copy of this file
-      if (fileName.includes("video") && fileName.endsWith(".mp4")) {
+      if (fileName.includes("aqa-video") && fileName.endsWith(".mp4")) {
         // Copy file with unique ID
-        const baseFilePath = path.join(__dirname, "../images/", "video.mp4");
+        const baseFilePath = path.join(__dirname, "../images/", "aqa-video.mp4");
         const tempFilePath = path.join(__dirname, "../images/", fileName);
 
         try {

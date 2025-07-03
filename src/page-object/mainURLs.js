@@ -17,6 +17,12 @@ export class MainURLs {
     });
   }
 
+  async openAdminDiablo4Page() {
+    await test.step(`Open 'Diablo4' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/diablo-4/admin`);
+    });
+  }
+
   async openAdminNightreignPage() {
     await test.step(`Open 'Nightreign' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/admin`, {
@@ -129,6 +135,14 @@ export class MainURLs {
     });
   }
 
+  async openUgDiablo4Page() {
+    await test.step(`Open 'Diablo4' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/diablo-4/creator-profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
   async openUgNightreignPage() {
     await test.step(`Open 'Nightreign' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/profile`, {
@@ -154,8 +168,16 @@ export class MainURLs {
   }
 
   async openMhwPage() {
-    await test.step(`Open url: https://stg.mobalytics.gg/mhw`, async () => {
-      await this.page.goto(`https://stg.mobalytics.gg/mhw`, {
+    await test.step(`Open url: ${process.env.BASE_URL}/mhw`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/mhw`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openMhwBuildPlanner() {
+    await test.step(`Open url: ${process.env.BASE_URL}/mhw/planner/builds`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/mhw/planner/builds`, {
         waitUntil: "domcontentloaded",
       });
     });
