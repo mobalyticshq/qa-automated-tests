@@ -718,13 +718,7 @@ test.describe("Checking role permissions", () => {
         ).toContain("cdn.mobalytics.gg");
         expect(
           await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain("telegram");
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain(uniqueId);
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain(".svg");
+        ).toContain(`aqa-telegram${uniqueId}.svg`);
       });
     });
 
@@ -962,13 +956,7 @@ test.describe("Checking role permissions", () => {
         ).toContain("cdn.mobalytics.gg");
         expect(
           await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain("telegram");
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain(uniqueId);
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain(".svg");
+        ).toContain(`aqa-telegram${uniqueId}.svg`);
       });
     });
 

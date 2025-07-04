@@ -148,7 +148,11 @@ export class StPage {
       // If a file contains unique ID then create temporary copy of this file
       if (fileName.includes("aqa-video") && fileName.endsWith(".mp4")) {
         // Copy file with unique ID
-        const baseFilePath = path.join(__dirname, "../images/", "aqa-video.mp4");
+        const baseFilePath = path.join(
+          __dirname,
+          "../images/",
+          "aqa-video.mp4"
+        );
         const tempFilePath = path.join(__dirname, "../images/", fileName);
 
         try {
