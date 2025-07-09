@@ -13,3 +13,4 @@ allure-results
 data/
 */data/attachments/*
 src/setup/
+e2e-tests/tests/auth.setup.test.js
