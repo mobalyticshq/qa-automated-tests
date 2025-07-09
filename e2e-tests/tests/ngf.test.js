@@ -3,7 +3,9 @@ import { test } from "../../src/fixtures/index";
 import { Moba } from "../../src/page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
-test(`Checking "New Game" in the navbar on STG/PRD`, async ({ page }) => {
+test(`Checking "New Game" in the navbar on ${process.env.BASE_URL}`, async ({
+  page,
+}) => {
   let newGame = "ZZZ";
   const moba = new Moba(page);
   await moba.mainURLs.openAdminPoePage();
