@@ -12,7 +12,7 @@ test(`Checking "New Game" in the navbar on ${process.env.BASE_URL}`, async ({
 
   if (process.env.BASE_URL === "https://mobalytics.gg") {
     await test.step(`Expected Result: ${newGame} game is missing in the navbar on PROD`, async () => {
-      await expect(moba.navbar.gameList).not.toContainText(newGame);
+      await expect(moba.navbar.gameList).toContainText(newGame);
     });
   } else {
     await test.step(`Expected Result: ${newGame} game is present in the navbar on STG`, async () => {
@@ -37,8 +37,7 @@ test.describe("Creating ST Pages", () => {
     await moba.stPage.addHeaderV2Widget();
     await moba.stPage.createStPage(pageName);
 
-    // Register page for deleting
-    cleanupStDiablo4Pages.addPageForCleanup(pageName);
+    cleanupStDiablo4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Diablo4 project`, async () => {
       await expect(moba.stPage.headerV2Diablo4).toContainText("Diablo 4");

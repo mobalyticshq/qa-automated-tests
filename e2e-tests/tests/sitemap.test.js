@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 const isProd = process.env.BASE_URL === "https://mobalytics.gg";
 
 const GAMES = {
-  ZZZ: { isPresentInSitemap: !isProd, testUrl: "/zzz/sitemap.xml" },
+  ZZZ: { isPresentInSitemap: true, testUrl: "/zzz/sitemap.xml" },
   VALORANT: { isPresentInSitemap: true, testUrl: `/valorant/sitemap.xml` },
   SITEMAP_INDEX: { isPresentInSitemap: true, testUrl: `/sitemap_index.xml` },
   PRODUCT_SITEMAP: {
@@ -32,12 +32,14 @@ const GAMES = {
   BAZAAR: { isPresentInSitemap: true, testUrl: `/the-bazaar/sitemap.xml` },
 };
 
-test.only(`Product sitemap is ok on ${process.env.URL_SITEMAP}`, async ({ page }) => {
+test(`Product sitemap is ok on ${process.env.URL_SITEMAP}`, async ({
+  page,
+}) => {
   const gamesList = Object.keys(GAMES);
   const ENV_SITEMAP = process.env.URL_SITEMAP;
 
   for (let gamekey of gamesList) {
-    await test.step(`Open baseUrl: ${ENV_SITEMAP}`, async () => {
+    await test.step(`Open sitemap url: ${ENV_SITEMAP}`, async () => {
       await page.goto(ENV_SITEMAP);
     });
     const game = GAMES[gamekey];
