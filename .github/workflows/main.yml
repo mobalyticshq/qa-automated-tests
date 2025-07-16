@@ -8,7 +8,7 @@ on:
   pull_request:
     branches: [main, master]
   schedule:
-    - cron: "40 17 * * *"
+    - cron: "10 18 * * *"
 
   # Manual hook for launch
   workflow_dispatch:
@@ -83,14 +83,14 @@ jobs:
 
       - name: Launch auto-tests with ENV-override
         env:
-          URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg/sitemap.xml' || 'https://stg.mobalytics.gg/sitemap.xml' }}
-          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}
-          ADMIN_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_EMAIL || secrets.STG_ADMIN_EMAIL }}
-          ADMIN_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_PASSWORD || secrets.STG_ADMIN_PASSWORD }}
-          GAME_MANAGER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_EMAIL || secrets.STG_GAME_MANAGER_EMAIL }}
-          GAME_MANAGER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_PASSWORD || secrets.STG_GAME_MANAGER_PASSWORD }}
-          INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
-          INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
+          URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg/sitemap.xml' || github.event_name == 'schedule' && 'https://mobalytics.gg/sitemap.xml' || 'https://stg.mobalytics.gg/sitemap.xml' }}
+          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}
+          ADMIN_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_EMAIL || github.event_name == 'schedule' && secrets.PROD_ADMIN_EMAIL || secrets.STG_ADMIN_EMAIL }}
+          ADMIN_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_PASSWORD || github.event_name == 'schedule' && secrets.PROD_ADMIN_PASSWORD || secrets.STG_ADMIN_PASSWORD }}
+          GAME_MANAGER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_EMAIL || github.event_name == 'schedule' && secrets.PROD_GAME_MANAGER_EMAIL || secrets.STG_GAME_MANAGER_EMAIL }}
+          GAME_MANAGER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_PASSWORD || github.event_name == 'schedule' && secrets.PROD_GAME_MANAGER_PASSWORD || secrets.STG_GAME_MANAGER_PASSWORD }}
+          INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.PROD_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
+          INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.PROD_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
         run: npm test
 
       - name: Save playwright-results
@@ -149,7 +149,7 @@ jobs:
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
             -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
-            -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
+            -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification
