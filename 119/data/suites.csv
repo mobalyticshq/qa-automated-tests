@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2142","Checking ""New Game"" in the navbar on https://stg.mobalytics.gg","ngf-chromium","Wed Jul 16 18:03:08 GMT 2025","passed","Wed Jul 16 18:03:10 GMT 2025","","tests/ngf.test.js","",""
+"","7667","Create a structure page on Diablo4 project","ngf-chromium","Wed Jul 16 18:03:10 GMT 2025","passed","Wed Jul 16 18:03:18 GMT 2025","Creating ST Pages","tests/ngf.test.js","",""
+"","3565","Product sitemap is ok on https://stg.mobalytics.gg/sitemap.xml","sitemap-tests","Wed Jul 16 18:03:03 GMT 2025","passed","Wed Jul 16 18:03:07 GMT 2025","","tests/sitemap.test.js","",""
