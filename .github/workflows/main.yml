@@ -83,8 +83,8 @@ jobs:
 
       - name: Launch auto-tests with ENV-override
         env:
-          URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg/sitemap.xml' || github.event_name == 'schedule' && 'https://mobalytics.gg/sitemap.xml' || 'https://stg.mobalytics.gg/sitemap.xml' }}
-          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}
+          URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_SITEMAP_URL || github.event_name == 'schedule' && secrets.PROD_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
+          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.PROD_URL || secrets.STG_URL }}
           ADMIN_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_EMAIL || github.event_name == 'schedule' && secrets.PROD_ADMIN_EMAIL || secrets.STG_ADMIN_EMAIL }}
           ADMIN_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_PASSWORD || github.event_name == 'schedule' && secrets.PROD_ADMIN_PASSWORD || secrets.STG_ADMIN_PASSWORD }}
           GAME_MANAGER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_EMAIL || github.event_name == 'schedule' && secrets.PROD_GAME_MANAGER_EMAIL || secrets.STG_GAME_MANAGER_EMAIL }}
