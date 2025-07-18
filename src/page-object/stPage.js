@@ -9,9 +9,12 @@ const __dirname = path.dirname(__filename);
 export class StPage {
   constructor(page) {
     this.page = page;
-    this.chooseFileButton = page.locator("#video-v2-0").getByRole("button", {
-      name: "Choose file",
-    });
+    this.chooseFileButton = page
+      .getByRole("button", {
+        name: "Video V2 Edit Video (Optional) Upload Video Supported formats: WebM, MP4 Choose file",
+        exact: true,
+      })
+      .getByRole("button", { name: "Choose file" });
     this.addSectionButtonInModal = page.getByRole("button", {
       name: "Add section",
     });
@@ -130,8 +133,8 @@ export class StPage {
 
   async addVideoV2Widget() {
     await test.step(`Add VideoV2 widget on the structure page`, async () => {
-      // await this.addSectionButton.click();
-      // await this.addSectionButtonInModal.click();
+      await this.addSectionButton.click();
+      await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
       await this.videoV2Button.click();

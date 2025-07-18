@@ -686,7 +686,6 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminMhwPage();
       await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderV2Widget();
       await moba.stPage.addVideoV2Widget();
       await moba.stPage.uploadVideo(`aqa-video${uniqueId}.mp4`);
       await moba.stPage.createStPage(pageName);
