@@ -1,0 +1,470 @@
+# Page snapshot
+
+```yaml
+- link "Mobalytics":
+  - /url: /zzz
+  - img "Mobalytics"
+- link "League of Legends LoL":
+  - /url: https://stg.mobalytics.gg/lol
+  - img "League of Legends"
+  - text: LoL
+- link "Teamfight Tactics TFT":
+  - /url: https://stg.mobalytics.gg/tft
+  - img "Teamfight Tactics"
+  - text: TFT
+- link "Path of Exile 2 PoE 2":
+  - /url: https://stg.mobalytics.gg/poe-2
+  - img "Path of Exile 2"
+  - text: PoE 2
+- link "Diablo 4 Diablo 4":
+  - /url: https://stg.mobalytics.gg/diablo-4
+  - img "Diablo 4"
+  - text: Diablo 4
+- link "Elden Ring Nightreign Nightreign New":
+  - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+  - img "Elden Ring Nightreign"
+  - text: Nightreign New
+- link "Deadlock Deadlock":
+  - /url: https://stg.mobalytics.gg/deadlock
+  - img "Deadlock"
+  - text: Deadlock
+- link "Valorant VAL":
+  - /url: https://stg.mobalytics.gg/valorant
+  - img "Valorant"
+  - text: VAL
+- link "Monster Hunter Wilds Monster Hunter Wilds":
+  - /url: https://stg.mobalytics.gg/mhw
+  - img "Monster Hunter Wilds"
+  - text: Monster Hunter Wilds
+- link "Destiny 2 Destiny 2":
+  - /url: https://stg.mobalytics.gg/destiny-2
+  - img "Destiny 2"
+  - text: Destiny 2
+- link "Lost Ark Lost Ark":
+  - /url: https://stg.mobalytics.gg/lost-ark
+  - img "Lost Ark"
+  - text: Lost Ark
+- button:
+  - img
+- link "Example game ExG":
+  - /url: https://stg.mobalytics.gg/example-game
+  - img "Example game"
+  - text: ExG
+- link "The Bazaar The Bazaar":
+  - /url: https://stg.mobalytics.gg/the-bazaar
+  - img "The Bazaar"
+  - text: The Bazaar
+- link "Marvel Rivals Marvel Rivals":
+  - /url: https://stg.mobalytics.gg/marvel-rivals
+  - img "Marvel Rivals"
+  - text: Marvel Rivals
+- link "Zenless Zone Zero ZZZ New":
+  - /url: https://stg.mobalytics.gg/zzz
+  - img "Zenless Zone Zero"
+  - text: ZZZ New
+- link "win logo Download app":
+  - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-zzz&utm_medium=homepage&utm_source=web
+  - button "win logo Download app":
+    - img "win logo"
+    - text: Download app
+- text: Community
+- link "News new":
+  - /url: /news
+- button "Remove Ads"
+- img "settings"
+- img "support"
+- link "Home":
+  - /url: /zzz
+  - img "Home"
+- link "Profile":
+  - /url: /zzz/profile
+  - img "Profile"
+- link "Characters":
+  - /url: /zzz/characters
+  - img "Characters"
+- link "Builds":
+  - /url: /zzz/builds
+  - img "Builds"
+- link "Teams":
+  - /url: /zzz/teams
+  - img "Teams"
+- link "Tier List":
+  - /url: /zzz/tier-list
+  - img "Tier List"
+- link "W-Engines":
+  - /url: /zzz/w-engines
+  - img "W-Engines"
+- link "Drive Discs":
+  - /url: /zzz/drive-discs
+  - img "Drive Discs"
+- link "Bangboos":
+  - /url: /zzz/bangboos
+  - img "Bangboos"
+- link "Guides":
+  - /url: /zzz/guides
+  - img "Guides"
+- main:
+  - text: My Build
+  - textbox: My Build
+  - button "Save Draft"
+  - button "Reset Build" [disabled]:
+    - img
+    - text: Reset Build
+  - button "Cover Image":
+    - img
+    - text: Cover Image
+  - text: "Verified:"
+  - button "Verified":
+    - text: Verified
+    - img
+  - button "Featured":
+    - text: Featured
+    - img
+  - button "ZZZ Build My Build By Author Jul 24, 2025 Ad Placeholder":
+    - button "ZZZ Build My Build By Author Jul 24, 2025":
+      - button:
+        - img
+      - text: ZZZ Build
+      - heading "My Build" [level=1]
+      - text: By Author Jul 24, 2025
+    - text: Ad Placeholder
+  - button:
+    - button "Build Overview Edit Groups and Slots W-Engines Best in Slot Empty Alternative Empty Alternative Empty Alternative Empty F2P Empty F2P Empty 4-Pc Drive Disc Recommended Empty Alternative Empty Alternative Empty 2-Pc Drive Disc Recommended Empty Alternative Empty Alternative Empty Alternative Empty Alternative Empty Alternative Empty select Drive Disc StatsPartition 4:Partition 5:Partition 6:Substats 926 characters remaining":
+      - heading "Build Overview" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Groups and Slots":
+        - img
+        - text: Groups and Slots
+      - text: W-Engines
+      - img
+      - text: Best in Slot Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: F2P Empty
+      - img
+      - text: F2P Empty 4-Pc Drive Disc
+      - img
+      - text: Recommended Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty 2-Pc Drive Disc
+      - img
+      - text: Recommended Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty
+      - img
+      - text: Alternative Empty
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - heading "Drive Disc Stats" [level=4]
+        - list:
+          - listitem:
+            - strong: "Partition 4:"
+          - listitem:
+            - strong: "Partition 5:"
+          - listitem:
+            - strong: "Partition 6:"
+        - heading "Substats" [level=4]:
+          - strong: Substats
+        - list:
+          - listitem
+          - listitem
+          - listitem
+      - text: 926 characters remaining
+    - button "Kit Overview Edit select Write something, or press ‘/’ for commands, ‘@’ for game data":
+      - heading "Kit Overview" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - paragraph
+      - button
+      - button
+      - text: Write something, or press ‘/’ for commands, ‘@’ for game data
+    - button "Skill Priority Edit select Core Passive Basic Attack Dodge Assist EX Special Ultimate":
+      - heading "Skill Priority" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - list:
+          - listitem:
+            - img "zzz core skill"
+            - text: Core Passive
+          - listitem:
+            - img "zzz basic attack"
+            - text: Basic Attack
+          - listitem:
+            - img "zzz dodge"
+            - text: Dodge
+          - listitem:
+            - img "zzz assist"
+            - text: Assist
+          - listitem:
+            - img "zzz ex special attack"
+            - text: EX Special
+          - listitem:
+            - img "zzz ultimate"
+            - text: Ultimate
+      - button
+      - button
+    - button "W-Engines Edit select Write something, or press ‘/’ for commands, ‘@’ for game data":
+      - heading "W-Engines" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - paragraph
+      - button
+      - button
+      - text: Write something, or press ‘/’ for commands, ‘@’ for game data
+    - button "Drive Discs & Stats Edit select Write something, or press ‘/’ for commands, ‘@’ for game data":
+      - heading "Drive Discs & Stats" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - paragraph
+      - button
+      - button
+      - text: Write something, or press ‘/’ for commands, ‘@’ for game data
+    - button "Mindscapes Edit select Write something, or press ‘/’ for commands, ‘@’ for game data":
+      - heading "Mindscapes" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - paragraph
+      - button
+      - button
+      - text: Write something, or press ‘/’ for commands, ‘@’ for game data
+    - button "Additional Tips Edit select Write something, or press ‘/’ for commands, ‘@’ for game data":
+      - heading "Additional Tips" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - button "Normal text":
+        - text: Normal text
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - button:
+        - img
+      - textbox:
+        - paragraph
+      - button
+      - button
+      - text: Write something, or press ‘/’ for commands, ‘@’ for game data
+    - button:
+      - img
+    - button "Video Edit Something went wrong":
+      - heading "Video" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - text: Something went wrong
+    - button "Table of Contents 1. Build Overview 2. Kit Overview 3. Skill Priority 4. W-Engines 5. Drive Discs & Stats 6. Mindscapes 7. Additional Tips Back to top":
+      - heading "Table of Contents" [level=2]
+      - button:
+        - img
+      - link "1. Build Overview":
+        - /url: /zzz/planner/builds#build-overview-0
+      - link "2. Kit Overview":
+        - /url: /zzz/planner/builds#kit-overview-0
+      - link "3. Skill Priority":
+        - /url: /zzz/planner/builds#skill-priority-1
+      - link "4. W-Engines":
+        - /url: /zzz/planner/builds#w-engines-2
+      - link "5. Drive Discs & Stats":
+        - /url: /zzz/planner/builds#drive-discs-and-stats-3
+      - link "6. Mindscapes":
+        - /url: /zzz/planner/builds#mindscapes-4
+      - link "7. Additional Tips":
+        - /url: /zzz/planner/builds#additional-tips-5
+      - button "Back to top"
+    - button "Latest Builds Edit We couldn't find any documents for your query Try selecting a different combination of Document type and filters":
+      - heading "Latest Builds" [level=2]
+      - button "Edit"
+      - button:
+        - img
+      - text: We couldn't find any documents for your query Try selecting a different combination of Document type and filters
+    - button:
+      - img
+  - button "Add section":
+    - img
+    - text: Add section
+  - status
+- complementary: Remove Ads
+- paragraph: Oops, something went wrong!
+- paragraph:
+  - text: If reloading your page doesn't work, please
+  - button "save your debug logs"
+  - text: and contact our support team in
+  - link "Discord":
+    - /url: https://discord.com/invite/B2ukr9M
+    - button "Discord"
+  - text: . We'll help you out as soon as we can!
+- button "Do Not Sell or Share My Personal Information":
+  - paragraph: Do Not Sell or Share My Personal Information
+```
