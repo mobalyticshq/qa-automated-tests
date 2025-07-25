@@ -3,6 +3,11 @@ import { test } from "../../src/fixtures/index";
 import { Moba } from "../../src/page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
+test.beforeEach(async ({ page }) => {
+  // Add 1 second pause before each test
+  await page.waitForTimeout(1000);
+});
+
 test(`Checking "New Game" in the navbar on ${process.env.BASE_URL}`, async ({
   page,
 }) => {
@@ -959,31 +964,6 @@ test.describe("Checking role permissions", () => {
         ).toContain(`aqa-telegram${uniqueId}.svg`);
       });
     });
-
-    // test(`Game Manager role can edit the structure page`, async ({
-    //   apiAuthGameManager,
-    //   page,
-    //   cleanupStZzzPages,
-    // }) => {
-    //   await page.context().addCookies(apiAuthGameManager.cookies);
-    //   const uniqueId = uuidv4();
-    //   const pageName = `/qa-game-manager-edit-function`;
-    //   const moba = new Moba(page);
-
-    //   await moba.mainURLs.openAdminZzzPage();
-    //   await moba.stAdminPage.clickOnStWidget(pageName);
-    //   await moba.stPage.editStPage();
-
-    //   // await moba.stPage.createStPage(pageName);
-    //   // cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
-
-    //   await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
-    //     await expect(moba.stPage.headerV2Widget).toBeVisible();
-    //     await expect(moba.stPage.documentDiscoveryWidget).toBeVisible();
-    //     await expect(moba.stPage.addSectionButton).not.toBeVisible();
-    //     await expect(moba.stPage.dotsButton).toBeVisible();
-    //   });
-    // });
 
     test("Check API Game Manager permission", async ({
       request,

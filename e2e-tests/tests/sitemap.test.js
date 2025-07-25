@@ -36,15 +36,14 @@ test(`Product sitemap is ok on ${process.env.URL_SITEMAP}`, async ({
   page,
 }) => {
   const gamesList = Object.keys(GAMES);
-  const ENV_SITEMAP = process.env.URL_SITEMAP;
 
   for (let gamekey of gamesList) {
-    await test.step(`Open sitemap url: ${ENV_SITEMAP}`, async () => {
-      await page.goto(ENV_SITEMAP);
-    });
     const game = GAMES[gamekey];
+    await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
+      await page.goto(process.env.URL_SITEMAP);
+    });
 
-    await test.step(`Expected Result: ${gamekey} is present in ${ENV_SITEMAP}`, async () => {
+    await test.step(`Expected Result: ${gamekey} is present in ${process.env.URL_SITEMAP}`, async () => {
       if (game.isPresentInSitemap === true) {
         await expect(page.locator("#folder0")).toContainText(
           `${process.env.BASE_URL}${game.testUrl}`

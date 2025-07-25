@@ -138,9 +138,6 @@ export class StPage {
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
       await this.videoV2Button.click();
-      // await this.linkButtonVideoV2.click();
-      // await this.inputVideoV2.click();
-      // await this.inputVideoV2.fill(link);
     });
   }
 
