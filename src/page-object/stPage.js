@@ -81,8 +81,8 @@ export class StPage {
       name: "Documents Discovery Discover",
     });
     this.seoModal = page.getByText("SEO settingsMeta titleMeta");
-    this.videoV2Button = page.getByRole("menuitem", {
-      name: "Video V2 Embed a video from a",
+    this.videoV2Button = page.getByText('Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards').getByRole("menuitem", {
+      name: "Video V2 Embed a video from a video hosting service.",
     });
     this.videoV2Widget = page.getByRole("heading", { name: "Video V2" });
     this.linkButtonVideoV2 = page.getByText("Link");
