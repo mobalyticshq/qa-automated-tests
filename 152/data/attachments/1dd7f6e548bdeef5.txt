@@ -1,0 +1,43 @@
+Failed to cleanup page /qa-automation-st-page-d91bf205-b3e9-4040-a9a1-c6d609e8e84a: locator.click: Test ended.
+Call log:
+  - waiting for getByText('/qa-automation-st-page-d91bf205-b3e9-4040-a9a1-c6d609e8e84aEdit').getByTestId('delete-button')
+
+    at /home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:50:43
+    at StAdminPage.clickDeleteButton (/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:49:16)
+    at Object.cleanupStBazaarPages (/home/runner/work/qa-automated-tests/qa-automated-tests/src/fixtures/fixture.js:326:34) {
+  [Symbol(step)]: {
+    stepId: 'test.step@38',
+    category: 'test.step',
+    title: 'Click Delete button on /qa-automation-st-page-d91bf205-b3e9-4040-a9a1-c6d609e8e84a widget',
+    location: {
+      file: '/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js',
+      line: 49,
+      column: 16,
+      function: 'StAdminPage.clickDeleteButton'
+    },
+    box: undefined,
+    boxedStack: undefined,
+    steps: [ [Object] ],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'test.step@38'
+    },
+    complete: [Function: complete],
+    endWallTime: 1753874615143,
+    error: {
+      message: 'Error: locator.click: Test ended.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for getByText('/qa-automation-st-page-d91bf205-b3e9-4040-a9a1-c6d609e8e84aEdit').getByTestId('delete-button')\x1B[22m\n",
+      stack: 'Error: locator.click: Test ended.\n' +
+        'Call log:\n' +
+        "\x1B[2m  - waiting for getByText('/qa-automation-st-page-d91bf205-b3e9-4040-a9a1-c6d609e8e84aEdit').getByTestId('delete-button')\x1B[22m\n" +
+        '\n' +
+        '    at /home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:50:43\n' +
+        '    at StAdminPage.clickDeleteButton (/home/runner/work/qa-automated-tests/qa-automated-tests/src/page-object/stAdminPage.js:49:16)\n' +
+        '    at Object.cleanupStBazaarPages (/home/runner/work/qa-automated-tests/qa-automated-tests/src/fixtures/fixture.js:326:34)',
+      cause: undefined
+    }
+  }
+}
