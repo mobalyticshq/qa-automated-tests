@@ -137,6 +137,7 @@ export class StPage {
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
+      await this.videoV2Button.waitFor({ state: "visible", timeout: 10000 });
       await this.videoV2Button.click();
     });
   }
