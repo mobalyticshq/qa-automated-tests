@@ -82,8 +82,11 @@ export class StPage {
     });
     this.seoModal = page.getByText("SEO settingsMeta titleMeta");
     this.videoV2Button = page.getByRole("menuitem", {
-      name: "Video V2 Embed a video from a video hosting service.",
+      name: "Video V2 Embed a video from a",
     });
+    this.listOfWidgets = page.getByText(
+      "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
+    );
     this.videoV2Widget = page.getByRole("heading", { name: "Video V2" });
     this.linkButtonVideoV2 = page.getByText("Link");
     this.inputVideoV2 = page.getByRole("textbox", {
@@ -133,13 +136,12 @@ export class StPage {
 
   async addVideoV2Widget() {
     await test.step(`Add VideoV2 widget on the structure page`, async () => {
+      await this.page.keyboard.press("End");
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
-      // Waiting for 4 seconds for stabilization DOM
-      await this.page.waitForTimeout(4000);
-      await this.videoV2Button.waitFor({ state: "visible", timeout: 2000 });
+      // await this.videoV2Button.scrollIntoViewIfNeeded();
       await this.videoV2Button.click();
     });
   }
