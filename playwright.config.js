@@ -15,7 +15,8 @@ dotenv.config();
  */
 
 export default defineConfig({
-  timeout: 60000,
+  timeout: 60_000,
+  expect: { timeout: 10_000 },
   testDir: "./e2e-tests",
   /* Run tests in files in parallel */
   fullyParallel: true,

@@ -81,7 +81,7 @@ export class StPage {
       name: "Documents Discovery Discover",
     });
     this.seoModal = page.getByText("SEO settingsMeta titleMeta");
-    this.videoV2Button = page.getByText('Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards').getByRole("menuitem", {
+    this.videoV2Button = page.getByRole("menuitem", {
       name: "Video V2 Embed a video from a video hosting service.",
     });
     this.videoV2Widget = page.getByRole("heading", { name: "Video V2" });
@@ -137,7 +137,9 @@ export class StPage {
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
-      await this.videoV2Button.waitFor({ state: "visible", timeout: 10000 });
+      // Waiting for 4 seconds for stabilization DOM
+      await this.page.waitForTimeout(4000);
+      await this.videoV2Button.waitFor({ state: "visible", timeout: 2000 });
       await this.videoV2Button.click();
     });
   }
