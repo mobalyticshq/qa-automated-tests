@@ -146,9 +146,9 @@ jobs:
           sed \
             -e "s|\$SLACK_CHAT_ID|${{ secrets.SLACK_CHAT_ID }}|g" \
             -e "s|\$SLACK_TOKEN|${{ secrets.SLACK_TOKEN }}|g" \
-            -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
-            -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
-            -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
+#            -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
+#            -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
+#            -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
             -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
