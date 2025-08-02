@@ -152,8 +152,8 @@ jobs:
             -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
-      - name: Send Telegram & Slack notification
-        if: always()
-        continue-on-error: true
-        run: |
-          java "-DconfigFile=notifications/tmp/config.json" -jar notifications/allure-notifications-4.9.0.jar
+      # - name: Send Telegram & Slack notification
+      #   if: always()
+      #   continue-on-error: true
+      #   run: |
+      #     java "-DconfigFile=notifications/tmp/config.json" -jar notifications/allure-notifications-4.9.0.jar
