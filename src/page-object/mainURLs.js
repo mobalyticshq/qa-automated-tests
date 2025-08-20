@@ -25,9 +25,12 @@ export class MainURLs {
 
   async openAdminNightreignPage() {
     await test.step(`Open 'Nightreign' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/admin`, {
-        waitUntil: "domcontentloaded",
-      });
+      await this.page.goto(
+        `${process.env.BASE_URL}/elden-ring-nightreign/admin`,
+        {
+          waitUntil: "domcontentloaded",
+        }
+      );
     });
   }
 
@@ -66,6 +69,22 @@ export class MainURLs {
   async openAdminZzzPage() {
     await test.step(`Open 'ZZZ' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/zzz/admin`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openAdminHades2Page() {
+    await test.step(`Open 'ZZZ' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/hades-2/admin`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openAdminBorderlands4Page() {
+    await test.step(`Open 'ZZZ' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/borderlands-4/admin`, {
         waitUntil: "domcontentloaded",
       });
     });
@@ -145,7 +164,26 @@ export class MainURLs {
 
   async openUgNightreignPage() {
     await test.step(`Open 'Nightreign' UG page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/profile`, {
+      await this.page.goto(
+        `${process.env.BASE_URL}/elden-ring-nightreign/profile`,
+        {
+          waitUntil: "domcontentloaded",
+        }
+      );
+    });
+  }
+
+  async openUgBorderlands4Page() {
+    await test.step(`Open 'Borderlands 4' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/borderlands-4/profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUgHades2Page() {
+    await test.step(`Open 'Hades 2' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/hades-2/profile`, {
         waitUntil: "domcontentloaded",
       });
     });

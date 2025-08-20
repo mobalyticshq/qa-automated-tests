@@ -206,6 +206,58 @@ export const test = base.extend({
     }
   },
 
+  cleanupStHades2Pages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminHades2Page();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStBorderlands4Pages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminBorderlands4Page();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
   cleanupStNightreignPages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 

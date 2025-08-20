@@ -95,6 +95,8 @@ export class StPage {
     this.headerV2Diablo4 = page.locator("#container").getByText("Diablo 4");
     this.headerV2PoE = page.locator("#container").getByText("PoE");
     this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
+    this.headerV2Hades2 = page.locator("#container").getByText("Hades 2");
+    this.headerV2Borderlands4 = page.locator("#container").getByText("Borderlands 4");
     this.headerV2Nightreign = page
       .locator("#container")
       .getByText("Nightreign");

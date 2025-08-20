@@ -21,6 +21,9 @@ export class UgProfilePage {
     this.guideButton = page.getByRole("menuitem", {
       name: "Guide Create a Guide",
     });
+    this.tierListButton = page.getByRole("menuitem", {
+      name: "Tier List Create a Tier List",
+    });
   }
 
   async gotoBuildPlannerPage() {
@@ -37,13 +40,20 @@ export class UgProfilePage {
     });
   }
 
+  async gotoTearListPlannerPage() {
+    await test.step("Go to Team Planner Page", async () => {
+      await this.createButton.click();
+      await this.tierListButton.click();
+    });
+  }
+
   async gotoGuidePlannerPage() {
     await test.step("Go to Guide Planner Page", async () => {
       await this.createButton.click();
       await this.guideButton.click();
     });
   }
-  
+
   async deleteBuild(pageName) {
     await test.step(`Delete ${pageName} build page`, async () => {
       await this.dotesButton.click();
