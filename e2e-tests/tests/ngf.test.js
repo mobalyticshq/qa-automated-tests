@@ -648,7 +648,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on MHW project`, async ({
+  test(`Create a tier list page on MHW project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -658,7 +658,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgMhwPage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on MHW project`, async () => {
@@ -669,7 +669,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on PoE project`, async ({
+  test(`Create a tier list page on PoE project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -679,7 +679,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgPoePage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on PoE 2 project`, async () => {
@@ -688,7 +688,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on Nightreign project`, async ({
+  test(`Create a tier list page on Nightreign project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -698,7 +698,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgNightreignPage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Nightreign project`, async () => {
@@ -709,7 +709,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on Deadlock project`, async ({
+  test(`Create a tier list page on Deadlock project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -719,7 +719,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgDeadlockPage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Deadlock project`, async () => {
@@ -728,7 +728,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on The Bazaar project`, async ({
+  test(`Create a tier list page on The Bazaar project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -738,7 +738,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgBazaarPage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on The Bazaar project`, async () => {
@@ -749,7 +749,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on Marvel Rivals project`, async ({
+  test(`Create a tier list page on Marvel Rivals project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -759,7 +759,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgMarvelRivalsPage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
@@ -770,7 +770,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on ZZZ project`, async ({
+  test(`Create a tier list page on ZZZ project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -780,7 +780,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgZzzPage();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on ZZZ project`, async () => {
@@ -789,7 +789,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on Borderlands 4 project`, async ({
+  test(`Create a tier list page on Borderlands 4 project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -799,7 +799,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgBorderlands4Page();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
@@ -810,7 +810,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tear list page on Hades 2 project`, async ({
+  test(`Create a tier list page on Hades 2 project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -820,7 +820,7 @@ test.describe("Creating UG Pages", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgHades2Page();
-    await moba.ugProfilePage.gotoTearListPlannerPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Hades 2 project`, async () => {

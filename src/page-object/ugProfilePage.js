@@ -40,7 +40,7 @@ export class UgProfilePage {
     });
   }
 
-  async gotoTearListPlannerPage() {
+  async gotoTierListPlannerPage() {
     await test.step("Go to Team Planner Page", async () => {
       await this.createButton.click();
       await this.tierListButton.click();
