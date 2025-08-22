@@ -11,3 +11,6 @@ export * from "./ugBuildPage";
 export * from "./homePage";
 export * from "./cardGalleryV2Widget";
 export * from "./ugBuildPlanner";
+export * from "./authorizePage";
+export * from "./accountSettings";
+export * from "./bye-bye";

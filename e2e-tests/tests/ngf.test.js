@@ -269,7 +269,9 @@ test.describe("Creating ST Pages", () => {
     cleanupStBorderlands4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.stPage.headerV2Borderlands4).toContainText("Borderlands 4");
+      await expect(moba.stPage.headerV2Borderlands4).toContainText(
+        "Borderlands 4"
+      );
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -1313,19 +1315,3 @@ test.describe("Checking role permissions", () => {
     });
   });
 });
-
-// test("Delete account", async ({ page }) => {
-//   const moba = new Moba(page);
-//   const uniqueId = uuidv4().substring(0, 4);
-//   const accountName = `ns+${uniqueId}@mobalyticshq.com`;
-
-//   await moba.mainURLs.openMhwPage();
-//   await moba.navbar.gotoSignInPage();
-//   await moba.authorizePage.registerAccount(accountName);
-//   await moba.navbar.gotoAccountPage();
-//   // await page.getByRole("img", { name: "settings" }).hover();
-//   // await page.getByRole("link", { name: "Account Settings" }).click();
-//   // await page.getByText("Delete my account").click();
-//   // await page.getByRole("button", { name: "Delete" }).click();
-//   // await expect(page.getByRole("heading")).toContainText("GAME OVER");
-// });

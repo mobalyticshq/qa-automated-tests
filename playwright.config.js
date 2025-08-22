@@ -74,12 +74,21 @@ export default defineConfig({
     },
 
     {
-      name: "ngf-chromium",
+      name: "ngf-tests",
       use: {
         ...devices["Desktop Chrome"],
         // storageState: "playwright/.auth/userFile.json",
       },
       testMatch: "tests/ngf.test.js",
+    },
+
+    {
+      name: "account-tests",
+      use: {
+        ...devices["Desktop Chrome"],
+        // storageState: "playwright/.auth/userFile.json",
+      },
+      testMatch: "tests/account.test.js",
     },
   ],
   /* Run your local dev server before starting the tests */

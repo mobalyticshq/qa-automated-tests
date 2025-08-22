@@ -6,13 +6,11 @@ export class Navbar {
     this.settingsButton = page.getByRole("img", { name: "settings" });
     this.signInButton = page.getByRole("button", { name: "sign in" });
     this.gameList = page.getByTestId("navbar-game-list");
-    this.profileDropdown = page.locator("#account_pulldown");
+    this.profileDropdown = page.getByRole("img", { name: "settings" });
     this.profileButton = page.getByRole("link", { name: "View your profile" });
     this.profileNameMenu = (profileName) =>
       page.getByRole("link", { name: `${profileName}` });
-    this.profileName = page.getByRole("link", {
-      name: "Account details: ",
-    });
+    this.profileName = page.getByRole('link', { name: 'Account Settings' });
   }
 
   async gotoSignInPage() {
@@ -27,9 +25,9 @@ export class Navbar {
     });
   }
 
-  async gotoAccountPage() {
-    await test.step("Go to Account page", async () => {
-      await this.profileDropdown.click();
+  async gotoAccountSettingsPage() {
+    await test.step("Go to Account Settings page", async () => {
+      await this.profileDropdown.hover();
       await this.profileName.click();
     });
   }
