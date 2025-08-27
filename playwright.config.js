@@ -66,13 +66,11 @@ export default defineConfig({
     //   use: { ...devices["Desktop Chrome"] },
     //   testMatch: "/stg-tests/auth.setup.test.js",
     // },
-
     {
       name: "sitemap-tests",
       use: { ...devices["Desktop Chrome"] },
       testMatch: "tests/sitemap.test.js",
     },
-
     {
       name: "ngf-tests",
       use: {
@@ -81,7 +79,6 @@ export default defineConfig({
       },
       testMatch: "tests/ngf.test.js",
     },
-
     {
       name: "account-tests",
       use: {
@@ -89,6 +86,15 @@ export default defineConfig({
         // storageState: "playwright/.auth/userFile.json",
       },
       testMatch: "tests/account.test.js",
+    },
+    {
+      name: "advertisement-tests",
+      use: {
+        ...devices["Desktop Chrome"],
+        // storageState: "playwright/.auth/userFile.json",
+        viewport: { width: 1920, height: 1080 },
+      },
+      testMatch: "tests/advertisement.test.js",
     },
   ],
   /* Run your local dev server before starting the tests */

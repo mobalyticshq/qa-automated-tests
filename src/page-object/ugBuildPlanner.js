@@ -88,6 +88,14 @@ export class UgBuildPlanner {
       await this.applyButtonInCoverImageModal.click();
     });
   }
+  async createUgDraftPage(pageName) {
+    await test.step("Create a draft page", async () => {
+      await this.inputBuildName.click();
+      await this.inputBuildName.fill(pageName);
+      await this.buttonSaveDraft.click();
+      await this.buttonSaveDraftInModal.click();
+    });
+  }
 
   async uploadVideo(fileName) {
     await test.step(`Upload file: ${fileName} to CDN in the VideoV2 widget`, async () => {
@@ -133,15 +141,6 @@ export class UgBuildPlanner {
       await this.videoChooseFileButton.click();
       const fileChooser = await fileChooserPromise;
       await fileChooser.setFiles(actualFilePath);
-    });
-  }
-
-  async createUgDraftPage(pageName) {
-    await test.step("Create a draft page", async () => {
-      await this.inputBuildName.click();
-      await this.inputBuildName.fill(pageName);
-      await this.buttonSaveDraft.click();
-      await this.buttonSaveDraftInModal.click();
     });
   }
 }

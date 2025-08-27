@@ -83,7 +83,7 @@ export class MainURLs {
   }
 
   async openAdminBorderlands4Page() {
-    await test.step(`Open 'ZZZ' ST admin page`, async () => {
+    await test.step(`Open 'Borderlands 4' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/borderlands-4/admin`, {
         waitUntil: "domcontentloaded",
       });
@@ -197,6 +197,94 @@ export class MainURLs {
     });
   }
 
+  async openBazaarPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/the-bazaar`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/the-bazaar`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openMarvelRivalsPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/marvel-rivals`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/marvel-rivals`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openLolPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/lol`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/lol`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openTftPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/tft`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/tft`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+  
+  async openDiablo4Page() {
+    await test.step(`Open url: ${process.env.BASE_URL}/diablo-4`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/diablo-4`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openDestiny2Page() {
+    await test.step(`Open url: ${process.env.BASE_URL}/destiny-2`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/destiny-2`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openBorderlands4Page() {
+    await test.step(`Open url: ${process.env.BASE_URL}/borderlands-4`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/borderlands-4`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openValorantPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/valorant`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/valorant`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openHades2Page() {
+    await test.step(`Open url: ${process.env.BASE_URL}/hades-2`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/hades-2`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openZzzPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/zzz`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/zzz`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+  
+  async openLostArkPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/lost-ark`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/lost-ark`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
   async openDeadlockPage() {
     await test.step(`Open url: ${process.env.BASE_URL}/deadlock`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/deadlock`, {
@@ -208,6 +296,14 @@ export class MainURLs {
   async openMhwPage() {
     await test.step(`Open url: ${process.env.BASE_URL}/mhw`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/mhw`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openNightreignPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/elden-ring-nightreign`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign`, {
         waitUntil: "domcontentloaded",
       });
     });
