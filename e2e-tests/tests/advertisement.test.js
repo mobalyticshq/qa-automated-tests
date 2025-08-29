@@ -426,47 +426,34 @@ import { Moba } from "../../src/page-object/moba";
 //   });
 // });
 
-test(`Check the availability of advertising blocks for all projects`, async ({ page }) => {
-  const isProd = process.env.BASE_URL === "https://mobalytics.gg";
+test(`Check the availability of advertising blocks for all projects`, async ({
+  page,
+}) => {
   const GAMES = {
-    ZZZ: { isProd: true, testUrl: "/zzz" },
-    VALORANT: { isProd: true, testUrl: `/valorant` },
-    TFT: { isProd: true, testUrl: `/tft` },
-    LOST_ARK: { isProd: true, testUrl: `/lost-ark` },
-    DESTINY_2: { isProd: true, testUrl: `/destiny-2` },
-    DIABLO_4: { isProd: true, testUrl: `/diablo-4` },
-    ELDEN_RING: {
-      isProd: true,
-      testUrl: `/elden-ring-nightreign`,
-    },
-    MARVEL_RIVALS: {
-      isProd: true,
-      testUrl: `/marvel-rivals`,
-    },
-    MHV: { isProd: true, testUrl: `/mhw` },
-    HADES2: {
-      isProd: true,
-      testUrl: `/hades-2`,
-    },
-    NEWS: { isProd: true, testUrl: `/news` },
-    BORDERLANDS4: {
-      isProd: true,
-      testUrl: `/borderlands-4`,
-    },
-    DEADLOCK: { isProd: true, testUrl: `/deadlock` },
-    POE_2: { isProd: true, testUrl: `/poe-2` },
-    BAZAAR: { isProd: true, testUrl: `/the-bazaar` },
+    ZZZ: { projectUrl: "/zzz" },
+    VALORANT: { projectUrl: `/valorant` },
+    TFT: { projectUrl: `/tft` },
+    LOST_ARK: { projectUrl: `/lost-ark` },
+    DESTINY_2: { projectUrl: `/destiny-2` },
+    DIABLO_4: { projectUrl: `/diablo-4` },
+    ELDEN_RING: { projectUrl: `/elden-ring-nightreign` },
+    MARVEL_RIVALS: { projectUrl: `/marvel-rivals` },
+    MHV: { projectUrl: `/mhw` },
+    HADES2: { projectUrl: `/hades-2` },
+    BORDERLANDS4: { projectUrl: `/borderlands-4` },
+    DEADLOCK: { projectUrl: `/deadlock` },
+    POE_2: { projectUrl: `/poe-2` },
+    BAZAAR: { projectUrl: `/the-bazaar` },
   };
-
   const gamesList = Object.keys(GAMES);
 
   for (let gamekey of gamesList) {
     const game = GAMES[gamekey];
-    await test.step(`Open project url: "${process.env.BASE_URL}${game.testUrl}"`, async () => {
-      await page.goto(`${process.env.BASE_URL}${game.testUrl}`);
+    await test.step(`Open project url: "${process.env.BASE_URL}${game.projectUrl}"`, async () => {
+      await page.goto(`${process.env.BASE_URL}${game.projectUrl}`);
     });
 
-    if (game.testUrl === "/zzz") {
+    if (game.projectUrl === "/zzz") {
       await test.step(`Expected Result: zzz-nitro-video is present on the page`, async () => {
         await expect(page.locator("#zzz-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -487,7 +474,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/lost-ark") {
+    } else if (game.projectUrl === "/lost-ark") {
       await test.step(`Expected Result: lost-ark-nitro-video is present on the page`, async () => {
         await expect(page.locator("#lost-ark-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -512,7 +499,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/marvel-rivals") {
+    } else if (game.projectUrl === "/marvel-rivals") {
       await test.step(`Expected Result: marvel-rivals-nitro-video is present on the page`, async () => {
         await expect(page.locator("#marvel-rivals-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -539,7 +526,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/hades-2") {
+    } else if (game.projectUrl === "/hades-2") {
       await test.step(`Expected Result: hades-2-nitro-video is present on the page`, async () => {
         await expect(page.locator("#hades-2-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -564,7 +551,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/valorant") {
+    } else if (game.projectUrl === "/valorant") {
       await test.step(`Expected Result: valorant-nitro-video is present on the page`, async () => {
         await expect(page.locator("#valorant-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -589,7 +576,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/deadlock") {
+    } else if (game.projectUrl === "/deadlock") {
       await test.step(`Expected Result: deadlock-nitro-video is present on the page`, async () => {
         await expect(page.locator("#deadlock-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -614,7 +601,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/borderlands-4") {
+    } else if (game.projectUrl === "/borderlands-4") {
       await test.step(`Expected Result: bl4-nitro-video is present on the page`, async () => {
         await expect(page.locator("#bl4-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -635,7 +622,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/destiny-2") {
+    } else if (game.projectUrl === "/destiny-2") {
       await test.step(`Expected Result: destiny-2-nitro-video or destiny-2-video-all-pages is present on the page`, async () => {
         const videoBanner = page
           .locator("#destiny-2-nitro-video")
@@ -661,7 +648,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/diablo-4") {
+    } else if (game.projectUrl === "/diablo-4") {
       await test.step(`Expected Result: diablo-4-nitro-video is present on the page`, async () => {
         await expect(page.locator("#diablo-4-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -686,7 +673,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/poe-2") {
+    } else if (game.projectUrl === "/poe-2") {
       await test.step(`Expected Result: poe-2-nitro-video is present on the page`, async () => {
         await expect(page.locator("#poe-2-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -709,7 +696,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/tft") {
+    } else if (game.projectUrl === "/tft") {
       await test.step(`Expected Result: tft-nitro-video is present on the page`, async () => {
         await expect(page.locator("#tft-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -730,7 +717,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/lol") {
+    } else if (game.projectUrl === "/lol") {
       await test.step(`Expected Result: lol-nitro-video is present on the page`, async () => {
         await expect(page.locator("#lol-nitro-video")).toBeAttached({
           timeout: 30000,
@@ -753,7 +740,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/the-bazaar") {
+    } else if (game.projectUrl === "/the-bazaar") {
       await test.step(`Expected Result: the-bazaar-nitro-video is present on the page`, async () => {
         await expect(page.locator("#the-bazaar-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -780,7 +767,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/mhw") {
+    } else if (game.projectUrl === "/mhw") {
       await test.step(`Expected Result: mhw-nitro-video is present on the page`, async () => {
         await expect(page.locator("#mhw-nitro-video")).toBeVisible({
           timeout: 30000,
@@ -801,7 +788,7 @@ test(`Check the availability of advertising blocks for all projects`, async ({ p
           timeout: 30000,
         });
       });
-    } else if (game.testUrl === "/elden-ring-nightreign") {
+    } else if (game.projectUrl === "/elden-ring-nightreign") {
       await test.step(`Expected Result: elden-ring-nightreign-nitro-video is present on the page`, async () => {
         await expect(
           page.locator("#elden-ring-nightreign-nitro-video")
