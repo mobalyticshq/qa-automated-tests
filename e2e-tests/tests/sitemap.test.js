@@ -32,7 +32,7 @@ const GAMES = {
   },
   NEWS: { isPresentInSitemap: true, testUrl: `/news/sitemap.xml` },
   BORDERLANDS4: {
-    isPresentInSitemap: !isProd,
+    isPresentInSitemap: true,
     testUrl: `/borderlands-4/sitemap.xml`,
   },
   DEADLOCK: { isPresentInSitemap: true, testUrl: `/deadlock/sitemap.xml` },

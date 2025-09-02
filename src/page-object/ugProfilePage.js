@@ -41,7 +41,7 @@ export class UgProfilePage {
   }
 
   async gotoTierListPlannerPage() {
-    await test.step("Go to Team Planner Page", async () => {
+    await test.step("Go to Tier List Planner Page", async () => {
       await this.createButton.click();
       await this.tierListButton.click();
     });
