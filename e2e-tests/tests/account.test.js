@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Moba } from "../../src/page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
-test("Delete account", async ({ page }) => {
+test("Delete mobalytics account", async ({ page }) => {
   const moba = new Moba(page);
   const uniqueId = uuidv4().substring(0, 4);
   const accountName = `ns+${uniqueId}@mobalyticshq.com`;

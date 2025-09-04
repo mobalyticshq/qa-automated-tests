@@ -450,7 +450,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
   for (let gamekey of gamesList) {
     const game = GAMES[gamekey];
     await test.step(`Open project url: "${process.env.BASE_URL}${game.projectUrl}"`, async () => {
-      await page.goto(`${process.env.BASE_URL}${game.projectUrl}`);
+      await page.goto(`${process.env.BASE_URL}${game.projectUrl}`, {
+        waitUntil: "domcontentloaded",
+      });
     });
 
     if (game.projectUrl === "/zzz") {
@@ -719,21 +721,19 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
     } else if (game.projectUrl === "/lol") {
       await test.step(`Expected Result: lol-nitro-video is present on the page`, async () => {
-        await expect(page.locator("#lol-nitro-video")).toBeAttached({
+        await expect(page.locator("#lol-nitro-video")).toBeVisible({
           timeout: 30000,
         });
       });
       await test.step(`Expected Result: "lol-display-all-pages" banner is present on the page`, async () => {
-        await expect(page.locator("#lol-display-all-pages")).toBeAttached({
+        await expect(page.locator("#lol-display-all-pages")).toBeVisible({
           timeout: 30000,
         });
       });
       await test.step(`Expected Result: "lol-display-small-all-pages" banner is present on the page`, async () => {
-        await expect(page.locator("#lol-display-small-all-pages")).toBeAttached(
-          {
-            timeout: 30000,
-          }
-        );
+        await expect(page.locator("#lol-display-small-all-pages")).toBeVisible({
+          timeout: 30000,
+        });
       });
       await test.step(`Expected Result: "web-lol-display-footer-d" banner is present on the page`, async () => {
         await expect(page.locator("#web-lol-display-footer-d")).toBeAttached({
