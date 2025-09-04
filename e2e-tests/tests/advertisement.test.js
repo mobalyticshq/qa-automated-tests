@@ -472,7 +472,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
         });
       });
       await test.step(`Expected Result: "web-zzz-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-zzz-display-footer-d")).toBeAttached({
+        await expect(
+          page.locator("#web-zzz-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -496,8 +498,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-lost-ark-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-lost-ark-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-lost-ark-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -523,8 +525,10 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-marvel-rivals-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-marvel-rivals-display-footer-d")
-        ).toBeAttached({
+          page
+            .locator("#web-marvel-rivals-display-footer-d")
+            .locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -548,8 +552,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-hades-2-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-hades-2-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-hades-2-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -573,8 +577,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-valorant-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-valorant-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-valorant-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -598,8 +602,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-deadlock-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-deadlock-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-deadlock-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -620,7 +624,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
         });
       });
       await test.step(`Expected Result: "web-bl4-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-bl4-display-footer-d")).toBeAttached({
+        await expect(
+          page.locator("#web-bl4-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -645,8 +651,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-destiny-2-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-destiny-2-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-destiny-2-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -670,8 +676,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-diablo-4-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-diablo-4-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-diablo-4-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -694,7 +700,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
         });
       });
       await test.step(`Expected Result: "web-poe-2-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-poe-2-display-footer-d")).toBeAttached({
+        await expect(
+          page.locator("#web-poe-2-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -715,7 +723,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
         });
       });
       await test.step(`Expected Result: "web-tft-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-tft-display-footer-d")).toBeAttached({
+        await expect(
+          page.locator("#web-tft-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -736,7 +746,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
         });
       });
       await test.step(`Expected Result: "web-lol-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-lol-display-footer-d")).toBeAttached({
+        await expect(
+          page.locator("#web-lol-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -762,8 +774,8 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-the-bazaar-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-the-bazaar-display-footer-d")
-        ).toBeAttached({
+          page.locator("#web-the-bazaar-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -784,7 +796,9 @@ test(`Check the availability of advertising blocks for all projects`, async ({
         });
       });
       await test.step(`Expected Result: "web-mhw-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-mhw-display-footer-d")).toBeAttached({
+        await expect(
+          page.locator("#web-mhw-display-footer-d").locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
@@ -812,8 +826,10 @@ test(`Check the availability of advertising blocks for all projects`, async ({
       });
       await test.step(`Expected Result: "web-elden-ring-nightreign-display-footer-d" banner is present on the page`, async () => {
         await expect(
-          page.locator("#web-elden-ring-nightreign-display-footer-d")
-        ).toBeAttached({
+          page
+            .locator("#web-elden-ring-nightreign-display-footer-d")
+            .locator("xpath=..")
+        ).toBeVisible({
           timeout: 30000,
         });
       });
