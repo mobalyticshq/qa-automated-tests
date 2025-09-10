@@ -1,5 +1,6 @@
 import { test as base, expect } from "@playwright/test";
 import { Moba } from "../page-object/moba";
+import { v4 as uuidv4 } from "uuid";
 
 export const test = base.extend({
   apiAuthAdmin: async ({ request }, use) => {
@@ -406,6 +407,18 @@ export const test = base.extend({
         }
       }
     }
+  },
+
+  registerAccount: async ({ page }, use) => {
+    const moba = new Moba(page);
+    const uniqueId = uuidv4().substring(0, 4);
+    const accountName = `ns+${uniqueId}@mobalyticshq.com`;
+
+    await moba.mainURLs.openMhwPage();
+    await moba.navbar.gotoSignInPage();
+    await moba.authorizePage.registerAccount(accountName);
+
+    await use({ moba });
   },
 
   // cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin }, use) => {

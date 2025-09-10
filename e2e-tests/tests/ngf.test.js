@@ -34,7 +34,7 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({
 });
 
 test.describe("Creating ST Pages", () => {
-  test(`Create a structure page on Diablo4 project`, async ({
+  test(`Create a structure page on Diablo 4 project`, async ({
     apiAuthAdmin,
     page,
     cleanupStDiablo4Pages,
@@ -129,7 +129,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Mhw project`, async ({
+  test(`Create a structure page on MHW project`, async ({
     apiAuthAdmin,
     page,
     cleanupStMhwPages,
@@ -446,7 +446,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Diablo4 project`, async ({
+  test(`Create a guide page on Diablo 4 project`, async ({
     apiAuthAdmin,
     page,
   }) => {
@@ -577,25 +577,24 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  //* At this moment Bazaar guides isn't available
-  // test(`Create a guide page on Bazaar project`, async ({
-  //   apiAuthAdmin,
-  //   page,
-  // }) => {
-  //   await page.context().addCookies(apiAuthAdmin.cookies);
-  //   const uniqueId = uuidv4();
-  //   const pageName = `qa-automation-guide-page-${uniqueId}`;
-  //   const moba = new Moba(page);
+  test(`Create a guide page on Bazaar project`, async ({
+    apiAuthAdmin,
+    page,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-  //   await moba.mainURLs.openUgBazaarPage();
-  //   await moba.ugProfilePage.gotoGuidePlannerPage();
-  //   await moba.ugBuildPage.createGuide(pageName);
+    await moba.mainURLs.openUgBazaarPage();
+    await moba.ugProfilePage.gotoGuidePlannerPage();
+    await moba.ugBuildPage.createUgDraftPage(pageName);
 
-  //   await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Bazaar project`, async () => {
-  //     await expect(moba.ugBuildPage.header).toContainText("The Bazaar Guide");
-  //     await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-  //   });
-  // });
+    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Bazaar project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
 
   test(`Create a guide page on Marvel Rivals project`, async ({
     apiAuthAdmin,

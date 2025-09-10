@@ -40,7 +40,7 @@ const GAMES = {
   BAZAAR: { isPresentInSitemap: true, testUrl: `/the-bazaar/sitemap.xml` },
 };
 
-test(`Product sitemap is ok on ${process.env.URL_SITEMAP}`, async ({
+test(`Checking sitemap for all games on ${process.env.URL_SITEMAP}`, async ({
   page,
 }) => {
   const gamesList = Object.keys(GAMES);

@@ -426,7 +426,7 @@ import { Moba } from "../../src/page-object/moba";
 //   });
 // });
 
-test(`Check the availability of advertising blocks for all projects`, async ({
+test(`Check the availability of advertising blocks for all games`, async ({
   page,
 }) => {
   const GAMES = {

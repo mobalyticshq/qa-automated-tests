@@ -11,6 +11,7 @@ export class AuthorizePage {
   }
 
   async registerAccount(accountName) {
+    await test.step(`Register account ${accountName}`, async () => {
     await this.signUpTab.click();
     await this.fieldEmail.click();
     await this.fieldEmail.fill(accountName);
@@ -19,5 +20,6 @@ export class AuthorizePage {
     await this.fieldPassword.click();
     await this.fieldPassword.fill(accountName);
     await this.signUpButton.click();
+    });
   }
 }
