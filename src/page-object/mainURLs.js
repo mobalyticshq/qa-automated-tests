@@ -74,6 +74,14 @@ export class MainURLs {
     });
   }
 
+  async openAdminTFTPage() {
+    await test.step(`Open 'ZZZ' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/tft/admin`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
   async openAdminHades2Page() {
     await test.step(`Open 'ZZZ' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/hades-2/admin`, {
@@ -90,9 +98,33 @@ export class MainURLs {
     });
   }
 
+  async openAdminValorantPage() {
+    await test.step(`Open 'Valorant' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/valorant/admin`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openAdminDestiny2Page() {
+    await test.step(`Open 'Destiny 2' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/destiny-2/admin`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
   async openAdminExampleGamePage() {
     await test.step(`Open 'Example Game' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/example-game/admin`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openAdminLoLPage() {
+    await test.step(`Open 'LoL' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/lol/admin`, {
         waitUntil: "domcontentloaded",
       });
     });
@@ -189,6 +221,38 @@ export class MainURLs {
     });
   }
 
+  async openUgLolPage() {
+    await test.step(`Open 'LoL' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/lol/creator-profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUgTftPage() {
+    await test.step(`Open 'TFT' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/tft/creator-profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUgDestiny2Page() {
+    await test.step(`Open 'Destiny 2' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/destiny-2/creator-profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUgValorantPage() {
+    await test.step(`Open 'Valorant' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/valorant/creator-profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
   async openPoePage() {
     await test.step(`Open url: ${process.env.BASE_URL}/poe-2`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2`, {
@@ -228,7 +292,7 @@ export class MainURLs {
       });
     });
   }
-  
+
   async openDiablo4Page() {
     await test.step(`Open url: ${process.env.BASE_URL}/diablo-4`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/diablo-4`, {
@@ -276,7 +340,7 @@ export class MainURLs {
       });
     });
   }
-  
+
   async openLostArkPage() {
     await test.step(`Open url: ${process.env.BASE_URL}/lost-ark`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/lost-ark`, {

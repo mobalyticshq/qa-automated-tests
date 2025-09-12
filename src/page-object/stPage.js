@@ -93,10 +93,14 @@ export class StPage {
       name: "YouTube, Twitch or Vimeo link",
     });
     this.headerV2Diablo4 = page.locator("#container").getByText("Diablo 4");
+    this.headerV2LoL = page.locator("#container").getByText("LoL");
     this.headerV2PoE = page.locator("#container").getByText("PoE");
+    this.headerV2TFT = page.locator("#container").getByText("TFT");
     this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
     this.headerV2Hades2 = page.locator("#container").getByText("Hades 2");
-    this.headerV2Borderlands4 = page.locator("#container").getByText("Borderlands 4");
+    this.headerV2Borderlands4 = page
+      .locator("#container")
+      .getByText("Borderlands 4");
     this.headerV2Nightreign = page
       .locator("#container")
       .getByText("Nightreign");
@@ -111,7 +115,7 @@ export class StPage {
   }
 
   async clickCancelButton() {
-    await test.step(`Click Сancel button on the control panel`, async () => {
+    await test.step(`Click Cancel button on the control panel`, async () => {
       await this.cancelButton.click();
     });
   }

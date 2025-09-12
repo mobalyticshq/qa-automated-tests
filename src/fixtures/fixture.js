@@ -181,6 +181,110 @@ export const test = base.extend({
     }
   },
 
+  cleanupStLoLPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup after test
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminLoLPage();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStTFTPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup after test
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminTFTPage();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStValorantPages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup after test
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminValorantPage();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
+  cleanupStDestiny2Pages: async ({ page, apiAuthAdmin }, use) => {
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup after test
+    if (pagesToCleanup.length > 0) {
+      const moba = new Moba(page);
+      await page.context().addCookies(apiAuthAdmin.cookies);
+      await moba.mainURLs.openAdminDestiny2Page();
+
+      for (const pageName of pagesToCleanup) {
+        try {
+          await moba.stAdminPage.clickDeleteButton(pageName);
+          // await moba.stPage.deleteStPage();
+        } catch (error) {
+          console.warn(`Failed to cleanup page ${pageName}:`, error);
+        }
+      }
+    }
+  },
+
   cleanupStDiablo4Pages: async ({ page, apiAuthAdmin }, use) => {
     const pagesToCleanup = [];
 
