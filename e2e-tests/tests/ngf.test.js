@@ -18,7 +18,7 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({
 
   if (process.env.BASE_URL === "https://mobalytics.gg") {
     await test.step(`Expected Result: ${newGame1} game is missing in the navbar on PROD`, async () => {
-      await expect(moba.navbar.gameList).not.toContainText(newGame1);
+      await expect(moba.navbar.gameList).toContainText(newGame1);
     });
     await test.step(`Expected Result: ${newGame2} game is present in the navbar on PROD`, async () => {
       await expect(moba.navbar.gameList).toContainText(newGame2);

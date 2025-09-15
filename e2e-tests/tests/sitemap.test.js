@@ -27,7 +27,7 @@ const GAMES = {
   },
   MHV: { isPresentInSitemap: true, testUrl: `/mhw/sitemap.xml` },
   HADES2: {
-    isPresentInSitemap: !isProd,
+    isPresentInSitemap: true,
     testUrl: `/hades-2/sitemap.xml`,
   },
   NEWS: { isPresentInSitemap: true, testUrl: `/news/sitemap.xml` },
