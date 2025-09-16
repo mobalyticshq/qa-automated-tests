@@ -47,6 +47,10 @@ export class StPage {
     this.cardGalleryV2Button = page.getByRole("menuitem", {
       name: "Cards Gallery V2 Cards",
     });
+    this.column1AutoLoL = page
+      .getByRole("button")
+      .filter({ hasText: /^$/ })
+      .nth(2);
     this.column1Auto = page
       .getByRole("button")
       .filter({ hasText: /^$/ })
@@ -94,7 +98,9 @@ export class StPage {
     });
     this.headerV2Diablo4 = page.locator("#container").getByText("Diablo 4");
     this.headerV2LoL = page.locator("#container").getByText("LoL");
+    this.headerV2Valorant = page.locator("#container").getByText("Val");
     this.headerV2PoE = page.locator("#container").getByText("PoE");
+    this.headerV2Destiny2 = page.locator("#container").getByText("Destiny 2");
     this.headerV2TFT = page.locator("#container").getByText("TFT");
     this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
     this.headerV2Hades2 = page.locator("#container").getByText("Hades 2");
@@ -125,6 +131,15 @@ export class StPage {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
+      await this.addWidgetButton1.click();
+      await this.headerV2Button.click();
+    });
+  }
+  async addHeaderV2WidgetOldGames() {
+    await test.step(`Add HeaderV2 widget on the structure page`, async () => {
+      await this.addSectionButton.click();
+      await this.addSectionButtonInModal.click();
+      await this.column1AutoLoL.hover();
       await this.addWidgetButton1.click();
       await this.headerV2Button.click();
     });

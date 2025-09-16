@@ -57,51 +57,97 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  // test(`Create a structure page on LoL project`, async ({
-  //   apiAuthAdmin,
-  //   page,
-  //   cleanupStLoLPages,
-  // }) => {
-  //   await page.context().addCookies(apiAuthAdmin.cookies);
-  //   const uniqueId = uuidv4();
-  //   const pageName = `/qa-automation-st-page-${uniqueId}`;
-  //   const moba = new Moba(page);
+  test(`Create a structure page on LoL project`, async ({
+    apiAuthAdmin,
+    page,
+    cleanupStLoLPages,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-  //   await moba.mainURLs.openAdminLoLPage();
-  //   await moba.stAdminPage.gotoStPlannerPage();
-  //   await moba.stPage.addHeaderV2Widget();
-  //   await moba.stPage.createStPage(pageName);
+    await moba.mainURLs.openAdminLoLPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.createStPage(pageName);
 
-  //   cleanupStLoLPages.addPageForCleanup(pageName); // Register page for deleting
+    cleanupStLoLPages.addPageForCleanup(pageName); // Register page for deleting
 
-  //   await test.step(`Expected Result: Structure page with the name: ${pageName} is created on LoL project`, async () => {
-  //     await expect(moba.stPage.headerV2LoL).toContainText("LoL");
-  //     await expect(moba.stPage.stPageTitle).toContainText(pageName);
-  //   });
-  // });
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on LoL project`, async () => {
+      await expect(moba.stPage.headerV2LoL).toContainText("LoL");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
 
-  // test(`Create a structure page on TFT project`, async ({
-  //   apiAuthAdmin,
-  //   page,
-  //   cleanupStTFTPages,
-  // }) => {
-  //   await page.context().addCookies(apiAuthAdmin.cookies);
-  //   const uniqueId = uuidv4();
-  //   const pageName = `/qa-automation-st-page-${uniqueId}`;
-  //   const moba = new Moba(page);
+  test(`Create a structure page on TFT project`, async ({
+    apiAuthAdmin,
+    page,
+    cleanupStTFTPages,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-  //   await moba.mainURLs.openAdminTFTPage();
-  //   await moba.stAdminPage.gotoStPlannerPage();
-  //   await moba.stPage.addHeaderV2Widget();
-  //   await moba.stPage.createStPage(pageName);
+    await moba.mainURLs.openAdminTFTPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.createStPage(pageName);
 
-  //   cleanupStTFTPages.addPageForCleanup(pageName); // Register page for deleting
+    cleanupStTFTPages.addPageForCleanup(pageName); // Register page for deleting
 
-  //   await test.step(`Expected Result: Structure page with the name: ${pageName} is created on TFT project`, async () => {
-  //     await expect(moba.stPage.headerV2TFT).toContainText("TFT");
-  //     await expect(moba.stPage.stPageTitle).toContainText(pageName);
-  //   });
-  // });
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on TFT project`, async () => {
+      await expect(moba.stPage.headerV2TFT).toContainText("TFT");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
+
+  test(`Create a structure page on Valorant project`, async ({
+    apiAuthAdmin,
+    page,
+    cleanupStValorantPages,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminValorantPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.createStPage(pageName);
+
+    cleanupStValorantPages.addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Valorant project`, async () => {
+      await expect(moba.stPage.headerV2Valorant).toContainText("Val");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
+
+  test(`Create a structure page on Destiny 2 project`, async ({
+    apiAuthAdmin,
+    page,
+    cleanupStDestiny2Pages,
+  }) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminDestiny2Page();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.createStPage(pageName);
+
+    cleanupStDestiny2Pages.addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Destiny 2 project`, async () => {
+      await expect(moba.stPage.headerV2Destiny2).toContainText("Destiny 2");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
 
   test(`Create a structure page on PoE project`, async ({
     apiAuthAdmin,
