@@ -367,6 +367,25 @@ test.describe("Creating ST Pages", () => {
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
+
+  test(`Create a structure page on ST Page with CardGrid widget`, async ({apiAuthAdmin, page}) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    await page.goto('https://stg.mobalytics.gg/destiny-2/planner/st');
+    await page.getByRole('button', { name: 'Add section' }).click();
+    await page.getByRole('button', { name: 'Add Section' }).click();
+    await page.getByRole("button").filter({ hasText: /^$/ }).nth(1).hover();
+    await page.getByRole('button', { name: 'columnAuto' }).getByRole('button').click();
+    await page.getByRole('menuitem',  { name: 'Cards Gallery V2 Cards' }).click();
+    await page.getByTestId('ngf-st-create-button').click();
+    await page.getByRole('textbox', { name: 'Page Path' }).fill(pageName);
+    await page.getByRole('button', { name: 'Create and Save' }).click();
+
+    await test.step(`Expected Result: Error modal with Empty items appears`, async () => {
+      await expect(page.getByRole('dialog')).toContainText('LinksGridManualV2Widget is invalid: items amount must be in');
+   });
 });
 
 test.describe("Creating UG Pages", () => {
@@ -1623,4 +1642,5 @@ test.describe("Checking role permissions", () => {
       expect(role).toBe("GAME_MANAGER");
     });
   });
+});
 });
