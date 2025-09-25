@@ -1232,13 +1232,13 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminZzzPage();
       await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderV2Widget();
+      await moba.stPage.addHeaderWidget();
       await moba.stPage.createStPage(pageName);
       cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
       await moba.stPage.editStPage();
 
       await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
-        await expect(moba.stPage.headerV2Widget).toBeVisible();
+        await expect(moba.stPage.headerWidget).toBeVisible();
         await expect(moba.stPage.documentDiscoveryWidget).toBeVisible();
         await expect(moba.stPage.addSectionButton).not.toBeVisible();
         await expect(moba.stPage.dotsButton).toBeVisible();
@@ -1256,7 +1256,7 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminDeadlockPage();
       await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderV2Widget();
+      await moba.stPage.addHeaderWidget();
       await moba.stPage.createStPage(pageName);
       await moba.stPage.deleteStPage();
 
@@ -1277,7 +1277,7 @@ test.describe("Checking role permissions", () => {
 
       await moba.mainURLs.openAdminZzzPage();
       await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderV2Widget();
+      await moba.stPage.addHeaderWidget();
       await moba.stPage.createStPage(pageName);
       cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
       await moba.stPage.publishStPage();

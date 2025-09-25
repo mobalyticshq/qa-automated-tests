@@ -42,7 +42,7 @@ export class StPage {
     this.resetButton = page.getByRole("button", { name: "Reset" });
     this.stPageTitle = page.getByTestId("document-controls-panel");
     this.controlPanel = page.getByTestId("document-controls-panel");
-    this.headerV2Widget = page.getByRole("heading", { name: "ZZZ Header V2" });
+    this.headerWidget = page.getByRole("heading", { name: "ZZZ Header" });
     this.documentDiscoveryWidget = page.locator("section").nth(4);
     this.cardGalleryV2Button = page.getByRole("menuitem", {
       name: "Cards Gallery V2 Cards",
@@ -57,7 +57,7 @@ export class StPage {
       .nth(1);
     this.column1AutoEditMode = page
       .getByRole("button", {
-        name: "Edit ZZZ Header V2",
+        name: "Edit ZZZ Header",
         exact: true,
       })
       .nth(1);
@@ -66,7 +66,7 @@ export class StPage {
       .getByRole("button");
     this.addWidgetButton3 = page.locator(".xe8ttls > div > .x19l6gds");
     this.addWidgetButton2 = page
-      .getByRole("button", { name: "columnAuto Edit ZZZ Header V2" })
+      .getByRole("button", { name: "columnAuto Edit ZZZ Header" })
       .getByRole("button")
       .nth(4);
     this.dropdownMenuWidgets = page.getByText(
