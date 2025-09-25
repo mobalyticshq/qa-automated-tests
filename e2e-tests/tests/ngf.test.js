@@ -46,7 +46,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminDiablo4Page();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     cleanupStDiablo4Pages.addPageForCleanup(pageName); // Register page for deleting
@@ -69,7 +69,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminLoLPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
     cleanupStLoLPages.addPageForCleanup(pageName); // Register page for deleting
@@ -92,7 +92,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminTFTPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
     cleanupStTFTPages.addPageForCleanup(pageName); // Register page for deleting
@@ -115,7 +115,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminValorantPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
     cleanupStValorantPages.addPageForCleanup(pageName); // Register page for deleting
@@ -138,7 +138,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminDestiny2Page();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2WidgetOldGames();
+    await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
     cleanupStDestiny2Pages.addPageForCleanup(pageName); // Register page for deleting
@@ -161,7 +161,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminPoePage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
@@ -185,7 +185,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminNightreignPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
@@ -209,7 +209,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminDeadlockPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
@@ -233,7 +233,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminMhwPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
@@ -259,7 +259,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminBazaarPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
@@ -283,7 +283,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminMarvelRivalsPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
@@ -309,7 +309,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminZzzPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
@@ -332,7 +332,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminHades2Page();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     cleanupStHades2Pages.addPageForCleanup(pageName); // Register page for deleting
@@ -355,7 +355,7 @@ test.describe("Creating ST Pages", () => {
 
     await moba.mainURLs.openAdminBorderlands4Page();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addHeaderV2Widget();
+    await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
     cleanupStBorderlands4Pages.addPageForCleanup(pageName); // Register page for deleting
@@ -1341,6 +1341,7 @@ test.describe("Checking role permissions", () => {
       await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
+      
       await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
         await expect(moba.ugBuildPage.coverImage).toBeVisible();
         expect(

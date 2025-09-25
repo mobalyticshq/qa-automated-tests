@@ -72,8 +72,8 @@ export class StPage {
     this.dropdownMenuWidgets = page.getByText(
       "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
     );
-    this.headerV2Button = page.getByRole("menuitem", {
-      name: "Header V2 Introduce users to",
+    this.headerButton = page.getByRole("menuitem", {
+      name: "Header Introduce users to",
     });
     this.inputCreateSaveModal = page.getByRole("textbox", {
       name: "Page Path",
@@ -126,22 +126,22 @@ export class StPage {
     });
   }
 
-  async addHeaderV2Widget() {
-    await test.step(`Add HeaderV2 widget on the structure page`, async () => {
+  async addHeaderWidget() {
+    await test.step(`Add Header widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton1.click();
-      await this.headerV2Button.click();
+      await this.headerButton.click();
     });
   }
-  async addHeaderV2WidgetOldGames() {
-    await test.step(`Add HeaderV2 widget on the structure page`, async () => {
+  async addHeaderWidgetOldGames() {
+    await test.step(`Add Header widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
       await this.column1AutoLoL.hover();
       await this.addWidgetButton1.click();
-      await this.headerV2Button.click();
+      await this.headerButton.click();
     });
   }
 
