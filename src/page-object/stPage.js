@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 export class StPage {
   constructor(page) {
     this.page = page;
+    this.errorModal = page.getByText('Changes could not be savedThere was an unexpected error while saving your');
     this.chooseFileButton = page
       .getByRole("button", {
         name: "Video V2 Edit Video (Optional) Upload Video Supported formats: WebM, MP4 Choose file",
@@ -146,7 +147,7 @@ export class StPage {
   }
 
   async addCardGalleryV2Widget() {
-    await test.step(`Add HeaderV2 widget on the structure page`, async () => {
+    await test.step(`Add Card Gallery widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();

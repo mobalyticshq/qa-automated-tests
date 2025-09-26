@@ -380,4 +380,12 @@ export class MainURLs {
       });
     });
   }
+
+  async openDestiny2StPlanner() {
+    await test.step(`Open url: ${process.env.BASE_URL}/destiny-2/planner/st`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/destiny-2/planner/st`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
 }
