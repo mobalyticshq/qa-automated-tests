@@ -76,6 +76,7 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         // storageState: "playwright/.auth/userFile.json",
+        viewport: { width: 1920, height: 1080 },
       },
       testMatch: "tests/ngf.test.js",
     },
@@ -84,6 +85,7 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         // storageState: "playwright/.auth/userFile.json",
+        viewport: { width: 1920, height: 1080 },
       },
       testMatch: "tests/account.test.js",
     },
