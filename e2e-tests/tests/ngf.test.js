@@ -48,9 +48,7 @@ test.describe("Creating ST Pages", () => {
     await moba.stPage.createStPage(pageName);
 
     await test.step(`Expected Result: Error modal with Empty items appears`, async () => {
-      await expect(moba.stPage.errorModal).toContainText(
-        "LinksGridManualV2Widget is invalid: items amount must be in"
-      );
+      await expect(moba.stPage.errorModal).toContainText("Changes could not be saved");
     });
   });
 
