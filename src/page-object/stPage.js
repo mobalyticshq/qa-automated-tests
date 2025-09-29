@@ -45,9 +45,7 @@ export class StPage {
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.headerWidget = page.getByRole("heading", { name: "ZZZ Header" });
     this.documentDiscoveryWidget = page.locator("section").nth(4);
-    this.cardGalleryV2Button = page.getByRole("menuitem", {
-      name: "Cards Gallery V2 Cards",
-    });
+    this.cardGalleryV2Button = page.locator('[data-key="NgfDocumentStWidgetLinksGridManualV2"]');
     this.column1AutoLoL = page
       .getByRole("button")
       .filter({ hasText: /^$/ })
@@ -73,9 +71,7 @@ export class StPage {
     this.dropdownMenuWidgets = page.getByText(
       "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
     );
-    this.headerButton = page.getByRole("menuitem", {
-      name: "Header Introduce users to",
-    });
+    this.headerButton = page.locator('[data-key="NgfDocumentStWidgetHeaderV2"]');
     this.inputCreateSaveModal = page.getByRole("textbox", {
       name: "Page Path",
     });
@@ -86,9 +82,7 @@ export class StPage {
       name: "Documents Discovery Discover",
     });
     this.seoModal = page.getByText("SEO settingsMeta titleMeta");
-    this.videoV2Button = page.getByRole("menuitem", {
-      name: "Video V2 Embed a video from a",
-    });
+    this.videoV2Button = page.locator('[data-key="NgfDocumentCmWidgetVideoV2"]');
     this.listOfWidgets = page.getByText(
       "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
     );

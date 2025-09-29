@@ -34,8 +34,10 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({
 });
 
 test.describe("Creating ST Pages", () => {
-  
-  test(`Create a structure page on ST Page with CardGrid widget`, async ({apiAuthAdmin, page}) => {
+  test(`Create a structure page on ST Page with CardGrid widget`, async ({
+    apiAuthAdmin,
+    page,
+  }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -46,9 +48,11 @@ test.describe("Creating ST Pages", () => {
     await moba.stPage.createStPage(pageName);
 
     await test.step(`Expected Result: Error modal with Empty items appears`, async () => {
-      await expect(moba.stPage.errorModal).toContainText('LinksGridManualV2Widget is invalid: items amount must be in');
-   });
-});
+      await expect(moba.stPage.errorModal).toContainText(
+        "LinksGridManualV2Widget is invalid: items amount must be in"
+      );
+    });
+  });
 
   test(`Create a structure page on Diablo 4 project`, async ({
     apiAuthAdmin,
@@ -1357,7 +1361,6 @@ test.describe("Checking role permissions", () => {
       await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-      
       await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
         await expect(moba.ugBuildPage.coverImage).toBeVisible();
         expect(
