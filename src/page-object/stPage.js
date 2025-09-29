@@ -46,10 +46,10 @@ export class StPage {
     this.headerWidget = page.getByRole("heading", { name: "ZZZ Header" });
     this.documentDiscoveryWidget = page.locator("section").nth(4);
     this.cardGalleryV2Button = page.locator('[data-key="NgfDocumentStWidgetLinksGridManualV2"]');
-    this.column1AutoLoL = page
+    this.column1AutoOldGames = page
       .getByRole("button")
       .filter({ hasText: /^$/ })
-      .nth(2);
+      .nth(1);
     this.column1Auto = page
       .getByRole("button")
       .filter({ hasText: /^$/ })
@@ -134,7 +134,7 @@ export class StPage {
     await test.step(`Add Header widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
-      await this.column1AutoLoL.hover();
+      await this.column1AutoOldGames.hover();
       await this.addWidgetButton1.click();
       await this.headerButton.click();
     });
