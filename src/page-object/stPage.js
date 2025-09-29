@@ -12,7 +12,7 @@ export class StPage {
     this.errorModal = page.getByText('Changes could not be savedThere was an unexpected error while saving your');
     this.chooseFileButton = page
       .getByRole("button", {
-        name: "Video V2 Edit Video (Optional) Upload Video Supported formats: WebM, MP4 Choose file",
+        name: "Video Edit Video (Optional) Upload Video Supported formats: WebM, MP4 Choose file",
         exact: true,
       })
       .getByRole("button", { name: "Choose file" });
@@ -82,35 +82,35 @@ export class StPage {
       name: "Documents Discovery Discover",
     });
     this.seoModal = page.getByText("SEO settingsMeta titleMeta");
-    this.videoV2Button = page.locator('[data-key="NgfDocumentCmWidgetVideoV2"]');
+    this.videoButton = page.locator('[data-key="NgfDocumentCmWidgetVideoV2"]');
     this.listOfWidgets = page.getByText(
       "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
     );
-    this.videoV2Widget = page.getByRole("heading", { name: "Video V2" });
+    this.videoWidget = page.getByRole("heading", { name: "Video" });
     this.linkButtonVideoV2 = page.getByText("Link");
     this.inputVideoV2 = page.getByRole("textbox", {
       name: "YouTube, Twitch or Vimeo link",
     });
-    this.headerV2Diablo4 = page.locator("#container").getByText("Diablo 4");
-    this.headerV2LoL = page.locator("#container").getByText("LoL");
-    this.headerV2Valorant = page.locator("#container").getByText("Val");
-    this.headerV2PoE = page.locator("#container").getByText("PoE");
-    this.headerV2Destiny2 = page.locator("#container").getByText("Destiny 2");
-    this.headerV2TFT = page.locator("#container").getByText("TFT");
-    this.headerV2Zzz = page.locator("#container").getByText("ZZZ");
-    this.headerV2Hades2 = page.locator("#container").getByText("Hades 2");
-    this.headerV2Borderlands4 = page
+    this.headerDiablo4 = page.locator("#container").getByText("Diablo 4");
+    this.headerLoL = page.locator("#container").getByText("LoL");
+    this.headerValorant = page.locator("#container").getByText("Val");
+    this.headerPoE = page.locator("#container").getByText("PoE");
+    this.headerDestiny2 = page.locator("#container").getByText("Destiny 2");
+    this.headerTFT = page.locator("#container").getByText("TFT");
+    this.headerZzz = page.locator("#container").getByText("ZZZ");
+    this.headerHades2 = page.locator("#container").getByText("Hades 2");
+    this.headerBorderlands4 = page
       .locator("#container")
       .getByText("Borderlands 4");
-    this.headerV2Nightreign = page
+    this.headerNightreign = page
       .locator("#container")
       .getByText("Nightreign");
-    this.headerV2Deadlock = page.locator("#container").getByText("Deadlock");
-    this.headerV2Bazaar = page.locator("#container").getByText("The Bazaar");
-    this.headerV2MarvelRivals = page
+    this.headerDeadlock = page.locator("#container").getByText("Deadlock");
+    this.headerBazaar = page.locator("#container").getByText("The Bazaar");
+    this.headerMarvelRivals = page
       .locator("#container")
       .getByText("Marvel Rivals");
-    this.headerV2Mhw = page
+    this.headerMhw = page
       .locator("#container")
       .getByText("Monster Hunter Wilds");
   }
@@ -157,12 +157,12 @@ export class StPage {
       await this.addSectionButtonInModal.click();
       await this.column1Auto.hover();
       await this.addWidgetButton3.click();
-      await this.videoV2Button.click();
+      await this.videoButton.click();
     });
   }
 
   async uploadVideo(fileName) {
-    await test.step(`Upload file: ${fileName} to CDN in the VideoV2 widget`, async () => {
+    await test.step(`Upload file: ${fileName} to CDN in the Video widget`, async () => {
       let actualFilePath;
 
       // If a file contains unique ID then create temporary copy of this file

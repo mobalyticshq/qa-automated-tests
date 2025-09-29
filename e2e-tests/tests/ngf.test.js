@@ -72,7 +72,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStDiablo4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Diablo4 project`, async () => {
-      await expect(moba.stPage.headerV2Diablo4).toContainText("Diablo 4");
+      await expect(moba.stPage.headerDiablo4).toContainText("Diablo 4");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -95,7 +95,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStLoLPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.stPage.headerV2LoL).toContainText("LoL");
+      await expect(moba.stPage.headerLoL).toContainText("LoL");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -118,7 +118,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStTFTPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.stPage.headerV2TFT).toContainText("TFT");
+      await expect(moba.stPage.headerTFT).toContainText("TFT");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -141,7 +141,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStValorantPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.stPage.headerV2Valorant).toContainText("Val");
+      await expect(moba.stPage.headerValorant).toContainText("Val");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -164,7 +164,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStDestiny2Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.stPage.headerV2Destiny2).toContainText("Destiny 2");
+      await expect(moba.stPage.headerDestiny2).toContainText("Destiny 2");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -188,7 +188,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStPoEPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE project`, async () => {
-      await expect(moba.stPage.headerV2PoE).toContainText("PoE 2");
+      await expect(moba.stPage.headerPoE).toContainText("PoE 2");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -212,7 +212,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStNightreignPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.stPage.headerV2Nightreign).toContainText("Nightreign");
+      await expect(moba.stPage.headerNightreign).toContainText("Nightreign");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -236,7 +236,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStDeadlockPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.stPage.headerV2Deadlock).toContainText("Deadlock");
+      await expect(moba.stPage.headerDeadlock).toContainText("Deadlock");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -260,7 +260,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStMhwPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Monster Hunter Wilds project`, async () => {
-      await expect(moba.stPage.headerV2Mhw).toContainText(
+      await expect(moba.stPage.headerMhw).toContainText(
         "Monster Hunter Wilds"
       );
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
@@ -286,7 +286,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStBazaarPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Bazaar project`, async () => {
-      await expect(moba.stPage.headerV2Bazaar).toContainText("The Bazaar");
+      await expect(moba.stPage.headerBazaar).toContainText("The Bazaar");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -310,7 +310,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStMarvelRivalsPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.stPage.headerV2MarvelRivals).toContainText(
+      await expect(moba.stPage.headerMarvelRivals).toContainText(
         "Marvel Rivals"
       );
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
@@ -335,7 +335,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.stPage.headerV2Zzz).toContainText("ZZZ");
+      await expect(moba.stPage.headerZzz).toContainText("ZZZ");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -358,7 +358,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStHades2Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.stPage.headerV2Hades2).toContainText("Hades 2");
+      await expect(moba.stPage.headerHades2).toContainText("Hades 2");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -381,7 +381,7 @@ test.describe("Creating ST Pages", () => {
     cleanupStBorderlands4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.stPage.headerV2Borderlands4).toContainText(
+      await expect(moba.stPage.headerBorderlands4).toContainText(
         "Borderlands 4"
       );
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
@@ -1342,8 +1342,8 @@ test.describe("Checking role permissions", () => {
 
       cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
 
-      await test.step(`Expected Result: VideoV2 widget is present in the ST page`, async () => {
-        await expect(moba.stPage.videoV2Widget).toBeVisible();
+      await test.step(`Expected Result: Video widget is present in the ST page`, async () => {
+        await expect(moba.stPage.videoWidget).toBeVisible();
       });
     });
 
@@ -1580,7 +1580,7 @@ test.describe("Checking role permissions", () => {
       await moba.ugBuildPlanner.uploadVideo(`aqa-video${uniqueId}.mp4`);
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-      await test.step(`Expected Result: VideoV2 widget is present in the ST page`, async () => {
+      await test.step(`Expected Result: Video widget is present in the ST page`, async () => {
         await expect(moba.ugBuildPage.videoGuideWidget).toBeVisible();
       });
     });
