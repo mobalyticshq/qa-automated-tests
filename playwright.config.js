@@ -16,7 +16,7 @@ dotenv.config();
 
 export default defineConfig({
   timeout: 60_000,
-  expect: { timeout: 10_000 },
+  expect: { timeout: 5_000 },
   testDir: "./e2e-tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -25,12 +25,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers:
-    process.env.BASE_URL === "https://mobalytics.gg"
-      ? process.env.CI
-        ? "100%"
-        : os.cpus().length
-      : 1,
+  workers: process.env.BASE_URL === "https://mobalytics.gg" ? (process.env.CI ? "100%" : os.cpus().length) : 1,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
@@ -61,42 +56,51 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: "setup",
-    //   use: { ...devices["Desktop Chrome"] },
-    //   testMatch: "/stg-tests/auth.setup.test.js",
-    // },
     {
-      name: "sitemap-tests",
+      name: "setup",
       use: { ...devices["Desktop Chrome"] },
-      testMatch: "tests/sitemap.test.js",
+      testMatch: "**/auth.setup.test.js",
     },
     {
       name: "ngf-tests",
+      dependencies: ["setup"],
       use: {
         ...devices["Desktop Chrome"],
-        // storageState: "playwright/.auth/userFile.json",
-        viewport: { width: 1920, height: 1080 },
+        viewport: { width: 1680, height: 1050 },
       },
-      testMatch: "tests/ngf.test.js",
+      testMatch: "e2e-tests/ngf.test.js",
     },
     {
       name: "account-tests",
+      // dependencies: ["setup"],
       use: {
         ...devices["Desktop Chrome"],
-        // storageState: "playwright/.auth/userFile.json",
-        viewport: { width: 1920, height: 1080 },
+        // storageState: ".auth/userRoleAuth.json",
+        viewport: { width: 1680, height: 1050 },
       },
-      testMatch: "tests/account.test.js",
+      testMatch: "e2e-tests/account.test.js",
+    },
+    {
+      name: "others-tests",
+      dependencies: ["setup"],
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1680, height: 1050 },
+      },
+      testMatch: "e2e-tests/others.test.js",
     },
     {
       name: "advertisement-tests",
       use: {
         ...devices["Desktop Chrome"],
-        // storageState: "playwright/.auth/userFile.json",
-        viewport: { width: 1920, height: 1080 },
+        viewport: { width: 1680, height: 1050 },
       },
-      testMatch: "tests/advertisement.test.js",
+      testMatch: "e2e-tests/advertisement.test.js",
+    },
+    {
+      name: "sitemap-tests",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: "e2e-tests/sitemap.test.js",
     },
   ],
   /* Run your local dev server before starting the tests */

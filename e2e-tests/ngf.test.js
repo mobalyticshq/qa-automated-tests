@@ -1,20 +1,17 @@
 import { expect } from "@playwright/test";
-import { test } from "../../src/fixtures/index";
-import { Moba } from "../../src/page-object/moba";
+import { test } from "../src/fixtures/index";
+import { Moba } from "../src/page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
 test.beforeEach(async ({ page }) => {
-  // Add 1 second pause before each test
   await page.waitForTimeout(1000);
 });
 
-test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({
-  page,
-}) => {
+test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
   let newGame1 = "Hades 2";
   let newGame2 = "Borderlands 4";
   const moba = new Moba(page);
-  await moba.mainURLs.openAdminPoePage();
+  await moba.mainURLs.openPoePage();
 
   if (process.env.BASE_URL === "https://mobalytics.gg") {
     await test.step(`Expected Result: ${newGame1} game is missing in the navbar on PROD`, async () => {
@@ -34,14 +31,12 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({
 });
 
 test.describe("Creating ST Pages", () => {
-  test(`Create a structure page on ST Page with CardGrid widget`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
+  test.use({ storageState: ".auth/adminAuth.json" }); // add admin auth
+
+  test(`Create ST Page with empty 'CardGrid' widget`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
-    await page.context().addCookies(apiAuthAdmin.cookies);
 
     await moba.mainURLs.openDestiny2StPlanner();
     await moba.stPage.addCardGalleryV2Widget();
@@ -52,12 +47,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Diablo 4 project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStDiablo4Pages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Diablo 4 project`, async ({ page, cleanupStDiablo4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -75,12 +65,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on LoL project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStLoLPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on LoL project`, async ({ page, cleanupStLoLPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -98,12 +83,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on TFT project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStTFTPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on TFT project`, async ({ page, cleanupStTFTPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -121,12 +101,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Valorant project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStValorantPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Valorant project`, async ({ page, cleanupStValorantPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -144,12 +119,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Destiny 2 project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStDestiny2Pages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Destiny 2 project`, async ({ page, cleanupStDestiny2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -167,12 +137,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on PoE project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStPoEPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on PoE project`, async ({ page, cleanupStPoEPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -191,12 +156,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Nightreign project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStNightreignPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Nightreign project`, async ({ page, cleanupStNightreignPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -215,12 +175,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Deadlock project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStDeadlockPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Deadlock project`, async ({ page, cleanupStDeadlockPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -239,12 +194,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on MHW project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStMhwPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on MHW project`, async ({ page, cleanupStMhwPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -258,19 +208,12 @@ test.describe("Creating ST Pages", () => {
     cleanupStMhwPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Monster Hunter Wilds project`, async () => {
-      await expect(moba.stPage.headerMhw).toContainText(
-        "Monster Hunter Wilds"
-      );
+      await expect(moba.stPage.headerMhw).toContainText("Monster Hunter Wilds");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
-  test(`Create a structure page on Bazaar project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStBazaarPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Bazaar project`, async ({ page, cleanupStBazaarPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -289,12 +232,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Marvel Rivals project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStMarvelRivalsPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Marvel Rivals project`, async ({ page, cleanupStMarvelRivalsPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -308,19 +246,12 @@ test.describe("Creating ST Pages", () => {
     cleanupStMarvelRivalsPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.stPage.headerMarvelRivals).toContainText(
-        "Marvel Rivals"
-      );
+      await expect(moba.stPage.headerMarvelRivals).toContainText("Marvel Rivals");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
-  test(`Create a structure page on ZZZ project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStZzzPages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on ZZZ project`, async ({ page, cleanupStZzzPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -338,12 +269,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Hades 2 project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStHades2Pages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Hades 2 project`, async ({ page, cleanupStHades2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -361,12 +287,7 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
-  test(`Create a structure page on Borderlands 4 project`, async ({
-    apiAuthAdmin,
-    page,
-    cleanupStBorderlands4Pages,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a structure page on Borderlands 4 project`, async ({ page, cleanupStBorderlands4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -379,17 +300,16 @@ test.describe("Creating ST Pages", () => {
     cleanupStBorderlands4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.stPage.headerBorderlands4).toContainText(
-        "Borderlands 4"
-      );
+      await expect(moba.stPage.headerBorderlands4).toContainText("Borderlands 4");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 });
 
 test.describe("Creating UG Pages", () => {
-  test(`Create a build page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test.use({ storageState: ".auth/adminAuth.json" }); // add admin auth
+
+  test(`Create a build page on ZZZ project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -404,8 +324,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on LoL project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on LoL project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -420,8 +339,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on TFT project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on TFT project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -436,11 +354,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Valorant project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Valorant project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -455,11 +369,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Destiny 2 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Destiny 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -474,11 +384,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Marvel Rivals project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Marvel Rivals project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -488,18 +394,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Marvel Rivals Build"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a build page on Bazaar project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Bazaar project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -514,8 +414,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on MHW project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on MHW project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -525,15 +424,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Monster Hunter Wilds Build"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a build page on PoE project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on PoE project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -548,11 +444,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Nightreign project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Nightreign project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -567,11 +459,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Hades 2 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Hades 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -586,11 +474,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Borderlands 4 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Borderlands 4 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -600,18 +484,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Borderlands 4 Build"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Build");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a build page on Deadlock project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a build page on Deadlock project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -626,11 +504,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Diablo 4 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Diablo 4 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -645,11 +519,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Nightreign project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Nightreign project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -664,11 +534,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Destiny 2 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Destiny 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -683,11 +549,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Valorant project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Valorant project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -702,8 +564,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on TFT project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on TFT project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -718,8 +579,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on LoL project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on LoL project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -734,8 +594,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on PoE project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on PoE project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -750,11 +609,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Deadlock project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Deadlock project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -769,11 +624,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Hades 2 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Hades 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -788,11 +639,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Borderlands 4 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Borderlands 4 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -802,15 +649,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Borderlands 4 Guide"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Guide");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a guide page on MHW project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on MHW project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -820,18 +664,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Monster Hunter Wilds Guide"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Guide");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a guide page on Bazaar project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Bazaar project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -846,11 +684,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a guide page on Marvel Rivals project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on Marvel Rivals project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -860,15 +694,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Marvel Rivals Guide"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Guide");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a guide page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a guide page on ZZZ project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -883,8 +714,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a team page on ZZZ project`, async ({ apiAuthAdmin, page }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a team page on ZZZ project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-team-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -899,11 +729,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on MHW project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on MHW project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -913,18 +739,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Monster Hunter Wilds Tier List"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a tier list page on TFT project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on TFT project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -939,11 +759,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on Valorant project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Valorant project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -958,11 +774,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on Destiny 2 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Destiny 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -972,18 +784,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Destiny 2 Tier List"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a tier list page on LoL project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on LoL project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -998,11 +804,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on PoE project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on PoE project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1017,11 +819,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on Nightreign project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Nightreign project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1031,18 +829,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Nightreign Tier List"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Nightreign Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a tier list page on Deadlock project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Deadlock project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1057,11 +849,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on The Bazaar project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on The Bazaar project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1071,18 +859,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on The Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "The Bazaar Tier List"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a tier list page on Marvel Rivals project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Marvel Rivals project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1092,18 +874,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Marvel Rivals Tier List"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a tier list page on ZZZ project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on ZZZ project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1118,11 +894,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on Borderlands 4 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Borderlands 4 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1132,18 +904,12 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText(
-        "Borderlands 4 Tier List"
-      );
+      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
-  test(`Create a tier list page on Hades 2 project`, async ({
-    apiAuthAdmin,
-    page,
-  }) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
+  test(`Create a tier list page on Hades 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1159,464 +925,172 @@ test.describe("Creating UG Pages", () => {
   });
 });
 
-test.describe("Checking role permissions", () => {
-  test.describe("Admin permission", () => {
-    test(`Admin role has access to the Admin ST page`, async ({
-      apiAuthAdmin,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      let adminTitle = "Structure Pages";
-      const moba = new Moba(page);
+test.describe("Admin permission", () => {
+  test.use({ storageState: ".auth/adminAuth.json" }); // add admin auth
 
-      await moba.mainURLs.openAdminPoePage();
-      await test.step(`Expected Result: Admin structure page is opened`, async () => {
-        await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(
-          adminTitle
-        );
-      });
-    });
+  test(`Admin role has access to the Admin ST page`, async ({ page }) => {
+    let adminTitle = "Structure Pages";
+    const moba = new Moba(page);
 
-    test('St Widget contains "Edit" button, "Delete" button & "Create Page" button is present on ST Admin page for Admin role', async ({
-      page,
-      apiAuthAdmin,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const moba = new Moba(page);
-      let stWidgetName = "/qa-not-delete-st-page";
-
-      await moba.mainURLs.openAdminNightreignPage();
-
-      await test.step('Expected Result: St Widget contains "Edit" button', async () => {
-        await expect(moba.stAdminPage.editButton(stWidgetName)).toBeVisible();
-      });
-      await test.step('Expected Result: St Widget contains "Delete" button', async () => {
-        await expect(moba.stAdminPage.deleteButton(stWidgetName)).toBeVisible();
-      });
-      await test.step('Expected Result: "Create Page" button is present on ST page for Admin role', async () => {
-        await expect(moba.stAdminPage.createPageButton).toBeVisible();
-      });
-    });
-
-    test(`View mode of the "/qa-not-delete-st-page" structure page is available for the Admin role`, async ({
-      apiAuthAdmin,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      let stWidgetName = "/qa-not-delete-st-page";
-
-      const moba = new Moba(page);
-
-      await moba.mainURLs.openAdminNightreignPage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await test.step(`Expected Result: View mode the "/home" structure page is opened`, async () => {
-        await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
-      });
-    });
-
-    test(`Admin role can duplicate the structure page`, async ({
-      apiAuthAdmin,
-      page,
-      cleanupStPoEPages,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-st-page-${uniqueId}`;
-      const moba = new Moba(page);
-      let stWidgetName = "/qa-not-delete-st-page";
-
-      await moba.mainURLs.openAdminPoePage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await moba.stPage.duplicateStPage(pageName);
-      cleanupStPoEPages.addPageForCleanup(pageName); // Register page for deleting
-      await moba.mainURLs.openAdminPoePage();
-
-      await test.step(`Expected Result: ST page: ${pageName} is duplicated under Admin role`, async () => {
-        await expect(moba.stAdminPage.stWidget(pageName)).toContainText(
-          pageName
-        );
-      });
-    });
-
-    test(`Admin role can edit the structure page`, async ({
-      apiAuthAdmin,
-      page,
-      cleanupStZzzPages,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-st-page-${uniqueId}`;
-      const moba = new Moba(page);
-
-      await moba.mainURLs.openAdminZzzPage();
-      await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderWidget();
-      await moba.stPage.createStPage(pageName);
-      cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
-      await moba.stPage.editStPage();
-
-      await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
-        await expect(moba.stPage.headerWidget).toBeVisible();
-        await expect(moba.stPage.documentDiscoveryWidget).toBeVisible();
-        await expect(moba.stPage.addSectionButton).not.toBeVisible();
-        await expect(moba.stPage.dotsButton).toBeVisible();
-      });
-    });
-
-    test(`Admin role can delete the structure page on the ST page`, async ({
-      apiAuthAdmin,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-st-page-${uniqueId}`;
-      const moba = new Moba(page);
-
-      await moba.mainURLs.openAdminDeadlockPage();
-      await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderWidget();
-      await moba.stPage.createStPage(pageName);
-      await moba.stPage.deleteStPage();
-
-      await test.step(`Expected Result: ST page: ${pageName} is deleted`, async () => {
-        await expect(moba.stAdminPage.stWidget(pageName)).not.toBeVisible();
-      });
-    });
-
-    test(`Admin role is allowed to publish structure pages`, async ({
-      apiAuthAdmin,
-      page,
-      cleanupStZzzPages,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-st-page-${uniqueId}`;
-      const moba = new Moba(page);
-
-      await moba.mainURLs.openAdminZzzPage();
-      await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addHeaderWidget();
-      await moba.stPage.createStPage(pageName);
-      cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
-      await moba.stPage.publishStPage();
-
-      await test.step(`Expected Result: The ST page: ${pageName} is published`, async () => {
-        await expect(moba.stPage.controlPanel).toContainText("Published");
-      });
-    });
-
-    test(`Admin role has access to SEO modal on the structure pages`, async ({
-      apiAuthAdmin,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const moba = new Moba(page);
-      let stWidgetName = "/qa-not-delete-st-page";
-
-      await moba.mainURLs.openAdminZzzPage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await moba.stPage.openSeoModal();
-
-      await test.step(`Expected Result: SEO modal is available for Admin role`, async () => {
-        await expect(moba.stPage.seoModal).toBeVisible();
-      });
-    });
-
-    test(`Admin role can upload a video to CDN on the structure pages`, async ({
-      apiAuthAdmin,
-      page,
-      cleanupStMhwPages,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-st-page-${uniqueId}`;
-      const moba = new Moba(page);
-
-      await moba.mainURLs.openAdminMhwPage();
-      await moba.stAdminPage.gotoStPlannerPage();
-      await moba.stPage.addVideoV2Widget();
-      await moba.stPage.uploadVideo(`aqa-video${uniqueId}.mp4`);
-      await moba.stPage.createStPage(pageName);
-
-      cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
-
-      await test.step(`Expected Result: Video widget is present in the ST page`, async () => {
-        await expect(moba.stPage.videoWidget).toBeVisible();
-      });
-    });
-
-    test(`Admin role can upload an image to CDN on the ug page`, async ({
-      apiAuthAdmin,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthAdmin.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-build-page-${uniqueId}`;
-      const moba = new Moba(page);
-
-      await moba.mainURLs.openUgZzzPage();
-      await moba.ugProfilePage.gotoBuildPlannerPage();
-      await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
-      await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-      await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
-        await expect(moba.ugBuildPage.coverImage).toBeVisible();
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain("cdn.mobalytics.gg");
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain(`aqa-telegram${uniqueId}.svg`);
-      });
-    });
-
-    test("Check API admin permission", async ({ request, apiAuthAdmin }) => {
-      const adminRoleResponse = await request.post(
-        `${process.env.BASE_URL}/api/poe-2/v1/graphql/query`,
-        {
-          data: {
-            query: `
-            query Poe2 {
-                poe2 {
-                    id
-                    permissions {
-                        user {
-                            id
-                            role
-                        }
-                    }
-                }
-            }
-        `,
-          },
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      expect(adminRoleResponse.ok()).toBeTruthy();
-      const json = await adminRoleResponse.json();
-      const role = json.data.poe2.permissions.user.role;
-      expect(role).toBe("ADMIN");
+    await moba.mainURLs.openAdminPoePage();
+    await test.step(`Expected Result: Admin structure page is opened`, async () => {
+      await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(adminTitle);
     });
   });
 
-  test.describe("Internal Writer permission", () => {
-    test(`Internal Writer role has NO access to the Admin ST page`, async ({
-      apiAuthInternalWriter,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthInternalWriter.cookies);
-      const moba = new Moba(page);
+  test('St Widget contains "Edit" button, "Delete" button & "Create Page" button is present on ST Admin page for Admin role', async ({
+    page,
+  }) => {
+    const moba = new Moba(page);
+    let stWidgetName = "/qa-not-delete-st-page";
 
-      await moba.mainURLs.openAdminMhwPage();
-      await test.step(`Expected Result: Admin structure page is opened`, async () => {
-        await expect(moba.stAdminPage.notFoundPage).toBeVisible();
-      });
+    await moba.mainURLs.openAdminNightreignPage();
+
+    await test.step('Expected Result: St Widget contains "Edit" button', async () => {
+      await expect(moba.stAdminPage.editButton(stWidgetName)).toBeVisible();
     });
-
-    test(`Internal Writer role has NO access to the control panel`, async ({
-      apiAuthInternalWriter,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthInternalWriter.cookies);
-      const moba = new Moba(page);
-
-      await moba.homePage.openMhwHomePage();
-      await test.step(`Expected Result: Control panel is missing for Internal Writer role`, async () => {
-        await expect(moba.homePage.controlPanel).not.toBeVisible();
-      });
+    await test.step('Expected Result: St Widget contains "Delete" button', async () => {
+      await expect(moba.stAdminPage.deleteButton(stWidgetName)).toBeVisible();
     });
-
-    test("Check API Internal Writer permission", async ({
-      request,
-      apiAuthInternalWriter,
-    }) => {
-      const adminRoleResponse = await request.post(
-        `${process.env.BASE_URL}/api/poe-2/v1/graphql/query`,
-        {
-          data: {
-            query: `
-            query Poe2 {
-                poe2 {
-                    id
-                    permissions {
-                        user {
-                            id
-                            role
-                        }
-                    }
-                }
-            }
-        `,
-          },
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      expect(adminRoleResponse.ok()).toBeTruthy();
-      const json = await adminRoleResponse.json();
-      const role = json.data.poe2.permissions.user.role;
-      expect(role).toBe("INTERNAL_WRITER");
+    await test.step('Expected Result: "Create Page" button is present on ST page for Admin role', async () => {
+      await expect(moba.stAdminPage.createPageButton).toBeVisible();
     });
   });
 
-  test.describe("Game Manager permission", () => {
-    test("Game Manager role has access to the Admin ST page", async ({
-      page,
-      apiAuthGameManager,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      const moba = new Moba(page);
-      const title = "Structure Pages";
+  test(`View mode of the "/qa-not-delete-st-page" structure page is available for the Admin role`, async ({ page }) => {
+    let stWidgetName = "/qa-not-delete-st-page";
 
-      await moba.mainURLs.openAdminPoePage();
-      await test.step(`Expected Result: Game Manager role has access to the Admin ST page`, async () => {
-        await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
-      });
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminNightreignPage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await test.step(`Expected Result: View mode the "/home" structure page is opened`, async () => {
+      await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
     });
+  });
 
-    test('St Widget contains only "Edit" button & "Create Page" button is missing on ST page for Game Manager role', async ({
-      page,
-      apiAuthGameManager,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      const moba = new Moba(page);
-      let stWidgetName = "/qa-not-delete-st-page";
+  test(`Admin role can duplicate the structure page`, async ({ page, cleanupStPoEPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+    let stWidgetName = "/qa-not-delete-st-page";
 
-      await moba.mainURLs.openAdminNightreignPage();
+    await moba.mainURLs.openAdminPoePage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stPage.duplicateStPage(pageName);
+    cleanupStPoEPages.addPageForCleanup(pageName); // Register page for deleting
+    await moba.mainURLs.openAdminPoePage();
 
-      await test.step('Expected Result: St Widget contains "Edit" button', async () => {
-        await expect(moba.stAdminPage.editButton(stWidgetName)).toBeVisible();
-      });
-      await test.step('Expected Result: St Widget contains "Delete" button', async () => {
-        await expect(
-          moba.stAdminPage.deleteButton(stWidgetName)
-        ).not.toBeVisible();
-      });
-      await test.step('Expected Result: "Create Page" button is missing on ST page for Game Manager role', async () => {
-        await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
-      });
+    await test.step(`Expected Result: ST page: ${pageName} is duplicated under Admin role`, async () => {
+      await expect(moba.stAdminPage.stWidget(pageName)).toContainText(pageName);
     });
+  });
 
-    test(`View mode of the "/qa-not-delete-st-page" structure page is available for the Game Manager role`, async ({
-      apiAuthGameManager,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      let stWidgetName = "/qa-not-delete-st-page";
+  test(`Admin role can edit the structure page`, async ({ page, cleanupStZzzPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-      const moba = new Moba(page);
+    await moba.mainURLs.openAdminZzzPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+    cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+    await moba.stPage.editStPage();
 
-      await moba.mainURLs.openAdminNightreignPage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await test.step(`Expected Result: View mode the "/qa-not-delete-st-page" structure page is opened`, async () => {
-        await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
-      });
+    await test.step(`Expected Result: Document Discovery is added to the st page: ${pageName} in edit mode`, async () => {
+      await expect(moba.stPage.headerWidget).toBeVisible();
+      await expect(moba.stPage.documentDiscoveryWidget).toBeVisible();
+      await expect(moba.stPage.addSectionButton).not.toBeVisible();
+      await expect(moba.stPage.dotsButton).toBeVisible();
     });
+  });
 
-    test(`Game Manager role can't publish ST pages`, async ({
-      apiAuthGameManager,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      let stWidgetName = "/qa-not-delete-st-page";
+  test(`Admin role can delete the structure page on the ST page`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-      const moba = new Moba(page);
+    await moba.mainURLs.openAdminDeadlockPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+    await moba.stPage.deleteStPage();
 
-      await moba.mainURLs.openAdminZzzPage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await test.step(`Expected Result: "Publish" button is missing in the control panel on the ST page`, async () => {
-        await expect(moba.stPage.controlPanel).not.toContainText("Published");
-      });
+    await test.step(`Expected Result: ST page: ${pageName} is deleted`, async () => {
+      await expect(moba.stAdminPage.stWidget(pageName)).not.toBeVisible();
     });
+  });
 
-    test(`Game Manager role can't archive, duplicate ST pages`, async ({
-      apiAuthGameManager,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      let stWidgetName = "/qa-not-delete-st-page";
+  test(`Admin role is allowed to publish structure pages`, async ({ page, cleanupStZzzPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-      const moba = new Moba(page);
+    await moba.mainURLs.openAdminZzzPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+    cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+    await moba.stPage.publishStPage();
 
-      await moba.mainURLs.openAdminZzzPage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await test.step(`Expected Result: "Dots" button is missing in the control panel on the ST page`, async () => {
-        await expect(moba.stPage.dotsButton).not.toBeVisible();
-      });
+    await test.step(`Expected Result: The ST page: ${pageName} is published`, async () => {
+      await expect(moba.stPage.controlPanel).toContainText("Published");
     });
+  });
 
-    test(`Game Manager has access to SEO modal on the structure pages`, async ({
-      apiAuthGameManager,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      const moba = new Moba(page);
-      let stWidgetName = "/qa-not-delete-st-page";
+  test(`Admin role has access to SEO modal on the structure pages`, async ({ page }) => {
+    const moba = new Moba(page);
+    let stWidgetName = "/qa-not-delete-st-page";
 
-      await moba.mainURLs.openAdminZzzPage();
-      await moba.stAdminPage.clickOnStWidget(stWidgetName);
-      await moba.stPage.openSeoModal();
+    await moba.mainURLs.openAdminZzzPage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stPage.openSeoModal();
 
-      await test.step(`Expected Result: SEO modal is available for Game Manager role`, async () => {
-        await expect(moba.stPage.seoModal).toBeVisible();
-      });
+    await test.step(`Expected Result: SEO modal is available for Admin role`, async () => {
+      await expect(moba.stPage.seoModal).toBeVisible();
     });
+  });
 
-    test(`Game Manager can upload a video to CDN on the structure pages`, async ({
-      apiAuthGameManager,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-st-page-${uniqueId}`;
-      const moba = new Moba(page);
+  test(`Admin role can upload a video to CDN on the structure pages`, async ({ page, cleanupStMhwPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-      await moba.mainURLs.openMhwBuildPlanner();
-      await moba.ugBuildPlanner.uploadVideo(`aqa-video${uniqueId}.mp4`);
-      await moba.ugBuildPlanner.createUgDraftPage(pageName);
+    await moba.mainURLs.openAdminMhwPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addVideoV2Widget();
+    await moba.stPage.uploadVideo(`aqa-video${uniqueId}.mp4`);
+    await moba.stPage.createStPage(pageName);
 
-      await test.step(`Expected Result: Video widget is present in the ST page`, async () => {
-        await expect(moba.ugBuildPage.videoGuideWidget).toBeVisible();
-      });
+    cleanupStMhwPages.addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Video widget is present in the ST page`, async () => {
+      await expect(moba.stPage.videoWidget).toBeVisible();
     });
+  });
 
-    test(`Game Manager role can can upload an image to CDN on the ug page`, async ({
-      apiAuthGameManager,
-      page,
-    }) => {
-      await page.context().addCookies(apiAuthGameManager.cookies);
-      const uniqueId = uuidv4();
-      const pageName = `/qa-automation-build-page-${uniqueId}`;
-      const moba = new Moba(page);
+  test(`Admin role can upload an image to CDN on the ug page`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
 
-      await moba.mainURLs.openUgZzzPage();
-      await moba.ugProfilePage.gotoBuildPlannerPage();
-      await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
-      await moba.ugBuildPlanner.createUgDraftPage(pageName);
+    await moba.mainURLs.openUgZzzPage();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-      await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
-        await expect(moba.ugBuildPage.coverImage).toBeVisible();
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain("cdn.mobalytics.gg");
-        expect(
-          await moba.ugBuildPage.coverImage.getAttribute("style")
-        ).toContain(`aqa-telegram${uniqueId}.svg`);
-      });
+    await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
+      await expect(moba.ugBuildPage.coverImage).toBeVisible();
+      expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain("cdn.mobalytics.gg");
+      expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain(`aqa-telegram${uniqueId}.svg`);
     });
+  });
 
-    test("Check API Game Manager permission", async ({
-      request,
-      apiAuthGameManager,
-    }) => {
-      const adminRoleResponse = await request.post(
-        `${process.env.BASE_URL}/api/poe-2/v1/graphql/query`,
-        {
-          data: {
-            query: `
+  test("Check API admin permission", async ({ request }) => {
+    const adminRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
+      data: {
+        query: `
             query Poe2 {
                 poe2 {
                     id
@@ -1629,16 +1103,205 @@ test.describe("Checking role permissions", () => {
                 }
             }
         `,
-          },
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      expect(adminRoleResponse.ok()).toBeTruthy();
-      const json = await adminRoleResponse.json();
-      const role = json.data.poe2.permissions.user.role;
-      expect(role).toBe("GAME_MANAGER");
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    expect(adminRoleResponse.ok()).toBeTruthy();
+    const json = await adminRoleResponse.json();
+    const role = json.data.poe2.permissions.user.role;
+    expect(role).toBe("ADMIN");
+  });
+});
+
+test.describe("Internal Writer permission", () => {
+  test.use({ storageState: ".auth/internalWriterAuth.json" });
+
+  test(`Internal Writer role has NO access to the Admin ST page`, async ({ page }) => {
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminMhwPage();
+    await test.step(`Expected Result: Admin structure page is opened`, async () => {
+      await expect(moba.stAdminPage.notFoundPage).toBeVisible();
+    });
+  });
+
+  test(`Internal Writer role has NO access to the control panel`, async ({ page }) => {
+    const moba = new Moba(page);
+
+    await moba.homePage.openMhwHomePage();
+    await test.step(`Expected Result: Control panel is missing for Internal Writer role`, async () => {
+      await expect(moba.homePage.controlPanel).not.toBeVisible();
+    });
+  });
+
+  test("Check API Internal Writer permission", async ({ request }) => {
+    const adminRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
+      data: {
+        query: `
+            query Poe2 {
+                poe2 {
+                    id
+                    permissions {
+                        user {
+                            id
+                            role
+                        }
+                    }
+                }
+            }
+        `,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    expect(adminRoleResponse.ok()).toBeTruthy();
+    const json = await adminRoleResponse.json();
+    const role = json.data.poe2.permissions.user.role;
+    expect(role).toBe("INTERNAL_WRITER");
+  });
+});
+
+test.describe("Game Manager permission", () => {
+  test.use({ storageState: ".auth/gameManagerAuth.json" }); // add game manager auth
+
+  test("Game Manager role has access to the Admin ST page", async ({ page }) => {
+    const moba = new Moba(page);
+    const title = "Structure Pages";
+
+    await moba.mainURLs.openAdminPoePage();
+    await test.step(`Expected Result: Game Manager role has access to the Admin ST page`, async () => {
+      await expect(moba.stAdminPage.stAdminTitle(title)).toContainText(title);
+    });
+  });
+
+  test('St Widget contains only "Edit" button & "Create Page" button is missing on ST page for Game Manager role', async ({
+    page,
+  }) => {
+    const moba = new Moba(page);
+    let stWidgetName = "/qa-not-delete-st-page";
+
+    await moba.mainURLs.openAdminNightreignPage();
+
+    await test.step('Expected Result: St Widget contains "Edit" button', async () => {
+      await expect(moba.stAdminPage.editButton(stWidgetName)).toBeVisible();
+    });
+    await test.step('Expected Result: St Widget contains "Delete" button', async () => {
+      await expect(moba.stAdminPage.deleteButton(stWidgetName)).not.toBeVisible();
+    });
+    await test.step('Expected Result: "Create Page" button is missing on ST page for Game Manager role', async () => {
+      await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
+    });
+  });
+
+  test(`View mode of the "/qa-not-delete-st-page" structure page is available for the Game Manager role`, async ({
+    page,
+  }) => {
+    let stWidgetName = "/qa-not-delete-st-page";
+
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminNightreignPage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await test.step(`Expected Result: View mode the "/qa-not-delete-st-page" structure page is opened`, async () => {
+      await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
+    });
+  });
+
+  test(`Game Manager role can't publish ST pages`, async ({ page }) => {
+    let stWidgetName = "/qa-not-delete-st-page";
+
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminZzzPage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await test.step(`Expected Result: "Publish" button is missing in the control panel on the ST page`, async () => {
+      await expect(moba.stPage.controlPanel).not.toContainText("Published");
+    });
+  });
+
+  test(`Game Manager role can't archive, duplicate ST pages`, async ({ page }) => {
+    let stWidgetName = "/qa-not-delete-st-page";
+
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminZzzPage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await test.step(`Expected Result: "Dots" button is missing in the control panel on the ST page`, async () => {
+      await expect(moba.stPage.dotsButton).not.toBeVisible();
+    });
+  });
+
+  test(`Game Manager has access to SEO modal on the structure pages`, async ({ page }) => {
+    const moba = new Moba(page);
+    let stWidgetName = "/qa-not-delete-st-page";
+
+    await moba.mainURLs.openAdminZzzPage();
+    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stPage.openSeoModal();
+
+    await test.step(`Expected Result: SEO modal is available for Game Manager role`, async () => {
+      await expect(moba.stPage.seoModal).toBeVisible();
+    });
+  });
+
+  test(`Game Manager can upload a video to CDN on the structure pages`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openMhwBuildPlanner();
+    await moba.ugBuildPlanner.uploadVideo(`aqa-video${uniqueId}.mp4`);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Video widget is present in the ST page`, async () => {
+      await expect(moba.ugBuildPage.videoGuideWidget).toBeVisible();
+    });
+  });
+
+  test(`Game Manager role can can upload an image to CDN on the ug page`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgZzzPage();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPlanner.uploadCoverImage(`aqa-telegram${uniqueId}.svg`);
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
+      await expect(moba.ugBuildPage.coverImage).toBeVisible();
+      expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain("cdn.mobalytics.gg");
+      expect(await moba.ugBuildPage.coverImage.getAttribute("style")).toContain(`aqa-telegram${uniqueId}.svg`);
+    });
+  });
+
+  test("Check API Game Manager permission", async ({ request }) => {
+    const adminRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
+      data: {
+        query: `
+            query Poe2 {
+                poe2 {
+                    id
+                    permissions {
+                        user {
+                            id
+                            role
+                        }
+                    }
+                }
+            }
+        `,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    expect(adminRoleResponse.ok()).toBeTruthy();
+    const json = await adminRoleResponse.json();
+    const role = json.data.poe2.permissions.user.role;
+    expect(role).toBe("GAME_MANAGER");
   });
 });

@@ -16,8 +16,14 @@ export class UgBuildPage {
     this.header = page.locator("section").first();
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.mainPage = page.getByRole("main");
-    this.coverImage = page.getByRole('button', { name: 'ZZZ Build /qa-automation-' }).locator('div[style*="cdn.mobalytics.gg"]');
-    this.videoGuideWidget = page.getByRole('heading', { name: 'Video Guide' });
+    this.coverImage = page
+      .getByRole("button", { name: "ZZZ Build /qa-automation-" })
+      .locator('div[style*="cdn.mobalytics.gg"]');
+    this.videoGuideWidget = page.getByRole("heading", { name: "Video Guide" });
+    this.editButton = page.getByTestId("ug-document-edit-button");
+    this.inputBuildOverviewVariants = page.getByRole("textbox").nth(1);
+    this.updateButton = page.getByTestId("ug-document-update-button");
+    this.descriptionBuildOverviewVariants = page.locator('span[data-lexical-text="true"]');
   }
 
   async createUgDraftPage(pageName) {
@@ -27,5 +33,21 @@ export class UgBuildPage {
       await this.buttonSaveDraft.click();
       await this.buttonSaveDraftInModal.click();
     });
+  }
+
+  async gotoEditModePage() {
+    await test.step("Got to edit mode page", async () => {
+      await this.editButton.click();
+    });
+  }
+
+  async updateUgBuildPage() {
+    await test.step("Update ug build page", async () => {
+      await this.updateButton.click();
+    });
+  }
+
+  getDescriptionBuildOverviewVariants(text) {
+    return this.descriptionBuildOverviewVariants.filter({ hasText: text });
   }
 }

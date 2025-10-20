@@ -40,9 +40,7 @@ const GAMES = {
   BAZAAR: { isPresentInSitemap: true, testUrl: `/the-bazaar/sitemap.xml` },
 };
 
-test(`Checking sitemap for all games on ${process.env.URL_SITEMAP}`, async ({
-  page,
-}) => {
+test(`Checking sitemap for all games on ${process.env.URL_SITEMAP}`, async ({ page }) => {
   const gamesList = Object.keys(GAMES);
 
   for (let gamekey of gamesList) {
@@ -53,13 +51,9 @@ test(`Checking sitemap for all games on ${process.env.URL_SITEMAP}`, async ({
 
     await test.step(`Expected Result: ${gamekey} is present in ${process.env.URL_SITEMAP}`, async () => {
       if (game.isPresentInSitemap === true) {
-        await expect(page.locator("#folder0")).toContainText(
-          `${process.env.BASE_URL}${game.testUrl}`
-        );
+        await expect(page.locator("#folder0")).toContainText(`${process.env.BASE_URL}${game.testUrl}`);
       } else {
-        await expect(page.locator("#folder0")).not.toContainText(
-          `${process.env.BASE_URL}${game.testUrl}`
-        );
+        await expect(page.locator("#folder0")).not.toContainText(`${process.env.BASE_URL}${game.testUrl}`);
       }
     });
   }

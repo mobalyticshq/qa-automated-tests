@@ -31,8 +31,7 @@ export const test = base.extend({
 
     // 2. Get set-cookie from response
     const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader)
-      throw new Error("No set-cookie header in login response");
+    if (!setCookieHeader) throw new Error("No set-cookie header in login response");
 
     // 3. Transform cookie for Playwright
     const cookies = setCookieHeader
@@ -82,8 +81,7 @@ export const test = base.extend({
 
     // 2. Get set-cookie from response
     const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader)
-      throw new Error("No set-cookie header in login response");
+    if (!setCookieHeader) throw new Error("No set-cookie header in login response");
 
     // 3. Transform cookie for Playwright
     const cookies = setCookieHeader
@@ -133,8 +131,7 @@ export const test = base.extend({
 
     // 2. Get set-cookie from response
     const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader)
-      throw new Error("No set-cookie header in login response");
+    if (!setCookieHeader) throw new Error("No set-cookie header in login response");
 
     // 3. Transform cookie for Playwright
     const cookies = setCookieHeader

@@ -6,9 +6,9 @@ export class HomePage {
     this.controlPanel = page.getByTestId("document-controls-panel");
   }
 
-  async openMhwHomePage(baseURL) {
-    await test.step(`Open url: ${baseURL}/mhw`, async () => {
-      await this.page.goto(`${baseURL}/mhw`, {
+  async openMhwHomePage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/mhw`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/mhw`, {
         waitUntil: "domcontentloaded",
       });
     });
