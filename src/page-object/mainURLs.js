@@ -178,7 +178,7 @@ export class MainURLs {
     });
   }
 
-  async openUgPoePage() {
+  async openUgPoe2Page() {
     await test.step(`Open 'PoE' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2/profile`, {
         waitUntil: "domcontentloaded",

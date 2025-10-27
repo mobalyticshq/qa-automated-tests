@@ -361,8 +361,8 @@ import { test, expect } from "@playwright/test";
   { game: "Deadlock", projectUrl: `/deadlock` },
   { game: "Path of Exile 2", projectUrl: `/poe-2` },
   { game: "The Bazaar", projectUrl: `/the-bazaar` },
-  { game: "LoL", projectUrl: `/lol` }
-].forEach(({game, projectUrl}) => {
+  { game: "LoL", projectUrl: `/lol` },
+].forEach(({ game, projectUrl }) => {
   test(`Check the availability of advertising blocks for ${game} game`, async ({ page }) => {
     await test.step(`Open project url: "${process.env.BASE_URL}${projectUrl}"`, async () => {
       await page.goto(`${process.env.BASE_URL}${projectUrl}`, {
@@ -686,4 +686,4 @@ import { test, expect } from "@playwright/test";
       });
     }
   });
-})
+});
