@@ -1,7 +1,4 @@
 import { test, expect } from "@playwright/test";
-
-const isProd = process.env.BASE_URL === "https://mobalytics.gg";
-
 // const GAMES = {
 //   ZZZ: { isPresentInSitemap: true, testUrl: "/zzz/sitemap.xml" },
 //   VALORANT: { isPresentInSitemap: true, testUrl: `/valorant/sitemap.xml` },
@@ -58,6 +55,7 @@ const isProd = process.env.BASE_URL === "https://mobalytics.gg";
 //   });
 // }
 
+const isProd = process.env.BASE_URL === "https://mobalytics.gg";
 [
   { game: "ZZZ", isPresentInSitemap: true, testUrl: "/zzz/sitemap.xml" },
   { game: "Valorant", isPresentInSitemap: true, testUrl: `/valorant/sitemap.xml` },
@@ -86,15 +84,15 @@ const isProd = process.env.BASE_URL === "https://mobalytics.gg";
       await page.goto(process.env.URL_SITEMAP);
     });
 
-    if (process.env.BASE_URL === "https://mobalytics.gg" && isPresentInSitemap === true) {
+    if (isProd && isPresentInSitemap === true) {
       await test.step(`Expected Result: ${game} is present in ${process.env.URL_SITEMAP}`, async () => {
         await expect(page.locator("#folder0")).toContainText(`${process.env.BASE_URL}${testUrl}`);
       });
-    } else if (process.env.BASE_URL === "https://mobalytics.gg" && isPresentInSitemap === false) {
+    } else if (isProd && isPresentInSitemap === false) {
       await test.step(`Expected Result: ${game} is not present in ${process.env.URL_SITEMAP}`, async () => {
         await expect(page.locator("#folder0")).not.toContainText(`${process.env.BASE_URL}${testUrl}`);
       });
-    } else if (process.env.BASE_URL === "https://stg.mobalytics.gg") {
+    } else if (!isProd) {
       await test.step(`Expected Result: ${game} is present in ${process.env.URL_SITEMAP}`, async () => {
         await expect(page.locator("#folder0")).toContainText(`${process.env.BASE_URL}${testUrl}`);
       });

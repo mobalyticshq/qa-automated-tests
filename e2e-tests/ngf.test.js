@@ -60,8 +60,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStDiablo4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Diablo4 project`, async () => {
-      await expect(moba.stPage.headerDiablo4).toContainText("Diablo 4", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerDiablo4).toContainText("Diablo 4");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -78,8 +78,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStLoLPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.stPage.headerLoL).toContainText("LoL", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerLoL).toContainText("LoL");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -96,8 +96,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStTFTPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.stPage.headerTFT).toContainText("TFT", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerTFT).toContainText("TFT");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -114,8 +114,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStValorantPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.stPage.headerValorant).toContainText("Val", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerValorant).toContainText("Val");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -132,8 +132,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStDestiny2Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.stPage.headerDestiny2).toContainText("Destiny 2", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerDestiny2).toContainText("Destiny 2");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -151,8 +151,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStPoEPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE project`, async () => {
-      await expect(moba.stPage.headerPoE).toContainText("PoE 2", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerPoE).toContainText("PoE 2");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -170,8 +170,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStNightreignPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.stPage.headerNightreign).toContainText("Nightreign", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerNightreign).toContainText("Nightreign");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -189,8 +189,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStDeadlockPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.stPage.headerDeadlock).toContainText("Deadlock", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerDeadlock).toContainText("Deadlock");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -208,8 +208,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStMhwPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Monster Hunter Wilds project`, async () => {
-      await expect(moba.stPage.headerMhw).toContainText("Monster Hunter Wilds", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerMhw).toContainText("Monster Hunter Wilds");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -227,8 +227,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStBazaarPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Bazaar project`, async () => {
-      await expect(moba.stPage.headerBazaar).toContainText("The Bazaar", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerBazaar).toContainText("The Bazaar");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -246,8 +246,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStMarvelRivalsPages.addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.stPage.headerMarvelRivals).toContainText("Marvel Rivals", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerMarvelRivals).toContainText("Marvel Rivals");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -264,8 +264,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.stPage.headerZzz).toContainText("ZZZ", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerZzz).toContainText("ZZZ");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -282,8 +282,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStHades2Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.stPage.headerHades2).toContainText("Hades 2", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerHades2).toContainText("Hades 2");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 
@@ -300,8 +300,8 @@ test.describe("Creating ST Pages", () => {
     cleanupStBorderlands4Pages.addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.stPage.headerBorderlands4).toContainText("Borderlands 4", { timeout: 15000 });
-      await expect(moba.stPage.stPageTitle).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.stPage.headerBorderlands4).toContainText("Borderlands 4");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
 });
@@ -319,8 +319,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("ZZZ Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("ZZZ Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -334,8 +334,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("LoL Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("LoL Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -349,8 +349,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("TFT Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("TFT Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -364,8 +364,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Val Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Val Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -379,8 +379,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -394,8 +394,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -409,8 +409,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -424,8 +424,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -439,8 +439,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on PoE 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -454,8 +454,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Nightreign Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Nightreign Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -469,8 +469,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Hades 2 Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Hades 2 Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -484,8 +484,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -499,8 +499,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Deadlock Build", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Deadlock Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -514,8 +514,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Diablo4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Diablo 4 Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Diablo 4 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -529,8 +529,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Nightreign Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Nightreign Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -544,8 +544,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -559,8 +559,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Val Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Val Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -574,8 +574,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("TFT Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("TFT Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -589,8 +589,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("LoL Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("LoL Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -604,8 +604,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -619,8 +619,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Deadlock Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Deadlock Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -634,8 +634,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Hades 2 Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Hades 2 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -649,8 +649,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -664,8 +664,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -679,8 +679,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPage.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -694,8 +694,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -709,8 +709,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("ZZZ Guide", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("ZZZ Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -724,8 +724,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Team page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("ZZZ Team", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("ZZZ Team");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -739,8 +739,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -754,8 +754,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("TFT Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("TFT Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -769,8 +769,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Val Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Val Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -784,8 +784,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -799,8 +799,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("LoL Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("LoL Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -814,8 +814,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on PoE 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("PoE 2 Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -829,8 +829,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Nightreign Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Nightreign Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -844,8 +844,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Deadlock Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Deadlock Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -859,8 +859,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on The Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("The Bazaar Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -874,8 +874,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Marvel Rivals Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -889,8 +889,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("ZZZ Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("ZZZ Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -904,8 +904,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Borderlands 4 Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -919,8 +919,8 @@ test.describe("Creating UG Pages", () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Hades 2 Tier List", { timeout: 15000 });
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName, { timeout: 15000 });
+      await expect(moba.ugBuildPage.header).toContainText("Hades 2 Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
 });
