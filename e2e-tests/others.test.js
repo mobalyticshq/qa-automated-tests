@@ -235,7 +235,7 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
   });
 });
 
-test("Error validation: 404 'Not Found' status code & title with usual page", async ({ page }) => {
+test("Error validation: 404 status code & title on usual page", async ({ page }) => {
   let response = null;
   await test.step("Open not existing page", async () => {
     response = await page.goto(`${process.env.BASE_URL}/mhw/not-found`, {
@@ -250,7 +250,7 @@ test("Error validation: 404 'Not Found' status code & title with usual page", as
   });
 });
 
-test("Error validation: 404 'Not Found' status code & title with NGF page", async ({ page }) => {
+test("Error validation: 404 status code & title on NGF page", async ({ page }) => {
   let response = null;
   await test.step("Open not existing page", async () => {
     response = await page.goto(`${process.env.BASE_URL}/hades-2/builds/dystopianteddybear-aspect-of-charonsrghhfg`, {

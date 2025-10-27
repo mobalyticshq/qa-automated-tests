@@ -1305,3 +1305,4 @@ test.describe("Game Manager permission", () => {
     expect(role).toBe("GAME_MANAGER");
   });
 });
+  

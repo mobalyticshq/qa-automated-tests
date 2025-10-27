@@ -92,7 +92,7 @@ export class StPage {
     this.headerMhw = page.locator("#container").getByText("Monster Hunter Wilds");
     this.inputRichTextWidget = page.getByRole("textbox");
     this.descriptionRichTextWidget = page.locator('span[data-lexical-text="true"]');
-    this.richTextButton = page.locator('[data-key="NgfDocumentCmWidgetRichTextV2"]')
+    this.richTextButton = page.locator('[data-key="NgfDocumentCmWidgetRichTextV2"]');
   }
 
   async updateDescriptionRichTextWidget(text) {
