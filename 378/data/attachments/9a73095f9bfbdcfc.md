@@ -1,0 +1,1015 @@
+# Page snapshot
+
+```yaml
+- link "Path of Exile 2 banner text Learn more Close":
+  - /url: https://www.google.com
+  - paragraph: Path of Exile 2 banner text
+  - button "Learn more"
+  - img "Close"
+- link "Mobalytics":
+  - /url: /poe-2
+  - img "Mobalytics"
+- link "League of Legends LoL":
+  - /url: https://stg.mobalytics.gg/lol
+  - img "League of Legends"
+  - text: LoL
+- link "Teamfight Tactics TFT":
+  - /url: https://stg.mobalytics.gg/tft
+  - img "Teamfight Tactics"
+  - text: TFT
+- link "Path of Exile 2 PoE 2":
+  - /url: https://stg.mobalytics.gg/poe-2
+  - img "Path of Exile 2"
+  - text: PoE 2
+- link "Diablo 4 Diablo 4":
+  - /url: https://stg.mobalytics.gg/diablo-4
+  - img "Diablo 4"
+  - text: Diablo 4
+- link "Destiny 2 Destiny 2":
+  - /url: https://stg.mobalytics.gg/destiny-2
+  - img "Destiny 2"
+  - text: Destiny 2
+- link "Borderlands 4 Borderlands 4 New":
+  - /url: https://stg.mobalytics.gg/borderlands-4
+  - img "Borderlands 4"
+  - text: Borderlands 4 New
+- link "Hades 2 Hades 2 New":
+  - /url: https://stg.mobalytics.gg/hades-2
+  - img "Hades 2"
+  - text: Hades 2 New
+- link "Elden Ring Nightreign Nightreign":
+  - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+  - img "Elden Ring Nightreign"
+  - text: Nightreign
+- link "Deadlock Deadlock":
+  - /url: https://stg.mobalytics.gg/deadlock
+  - img "Deadlock"
+  - text: Deadlock
+- link "Valorant VAL":
+  - /url: https://stg.mobalytics.gg/valorant
+  - img "Valorant"
+  - text: VAL
+- link "Monster Hunter Wilds Monster Hunter Wilds":
+  - /url: https://stg.mobalytics.gg/mhw
+  - img "Monster Hunter Wilds"
+  - text: Monster Hunter Wilds
+- link "Example game ExG":
+  - /url: https://stg.mobalytics.gg/example-game
+  - img "Example game"
+  - text: ExG
+- link "The Bazaar The Bazaar":
+  - /url: https://stg.mobalytics.gg/the-bazaar
+  - img "The Bazaar"
+  - text: The Bazaar
+- button:
+  - img
+- link "Marvel Rivals Marvel Rivals":
+  - /url: https://stg.mobalytics.gg/marvel-rivals
+  - img "Marvel Rivals"
+  - text: Marvel Rivals
+- link "Zenless Zone Zero ZZZ":
+  - /url: https://stg.mobalytics.gg/zzz
+  - img "Zenless Zone Zero"
+  - text: ZZZ
+- link "Path of Exile PoE New":
+  - /url: https://stg.mobalytics.gg/poe
+  - img "Path of Exile"
+  - text: PoE New
+- link "Riftbound Riftbound New":
+  - /url: https://stg.mobalytics.gg/riftbound
+  - img "Riftbound"
+  - text: Riftbound New
+- link "Lost Ark Lost Ark":
+  - /url: https://stg.mobalytics.gg/lost-ark
+  - img "Lost Ark"
+  - text: Lost Ark
+- link "win logo Download app":
+  - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-poe-2&utm_medium=homepage&utm_source=web
+  - button "win logo Download app":
+    - img "win logo"
+    - text: Download app
+- img
+- textbox "global search input"
+- text: Community News new
+- button "sign in"
+- img "support"
+- link "Home":
+  - /url: /poe-2
+  - img "Home"
+- link "Profile":
+  - /url: /poe-2/profile
+  - img "Profile"
+- link "Build Planner":
+  - /url: /poe-2/planner/builds
+  - img "Build Planner"
+- link "Tier List":
+  - /url: /poe-2/tier-list
+  - img "Tier List"
+- link "Starter Builds":
+  - /url: /poe-2/starter-builds
+  - img "Starter Builds"
+- link "Builds":
+  - /url: /poe-2/builds
+  - img "Builds"
+- link "Creators":
+  - /url: /poe-2/creators
+  - img "Creators"
+- link "Guides":
+  - /url: /poe-2/guides
+  - img "Guides"
+- main:
+  - button "Path of Exile 2 Build, Guides & More Learn the fundamentals of every Path of Exile 2 class, from their playstyle and stats, to how to get the most from their unique abilities. Whether you're an absolute beginner or a seasoned veteran from similar games, this is a great place to start!":
+    - img
+    - heading "Path of Exile 2 Build, Guides & More" [level=1]
+    - paragraph: Learn the fundamentals of every Path of Exile 2 class, from their playstyle and stats, to how to get the most from their unique abilities. Whether you're an absolute beginner or a seasoned veteran from similar games, this is a great place to start!
+  - heading "Featured Builds" [level=2]
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 Updated on Oct 16, 2025
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements Updated on Sep 12, 2025
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB Updated on Jul 9, 2025
+  - link:
+    - /url: /poe-2/builds/waesrdfvbnj
+  - text: f My Build Updated on Jul 3, 2025
+  - link:
+    - /url: /poe-2/builds/minimal
+  - text: Perfect Build Updated on Jun 18, 2025
+  - link "View All":
+    - /url: /poe/profile
+  - heading "Discovery Preview Compact V2 test" [level=2]
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 Updated on Oct 16, 2025
+  - link:
+    - /url: /poe-2/builds/ngf1800
+  - text: NGF-1800 Updated on Sep 16, 2025
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements Updated on Sep 12, 2025
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB Updated on Jul 9, 2025
+  - link:
+    - /url: /poe-2/builds/waesrdfvbnj
+  - text: f My Build Updated on Jul 3, 2025
+  - heading "Discovery Preview Compact V2 test2" [level=2]
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 Updated on Oct 16, 2025
+  - link:
+    - /url: /poe-2/builds/ngf1800
+  - text: NGF-1800 Updated on Sep 16, 2025
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements Updated on Sep 12, 2025
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB Updated on Jul 9, 2025
+  - link:
+    - /url: /poe-2/builds/waesrdfvbnj
+  - text: f My Build Updated on Jul 3, 2025
+  - heading "Cards Gallery V2" [level=2]
+  - link "Title Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.":
+    - /url: /
+    - paragraph: Title
+    - paragraph: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+  - heading "Starter Builds" [level=2]
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 Updated on Oct 16, 2025
+  - link:
+    - /url: /poe-2/builds/ngf1800
+  - text: NGF-1800 Updated on Sep 16, 2025
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements Updated on Sep 12, 2025
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB Updated on Jul 9, 2025
+  - link:
+    - /url: /poe-2/builds/ururu
+  - text: Creator build Updated on Jul 8, 2025
+  - link "View All":
+    - /url: /builds
+  - heading "Discovery Preview Compact V2 test3" [level=2]
+  - link:
+    - /url: /poe-2/profile/0ed2aeb1-8ab8-4573-8b54-67de40ef8101/guides/48952016-4fff-4771-9fda-e9783399401a
+  - text: 1 My New Guide Updated on Sep 25, 2025
+  - link:
+    - /url: /poe-2/profile/Kototina/guides/lisa8
+  - text: 2 liSa8 Updated on Jul 21, 2025
+  - link:
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9/guides/7f7c1b9e-d7b6-40f9-9115-09d820495538
+  - text: 3 My New Guide Updated on May 8, 2025
+  - link:
+    - /url: /poe-2/profile/da7db687-e0e5-44fd-8a8a-c6031c878ba6/guides/3c5f44c9-25c5-45dc-a77b-facc292e78b9
+  - text: 4 My New Guide - doc feed and latest test Updated on May 8, 2025
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8/guides/c7807c80-a038-457f-8822-e044db18418b
+  - text: 5 My New Guide Updated on May 2, 2025
+  - link "Click":
+    - /url: /lol
+  - heading "Discovery Preview V2 test 4" [level=2]
+  - link:
+    - /url: /poe-2/profile/e0196033-2513-4494-9604-f16d52716a2d/builds/8b6ff682-d9b8-4340-a845-61edd9a31bec
+  - text: IW test doc all games 123 By
+  - link "Internal writer All games":
+    - /url: /poe-2/profile/e0196033-2513-4494-9604-f16d52716a2d
+  - text: ∙ May 20, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - button "3 Favorites":
+    - img
+    - text: 3 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9/builds/faf025c9-d4aa-42d0-b157-0125e6dbaca0
+  - text: duplicated edited permissions ADMIN edited by vi4i By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ May 20, 2025 0.2 DotH Starter SSF +2
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/412b1342-90ed-4722-969a-8e97d511dff8/builds/03981f82-12c4-429f-8ba7-3b19ffd4d52a
+  - text: test gm poe2 By
+  - link "Game manager poe2":
+    - /url: /poe-2/profile/412b1342-90ed-4722-969a-8e97d511dff8
+  - text: ∙ Apr 22, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - img "presentation"
+  - text: Starter +2
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8/builds/788bbe52-236a-444c-ab3f-66517b26592d
+  - text: Test 1 By
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8
+  - link "LIVE":
+    - /url: https://www.twitch.tv/vi_4i
+  - text: ∙ Oct 6, 2025
+  - img "presentation"
+  - text: Druid
+  - img "presentation"
+  - text: Starter 0.2 DotH +1
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/0ed2aeb1-8ab8-4573-8b54-67de40ef8101/builds/1ea3e251-f11b-4e2d-b460-b3a7ad53ddca
+  - text: My Build By
+  - link "bakoogun@mobalyticshq.com":
+    - /url: /poe-2/profile/0ed2aeb1-8ab8-4573-8b54-67de40ef8101
+  - text: ∙ Jul 30, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - button "Show more"
+  - heading "Table of Contents" [level=2]
+  - link "1. Featured Builds":
+    - /url: /poe-2#featured-builds-0
+  - link "2. Discovery Preview Compact V2 test":
+    - /url: /poe-2#discovery-preview-compact-v2-test-0
+  - link "3. Discovery Preview Compact V2 test2":
+    - /url: /poe-2#discovery-preview-compact-v2-test2-1
+  - link "4. Cards Gallery V2":
+    - /url: /poe-2#cards-gallery-v2-0
+  - link "5. Starter Builds":
+    - /url: /poe-2#starter-builds-1
+  - link "6. Discovery Preview Compact V2 test3":
+    - /url: /poe-2#discovery-preview-compact-v2-test3-2
+  - link "7. Discovery Preview V2 test 4":
+    - /url: /poe-2#discovery-preview-v2-test-4-0
+  - link "8. Guides":
+    - /url: /poe-2#guides-2
+  - link "9. Discovery Preview V2":
+    - /url: /poe-2#discovery-preview-v2-1
+  - link "10. Rich Text Widget V2":
+    - /url: /poe-2#rich-text-widget-v2-0
+  - link "Early Leveling strategy":
+    - /url: /poe-2#early-leveling-strategy-0
+  - link "11. Class Overviews":
+    - /url: /poe-2#class-overviews-0
+  - link "12. Card Grid V2":
+    - /url: /poe-2#card-grid-v2-0
+  - link "13. Game Data Card Grid Widget V2":
+    - /url: /poe-2#game-data-card-grid-widget-v2-0
+  - link "14. Game Data Card Grid Widget V2":
+    - /url: /poe-2#game-data-card-grid-widget-v2-1
+  - link "15. Document Feed V2":
+    - /url: /poe-2#document-feed-v2-0
+  - link "16. Rich Text Widget V2":
+    - /url: /poe-2#rich-text-widget-v2-1
+  - link "17. Rich Text Widget V2":
+    - /url: /poe-2#rich-text-widget-v2-2
+  - link "18. Strengths And Weaknesses V1":
+    - /url: /poe-2#strengths-and-weaknesses-v1-0
+  - link "19. Tier List Maker V1":
+    - /url: /poe-2#tier-list-maker-v1-1
+  - link "20. Discovery Preview V2":
+    - /url: /poe-2#discovery-preview-v2-2
+  - button "Back to top"
+  - heading "Guides" [level=2]
+  - link:
+    - /url: /poe-2/guides/very-berry
+  - text: Say something Updated on Jul 15, 2025
+  - link:
+    - /url: /poe-2/guides/ololo123123
+  - text: My New Guide Updated on Apr 11, 2025
+  - link:
+    - /url: /poe-2/guides/f-guilde-poe-2
+  - text: f Guide Updated on Jan 28, 2025
+  - link "View All":
+    - /url: /builds
+  - heading "Discovery Preview V2" [level=2]
+  - link:
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9/guides/7f7c1b9e-d7b6-40f9-9115-09d820495538
+  - text: My New Guide By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ May 8, 2025
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/da7db687-e0e5-44fd-8a8a-c6031c878ba6/guides/3c5f44c9-25c5-45dc-a77b-facc292e78b9
+  - text: My New Guide - doc feed and latest test By
+  - link "Volodymyr Nesterenko":
+    - /url: /poe-2/profile/da7db687-e0e5-44fd-8a8a-c6031c878ba6
+  - text: ∙ May 8, 2025 Beginner
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/442c11a9-bb1e-42a4-ad8a-92ca43f78540/guides/00d736b2-ab51-4d96-afb0-dd1764b6110e
+  - text: My New Guide By
+  - link "rewad+5468@mobalyticshq.com":
+    - /url: /poe-2/profile/442c11a9-bb1e-42a4-ad8a-92ca43f78540
+  - text: ∙ Jan 21, 2025 Beginner
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/0ed2aeb1-8ab8-4573-8b54-67de40ef8101/guides/48952016-4fff-4771-9fda-e9783399401a
+  - text: My New Guide By
+  - link "bakoogun@mobalyticshq.com":
+    - /url: /poe-2/profile/0ed2aeb1-8ab8-4573-8b54-67de40ef8101
+  - text: ∙ Sep 25, 2025
+  - button "Add to Favorites":
+    - img
+    - text: Add to Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/profile/Kototina/guides/lisa8
+  - text: liSa8 By
+  - link "Kateryna Shevchenko":
+    - /url: /poe-2/profile/Kototina
+  - text: ∙ Jul 21, 2025
+  - button "Add to Favorites":
+    - img
+    - text: Add to Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link "Click the link":
+    - /url: /poe-2
+  - link "Meet the Mobalytics PoE 2 Team. Discover our team of PoE and ARPG veterans powering Mobalytics! Learn More":
+    - /url: https://mobalytics.gg/poe-2/creators
+    - paragraph: Meet the Mobalytics PoE 2 Team.
+    - paragraph: Discover our team of PoE and ARPG veterans powering Mobalytics!
+    - button "Learn More"
+  - img
+  - textbox "search by name"
+  - button "Huntress":
+    - text: Huntress
+    - img
+  - button "Ascendancy":
+    - text: Ascendancy
+    - img
+  - button "Starter":
+    - text: Starter
+    - img
+  - radiogroup:
+    - radio "All End Game Tiers" [checked]
+    - text: All End Game Tiers
+    - radio "S Tier"
+    - text: S Tier
+    - radio "A Tier"
+    - text: A Tier
+    - radio "B Tier"
+    - text: B Tier
+    - radio "C Tier"
+    - text: C Tier
+    - radio "D Tier"
+    - text: D Tier
+  - button "Build Type":
+    - text: Build Type
+    - img
+  - button "0.2 DotH":
+    - text: 0.2 DotH
+    - img
+  - button "HCSSF":
+    - text: HCSSF
+    - img
+  - button "Creator":
+    - text: Creator
+    - img
+  - button "Verified":
+    - text: Verified
+    - img
+  - button "Trending":
+    - text: Trending
+    - img
+  - button "This month":
+    - text: This month
+    - img
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 By
+  - link "admin+stg+ns@mobalyticshq.com":
+    - /url: /poe-2/profile/6b1379ab-7831-4ba0-96fb-0670f8f9c480
+  - text: ∙ Updated on Oct 16, 2025
+  - button "Add to Favorites":
+    - img
+    - text: Add to Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - img
+  - textbox "search by name"
+  - button "Class":
+    - text: Class
+    - img
+  - button "Ascendancy":
+    - text: Ascendancy
+    - img
+  - button "Trending":
+    - text: Trending
+    - img
+  - link:
+    - /url: /poe-2/profile/5df70edd-71e8-4ce3-9c70-1e1f000e98ea/builds/0576cc5d-506a-4555-b879-63ec8af370c8
+  - text: My Build By
+  - link:
+    - /url: /poe-2/profile/5df70edd-71e8-4ce3-9c70-1e1f000e98ea
+  - text: ∙ Updated on Nov 12, 2024
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - img "presentation"
+  - text: Mercenary 0.1 Early Access
+  - link:
+    - /url: /poe-2/profile/a2172ee0-1191-4cc5-81c6-90717dd9f9a4/builds/1ccc835b-11a9-404e-992c-573aa169a9f2
+  - text: Infernalist Raging Spirits By
+  - link "Vladyslav Orlov":
+    - /url: /poe-2/profile/a2172ee0-1191-4cc5-81c6-90717dd9f9a4
+  - text: ∙ Updated on Apr 15, 2025
+  - button "5 Favorites":
+    - img
+    - text: 5 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - img "presentation"
+  - text: Witch
+  - img "presentation"
+  - text: Infernalist 0.1 Early Access
+  - img "presentation"
+  - text: Starter
+  - link:
+    - /url: /poe-2/profile/a2aaf296-0fa3-4ba7-80ed-bf94aaad7b59/builds/41179feb-eddf-4962-bcfd-c2e0945b1afa
+  - text: My Build By
+  - link "rewad+5430@mobalyticshq.com":
+    - /url: /poe-2/profile/a2aaf296-0fa3-4ba7-80ed-bf94aaad7b59
+  - text: ∙ Updated on Dec 11, 2024
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - img "presentation"
+  - text: Mercenary 0.1 Early Access
+  - link:
+    - /url: /poe-2/profile/d705aefd-d4a0-4ab7-b9f3-fadfefd2acc4/builds/efb2589e-8dd2-47e8-8c47-c48ae65484cc
+  - text: 5 By
+  - link "employeee":
+    - /url: /poe-2/profile/d705aefd-d4a0-4ab7-b9f3-fadfefd2acc4
+  - text: ∙ Updated on Dec 4, 2024
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - img "presentation"
+  - text: Druid 0.1 Early Access
+  - link:
+    - /url: /poe-2/profile/508b76bd-2dcf-4144-b6a2-62b1b3f30d44/builds/674e8581-1973-4d33-91bd-7b1beebbe6b5
+  - text: p My Druid Poe-2 Build + By
+  - link "rewad+5397@mobalyticshq.com":
+    - /url: /poe-2/profile/508b76bd-2dcf-4144-b6a2-62b1b3f30d44
+  - text: ∙ Updated on Nov 19, 2024
+  - button "1 Favorite":
+    - img
+    - text: 1 Favorite
+  - button "Share":
+    - img
+    - text: Share
+  - img "presentation"
+  - text: Druid 0.1 Early Access
+  - button "Show more"
+  - heading "Rich Text Widget V2" [level=2]
+  - paragraph: Test
+  - paragraph: "You struggling to do content? Is clear to slow? Are monsters always on top of you? Look no further, this build might be the one for you. With the press of a single button:"
+  - list:
+    - listitem: Hit every monster on the screen
+    - listitem: Explode all corpses
+    - listitem: Perma stun everything
+    - listitem: Cast while moving (WASD)
+    - listitem: Knock everything away
+  - paragraph: NO MANA or mana flask required!
+  - paragraph:
+    - text: Read the
+    - strong: How it Works
+    - text: section for a detailed description of the build
+  - heading "Early Leveling strategy" [level=3]
+  - paragraph: "- Start with and . Hold in the key for to direct it with mouse, highly recommend. Check other sources for a warrior leveling guide if needed."
+  - paragraph: "- Pick up and . This will be your main single target dps skill. Ignite supports are good for perfect strike."
+  - paragraph:
+    - text: "- Once you get"
+    - strong: level 41
+    - text: ", you can start following the"
+    - strong: leveling variant
+    - text: of this build
+  - heading "Please read the guide and FAQ" [level=4]:
+    - strong: Please read the guide and FAQ
+  - paragraph:
+    - strong: "PoB:"
+    - text: https://pobb.in/Mc3olPN5zyu5
+  - paragraph:
+    - strong: "@Skadoosh_C"
+    - text: on twitch if you wanna DM me (I don't stream) or
+    - strong: Skadooosh
+    - text: in game (just /w) Acrid Wand
+  - heading "Class Overviews" [level=2]
+  - paragraph: Learn the fundamentals of every Path of Exile 2 class, from their playstyle and stats, to how to get the most from their unique abilities. Whether you're an absolute beginner or a seasoned veteran from similar games, this is a great place to start!
+  - paragraph: Abyssal Cuirass Advanced Cloaked Mail Advanced Embossed Boots 123@bnm
+  - paragraph: "@Scadeesh_C"
+  - paragraph: sd
+  - paragraph: sd
+  - paragraph: fd
+  - paragraph: fsd
+  - paragraph: f
+  - paragraph: sdf
+  - paragraph: sd
+  - paragraph: fsd
+  - paragraph: f
+  - paragraph: sdf
+  - paragraph: sd
+  - paragraph: f
+  - paragraph: sdf
+  - paragraph: sd
+  - paragraph: fsd
+  - paragraph: f12e
+  - paragraph: sdf
+  - paragraph: sdf
+  - paragraph: sd
+  - paragraph: Aged Cuffs
+  - paragraph
+  - text: Warrior Sorceress Ranger Monk Mercenary Witch
+  - heading "Card Grid V2" [level=2]
+  - paragraph: "123"
+  - link "1 1":
+    - /url: /
+  - text: 2 2 3 3 4 4 5 5
+  - heading "Game Data Card Grid Widget V2" [level=2]
+  - paragraph: "123"
+  - text: Ab Aeterno Boots Abyssal Flail Flails Advanced Blazon Crest Shield Shields Advanced Antler Focus Foci Asphyxia's Wrath Quivers Amber Amulet Amulets Amethyst Ring Rings Amethyst Charm Charms Alchemist's Boon Ablation
+  - heading "Game Data Card Grid Widget V2" [level=2]
+  - paragraph: 123 43345
+  - text: Ab Aeterno Boots Abyssal Flail Flails Advanced Blazon Crest Shield Shields Advanced Antler Focus Foci Asphyxia's Wrath Quivers
+  - heading "Document Feed V2" [level=2]
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 By
+  - link "admin+stg+ns@mobalyticshq.com":
+    - /url: /poe-2/profile/6b1379ab-7831-4ba0-96fb-0670f8f9c480
+  - text: ∙ Oct 16, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - link:
+    - /url: /poe-2/builds/ngf1800
+  - text: NGF-1800 By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ Sep 16, 2025 0.2 DotH
+  - img "presentation"
+  - text: Starter Creator
+  - img "presentation"
+  - text: End Game
+  - img "presentation"
+  - text: Witch +1
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements By
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8
+  - link "LIVE":
+    - /url: https://www.twitch.tv/vi_4i
+  - text: ∙ Sep 12, 2025 0.2 DotH
+  - img "presentation"
+  - text: Huntress
+  - img "presentation"
+  - text: Amazon Lolcohol Expert +2
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ Jul 9, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - heading "Rich Text Widget V2" [level=2]
+  - table:
+    - row "wef wef wef wef":
+      - cell "wef":
+        - paragraph: wef
+      - cell "wef":
+        - paragraph: wef
+      - cell "wef":
+        - paragraph: wef
+      - cell "wef":
+        - paragraph: wef
+    - row:
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+    - row:
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+  - heading "Rich Text Widget V2" [level=2]
+  - table:
+    - row "gn ttyn nyt ynt":
+      - cell "gn":
+        - paragraph: gn
+      - cell "ttyn":
+        - paragraph: ttyn
+      - cell "nyt":
+        - paragraph: nyt
+      - cell "ynt":
+        - paragraph: ynt
+    - row:
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+    - row:
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+      - cell:
+        - paragraph
+  - heading "Strengths And Weaknesses V1" [level=2]
+  - list:
+    - listitem: "1"
+  - list:
+    - listitem: "2"
+  - heading "Tier List Maker V1" [level=2]
+  - button "Save as Image":
+    - img
+    - text: Save as Image
+  - text: "1"
+  - link "My Build 1.195.4 Mercenary":
+    - /url: /poe-2/builds/my-build-1-195-4
+    - button "My Build 1.195.4 Mercenary" [disabled]
+  - link "My Build azazazaz Mercenary":
+    - /url: /poe-2/builds/1167
+    - button "My Build azazazaz Mercenary" [disabled]
+  - link "Variants + ToC Mercenary":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9/builds/1fbc6823-efe7-4343-9bb5-9a7063fc0438
+    - button "Variants + ToC Mercenary" [disabled]
+  - link "Tags/Multiselect + RT Mercenary":
+    - /url: /poe-2/builds/1196
+    - button "Tags/Multiselect + RT Mercenary" [disabled]
+  - link "My Build azazazaz - duplicate + changes Mercenary":
+    - /url: /poe-2/profile/442c11a9-bb1e-42a4-ad8a-92ca43f78540/builds/9c3c6975-eca3-4485-bb28-07e1d95b30fa
+    - button "My Build azazazaz - duplicate + changes Mercenary" [disabled]
+  - link "My Build!!!! Mercenary":
+    - /url: /poe-2/profile/535493ab-a444-4ae7-8291-c5c22c294084/builds/bba7a3e0-f455-41fb-9df3-2caa1ac6da87
+    - button "My Build!!!! Mercenary" [disabled]
+  - link "Multiplayer Rarity Culler Mercenary":
+    - /url: /poe-2/profile/254a8f8e-0db4-42c0-80dd-7dd302b6f24f/builds/c986644f-5133-4cff-bd09-bde525133ecb
+    - button "Multiplayer Rarity Culler Mercenary" [disabled]
+  - link "My Tier List":
+    - /url: /poe-2/profile/6b1379ab-7831-4ba0-96fb-0670f8f9c480/tier-lists/70fdc7eb-00e1-4d12-8762-dfa9f47cc5a1
+    - button "My Tier List" [disabled]
+  - link "Copy of test gm poe2 123 Huntress":
+    - /url: /poe-2/builds/test-gm-poe2
+    - button "Copy of test gm poe2 123 Huntress" [disabled]
+  - text: "2"
+  - link "Test 5 Ranger":
+    - /url: /poe-2/builds/vi4i01
+    - button "Test 5 Ranger" [disabled]
+  - link "IW test doc all games 123 Huntress":
+    - /url: /poe-2/profile/e0196033-2513-4494-9604-f16d52716a2d/builds/8b6ff682-d9b8-4340-a845-61edd9a31bec
+    - button "IW test doc all games 123 Huntress" [disabled]
+  - link "f GB Huntress":
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+    - button "f GB Huntress" [disabled]
+  - link "test gm poe2 Huntress":
+    - /url: /poe-2/profile/412b1342-90ed-4722-969a-8e97d511dff8/builds/03981f82-12c4-429f-8ba7-3b19ffd4d52a
+    - button "test gm poe2 Huntress" [disabled]
+  - link "Variants 1.199.2 - duplicate + publish 1.203.4-rc.2 Mercenary":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9/builds/632e7135-987e-44ad-a6fa-827af6f59f1e
+    - button "Variants 1.199.2 - duplicate + publish 1.203.4-rc.2 Mercenary" [disabled]
+  - link "Test Fix Mercenary":
+    - /url: /poe-2/profile/d705aefd-d4a0-4ab7-b9f3-fadfefd2acc4/builds/20e852ba-4f3a-4960-8ce4-1610c8597581
+    - button "Test Fix Mercenary" [disabled]
+  - text: "33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333"
+  - link "Test ToC improvements Huntress":
+    - /url: /poe-2/builds/test-int-poe-toc
+    - button "Test ToC improvements Huntress" [disabled]
+  - status
+  - heading "Tier List Maker V1" [level=2]
+  - button "Save as Image":
+    - img
+    - text: Save as Image
+  - text: "1`"
+  - button [disabled]
+  - button "Bear Talisman" [disabled]
+  - button "Adept Rune" [disabled]
+  - button "Desert Rune" [disabled]
+  - button "Greater Rune of Alacrity" [disabled]
+  - button "Soul Core of Atmohua" [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button "Greater Glacial Rune" [disabled]
+  - button "Body Rune" [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - text: "2"
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button "Greater Body Rune" [disabled]
+  - button "Greater Desert Rune" [disabled]
+  - button "Greater Rebirth Rune" [disabled]
+  - button "Greater Robust Rune" [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button [disabled]
+  - button "Greater Stone Rune" [disabled]
+  - button "Soul Core of Zalatl" [disabled]
+  - status
+  - img
+  - textbox "search by name"
+  - button "Filters":
+    - img
+    - text: Filters
+  - link:
+    - /url: /poe-2/builds/vi4i01
+  - text: Test 5 By
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8
+  - link "LIVE":
+    - /url: https://www.twitch.tv/vi_4i
+  - text: ∙ Apr 10, 2025 Sirgog Creator
+  - img "presentation"
+  - text: Ranger +3
+  - button "4 Favorites":
+    - img
+    - text: 4 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 By
+  - link "admin+stg+ns@mobalyticshq.com":
+    - /url: /poe-2/profile/6b1379ab-7831-4ba0-96fb-0670f8f9c480
+  - text: ∙ Oct 16, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - button "Add to Favorites":
+    - img
+    - text: Add to Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/ngf1800
+  - text: NGF-1800 By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ Sep 16, 2025 0.2 DotH
+  - img "presentation"
+  - text: Starter Creator +3
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements By
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8
+  - link "LIVE":
+    - /url: https://www.twitch.tv/vi_4i
+  - text: ∙ Sep 12, 2025 0.2 DotH
+  - img "presentation"
+  - text: Huntress
+  - img "presentation"
+  - text: Amazon +4
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ Jul 9, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - button "3 Favorites":
+    - img
+    - text: 3 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - button "Show more"
+  - heading "Discovery Preview V2" [level=2]
+  - link:
+    - /url: /poe-2/builds/vi4i01
+  - text: Test 5 By
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8
+  - link "LIVE":
+    - /url: https://www.twitch.tv/vi_4i
+  - text: ∙ Apr 10, 2025 Sirgog Creator
+  - img "presentation"
+  - text: Ranger +3
+  - button "4 Favorites":
+    - img
+    - text: 4 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/1111
+  - text: My Build12 By
+  - link "admin+stg+ns@mobalyticshq.com":
+    - /url: /poe-2/profile/6b1379ab-7831-4ba0-96fb-0670f8f9c480
+  - text: ∙ Oct 16, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - button "Add to Favorites":
+    - img
+    - text: Add to Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/ngf1800
+  - text: NGF-1800 By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ Sep 16, 2025 0.2 DotH
+  - img "presentation"
+  - text: Starter Creator +3
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/test-int-poe-toc
+  - text: Test ToC improvements By
+  - link:
+    - /url: /poe-2/profile/d2a54bae-e76a-4e79-9cb9-ed2dd13658f8
+  - link "LIVE":
+    - /url: https://www.twitch.tv/vi_4i
+  - text: ∙ Sep 12, 2025 0.2 DotH
+  - img "presentation"
+  - text: Huntress
+  - img "presentation"
+  - text: Amazon +4
+  - button "2 Favorites":
+    - img
+    - text: 2 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - link:
+    - /url: /poe-2/builds/qwfqwfqwfqwf
+  - text: f GB By
+  - link "Vitaliy Sharshunov":
+    - /url: /poe-2/profile/daa07070-8073-44df-abf1-eb557e9348b9
+  - text: ∙ Jul 9, 2025
+  - img "presentation"
+  - text: Huntress 0.2 DotH
+  - button "3 Favorites":
+    - img
+    - text: 3 Favorites
+  - button "Share":
+    - img
+    - text: Share
+  - button "Show more"
+  - status
+  - iframe
+- complementary:
+  - text: Advertisement Remove Ads Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+  - button "Remove ads"
+  - text: Advertisement Remove Ads Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+  - button "Remove ads"
+- banner: Advertisement Remove Ads
+- region "Video Player":
+  - application
+  - dialog "Modal Window":
+    - text: X
+    - paragraph: This is a modal window.
+    - document: The media could not be loaded, either because the server or network failed or because the format is not supported.
+- text: Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+- button "Remove ads"
+- button "Do Not Sell or Share My Personal Information":
+  - paragraph: Do Not Sell or Share My Personal Information
+```
