@@ -18,7 +18,7 @@
   "type": "module",
   "devDependencies": {
     "@faker-js/faker": "^9.8.0",
-    "@playwright/test": "^1.53.2",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^22.15.19",
     "allure": "^3.0.0-beta.15",
     "allure-playwright": "^3.2.2"
