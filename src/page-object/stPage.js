@@ -79,6 +79,7 @@ export class StPage {
     this.headerDiablo4 = page.locator("#container").getByText("Diablo 4");
     this.headerLoL = page.locator("#container").getByText("LoL");
     this.headerValorant = page.locator("#container").getByText("Val");
+    this.headerPoE2 = page.locator("#container").getByText("PoE 2");
     this.headerPoE = page.locator("#container").getByText("PoE");
     this.headerDestiny2 = page.locator("#container").getByText("Destiny 2");
     this.headerTFT = page.locator("#container").getByText("TFT");

@@ -11,9 +11,15 @@ export class MainURLs {
     });
   }
 
+  async openAdminPoe2Page() {
+    await test.step(`Open 'PoE 2' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/poe-2/admin`);
+    });
+  }
+
   async openAdminPoePage() {
     await test.step(`Open 'PoE' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/poe-2/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/poe/admin`);
     });
   }
 
@@ -25,12 +31,9 @@ export class MainURLs {
 
   async openAdminNightreignPage() {
     await test.step(`Open 'Nightreign' ST admin page`, async () => {
-      await this.page.goto(
-        `${process.env.BASE_URL}/elden-ring-nightreign/admin`,
-        {
-          waitUntil: "domcontentloaded",
-        }
-      );
+      await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/admin`, {
+        waitUntil: "domcontentloaded",
+      });
     });
   }
 
@@ -179,8 +182,16 @@ export class MainURLs {
   }
 
   async openUgPoe2Page() {
-    await test.step(`Open 'PoE' UG page`, async () => {
+    await test.step(`Open 'PoE 2' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2/profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUgPoePage() {
+    await test.step(`Open 'PoE' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/poe/profile`, {
         waitUntil: "domcontentloaded",
       });
     });
@@ -196,12 +207,9 @@ export class MainURLs {
 
   async openUgNightreignPage() {
     await test.step(`Open 'Nightreign' UG page`, async () => {
-      await this.page.goto(
-        `${process.env.BASE_URL}/elden-ring-nightreign/profile`,
-        {
-          waitUntil: "domcontentloaded",
-        }
-      );
+      await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/profile`, {
+        waitUntil: "domcontentloaded",
+      });
     });
   }
 
@@ -253,9 +261,17 @@ export class MainURLs {
     });
   }
 
-  async openPoePage() {
+  async openPoe2Page() {
     await test.step(`Open url: ${process.env.BASE_URL}/poe-2`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openPoePage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/poe`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/poe`, {
         waitUntil: "domcontentloaded",
       });
     });

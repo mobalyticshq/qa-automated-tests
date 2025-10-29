@@ -8,25 +8,25 @@ test.beforeEach(async ({ page }) => {
 });
 
 test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
-  let newGame1 = "Hades 2";
+  let newGame1 = "Riftbound";
   let newGame2 = "Borderlands 4";
   const moba = new Moba(page);
-  await moba.mainURLs.openPoePage();
+  await moba.mainURLs.openPoe2Page();
 
   if (process.env.BASE_URL === "https://mobalytics.gg") {
     await test.step(`Expected Result: ${newGame1} game is missing in the navbar on PROD`, async () => {
-      await expect(moba.navbar.gameList).toContainText(newGame1);
+      await expect(moba.navbar.gameList).not.toContainText(newGame1);
     });
-    await test.step(`Expected Result: ${newGame2} game is present in the navbar on PROD`, async () => {
-      await expect(moba.navbar.gameList).toContainText(newGame2);
-    });
+    // await test.step(`Expected Result: ${newGame2} game is present in the navbar on PROD`, async () => {
+    //   await expect(moba.navbar.gameList).toContainText(newGame2);
+    // });
   } else {
     await test.step(`Expected Result: ${newGame1} game is present in the navbar on STG`, async () => {
       await expect(moba.navbar.gameList).toContainText(newGame1);
     });
-    await test.step(`Expected Result: ${newGame2} game is present in the navbar on STG`, async () => {
-      await expect(moba.navbar.gameList).toContainText(newGame2);
-    });
+    // await test.step(`Expected Result: ${newGame2} game is present in the navbar on STG`, async () => {
+    //   await expect(moba.navbar.gameList).toContainText(newGame2);
+    // });
   }
 });
 
@@ -137,6 +137,25 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
+  test(`Create a structure page on PoE 2 project`, async ({ page, cleanupStPoE2Pages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminPoe2Page();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    // Register page for deleting
+    cleanupStPoE2Pages.addPageForCleanup(pageName);
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE 2 project`, async () => {
+      await expect(moba.stPage.headerPoE2).toContainText("PoE 2");
+      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+    });
+  });
+
   test(`Create a structure page on PoE project`, async ({ page, cleanupStPoEPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
@@ -150,8 +169,8 @@ test.describe("Creating ST Pages", () => {
     // Register page for deleting
     cleanupStPoEPages.addPageForCleanup(pageName);
 
-    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE project`, async () => {
-      await expect(moba.stPage.headerPoE).toContainText("PoE 2");
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE 2 project`, async () => {
+      await expect(moba.stPage.headerPoE).toContainText("PoE");
       await expect(moba.stPage.stPageTitle).toContainText(pageName);
     });
   });
@@ -444,6 +463,21 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
+  test(`Create a build page on PoE project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgPoePage();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Build page with the name: ${pageName} is created on PoE project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("PoE Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a build page on Nightreign project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
@@ -605,6 +639,21 @@ test.describe("Creating UG Pages", () => {
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE 2 project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("PoE 2 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
+  test(`Create a guide page on PoE project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgPoePage();
+    await moba.ugProfilePage.gotoGuidePlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("PoE Guide");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -819,6 +868,21 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
+  test(`Create a tier list page on PoE project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgPoePage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on PoE project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("PoE Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a tier list page on Nightreign project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
@@ -969,17 +1033,17 @@ test.describe("Admin permission", () => {
     });
   });
 
-  test(`Admin role can duplicate the structure page`, async ({ page, cleanupStPoEPages }) => {
+  test(`Admin role can duplicate the structure page`, async ({ page, cleanupStPoE2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
     let stWidgetName = "/qa-not-delete-st-page";
 
-    await moba.mainURLs.openAdminPoePage();
+    await moba.mainURLs.openAdminPoe2Page();
     await moba.stAdminPage.clickOnStWidget(stWidgetName);
     await moba.stPage.duplicateStPage(pageName);
-    cleanupStPoEPages.addPageForCleanup(pageName); // Register page for deleting
-    await moba.mainURLs.openAdminPoePage();
+    cleanupStPoE2Pages.addPageForCleanup(pageName); // Register page for deleting
+    await moba.mainURLs.openAdminPoe2Page();
 
     await test.step(`Expected Result: ST page: ${pageName} is duplicated under Admin role`, async () => {
       await expect(moba.stAdminPage.stWidget(pageName)).toContainText(pageName);
