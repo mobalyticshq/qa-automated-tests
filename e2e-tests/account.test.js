@@ -8,8 +8,11 @@ test("Delete mobalytics account", async ({ page, registerAccount }) => {
 
   await moba.navbar.gotoAccountSettingsPage();
   await moba.accountSettings.deleteAccount();
+  
   await test.step("Account is deleted", async () => {
     await expect(moba.byeBye.header).toBeVisible();
     await expect(moba.byeBye.linkInsertCoinToContinue).toBeVisible();
   });
 });
+
+

@@ -33,20 +33,6 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
 test.describe("Creating ST Pages", () => {
   test.use({ storageState: ".auth/adminAuth.json" }); // add admin auth
 
-  test(`Create ST Page with empty 'CardGrid' widget`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openDestiny2StPlanner();
-    await moba.stPage.addCardGalleryV2Widget();
-    await moba.stPage.createStPage(pageName);
-
-    await test.step(`Expected Result: Error modal with Empty items appears`, async () => {
-      await expect(moba.stPage.errorModal).toContainText("Changes could not be saved");
-    });
-  });
-
   test(`Create a structure page on Diablo 4 project`, async ({ page, cleanupStDiablo4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
@@ -61,7 +47,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Diablo4 project`, async () => {
       await expect(moba.stPage.headerDiablo4).toContainText("Diablo 4");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -79,7 +65,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on LoL project`, async () => {
       await expect(moba.stPage.headerLoL).toContainText("LoL");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -97,7 +83,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on TFT project`, async () => {
       await expect(moba.stPage.headerTFT).toContainText("TFT");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -115,7 +101,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Valorant project`, async () => {
       await expect(moba.stPage.headerValorant).toContainText("Val");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -133,7 +119,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Destiny 2 project`, async () => {
       await expect(moba.stPage.headerDestiny2).toContainText("Destiny 2");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -152,7 +138,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE 2 project`, async () => {
       await expect(moba.stPage.headerPoE2).toContainText("PoE 2");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -171,7 +157,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE 2 project`, async () => {
       await expect(moba.stPage.headerPoE).toContainText("PoE");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -190,7 +176,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Nightreign project`, async () => {
       await expect(moba.stPage.headerNightreign).toContainText("Nightreign");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -209,7 +195,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Deadlock project`, async () => {
       await expect(moba.stPage.headerDeadlock).toContainText("Deadlock");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -228,7 +214,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Monster Hunter Wilds project`, async () => {
       await expect(moba.stPage.headerMhw).toContainText("Monster Hunter Wilds");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -247,7 +233,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Bazaar project`, async () => {
       await expect(moba.stPage.headerBazaar).toContainText("The Bazaar");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -266,7 +252,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
       await expect(moba.stPage.headerMarvelRivals).toContainText("Marvel Rivals");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -284,7 +270,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.stPage.headerZzz).toContainText("ZZZ");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -302,7 +288,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Hades 2 project`, async () => {
       await expect(moba.stPage.headerHades2).toContainText("Hades 2");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 
@@ -320,7 +306,7 @@ test.describe("Creating ST Pages", () => {
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
       await expect(moba.stPage.headerBorderlands4).toContainText("Borderlands 4");
-      await expect(moba.stPage.stPageTitle).toContainText(pageName);
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
 });
@@ -997,6 +983,7 @@ test.describe("Admin permission", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminPoePage();
+
     await test.step(`Expected Result: Admin structure page is opened`, async () => {
       await expect(moba.stAdminPage.stAdminTitle(adminTitle)).toContainText(adminTitle);
     });
@@ -1017,7 +1004,7 @@ test.describe("Admin permission", () => {
       await expect(moba.stAdminPage.deleteButton(stWidgetName)).toBeVisible();
     });
     await test.step('Expected Result: "Create Page" button is present on ST page for Admin role', async () => {
-      await expect(moba.stAdminPage.createPageButton).toBeVisible();
+      await expect(moba.stAdminPage.createStPageButton).toBeVisible();
     });
   });
 
@@ -1027,9 +1014,10 @@ test.describe("Admin permission", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminNightreignPage();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
-    await test.step(`Expected Result: View mode the "/home" structure page is opened`, async () => {
-      await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
+
+    await test.step(`Expected Result: View mode the "/qa-not-delete-st-page" structure page is opened`, async () => {
+      await expect(moba.stPage.controlPanel).toContainText(stWidgetName);
     });
   });
 
@@ -1040,13 +1028,13 @@ test.describe("Admin permission", () => {
     let stWidgetName = "/qa-not-delete-st-page";
 
     await moba.mainURLs.openAdminPoe2Page();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
     await moba.stPage.duplicateStPage(pageName);
     cleanupStPoE2Pages.addPageForCleanup(pageName); // Register page for deleting
     await moba.mainURLs.openAdminPoe2Page();
 
     await test.step(`Expected Result: ST page: ${pageName} is duplicated under Admin role`, async () => {
-      await expect(moba.stAdminPage.stWidget(pageName)).toContainText(pageName);
+      await expect(moba.stAdminPage.stCardWidget(pageName)).toBeVisible();
     });
   });
 
@@ -1082,7 +1070,8 @@ test.describe("Admin permission", () => {
     await moba.stPage.deleteStPage();
 
     await test.step(`Expected Result: ST page: ${pageName} is deleted`, async () => {
-      await expect(moba.stAdminPage.stWidget(pageName)).not.toBeVisible();
+      // await expect(moba.stAdminPage.stAdminTitle("Structure Pages")).toBeVisible();
+      await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
     });
   });
 
@@ -1108,7 +1097,7 @@ test.describe("Admin permission", () => {
     let stWidgetName = "/qa-not-delete-st-page";
 
     await moba.mainURLs.openAdminZzzPage();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
     await moba.stPage.openSeoModal();
 
     await test.step(`Expected Result: SEO modal is available for Admin role`, async () => {
@@ -1123,7 +1112,7 @@ test.describe("Admin permission", () => {
 
     await moba.mainURLs.openAdminMhwPage();
     await moba.stAdminPage.gotoStPlannerPage();
-    await moba.stPage.addVideoV2Widget();
+    await moba.stPage.addVideoWidget();
     await moba.stPage.uploadVideo(`aqa-video${uniqueId}.mp4`);
     await moba.stPage.createStPage(pageName);
 
@@ -1195,13 +1184,14 @@ test.describe("Internal Writer permission", () => {
     const moba = new Moba(page);
 
     await moba.homePage.openMhwHomePage();
+
     await test.step(`Expected Result: Control panel is missing for Internal Writer role`, async () => {
       await expect(moba.homePage.controlPanel).not.toBeVisible();
     });
   });
 
   test("Check API Internal Writer permission", async ({ request }) => {
-    const adminRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
+    const internalWriterRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
       data: {
         query: `
             query Poe2 {
@@ -1221,8 +1211,8 @@ test.describe("Internal Writer permission", () => {
         "Content-Type": "application/json",
       },
     });
-    expect(adminRoleResponse.ok()).toBeTruthy();
-    const json = await adminRoleResponse.json();
+    expect(internalWriterRoleResponse.ok()).toBeTruthy();
+    const json = await internalWriterRoleResponse.json();
     const role = json.data.poe2.permissions.user.role;
     expect(role).toBe("INTERNAL_WRITER");
   });
@@ -1256,7 +1246,7 @@ test.describe("Game Manager permission", () => {
       await expect(moba.stAdminPage.deleteButton(stWidgetName)).not.toBeVisible();
     });
     await test.step('Expected Result: "Create Page" button is missing on ST page for Game Manager role', async () => {
-      await expect(moba.stAdminPage.createPageButton).not.toBeVisible();
+      await expect(moba.stAdminPage.createStPageButton).not.toBeVisible();
     });
   });
 
@@ -1268,31 +1258,32 @@ test.describe("Game Manager permission", () => {
     const moba = new Moba(page);
 
     await moba.mainURLs.openAdminNightreignPage();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
     await test.step(`Expected Result: View mode the "/qa-not-delete-st-page" structure page is opened`, async () => {
-      await expect(moba.stPage.stPageTitle).toContainText(stWidgetName);
+      await expect(moba.stPage.controlPanel).toContainText(stWidgetName);
     });
   });
 
   test(`Game Manager role can't publish ST pages`, async ({ page }) => {
+    const moba = new Moba(page);
     let stWidgetName = "/qa-not-delete-st-page";
 
-    const moba = new Moba(page);
-
     await moba.mainURLs.openAdminZzzPage();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
+
     await test.step(`Expected Result: "Publish" button is missing in the control panel on the ST page`, async () => {
       await expect(moba.stPage.controlPanel).not.toContainText("Published");
+      await expect(moba.stPage.publishButton).not.toBeVisible();
     });
   });
 
   test(`Game Manager role can't archive, duplicate ST pages`, async ({ page }) => {
+    const moba = new Moba(page);
     let stWidgetName = "/qa-not-delete-st-page";
 
-    const moba = new Moba(page);
-
     await moba.mainURLs.openAdminZzzPage();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
+
     await test.step(`Expected Result: "Dots" button is missing in the control panel on the ST page`, async () => {
       await expect(moba.stPage.dotsButton).not.toBeVisible();
     });
@@ -1303,7 +1294,7 @@ test.describe("Game Manager permission", () => {
     let stWidgetName = "/qa-not-delete-st-page";
 
     await moba.mainURLs.openAdminZzzPage();
-    await moba.stAdminPage.clickOnStWidget(stWidgetName);
+    await moba.stAdminPage.clickStCardWidget(stWidgetName);
     await moba.stPage.openSeoModal();
 
     await test.step(`Expected Result: SEO modal is available for Game Manager role`, async () => {
@@ -1343,7 +1334,7 @@ test.describe("Game Manager permission", () => {
   });
 
   test("Check API Game Manager permission", async ({ request }) => {
-    const adminRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
+    const gameManagerRoleResponse = await request.post(`${process.env.BASE_URL}/api/poe-2/v1/graphql/query`, {
       data: {
         query: `
             query Poe2 {
@@ -1363,8 +1354,8 @@ test.describe("Game Manager permission", () => {
         "Content-Type": "application/json",
       },
     });
-    expect(adminRoleResponse.ok()).toBeTruthy();
-    const json = await adminRoleResponse.json();
+    expect(gameManagerRoleResponse.ok()).toBeTruthy();
+    const json = await gameManagerRoleResponse.json();
     const role = json.data.poe2.permissions.user.role;
     expect(role).toBe("GAME_MANAGER");
   });

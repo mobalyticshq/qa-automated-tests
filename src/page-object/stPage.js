@@ -2,7 +2,6 @@ import { test } from "@playwright/test";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
-import { expect } from "@playwright/test";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,22 +38,11 @@ export class StPage {
     this.seoButton = page.getByTestId("ngf-seo-settings-button");
     this.cancelButton = page.getByRole("button", { name: "Cancel" });
     this.resetButton = page.getByRole("button", { name: "Reset" });
-    this.stPageTitle = page.getByTestId("document-controls-panel");
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.headerWidget = page.getByRole("heading", { name: "ZZZ Header" });
     this.documentDiscoveryWidget = page.locator("section").nth(4);
     this.cardGalleryV2Button = page.locator('[data-key="NgfDocumentStWidgetLinksGridManualV2"]');
-    this.column1AutoOldGames = page.getByRole("button").filter({ hasText: /^$/ }).nth(1);
-    this.column1Auto = page.getByRole("button").filter({ hasText: /^$/ }).nth(1);
-    this.column1AutoEditMode = page
-      .getByRole("button", {
-        name: "Edit ZZZ Header",
-        exact: true,
-      })
-      .nth(1);
-    this.addWidgetButton1 = page.getByRole("button", { name: "columnAuto" }).getByRole("button");
-    this.addWidgetButton3 = page.locator(".xe8ttls > div > .x19l6gds");
-    this.addWidgetButton2 = page.getByRole("button", { name: "columnAuto Edit ZZZ Header" }).getByRole("button").nth(4);
+    this.addWidgetButton = page.getByTestId("add-widget-button");
     this.dropdownMenuWidgets = page.getByText(
       "Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards"
     );
@@ -72,8 +60,8 @@ export class StPage {
     this.videoButton = page.locator('[data-key="NgfDocumentCmWidgetVideoV2"]');
     this.listOfWidgets = page.getByText("Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards");
     this.videoWidget = page.getByRole("heading", { name: "Video" });
-    this.linkButtonVideoV2 = page.getByText("Link");
-    this.inputVideoV2 = page.getByRole("textbox", {
+    this.linkButtonVideo = page.getByTestId("video-widget-link-button");
+    this.inputVideoWidget = page.getByRole("textbox", {
       name: "YouTube, Twitch or Vimeo link",
     });
     this.headerDiablo4 = page.locator("#container").getByText("Diablo 4");
@@ -115,8 +103,7 @@ export class StPage {
     await test.step(`Add Header widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
-      await this.column1Auto.hover();
-      await this.addWidgetButton1.click();
+      await this.addWidgetButton.click();
       await this.headerButton.click();
     });
   }
@@ -125,8 +112,7 @@ export class StPage {
     await test.step(`Add Rich Text widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
-      await this.column1Auto.hover();
-      await this.addWidgetButton1.click();
+      await this.addWidgetButton.click();
       await this.richTextButton.click();
     });
   }
@@ -135,29 +121,26 @@ export class StPage {
     await test.step(`Add Header widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
-      await this.column1AutoOldGames.hover();
-      await this.addWidgetButton1.click();
+      await this.addWidgetButton.click();
       await this.headerButton.click();
     });
   }
 
-  async addCardGalleryV2Widget() {
+  async addCardGalleryWidget() {
     await test.step(`Add Card Gallery widget on the structure page`, async () => {
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
-      await this.column1Auto.hover();
-      await this.addWidgetButton1.click();
+      await this.addWidgetButton.click();
       await this.cardGalleryV2Button.click();
     });
   }
 
-  async addVideoV2Widget() {
-    await test.step(`Add VideoV2 widget on the structure page`, async () => {
+  async addVideoWidget() {
+    await test.step(`Add Video widget on the structure page`, async () => {
       await this.page.keyboard.press("End");
       await this.addSectionButton.click();
       await this.addSectionButtonInModal.click();
-      await this.column1Auto.hover();
-      await this.addWidgetButton3.click();
+      await this.addWidgetButton.click();
       await this.videoButton.click();
     });
   }
@@ -259,8 +242,7 @@ export class StPage {
   async editStPage() {
     await test.step(`Add Document Discovery widget to the ST page in edit mode`, async () => {
       await this.editButton.click();
-      await this.column1AutoEditMode.click();
-      await this.addWidgetButton2.click();
+      await this.addWidgetButton.click();
       await this.documentDiscoveryButton.click();
       await this.saveDraftButton.click();
     });

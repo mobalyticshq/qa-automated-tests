@@ -33,7 +33,7 @@ import { v4 as uuidv4 } from "uuid";
 //     // Register page for deleting
 //     cleanupStMhwPages.addPageForCleanup(pageName);
 
-//     await expect(admin.stPage.stPageTitle).toContainText(pageName);
+//     await expect(admin.stPage.controlPanel).toContainText(pageName);
 //   });
 //   await test.step('Open ST page multiple times as a guest until "x-moba-ssr-cache" header appears', async () => {
 //     const maxAttempts = 10;
@@ -62,7 +62,7 @@ import { v4 as uuidv4 } from "uuid";
 //     await adminPage.goto(`${process.env.BASE_URL}/mhw${pageName}`, {
 //       waitUntil: "domcontentloaded",
 //     });
-//     // await admin.stAdminPage.clickOnStWidget(stWidgetName);
+//     // await admin.stAdminPage.clickStCardWidget(stWidgetName);
 //     await admin.stPage.updateDescriptionRichTextWidget(text);
 //     await expect(admin.stPage.descriptionRichTextWidget).toContainText(text);
 //   });
@@ -123,6 +123,20 @@ import { v4 as uuidv4 } from "uuid";
 //     await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
 //   });
 // });
+
+test("Check error state for empty 'CardGrid' widget", async ({ page }) => {
+  const uniqueId = uuidv4();
+  const pageName = `/qa-automation-st-page-${uniqueId}`;
+  const moba = new Moba(page);
+
+  await moba.mainURLs.openDestiny2StPlanner();
+  await moba.stPage.addCardGalleryWidget();
+  await moba.stPage.createStPage(pageName);
+
+  await test.step(`Expected Result: Error modal with Empty items appears`, async () => {
+    await expect(moba.stPage.errorModal).toContainText("Changes could not be saved");
+  });
+});
 
 test("Check x-moba-ssr-cache header & new content are present on MHW build page", async ({ browser }) => {
   test.skip(
@@ -262,5 +276,104 @@ test("Error validation: 404 status code & title on NGF page", async ({ page }) =
   });
   await test.step("Expected Result: '404' title is present on the page", async () => {
     await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+  });
+});
+
+[
+  // { game: "TFT", pageUrl: "/tft" },
+  // { game: "LoL", pageUrl: "/lol" },
+  { game: "ZZZ", pageUrl: "/zzz/qa-check-static-data-not-delete" },
+  { game: "Diablo 4", pageUrl: "/diablo-4/qa-check-static-data-not-delete" },
+  { game: "Elden Ring", pageUrl: "/elden-ring-nightreign/qa-check-static-data-not-delete" },
+  { game: "Monster Hunter Wilds", pageUrl: "/mhw/qa-check-static-data-not-delete" },
+  { game: "Hades 2", pageUrl: "/hades-2/qa-check-static-data-not-delete" },
+  { game: "Borderlands 4", pageUrl: "/borderlands-4/qa-check-static-data-not-delete" },
+  { game: "Deadlock", pageUrl: "/deadlock/qa-check-static-data-not-delete" },
+  { game: "Path of Exile 2", pageUrl: "/poe-2/qa-check-static-data-not-delete" },
+  { game: "Path of Exile", pageUrl: "/poe/qa-check-static-data-not-delete" },
+  { game: "The Bazaar", pageUrl: "/the-bazaar/qa-check-static-data-not-delete" },
+].forEach(({ game, pageUrl }) => {
+  test.use({ storageState: ".auth/adminAuth.json" });
+  test(`Check static data on NGF ${game}`, async ({ page }) => {
+    if (game === "ZZZ") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Alice");
+    await expect(page.getByText("Alice")).toBeVisible();
+    }
+    if (game === "Diablo 4") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Amethyst");
+    await expect(page.getByText("Amethyst")).toBeVisible();
+    }
+    if (game === "Elden Ring") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Blood Loss");
+    await expect(page.getByText("Blood Loss")).toBeVisible();
+    }
+    if (game === "Monster Hunter Wilds") {
+      await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await page.getByTestId("ngf-st-edit-button").click();
+      await page.getByTestId("toolbar-plugin-static-data").click();
+
+      await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Dragon");
+      await expect(page.getByText("Dragon", { exact: true })).toBeVisible();
+    }
+    if (game === "Hades 2") {
+      await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await page.getByTestId("ngf-st-edit-button").click();
+      await page.getByTestId("toolbar-plugin-static-data").click();
+
+      await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Frinos");
+      await expect(page.getByText("Frinos")).toBeVisible();
+    }
+    if (game === "Borderlands 4") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Entanglement");
+    await expect(page.getByText("Entanglement")).toBeVisible();
+    }
+    if (game === "Deadlock") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Channeling Time");
+    await expect(page.getByText("Channeling Time")).toBeVisible();
+    }
+    if (game === "Path of Exile 2") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Acolyte of Chayula");
+    await expect(page.getByText("Acolyte of Chayula")).toBeVisible();
+    }
+    if (game === "Path of Exile") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Ascendant");
+    await expect(page.getByText("Ascendant")).toBeVisible();
+    }
+    if (game === "The Bazaar") {
+    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
+    await page.getByTestId("ngf-st-edit-button").click();
+    await page.getByTestId("toolbar-plugin-static-data").click();
+
+    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Dooley");
+    await expect(page.getByText("Dooley")).toBeVisible();
+    }
   });
 });

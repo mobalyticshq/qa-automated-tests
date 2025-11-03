@@ -13,7 +13,7 @@ export class UgBuildPage {
     this.buttonSavePublishInModal = page.getByRole("button", {
       name: "Save and Publish",
     });
-    this.header = page.locator("section").first();
+    this.header = page.getByTestId("document-ug-widget-header");
     this.controlPanel = page.getByTestId("document-controls-panel");
     this.mainPage = page.getByRole("main");
     this.coverImage = page

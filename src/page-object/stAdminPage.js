@@ -4,38 +4,26 @@ export class StAdminPage {
   constructor(page) {
     this.page = page;
     this.notFoundPage = page.getByText("404The page you are looking");
-    this.createPageButton = page.getByTestId("create-button");
+    this.createStPageButton = page.getByTestId("create-button");
     this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
-    this.editButton = (stWidgetName) =>
-      page.getByText(`${stWidgetName}Edit`).getByTestId("edit-button");
-    this.editButton1 = page.getByTestId("edit-button");
-    this.deleteButton = (stWidgetName) =>
-      page.getByText(`${stWidgetName}Edit`).getByTestId("delete-button");
-    this.stWidget = (stWidgetName) => page.getByText(`${stWidgetName}Edit`);
-    this.stAdminTitle = (adminTitle) =>
-      page.getByRole("heading", { name: `${adminTitle}` });
-    // this.editButton = (stPageName) =>
-    //   page
-    //     .locator("div")
-    //     .filter({ hasText: new RegExp(`^${stPageName}Edit$`) })
-    //     .getByTestId("edit-button");
-    // this.deleteButton = (stPageName) =>
-    //   page
-    //     .locator("div")
-    //     .filter({ hasText: new RegExp(`^${stPageName}Edit$`) })
-    //     .getByTestId("delete-button");
-    this.stWidget = (stPageName) => page.getByText(`${stPageName}`);
+    this.editButton = (stPageName) =>
+      page.getByTestId("admin-page-st-document-item-card").filter({ hasText: stPageName }).getByTestId("edit-button");
+    this.deleteButton = (stPageName) =>
+      page.getByTestId("admin-page-st-document-item-card").filter({ hasText: stPageName }).getByTestId("delete-button");
+    this.stAdminTitle = (adminTitle) => page.getByRole("heading", { name: `${adminTitle}` });
+    this.stCardWidget = (stPageName) =>
+      page.getByTestId("admin-page-st-document-item-card").filter({ hasText: stPageName });
   }
 
   async gotoStPlannerPage() {
     await test.step(`Go to the planner of the structure page`, async () => {
-      await this.createPageButton.click();
+      await this.createStPageButton.click();
     });
   }
 
-  async clickOnStWidget(stPageName) {
+  async clickStCardWidget(stPageName) {
     await test.step(`Go to ${stPageName} structure page`, async () => {
-      await this.stWidget(stPageName).click();
+      await this.stCardWidget(stPageName).click();
     });
   }
 
@@ -49,6 +37,7 @@ export class StAdminPage {
     await test.step(`Click Delete button on ${stPageName} widget`, async () => {
       await this.deleteButton(stPageName).click();
       await this.buttonDeleteInModal.click();
+      await this.page.waitForLoadState('domcontentloaded'); // added for waiting for the page to reload after deletion
     });
   }
 }
