@@ -65,6 +65,7 @@ export class StPage {
       name: "YouTube, Twitch or Vimeo link",
     });
     this.headerDiablo4 = page.locator("#container").getByText("Diablo 4");
+    this.header2xko = page.locator("#container").getByText("2xko");
     this.headerLoL = page.locator("#container").getByText("LoL");
     this.headerValorant = page.locator("#container").getByText("Val");
     this.headerPoE2 = page.locator("#container").getByText("PoE 2");
@@ -82,6 +83,8 @@ export class StPage {
     this.inputRichTextWidget = page.getByRole("textbox");
     this.descriptionRichTextWidget = page.locator('span[data-lexical-text="true"]');
     this.richTextButton = page.locator('[data-key="NgfDocumentCmWidgetRichTextV2"]');
+    this.staticDataButton = page.getByTestId("toolbar-plugin-static-data");
+    this.dropdownStaticData = page.getByTestId("suggestion-static-data-menu");
   }
 
   async updateDescriptionRichTextWidget(text) {

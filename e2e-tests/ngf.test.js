@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 
 test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
   let newGame1 = "Riftbound";
-  let newGame2 = "Borderlands 4";
+  let newGame2 = "2XKO";
   const moba = new Moba(page);
   await moba.mainURLs.openPoe2Page();
 
@@ -17,21 +17,39 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
     await test.step(`Expected Result: ${newGame1} game is missing in the navbar on PROD`, async () => {
       await expect(moba.navbar.gameList).not.toContainText(newGame1);
     });
-    // await test.step(`Expected Result: ${newGame2} game is present in the navbar on PROD`, async () => {
-    //   await expect(moba.navbar.gameList).toContainText(newGame2);
-    // });
+    await test.step(`Expected Result: ${newGame2} game is present in the navbar on PROD`, async () => {
+      await expect(moba.navbar.gameList).not.toContainText(newGame2);
+    });
   } else {
     await test.step(`Expected Result: ${newGame1} game is present in the navbar on STG`, async () => {
       await expect(moba.navbar.gameList).toContainText(newGame1);
     });
-    // await test.step(`Expected Result: ${newGame2} game is present in the navbar on STG`, async () => {
-    //   await expect(moba.navbar.gameList).toContainText(newGame2);
-    // });
+    await test.step(`Expected Result: ${newGame2} game is present in the navbar on STG`, async () => {
+      await expect(moba.navbar.gameList).toContainText(newGame2);
+    });
   }
 });
 
 test.describe("Creating ST Pages", () => {
   test.use({ storageState: ".auth/adminAuth.json" }); // add admin auth
+
+  test(`Create a structure page on 2xko project`, async ({ page, cleanupSt2xkoPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdmin2xkoPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    cleanupSt2xkoPages.addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on 2xko project`, async () => {
+      await expect(moba.stPage.header2xko).toContainText("2XKO");
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
 
   test(`Create a structure page on Diablo 4 project`, async ({ page, cleanupStDiablo4Pages }) => {
     const uniqueId = uuidv4();
@@ -329,6 +347,21 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
+  test(`Create a build page on 2xko project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUg2xkoPage();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Build page with the name: ${pageName} is created on 2xko project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("2XKO Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a build page on LoL project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
@@ -520,6 +553,21 @@ test.describe("Creating UG Pages", () => {
 
     await test.step(`Expected Result: Build page with the name: ${pageName} is created on Deadlock project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Deadlock Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
+  test(`Create a guide page on 2xko project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUg2xkoPage();
+    await moba.ugProfilePage.gotoGuidePlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on 2xko project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("2XKO Guide");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -775,6 +823,21 @@ test.describe("Creating UG Pages", () => {
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on MHW project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Monster Hunter Wilds Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
+  test(`Create a tier list page on 2xko project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUg2xkoPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on 2xko project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("2XKO Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });

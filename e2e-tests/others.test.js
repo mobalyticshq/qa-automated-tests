@@ -124,17 +124,19 @@ import { v4 as uuidv4 } from "uuid";
 //   });
 // });
 
-test("Check error state for empty 'CardGrid' widget", async ({ page }) => {
+test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
+  const adminContext = await browser.newContext({ storageState: ".auth/adminAuth.json" });
+  const adminPage = await adminContext.newPage();
+  const admin = new Moba(adminPage);
   const uniqueId = uuidv4();
   const pageName = `/qa-automation-st-page-${uniqueId}`;
-  const moba = new Moba(page);
 
-  await moba.mainURLs.openDestiny2StPlanner();
-  await moba.stPage.addCardGalleryWidget();
-  await moba.stPage.createStPage(pageName);
+  await admin.mainURLs.openDestiny2StPlanner();
+  await admin.stPage.addCardGalleryWidget();
+  await admin.stPage.createStPage(pageName);
 
   await test.step(`Expected Result: Error modal with Empty items appears`, async () => {
-    await expect(moba.stPage.errorModal).toContainText("Changes could not be saved");
+    await expect(admin.stPage.errorModal).toContainText("Changes could not be saved");
   });
 });
 
@@ -293,87 +295,110 @@ test("Error validation: 404 status code & title on NGF page", async ({ page }) =
   { game: "Path of Exile", pageUrl: "/poe/qa-check-static-data-not-delete" },
   { game: "The Bazaar", pageUrl: "/the-bazaar/qa-check-static-data-not-delete" },
 ].forEach(({ game, pageUrl }) => {
-  test.use({ storageState: ".auth/adminAuth.json" });
-  test(`Check static data on NGF ${game}`, async ({ page }) => {
-    if (game === "ZZZ") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+  test(`Check static data on NGF ${game}`, async ({ browser }) => {
+    const adminContext = await browser.newContext({ storageState: ".auth/adminAuth.json" });
+    const adminPage = await adminContext.newPage();
+    const admin = new Moba(adminPage);
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Alice");
-    await expect(page.getByText("Alice")).toBeVisible();
+    if (game === "ZZZ") {
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
+
+      const gameSpecificItem = "Alice";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Diablo 4") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Amethyst");
-    await expect(page.getByText("Amethyst")).toBeVisible();
+      const gameSpecificItem = "Amethyst";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Elden Ring") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Blood Loss");
-    await expect(page.getByText("Blood Loss")).toBeVisible();
+      const gameSpecificItem = "Blood Loss";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Monster Hunter Wilds") {
-      await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await page.getByTestId("ngf-st-edit-button").click();
-      await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-      await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Dragon");
-      await expect(page.getByText("Dragon", { exact: true })).toBeVisible();
+      const gameSpecificItem = "Dragon";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem, { exact: true })). toBeVisible();
     }
     if (game === "Hades 2") {
-      await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await page.getByTestId("ngf-st-edit-button").click();
-      await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-      await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Frinos");
-      await expect(page.getByText("Frinos")).toBeVisible();
+      const gameSpecificItem = "Frinos";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Borderlands 4") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Entanglement");
-    await expect(page.getByText("Entanglement")).toBeVisible();
+      const gameSpecificItem = "Entanglement";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Deadlock") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Channeling Time");
-    await expect(page.getByText("Channeling Time")).toBeVisible();
+      const gameSpecificItem = "Channeling Time";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Path of Exile 2") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Acolyte of Chayula");
-    await expect(page.getByText("Acolyte of Chayula")).toBeVisible();
+      const gameSpecificItem = "Acolyte of Chayula";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "Path of Exile") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Ascendant");
-    await expect(page.getByText("Ascendant")).toBeVisible();
+      const gameSpecificItem = "Ascendant";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
     if (game === "The Bazaar") {
-    await page.goto(`${process.env.BASE_URL}${pageUrl}`);
-    await page.getByTestId("ngf-st-edit-button").click();
-    await page.getByTestId("toolbar-plugin-static-data").click();
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
 
-    await expect(page.getByTestId("suggestion-static-data-menu")).toContainText("Dooley");
-    await expect(page.getByText("Dooley")).toBeVisible();
+      const gameSpecificItem = "Dooley";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
     }
   });
 });

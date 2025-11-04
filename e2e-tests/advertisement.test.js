@@ -14,6 +14,7 @@ import { test, expect } from "@playwright/test";
   { game: "Borderlands 4", projectUrl: `/borderlands-4` },
   { game: "Deadlock", projectUrl: `/deadlock` },
   { game: "Path of Exile 2", projectUrl: `/poe-2` },
+  { game: "Path of Exile", projectUrl: `/poe` },
   { game: "The Bazaar", projectUrl: `/the-bazaar` },
   { game: "LoL", projectUrl: `/lol` },
 ].forEach(({ game, projectUrl }) => {
@@ -36,6 +37,19 @@ import { test, expect } from "@playwright/test";
       });
       await test.step(`Expected Result: "web-zzz-display-footer-d" banner is present on the page`, async () => {
         await expect(page.locator("#web-zzz-display-footer-d").locator("xpath=..")).toBeVisible();
+      });
+    } else if (game === "PoE") {
+      await test.step(`Expected Result: poe-video-all-pages is present on the page`, async () => {
+        await expect(page.locator("#poe-video-all-pages").or(page.locator("#poe-nitro-video"))).toBeVisible();
+      });
+      await test.step(`Expected Result: "poe-display-all-pages" banner is present on the page`, async () => {
+        await expect(page.locator("#poe-display-all-pages")).toBeVisible();
+      });
+      await test.step(`Expected Result: "poe-display-small-all-pages" banner is present on the page`, async () => {
+        await expect(page.locator("#poe-display-small-all-pages")).toBeVisible();
+      });
+      await test.step(`Expected Result: "web-poe-display-footer-d" banner is present on the page`, async () => {
+        await expect(page.locator("#web-poe-display-footer-d").locator("xpath=..")).toBeVisible();
       });
     } else if (game === "Lost Ark") {
       await test.step(`Expected Result: lost-ark-video-all-pages is present on the page`, async () => {

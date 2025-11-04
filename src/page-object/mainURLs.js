@@ -28,6 +28,12 @@ export class MainURLs {
       await this.page.goto(`${process.env.BASE_URL}/diablo-4/admin`);
     });
   }
+  
+  async openAdmin2xkoPage() {
+    await test.step(`Open 'Diablo4' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/2xko/admin`);
+    });
+  }
 
   async openAdminNightreignPage() {
     await test.step(`Open 'Nightreign' ST admin page`, async () => {
@@ -136,6 +142,14 @@ export class MainURLs {
   async openUgZzzPage() {
     await test.step(`Open 'ZZZ' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/zzz/profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUg2xkoPage() {
+    await test.step(`Open '2xko' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/2xko/profile`, {
         waitUntil: "domcontentloaded",
       });
     });

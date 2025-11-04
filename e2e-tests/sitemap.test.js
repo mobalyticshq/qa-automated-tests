@@ -79,6 +79,7 @@ const isProd = process.env.BASE_URL === "https://mobalytics.gg";
   { game: "The Bazaar", isPresentInSitemap: true, testUrl: `/the-bazaar/sitemap.xml` },
   { game: "PoE", isPresentInSitemap: true, testUrl: `/poe/sitemap.xml` },
   { game: "Riftbound", isPresentInSitemap: false, testUrl: `/riftbound/sitemap.xml` },
+  { game: "2XKO", isPresentInSitemap: false, testUrl: `/2xko/sitemap.xml` },
 ].forEach(({ game, isPresentInSitemap, testUrl }) => {
   test(`Checking sitemap for ${game} game on ${process.env.URL_SITEMAP}`, async ({ page }) => {
     await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
