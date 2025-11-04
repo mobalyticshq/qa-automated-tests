@@ -338,7 +338,7 @@ test("Error validation: 404 status code & title on NGF page", async ({ page }) =
       const gameSpecificItem = "Dragon";
 
       await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem, { exact: true })). toBeVisible();
+      await expect(adminPage.getByText(gameSpecificItem, { exact: true })).toBeVisible();
     }
     if (game === "Hades 2") {
       await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
