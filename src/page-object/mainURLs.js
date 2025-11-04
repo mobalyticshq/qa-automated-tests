@@ -30,7 +30,7 @@ export class MainURLs {
   }
   
   async openAdmin2xkoPage() {
-    await test.step(`Open 'Diablo4' ST admin page`, async () => {
+    await test.step(`Open '2XKO' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/2xko/admin`);
     });
   }
