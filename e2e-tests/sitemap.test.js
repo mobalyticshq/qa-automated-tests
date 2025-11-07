@@ -65,7 +65,6 @@ const isProd = process.env.BASE_URL === "https://mobalytics.gg";
   { game: "Champions", isPresentInSitemap: true, testUrl: `/champions-sitemap.xml` },
   { game: "TFT", isPresentInSitemap: true, testUrl: `/tft/sitemap.xml` },
   { game: "Set15", isPresentInSitemap: true, testUrl: `/tft/set15/sitemap.xml` },
-  { game: "Lost Ark", isPresentInSitemap: true, testUrl: `/lost-ark/sitemap.xml` },
   { game: "Destiny 2", isPresentInSitemap: true, testUrl: `/destiny-2/sitemap.xml` },
   { game: "Diablo 4", isPresentInSitemap: true, testUrl: `/diablo-4/sitemap.xml` },
   { game: "Elden Ring", isPresentInSitemap: true, testUrl: `/elden-ring-nightreign/sitemap.xml` },

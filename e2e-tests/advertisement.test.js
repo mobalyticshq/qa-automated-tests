@@ -4,7 +4,6 @@ import { test, expect } from "@playwright/test";
   { game: "ZZZ", projectUrl: "/zzz" },
   { game: "Valorant", projectUrl: `/valorant` },
   { game: "TFT", projectUrl: `/tft` },
-  { game: "Lost Ark", projectUrl: `/lost-ark` },
   { game: "Destiny 2", projectUrl: `/destiny-2` },
   { game: "Diablo 4", projectUrl: `/diablo-4` },
   { game: "Elden Ring", projectUrl: `/elden-ring-nightreign` },
@@ -50,19 +49,6 @@ import { test, expect } from "@playwright/test";
       });
       await test.step(`Expected Result: "web-poe-display-footer-d" banner is present on the page`, async () => {
         await expect(page.locator("#web-poe-display-footer-d").locator("xpath=..")).toBeVisible();
-      });
-    } else if (game === "Lost Ark") {
-      await test.step(`Expected Result: lost-ark-video-all-pages is present on the page`, async () => {
-        await expect(page.locator("#lost-ark-video-all-pages").or(page.locator("#lost-ark-nitro-video"))).toBeVisible();
-      });
-      await test.step(`Expected Result: "lost-ark-display-all-pages" banner is present on the page`, async () => {
-        await expect(page.locator("#lost-ark-display-all-pages")).toBeVisible();
-      });
-      await test.step(`Expected Result: "lost-ark-display-small-all-pages" banner is present on the page`, async () => {
-        await expect(page.locator("#lost-ark-display-small-all-pages")).toBeVisible();
-      });
-      await test.step(`Expected Result: "web-lost-ark-display-footer-d" banner is present on the page`, async () => {
-        await expect(page.locator("#web-lost-ark-display-footer-d").locator("xpath=..")).toBeVisible();
       });
     } else if (game === "Marvel Rivals") {
       await test.step(`Expected Result: marvel-rivals-video-all-pages is present on the page`, async () => {
