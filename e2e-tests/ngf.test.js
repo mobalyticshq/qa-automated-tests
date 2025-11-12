@@ -34,10 +34,6 @@ test.describe("Creating ST Pages", () => {
   test.use({ storageState: ".auth/adminAuth.json" }); // add admin auth
 
   test(`Create a structure page on 2xko project`, async ({ page, cleanupSt2xkoPages }) => {
-    test.skip(
-      process.env.BASE_URL.includes("https://mobalytics.gg"),
-      "Skipping on production environment or when BASE_URL is not defined"
-    );
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -352,10 +348,6 @@ test.describe("Creating UG Pages", () => {
   });
 
   test(`Create a build page on 2xko project`, async ({ page }) => {
-    test.skip(
-      process.env.BASE_URL.includes("https://mobalytics.gg"),
-      "Skipping on production environment or when BASE_URL is not defined"
-    );
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -566,10 +558,6 @@ test.describe("Creating UG Pages", () => {
   });
 
   test(`Create a guide page on 2xko project`, async ({ page }) => {
-    test.skip(
-      process.env.BASE_URL.includes("https://mobalytics.gg"),
-      "Skipping on production environment or when BASE_URL is not defined"
-    );
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -840,10 +828,6 @@ test.describe("Creating UG Pages", () => {
   });
 
   test(`Create a tier list page on 2xko project`, async ({ page }) => {
-    test.skip(
-      process.env.BASE_URL.includes("https://mobalytics.gg"),
-      "Skipping on production environment or when BASE_URL is not defined"
-    );
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
