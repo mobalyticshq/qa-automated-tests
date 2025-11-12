@@ -16,6 +16,8 @@ import { test, expect } from "@playwright/test";
   { game: "Path of Exile", projectUrl: `/poe` },
   { game: "The Bazaar", projectUrl: `/the-bazaar` },
   { game: "LoL", projectUrl: `/lol` },
+  { game: "2XKO", projectUrl: `/2xko` },
+  { game: "Riftbound", projectUrl: `/riftbound` },
 ].forEach(({ game, projectUrl }) => {
   test(`Check the availability of advertising blocks for ${game} game`, async ({ page }) => {
     await test.step(`Open project url: "${process.env.BASE_URL}${projectUrl}"`, async () => {
@@ -49,6 +51,19 @@ import { test, expect } from "@playwright/test";
       });
       await test.step(`Expected Result: "web-poe-display-footer-d" banner is present on the page`, async () => {
         await expect(page.locator("#web-poe-display-footer-d").locator("xpath=..")).toBeVisible();
+      });
+    } else if (game === "2XKO") {
+      await test.step(`Expected Result: 2xko-video-all-pages is present on the page`, async () => {
+        await expect(page.locator("#xko-video-all-pages").or(page.locator("#\\32 xko-nitro-video"))).toBeVisible();
+      });
+      await test.step(`Expected Result: "2xko-display-all-pages" banner is present on the page`, async () => {
+        await expect(page.locator("#xko-display-all-pages")).toBeVisible();
+      });
+      await test.step(`Expected Result: "2xko-display-small-all-pages" banner is present on the page`, async () => {
+        await expect(page.locator("#xko-display-small-all-pages")).toBeVisible();
+      });
+      await test.step(`Expected Result: "web-2xko-display-footer-d" banner is present on the page`, async () => {
+        await expect(page.locator("#web-2xko-display-footer-d").locator("xpath=..")).toBeVisible();
       });
     } else if (game === "Marvel Rivals") {
       await test.step(`Expected Result: marvel-rivals-video-all-pages is present on the page`, async () => {
@@ -226,6 +241,19 @@ import { test, expect } from "@playwright/test";
       });
       await test.step(`Expected Result: "web-elden-ring-nightreign-display-footer-d" banner is present on the page`, async () => {
         await expect(page.locator("#web-elden-ring-nightreign-display-footer-d").locator("xpath=..")).toBeVisible();
+      });
+    } else if (game === "Riftbound") {
+      await test.step(`Expected Result: riftbound-video-all-pages is present on the page`, async () => {
+        await expect(page.locator("#riftbound-video-all-pages").or(page.locator("#riftbound-nitro-video"))).toBeVisible();
+      });
+      await test.step(`Expected Result: "riftbound-display-all-pages" banner is present on the page`, async () => {
+        await expect(page.locator("#riftbound-display-all-pages")).toBeVisible();
+      });
+      await test.step(`Expected Result: "riftbound-display-small-all-pages" banner is present on the page`, async () => {
+        await expect(page.locator("#riftbound-display-small-all-pages")).toBeVisible();
+      });
+      await test.step(`Expected Result: "web-riftbound-display-footer-d" banner is present on the page`, async () => {
+        await expect(page.locator("#web-riftbound-display-footer-d").locator("xpath=..")).toBeVisible();
       });
     }
   });

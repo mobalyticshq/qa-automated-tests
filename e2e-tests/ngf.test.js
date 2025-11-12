@@ -1459,6 +1459,8 @@ test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
 [
   // { game: "TFT", pageUrl: "/tft" },
   // { game: "LoL", pageUrl: "/lol" },
+  // { game: "Riftbound", pageUrl: "/riftbound/qa-check-static-data-not-delete" },
+  { game: "2XKO", pageUrl: "/2xko/qa-check-static-data-not-delete" },
   { game: "ZZZ", pageUrl: "/zzz/qa-check-static-data-not-delete" },
   { game: "Diablo 4", pageUrl: "/diablo-4/qa-check-static-data-not-delete" },
   { game: "Elden Ring", pageUrl: "/elden-ring-nightreign/qa-check-static-data-not-delete" },
@@ -1481,6 +1483,16 @@ test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
       await admin.stPage.staticDataButton.click();
 
       const gameSpecificItem = "Alice";
+
+      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+    }
+    if (game === "2XKO") {
+      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
+      await admin.stPage.editButton.click();
+      await admin.stPage.staticDataButton.click();
+
+      const gameSpecificItem = "Blitzcrank";
 
       await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
       await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();

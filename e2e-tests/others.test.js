@@ -123,7 +123,6 @@ import { v4 as uuidv4 } from "uuid";
 //     await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
 //   });
 // });
-
 test("Check x-moba-ssr-cache header & new content are present on MHW build page", async ({ browser }) => {
   test.skip(
     process.env.BASE_URL.includes("https://mobalytics.gg"),
