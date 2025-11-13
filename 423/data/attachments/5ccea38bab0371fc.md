@@ -1,0 +1,167 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - link "Mobalytics" [ref=e6] [cursor=pointer]:
+      - /url: /diablo-4
+      - img "Mobalytics" [ref=e7]
+    - generic [ref=e9]:
+      - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/lol
+        - generic [ref=e13]:
+          - img "League of Legends" [ref=e14]
+          - generic [ref=e15]: LoL
+      - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/tft
+        - generic [ref=e19]:
+          - img "Teamfight Tactics" [ref=e20]
+          - generic [ref=e21]: TFT
+      - link "Path of Exile 2 PoE 2" [ref=e23] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/poe-2
+        - generic [ref=e25]:
+          - img "Path of Exile 2" [ref=e26]
+          - generic [ref=e27]: PoE 2
+      - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/diablo-4
+        - generic [ref=e31]:
+          - img "Diablo 4" [ref=e32]
+          - generic [ref=e33]: Diablo 4
+      - link "Path of Exile PoE New" [ref=e35] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/poe
+        - generic [ref=e37]:
+          - img "Path of Exile" [ref=e38]
+          - generic [ref=e39]: PoE
+          - generic [ref=e40]: New
+      - link "Destiny 2 Destiny 2" [ref=e42] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/destiny-2
+        - generic [ref=e44]:
+          - img "Destiny 2" [ref=e45]
+          - generic [ref=e46]: Destiny 2
+      - link "Borderlands 4 Borderlands 4" [ref=e48] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/borderlands-4
+        - generic [ref=e50]:
+          - img "Borderlands 4" [ref=e51]
+          - generic [ref=e52]: Borderlands 4
+      - link "Hades 2 Hades 2" [ref=e54] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/hades-2
+        - generic [ref=e56]:
+          - img "Hades 2" [ref=e57]
+          - generic [ref=e58]: Hades 2
+      - link "Elden Ring Nightreign Nightreign" [ref=e60] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+        - generic [ref=e62]:
+          - img "Elden Ring Nightreign" [ref=e63]
+          - generic [ref=e64]: Nightreign
+      - link "Deadlock Deadlock" [ref=e66] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/deadlock
+        - generic [ref=e68]:
+          - img "Deadlock" [ref=e69]
+          - generic [ref=e70]: Deadlock
+      - link "Valorant VAL" [ref=e72] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/valorant
+        - generic [ref=e74]:
+          - img "Valorant" [ref=e75]
+          - generic [ref=e76]: VAL
+      - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e78] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/mhw
+        - generic [ref=e80]:
+          - img "Monster Hunter Wilds" [ref=e81]
+          - generic [ref=e82]: Monster Hunter Wilds
+      - link "Example game ExG" [ref=e84] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/example-game
+        - generic [ref=e86]:
+          - img "Example game" [ref=e87]
+          - generic [ref=e88]: ExG
+      - link "The Bazaar The Bazaar" [ref=e90] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/the-bazaar
+        - generic [ref=e92]:
+          - img "The Bazaar" [ref=e93]
+          - generic [ref=e94]: The Bazaar
+      - button [ref=e95] [cursor=pointer]:
+        - img [ref=e96]
+      - generic:
+        - link "Marvel Rivals Marvel Rivals":
+          - /url: https://stg.mobalytics.gg/marvel-rivals
+          - generic:
+            - generic:
+              - img "Marvel Rivals"
+              - generic: Marvel Rivals
+      - generic:
+        - link "Zenless Zone Zero ZZZ":
+          - /url: https://stg.mobalytics.gg/zzz
+          - generic:
+            - generic:
+              - img "Zenless Zone Zero"
+              - generic: ZZZ
+      - generic:
+        - link "Riftbound Riftbound New":
+          - /url: https://stg.mobalytics.gg/riftbound
+          - generic:
+            - generic:
+              - img "Riftbound"
+              - generic: Riftbound
+              - generic: New
+      - generic:
+        - link "2XKO 2XKO New":
+          - /url: https://stg.mobalytics.gg/2xko
+          - generic:
+            - generic:
+              - img "2XKO"
+              - generic: 2XKO
+              - generic: New
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - generic [ref=e99] [cursor=pointer]:
+        - generic [ref=e100]:
+          - generic [ref=e101]:
+            - text: Helltide
+            - paragraph
+          - generic [ref=e103]: live
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: Ends In
+          - text: 0:04
+      - generic [ref=e108] [cursor=pointer]: Community
+      - generic [ref=e110] [cursor=pointer]:
+        - generic [ref=e111]: News
+        - generic [ref=e113]: new
+      - text: new
+    - generic [ref=e114]:
+      - img "settings" [ref=e118] [cursor=pointer]
+      - img "support" [ref=e122] [cursor=pointer]
+  - generic [ref=e124]:
+    - link "Home" [ref=e127] [cursor=pointer]:
+      - /url: /diablo-4
+      - img "Home" [ref=e129]
+    - link "Profile" [ref=e132] [cursor=pointer]:
+      - /url: /diablo-4/profile
+      - img "Profile" [ref=e134]
+    - link "Build Planner" [ref=e137] [cursor=pointer]:
+      - /url: /diablo-4/planner/builds
+      - img "Build Planner" [ref=e139]
+    - link "Tier List" [ref=e143] [cursor=pointer]:
+      - /url: /diablo-4/tier-list
+      - img "Tier List" [ref=e145]
+    - link "Meta Builds" [ref=e149] [cursor=pointer]:
+      - /url: /diablo-4/builds
+      - img "Meta Builds" [ref=e151]
+    - link "Leveling Builds" [ref=e154] [cursor=pointer]:
+      - /url: /diablo-4/leveling-builds
+      - img "Leveling Builds" [ref=e156]
+    - link "Community Builds" [ref=e159] [cursor=pointer]:
+      - /url: /diablo-4/community-builds
+      - img "Community Builds" [ref=e161]
+    - link "Guides new" [ref=e164] [cursor=pointer]:
+      - /url: /diablo-4/guides
+      - generic [ref=e166]:
+        - img "Guides" [ref=e167]
+        - text: new
+    - link "Interactive Map" [ref=e170] [cursor=pointer]:
+      - /url: /diablo-4/interactive-map
+      - img "Interactive Map" [ref=e172]
+  - main [ref=e175]:
+    - generic [ref=e176]:
+      - heading "404" [level=1] [ref=e177]
+      - heading "The page you are looking for is not found" [level=2] [ref=e178]
+      - paragraph [ref=e179]: There may have been an error or the link you tried may be broken.
+```
