@@ -28,7 +28,7 @@ export class MainURLs {
       await this.page.goto(`${process.env.BASE_URL}/diablo-4/admin`);
     });
   }
-  
+
   async openAdmin2xkoPage() {
     await test.step(`Open '2XKO' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/2xko/admin`);
@@ -213,7 +213,7 @@ export class MainURLs {
 
   async openUgDiablo4Page() {
     await test.step(`Open 'Diablo4' UG page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/diablo-4/creator-profile`, {
+      await this.page.goto(`${process.env.BASE_URL}/diablo-4/profile`, {
         waitUntil: "domcontentloaded",
       });
     });
