@@ -1,0 +1,383 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "Mobalytics" [ref=e6] [cursor=pointer]:
+        - /url: /diablo-4
+        - img "Mobalytics" [ref=e7]
+      - generic [ref=e9]:
+        - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/lol
+          - generic [ref=e13]:
+            - img "League of Legends" [ref=e14]
+            - generic [ref=e15]: LoL
+        - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/tft
+          - generic [ref=e19]:
+            - img "Teamfight Tactics" [ref=e20]
+            - generic [ref=e21]: TFT
+        - link "Path of Exile 2 PoE 2" [ref=e23] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe-2
+          - generic [ref=e25]:
+            - img "Path of Exile 2" [ref=e26]
+            - generic [ref=e27]: PoE 2
+        - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/diablo-4
+          - generic [ref=e31]:
+            - img "Diablo 4" [ref=e32]
+            - generic [ref=e33]: Diablo 4
+        - link "Path of Exile PoE New" [ref=e35] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe
+          - generic [ref=e37]:
+            - img "Path of Exile" [ref=e38]
+            - generic [ref=e39]: PoE
+            - generic [ref=e40]: New
+        - link "Destiny 2 Destiny 2" [ref=e42] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/destiny-2
+          - generic [ref=e44]:
+            - img "Destiny 2" [ref=e45]
+            - generic [ref=e46]: Destiny 2
+        - link "Borderlands 4 Borderlands 4" [ref=e48] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/borderlands-4
+          - generic [ref=e50]:
+            - img "Borderlands 4" [ref=e51]
+            - generic [ref=e52]: Borderlands 4
+        - link "Hades 2 Hades 2" [ref=e54] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/hades-2
+          - generic [ref=e56]:
+            - img "Hades 2" [ref=e57]
+            - generic [ref=e58]: Hades 2
+        - link "Elden Ring Nightreign Nightreign" [ref=e60] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e62]:
+            - img "Elden Ring Nightreign" [ref=e63]
+            - generic [ref=e64]: Nightreign
+        - link "Deadlock Deadlock" [ref=e66] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/deadlock
+          - generic [ref=e68]:
+            - img "Deadlock" [ref=e69]
+            - generic [ref=e70]: Deadlock
+        - link "Valorant VAL" [ref=e72] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/valorant
+          - generic [ref=e74]:
+            - img "Valorant" [ref=e75]
+            - generic [ref=e76]: VAL
+        - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e78] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/mhw
+          - generic [ref=e80]:
+            - img "Monster Hunter Wilds" [ref=e81]
+            - generic [ref=e82]: Monster Hunter Wilds
+        - link "Example game ExG" [ref=e84] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/example-game
+          - generic [ref=e86]:
+            - img "Example game" [ref=e87]
+            - generic [ref=e88]: ExG
+        - link "The Bazaar The Bazaar" [ref=e90] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/the-bazaar
+          - generic [ref=e92]:
+            - img "The Bazaar" [ref=e93]
+            - generic [ref=e94]: The Bazaar
+        - button [ref=e95] [cursor=pointer]:
+          - img [ref=e96]
+        - generic:
+          - link "Marvel Rivals Marvel Rivals":
+            - /url: https://stg.mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img "Marvel Rivals"
+                - generic: Marvel Rivals
+        - generic:
+          - link "Zenless Zone Zero ZZZ":
+            - /url: https://stg.mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img "Zenless Zone Zero"
+                - generic: ZZZ
+        - generic:
+          - link "Riftbound Riftbound New":
+            - /url: https://stg.mobalytics.gg/riftbound
+            - generic:
+              - generic:
+                - img "Riftbound"
+                - generic: Riftbound
+                - generic: New
+        - generic:
+          - link "2XKO 2XKO New":
+            - /url: https://stg.mobalytics.gg/2xko
+            - generic:
+              - generic:
+                - img "2XKO"
+                - generic: 2XKO
+                - generic: New
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - generic [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - text: Helltide
+              - paragraph
+            - generic [ref=e103]: live
+          - generic [ref=e104]:
+            - paragraph [ref=e105]: Ends In
+            - text: 9:43
+        - generic [ref=e108] [cursor=pointer]: Community
+        - generic [ref=e110] [cursor=pointer]:
+          - generic [ref=e111]: News
+          - generic [ref=e113]: new
+        - text: new
+      - generic [ref=e114]:
+        - img "settings" [ref=e118] [cursor=pointer]
+        - img "support" [ref=e122] [cursor=pointer]
+    - generic [ref=e124]:
+      - link "Home" [ref=e127] [cursor=pointer]:
+        - /url: /diablo-4
+        - img "Home" [ref=e129]
+      - link "Profile" [ref=e132] [cursor=pointer]:
+        - /url: /diablo-4/profile
+        - img "Profile" [ref=e134]
+      - link "Build Planner" [ref=e137] [cursor=pointer]:
+        - /url: /diablo-4/planner/builds
+        - img "Build Planner" [ref=e139]
+      - link "Tier List" [ref=e143] [cursor=pointer]:
+        - /url: /diablo-4/tier-list
+        - img "Tier List" [ref=e145]
+      - link "Builds" [ref=e149] [cursor=pointer]:
+        - /url: /diablo-4/builds
+        - img "Builds" [ref=e151]
+      - link "Leveling Builds" [ref=e154] [cursor=pointer]:
+        - /url: /diablo-4/leveling-builds
+        - img "Leveling Builds" [ref=e156]
+      - link "Community Builds" [ref=e159] [cursor=pointer]:
+        - /url: /diablo-4/community-builds
+        - img "Community Builds" [ref=e161]
+      - link "Guides" [ref=e164] [cursor=pointer]:
+        - /url: /diablo-4/guides
+        - img "Guides" [ref=e166]
+      - link "Interactive Map" [ref=e169] [cursor=pointer]:
+        - /url: /diablo-4/interactive-map
+        - img "Interactive Map" [ref=e171]
+    - generic [ref=e172]:
+      - main [ref=e174]:
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - heading "Structure Pages" [level=1] [ref=e177]
+            - link "Create Page" [ref=e179] [cursor=pointer]:
+              - /url: /diablo-4/planner/st
+              - img [ref=e180]
+              - generic [ref=e181]: Create Page
+          - generic [ref=e182]:
+            - generic [ref=e183] [cursor=pointer]:
+              - generic [ref=e185]: /1-309-0
+              - generic [ref=e186]:
+                - link "Edit" [ref=e187]:
+                  - /url: /diablo-4/1-309-0
+                  - generic [ref=e188]: Edit
+                - button [ref=e189]:
+                  - img [ref=e190]
+            - generic [ref=e191] [cursor=pointer]:
+              - generic [ref=e193]: /1-341-4-rc-3
+              - generic [ref=e194]:
+                - link "Edit" [ref=e195]:
+                  - /url: /diablo-4/1-341-4-rc-3
+                  - generic [ref=e196]: Edit
+                - button [ref=e197]:
+                  - img [ref=e198]
+            - generic [ref=e199] [cursor=pointer]:
+              - generic [ref=e201]: /app-version-1-328-3-rc-6
+              - generic [ref=e202]:
+                - link "Edit" [ref=e203]:
+                  - /url: /diablo-4/app-version-1-328-3-rc-6
+                  - generic [ref=e204]: Edit
+                - button [ref=e205]:
+                  - img [ref=e206]
+            - generic [ref=e207] [cursor=pointer]:
+              - generic [ref=e209]: /barbarian-builds
+              - generic [ref=e210]:
+                - link "Edit" [ref=e211]:
+                  - /url: /diablo-4/barbarian-builds
+                  - generic [ref=e212]: Edit
+                - button [ref=e213]:
+                  - img [ref=e214]
+            - generic [ref=e215] [cursor=pointer]:
+              - generic [ref=e217]: /builds
+              - generic [ref=e218]:
+                - link "Edit" [ref=e219]:
+                  - /url: /diablo-4/builds
+                  - generic [ref=e220]: Edit
+                - button [ref=e221]:
+                  - img [ref=e222]
+            - generic [ref=e223] [cursor=pointer]:
+              - generic [ref=e225]: /community-builds
+              - generic [ref=e226]:
+                - link "Edit" [ref=e227]:
+                  - /url: /diablo-4/community-builds
+                  - generic [ref=e228]: Edit
+                - button [ref=e229]:
+                  - img [ref=e230]
+            - generic [ref=e231] [cursor=pointer]:
+              - generic [ref=e233]: /guides
+              - generic [ref=e234]:
+                - link "Edit" [ref=e235]:
+                  - /url: /diablo-4/guides
+                  - generic [ref=e236]: Edit
+                - button [ref=e237]:
+                  - img [ref=e238]
+            - generic [ref=e239] [cursor=pointer]:
+              - generic [ref=e241]: /guides-test-3
+              - generic [ref=e242]:
+                - link "Edit" [ref=e243]:
+                  - /url: /diablo-4/guides-test-3
+                  - generic [ref=e244]: Edit
+                - button [ref=e245]:
+                  - img [ref=e246]
+            - generic [ref=e247] [cursor=pointer]:
+              - generic [ref=e249]: /hello-paragon
+              - generic [ref=e250]:
+                - link "Edit" [ref=e251]:
+                  - /url: /diablo-4/hello-paragon
+                  - generic [ref=e252]: Edit
+                - button [ref=e253]:
+                  - img [ref=e254]
+            - generic [ref=e255] [cursor=pointer]:
+              - generic [ref=e257]: /home
+              - generic [ref=e258]:
+                - link "Edit" [ref=e259]:
+                  - /url: /diablo-4/home
+                  - generic [ref=e260]: Edit
+                - button [ref=e261]:
+                  - img [ref=e262]
+            - generic [ref=e263] [cursor=pointer]:
+              - generic [ref=e265]: /kaztest
+              - generic [ref=e266]:
+                - link "Edit" [ref=e267]:
+                  - /url: /diablo-4/kaztest
+                  - generic [ref=e268]: Edit
+                - button [ref=e269]:
+                  - img [ref=e270]
+            - generic [ref=e271] [cursor=pointer]:
+              - generic [ref=e273]: /leveling-builds
+              - generic [ref=e274]:
+                - link "Edit" [ref=e275]:
+                  - /url: /diablo-4/leveling-builds
+                  - generic [ref=e276]: Edit
+                - button [ref=e277]:
+                  - img [ref=e278]
+            - generic [ref=e279] [cursor=pointer]:
+              - generic [ref=e281]: /lightning-spear-builds
+              - generic [ref=e282]:
+                - link "Edit" [ref=e283]:
+                  - /url: /diablo-4/lightning-spear-builds
+                  - generic [ref=e284]: Edit
+                - button [ref=e285]:
+                  - img [ref=e286]
+            - generic [ref=e287] [cursor=pointer]:
+              - generic [ref=e289]: /qa-automation-st-page-5a449642-f102-4a99-a657-01ac620108d9
+              - generic [ref=e290]:
+                - link "Edit" [ref=e291]:
+                  - /url: /diablo-4/qa-automation-st-page-5a449642-f102-4a99-a657-01ac620108d9
+                  - generic [ref=e292]: Edit
+                - button [active] [ref=e293]:
+                  - img [ref=e294]
+            - generic [ref=e295] [cursor=pointer]:
+              - generic [ref=e297]: /qa-check-static-data-not-delete
+              - generic [ref=e298]:
+                - link "Edit" [ref=e299]:
+                  - /url: /diablo-4/qa-check-static-data-not-delete
+                  - generic [ref=e300]: Edit
+                - button [ref=e301]:
+                  - img [ref=e302]
+            - generic [ref=e303] [cursor=pointer]:
+              - generic [ref=e305]: /regression
+              - generic [ref=e306]:
+                - link "Edit" [ref=e307]:
+                  - /url: /diablo-4/regression
+                  - generic [ref=e308]: Edit
+                - button [ref=e309]:
+                  - img [ref=e310]
+            - generic [ref=e311] [cursor=pointer]:
+              - generic [ref=e313]: /smoke-1-314-1-rc-8
+              - generic [ref=e314]:
+                - link "Edit" [ref=e315]:
+                  - /url: /diablo-4/smoke-1-314-1-rc-8
+                  - generic [ref=e316]: Edit
+                - button [ref=e317]:
+                  - img [ref=e318]
+            - generic [ref=e319] [cursor=pointer]:
+              - generic [ref=e321]: /sorcerer-builds
+              - generic [ref=e322]:
+                - link "Edit" [ref=e323]:
+                  - /url: /diablo-4/sorcerer-builds
+                  - generic [ref=e324]: Edit
+                - button [ref=e325]:
+                  - img [ref=e326]
+            - generic [ref=e327] [cursor=pointer]:
+              - generic [ref=e329]: /test-admin-den
+              - generic [ref=e330]:
+                - link "Edit" [ref=e331]:
+                  - /url: /diablo-4/test-admin-den
+                  - generic [ref=e332]: Edit
+                - button [ref=e333]:
+                  - img [ref=e334]
+            - generic [ref=e335] [cursor=pointer]:
+              - generic [ref=e337]: /test-d4-int-gql-el
+              - generic [ref=e338]:
+                - link "Edit" [ref=e339]:
+                  - /url: /diablo-4/test-d4-int-gql-el
+                  - generic [ref=e340]: Edit
+                - button [ref=e341]:
+                  - img [ref=e342]
+            - generic [ref=e343] [cursor=pointer]:
+              - generic [ref=e345]: /test-stg-d4-new-api-stas
+              - generic [ref=e346]:
+                - link "Edit" [ref=e347]:
+                  - /url: /diablo-4/test-stg-d4-new-api-stas
+                  - generic [ref=e348]: Edit
+                - button [ref=e349]:
+                  - img [ref=e350]
+            - generic [ref=e351] [cursor=pointer]:
+              - generic [ref=e353]: /test-stg-d4-refactoring-stas
+              - generic [ref=e354]:
+                - link "Edit" [ref=e355]:
+                  - /url: /diablo-4/test-stg-d4-refactoring-stas
+                  - generic [ref=e356]: Edit
+                - button [ref=e357]:
+                  - img [ref=e358]
+            - generic [ref=e359] [cursor=pointer]:
+              - generic [ref=e361]: /test-stg-d4-widgets-rendering-el
+              - generic [ref=e362]:
+                - link "Edit" [ref=e363]:
+                  - /url: /diablo-4/test-stg-d4-widgets-rendering-el
+                  - generic [ref=e364]: Edit
+                - button [ref=e365]:
+                  - img [ref=e366]
+            - generic [ref=e367] [cursor=pointer]:
+              - generic [ref=e369]: /tier-list
+              - generic [ref=e370]:
+                - link "Edit" [ref=e371]:
+                  - /url: /diablo-4/tier-list
+                  - generic [ref=e372]: Edit
+                - button [ref=e373]:
+                  - img [ref=e374]
+            - generic [ref=e375] [cursor=pointer]:
+              - generic [ref=e377]: /xdcfgvhbj
+              - generic [ref=e378]:
+                - link "Edit" [ref=e379]:
+                  - /url: /diablo-4/xdcfgvhbj
+                  - generic [ref=e380]: Edit
+                - button [ref=e381]:
+                  - img [ref=e382]
+      - generic [ref=e389]:
+        - paragraph [ref=e390]: Oops, something went wrong!
+        - paragraph [ref=e391]:
+          - text: If reloading your page doesn't work, please
+          - button "save your debug logs" [ref=e392] [cursor=pointer]
+          - text: and contact our support team in
+          - link "Discord" [ref=e393] [cursor=pointer]:
+            - /url: https://discord.com/invite/B2ukr9M
+            - button "Discord" [ref=e394]
+          - text: . We'll help you out as soon as we can!
+  - button "Do Not Sell or Share My Personal Information" [ref=e398] [cursor=pointer]:
+    - paragraph [ref=e400]: Do Not Sell or Share My Personal Information
+```
