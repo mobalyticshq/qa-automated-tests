@@ -6,12 +6,8 @@ export class UgProfilePage {
     this.createButton = page.getByRole("button", { name: "Create" });
     this.deleteButton = page.getByRole("menuitem", { name: "Delete" });
     this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
-    this.dotesButton = page
-      .locator("section")
-      .getByRole("button")
-      .filter({ hasText: /^$/ });
-    this.buildWidget = (pageName) =>
-      page.getByRole("main").filter({ hasText: `${pageName}` });
+    this.dotesButton = page.locator("section").getByRole("button").filter({ hasText: /^$/ });
+    this.buildWidget = (pageName) => page.getByRole("main").filter({ hasText: `${pageName}` });
     this.buildButton = page.getByRole("menuitem", {
       name: "Build Create a Build",
     });
@@ -24,12 +20,20 @@ export class UgProfilePage {
     this.tierListButton = page.getByRole("menuitem", {
       name: "Tier List Create a Tier List",
     });
+    this.deckButton = page.getByRole("menuitem", { name: "Build a Deck" });
   }
 
   async gotoBuildPlannerPage() {
     await test.step("Go to Build Planner Page", async () => {
       await this.createButton.click();
       await this.buildButton.click();
+    });
+  }
+
+  async gotoDeckPlannerPage() {
+    await test.step("Go to Deck Planner Page", async () => {
+      await this.createButton.click();
+      await this.deckButton.click();
     });
   }
 

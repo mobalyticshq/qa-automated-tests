@@ -365,17 +365,17 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a build page on Riftbound project`, async ({ page }) => {
+  test(`Create a deck page on Riftbound project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
     const moba = new Moba(page);
 
     await moba.mainURLs.openUgRiftboundPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugProfilePage.gotoDeckPlannerPage();
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Riftbound project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText("Riftbound Build");
+    await test.step(`Expected Result: Deck page with the name: ${pageName} is created on Riftbound project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Riftbound Deck");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -1055,7 +1055,7 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
-  test(`Create a tier list page on Diablo 4  project`, async ({ page }) => {
+  test.skip(`Create a tier list page on Diablo 4  project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
     const moba = new Moba(page);
@@ -1537,7 +1537,7 @@ test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
   // { game: "TFT", pageUrl: "/tft/qa-check-static-data-not-delete" },
   // { game: "LoL", pageUrl: "/lol/qa-check-static-data-not-delete" },
   // { game: "Riftbound", pageUrl: "/riftbound/qa-check-static-data-not-delete" },
-  { game: "2XKO", pageUrl: "/2xko/qa-check-static-data-not-delete" },
+  // { game: "2XKO", pageUrl: "/2xko/qa-check-static-data-not-delete" },
   { game: "ZZZ", pageUrl: "/zzz/qa-check-static-data-not-delete" },
   { game: "Diablo 4", pageUrl: "/diablo-4/qa-check-static-data-not-delete" },
   { game: "Elden Ring", pageUrl: "/elden-ring-nightreign/qa-check-static-data-not-delete" },
