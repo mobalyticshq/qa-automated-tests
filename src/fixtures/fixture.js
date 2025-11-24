@@ -3,6 +3,7 @@ import { Moba } from "../page-object/moba";
 import { v4 as uuidv4 } from "uuid";
 
 export const test = base.extend({
+  // apiAuth
   apiAuthAdmin: async ({ request }, use) => {
     // Clarify a correct endpoint depending on environment
     let apiEndpoint;
@@ -151,8 +152,10 @@ export const test = base.extend({
     // 4. Pass cookie into test
     await use({ cookies });
   },
-
+  // Cleanup pages
   cleanupStPoE2Pages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -163,22 +166,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminPoe2Page();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStPoEPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -189,22 +190,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminPoePage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStLoLPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -215,22 +214,20 @@ export const test = base.extend({
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminLoLPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStTFTPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -241,22 +238,20 @@ export const test = base.extend({
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminTFTPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStValorantPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -267,22 +262,20 @@ export const test = base.extend({
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminValorantPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStDestiny2Pages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -293,22 +286,20 @@ export const test = base.extend({
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminDestiny2Page();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStDiablo4Pages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -319,22 +310,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminDiablo4Page();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupSt2xkoPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -345,22 +334,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdmin2xkoPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
-  
+
   cleanupStHades2Pages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -371,22 +358,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminHades2Page();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStBorderlands4Pages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -397,22 +382,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminBorderlands4Page();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-          // await moba.stPage.deleteStPage();
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStNightreignPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -423,21 +406,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminNightreignPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStDeadlockPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -448,21 +430,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminDeadlockPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStMhwPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -473,21 +454,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminMhwPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStMarvelRivalsPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -498,21 +478,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminMarvelRivalsPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStBazaarPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -523,21 +502,20 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminBazaarPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
   cleanupStZzzPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
@@ -548,20 +526,42 @@ export const test = base.extend({
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
-      const moba = new Moba(page);
-      await page.context().addCookies(apiAuthAdmin.cookies);
       await moba.mainURLs.openAdminZzzPage();
 
       for (const pageName of pagesToCleanup) {
-        try {
-          await moba.stAdminPage.clickDeleteButton(pageName);
-        } catch (error) {
-          console.warn(`Failed to cleanup page ${pageName}:`, error);
-        }
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
     }
   },
 
+  cleanupStRiftboundPages: async ({ page, apiAuthAdmin }, use) => {
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const moba = new Moba(page);
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      await moba.mainURLs.openAdminRiftboundPage();
+
+      for (const pageName of pagesToCleanup) {
+        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
+      }
+    }
+  },
+
+  // Register account
   registerAccount: async ({ page }, use) => {
     const moba = new Moba(page);
     const uniqueId = uuidv4().substring(0, 4);

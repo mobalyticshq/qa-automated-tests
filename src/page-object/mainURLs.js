@@ -35,6 +35,12 @@ export class MainURLs {
     });
   }
 
+  async openAdminRiftboundPage() {
+    await test.step(`Open 'Riftbound' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/riftbound/admin`);
+    });
+  }
+
   async openAdminNightreignPage() {
     await test.step(`Open 'Nightreign' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/elden-ring-nightreign/admin`, {
@@ -142,6 +148,14 @@ export class MainURLs {
   async openUgZzzPage() {
     await test.step(`Open 'ZZZ' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/zzz/profile`, {
+        waitUntil: "domcontentloaded",
+      });
+    });
+  }
+
+  async openUgRiftboundPage() {
+    await test.step(`Open 'Riftbound' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/riftbound/profile`, {
         waitUntil: "domcontentloaded",
       });
     });

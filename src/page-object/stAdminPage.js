@@ -37,7 +37,7 @@ export class StAdminPage {
     await test.step(`Click Delete button on ${stPageName} widget`, async () => {
       await this.deleteButton(stPageName).click();
       await this.buttonDeleteInModal.click();
-      await this.page.waitForLoadState('domcontentloaded'); // added for waiting for the page to reload after deletion
+      await this.page.waitForLoadState("domcontentloaded"); // added for waiting for the page to reload after deletion
     });
   }
 }

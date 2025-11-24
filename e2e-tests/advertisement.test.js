@@ -244,7 +244,9 @@ import { test, expect } from "@playwright/test";
       });
     } else if (game === "Riftbound") {
       await test.step(`Expected Result: riftbound-video-all-pages is present on the page`, async () => {
-        await expect(page.locator("#riftbound-video-all-pages").or(page.locator("#riftbound-nitro-video"))).toBeVisible();
+        await expect(
+          page.locator("#riftbound-video-all-pages").or(page.locator("#riftbound-nitro-video"))
+        ).toBeVisible();
       });
       await test.step(`Expected Result: "riftbound-display-all-pages" banner is present on the page`, async () => {
         await expect(page.locator("#riftbound-display-all-pages")).toBeVisible();

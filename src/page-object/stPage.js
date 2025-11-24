@@ -66,6 +66,7 @@ export class StPage {
     });
     this.headerDiablo4 = page.locator("#container").getByText("Diablo 4");
     this.header2xko = page.locator("#container").getByText("2xko");
+    this.headerRiftbound = page.locator("#container").getByText("Riftbound");
     this.headerLoL = page.locator("#container").getByText("LoL");
     this.headerValorant = page.locator("#container").getByText("Val");
     this.headerPoE2 = page.locator("#container").getByText("PoE 2");

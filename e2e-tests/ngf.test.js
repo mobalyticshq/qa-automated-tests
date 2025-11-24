@@ -51,6 +51,24 @@ test.describe("Creating ST Pages", () => {
     });
   });
 
+  test(`Create a structure page on Riftbound project`, async ({ page, cleanupStRiftboundPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openAdminRiftboundPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    cleanupStRiftboundPages.addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Riftbound project`, async () => {
+      await expect(moba.stPage.headerRiftbound).toContainText("Riftbound");
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a structure page on Diablo 4 project`, async ({ page, cleanupStDiablo4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
@@ -347,6 +365,21 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
+  test(`Create a build page on Riftbound project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgRiftboundPage();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Riftbound project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Riftbound Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a build page on 2xko project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
@@ -527,6 +560,21 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
+  test(`Create a build page on Diablo 4 project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-build-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgDiablo4Page();
+    await moba.ugProfilePage.gotoBuildPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Diablo 4 project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Diablo 4 Build");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a build page on Borderlands 4 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-build-page-${uniqueId}`;
@@ -613,6 +661,21 @@ test.describe("Creating UG Pages", () => {
 
     await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Destiny 2 project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("Destiny 2 Guide");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
+  test(`Create a guide page on Riftbound project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgRiftboundPage();
+    await moba.ugProfilePage.gotoGuidePlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Riftbound project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Riftbound Guide");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -872,6 +935,21 @@ test.describe("Creating UG Pages", () => {
     });
   });
 
+  test(`Create a tier list page on Riftbound project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgRiftboundPage();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Riftbound project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Riftbound Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a tier list page on Destiny 2 project`, async ({ page }) => {
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
@@ -973,6 +1051,21 @@ test.describe("Creating UG Pages", () => {
 
     await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on The Bazaar project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText("The Bazaar Tier List");
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
+  test(`Create a tier list page on Diablo 4  project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-guide-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgDiablo4Page();
+    await moba.ugProfilePage.gotoTierListPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Diablo 4  project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText("Diablo 4 Tier List");
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -1441,8 +1534,8 @@ test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
 });
 
 [
-  // { game: "TFT", pageUrl: "/tft" },
-  // { game: "LoL", pageUrl: "/lol" },
+  // { game: "TFT", pageUrl: "/tft/qa-check-static-data-not-delete" },
+  // { game: "LoL", pageUrl: "/lol/qa-check-static-data-not-delete" },
   // { game: "Riftbound", pageUrl: "/riftbound/qa-check-static-data-not-delete" },
   { game: "2XKO", pageUrl: "/2xko/qa-check-static-data-not-delete" },
   { game: "ZZZ", pageUrl: "/zzz/qa-check-static-data-not-delete" },

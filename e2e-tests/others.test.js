@@ -123,6 +123,7 @@ import { v4 as uuidv4 } from "uuid";
 //     await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
 //   });
 // });
+
 test("Check x-moba-ssr-cache header & new content are present on MHW build page", async ({ browser }) => {
   test.skip(
     process.env.BASE_URL.includes("https://mobalytics.gg"),
@@ -138,7 +139,9 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
   const guestPage = await guestContext.newPage();
   const guest = new Moba(guestPage);
   // Create admin context with cookies
-  const adminContext = await browser.newContext({ storageState: ".auth/adminAuth.json" });
+  const adminContext = await browser.newContext({
+    storageState: ".auth/adminAuth.json",
+  });
   const adminPage = await adminContext.newPage();
   const admin = new Moba(adminPage);
 
@@ -263,5 +266,3 @@ test("Error validation: 404 status code & title on NGF page", async ({ page }) =
     await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
   });
 });
-
-
