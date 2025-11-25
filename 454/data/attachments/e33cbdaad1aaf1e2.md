@@ -1,0 +1,326 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "Mobalytics" [ref=e6] [cursor=pointer]:
+        - /url: /diablo-4
+        - img "Mobalytics" [ref=e7]
+      - generic [ref=e9]:
+        - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+          - /url: https://mobalytics.gg/lol
+          - generic [ref=e13]:
+            - img "League of Legends" [ref=e14]
+            - generic [ref=e15]: LoL
+        - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+          - /url: https://mobalytics.gg/tft
+          - generic [ref=e19]:
+            - img "Teamfight Tactics" [ref=e20]
+            - generic [ref=e21]: TFT
+        - link "Path of Exile 2 PoE 2" [ref=e23] [cursor=pointer]:
+          - /url: https://mobalytics.gg/poe-2
+          - generic [ref=e25]:
+            - img "Path of Exile 2" [ref=e26]
+            - generic [ref=e27]: PoE 2
+        - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+          - /url: https://mobalytics.gg/diablo-4
+          - generic [ref=e31]:
+            - img "Diablo 4" [ref=e32]
+            - generic [ref=e33]: Diablo 4
+        - link "Path of Exile PoE New" [ref=e35] [cursor=pointer]:
+          - /url: https://mobalytics.gg/poe
+          - generic [ref=e37]:
+            - img "Path of Exile" [ref=e38]
+            - generic [ref=e39]: PoE
+            - generic [ref=e40]: New
+        - link "Destiny 2 Destiny 2" [ref=e42] [cursor=pointer]:
+          - /url: https://mobalytics.gg/destiny-2
+          - generic [ref=e44]:
+            - img "Destiny 2" [ref=e45]
+            - generic [ref=e46]: Destiny 2
+        - link "Borderlands 4 Borderlands 4" [ref=e48] [cursor=pointer]:
+          - /url: https://mobalytics.gg/borderlands-4
+          - generic [ref=e50]:
+            - img "Borderlands 4" [ref=e51]
+            - generic [ref=e52]: Borderlands 4
+        - link "Hades 2 Hades 2" [ref=e54] [cursor=pointer]:
+          - /url: https://mobalytics.gg/hades-2
+          - generic [ref=e56]:
+            - img "Hades 2" [ref=e57]
+            - generic [ref=e58]: Hades 2
+        - link "Elden Ring Nightreign Nightreign" [ref=e60] [cursor=pointer]:
+          - /url: https://mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e62]:
+            - img "Elden Ring Nightreign" [ref=e63]
+            - generic [ref=e64]: Nightreign
+        - link "Deadlock Deadlock" [ref=e66] [cursor=pointer]:
+          - /url: https://mobalytics.gg/deadlock
+          - generic [ref=e68]:
+            - img "Deadlock" [ref=e69]
+            - generic [ref=e70]: Deadlock
+        - link "Valorant VAL" [ref=e72] [cursor=pointer]:
+          - /url: https://mobalytics.gg/valorant
+          - generic [ref=e74]:
+            - img "Valorant" [ref=e75]
+            - generic [ref=e76]: VAL
+        - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e78] [cursor=pointer]:
+          - /url: https://mobalytics.gg/mhw
+          - generic [ref=e80]:
+            - img "Monster Hunter Wilds" [ref=e81]
+            - generic [ref=e82]: Monster Hunter Wilds
+        - link "The Bazaar The Bazaar" [ref=e84] [cursor=pointer]:
+          - /url: https://mobalytics.gg/the-bazaar
+          - generic [ref=e86]:
+            - img "The Bazaar" [ref=e87]
+            - generic [ref=e88]: The Bazaar
+        - button [ref=e89] [cursor=pointer]:
+          - img [ref=e90]
+        - generic:
+          - link "Marvel Rivals Marvel Rivals":
+            - /url: https://mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img "Marvel Rivals"
+                - generic: Marvel Rivals
+        - generic:
+          - link "Zenless Zone Zero ZZZ":
+            - /url: https://mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img "Zenless Zone Zero"
+                - generic: ZZZ
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e93] [cursor=pointer]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - text: Helltide
+              - paragraph
+            - generic [ref=e97]: live
+          - generic [ref=e98]:
+            - paragraph [ref=e99]: Ends In
+            - text: 8:56
+        - generic [ref=e102] [cursor=pointer]: Community
+        - generic [ref=e104] [cursor=pointer]:
+          - generic [ref=e105]: News
+          - generic [ref=e107]: new
+        - text: new
+      - generic [ref=e108]:
+        - button "Remove Ads" [ref=e109] [cursor=pointer]:
+          - generic [ref=e110]: Remove Ads
+        - img "settings" [ref=e114] [cursor=pointer]
+        - img "support" [ref=e118] [cursor=pointer]
+    - generic [ref=e120]:
+      - link "Home" [ref=e123] [cursor=pointer]:
+        - /url: /diablo-4
+        - img "Home" [ref=e125]
+      - link "Profile" [ref=e128] [cursor=pointer]:
+        - /url: /diablo-4/profile
+        - img "Profile" [ref=e130]
+      - link "Build Planner" [ref=e133] [cursor=pointer]:
+        - /url: /diablo-4/planner/builds
+        - img "Build Planner" [ref=e135]
+      - link "Tier List" [ref=e139] [cursor=pointer]:
+        - /url: /diablo-4/tier-list
+        - img "Tier List" [ref=e141]
+      - link "Builds" [ref=e145] [cursor=pointer]:
+        - /url: /diablo-4/builds
+        - img "Builds" [ref=e147]
+      - link "Leveling Builds" [ref=e150] [cursor=pointer]:
+        - /url: /diablo-4/leveling-builds
+        - img "Leveling Builds" [ref=e152]
+      - link "Community Builds" [ref=e155] [cursor=pointer]:
+        - /url: /diablo-4/community-builds
+        - img "Community Builds" [ref=e157]
+      - link "Guides" [ref=e160] [cursor=pointer]:
+        - /url: /diablo-4/guides
+        - img "Guides" [ref=e162]
+      - link "Interactive Map" [ref=e165] [cursor=pointer]:
+        - /url: /diablo-4/interactive-map
+        - img "Interactive Map" [ref=e167]
+    - generic [ref=e169]:
+      - main [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e175]: /qa-check-static-data-not-delete
+              - generic [ref=e176]: Draft
+            - generic [ref=e177]:
+              - button "Publish" [ref=e178] [cursor=pointer]
+              - button "Save Draft" [ref=e179] [cursor=pointer]
+              - button "SEO" [ref=e180] [cursor=pointer]:
+                - img [ref=e181]
+                - text: SEO
+              - button "Cancel" [ref=e182] [cursor=pointer]
+          - generic [ref=e183]:
+            - button "1 columnAuto Rich Text simplified Edit select @ 999 characters remaining Aspects Accelerating Aspect Aphotic Aspect Aspect of Abundant Energy 399 more results Unique Items 100,000 Steps Ahavarion, Spear of Lycander Airidah's Inexorable Will 574 more results Skills 1h Axe 1h Mace 1h Sword 841 more results Runes Ahu Bac Ceh 41 more results Gems Amethyst Brilliant Sigil Cornucopia 39 more results Witch Powers Abyssal Resonance Aura of Lament Aura of Misfortune 22 more results Boss Powers Allek's Talons Andariel's Flaming Skull Ashava's Poison Breath 21 more results Chaos Perks A Beast Cornered Accelerating Chaos Advanced Techniques 33 more results" [ref=e187]:
+              - generic [ref=e188]:
+                - generic [ref=e190]:
+                  - generic [ref=e192]: 1 columnAuto
+                  - button [ref=e194] [cursor=pointer]:
+                    - img [ref=e196]
+                - generic [ref=e197]:
+                  - button "Rich Text simplified Edit select @ 999 characters remaining Aspects Accelerating Aspect Aphotic Aspect Aspect of Abundant Energy 399 more results Unique Items 100,000 Steps Ahavarion, Spear of Lycander Airidah's Inexorable Will 574 more results Skills 1h Axe 1h Mace 1h Sword 841 more results Runes Ahu Bac Ceh 41 more results Gems Amethyst Brilliant Sigil Cornucopia 39 more results Witch Powers Abyssal Resonance Aura of Lament Aura of Misfortune 22 more results Boss Powers Allek's Talons Andariel's Flaming Skull Ashava's Poison Breath 21 more results Chaos Perks A Beast Cornered Accelerating Chaos Advanced Techniques 33 more results" [ref=e200]:
+                    - generic [ref=e201]:
+                      - generic [ref=e203]:
+                        - heading "Rich Text simplified" [level=2] [ref=e206]
+                        - generic [ref=e207]:
+                          - button "Edit" [ref=e208] [cursor=pointer]
+                          - button [ref=e210] [cursor=pointer]:
+                            - img [ref=e212]
+                      - generic [ref=e215]:
+                        - generic [ref=e217]:
+                          - generic "select" [ref=e218]:
+                            - generic [ref=e219]:
+                              - textbox [ref=e220]
+                              - combobox [ref=e222]
+                            - button "Normal text" [ref=e225] [cursor=pointer]:
+                              - generic [ref=e226]: Normal text
+                              - img [ref=e228]
+                          - generic [ref=e231]:
+                            - button [ref=e233] [cursor=pointer]:
+                              - img [ref=e234]
+                            - button [ref=e236] [cursor=pointer]:
+                              - img [ref=e237]
+                            - button [ref=e239] [cursor=pointer]:
+                              - img [ref=e240]
+                            - button [ref=e242] [cursor=pointer]:
+                              - img [ref=e243]
+                          - button [ref=e245] [cursor=pointer]:
+                            - img [ref=e246]
+                          - button [ref=e249] [cursor=pointer]:
+                            - img [ref=e250]
+                          - button [ref=e252] [cursor=pointer]:
+                            - img [ref=e253]
+                        - textbox [active] [ref=e257]:
+                          - paragraph [ref=e258]: "@"
+                        - generic: 999 characters remaining
+                        - list [ref=e264]:
+                          - listitem [ref=e265]:
+                            - generic [ref=e266]: Aspects
+                            - list [ref=e267]:
+                              - listitem [ref=e268] [cursor=pointer]:
+                                - generic [ref=e272]: Accelerating Aspect
+                              - listitem [ref=e273] [cursor=pointer]:
+                                - generic [ref=e277]: Aphotic Aspect
+                              - listitem [ref=e278] [cursor=pointer]:
+                                - generic [ref=e282]: Aspect of Abundant Energy
+                              - listitem [ref=e283] [cursor=pointer]:
+                                - generic [ref=e287]: 399 more results
+                          - listitem [ref=e288]
+                          - listitem [ref=e289]:
+                            - generic [ref=e290]: Unique Items
+                            - list [ref=e291]:
+                              - listitem [ref=e292] [cursor=pointer]:
+                                - generic [ref=e296]: 100,000 Steps
+                              - listitem [ref=e297] [cursor=pointer]:
+                                - generic [ref=e301]: Ahavarion, Spear of Lycander
+                              - listitem [ref=e302] [cursor=pointer]:
+                                - generic [ref=e306]: Airidah's Inexorable Will
+                              - listitem [ref=e307] [cursor=pointer]:
+                                - generic [ref=e311]: 574 more results
+                          - listitem [ref=e312]
+                          - listitem [ref=e313]:
+                            - generic [ref=e314]: Skills
+                            - list [ref=e315]:
+                              - listitem [ref=e316] [cursor=pointer]:
+                                - generic [ref=e320]: 1h Axe
+                              - listitem [ref=e321] [cursor=pointer]:
+                                - generic [ref=e325]: 1h Mace
+                              - listitem [ref=e326] [cursor=pointer]:
+                                - generic [ref=e330]: 1h Sword
+                              - listitem [ref=e331] [cursor=pointer]:
+                                - generic [ref=e335]: 841 more results
+                          - listitem [ref=e336]
+                          - listitem [ref=e337]:
+                            - generic [ref=e338]: Runes
+                            - list [ref=e339]:
+                              - listitem [ref=e340] [cursor=pointer]:
+                                - generic [ref=e344]: Ahu
+                              - listitem [ref=e345] [cursor=pointer]:
+                                - generic [ref=e349]: Bac
+                              - listitem [ref=e350] [cursor=pointer]:
+                                - generic [ref=e354]: Ceh
+                              - listitem [ref=e355] [cursor=pointer]:
+                                - generic [ref=e359]: 41 more results
+                          - listitem [ref=e360]
+                          - listitem [ref=e361]:
+                            - generic [ref=e362]: Gems
+                            - list [ref=e363]:
+                              - listitem [ref=e364] [cursor=pointer]:
+                                - generic [ref=e368]: Amethyst
+                              - listitem [ref=e369] [cursor=pointer]:
+                                - generic [ref=e372]: Brilliant Sigil
+                              - listitem [ref=e373] [cursor=pointer]:
+                                - generic [ref=e377]: Cornucopia
+                              - listitem [ref=e378] [cursor=pointer]:
+                                - generic [ref=e382]: 39 more results
+                          - listitem [ref=e383]
+                          - listitem [ref=e384]:
+                            - generic [ref=e385]: Witch Powers
+                            - list [ref=e386]:
+                              - listitem [ref=e387] [cursor=pointer]:
+                                - generic [ref=e391]: Abyssal Resonance
+                              - listitem [ref=e392] [cursor=pointer]:
+                                - generic [ref=e396]: Aura of Lament
+                              - listitem [ref=e397] [cursor=pointer]:
+                                - generic [ref=e401]: Aura of Misfortune
+                              - listitem [ref=e402] [cursor=pointer]:
+                                - generic [ref=e406]: 22 more results
+                          - listitem [ref=e407]
+                          - listitem [ref=e408]:
+                            - generic [ref=e409]: Boss Powers
+                            - list [ref=e410]:
+                              - listitem [ref=e411] [cursor=pointer]:
+                                - generic [ref=e415]: Allek's Talons
+                              - listitem [ref=e416] [cursor=pointer]:
+                                - generic [ref=e420]: Andariel's Flaming Skull
+                              - listitem [ref=e421] [cursor=pointer]:
+                                - generic [ref=e425]: Ashava's Poison Breath
+                              - listitem [ref=e426] [cursor=pointer]:
+                                - generic [ref=e430]: 21 more results
+                          - listitem [ref=e431]
+                          - listitem [ref=e432]:
+                            - generic [ref=e433]: Chaos Perks
+                            - list [ref=e434]:
+                              - listitem [ref=e435] [cursor=pointer]:
+                                - generic [ref=e439]: A Beast Cornered
+                              - listitem [ref=e440] [cursor=pointer]:
+                                - generic [ref=e444]: Accelerating Chaos
+                              - listitem [ref=e445] [cursor=pointer]:
+                                - generic [ref=e449]: Advanced Techniques
+                              - listitem [ref=e450] [cursor=pointer]:
+                                - generic [ref=e454]: 33 more results
+                  - button [ref=e458] [cursor=pointer]:
+                    - img [ref=e460]
+            - button "Add section" [ref=e462] [cursor=pointer]:
+              - img [ref=e463]
+              - text: Add section
+            - status [ref=e464]
+      - complementary [ref=e470]:
+        - generic [ref=e471]:
+          - generic [ref=e473]:
+            - generic [ref=e475] [cursor=pointer]:
+              - generic [ref=e476]: Advertisement
+              - generic [ref=e477]: Remove Ads
+            - generic [ref=e481] [cursor=pointer]:
+              - generic [ref=e482]: Remove all ads
+              - generic [ref=e483]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+              - button "Remove ads" [ref=e484]:
+                - generic [ref=e485]: Remove ads
+          - generic [ref=e487]:
+            - generic [ref=e489] [cursor=pointer]:
+              - generic [ref=e490]: Advertisement
+              - generic [ref=e491]: Remove Ads
+            - generic [ref=e495] [cursor=pointer]:
+              - generic [ref=e496]: Remove all ads
+              - generic [ref=e497]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+              - button "Remove ads" [ref=e498]:
+                - generic [ref=e499]: Remove ads
+  - button "Do Not Sell or Share My Personal Information" [ref=e503] [cursor=pointer]:
+    - paragraph [ref=e505]: Do Not Sell or Share My Personal Information
+  - generic [ref=e506]: Accelerating Aspect
+  - listbox "Typeahead menu"
+  - listbox "Typeahead menu" [ref=e507]
+```
