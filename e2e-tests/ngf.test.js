@@ -1537,7 +1537,7 @@ test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
   // { game: "TFT", pageUrl: "/tft/qa-check-static-data-not-delete" },
   // { game: "LoL", pageUrl: "/lol/qa-check-static-data-not-delete" },
   // { game: "Riftbound", pageUrl: "/riftbound/qa-check-static-data-not-delete" },
-  // { game: "2XKO", pageUrl: "/2xko/qa-check-static-data-not-delete" },
+  { game: "2XKO", pageUrl: "/2xko/qa-check-static-data-not-delete" },
   { game: "ZZZ", pageUrl: "/zzz/qa-check-static-data-not-delete" },
   { game: "Diablo 4", pageUrl: "/diablo-4/qa-check-static-data-not-delete" },
   { game: "Elden Ring", pageUrl: "/elden-ring-nightreign/qa-check-static-data-not-delete" },
