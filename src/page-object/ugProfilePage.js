@@ -1,58 +1,58 @@
-import { test } from "@playwright/test";
+import { test } from '@playwright/test';
 
 export class UgProfilePage {
   constructor(page) {
     this.page = page;
-    this.createButton = page.getByRole("button", { name: "Create" });
-    this.deleteButton = page.getByRole("menuitem", { name: "Delete" });
-    this.buttonDeleteInModal = page.getByRole("button", { name: "Delete" });
-    this.dotesButton = page.locator("section").getByRole("button").filter({ hasText: /^$/ });
-    this.buildWidget = (pageName) => page.getByRole("main").filter({ hasText: `${pageName}` });
-    this.buildButton = page.getByRole("menuitem", {
-      name: "Build Create a Build",
+    this.createButton = page.getByRole('button', { name: 'Create' });
+    this.deleteButton = page.getByRole('menuitem', { name: 'Delete' });
+    this.buttonDeleteInModal = page.getByRole('button', { name: 'Delete' });
+    this.dotesButton = page.locator('section').getByRole('button').filter({ hasText: /^$/ });
+    this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
+    this.buildButton = page.getByRole('menuitem', {
+      name: 'Build Create a Build',
     });
-    this.teamButton = page.getByRole("menuitem", {
-      name: "Team Create a Team",
+    this.teamButton = page.getByRole('menuitem', {
+      name: 'Team Create a Team',
     });
-    this.guideButton = page.getByRole("menuitem", {
-      name: "Guide Create a Guide",
+    this.guideButton = page.getByRole('menuitem', {
+      name: 'Guide Create a Guide',
     });
-    this.tierListButton = page.getByRole("menuitem", {
-      name: "Tier List Create a Tier List",
+    this.tierListButton = page.getByRole('menuitem', {
+      name: 'Tier List Create a Tier List',
     });
-    this.deckButton = page.getByRole("menuitem", { name: "Build a Deck" });
+    this.deckButton = page.getByRole('menuitem', { name: 'Build a Deck' });
   }
 
   async gotoBuildPlannerPage() {
-    await test.step("Go to Build Planner Page", async () => {
+    await test.step('Go to Build Planner Page', async () => {
       await this.createButton.click();
       await this.buildButton.click();
     });
   }
 
   async gotoDeckPlannerPage() {
-    await test.step("Go to Deck Planner Page", async () => {
+    await test.step('Go to Deck Planner Page', async () => {
       await this.createButton.click();
       await this.deckButton.click();
     });
   }
 
   async gotoTeamPlannerPage() {
-    await test.step("Go to Team Planner Page", async () => {
+    await test.step('Go to Team Planner Page', async () => {
       await this.createButton.click();
       await this.teamButton.click();
     });
   }
 
   async gotoTierListPlannerPage() {
-    await test.step("Go to Tier List Planner Page", async () => {
+    await test.step('Go to Tier List Planner Page', async () => {
       await this.createButton.click();
       await this.tierListButton.click();
     });
   }
 
   async gotoGuidePlannerPage() {
-    await test.step("Go to Guide Planner Page", async () => {
+    await test.step('Go to Guide Planner Page', async () => {
       await this.createButton.click();
       await this.guideButton.click();
     });

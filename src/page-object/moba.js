@@ -15,7 +15,7 @@ import {
   AuthorizePage,
   AccountSettings,
   ByeBye,
-} from "./index";
+} from './index';
 
 export class Moba {
   constructor(page) {

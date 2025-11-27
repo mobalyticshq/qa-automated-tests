@@ -1,7 +1,7 @@
-import { expect } from "@playwright/test";
-import { test } from "../src/fixtures/index";
-import { Moba } from "../src/page-object/moba";
-import { v4 as uuidv4 } from "uuid";
+import { expect } from '@playwright/test';
+import { test } from '../src/fixtures/index';
+import { Moba } from '../src/page-object/moba';
+import { v4 as uuidv4 } from 'uuid';
 
 // test("Check x-moba-ssr-cache header & new content are present on MHW build page", async ({
 //   browser,
@@ -124,10 +124,10 @@ import { v4 as uuidv4 } from "uuid";
 //   });
 // });
 
-test("Check x-moba-ssr-cache header & new content are present on MHW build page", async ({ browser }) => {
+test('Check x-moba-ssr-cache header & new content are present on MHW build page', async ({ browser }) => {
   test.skip(
-    process.env.BASE_URL.includes("https://mobalytics.gg"),
-    "Skipping on production environment or when BASE_URL is not defined"
+    process.env.BASE_URL.includes('https://mobalytics.gg'),
+    'Skipping on production environment or when BASE_URL is not defined'
   );
 
   const uniqueId = uuidv4();
@@ -140,7 +140,7 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
   const guest = new Moba(guestPage);
   // Create admin context with cookies
   const adminContext = await browser.newContext({
-    storageState: ".auth/adminAuth.json",
+    storageState: '.auth/adminAuth.json',
   });
   const adminPage = await adminContext.newPage();
   const admin = new Moba(adminPage);
@@ -157,13 +157,13 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
     for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
       console.log(`Attempt ${attempt}/${maxAttempts}: Opening ${process.env.BASE_URL}${pageName}`);
       const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
-        waitUntil: "domcontentloaded",
+        waitUntil: 'domcontentloaded',
       });
 
       const headers = response.headers();
-      if (headers["x-moba-ssr-cache"]) {
+      if (headers['x-moba-ssr-cache']) {
         headerFound = true;
-        ssrCacheValue = headers["x-moba-ssr-cache"];
+        ssrCacheValue = headers['x-moba-ssr-cache'];
         console.log(`✓ Header found on attempt ${attempt}: x-moba-ssr-cache = ${ssrCacheValue}`);
       } else {
         console.log(`✗ Header not found on attempt ${attempt}`);
@@ -172,9 +172,9 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
     expect(headerFound, `Header x-moba-ssr-cache is found`).toBe(true);
     expect(ssrCacheValue, `x-moba-ssr-cache value: ${ssrCacheValue}`).not.toBeNull();
   });
-  await test.step("Update the ST page by admin", async () => {
+  await test.step('Update the ST page by admin', async () => {
     await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
-      waitUntil: "domcontentloaded",
+      waitUntil: 'domcontentloaded',
     });
     await admin.stPage.updateDescriptionRichTextWidget(text);
     await expect(admin.stPage.descriptionRichTextWidget).toContainText(text);
@@ -189,11 +189,11 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
       const reloadResponse = await guestPage.reload();
       const headers = reloadResponse.headers();
 
-      if (headers["x-moba-ssr-cache"]) {
+      if (headers['x-moba-ssr-cache']) {
         try {
           await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
           headerFound = true;
-          let ssrCacheValue = headers["x-moba-ssr-cache"];
+          let ssrCacheValue = headers['x-moba-ssr-cache'];
           console.log(`✓ Header and text found on attempt ${attempt}: x-moba-ssr-cache = ${ssrCacheValue}`);
         } catch (error) {
           console.log(`✗ Header found but text not visible on attempt ${attempt}`);
@@ -209,9 +209,9 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
       const reloadResponse = await guestPage.reload();
       const headers = reloadResponse.headers();
 
-      if (headers["x-moba-ssr-cache"]) {
+      if (headers['x-moba-ssr-cache']) {
         headerFound = true;
-        ssrCacheValue = headers["x-moba-ssr-cache"];
+        ssrCacheValue = headers['x-moba-ssr-cache'];
         try {
           await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
           console.log(`✓ Header and text found on attempt ${currentAttempt}: x-moba-ssr-cache = ${ssrCacheValue}`);
@@ -237,32 +237,32 @@ test("Check x-moba-ssr-cache header & new content are present on MHW build page"
   });
 });
 
-test("Error validation: 404 status code & title on usual page", async ({ page }) => {
+test('Error validation: 404 status code & title on usual page', async ({ page }) => {
   let response = null;
-  await test.step("Open not existing page", async () => {
+  await test.step('Open not existing page', async () => {
     response = await page.goto(`${process.env.BASE_URL}/mhw/not-found`, {
-      waitUntil: "domcontentloaded",
+      waitUntil: 'domcontentloaded',
     });
   });
-  await test.step("Expected Result: 404 status code is present on the response", async () => {
+  await test.step('Expected Result: 404 status code is present on the response', async () => {
     expect(response.status()).toBe(404);
   });
   await test.step("Expected Result: '404' title is present on the page", async () => {
-    await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '404' })).toBeVisible();
   });
 });
 
-test("Error validation: 404 status code & title on NGF page", async ({ page }) => {
+test('Error validation: 404 status code & title on NGF page', async ({ page }) => {
   let response = null;
-  await test.step("Open not existing page", async () => {
+  await test.step('Open not existing page', async () => {
     response = await page.goto(`${process.env.BASE_URL}/hades-2/builds/dystopianteddybear-aspect-of-charonsrghhfg`, {
-      waitUntil: "domcontentloaded",
+      waitUntil: 'domcontentloaded',
     });
   });
-  await test.step("Expected Result: 404 status code is present on the response", async () => {
+  await test.step('Expected Result: 404 status code is present on the response', async () => {
     expect(response.status()).toBe(404);
   });
   await test.step("Expected Result: '404' title is present on the page", async () => {
-    await expect(page.getByRole("heading", { name: "404" })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '404' })).toBeVisible();
   });
 });

@@ -1,16 +1,16 @@
-import { test as base, expect } from "@playwright/test";
-import { Moba } from "../page-object/moba";
-import { v4 as uuidv4 } from "uuid";
+import { test as base, expect } from '@playwright/test';
+import { Moba } from '../page-object/moba';
+import { v4 as uuidv4 } from 'uuid';
 
 export const test = base.extend({
   // apiAuth
   apiAuthAdmin: async ({ request }, use) => {
     // Clarify a correct endpoint depending on environment
     let apiEndpoint;
-    if (process.env.BASE_URL === "https://mobalytics.gg") {
-      apiEndpoint = "https://account.mobalytics.gg/api/graphql/v1/query";
+    if (process.env.BASE_URL === 'https://mobalytics.gg') {
+      apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
     } else {
-      apiEndpoint = "https://stg.mobalytics.gg/api/account/gql/v1/query";
+      apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
     }
     const loginResponse = await request.post(apiEndpoint, {
       data: {
@@ -24,29 +24,29 @@ export const test = base.extend({
       `,
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
     expect(loginResponse.ok()).toBeTruthy();
     // console.log(loginResponse.headers());
 
     // 2. Get set-cookie from response
-    const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader) throw new Error("No set-cookie header in login response");
+    const setCookieHeader = loginResponse.headers()['set-cookie'];
+    if (!setCookieHeader) throw new Error('No set-cookie header in login response');
 
     // 3. Transform cookie for Playwright
     const cookies = setCookieHeader
       .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
       .map((cookieStr) => {
-        const [cookiePair, ...attributes] = cookieStr.split(";");
-        const index = cookiePair.indexOf("=");
+        const [cookiePair, ...attributes] = cookieStr.split(';');
+        const index = cookiePair.indexOf('=');
         const name = cookiePair.slice(0, index).trim();
         const value = cookiePair.slice(index + 1).trim();
         return {
           name: name.trim(),
           value: value.trim(),
-          domain: ".mobalytics.gg",
-          path: "/",
+          domain: '.mobalytics.gg',
+          path: '/',
         };
       });
     // 4. Pass cookie into test
@@ -56,10 +56,10 @@ export const test = base.extend({
   apiAuthInternalWriter: async ({ request }, use) => {
     // Clarify a correct endpoint depending on environment
     let apiEndpoint;
-    if (process.env.BASE_URL === "https://mobalytics.gg") {
-      apiEndpoint = "https://account.mobalytics.gg/api/graphql/v1/query";
+    if (process.env.BASE_URL === 'https://mobalytics.gg') {
+      apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
     } else {
-      apiEndpoint = "https://stg.mobalytics.gg/api/account/gql/v1/query";
+      apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
     }
     // 1. Perform login-request
     const loginResponse = await request.post(apiEndpoint, {
@@ -74,29 +74,29 @@ export const test = base.extend({
       `,
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
     expect(loginResponse.ok()).toBeTruthy();
     // console.log(loginResponse.headers());
 
     // 2. Get set-cookie from response
-    const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader) throw new Error("No set-cookie header in login response");
+    const setCookieHeader = loginResponse.headers()['set-cookie'];
+    if (!setCookieHeader) throw new Error('No set-cookie header in login response');
 
     // 3. Transform cookie for Playwright
     const cookies = setCookieHeader
       .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
       .map((cookieStr) => {
-        const [cookiePair, ...attributes] = cookieStr.split(";");
-        const index = cookiePair.indexOf("=");
+        const [cookiePair, ...attributes] = cookieStr.split(';');
+        const index = cookiePair.indexOf('=');
         const name = cookiePair.slice(0, index).trim();
         const value = cookiePair.slice(index + 1).trim();
         return {
           name: name.trim(),
           value: value.trim(),
-          domain: ".mobalytics.gg",
-          path: "/",
+          domain: '.mobalytics.gg',
+          path: '/',
         };
       });
     // 4. Pass cookie into test
@@ -106,10 +106,10 @@ export const test = base.extend({
   apiAuthGameManager: async ({ request }, use) => {
     // Clarify a correct endpoint depending on environment
     let apiEndpoint;
-    if (process.env.BASE_URL === "https://mobalytics.gg") {
-      apiEndpoint = "https://account.mobalytics.gg/api/graphql/v1/query";
+    if (process.env.BASE_URL === 'https://mobalytics.gg') {
+      apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
     } else {
-      apiEndpoint = "https://stg.mobalytics.gg/api/account/gql/v1/query";
+      apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
     }
     // 1. Perform login-request
     const loginResponse = await request.post(apiEndpoint, {
@@ -124,29 +124,29 @@ export const test = base.extend({
       `,
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
     expect(loginResponse.ok()).toBeTruthy();
     // console.log(loginResponse.headers());
 
     // 2. Get set-cookie from response
-    const setCookieHeader = loginResponse.headers()["set-cookie"];
-    if (!setCookieHeader) throw new Error("No set-cookie header in login response");
+    const setCookieHeader = loginResponse.headers()['set-cookie'];
+    if (!setCookieHeader) throw new Error('No set-cookie header in login response');
 
     // 3. Transform cookie for Playwright
     const cookies = setCookieHeader
       .split(/,(?=[^ ]+\=)/) // разбиваем по кукам, а не по запятым внутри значений
       .map((cookieStr) => {
-        const [cookiePair, ...attributes] = cookieStr.split(";");
-        const index = cookiePair.indexOf("=");
+        const [cookiePair, ...attributes] = cookieStr.split(';');
+        const index = cookiePair.indexOf('=');
         const name = cookiePair.slice(0, index).trim();
         const value = cookiePair.slice(index + 1).trim();
         return {
           name: name.trim(),
           value: value.trim(),
-          domain: ".mobalytics.gg",
-          path: "/",
+          domain: '.mobalytics.gg',
+          path: '/',
         };
       });
     // 4. Pass cookie into test
@@ -170,7 +170,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -194,7 +194,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -218,7 +218,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -242,7 +242,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -266,7 +266,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -290,7 +290,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -314,7 +314,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -338,7 +338,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -362,7 +362,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -386,7 +386,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -410,7 +410,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -434,7 +434,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -458,7 +458,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -482,7 +482,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -506,7 +506,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -530,7 +530,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
@@ -554,7 +554,7 @@ export const test = base.extend({
 
       for (const pageName of pagesToCleanup) {
         await moba.stAdminPage.clickDeleteButton(pageName);
-        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: "hidden", timeout: 2000 }); // Wait for the widget to disappear from DOM
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
       }
