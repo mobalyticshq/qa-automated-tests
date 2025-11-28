@@ -14,3 +14,17 @@ test('Delete mobalytics account', async ({ page, registerAccount }) => {
     await expect(moba.byeBye.linkInsertCoinToContinue).toBeVisible();
   });
 });
+
+test('Change Account name', async ({page}) => {
+  const moba = new Moba(page);
+  const uniqueId = uuidv4().substring(0, 4);
+  const accountName = `newName-${uniqueId}`;
+
+  await moba.mainURLs.openBorderlands4Page();
+  await moba.navbar.gotoSignInPage();
+  await moba.signInPage.loginUser('rewad+stg-aqa-change-name@mobalyticshq.com', 'rewad+stg-aqa-change-name@mobalyticshq.com');
+  await moba.navbar.gotoAccountSettingsPage();
+  await moba.accountSettings.changeAccountName(accountName);
+  
+  await expect(moba.accountSettings.accountName(accountName)).toBeVisible();
+} )
