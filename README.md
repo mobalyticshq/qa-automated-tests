@@ -58,11 +58,9 @@ Once the job is completed, you will receive one of two results:
 ## Steps to Run Tests Using Your Local Machine
 
 1. **Create a Folder**
-
    - Create a folder on your local machine where you will clone the repository. Then open this folder in your code editor.
 
 2. **Clone the Repository**
-
    - Open the terminal and paste the following command, then press **Enter**:
 
    ```bash
@@ -74,7 +72,6 @@ Once the job is completed, you will receive one of two results:
 3. **Install Dependencies**
 
    If **Node.js** is not installed on your system, please install it first before running the following commands.
-
    - In the terminal, paste the following commands and press **Enter**:
 
    ```bash
@@ -86,11 +83,9 @@ Once the job is completed, you will receive one of two results:
    > ![alt text](src/images/install-dependecies.png)
 
 4. **Set Up the `.env` File**
-
    - Rename the file `.env.example` to `.env`, retrieve the correct credentials from the #team-qa Slack channel, and update your .env with those values.
 
 5. **Run the Tests**
-
    - In the terminal, run tests using the following command:
 
    ```bash

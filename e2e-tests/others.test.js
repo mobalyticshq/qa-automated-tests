@@ -126,7 +126,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 test('Check x-moba-ssr-cache header & new content are present on MHW build page', async ({ browser }) => {
   test.skip(
-    process.env.BASE_URL.includes('https://mobalytics.gg'),
+    process.env.BASE_URL === 'https://mobalytics.gg',
     'Skipping on production environment or when BASE_URL is not defined'
   );
 

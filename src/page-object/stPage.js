@@ -44,7 +44,7 @@ export class StPage {
     this.cardGalleryV2Button = page.locator('[data-key="NgfDocumentStWidgetLinksGridManualV2"]');
     this.addWidgetButton = page.getByTestId('add-widget-button');
     this.dropdownMenuWidgets = page.getByText(
-      'Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards'
+      'Card Grid V2Cards displayed in a grid with title, subtitle, and image.Cards',
     );
     this.headerButton = page.locator('[data-key="NgfDocumentStWidgetHeaderV2"]');
     this.inputCreateSaveModal = page.getByRole('textbox', {

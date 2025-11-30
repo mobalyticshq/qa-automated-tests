@@ -7,7 +7,7 @@ import { test, expect } from '@playwright/test';
   { game: 'Destiny 2', projectUrl: `/destiny-2` },
   { game: 'Diablo 4', projectUrl: `/diablo-4` },
   { game: 'Elden Ring', projectUrl: `/elden-ring-nightreign` },
-  { game: 'Marvel Rivals', projectUrl: `/marvel-rivals` },
+  { game: 'Marvel Rivals', projectUrl: '/marvel-rivals' },
   { game: 'Monster Hunter Wilds', projectUrl: `/mhw` },
   { game: 'Hades 2', projectUrl: `/hades-2` },
   { game: 'Borderlands 4', projectUrl: `/borderlands-4` },
@@ -68,7 +68,7 @@ import { test, expect } from '@playwright/test';
     } else if (game === 'Marvel Rivals') {
       await test.step(`Expected Result: marvel-rivals-video-all-pages is present on the page`, async () => {
         await expect(
-          page.locator('#marvel-rivals-video-all-pages').or(page.locator('#marvel-rivals-nitro-video'))
+          page.locator('#marvel-rivals-video-all-pages').or(page.locator('#marvel-rivals-nitro-video')),
         ).toBeVisible();
       });
       await test.step(`Expected Result: "marvel-rivals-display-all-pages" banner is present on the page`, async () => {
@@ -135,7 +135,7 @@ import { test, expect } from '@playwright/test';
     } else if (game === 'Destiny 2') {
       await test.step(`Expected Result: destiny-2-video-all-pages or destiny-2-nitro-video is present on the page`, async () => {
         await expect(
-          page.locator('#destiny-2-video-all-pages').or(page.locator('#destiny-2-nitro-video'))
+          page.locator('#destiny-2-video-all-pages').or(page.locator('#destiny-2-nitro-video')),
         ).toBeVisible();
       });
       await test.step(`Expected Result: "destiny-2-display-all-pages" banner is present on the page`, async () => {
@@ -202,7 +202,7 @@ import { test, expect } from '@playwright/test';
     } else if (game === 'The Bazaar') {
       await test.step(`Expected Result: the-bazaar-video-all-pages is present on the page`, async () => {
         await expect(
-          page.locator('#the-bazaar-video-all-pages').or(page.locator('#the-bazaar-nitro-video'))
+          page.locator('#the-bazaar-video-all-pages').or(page.locator('#the-bazaar-nitro-video')),
         ).toBeVisible();
       });
       await test.step(`Expected Result: "the-bazaar-display-all-pages" banner is present on the page`, async () => {
@@ -230,7 +230,7 @@ import { test, expect } from '@playwright/test';
     } else if (game === 'Elden Ring') {
       await test.step(`Expected Result: elden-ring-nightreign-video-all-pages is present on the page`, async () => {
         await expect(
-          page.locator('#elden-ring-nightreign-video-all-pages').or(page.locator('#elden-ring-nightreign-nitro-video'))
+          page.locator('#elden-ring-nightreign-video-all-pages').or(page.locator('#elden-ring-nightreign-nitro-video')),
         ).toBeVisible();
       });
       await test.step(`Expected Result: "elden-ring-nightreign-display-all-pages" banner is present on the page`, async () => {
@@ -245,7 +245,7 @@ import { test, expect } from '@playwright/test';
     } else if (game === 'Riftbound') {
       await test.step(`Expected Result: riftbound-video-all-pages is present on the page`, async () => {
         await expect(
-          page.locator('#riftbound-video-all-pages').or(page.locator('#riftbound-nitro-video'))
+          page.locator('#riftbound-video-all-pages').or(page.locator('#riftbound-nitro-video')),
         ).toBeVisible();
       });
       await test.step(`Expected Result: "riftbound-display-all-pages" banner is present on the page`, async () => {

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 // const GAMES = {
 //   ZZZ: { isPresentInSitemap: true, testUrl: "/zzz/sitemap.xml" },
 //   VALORANT: { isPresentInSitemap: true, testUrl: `/valorant/sitemap.xml` },
