@@ -18,9 +18,11 @@ export class AccountSettings {
     });
   }
 
-  async changeAccountName(name){
-    await this.changeNameButton.click();
-    await this.inputAccountName.fill(name);
-    await this.modalChangeNameButton.click();
+  async changeAccountName(name) {
+    await test.step(`Change account name to ${name}`, async () => {
+      await this.changeNameButton.click();
+      await this.inputAccountName.fill(name);
+      await this.modalChangeNameButton.click();
+    });
   }
 }

@@ -1058,7 +1058,7 @@ test.describe('Creating UG Pages', () => {
   test(`Create a tier list page on Diablo 4  project`, async ({ page }) => {
     test.fixme(
       process.env.BASE_URL === 'https://mobalytics.gg',
-      `It'll be necessary to enable this test on prod when UG Tier List doc is enable on production`
+      `It'll be necessary to enable this test on prod when UG Tier List doc is enable on production`,
     );
     const uniqueId = uuidv4();
     const pageName = `qa-automation-guide-page-${uniqueId}`;
