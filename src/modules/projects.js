@@ -1,0 +1,25 @@
+export const projects = [
+  { game: 'TFT', projectPath: '/tft', staticDataStPage: '/tft/qa-check-static-data-not-delete' },
+  { game: 'LoL', projectPath: '/lol', staticDataStPage: '/lol/qa-check-static-data-not-delete' },
+  { game: 'Riftbound', projectPath: '/riftbound', staticDataStPage: '/riftbound/qa-check-static-data-not-delete' },
+  { game: '2XKO', projectPath: '/2xko', staticDataStPage: '/2xko/qa-check-static-data-not-delete' },
+  { game: 'ZZZ', projectPath: '/zzz', staticDataStPage: '/zzz/qa-check-static-data-not-delete' },
+  { game: 'Diablo 4', projectPath: '/diablo-4', staticDataStPage: '/diablo-4/qa-check-static-data-not-delete' },
+  {
+    game: 'Nightreign',
+    projectPath: '/elden-ring-nightreign',
+    staticDataStPage: '/elden-ring-nightreign/qa-check-static-data-not-delete',
+  },
+  { game: 'Destiny 2', projectPath: '/destiny-2', staticDataStPage: '/destiny-2/qa-check-static-data-not-delete' },
+  { game: 'Monster Hunter Wilds', projectPath: '/mhw', staticDataStPage: '/mhw/qa-check-static-data-not-delete' },
+  { game: 'Hades 2', projectPath: '/hades-2', staticDataStPage: '/hades-2/qa-check-static-data-not-delete' },
+  {
+    game: 'Borderlands 4',
+    projectPath: '/borderlands-4',
+    staticDataStPage: '/borderlands-4/qa-check-static-data-not-delete',
+  },
+  { game: 'Deadlock', projectPath: '/deadlock', staticDataStPage: '/deadlock/qa-check-static-data-not-delete' },
+  { game: 'PoE 2', projectPath: '/poe-2', staticDataStPage: '/poe-2/qa-check-static-data-not-delete' },
+  { game: 'PoE', projectPath: '/poe', staticDataStPage: '/poe/qa-check-static-data-not-delete' },
+  { game: 'The Bazaar', projectPath: '/the-bazaar', staticDataStPage: '/the-bazaar/qa-check-static-data-not-delete' },
+];

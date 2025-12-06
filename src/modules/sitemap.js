@@ -1,0 +1,48 @@
+export const sitemapList = [
+  { linkInList: `${process.env.BASE_URL}/lol/tier-list`, isPresentInSitemap: true, pathUrl: '/product-sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/valorant/maps`, isPresentInSitemap: true, pathUrl: '/valorant/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/post-sitemap.xml`, isPresentInSitemap: true, pathUrl: '/sitemap_index.xml' },
+  { linkInList: `${process.env.BASE_URL}/zzz`, isPresentInSitemap: true, pathUrl: '/zzz/sitemap.xml' },
+  {
+    linkInList: `${process.env.BASE_URL}/lol/champions/swain/build`,
+    isPresentInSitemap: true,
+    pathUrl: '/champions-sitemap.xml',
+  },
+  { linkInList: `${process.env.BASE_URL}/tft/tier-list/items`, isPresentInSitemap: true, pathUrl: '/tft/sitemap.xml' },
+  {
+    linkInList: `${process.env.BASE_URL}/tft/set16/items`,
+    isPresentInSitemap: true,
+    pathUrl: '/tft/set16/sitemap.xml',
+  },
+  { linkInList: `${process.env.BASE_URL}/destiny-2`, isPresentInSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
+  {
+    linkInList: `${process.env.BASE_URL}/example-game`,
+    isPresentInSitemap: false,
+    pathUrl: '/example-game/sitemap.xml',
+  },
+  { linkInList: `${process.env.BASE_URL}/diablo-4`, isPresentInSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
+  {
+    linkInList: `${process.env.BASE_URL}/elden-ring-nightreign`,
+    isPresentInSitemap: true,
+    pathUrl: '/elden-ring-nightreign/sitemap.xml',
+  },
+  {
+    linkInList: `${process.env.BASE_URL}/marvel-rivals`,
+    isPresentInSitemap: true,
+    pathUrl: '/marvel-rivals/sitemap.xml',
+  },
+  { linkInList: `${process.env.BASE_URL}/mhw`, isPresentInSitemap: true, pathUrl: '/mhw/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/hades-2`, isPresentInSitemap: true, pathUrl: '/hades-2/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/news`, isPresentInSitemap: true, pathUrl: '/news/sitemap.xml' },
+  {
+    linkInList: `${process.env.BASE_URL}/borderlands-4`,
+    isPresentInSitemap: true,
+    pathUrl: '/borderlands-4/sitemap.xml',
+  },
+  { linkInList: `${process.env.BASE_URL}/deadlock`, isPresentInSitemap: true, pathUrl: '/deadlock/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/poe-2`, isPresentInSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/the-bazaar`, isPresentInSitemap: true, pathUrl: '/the-bazaar/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/poe`, isPresentInSitemap: true, pathUrl: '/poe/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/riftbound`, isPresentInSitemap: false, pathUrl: '/riftbound/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/2xko`, isPresentInSitemap: false, pathUrl: '/2xko/sitemap.xml' },
+];

@@ -162,7 +162,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -186,7 +186,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -210,7 +210,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ addPageForCleanup, moba });
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
@@ -234,7 +234,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
@@ -258,7 +258,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
@@ -282,7 +282,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup after test
     if (pagesToCleanup.length > 0) {
@@ -306,7 +306,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ addPageForCleanup, moba });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -330,7 +330,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ addPageForCleanup, moba });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -354,7 +354,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -378,7 +378,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -402,7 +402,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -426,7 +426,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -450,7 +450,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -474,7 +474,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -498,7 +498,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -522,7 +522,7 @@ export const test = base.extend({
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ moba, addPageForCleanup });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -538,15 +538,15 @@ export const test = base.extend({
   },
 
   cleanupStRiftboundPages: async ({ page, apiAuthAdmin }, use) => {
-    await page.context().addCookies(apiAuthAdmin.cookies);
     const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
     const pagesToCleanup = [];
 
     const addPageForCleanup = (pageName) => {
       pagesToCleanup.push(pageName);
     };
 
-    await use({ addPageForCleanup });
+    await use({ addPageForCleanup, moba });
 
     // Cleanup после теста
     if (pagesToCleanup.length > 0) {
@@ -565,187 +565,12 @@ export const test = base.extend({
   registerAccount: async ({ page }, use) => {
     const moba = new Moba(page);
     const uniqueId = uuidv4().substring(0, 4);
-    const accountName = `ns+${uniqueId}@mobalyticshq.com`;
+    const credentials = `ns+${uniqueId}@mobalyticshq.com`;
 
     await moba.mainURLs.openMhwPage();
     await moba.navbar.gotoSignInPage();
-    await moba.authorizePage.registerAccount(accountName);
+    await moba.authorizePage.registerAccount(credentials);
 
-    await use({ moba });
+    await use(moba);
   },
-
-  // cleanupUgZzzBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgZzzPage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
-
-  // cleanupUgMarvelRivalsBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgMarvelRivalsPage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
-
-  // cleanupUgBazaarBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgBazaarPage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
-
-  // cleanupUgPoeBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgPoePage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
-
-  // cleanupUgMhwBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgMhwPage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
-
-  // cleanupUgDeadlockBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgDeadlockPage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
-
-  // cleanupUgNightreignBuildPages: async ({ page, apiAuthAdmin }, use) => {
-  //   const pagesToCleanup = [];
-
-  //   const addPageForCleanup = (pageName) => {
-  //     pagesToCleanup.push(pageName);
-  //   };
-
-  //   await use({ addPageForCleanup });
-
-  //   // Cleanup после теста
-  //   if (pagesToCleanup.length > 0) {
-  //     const moba = new Moba(page);
-  //     await page.context().addCookies(apiAuthAdmin.cookies);
-  //     await moba.mainURLs.openUgNightreignPage();
-
-  //     for (const pageName of pagesToCleanup) {
-  //       try {
-  //         await moba.ugProfilePage.deleteBuild(pageName);
-  //       } catch (error) {
-  //         console.warn(`Failed to cleanup page ${pageName}:`, error);
-  //       }
-  //     }
-  //   }
-  // },
 });

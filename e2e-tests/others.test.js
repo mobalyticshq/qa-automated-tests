@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { test } from '../src/fixtures/index';
+import { test } from '../src/fixtures/fixture';
 import { Moba } from '../src/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -127,7 +127,7 @@ import { v4 as uuidv4 } from 'uuid';
 test('Check x-moba-ssr-cache header & new content are present on MHW build page', async ({ browser }) => {
   test.skip(
     process.env.BASE_URL === 'https://mobalytics.gg',
-    'Skipping on production environment or when BASE_URL is not defined',
+    'Skipping on production environment or when BASE_URL is not defined'
   );
 
   const uniqueId = uuidv4();
@@ -266,3 +266,34 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
     await expect(page.getByRole('heading', { name: '404' })).toBeVisible();
   });
 });
+
+// test('Check that hydration is ok on the featured profile', async ({ page }) => {
+//   const consoleMessages = [];
+//   const pageErrors = [];
+
+//   page.on('console', (msg) => {
+//     if (msg.type() === 'error') {
+//       const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+//       console.log(consoleInfo);
+//       consoleMessages.push(consoleInfo);
+//     }
+//   });
+
+//   page.on('pageerror', (error) => {
+//     const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+//     console.log(errorInfo);
+//     pageErrors.push(errorInfo);
+//   });
+
+//   await page.goto('https://mobalytics.gg/diablo-4/profile/cliptis', { waitUntil: 'domcontentloaded' });
+
+//   const allErrors = [...consoleMessages, ...pageErrors];
+//   const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+//   console.log(`Total messages captured: ${allErrors.length}`);
+//   console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
+
+//   expect(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+//   expect(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+//   expect(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+// });

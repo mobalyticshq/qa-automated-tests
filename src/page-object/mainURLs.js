@@ -5,6 +5,30 @@ export class MainURLs {
     this.page = page;
   }
 
+  async openUgProfilePage(projectPath) {
+    await test.step(`Open ${projectPath} UG profile page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}${projectPath}/profile`, { waitUntil: 'domcontentloaded' });
+    });
+  }
+
+  async openUgCreatorProfilePage(projectPath) {
+    await test.step(`Open ${projectPath} UG creator profile page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}${projectPath}/creator-profile`, { waitUntil: 'domcontentloaded' });
+    });
+  }
+
+  async openUgGuidePlannerPage(projectPath) {
+    await test.step(`Open ${projectPath} UG guide planner page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}${projectPath}/planner/guides`, { waitUntil: 'domcontentloaded' });
+    });
+  }
+
+  async openUgTierListPlannerPage(projectPath) {
+    await test.step(`Open ${projectPath} UG tier-list planner page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}${projectPath}/planner/tier-lists`, { waitUntil: 'domcontentloaded' });
+    });
+  }
+
   async openMainPage() {
     await test.step(`Open url: ${process.env.BASE_URL}`, async () => {
       await this.page.goto('/', { waitUntil: 'domcontentloaded' });

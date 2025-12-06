@@ -10,15 +10,15 @@ export class AuthorizePage {
     this.signUpTab = page.getByRole('tab', { name: 'sign up' });
   }
 
-  async registerAccount(accountName) {
-    await test.step(`Register account ${accountName}`, async () => {
+  async registerAccount(credentials) {
+    await test.step(`Register account ${credentials}`, async () => {
       await this.signUpTab.click();
       await this.fieldEmail.click();
-      await this.fieldEmail.fill(accountName);
+      await this.fieldEmail.fill(credentials);
       await this.fieldName.click();
-      await this.fieldName.fill(accountName);
+      await this.fieldName.fill(credentials);
       await this.fieldPassword.click();
-      await this.fieldPassword.fill(accountName);
+      await this.fieldPassword.fill(credentials);
       await this.signUpButton.click();
     });
   }

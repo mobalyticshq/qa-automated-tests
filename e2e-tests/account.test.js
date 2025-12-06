@@ -1,10 +1,10 @@
-import { test } from '../src/fixtures/index';
+import { test } from '../src/fixtures/fixture';
 import { expect } from '@playwright/test';
 import { Moba } from '../src/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
-test('Delete mobalytics account', async ({ page, registerAccount }) => {
-  const moba = new Moba(page);
+test('Delete mobalytics account', async ({ registerAccount }) => {
+  const moba = registerAccount;
 
   await moba.navbar.gotoAccountSettingsPage();
   await moba.accountSettings.deleteAccount();
@@ -19,13 +19,14 @@ test('Change account name', async ({ page }) => {
   const moba = new Moba(page);
   const uniqueId = uuidv4().substring(0, 4);
   const newAccountName = `newAccountName-${uniqueId}`;
+  const credentials =
+    process.env.BASE_URL === 'https://mobalytics.gg'
+      ? 'rewad+prod-aqa-change-name@mobalyticshq.com'
+      : 'rewad+stg-aqa-change-name@mobalyticshq.com';
 
   await moba.mainURLs.openBorderlands4Page();
   await moba.navbar.gotoSignInPage();
-  await moba.signInPage.loginUser(
-    'rewad+stg-aqa-change-name@mobalyticshq.com',
-    'rewad+stg-aqa-change-name@mobalyticshq.com'
-  );
+  await moba.signInPage.loginUser(credentials, credentials);
   await moba.navbar.gotoAccountSettingsPage();
   await moba.accountSettings.changeAccountName(newAccountName);
 

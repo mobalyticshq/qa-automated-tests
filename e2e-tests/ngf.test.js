@@ -1,10 +1,11 @@
 import { expect } from '@playwright/test';
-import { test } from '../src/fixtures/index';
-import { Moba } from '../src/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
+import { test } from '../src/fixtures/fixture';
+import { Moba } from '../src/page-object/moba';
+import { projects } from '../src/modules/index';
 
-test.beforeEach(async ({ page }) => {
-  await page.waitForTimeout(1000);
+test.beforeEach(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 });
 
 test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
@@ -13,18 +14,20 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
   const moba = new Moba(page);
   await moba.mainURLs.openPoe2Page();
 
-  if (process.env.BASE_URL === 'https://mobalytics.gg') {
-    await test.step(`Expected Result: ${newGame1} game is missing in the navbar on PROD`, async () => {
+  // process.env.BASE_URL.includes('https://mobalytics.gg')
+  //   ? (await expect(moba.navbar.gameList).not.toContainText(newGame1)) &&
+  //     (await expect(moba.navbar.gameList).not.toContainText(newGame2))
+  //   : (await expect(moba.navbar.gameList).toContainText(newGame1)) &&
+  //     (await expect(moba.navbar.gameList).toContainText(newGame2));
+
+  if (process.env.BASE_URL.includes('https://mobalytics.gg')) {
+    await test.step(`Expected Result: ${newGame1} & ${newGame2} games are missing in the navbar on PROD`, async () => {
       await expect(moba.navbar.gameList).not.toContainText(newGame1);
-    });
-    await test.step(`Expected Result: ${newGame2} game is present in the navbar on PROD`, async () => {
       await expect(moba.navbar.gameList).not.toContainText(newGame2);
     });
   } else {
-    await test.step(`Expected Result: ${newGame1} game is present in the navbar on STG`, async () => {
+    await test.step(`Expected Result: ${newGame1} & ${newGame2} games are present in the navbar on STG`, async () => {
       await expect(moba.navbar.gameList).toContainText(newGame1);
-    });
-    await test.step(`Expected Result: ${newGame2} game is present in the navbar on STG`, async () => {
       await expect(moba.navbar.gameList).toContainText(newGame2);
     });
   }
@@ -33,17 +36,17 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
 test.describe('Creating ST Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
 
-  test(`Create a structure page on 2xko project`, async ({ page, cleanupSt2xkoPages }) => {
+  test(`Create a structure page on 2xko project`, async ({ cleanupSt2xkoPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupSt2xkoPages;
 
     await moba.mainURLs.openAdmin2xkoPage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
-    cleanupSt2xkoPages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on 2xko project`, async () => {
       await expect(moba.stPage.header2xko).toContainText('2XKO');
@@ -51,17 +54,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Riftbound project`, async ({ page, cleanupStRiftboundPages }) => {
+  test(`Create a structure page on Riftbound project`, async ({ cleanupStRiftboundPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStRiftboundPages;
 
     await moba.mainURLs.openAdminRiftboundPage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStRiftboundPages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Riftbound project`, async () => {
       await expect(moba.stPage.headerRiftbound).toContainText('Riftbound');
@@ -69,17 +72,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Diablo 4 project`, async ({ page, cleanupStDiablo4Pages }) => {
+  test(`Create a structure page on Diablo 4 project`, async ({ cleanupStDiablo4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStDiablo4Pages;
 
     await moba.mainURLs.openAdminDiablo4Page();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStDiablo4Pages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Diablo4 project`, async () => {
       await expect(moba.stPage.headerDiablo4).toContainText('Diablo 4');
@@ -87,17 +90,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on LoL project`, async ({ page, cleanupStLoLPages }) => {
+  test(`Create a structure page on LoL project`, async ({ cleanupStLoLPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStLoLPages;
 
     await moba.mainURLs.openAdminLoLPage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStLoLPages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on LoL project`, async () => {
       await expect(moba.stPage.headerLoL).toContainText('LoL');
@@ -105,17 +108,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on TFT project`, async ({ page, cleanupStTFTPages }) => {
+  test(`Create a structure page on TFT project`, async ({ cleanupStTFTPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStTFTPages;
 
     await moba.mainURLs.openAdminTFTPage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStTFTPages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on TFT project`, async () => {
       await expect(moba.stPage.headerTFT).toContainText('TFT');
@@ -123,17 +126,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Valorant project`, async ({ page, cleanupStValorantPages }) => {
+  test(`Create a structure page on Valorant project`, async ({ cleanupStValorantPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStValorantPages;
 
     await moba.mainURLs.openAdminValorantPage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStValorantPages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Valorant project`, async () => {
       await expect(moba.stPage.headerValorant).toContainText('Val');
@@ -141,17 +144,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Destiny 2 project`, async ({ page, cleanupStDestiny2Pages }) => {
+  test(`Create a structure page on Destiny 2 project`, async ({ cleanupStDestiny2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStDestiny2Pages;
 
     await moba.mainURLs.openAdminDestiny2Page();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidgetOldGames();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStDestiny2Pages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Destiny 2 project`, async () => {
       await expect(moba.stPage.headerDestiny2).toContainText('Destiny 2');
@@ -159,10 +162,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on PoE 2 project`, async ({ page, cleanupStPoE2Pages }) => {
+  test(`Create a structure page on PoE 2 project`, async ({ cleanupStPoE2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStPoE2Pages;
 
     await moba.mainURLs.openAdminPoe2Page();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -170,7 +173,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStPoE2Pages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE 2 project`, async () => {
       await expect(moba.stPage.headerPoE2).toContainText('PoE 2');
@@ -178,10 +181,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on PoE project`, async ({ page, cleanupStPoEPages }) => {
+  test(`Create a structure page on PoE project`, async ({ cleanupStPoEPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStPoEPages;
 
     await moba.mainURLs.openAdminPoePage();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -189,7 +192,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStPoEPages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on PoE 2 project`, async () => {
       await expect(moba.stPage.headerPoE).toContainText('PoE');
@@ -197,10 +200,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Nightreign project`, async ({ page, cleanupStNightreignPages }) => {
+  test(`Create a structure page on Nightreign project`, async ({ cleanupStNightreignPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStNightreignPages;
 
     await moba.mainURLs.openAdminNightreignPage();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -208,7 +211,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStNightreignPages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Nightreign project`, async () => {
       await expect(moba.stPage.headerNightreign).toContainText('Nightreign');
@@ -216,10 +219,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Deadlock project`, async ({ page, cleanupStDeadlockPages }) => {
+  test(`Create a structure page on Deadlock project`, async ({ cleanupStDeadlockPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStDeadlockPages;
 
     await moba.mainURLs.openAdminDeadlockPage();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -227,7 +230,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStDeadlockPages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Deadlock project`, async () => {
       await expect(moba.stPage.headerDeadlock).toContainText('Deadlock');
@@ -235,10 +238,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on MHW project`, async ({ page, cleanupStMhwPages }) => {
+  test(`Create a structure page on MHW project`, async ({ cleanupStMhwPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStMhwPages;
 
     await moba.mainURLs.openAdminMhwPage();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -246,7 +249,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStMhwPages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Monster Hunter Wilds project`, async () => {
       await expect(moba.stPage.headerMhw).toContainText('Monster Hunter Wilds');
@@ -254,10 +257,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Bazaar project`, async ({ page, cleanupStBazaarPages }) => {
+  test(`Create a structure page on Bazaar project`, async ({ cleanupStBazaarPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStBazaarPages;
 
     await moba.mainURLs.openAdminBazaarPage();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -265,7 +268,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStBazaarPages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Bazaar project`, async () => {
       await expect(moba.stPage.headerBazaar).toContainText('The Bazaar');
@@ -273,10 +276,10 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Marvel Rivals project`, async ({ page, cleanupStMarvelRivalsPages }) => {
+  test(`Create a structure page on Marvel Rivals project`, async ({ cleanupStMarvelRivalsPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStMarvelRivalsPages;
 
     await moba.mainURLs.openAdminMarvelRivalsPage();
     await moba.stAdminPage.gotoStPlannerPage();
@@ -284,7 +287,7 @@ test.describe('Creating ST Pages', () => {
     await moba.stPage.createStPage(pageName);
 
     // Register page for deleting
-    cleanupStMarvelRivalsPages.addPageForCleanup(pageName);
+    addPageForCleanup(pageName);
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
       await expect(moba.stPage.headerMarvelRivals).toContainText('Marvel Rivals');
@@ -292,17 +295,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on ZZZ project`, async ({ page, cleanupStZzzPages }) => {
+  test(`Create a structure page on ZZZ project`, async ({ cleanupStZzzPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStZzzPages;
 
     await moba.mainURLs.openAdminZzzPage();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStZzzPages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.stPage.headerZzz).toContainText('ZZZ');
@@ -310,17 +313,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Hades 2 project`, async ({ page, cleanupStHades2Pages }) => {
+  test(`Create a structure page on Hades 2 project`, async ({ cleanupStHades2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStHades2Pages;
 
     await moba.mainURLs.openAdminHades2Page();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStHades2Pages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Hades 2 project`, async () => {
       await expect(moba.stPage.headerHades2).toContainText('Hades 2');
@@ -328,17 +331,17 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
-  test(`Create a structure page on Borderlands 4 project`, async ({ page, cleanupStBorderlands4Pages }) => {
+  test(`Create a structure page on Borderlands 4 project`, async ({ cleanupStBorderlands4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
-    const moba = new Moba(page);
+    const { moba, addPageForCleanup } = cleanupStBorderlands4Pages;
 
     await moba.mainURLs.openAdminBorderlands4Page();
     await moba.stAdminPage.gotoStPlannerPage();
     await moba.stPage.addHeaderWidget();
     await moba.stPage.createStPage(pageName);
 
-    cleanupStBorderlands4Pages.addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
       await expect(moba.stPage.headerBorderlands4).toContainText('Borderlands 4');
@@ -350,513 +353,74 @@ test.describe('Creating ST Pages', () => {
 test.describe('Creating UG Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
 
-  test(`Create a build page on ZZZ project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
+  projects.forEach(({ game, projectPath }) => {
+    test(`Create a build, deck page on ${game} project`, async ({ page }) => {
+      const uniqueId = uuidv4();
+      const pageName = `qa-automation-build-page-${uniqueId}`;
+      const moba = new Moba(page);
 
-    await moba.mainURLs.openUgZzzPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2') {
+        await moba.mainURLs.openUgCreatorProfilePage(projectPath);
+      } else {
+        await moba.mainURLs.openUgProfilePage(projectPath);
+      }
+      if (game === 'Riftbound') {
+        await moba.ugProfilePage.gotoDeckPlannerPage();
+      } else {
+        await moba.ugProfilePage.gotoBuildPlannerPage();
+      }
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('ZZZ Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      await test.step(`Expected Result: Build page with the name: ${pageName} is created on ${game} project`, async () => {
+        await expect(moba.ugBuildPage.header).toContainText(
+          new RegExp(`${game.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} (Build|Deck)`)
+        );
+        await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      });
     });
   });
 
-  test(`Create a deck page on Riftbound project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
+  projects.forEach(({ game, projectPath }) => {
+    test(`Create a guide page on ${game} project`, async ({ page }) => {
+      const uniqueId = uuidv4();
+      const pageName = `qa-automation-guide-page-${uniqueId}`;
+      const moba = new Moba(page);
 
-    await moba.mainURLs.openUgRiftboundPage();
-    await moba.ugProfilePage.gotoDeckPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2') {
+        await moba.mainURLs.openUgCreatorProfilePage(projectPath);
+      } else {
+        await moba.mainURLs.openUgProfilePage(projectPath);
+      }
+      await moba.ugProfilePage.gotoGuidePlannerPage();
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-    await test.step(`Expected Result: Deck page with the name: ${pageName} is created on Riftbound project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Riftbound Deck');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      await test.step(`Expected Result: Guide page with the name: ${pageName} is created on ${game} project`, async () => {
+        await expect(moba.ugBuildPage.header).toContainText(`${game} Guide`);
+        await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      });
     });
   });
 
-  test(`Create a build page on 2xko project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUg2xkoPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on 2xko project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('2XKO Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on LoL project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgLolPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('LoL Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on TFT project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgTftPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('TFT Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Valorant project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgValorantPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Val Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Destiny 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDestiny2Page();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Destiny 2 Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Marvel Rivals project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgMarvelRivalsPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Marvel Rivals Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Bazaar project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgBazaarPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('The Bazaar Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on MHW project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgMhwPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Monster Hunter Wilds Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on PoE 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgPoe2Page();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on PoE 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('PoE 2 Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on PoE project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgPoePage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on PoE project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('PoE Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Nightreign project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgNightreignPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Nightreign Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Hades 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgHades2Page();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Hades 2 Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Diablo 4 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDiablo4Page();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Diablo 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Diablo 4 Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Borderlands 4 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgBorderlands4Page();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Borderlands 4 Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a build page on Deadlock project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-build-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDeadlockPage();
-    await moba.ugProfilePage.gotoBuildPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Build page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Deadlock Build');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on 2xko project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUg2xkoPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on 2xko project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('2XKO Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Diablo 4 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDiablo4Page();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Diablo4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Diablo 4 Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Nightreign project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgNightreignPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Nightreign Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Destiny 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDestiny2Page();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Destiny 2 Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Riftbound project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgRiftboundPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Riftbound project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Riftbound Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Valorant project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgValorantPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Val Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on TFT project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgTftPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('TFT Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on LoL project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgLolPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('LoL Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on PoE 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgPoe2Page();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('PoE 2 Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on PoE project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgPoePage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on PoE project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('PoE Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Deadlock project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDeadlockPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Deadlock Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Hades 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgHades2Page();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Hades 2 Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Borderlands 4 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgBorderlands4Page();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Borderlands 4 Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on MHW project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgMhwPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Monster Hunter Wilds Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Bazaar project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgBazaarPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPage.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('The Bazaar Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on Marvel Rivals project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgMarvelRivalsPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Marvel Rivals Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a guide page on ZZZ project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgZzzPage();
-    await moba.ugProfilePage.gotoGuidePlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Guide page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('ZZZ Guide');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  projects.forEach(({ game, projectPath }) => {
+    test(`Create a tier-list page on ${game} project`, async ({ page }) => {
+      const uniqueId = uuidv4();
+      const pageName = `qa-automation-tier-list-page-${uniqueId}`;
+      const moba = new Moba(page);
+
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2') {
+        await moba.mainURLs.openUgCreatorProfilePage(projectPath);
+      } else if (game === 'Diablo 4') {
+        console.log('Diablo 4 Tier List is not supported yet');
+      } else {
+        await moba.mainURLs.openUgProfilePage(projectPath);
+      }
+      await moba.ugProfilePage.gotoTierListPlannerPage();
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+      await test.step(`Expected Result: Tier-list page with the name: ${pageName} is created on ${game} project`, async () => {
+        await expect(moba.ugBuildPage.header).toContainText(`${game} Tier List`);
+        await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      });
     });
   });
 
@@ -871,265 +435,6 @@ test.describe('Creating UG Pages', () => {
 
     await test.step(`Expected Result: Team page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText('ZZZ Team');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on MHW project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgMhwPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on MHW project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Monster Hunter Wilds Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on 2xko project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUg2xkoPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on 2xko project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('2XKO Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on TFT project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgTftPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on TFT project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('TFT Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Valorant project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgValorantPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Val Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Riftbound project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgRiftboundPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Riftbound project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Riftbound Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Destiny 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDestiny2Page();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Destiny 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Destiny 2 Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on LoL project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgLolPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on LoL project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('LoL Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on PoE 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgPoe2Page();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on PoE 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('PoE 2 Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on PoE project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgPoePage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on PoE project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('PoE Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Nightreign project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgNightreignPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Nightreign project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Nightreign Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Deadlock project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDeadlockPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Deadlock project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Deadlock Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on The Bazaar project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgBazaarPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on The Bazaar project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('The Bazaar Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Diablo 4  project`, async ({ page }) => {
-    test.fixme(
-      process.env.BASE_URL === 'https://mobalytics.gg',
-      `It'll be necessary to enable this test on prod when UG Tier List doc is enable on production`,
-    );
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgDiablo4Page();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Diablo 4  project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Diablo 4 Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Marvel Rivals project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgMarvelRivalsPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Marvel Rivals project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Marvel Rivals Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on ZZZ project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgZzzPage();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on ZZZ project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('ZZZ Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Borderlands 4 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgBorderlands4Page();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Borderlands 4 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Borderlands 4 Tier List');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
-    });
-  });
-
-  test(`Create a tier list page on Hades 2 project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-guide-page-${uniqueId}`;
-    const moba = new Moba(page);
-
-    await moba.mainURLs.openUgHades2Page();
-    await moba.ugProfilePage.gotoTierListPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
-
-    await test.step(`Expected Result: Tier List page with the name: ${pageName} is created on Hades 2 project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Hades 2 Tier List');
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -1521,7 +826,7 @@ test.describe('Game Manager permission', () => {
   });
 });
 
-test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
+test('Check error state for empty "CardGrid" widget', async ({ browser }) => {
   const adminContext = await browser.newContext({ storageState: '.auth/adminAuth.json' });
   const adminPage = await adminContext.newPage();
   const admin = new Moba(adminPage);
@@ -1537,136 +842,138 @@ test("Check error state for empty 'CardGrid' widget", async ({ browser }) => {
   });
 });
 
-[
-  // { game: "TFT", pageUrl: "/tft/qa-check-static-data-not-delete" },
-  // { game: "LoL", pageUrl: "/lol/qa-check-static-data-not-delete" },
-  // { game: "Riftbound", pageUrl: "/riftbound/qa-check-static-data-not-delete" },
-  { game: '2XKO', pageUrl: '/2xko/qa-check-static-data-not-delete' },
-  { game: 'ZZZ', pageUrl: '/zzz/qa-check-static-data-not-delete' },
-  { game: 'Diablo 4', pageUrl: '/diablo-4/qa-check-static-data-not-delete' },
-  { game: 'Elden Ring', pageUrl: '/elden-ring-nightreign/qa-check-static-data-not-delete' },
-  { game: 'Monster Hunter Wilds', pageUrl: '/mhw/qa-check-static-data-not-delete' },
-  { game: 'Hades 2', pageUrl: '/hades-2/qa-check-static-data-not-delete' },
-  { game: 'Borderlands 4', pageUrl: '/borderlands-4/qa-check-static-data-not-delete' },
-  { game: 'Deadlock', pageUrl: '/deadlock/qa-check-static-data-not-delete' },
-  { game: 'Path of Exile 2', pageUrl: '/poe-2/qa-check-static-data-not-delete' },
-  { game: 'Path of Exile', pageUrl: '/poe/qa-check-static-data-not-delete' },
-  { game: 'The Bazaar', pageUrl: '/the-bazaar/qa-check-static-data-not-delete' },
-].forEach(({ game, pageUrl }) => {
+projects.forEach(({ game, staticDataStPage }) => {
   test(`Check static data on NGF ${game}`, async ({ browser }) => {
     const adminContext = await browser.newContext({ storageState: '.auth/adminAuth.json' });
     const adminPage = await adminContext.newPage();
     const admin = new Moba(adminPage);
 
-    if (game === 'ZZZ') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+    try {
+      switch (game) {
+        case 'ZZZ': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Alice';
+          const gameSpecificItem = 'Alice';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === '2XKO') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case '2XKO': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Blitzcrank';
+          const gameSpecificItem = 'Blitzcrank';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Diablo 4') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Diablo 4': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Amethyst';
+          const gameSpecificItem = 'Amethyst';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Elden Ring') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Elden Ring': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Blood Loss';
+          const gameSpecificItem = 'Blood Loss';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Monster Hunter Wilds') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Monster Hunter Wilds': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Dragon';
+          const gameSpecificItem = 'Dragon';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem, { exact: true })).toBeVisible();
-    }
-    if (game === 'Hades 2') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem, { exact: true })).toBeVisible();
+          break;
+        }
+        case 'Hades 2': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Frinos';
+          const gameSpecificItem = 'Frinos';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Borderlands 4') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Borderlands 4': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Entanglement';
+          const gameSpecificItem = 'Entanglement';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Deadlock') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Deadlock': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Channeling Time';
+          const gameSpecificItem = 'Channeling Time';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Path of Exile 2') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Path of Exile 2': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Acolyte of Chayula';
+          const gameSpecificItem = 'Acolyte of Chayula';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'Path of Exile') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'Path of Exile': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Ascendant';
+          const gameSpecificItem = 'Ascendant';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
-    }
-    if (game === 'The Bazaar') {
-      await adminPage.goto(`${process.env.BASE_URL}${pageUrl}`);
-      await admin.stPage.editButton.click();
-      await admin.stPage.staticDataButton.click();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'The Bazaar': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
 
-      const gameSpecificItem = 'Dooley';
+          const gameSpecificItem = 'Dooley';
 
-      await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
-      await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+      }
+    } finally {
+      await adminContext.close();
     }
   });
 });
