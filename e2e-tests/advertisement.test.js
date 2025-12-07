@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { projects } from '../src/modules/index';
+import { filterProjectsByFeatureStatus as filterProjectsByAdvertisement } from '../src/modules/index';
 
-projects.forEach(({ game, projectPath }) => {
+filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) => {
   test(`Check the availability of advertisement blocks for ${game} game`, async ({ page }) => {
     await test.step(`Open project url: "${process.env.BASE_URL}${projectPath}"`, async () => {
       await page.goto(`${process.env.BASE_URL}${projectPath}`, {
@@ -10,7 +10,7 @@ projects.forEach(({ game, projectPath }) => {
     });
 
     switch (game) {
-      case 'LOL':
+      case 'LoL':
         await test.step(`Expected Result: lol-video-all-pages is present on the page`, async () => {
           await expect(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video'))).toBeVisible();
         });
@@ -38,7 +38,7 @@ projects.forEach(({ game, projectPath }) => {
           await expect(page.locator('#web-zzz-display-footer-d').locator('xpath=..')).toBeVisible();
         });
         break;
-      case 'Valorant':
+      case 'Val':
         await test.step(`Expected Result: valorant-video-all-pages is present on the page`, async () => {
           await expect(
             page.locator('#valorant-video-all-pages').or(page.locator('#valorant-nitro-video'))
@@ -68,7 +68,7 @@ projects.forEach(({ game, projectPath }) => {
           await expect(page.locator('#web-tft-display-footer-d').locator('xpath=..')).toBeVisible();
         });
         break;
-      case 'Path of Exile':
+      case 'PoE':
         await test.step(`Expected Result: poe-video-all-pages is present on the page`, async () => {
           await expect(page.locator('#poe-video-all-pages').or(page.locator('#poe-nitro-video'))).toBeVisible();
         });
@@ -82,7 +82,7 @@ projects.forEach(({ game, projectPath }) => {
           await expect(page.locator('#web-poe-display-footer-d').locator('xpath=..')).toBeVisible();
         });
         break;
-      case 'Path of Exile 2':
+      case 'PoE 2':
         await test.step(`Expected Result: poe-2-video-all-pages is present on the page`, async () => {
           await expect(page.locator('#poe-2-video-all-pages').or(page.locator('#poe-2-nitro-video'))).toBeVisible();
         });
@@ -112,7 +112,7 @@ projects.forEach(({ game, projectPath }) => {
           await expect(page.locator('#web-the-bazaar-display-footer-d').locator('xpath=..')).toBeVisible();
         });
         break;
-      case 'MHV':
+      case 'Monster Hunter Wilds':
         await test.step(`Expected Result: mhw-video-all-pages is present on the page`, async () => {
           await expect(page.locator('#mhw-video-all-pages').or(page.locator('#mhw-nitro-video'))).toBeVisible();
         });
@@ -126,7 +126,7 @@ projects.forEach(({ game, projectPath }) => {
           await expect(page.locator('#web-mhw-display-footer-d').locator('xpath=..')).toBeVisible();
         });
         break;
-      case 'Elden Ring':
+      case 'Nightreign':
         await test.step(`Expected Result: elden-ring-nightreign-video-all-pages is present on the page`, async () => {
           await expect(
             page
@@ -250,6 +250,20 @@ projects.forEach(({ game, projectPath }) => {
         });
         await test.step(`Expected Result: "web-bl4-display-footer-d" banner is present on the page`, async () => {
           await expect(page.locator('#web-bl4-display-footer-d').locator('xpath=..')).toBeVisible();
+        });
+        break;
+      case 'Hades 2':
+        await test.step(`Expected Result: hades-2-video-all-pages is present on the page`, async () => {
+          await expect(page.locator('#hades-2-video-all-pages').or(page.locator('#hades-2-nitro-video'))).toBeVisible();
+        });
+        await test.step(`Expected Result: "hades-2-display-all-pages" banner is present on the page`, async () => {
+          await expect(page.locator('#hades-2-display-all-pages')).toBeVisible();
+        });
+        await test.step(`Expected Result: "hades-2-display-small-all-pages" banner is present on the page`, async () => {
+          await expect(page.locator('#hades-2-display-small-all-pages')).toBeVisible();
+        });
+        await test.step(`Expected Result: "web-hades-2-display-footer-d" banner is present on the page`, async () => {
+          await expect(page.locator('#web-hades-2-display-footer-d').locator('xpath=..')).toBeVisible();
         });
         break;
     }

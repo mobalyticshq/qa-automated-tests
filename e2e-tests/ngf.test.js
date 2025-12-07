@@ -2,7 +2,12 @@ import { expect } from '@playwright/test';
 import { v4 as uuidv4 } from 'uuid';
 import { test } from '../src/fixtures/fixture';
 import { Moba } from '../src/page-object/moba';
-import { projects } from '../src/modules/index';
+import {
+  filterProjectsByFeatureStatus as filterProjectsByAvailableStaticData,
+  filterProjectsByFeatureStatus as filterProjectsByBuilds,
+  filterProjectsByFeatureStatus as filterProjectsByGuides,
+  filterProjectsByFeatureStatus as filterProjectsByTierLists,
+} from '../src/modules/index';
 
 test.beforeEach(async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -353,40 +358,38 @@ test.describe('Creating ST Pages', () => {
 test.describe('Creating UG Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
 
-  projects.forEach(({ game, projectPath }) => {
+  filterProjectsByBuilds('build').forEach(({ game, projectPath }) => {
     test(`Create a build, deck page on ${game} project`, async ({ page }) => {
       const uniqueId = uuidv4();
       const pageName = `qa-automation-build-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
       }
-      if (game === 'Riftbound') {
-        await moba.ugProfilePage.gotoDeckPlannerPage();
-      } else {
-        await moba.ugProfilePage.gotoBuildPlannerPage();
-      }
+      // if (game === 'Riftbound') {
+      //   await moba.ugProfilePage.gotoDeckPlannerPage();
+      // } else {
+      await moba.ugProfilePage.gotoBuildPlannerPage();
+      // }
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Build page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(
-          new RegExp(`${game.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} (Build|Deck)`)
-        );
+        await expect(moba.ugBuildPage.header).toContainText(new RegExp(`${game} (Build|Deck)`));
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
   });
 
-  projects.forEach(({ game, projectPath }) => {
+  filterProjectsByGuides('guide').forEach(({ game, projectPath }) => {
     test(`Create a guide page on ${game} project`, async ({ page }) => {
       const uniqueId = uuidv4();
       const pageName = `qa-automation-guide-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -401,16 +404,18 @@ test.describe('Creating UG Pages', () => {
     });
   });
 
-  projects.forEach(({ game, projectPath }) => {
+  filterProjectsByTierLists('tierList').forEach(({ game, projectPath }) => {
     test(`Create a tier-list page on ${game} project`, async ({ page }) => {
+      test.skip(
+        game === 'Diablo 4' && process.env.BASE_URL.includes('https://mobalytics.gg'),
+        'Diablo 4 Tier List is not supported yet on production'
+      );
       const uniqueId = uuidv4();
       const pageName = `qa-automation-tier-list-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
-      } else if (game === 'Diablo 4') {
-        console.log('Diablo 4 Tier List is not supported yet');
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
       }
@@ -422,7 +427,23 @@ test.describe('Creating UG Pages', () => {
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
+    // }
   });
+
+  // test(`Create a tier-list page on hade-2 project`, async ({ page }) => {
+  //   const uniqueId = uuidv4();
+  //   const pageName = `qa-automation-team-page-${uniqueId}`;
+  //   const moba = new Moba(page);
+
+  //   await moba.mainURLs.openUgHades2Page();
+  //   await moba.ugProfilePage.gotoTierListPlannerPage();
+  //   await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+  //   await test.step(`Expected Result: Tier-list page with the name: ${pageName} is created on hade-2 project`, async () => {
+  //     await expect(moba.ugBuildPage.header).toContainText('Hades 2 Tier List');
+  //     await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+  //   });
+  // });
 
   test(`Create a team page on ZZZ project`, async ({ page }) => {
     const uniqueId = uuidv4();
@@ -435,6 +456,21 @@ test.describe('Creating UG Pages', () => {
 
     await test.step(`Expected Result: Team page with the name: ${pageName} is created on ZZZ project`, async () => {
       await expect(moba.ugBuildPage.header).toContainText('ZZZ Team');
+      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+    });
+  });
+
+  test(`Create a deck page on Riftbound project`, async ({ page }) => {
+    const uniqueId = uuidv4();
+    const pageName = `qa-automation-team-page-${uniqueId}`;
+    const moba = new Moba(page);
+
+    await moba.mainURLs.openUgRiftboundPage();
+    await moba.ugProfilePage.gotoDeckPlannerPage();
+    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+    await test.step(`Expected Result: Deck page with the name: ${pageName} is created on Riftbound project`, async () => {
+      await expect(moba.ugBuildPage.header).toContainText('Riftbound Deck');
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -842,7 +878,7 @@ test('Check error state for empty "CardGrid" widget', async ({ browser }) => {
   });
 });
 
-projects.forEach(({ game, staticDataStPage }) => {
+filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStPage }) => {
   test(`Check static data on NGF ${game}`, async ({ browser }) => {
     const adminContext = await browser.newContext({ storageState: '.auth/adminAuth.json' });
     const adminPage = await adminContext.newPage();
@@ -883,7 +919,7 @@ projects.forEach(({ game, staticDataStPage }) => {
           await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
           break;
         }
-        case 'Elden Ring': {
+        case 'Nightreign': {
           await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
           await admin.stPage.editButton.click();
           await admin.stPage.staticDataButton.click();
@@ -938,7 +974,7 @@ projects.forEach(({ game, staticDataStPage }) => {
           await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
           break;
         }
-        case 'Path of Exile 2': {
+        case 'PoE 2': {
           await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
           await admin.stPage.editButton.click();
           await admin.stPage.staticDataButton.click();
@@ -949,7 +985,7 @@ projects.forEach(({ game, staticDataStPage }) => {
           await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
           break;
         }
-        case 'Path of Exile': {
+        case 'PoE': {
           await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
           await admin.stPage.editButton.click();
           await admin.stPage.staticDataButton.click();

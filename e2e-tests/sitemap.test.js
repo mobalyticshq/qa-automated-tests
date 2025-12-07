@@ -16,7 +16,7 @@ test(`Checking sitemap for all games in the list on ${process.env.URL_SITEMAP}`,
     { game: 'Set15', isPresentInSitemap: true, pathUrl: '/tft/set16/sitemap.xml' },
     { game: 'Destiny 2', isPresentInSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
     { game: 'Diablo 4', isPresentInSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
-    { game: 'Elden Ring', isPresentInSitemap: true, pathUrl: '/elden-ring-nightreign/sitemap.xml' },
+    { game: 'Nightreign', isPresentInSitemap: true, pathUrl: '/elden-ring-nightreign/sitemap.xml' },
     { game: 'Marvel Rivals', isPresentInSitemap: true, pathUrl: '/marvel-rivals/sitemap.xml' },
     { game: 'Monster Hunter Wilds', isPresentInSitemap: true, pathUrl: '/mhw/sitemap.xml' },
     { game: 'Hades 2', isPresentInSitemap: true, pathUrl: '/hades-2/sitemap.xml' },
@@ -54,6 +54,7 @@ test(`Checking sitemap for all games in the list on ${process.env.URL_SITEMAP}`,
 sitemapList.forEach(({ linkInList, isPresentInSitemap, pathUrl }) => {
   test(`Sitemap: ${process.env.BASE_URL}${pathUrl} is opened successfully`, async ({ page }) => {
     const isProd = process.env.BASE_URL.includes('https://mobalytics.gg');
+    test.skip(isProd && isPresentInSitemap === false, `${linkInList} is not revealed on prod`);
 
     await test.step(`Open sitemap url: ${process.env.BASE_URL}${pathUrl}`, async () => {
       await page.goto(`${process.env.BASE_URL}${pathUrl}`, { waitUntil: 'domcontentloaded' });
@@ -63,11 +64,12 @@ sitemapList.forEach(({ linkInList, isPresentInSitemap, pathUrl }) => {
         await expect(page).toHaveTitle('XML Sitemap');
         await expect(page.locator('#sitemap')).toContainText(`${linkInList}`);
       });
-    } else if (isProd && isPresentInSitemap === false) {
+    } /*else if (isProd && isPresentInSitemap === false) {
       await test.step(`Expected Result: ${process.env.URL_SITEMAP}${pathUrl} is not opened successfully on prod`, async () => {
-        console.warn(`${linkInList} is not revealed on prod`);
+        // test.skip(isProd && isPresentInSitemap === false, `${linkInList} is not revealed on prod`);
+        // console.warn(`${linkInList} is not revealed on prod`);
       });
-    } else {
+    } */else {
       await test.step(`Expected Result: ${process.env.URL_SITEMAP}${pathUrl} is opened successfully on stg`, async () => {
         await expect(page).toHaveTitle('XML Sitemap');
         await expect(page.locator('#sitemap')).toContainText(`${linkInList}`);
