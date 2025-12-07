@@ -59,17 +59,13 @@ sitemapList.forEach(({ linkInList, isPresentInSitemap, pathUrl }) => {
     await test.step(`Open sitemap url: ${process.env.BASE_URL}${pathUrl}`, async () => {
       await page.goto(`${process.env.BASE_URL}${pathUrl}`, { waitUntil: 'domcontentloaded' });
     });
+    
     if (isProd && isPresentInSitemap === true) {
       await test.step(`Expected Result: ${process.env.URL_SITEMAP}${pathUrl} is opened successfully on prod`, async () => {
         await expect(page).toHaveTitle('XML Sitemap');
         await expect(page.locator('#sitemap')).toContainText(`${linkInList}`);
       });
-    } /*else if (isProd && isPresentInSitemap === false) {
-      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${pathUrl} is not opened successfully on prod`, async () => {
-        // test.skip(isProd && isPresentInSitemap === false, `${linkInList} is not revealed on prod`);
-        // console.warn(`${linkInList} is not revealed on prod`);
-      });
-    } */else {
+    } else {
       await test.step(`Expected Result: ${process.env.URL_SITEMAP}${pathUrl} is opened successfully on stg`, async () => {
         await expect(page).toHaveTitle('XML Sitemap');
         await expect(page.locator('#sitemap')).toContainText(`${linkInList}`);
