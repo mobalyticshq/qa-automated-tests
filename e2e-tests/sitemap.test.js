@@ -37,15 +37,21 @@ test(`Checking sitemap for all games in the list on ${process.env.URL_SITEMAP}`,
   for (const { game, isPresentInSitemap, pathUrl } of gameList) {
     if (isProd && isPresentInSitemap === true) {
       await test.step(`Expected Result: ${game} is present in ${process.env.URL_SITEMAP}`, async () => {
-        await expect(page.locator('#folder0')).toContainText(`${process.env.BASE_URL}${pathUrl}`);
+        await expect
+          .soft(page.locator('#folder0'))
+          .toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
       });
     } else if (isProd && isPresentInSitemap === false) {
       await test.step(`Expected Result: ${game} is not present in ${process.env.URL_SITEMAP}`, async () => {
-        await expect(page.locator('#folder0')).not.toContainText(`${process.env.BASE_URL}${pathUrl}`);
+        await expect
+          .soft(page.locator('#folder0'))
+          .not.toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
       });
     } else {
       await test.step(`Expected Result: ${game} is present in ${process.env.URL_SITEMAP}`, async () => {
-        await expect(page.locator('#folder0')).toContainText(`${process.env.BASE_URL}${pathUrl}`);
+        await expect
+          .soft(page.locator('#folder0'))
+          .toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
       });
     }
   }
@@ -59,7 +65,7 @@ sitemapList.forEach(({ linkInList, isPresentInSitemap, pathUrl }) => {
     await test.step(`Open sitemap url: ${process.env.BASE_URL}${pathUrl}`, async () => {
       await page.goto(`${process.env.BASE_URL}${pathUrl}`, { waitUntil: 'domcontentloaded' });
     });
-    
+
     if (isProd && isPresentInSitemap === true) {
       await test.step(`Expected Result: ${process.env.URL_SITEMAP}${pathUrl} is opened successfully on prod`, async () => {
         await expect(page).toHaveTitle('XML Sitemap');

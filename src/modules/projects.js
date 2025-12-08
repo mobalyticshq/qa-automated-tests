@@ -1,5 +1,19 @@
 const projectList = [
   {
+    game: 'LoL',
+    projectPath: '/lol',
+    staticDataStPage: '/lol/qa-check-static-data-not-delete',
+    features: {
+      build: true,
+      guide: true,
+      tierList: true,
+      team: false,
+      deck: false,
+      staticData: false,
+      advertisement: true,
+    },
+  },
+  {
     game: 'Val',
     projectPath: '/valorant',
     staticDataStPage: '/valorant/qa-check-static-data-not-delete',
@@ -17,20 +31,6 @@ const projectList = [
     game: 'TFT',
     projectPath: '/tft',
     staticDataStPage: '/tft/qa-check-static-data-not-delete',
-    features: {
-      build: true,
-      guide: true,
-      tierList: true,
-      team: false,
-      deck: false,
-      staticData: false,
-      advertisement: true,
-    },
-  },
-  {
-    game: 'LoL',
-    projectPath: '/lol',
-    staticDataStPage: '/lol/qa-check-static-data-not-delete',
     features: {
       build: true,
       guide: true,

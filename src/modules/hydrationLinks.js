@@ -1,6 +1,1 @@
-export const hydrationLinks = [
-  {
-    game: 'LOL',
-    link: 'https://mobalytics.gg/lol',
-  },
-];
+export const hydrationLinks = ['https://mobalytics.gg/diablo-4/profile/cliptis'];

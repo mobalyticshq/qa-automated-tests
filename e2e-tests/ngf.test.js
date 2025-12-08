@@ -359,7 +359,7 @@ test.describe('Creating UG Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
 
   filterProjectsByBuilds('build').forEach(({ game, projectPath }) => {
-    test(`Create a build, deck page on ${game} project`, async ({ page }) => {
+    test(`Create a build page on ${game} project`, async ({ page }) => {
       const uniqueId = uuidv4();
       const pageName = `qa-automation-build-page-${uniqueId}`;
       const moba = new Moba(page);
