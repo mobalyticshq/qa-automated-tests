@@ -7,7 +7,7 @@ import {
   filterProjectsByFeatureStatus as filterProjectsByBuilds,
   filterProjectsByFeatureStatus as filterProjectsByGuides,
   filterProjectsByFeatureStatus as filterProjectsByTierLists,
-} from '../src/modules/index';
+} from '../src/helpers/index';
 
 test.beforeEach(async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));

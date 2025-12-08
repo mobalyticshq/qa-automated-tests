@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { v4 as uuidv4 } from 'uuid';
 import { test } from '../src/fixtures/fixture';
 import { Moba } from '../src/page-object/moba';
-import { hydrationLinks } from '../src/modules/hydrationLinks';
+import { hydrationLinks } from '../src/helpers/hydrationLinks';
 
 // test("Check x-moba-ssr-cache header & new content are present on MHW build page", async ({
 //   browser,

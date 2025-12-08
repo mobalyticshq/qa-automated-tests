@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { filterProjectsByFeatureStatus as filterProjectsByAdvertisement } from '../src/modules/index';
+import { filterProjectsByFeatureStatus as filterProjectsByAdvertisement } from '../src/helpers/index';
 
 filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) => {
   test(`Check the availability of advertisement blocks for ${game} game`, async ({ page }) => {

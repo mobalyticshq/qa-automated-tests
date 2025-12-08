@@ -1,4 +1,4 @@
-export const sitemapList = [
+const sitemapList = [
   { linkInList: `${process.env.BASE_URL}/lol/tier-list`, isPresentInSitemap: true, pathUrl: '/product-sitemap.xml' },
   { linkInList: `${process.env.BASE_URL}/valorant/maps`, isPresentInSitemap: true, pathUrl: '/valorant/sitemap.xml' },
   { linkInList: `${process.env.BASE_URL}/post-sitemap.xml`, isPresentInSitemap: true, pathUrl: '/sitemap_index.xml' },
@@ -46,3 +46,31 @@ export const sitemapList = [
   { linkInList: `${process.env.BASE_URL}/riftbound`, isPresentInSitemap: false, pathUrl: '/riftbound/sitemap.xml' },
   { linkInList: `${process.env.BASE_URL}/2xko`, isPresentInSitemap: false, pathUrl: '/2xko/sitemap.xml' },
 ];
+
+const projectListFromSitemap = [
+  { project: 'ZZZ', isPresentInSitemap: true, pathUrl: '/zzz/sitemap.xml' },
+  { project: 'Example Game', isPresentInSitemap: false, pathUrl: '/example-game/sitemap.xml' },
+  { project: 'Valorant', isPresentInSitemap: true, pathUrl: '/valorant/sitemap.xml' },
+  { project: 'Sitemap Index', isPresentInSitemap: true, pathUrl: '/sitemap_index.xml' },
+  { project: 'Product Sitemap', isPresentInSitemap: true, pathUrl: '/product-sitemap.xml' },
+  { project: 'Sitemap', isPresentInSitemap: true, pathUrl: '/sitemap_index.xml' },
+  { project: 'Champions', isPresentInSitemap: true, pathUrl: '/champions-sitemap.xml' },
+  { project: 'TFT', isPresentInSitemap: true, pathUrl: '/tft/sitemap.xml' },
+  { project: 'Set15', isPresentInSitemap: true, pathUrl: '/tft/set16/sitemap.xml' },
+  { project: 'Destiny 2', isPresentInSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
+  { project: 'Diablo 4', isPresentInSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
+  { project: 'Nightreign', isPresentInSitemap: true, pathUrl: '/elden-ring-nightreign/sitemap.xml' },
+  { project: 'Marvel Rivals', isPresentInSitemap: true, pathUrl: '/marvel-rivals/sitemap.xml' },
+  { project: 'Monster Hunter Wilds', isPresentInSitemap: true, pathUrl: '/mhw/sitemap.xml' },
+  { project: 'Hades 2', isPresentInSitemap: true, pathUrl: '/hades-2/sitemap.xml' },
+  { project: 'News', isPresentInSitemap: true, pathUrl: '/news/sitemap.xml' },
+  { project: 'Borderlands 4', isPresentInSitemap: true, pathUrl: '/borderlands-4/sitemap.xml' },
+  { project: 'Deadlock', isPresentInSitemap: true, pathUrl: '/deadlock/sitemap.xml' },
+  { project: 'PoE 2', isPresentInSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
+  { project: 'The Bazaar', isPresentInSitemap: true, pathUrl: '/the-bazaar/sitemap.xml' },
+  { project: 'PoE', isPresentInSitemap: true, pathUrl: '/poe/sitemap.xml' },
+  { project: 'Riftbound', isPresentInSitemap: false, pathUrl: '/riftbound/sitemap.xml' },
+  { project: '2XKO', isPresentInSitemap: false, pathUrl: '/2xko/sitemap.xml' },
+];
+
+export { sitemapList, projectListFromSitemap };

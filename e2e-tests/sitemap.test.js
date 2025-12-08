@@ -1,54 +1,28 @@
 import { test, expect } from '@playwright/test';
-import { sitemapList } from '../src/modules/index';
+import { sitemapList, projectListFromSitemap } from '../src/helpers/index';
 
-test(`Checking sitemap for all games in the list on ${process.env.URL_SITEMAP}`, async ({ page }) => {
+test(`Checking sitemap for all projects in the list on ${process.env.URL_SITEMAP}`, async ({ page }) => {
   const isProd = process.env.BASE_URL.includes('https://mobalytics.gg');
-
-  const gameList = [
-    { game: 'ZZZ', isPresentInSitemap: true, pathUrl: '/zzz/sitemap.xml' },
-    { game: 'Example Game', isPresentInSitemap: false, pathUrl: '/example-game/sitemap.xml' },
-    { game: 'Valorant', isPresentInSitemap: true, pathUrl: '/valorant/sitemap.xml' },
-    { game: 'Sitemap Index', isPresentInSitemap: true, pathUrl: '/sitemap_index.xml' },
-    { game: 'Product Sitemap', isPresentInSitemap: true, pathUrl: '/product-sitemap.xml' },
-    { game: 'Sitemap', isPresentInSitemap: true, pathUrl: '/sitemap_index.xml' },
-    { game: 'Champions', isPresentInSitemap: true, pathUrl: '/champions-sitemap.xml' },
-    { game: 'TFT', isPresentInSitemap: true, pathUrl: '/tft/sitemap.xml' },
-    { game: 'Set15', isPresentInSitemap: true, pathUrl: '/tft/set16/sitemap.xml' },
-    { game: 'Destiny 2', isPresentInSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
-    { game: 'Diablo 4', isPresentInSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
-    { game: 'Nightreign', isPresentInSitemap: true, pathUrl: '/elden-ring-nightreign/sitemap.xml' },
-    { game: 'Marvel Rivals', isPresentInSitemap: true, pathUrl: '/marvel-rivals/sitemap.xml' },
-    { game: 'Monster Hunter Wilds', isPresentInSitemap: true, pathUrl: '/mhw/sitemap.xml' },
-    { game: 'Hades 2', isPresentInSitemap: true, pathUrl: '/hades-2/sitemap.xml' },
-    { game: 'News', isPresentInSitemap: true, pathUrl: '/news/sitemap.xml' },
-    { game: 'Borderlands 4', isPresentInSitemap: true, pathUrl: '/borderlands-4/sitemap.xml' },
-    { game: 'Deadlock', isPresentInSitemap: true, pathUrl: '/deadlock/sitemap.xml' },
-    { game: 'PoE 2', isPresentInSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
-    { game: 'The Bazaar', isPresentInSitemap: true, pathUrl: '/the-bazaar/sitemap.xml' },
-    { game: 'PoE', isPresentInSitemap: true, pathUrl: '/poe/sitemap.xml' },
-    { game: 'Riftbound', isPresentInSitemap: false, pathUrl: '/riftbound/sitemap.xml' },
-    { game: '2XKO', isPresentInSitemap: false, pathUrl: '/2xko/sitemap.xml' },
-  ];
 
   await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
     await page.goto(process.env.URL_SITEMAP);
   });
 
-  for (const { game, isPresentInSitemap, pathUrl } of gameList) {
+  for (const { project, isPresentInSitemap, pathUrl } of projectListFromSitemap) {
     if (isProd && isPresentInSitemap === true) {
-      await test.step(`Expected Result: ${game} is present in ${process.env.URL_SITEMAP}`, async () => {
+      await test.step(`Expected Result: ${project} is present in ${process.env.URL_SITEMAP}`, async () => {
         await expect
           .soft(page.locator('#folder0'))
           .toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
       });
     } else if (isProd && isPresentInSitemap === false) {
-      await test.step(`Expected Result: ${game} is not present in ${process.env.URL_SITEMAP}`, async () => {
+      await test.step(`Expected Result: ${project} is not present in ${process.env.URL_SITEMAP}`, async () => {
         await expect
           .soft(page.locator('#folder0'))
           .not.toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
       });
     } else {
-      await test.step(`Expected Result: ${game} is present in ${process.env.URL_SITEMAP}`, async () => {
+      await test.step(`Expected Result: ${project} is present in ${process.env.URL_SITEMAP}`, async () => {
         await expect
           .soft(page.locator('#folder0'))
           .toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
