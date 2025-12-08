@@ -1,0 +1,613 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "Mobalytics" [ref=e6] [cursor=pointer]:
+        - /url: /lol
+        - img "Mobalytics" [ref=e7]
+      - generic [ref=e9]:
+        - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/lol
+          - generic [ref=e13]:
+            - img "League of Legends" [ref=e14]
+            - generic [ref=e15]: LoL
+        - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/tft
+          - generic [ref=e19]:
+            - img "Teamfight Tactics" [ref=e20]
+            - generic [ref=e21]: TFT
+        - link "Path of Exile 2 PoE 2" [ref=e23] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe-2
+          - generic [ref=e25]:
+            - img "Path of Exile 2" [ref=e26]
+            - generic [ref=e27]: PoE 2
+        - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/diablo-4
+          - generic [ref=e31]:
+            - img "Diablo 4" [ref=e32]
+            - generic [ref=e33]: Diablo 4
+        - link "Path of Exile PoE New" [ref=e35] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe
+          - generic [ref=e37]:
+            - img "Path of Exile" [ref=e38]
+            - generic [ref=e39]: PoE
+            - generic [ref=e40]: New
+        - link "Destiny 2 Destiny 2" [ref=e42] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/destiny-2
+          - generic [ref=e44]:
+            - img "Destiny 2" [ref=e45]
+            - generic [ref=e46]: Destiny 2
+        - link "Borderlands 4 Borderlands 4" [ref=e48] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/borderlands-4
+          - generic [ref=e50]:
+            - img "Borderlands 4" [ref=e51]
+            - generic [ref=e52]: Borderlands 4
+        - link "Hades 2 Hades 2" [ref=e54] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/hades-2
+          - generic [ref=e56]:
+            - img "Hades 2" [ref=e57]
+            - generic [ref=e58]: Hades 2
+        - link "Elden Ring Nightreign Nightreign" [ref=e60] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e62]:
+            - img "Elden Ring Nightreign" [ref=e63]
+            - generic [ref=e64]: Nightreign
+        - link "Deadlock Deadlock" [ref=e66] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/deadlock
+          - generic [ref=e68]:
+            - img "Deadlock" [ref=e69]
+            - generic [ref=e70]: Deadlock
+        - link "Valorant VAL" [ref=e72] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/valorant
+          - generic [ref=e74]:
+            - img "Valorant" [ref=e75]
+            - generic [ref=e76]: VAL
+        - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e78] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/mhw
+          - generic [ref=e80]:
+            - img "Monster Hunter Wilds" [ref=e81]
+            - generic [ref=e82]: Monster Hunter Wilds
+        - link "Example game ExG" [ref=e84] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/example-game
+          - generic [ref=e86]:
+            - img "Example game" [ref=e87]
+            - generic [ref=e88]: ExG
+        - link "The Bazaar The Bazaar" [ref=e90] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/the-bazaar
+          - generic [ref=e92]:
+            - img "The Bazaar" [ref=e93]
+            - generic [ref=e94]: The Bazaar
+        - button [ref=e95] [cursor=pointer]:
+          - img [ref=e96]
+        - generic:
+          - link "Marvel Rivals Marvel Rivals":
+            - /url: https://stg.mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img "Marvel Rivals"
+                - generic: Marvel Rivals
+        - generic:
+          - link "Zenless Zone Zero ZZZ":
+            - /url: https://stg.mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img "Zenless Zone Zero"
+                - generic: ZZZ
+        - generic:
+          - link "Riftbound Riftbound New":
+            - /url: https://stg.mobalytics.gg/riftbound
+            - generic:
+              - generic:
+                - img "Riftbound"
+                - generic: Riftbound
+                - generic: New
+        - generic:
+          - link "2XKO 2XKO New":
+            - /url: https://stg.mobalytics.gg/2xko
+            - generic:
+              - generic:
+                - img "2XKO"
+                - generic: 2XKO
+                - generic: New
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - link "win logo Download app" [ref=e99] [cursor=pointer]:
+          - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-lol&utm_medium=homepage&utm_source=web
+          - button "win logo Download app" [ref=e100]:
+            - img "win logo" [ref=e102]
+            - generic [ref=e103]: Download app
+        - combobox [ref=e105]:
+          - 'textbox "Game Name #Tag or Champion" [ref=e108]'
+          - listbox
+        - generic [ref=e111] [cursor=pointer]: Community
+        - generic [ref=e113] [cursor=pointer]:
+          - generic [ref=e114]: News
+          - generic [ref=e116]: new
+        - text: new
+      - generic [ref=e117]:
+        - button "sign in" [ref=e118] [cursor=pointer]:
+          - generic [ref=e119]: sign in
+        - img "support" [ref=e123] [cursor=pointer]
+        - img "language" [ref=e126] [cursor=pointer]
+    - generic [ref=e128]:
+      - link "Home" [ref=e131] [cursor=pointer]:
+        - /url: /lol
+        - img "Home" [ref=e133]
+      - link "Profile" [ref=e136] [cursor=pointer]:
+        - /url: /lol/lp/profile
+        - img "Profile" [ref=e138]
+      - link "Game Highlights" [ref=e141] [cursor=pointer]:
+        - /url: /lol/glp/smart-highlights-1
+        - img "Game Highlights" [ref=e143]
+      - link "GPI" [ref=e146] [cursor=pointer]:
+        - /url: /lol/lp/gpi
+        - img "GPI" [ref=e148]
+      - link "Challenges" [ref=e151] [cursor=pointer]:
+        - /url: /lol/challenges
+        - img "Challenges" [ref=e153]
+      - link "Champions" [ref=e156] [cursor=pointer]:
+        - /url: /lol/champions
+        - img "Champions" [ref=e158]
+      - link "Tier List" [ref=e161] [cursor=pointer]:
+        - /url: /lol/tier-list
+        - img "Tier List" [ref=e163]
+    - generic [ref=e165]:
+      - main [ref=e166]:
+        - generic [ref=e169]:
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - heading "win more in League of Legends" [level=1] [ref=e173]:
+                - paragraph [ref=e175]: win more in League of Legends
+              - paragraph [ref=e177]:
+                - text: Mobalytics is the all-in-one gaming companion that helps players
+                - text: of all skill levels improve and climb.
+            - combobox [ref=e179]:
+              - 'textbox "Game Name #Tag or Champion" [ref=e182]'
+              - listbox
+          - generic [ref=e184]:
+            - generic [ref=e186] [cursor=pointer]:
+              - generic [ref=e188]:
+                - img "star" [ref=e189]
+                - text: Live companion
+              - generic [ref=e190]:
+                - paragraph [ref=e192]: Want to save time and improve your focus?
+                - paragraph [ref=e194]: Get everything you need from within your game client by using our Desktop App.
+                - link "Download desktop app for windows" [ref=e197]:
+                  - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=ow_lol&utm_medium=homepage_widget_button&utm_source=web
+                  - button "Download desktop app for windows" [ref=e198]:
+                    - generic [ref=e199]: Download desktop app for windows
+            - generic [ref=e201]:
+              - generic [ref=e203]:
+                - generic [ref=e204]:
+                  - heading "FEATURED Champions" [level=2] [ref=e205]:
+                    - paragraph [ref=e207]: FEATURED Champions
+                  - paragraph [ref=e209]: Looking to try out a new champion? Here are some of our favorite recommendations!
+                - link "Explore all Champions" [ref=e210] [cursor=pointer]:
+                  - /url: /lol/champions
+                  - generic [ref=e212]: Explore all Champions
+              - generic [ref=e213]:
+                - link "Fighter Ambessa Matriarch of War Average Top Mid Jungle" [ref=e214] [cursor=pointer]:
+                  - /url: /lol/champions/ambessa/build
+                  - generic [ref=e215]:
+                    - img "Fighter" [ref=e217]
+                    - img [ref=e218]
+                    - generic [ref=e220]: Ambessa
+                    - generic [ref=e221]: Matriarch of War
+                    - paragraph [ref=e224]: Average
+                    - generic [ref=e225]:
+                      - img "Top" [ref=e226]
+                      - img "Mid" [ref=e227]
+                      - img "Jungle" [ref=e228]
+                - link "Fighter Zaahen The Darkin Glaive Average Top" [ref=e229] [cursor=pointer]:
+                  - /url: /lol/champions/zaahen/build
+                  - generic [ref=e230]:
+                    - img "Fighter" [ref=e232]
+                    - img [ref=e233]
+                    - generic [ref=e235]: Zaahen
+                    - generic [ref=e236]: The Darkin Glaive
+                    - paragraph [ref=e239]: Average
+                    - img "Top" [ref=e241]
+                - link "Marksman Smolder the Fiery Fledgling Average Top Mid Bot" [ref=e242] [cursor=pointer]:
+                  - /url: /lol/champions/smolder/build
+                  - generic [ref=e243]:
+                    - img "Marksman" [ref=e245]
+                    - img [ref=e246]
+                    - generic [ref=e248]: Smolder
+                    - generic [ref=e249]: the Fiery Fledgling
+                    - paragraph [ref=e252]: Average
+                    - generic [ref=e253]:
+                      - img "Top" [ref=e254]
+                      - img "Mid" [ref=e255]
+                      - img "Bot" [ref=e256]
+                - link "Marksman Yunara The Unbroken Faith Average Bot" [ref=e257] [cursor=pointer]:
+                  - /url: /lol/champions/yunara/build
+                  - generic [ref=e258]:
+                    - img "Marksman" [ref=e260]
+                    - img [ref=e261]
+                    - generic [ref=e263]: Yunara
+                    - generic [ref=e264]: The Unbroken Faith
+                    - paragraph [ref=e267]: Average
+                    - img "Bot" [ref=e269]
+            - generic [ref=e273] [cursor=pointer]:
+              - paragraph [ref=e275]: "Dev Blog: Our Most Powerful App Yet"
+              - paragraph [ref=e277]: Dive into our latest Dev Blog with insights from the founders of Mobalytics and Overwolf on our brand new app.
+              - link "Read More" [ref=e280]:
+                - /url: https://mobalytics.gg/blog/dev-blog-our-most-powerful-app-yet/
+                - button "Read More" [ref=e281]:
+                  - generic [ref=e282]: Read More
+            - generic [ref=e284]:
+              - generic [ref=e286]:
+                - generic [ref=e287]:
+                  - heading "What’s dominating the meta right now?" [level=2] [ref=e288]:
+                    - paragraph [ref=e290]: What’s dominating the meta right now?
+                  - paragraph [ref=e292]: Every patch, our experts rank and recommend champions to help you optimize your climb in the current meta.
+                - link "Explore our Meta Tier List" [ref=e293] [cursor=pointer]:
+                  - /url: /lol/tier-list
+                  - generic [ref=e295]: Explore our Meta Tier List
+              - generic [ref=e296]:
+                - link "Top" [ref=e297] [cursor=pointer]:
+                  - /url: /lol/tier-list/top?igRole=TOP
+                  - generic [ref=e298]: Top
+                - generic [ref=e299]:
+                  - link "Garen" [ref=e300] [cursor=pointer]:
+                    - /url: /lol/champions/garen/build
+                    - img [ref=e301]:
+                      - img "Garen" [ref=e303]
+                    - generic [ref=e304]: Garen
+                  - link "Irelia" [ref=e305] [cursor=pointer]:
+                    - /url: /lol/champions/irelia/build
+                    - img [ref=e306]:
+                      - img "Irelia" [ref=e308]
+                    - generic [ref=e309]: Irelia
+                  - link "Sion" [ref=e310] [cursor=pointer]:
+                    - /url: /lol/champions/sion/build
+                    - img [ref=e311]:
+                      - img "Sion" [ref=e313]
+                    - generic [ref=e314]: Sion
+                - link "Jungle" [ref=e315] [cursor=pointer]:
+                  - /url: /lol/tier-list/jungle?igRole=JUNGLE
+                  - generic [ref=e316]: Jungle
+                - generic [ref=e317]:
+                  - link "Diana" [ref=e318] [cursor=pointer]:
+                    - /url: /lol/champions/diana/build
+                    - img [ref=e319]:
+                      - img "Diana" [ref=e321]
+                    - generic [ref=e322]: Diana
+                  - link "Sylas" [ref=e323] [cursor=pointer]:
+                    - /url: /lol/champions/sylas/build
+                    - img [ref=e324]:
+                      - img "Sylas" [ref=e326]
+                    - generic [ref=e327]: Sylas
+                  - link "Nidalee" [ref=e328] [cursor=pointer]:
+                    - /url: /lol/champions/nidalee/build
+                    - img [ref=e329]:
+                      - img "Nidalee" [ref=e331]
+                    - generic [ref=e332]: Nidalee
+                - link "Mid" [ref=e333] [cursor=pointer]:
+                  - /url: /lol/tier-list/mid?igRole=MID
+                  - generic [ref=e334]: Mid
+                - generic [ref=e335]:
+                  - link "Zed" [ref=e336] [cursor=pointer]:
+                    - /url: /lol/champions/zed/build
+                    - img [ref=e337]:
+                      - img "Zed" [ref=e339]
+                    - generic [ref=e340]: Zed
+                  - link "Sylas" [ref=e341] [cursor=pointer]:
+                    - /url: /lol/champions/sylas/build
+                    - img [ref=e342]:
+                      - img "Sylas" [ref=e344]
+                    - generic [ref=e345]: Sylas
+                  - link "Orianna" [ref=e346] [cursor=pointer]:
+                    - /url: /lol/champions/orianna/build
+                    - img [ref=e347]:
+                      - img "Orianna" [ref=e349]
+                    - generic [ref=e350]: Orianna
+                - link "Bot" [ref=e351] [cursor=pointer]:
+                  - /url: /lol/tier-list/adc?igRole=ADC
+                  - generic [ref=e352]: Bot
+                - generic [ref=e353]:
+                  - link "Ashe" [ref=e354] [cursor=pointer]:
+                    - /url: /lol/champions/ashe/build
+                    - img [ref=e355]:
+                      - img "Ashe" [ref=e357]
+                    - generic [ref=e358]: Ashe
+                  - link "Tristana" [ref=e359] [cursor=pointer]:
+                    - /url: /lol/champions/tristana/build
+                    - img [ref=e360]:
+                      - img "Tristana" [ref=e362]
+                    - generic [ref=e363]: Tristana
+                  - link "Jinx" [ref=e364] [cursor=pointer]:
+                    - /url: /lol/champions/jinx/build
+                    - img [ref=e365]:
+                      - img "Jinx" [ref=e367]
+                    - generic [ref=e368]: Jinx
+                - link "Support" [ref=e369] [cursor=pointer]:
+                  - /url: /lol/tier-list/support?igRole=SUPPORT
+                  - generic [ref=e370]: Support
+                - generic [ref=e371]:
+                  - link "Milio" [ref=e372] [cursor=pointer]:
+                    - /url: /lol/champions/milio/build
+                    - img [ref=e373]:
+                      - img "Milio" [ref=e375]
+                    - generic [ref=e376]: Milio
+                  - link "Blitzcrank" [ref=e377] [cursor=pointer]:
+                    - /url: /lol/champions/blitzcrank/build
+                    - img [ref=e378]:
+                      - img "Blitzcrank" [ref=e380]
+                    - generic [ref=e381]: Blitzcrank
+                  - link "Karma" [ref=e382] [cursor=pointer]:
+                    - /url: /lol/champions/karma/build
+                    - img [ref=e383]:
+                      - img "Karma" [ref=e385]
+                    - generic [ref=e386]: Karma
+            - generic [ref=e388]:
+              - generic [ref=e390]:
+                - generic [ref=e391]:
+                  - heading "League of legends news and guides" [level=2] [ref=e392]:
+                    - paragraph [ref=e394]: League of legends news and guides
+                  - paragraph [ref=e396]: Stay up to date with the latest news, meta content, guides, and much more.
+                - link "Explore more articles at our Blog" [ref=e397] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/
+                  - generic [ref=e399]: Explore more articles at our Blog
+              - generic [ref=e400]:
+                - link "How to Choose your Main Role Learn about the five LoL roles and find the best one for you and your playstyle." [ref=e401] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/lol-roles/
+                  - generic [ref=e402]:
+                    - paragraph [ref=e406]: How to Choose your Main Role
+                    - paragraph [ref=e408]: Learn about the five LoL roles and find the best one for you and your playstyle.
+                - link "Champion Tier List for Climbing Solo Queue Ready to climb throughout Season 14? Find the right champs for you." [ref=e409] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/lol-tier-list-for-climbing-solo-queue/
+                  - generic [ref=e410]:
+                    - paragraph [ref=e414]: Champion Tier List for Climbing Solo Queue
+                    - paragraph [ref=e416]: Ready to climb throughout Season 14? Find the right champs for you.
+                - link "Patch Notes Breakdown Dive into the latest buffs and nerfs with analysis from our experts." [ref=e417] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/lol-patch-notes-breakdown/
+                  - generic [ref=e418]:
+                    - paragraph [ref=e422]: Patch Notes Breakdown
+                    - paragraph [ref=e424]: Dive into the latest buffs and nerfs with analysis from our experts.
+                - link "Terms That Every League of Legends Player Should Know Learn about all the different acronyms, phrases, and slang that LoL players commmonly use to communicate." [ref=e425] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/league-of-legends-terms/
+                  - generic [ref=e426]:
+                    - paragraph [ref=e430]: Terms That Every League of Legends Player Should Know
+                    - paragraph [ref=e432]: Learn about all the different acronyms, phrases, and slang that LoL players commmonly use to communicate.
+            - generic [ref=e434] [cursor=pointer]:
+              - generic [ref=e436]:
+                - img "star" [ref=e437]
+                - text: GPI
+              - generic [ref=e438]:
+                - paragraph [ref=e440]: Find out your strengths and weaknesses
+                - paragraph [ref=e442]: Discover your unique strengths and weaknesses as a League player and receive in-depth analysis to help you get better.
+                - link "show me my gpi" [ref=e445]:
+                  - /url: /lol/gpi
+                  - button "show me my gpi" [ref=e446]:
+                    - generic [ref=e447]: show me my gpi
+            - generic [ref=e449]:
+              - generic [ref=e452]:
+                - heading "What is league of legends?" [level=2] [ref=e453]:
+                  - paragraph [ref=e455]: What is league of legends?
+                - paragraph [ref=e457]: League of Legends is Riot’s multiplayer online battle arena (MOBA) where two teams of five players wield powerful champions that have unique abilities to achieve victory.
+              - generic [ref=e458]:
+                - generic [ref=e459]:
+                  - paragraph [ref=e462]: Select a Champion
+                  - paragraph [ref=e464]: There are currently over 150 playable champions and new ones are added every few months. Find the best one for you!
+                - generic [ref=e465]:
+                  - paragraph [ref=e468]: Choose your Role
+                  - paragraph [ref=e470]: Each of the five players on a LoL team chooses a specific position on the map that offers its own experience and expectations.
+                - generic [ref=e471]:
+                  - paragraph [ref=e474]: Destroy the Base
+                  - paragraph [ref=e476]: Work together with your team to complete your ultimate goal — destroying the enemy Nexus, the heart of their base.
+            - generic [ref=e478]:
+              - generic [ref=e481]:
+                - paragraph [ref=e483]: Unlock the ultimate mobalytics by using our desktop app
+                - paragraph [ref=e485]: Get your ultimate gaming companion for League of Legends today. It's free!
+                - link "Download desktop app for windows" [ref=e488] [cursor=pointer]:
+                  - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=ow_lol&utm_medium=homepage_widget_button&utm_source=web
+                  - button "Download desktop app for windows" [ref=e489]:
+                    - generic [ref=e490]: Download desktop app for windows
+              - generic [ref=e493] [cursor=pointer]:
+                - paragraph [ref=e495]: New to the world of LEAGUE OF LEGENDS?
+                - paragraph [ref=e497]: It’s never too late to learn! Just hit the button below to get started.
+                - link "Download League of Legends" [ref=e500]:
+                  - /url: https://signup.leagueoflegends.com/
+                  - button "Download League of Legends" [ref=e501]:
+                    - generic [ref=e502]: Download League of Legends
+          - generic [ref=e504]:
+            - generic [ref=e505]:
+              - generic [ref=e506]:
+                - generic [ref=e507]: League of Legends
+                - link "In-game Overlay" [ref=e508] [cursor=pointer]:
+                  - /url: /lol/glp/app-download/?int_source=lol_app&int_medium=footer
+                - link "GPI" [ref=e509] [cursor=pointer]:
+                  - /url: /lol/gpi/?int_source=lol_app&int_medium=footer
+                - link "Personal Match History" [ref=e510] [cursor=pointer]:
+                  - /url: /lol/profile/?int_source=lol_app&int_medium=footer
+                - link "Summoner Search" [ref=e511] [cursor=pointer]:
+                  - /url: /lol?int_source=lol_app&int_medium=footer
+                - link "LoL Champions" [ref=e512] [cursor=pointer]:
+                  - /url: /lol/champions?int_source=lol_app&int_medium=footer
+                - link "LoL Tier List" [ref=e513] [cursor=pointer]:
+                  - /url: /lol/tier-list?int_source=lol_app&int_medium=footer
+                - link "Challenges" [ref=e514] [cursor=pointer]:
+                  - /url: /lol/challenges?int_source=lol_app&int_medium=footer
+              - generic [ref=e515]:
+                - generic [ref=e516]: Teamfight Tactics
+                - link "In-game Overlay" [ref=e517] [cursor=pointer]:
+                  - /url: /tft/glp/app-download/?int_source=lol_app&int_medium=footer
+                - link "Meta Team Comps" [ref=e518] [cursor=pointer]:
+                  - /url: /tft/team-comps?int_source=lol_app&int_medium=footer
+                - link "Team Comps Builder" [ref=e519] [cursor=pointer]:
+                  - /url: /tft/comp-builder?int_source=lol_app&int_medium=footer
+                - link "Personal Match History" [ref=e520] [cursor=pointer]:
+                  - /url: /tft/profile/?int_source=lol_app&int_medium=footer
+                - link "Player Search" [ref=e521] [cursor=pointer]:
+                  - /url: /tft/search?int_source=lol_app&int_medium=footer
+                - link "TFT Champions" [ref=e522] [cursor=pointer]:
+                  - /url: /tft/champions?int_source=lol_app&int_medium=footer
+                - link "TFT Tier List" [ref=e523] [cursor=pointer]:
+                  - /url: /tft/tier-list/?int_source=lol_app&int_medium=footer
+              - generic [ref=e524]:
+                - generic [ref=e525]: Valorant
+                - link "Map Guides & Tips" [ref=e526] [cursor=pointer]:
+                  - /url: /valorant/map/all/guides?int_source=lol_app&int_medium=footer
+                - link "Agents" [ref=e527] [cursor=pointer]:
+                  - /url: /valorant/agents?int_source=lol_app&int_medium=footer
+                - link "Personal Match History" [ref=e528] [cursor=pointer]:
+                  - /url: /valorant/profile/?int_source=lol_app&int_medium=footer
+                - link "Player Search" [ref=e529] [cursor=pointer]:
+                  - /url: /valorant/search?int_source=lol_app&int_medium=footer
+                - link "Leaderboards" [ref=e530] [cursor=pointer]:
+                  - /url: /valorant/leaderboard?int_source=lol_app&int_medium=footer
+                - link "Master Class" [ref=e531] [cursor=pointer]:
+                  - /url: /valorant/lesson-plan/master-valorant?int_source=lol_app&int_medium=footer
+              - generic [ref=e532]:
+                - generic [ref=e533]: Resources
+                - link "Blog" [ref=e534] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/?int_source=lol_app&int_medium=footer
+                - link "Infographics" [ref=e535] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/guides-and-infographics/#all?int_source=lol_app&int_medium=footer
+                - link "Videos" [ref=e536] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCGCpa--gJo5Dzi0oxNgUPrw?int_source=lol_app&int_medium=footer
+                - link "About GPI" [ref=e537] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/gpi/?int_source=lol_app&int_medium=footer
+                - link "Research" [ref=e538] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/lol-ladder-research/?int_source=lol_app&int_medium=footer
+                - link "FAQ" [ref=e539] [cursor=pointer]:
+                  - /url: https://support.mobalytics.gg/hc/en-us?int_source=lol_app&int_medium=footer
+              - generic [ref=e540]:
+                - generic [ref=e541]: Other
+                - link "Twitch Extension" [ref=e542] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/twitch-extension/?int_source=lol_app&int_medium=footer
+                - link "Proving Grounds" [ref=e543] [cursor=pointer]:
+                  - /url: https://pg.mobalytics.gg/?int_source=lol_app&int_medium=footer
+                - link "Founders Wall" [ref=e544] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/founders-wall/?int_source=lol_app&int_medium=footer
+                - link "Wild Rift" [ref=e545] [cursor=pointer]:
+                  - /url: https://mobalytics.gg/blog/wild-rift/?int_source=lol_app&int_medium=footer
+            - generic [ref=e546]:
+              - generic [ref=e547]:
+                - generic [ref=e548]:
+                  - link "Mobalytics PLUS" [ref=e549] [cursor=pointer]:
+                    - /url: /lol/glp/plus?int_source=lol_app&int_medium=footer
+                  - text: ∙
+                  - link "About Us" [ref=e550] [cursor=pointer]:
+                    - /url: https://careers.mobalytics.gg/?int_source=lol_app&int_medium=footer
+                  - text: ∙
+                  - link "Partners Program" [ref=e551] [cursor=pointer]:
+                    - /url: https://mobalytics.gg/partners-program/?int_source=lol_app&int_medium=footer
+                  - text: ∙
+                  - link "Jobs" [ref=e552] [cursor=pointer]:
+                    - /url: https://careers.mobalytics.gg/#section-20512?int_source=lol_app&int_medium=footer
+                  - text: ∙
+                  - link "Press" [ref=e553] [cursor=pointer]:
+                    - /url: https://mobalytics.gg/press-page/?int_source=lol_app&int_medium=footer
+                - paragraph [ref=e555]:
+                  - text: Handcrafted with
+                  - img "heart" [ref=e556]
+                  - text: by Gamers for Gamers
+                - generic [ref=e557]: Mobalytics isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends™ and Riot Games are trademarks or registered trademarks of Riot Games, Inc.
+                - generic [ref=e558]:
+                  - link "Terms of Service" [ref=e559] [cursor=pointer]:
+                    - /url: https://mobalytics.gg/terms/?int_source=lol&int_medium=footer
+                  - text: ∙
+                  - link "Privacy Policy" [ref=e560] [cursor=pointer]:
+                    - /url: https://mobalytics.gg/privacy/?int_source=lol&int_medium=footer
+                  - text: ∙
+                  - link "Cookie Policy" [ref=e561] [cursor=pointer]:
+                    - /url: https://mobalytics.gg/cookie/?int_source=lol&int_medium=footer
+              - generic [ref=e562]:
+                - 'link "Talk to our team on: discord" [ref=e563] [cursor=pointer]':
+                  - /url: https://discord.gg/mobalytics?int_source=lol&int_medium=footer
+                  - generic [ref=e564]:
+                    - generic [ref=e565]: "Talk to our team on:"
+                    - img "discord" [ref=e566]
+                - generic [ref=e567]: "Connect with us:"
+                - generic [ref=e568]:
+                  - link "facebook" [ref=e569] [cursor=pointer]:
+                    - /url: https://www.facebook.com/Mobalytics/?int_source=lol&int_medium=footer
+                    - button "facebook" [ref=e570]:
+                      - img "facebook" [ref=e572]
+                  - link "twitter" [ref=e573] [cursor=pointer]:
+                    - /url: https://twitter.com/Mobalytics?int_source=lol&int_medium=footer
+                    - button "twitter" [ref=e574]:
+                      - img "twitter" [ref=e576]
+                  - link "youtube" [ref=e577] [cursor=pointer]:
+                    - /url: https://www.youtube.com/channel/UCGCpa--gJo5Dzi0oxNgUPrw?int_source=lol&int_medium=footer
+                    - button "youtube" [ref=e578]:
+                      - img "youtube" [ref=e580]
+                  - link "instagram" [ref=e581] [cursor=pointer]:
+                    - /url: https://www.instagram.com/mobalyticslol/?hl=en?int_source=lol&int_medium=footer
+                    - button "instagram" [ref=e582]:
+                      - img "instagram" [ref=e584]
+                - generic [ref=e585]: Copyright © 2016-2025. Gamers Net, Inc.
+        - iframe [ref=e593]:
+          - iframe [ref=f1e2]:
+            - iframe [ref=f2e3]:
+              - iframe [ref=f3e3]:
+                - generic [ref=f4e3]:
+                  - generic [ref=f4e4]:
+                    - generic [ref=f4e5]: Search for
+                    - list [ref=f4e6]:
+                      - listitem [ref=f4e7]:
+                        - generic [ref=f4e8]:
+                          - generic [ref=f4e9]: "1."
+                          - generic [ref=f4e10]: ❯
+                          - table [ref=f4e11]:
+                            - rowgroup [ref=f4e12]:
+                              - row "Best Mattress for Seniors" [ref=f4e13]:
+                                - cell "Best Mattress for Seniors" [ref=f4e14]:
+                                  - link "Best Mattress for Seniors" [ref=f4e16] [cursor=pointer]:
+                                    - /url: https://similarsearch.net/search.cfm?ule=7142&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=hf95dl155Nf99dQvNdRfBWvN9&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PHtAbT%26JgNPz.bbbbbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIGb%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FItzZt%25TeJaW4o9fNg%25FItzZt%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIb.zZGH%25TeQaoV3aozbT%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeT%25FIb.bbbH%25TeA%25FIzGbTGF%25TezF%25FIb.bEAt%25TezE%25FIzGbAbE%25TeU39%25FIb.FbTZ%25TeU3J9%25FIb.FbbH%25TeUJ3J9%25FIb.HEEb%25TeUJ3J9G%25FIb.HEEb%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIHtAbT%25TeJagN%25FIz.bbbbbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGozG%25FIb.EtzGtb%25Te14mo1ssoJaWJU9omGozG%25FIZ.bbb%25Te14mo1ssoNg9omGozGo1m%25FIz%25Te14mo1ssoNg9omGozGoama%25FIT.bbb%25Te14mo1ssoNg9omGoHF%25FIb.ZHtFAE%25Te14mo1ssoJaWJU9omGoHF%25FIzb.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIT.bbb%25TegmovN4fN%25FIHF%25GezG%25GezGH%25GezbA%25GezGF%25Gezbt%25GezbT%25GeZz%25GeAbbbbbbbb%25GetZ%25TegmoQ%25FIHF%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26UJP0vVf%2B%25GZ%2BO1N4fB%2B%25F-%2Bhf4%2B%25GZ%2Bh15X%2B%25F-%2Bhf4NvvV%2B%25F-%2Bl155Nf99f9%26UJW4PHbbAFt%26UWPFGtAzFHHF%26UasPfB%26UV%2FPleEiLIU%25FI%26UV4PB3aa%26UVQP3U9%25FIb.FbTZ%26UgPz%26U5PGEb%26U54PGZEttAZZETGEAtEFtFAAAzAETHHG%26Ng9+NmPzbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzEE%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bGbE%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzz%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbZH%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bZbT%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzGA%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bTbZ%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TetZ%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbG%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbEz%25Ge%25GGUJ%25GG%25FpzZ%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                        - link [ref=f4e17] [cursor=pointer]:
+                          - /url: https://similarsearch.net/search.cfm?ule=7142&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=hf95dl155Nf99dQvNdRfBWvN9&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PHtAbT%26JgNPz.bbbbbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIGb%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FItzZt%25TeJaW4o9fNg%25FItzZt%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIb.zZGH%25TeQaoV3aozbT%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeT%25FIb.bbbH%25TeA%25FIzGbTGF%25TezF%25FIb.bEAt%25TezE%25FIzGbAbE%25TeU39%25FIb.FbTZ%25TeU3J9%25FIb.FbbH%25TeUJ3J9%25FIb.HEEb%25TeUJ3J9G%25FIb.HEEb%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIHtAbT%25TeJagN%25FIz.bbbbbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGozG%25FIb.EtzGtb%25Te14mo1ssoJaWJU9omGozG%25FIZ.bbb%25Te14mo1ssoNg9omGozGo1m%25FIz%25Te14mo1ssoNg9omGozGoama%25FIT.bbb%25Te14mo1ssoNg9omGoHF%25FIb.ZHtFAE%25Te14mo1ssoJaWJU9omGoHF%25FIzb.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIT.bbb%25TegmovN4fN%25FIHF%25GezG%25GezGH%25GezbA%25GezGF%25Gezbt%25GezbT%25GeZz%25GeAbbbbbbbb%25GetZ%25TegmoQ%25FIHF%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26UJP0vVf%2B%25GZ%2BO1N4fB%2B%25F-%2Bhf4%2B%25GZ%2Bh15X%2B%25F-%2Bhf4NvvV%2B%25F-%2Bl155Nf99f9%26UJW4PHbbAFt%26UWPFGtAzFHHF%26UasPfB%26UV%2FPleEiLIU%25FI%26UV4PB3aa%26UVQP3U9%25FIb.FbTZ%26UgPz%26U5PGEb%26U54PGZEttAZZETGEAtEFtFAAAzAETHHG%26Ng9+NmPzbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzEE%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bGbE%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzz%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbZH%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bZbT%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzGA%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bTbZ%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TetZ%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbG%25Ge%25GGUJ%25GG%25FpzZ%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbEz%25Ge%25GGUJ%25GG%25FpzZ%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                      - listitem [ref=f4e18]:
+                        - generic [ref=f4e19]:
+                          - generic [ref=f4e20]: "2."
+                          - generic [ref=f4e21]: ❯
+                          - table [ref=f4e22]:
+                            - rowgroup [ref=f4e23]:
+                              - row "Normal Cholesterol Ranges by Age" [ref=f4e24]:
+                                - cell "Normal Cholesterol Ranges by Age" [ref=f4e25]:
+                                  - link "Normal Cholesterol Ranges by Age" [ref=f4e27] [cursor=pointer]:
+                                    - /url: https://similarsearch.net/search.cfm?ule=7456&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=LvNV1adeXvaf95fNvad71Bsf9d%2Fqdpsf&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PZztEA%26JgNPz.bbbbbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIzG%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FIcG%25TeJaW4o9fNg%25FIHzZF%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIb.GtGA%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aozbT%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeT%25FIb.bbbT%25TeA%25FIzGbTGF%25TezF%25FIb.bbFZ%25TezE%25FIzGbAbE%25TeU39%25FIb.FFEz%25TeU3J9%25FIb.GEZH%25TeUJ3J9%25FIb.EAZZ%25TeUJ3J9G%25FIb.EAZZ%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIZztEA%25TeJagN%25FIz.bbbbbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGozG%25FIb.GEtzbE%25Te14mo1ssoJaWJU9omGozG%25FIzz.bbb%25Te14mo1ssoNg9omGozGo1m%25FIz%25Te14mo1ssoNg9omGozGoama%25FIT.bbb%25Te14mo1ssoNg9omGoHF%25FIb.GHttFb%25Te14mo1ssoJaWJU9omGoHF%25FIzz.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIZ.TGT%25TegmovN4fN%25FIzG%25GeHF%25GezGH%25GezGF%25Gezbt%25GezbA%25GeAbbbbbbbb%25GeZz%25GetZ%25GezbT%25TegmoQ%25FIzG%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26U%2FgPzGF%25TezbT%25TezbA%25Tezbt%26UJP0f1a5X%2B%25F-%2B0f1a5X%2BevB4W5WvB9%2B%25F-%2B0f1N5%2B%25GZ%2B0qgfN5fB9WvB%2B%25F-%2BeXvaf95fNva%2BK993f9%26UJW4PHbbTFz%26UWPFHztFtATE%26UasPfB%26UV%2FPleEilC6%25FI%26UV4PB3aa%26UVQP3U9%25FIb.FFEz%26UgPG%26U5PGEb%26U54PGETHtbZbHzHtbtGbGbTFZtFTztbE%26Ng9+NmPzbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbG%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bAbE%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzFH%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzzT%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbTE%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bEGG%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbFA%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzzz%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TetZ%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbFT%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                        - link [ref=f4e28] [cursor=pointer]:
+                          - /url: https://similarsearch.net/search.cfm?ule=7456&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=LvNV1adeXvaf95fNvad71Bsf9d%2Fqdpsf&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PZztEA%26JgNPz.bbbbbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIzG%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FIcG%25TeJaW4o9fNg%25FIHzZF%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIb.GtGA%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aozbT%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeT%25FIb.bbbT%25TeA%25FIzGbTGF%25TezF%25FIb.bbFZ%25TezE%25FIzGbAbE%25TeU39%25FIb.FFEz%25TeU3J9%25FIb.GEZH%25TeUJ3J9%25FIb.EAZZ%25TeUJ3J9G%25FIb.EAZZ%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIZztEA%25TeJagN%25FIz.bbbbbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGozG%25FIb.GEtzbE%25Te14mo1ssoJaWJU9omGozG%25FIzz.bbb%25Te14mo1ssoNg9omGozGo1m%25FIz%25Te14mo1ssoNg9omGozGoama%25FIT.bbb%25Te14mo1ssoNg9omGoHF%25FIb.GHttFb%25Te14mo1ssoJaWJU9omGoHF%25FIzz.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIZ.TGT%25TegmovN4fN%25FIzG%25GeHF%25GezGH%25GezGF%25Gezbt%25GezbA%25GeAbbbbbbbb%25GeZz%25GetZ%25GezbT%25TegmoQ%25FIzG%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26U%2FgPzGF%25TezbT%25TezbA%25Tezbt%26UJP0f1a5X%2B%25F-%2B0f1a5X%2BevB4W5WvB9%2B%25F-%2B0f1N5%2B%25GZ%2B0qgfN5fB9WvB%2B%25F-%2BeXvaf95fNva%2BK993f9%26UJW4PHbbTFz%26UWPFHztFtATE%26UasPfB%26UV%2FPleEilC6%25FI%26UV4PB3aa%26UVQP3U9%25FIb.FFEz%26UgPG%26U5PGEb%26U54PGETHtbZbHzHtbtGbGbTFZtFTztbE%26Ng9+NmPzbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbG%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bAbE%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzFH%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzzT%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TezbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbTE%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bEGG%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbFA%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzzz%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%25Te%25Eb%25TetZ%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbFT%25Ge%25GGUJ%25GG%25FpH%25Ge%25GGNfm%25GG%25Fpb.btzF%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                    - list [ref=f4e29]:
+                      - listitem [ref=f4e30]:
+                        - generic [ref=f4e31]:
+                          - generic [ref=f4e32]: "3."
+                          - generic [ref=f4e33]: ❯
+                          - table [ref=f4e34]:
+                            - rowgroup [ref=f4e35]:
+                              - row "3D Virtual Tour" [ref=f4e36]:
+                                - cell "3D Virtual Tour" [ref=f4e37]:
+                                  - link "3D Virtual Tour" [ref=f4e39] [cursor=pointer]:
+                                    - /url: https://similarsearch.net/search.cfm?ule=7248&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=FIdxWN531adrv3N&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PEZztT%26JgNPb.tttFbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIzT%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FIGzbHt%25TeJaW4o9fNg%25FIGzbHt%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIG.ZbAz%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aozbT%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeT%25FIb.bbzz%25TeA%25FIzGbTGF%25TezF%25FIb.bbGH%25TezE%25FIzGbAbE%25TeU39%25FIb.EEFz%25TeU3J9%25FIb.EbFH%25TeUJ3J9%25FIb.HtGG%25TeUJ3J9G%25FIb.HtGG%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIEZztT%25TeJagN%25FIb.tttFbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGoHF%25FIb.zZEEAb%25Te14mo1ssoJaWJU9omGoHF%25FItT.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIZ.tTt%25TegmovN4fN%25FIzG%25GeHF%25GezGH%25GetZ%25Gezbt%25GezbA%25GezGF%25GeAbbbbbbbb%25GeZz%25GezbT%25TegmoQ%25FIzG%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26UJPpN59%2B%25GZ%2B-B5fN51WBVfB5%2B%25F-%2BnBaWBf%2Blf4W1%2B%25F-%2BxWN531a%2Brv3N9%26UJW4PHbbzzF%26UWPFtzFHb%26UasPfB%26UV%2FPleEil%3Dl%25FI%26UV4PB3aa%26UVQP3U9%25FIb.EEFz%26UgPF%26U5PGEb%26U54PGETHAAbbTAHTHGZEEGEFGbZtZHTZ%26Ng9+NmPtZ%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzA%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbzH%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bEtF%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzbT%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bGAH%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzTG%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bTGT%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbFA%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzGt%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                        - link [ref=f4e40] [cursor=pointer]:
+                          - /url: https://similarsearch.net/search.cfm?ule=7248&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=FIdxWN531adrv3N&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PEZztT%26JgNPb.tttFbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIzT%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FIGzbHt%25TeJaW4o9fNg%25FIGzbHt%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIG.ZbAz%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aozbT%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeT%25FIb.bbzz%25TeA%25FIzGbTGF%25TezF%25FIb.bbGH%25TezE%25FIzGbAbE%25TeU39%25FIb.EEFz%25TeU3J9%25FIb.EbFH%25TeUJ3J9%25FIb.HtGG%25TeUJ3J9G%25FIb.HtGG%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIEZztT%25TeJagN%25FIb.tttFbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGoHF%25FIb.zZEEAb%25Te14mo1ssoJaWJU9omGoHF%25FItT.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIZ.tTt%25TegmovN4fN%25FIzG%25GeHF%25GezGH%25GetZ%25Gezbt%25GezbA%25GezGF%25GeAbbbbbbbb%25GeZz%25GezbT%25TegmoQ%25FIzG%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26UJPpN59%2B%25GZ%2B-B5fN51WBVfB5%2B%25F-%2BnBaWBf%2Blf4W1%2B%25F-%2BxWN531a%2Brv3N9%26UJW4PHbbzzF%26UWPFtzFHb%26UasPfB%26UV%2FPleEil%3Dl%25FI%26UV4PB3aa%26UVQP3U9%25FIb.EEFz%26UgPF%26U5PGEb%26U54PGETHAAbbTAHTHGZEEGEFGbZtZHTZ%26Ng9+NmPtZ%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzA%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbzH%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bEtF%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzbT%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bGAH%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzTG%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bTGT%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbFA%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%25Te%25Eb%25TezbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzGt%25Ge%25GGUJ%25GG%25FpHb%25Ge%25GGNfm%25GG%25Fpb.bHTF%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                      - listitem [ref=f4e41]:
+                        - generic [ref=f4e42]:
+                          - generic [ref=f4e43]: "4."
+                          - generic [ref=f4e44]: ❯
+                          - table [ref=f4e45]:
+                            - rowgroup [ref=f4e46]:
+                              - row "Walk-In Showers for Seniors" [ref=f4e47]:
+                                - cell "Walk-In Showers for Seniors" [ref=f4e48]:
+                                  - link "Walk-In Showers for Seniors" [ref=f4e50] [cursor=pointer]:
+                                    - /url: https://similarsearch.net/search.cfm?ule=7359&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=S1aUcKBdRXvifN9dQvNdRfBWvN9&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PZHZzZ%26JgNPz.bbbbbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIG%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FIcG%25TeJaW4o9fNg%25FIHzEb%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIb.GtzF%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeQaoV3aozbT%25FIz.bbbb%25TeT%25FIb.bbbE%25TeA%25FIzGbTGF%25TezF%25FIb.bbFT%25TezE%25FIzGbAbE%25TeU39%25FIb.FHtE%25TeU3J9%25FIb.FZzb%25TeUJ3J9%25FIb.HGTT%25TeUJ3J9G%25FIb.HGTT%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIZHZzZ%25TeJagN%25FIz.bbbbbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGozG%25FIb.ZbFtGZ%25Te14mo1ssoJaWJU9omGozG%25FIzbz.bbb%25Te14mo1ssoNg9omGozGo1m%25FIz%25Te14mo1ssoNg9omGozGoama%25FIT.bbb%25Te14mo1ssoNg9omGoHF%25FIb.GHZHtH%25Te14mo1ssoJaWJU9omGoHF%25FIzT.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIZ.TZH%25TegmovN4fN%25FIzG%25GeHF%25GezGH%25GezGF%25Gezbt%25GezbA%25GezbT%25GeZz%25GeAbbbbbbbb%25GetZ%25TegmoQ%25FIzG%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26UJP0vVf%2B%25GZ%2BO1N4fB%2B%25F-%2Bhf4%2B%25GZ%2Bh15X%2B%25F-%2Bh15XNvvV%26UJW4PHbbAFH%26UWPFGZTHGtZT%26UasPfB%26UV%2FPleEiL%3Dp%25FI%26UV4PB3aa%26UVQP3U9%25FIb.FHtE%26UgPE%26U5PGEb%26U54PGETHAAbbTAHTbTZbAGEZtFFGZbAb%26Ng9+NmPtZ%25Te%25GF%25Te%25Th%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbEz%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzZA%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bGbE%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzAt%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbTF%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bEAT%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.btzT%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbtE%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                        - link [ref=f4e51] [cursor=pointer]:
+                          - /url: https://similarsearch.net/search.cfm?ule=7359&&lgplp=jf75EJ%3ABJ1eJL&prvep=g4ztEd5Gptti639Yk9qpGA%3D%3D&ktr=1&vi=1765176474281662556&cq=S1aUcKBdRXvifN9dQvNdRfBWvN9&vsid=4081780759752377&sc=VA&oksu=224&prid=8PRVCXX19&cid=8CUIMSDAD&pid=8POU7PMLP&crid=670471522&https=1&rms=1765176475&size=728x90&ksu=224&ugd=4&tsid=4&asn=8075&radepth=0&kwep=JaPz%26JaW4PZHZzZ%26JgNPz.bbbbbb%26Q4U5PGEb%26U%2FJPETEQQZEfGz1TEZGzJETEQFGAF4G4ATF4.4G9%26U%2FJGPzbG%25Te1Ug%25FIG%25TeQ9%25FIb%25TeH%25FIcz%25TeZ%25FIcz%25TezZ%25FIcz%25Tezt%25FIb.bb%25TeJaW4oQC%25FIcG%25TeJaW4o9fNg%25FIHzEb%25TeGE%25FIb%25TeGH%25FIb%25TeGG%25FIb.bbbz%25TeGF%25FIb.GtzF%25TeQaoV3aoAbbbbbbbb%25FIz.bbbb%25TeQaoV3aozGF%25FIz.bbbb%25TeQaoV3aozbA%25FIz.bbbb%25TeQaoV3aoZz%25FIz.bbbb%25TeQaoV3aozGH%25FIz.bbbb%25TeQaoV3aotZ%25FIz.bbbb%25TeQaoV3aozbt%25FIz.bbbb%25TeQaoV3aozG%25FIz.bbbb%25TeQaoV3aoHF%25FIz.bbbb%25TeQaoV3aozbT%25FIz.bbbb%25TeT%25FIb.bbbE%25TeA%25FIzGbTGF%25TezF%25FIb.bbFT%25TezE%25FIzGbAbE%25TeU39%25FIb.FHtE%25TeU3J9%25FIb.FZzb%25TeUJ3J9%25FIb.HGTT%25TeUJ3J9G%25FIb.HGTT%25TeU99U9%25FIH.bbbb%25TeNJW4%25FIZHZzZ%25TeJagN%25FIz.bbbbbb%25TeJaama%25FIz%25TevU5%25FIGEb%25Te%2F4U5%25FIGEb%25Teg9%25FIb.EbE%25Teg9oW4%25FIb%25Te14mo1ssoNg9omGozG%25FIb.ZbFtGZ%25Te14mo1ssoJaWJU9omGozG%25FIzbz.bbb%25Te14mo1ssoNg9omGozGo1m%25FIz%25Te14mo1ssoNg9omGozGoama%25FIT.bbb%25Te14mo1ssoNg9omGoHF%25FIb.GHZHtH%25Te14mo1ssoJaWJU9omGoHF%25FIzT.bbb%25Te14mo1ssoNg9omGoHFo1m%25FIz%25Te14mo1ssoNg9omGoHFoama%25FIZ.TZH%25TegmovN4fN%25FIzG%25GeHF%25GezGH%25GezGF%25Gezbt%25GezbA%25GezbT%25GeZz%25GeAbbbbbbbb%25GetZ%25TegmoQ%25FIzG%25TegmoBVoQ%25FIHF%25TeJ5Q%25FIb%26UJP0vVf%2B%25GZ%2BO1N4fB%2B%25F-%2Bhf4%2B%25GZ%2Bh15X%2B%25F-%2Bh15XNvvV%26UJW4PHbbAFH%26UWPFGZTHGtZT%26UasPfB%26UV%2FPleEiL%3Dp%25FI%26UV4PB3aa%26UVQP3U9%25FIb.FHtE%26UgPE%26U5PGEb%26U54PGETHAAbbTAHTbTZbAGEZtFFGZbAb%26Ng9+NmPtZ%25Te%25GF%25Te%25Th%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TeZz%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbEz%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25Tezbt%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzZA%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezGH%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bGbE%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezGF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bzAt%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezbT%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbTF%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TeHF%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bEAT%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezG%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.btzT%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%25Te%25Eb%25TezbA%25Te%25GF%25Te%25Th%25GGNg9%25GG%25Fpb.bbtE%25Ge%25GGUJ%25GG%25Fpzz%25Ge%25GGNfm%25GG%25FpG.EZbH%25TI%265k%2FaUPz%25Tez&oscar=1&tsce=L1072-S1072&ssld=%7B%22QQNN%22%3A%22Pb%22%2C%22QQN75%22%3A%22Gm5O7mz%22%2C%22QQ8E%22%3A%22f9.u9i.AW.Xu%22%2C%22QQQN%22%3A%22%2FK%22%7D&mprpslog=undefined&acid=9b5eeab474786641c234c0978ca1d422&verid=3111299&tsrc=en_adtag&sbdrId=196&kafm_ull_cache=00&hvsid=00001765176474585003426974729715&vgd_ecrid=S0300090001121800728009099999900&vgd_matchstr=bb%3D1_1%7Chr%3D0%7Cdlg%3Den&vgd_ifrmode=14&&fp=y9Z_t8EChreJvpDxycYE-DL7GJcQXF7MtBFkRfqnJ0sor6-2dNkALupAC3qULke1GR9V15S0jRgZW9NTAAKZBtVdUCKnvIDFYOqimKduxSR7nu_BdTi_tr5Y1N-jWHwyr8VzEz9aOva1Graiz-DNmA%3D%3D&cme=YQCF0VImPi7acSwZLQricHfD00zsshMQoWWmtohO7Y38ihsxKKKTWw1AJBasZAEd044pbi51EjhY9fzEAoTusjCFciXtk5-_kIGLKQM4SCBWwnLpa9jSCBsgCxkL0C_R_1Cao0FcAlrmzsEExRZWH8Bm5LACIQ1UZfxe9wgPnGfJ08F_jUoBHa3nAuhBwD9tJo_jRUFwXD8tJ1hbMU1ZgQgigYTASFM1OC_KmysSD8x54VoO3CqOjsxm_iwjxOSa68GJJ0b6pProK-LxbWwHc8xrpEEt6QwdIpuPRkzDa7CerzUfl11IYPNbXt22vTWXx_ii5EKjIsig5SgM5vtMpbW_ImL0kcGzLMfb_gQ6Cuo0h1x-BsGqYv-tT0SJaiExofHO-0M3G5Q%3D%7C%7CYPBfO6MchmlR3PxQ_0XFa7bqedWsDlZM%7Ca0AmFUYXmD4T5-QVrpwki_wpRt2SykLpWmlD_AVDg9g3syFoOeWyZw%3D%3D%7CcPcb3VhU0BVjXgWFWEAzinttU1oq1ouO%7Cr3OZdC0GL_tVgokqqSMkbYtCYHvveg9zi28wMECbOcJjfuH7fUkjXcsOCMa6SoawhpIygxtqVbJ2pxK_JGDoqs_FQzp2k0ZViO6LqB4r7agxWM46p0F5r4Rw41mot5kDlWgYPPGwekVMYd-y3AMnEA8BiMPnQOXz2qBrnwPo61Lzq3Od4EFkQeV3C1KIoVfNKTbg1f9vzm7v26DVD_lOcuKQ8ai5hVwMQA9KijVeg18k-NiC3XWsbyc09eJMLOOaw08DtBc6NWsVXJd5FC25VjNjfxqRMiv8SiE3TNpqD6XV5oZvz4s5na_13no7GW1SSsKVwbvPfwhzsFk_zU8U2oy-gXEOQFgkGHJVySIQqDENiB3KblHra2qs-V9P4c0GIxnQg6yjggKGPj242bOHleZZIO_t_OBEtyWOU__iGwkwLulv076YEF0Gy25T0_V70iXIoC2KhJSrWTLisHY10TUM-0Nr2g_9h5auMIvHHL2tc2PMzBkDMob6-Lcm0_gF5iHFdG8_klFGF-wWpdzOogYchfsehjmAWjTrQz_8Qx1eI-1bhKXoHvC4gaAgr700ufMHQwY2IdRsOdM0m_WdEhJu0t4AeUTDUq5GWdxliPWtGmRHuMkAH9CAVmKeqfp64iH_MSapXkU_3D7Ej3rmqaTtimUEjkoZNUJoGz4BxZZovmBDA7NrJr_lTS2lUD1RDQwPEityHrzvEnWoxr4qjGZpq_n-6ty2Z_tkxA9ngMo1Qg-KPruJTJCHiqpRWRtnqjJe8Xxwb6xOnSe-rhraGZlzR7jT_HUk9jx01ShRkG0%3D%7Cu8A6SM53vAeRfkhfn1WzjLLKEPWucxAV%7CrOVKs0reXUQeVOtR1jW0HupVfP2qnqBk%7Cd9vPLM1tRn-WLhCjY8-_mw%3D%3D%7C&subBdr=196&bdrid=460&bd=0%231050%231680&ypl=QEx%3AXuWX~%7CyE8O%3A%7C5ON%3ANff%7CGxNUJ7VO4z7875%3Aiiii%7CGxNUJ7I1YJ4z7875%3ApJ1eJL&lgpl=BjQ7E%3A9%7CeQ7L8O%3AH9WuhW9hXihXfAhh%7CGO171%3AQOfvzxjj~8xLjMjvu9~e8fXv9~myJLEYv9.uX~N7-mzj5ejfLMQOvuW9~EmQejfLMGvf.Hf~OmYMGvu~QNOve1~L8ExG8Ov9%2C9~L1Jv9%2C9%2Cou~OmYMjvu9~ejfLMQOvf9fXuf9W9Xu9~8xLjMGvXFi.uH~xLjM7UNv9~Q7OvBJGojmjoO8QEj15okmm7JLoO~N7-ejfLMQOvuWF~8EvzG%2FwE~kGGv9~L88Ex1v9%2C9~LNvu~LEQMQOvf9fXuf9W9f~L1Oev9.999%2C9~xLjMGvu.hF~ejfLMxLjMGv9~xLjMjvu9~Qjevi.fu~yN17vX99h9f~GGvuiF~JLEYv9.uX~ejfLMxLjMUNv949~EQ8MNvAX%2CAH%2C9%2C9%2C9%2C9%2C9%2C9%2Cu~QQOeLvHHH.AF~EQ8MOviiA~LUJv9%2C9%2Cou~1AEMGvA.WX%2CXH.Ff~QOvou~x8OvfV1Zd2y-_61wQU1bjT~NejfLMGvf.i~G7OvAhXA9HHhAiiWhhAfHWifAuX9HAX9iu9Fihf9hfFXi9XuF9Au9fWAAWfXuiuiWWuAWWWiHFfAFH9HuHfX9hAHWuXfuA9AFFAXAf9FWfAFWFhHWWXHhiAuihXHX9hHiWAHfA9XhAWf9fhXh9AuuuWHXuiuh9~x8Yv9~1EEMzv8ze1j8OMx1~eBMYJOv9.uA~eLMxLjMGvhhA.iW~myOfEMGv9.if~QQvuFW9-u9X9~NNvPb~x8Bvou~NJv9~LNevHF.fA~%3DVvAXfX~UGMxNvof~z7Qvu~1GYvu~N7vGm5O7mz~1yyMQ7mLJMQOv~G1Q8QfvuiF~GO7vuhFXuhFHhH~G1Q8QuvuiF~GMYzeBvu~ONvW~ejfLMGvA.WX~77viiA~OQOeLvXAA.Hi~JQ7v9~e8QMQOvuuhh9~LkMNz7v9~ONfvu~eM1QzvW9hX~GOLM8z7LELJ7MGvou999~GMkjLv9.9X~GOLM8z7LELJ7MQOv~OQeLvXAA.Hi~j1Q7v~Nemyv9~e8QMxLjMGv9.hh~ejfLM8MQOvf9fXuf9W9Xu9~e8QMxLjMjvA9~UNfXv9~J7vfF~xjYMQOv~ejfLM8MGv9.9u~LJkMLvXOh~e8QMGvhuH.fH~ejfLMxLjMe8vu4ouF~xLjM7e8v9~1yyMQ7mLJMGvu~O1LeLvXAA.Hi~eev9~NejfLMQOvuuWF9~jfLMGvu999~J-MQvf~L1OEv9.999%2C9~Q8OvFh9HhuXff~N7-ejfLMGvou999~eBxvou~OfEMjvH9~Nejfvf.i~AENkviii.9W~OYYMQ7Lyvw1LYmz5~OfEMGv9.if~LEQMGvXH.Ff~LUBEv9.999%2C9~J-EQNmLJvou~LUBOv9.999%2C9~EmQejfLMQOvuWF~8QDJkv9~8Q8kv9~N7-mzj5ejfLMGvou999~G8Ov9.uX~ExGNMLNvu~NGOEv9.9hf~QOvou~875EJM8OvA~875EJMmeJLL8OJv0D4RVr~QJjjJLM71yM8OvBJGojmjoO8QEj15okmm7JLoO~QxEEj5M71yM8OvBJGojmjoO8QEj15okmm7JLoO~NMj1zyvJz~EmQvu~N7Lvi.94oF~LJkMNz7v9~N1LL8JLVOv9~myG8Ov9.uX9999~GkjLv9.9X9~Qx8Ov~O7NvJ1Q7MQN~OYYMJLEYvk1jQJ~OYYvw1LYmz5~GOEN1EOv9~O1jyvOJk1xj7~QmGEv~w7Yjvu~ELJO8N7JOMBLvF.XW~ONx7vX9~OmyGv9ou~OJLEv9.uf9W~O1jyvOJk1xj7~OYYMQkYvb5Q7JYMHF9~eGLveHMeuHM1MLe9MeAMN~~8GNvu~zQlvu~7yQvhfW-i9~GQ1vr4%3DK34rMD4%2FMDK_4~GQGvu~GQEvou~7Y-vHi9~Y-GU7v9~Y-wYQvHW~Y-wYJv9~kExLJ%20vu%7CQNQeJL%3AfXXu%7Cw8Yyjy%3AC909oa9C9ob9%7CN1NwJMYJ71O171%3A%7B%22UGG%22%23*k1jQJ%7D%7CU1Nm8z7mQQ%3A7LxJ%7CNkxO%3AfXuu9A%7CmE7mx7%3A9%7C5OQEL%3Au%7CjfQwjO%3Au%7C1UN8E%3Af9.u9i.AW.Xu%7CmLJ%20k%3AmzJ%7CmLJQk%3AmzJ%7CmNw%3A9%7CLJzQ8lJ%3AhfWMi9%7CQNLMw%3Au9X9%7CQNLMB%3AuFW9%7CLJQOzef%3AuX%7CNmjMQNw%3Aj%7CJN7%3AHy%7CGJ%3A9&ure=1&kwd_ofl=0
+                  - link [ref=f4e52] [cursor=pointer]:
+                    - /url: https://media.net/adchoices?id=517680110
+      - complementary [ref=e594]
+  - region "Video Player" [ref=e600]:
+    - text:            
+    - dialog "Modal Window" [ref=e602]:
+      - text: X
+      - paragraph [ref=e603]: This is a modal window.
+      - document [ref=e604]: The media could not be loaded, either because the server or network failed or because the format is not supported.
+    - text:    
+  - button "Do Not Sell or Share My Personal Information" [ref=e608] [cursor=pointer]:
+    - paragraph [ref=e610]: Do Not Sell or Share My Personal Information
+```
