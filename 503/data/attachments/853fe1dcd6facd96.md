@@ -1,0 +1,1756 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - link "Deadlock banner text Learn more Close":
+    - /url: https://www.google.com
+    - generic [ref=e4] [cursor=pointer]:
+      - generic [ref=e5]:
+        - paragraph [ref=e7]: Deadlock banner text
+        - button "Learn more" [ref=e8]
+      - img "Close" [ref=e9]
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - link "Mobalytics" [ref=e12] [cursor=pointer]:
+        - /url: /deadlock
+        - img "Mobalytics" [ref=e13]
+      - generic [ref=e15]:
+        - link "League of Legends LoL" [ref=e17] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/lol
+          - generic [ref=e19]:
+            - img "League of Legends" [ref=e20]
+            - generic [ref=e21]: LoL
+        - link "Teamfight Tactics TFT" [ref=e23] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/tft
+          - generic [ref=e25]:
+            - img "Teamfight Tactics" [ref=e26]
+            - generic [ref=e27]: TFT
+        - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/diablo-4
+          - generic [ref=e31]:
+            - img "Diablo 4" [ref=e32]
+            - generic [ref=e33]: Diablo 4
+        - link "Path of Exile 2 PoE 2" [ref=e35] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe-2
+          - generic [ref=e37]:
+            - img "Path of Exile 2" [ref=e38]
+            - generic [ref=e39]: PoE 2
+        - link "Path of Exile PoE" [ref=e41] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe
+          - generic [ref=e43]:
+            - img "Path of Exile" [ref=e44]
+            - generic [ref=e45]: PoE
+        - link "Destiny 2 Destiny 2" [ref=e47] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/destiny-2
+          - generic [ref=e49]:
+            - img "Destiny 2" [ref=e50]
+            - generic [ref=e51]: Destiny 2
+        - link "Borderlands 4 Borderlands 4" [ref=e53] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/borderlands-4
+          - generic [ref=e55]:
+            - img "Borderlands 4" [ref=e56]
+            - generic [ref=e57]: Borderlands 4
+        - link "Hades 2 Hades 2" [ref=e59] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/hades-2
+          - generic [ref=e61]:
+            - img "Hades 2" [ref=e62]
+            - generic [ref=e63]: Hades 2
+        - link "Elden Ring Nightreign Nightreign" [ref=e65] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e67]:
+            - img "Elden Ring Nightreign" [ref=e68]
+            - generic [ref=e69]: Nightreign
+        - link "Deadlock Deadlock" [ref=e71] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/deadlock
+          - generic [ref=e73]:
+            - img "Deadlock" [ref=e74]
+            - generic [ref=e75]: Deadlock
+        - link "Valorant VAL" [ref=e77] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/valorant
+          - generic [ref=e79]:
+            - img "Valorant" [ref=e80]
+            - generic [ref=e81]: VAL
+        - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e83] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/mhw
+          - generic [ref=e85]:
+            - img "Monster Hunter Wilds" [ref=e86]
+            - generic [ref=e87]: Monster Hunter Wilds
+        - link "Example game ExG" [ref=e89] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/example-game
+          - generic [ref=e91]:
+            - img "Example game" [ref=e92]
+            - generic [ref=e93]: ExG
+        - link "The Bazaar The Bazaar" [ref=e95] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/the-bazaar
+          - generic [ref=e97]:
+            - img "The Bazaar" [ref=e98]
+            - generic [ref=e99]: The Bazaar
+        - button [ref=e100] [cursor=pointer]:
+          - img [ref=e101]
+        - generic:
+          - link "Marvel Rivals Marvel Rivals":
+            - /url: https://stg.mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img "Marvel Rivals"
+                - generic: Marvel Rivals
+        - generic:
+          - link "Zenless Zone Zero ZZZ":
+            - /url: https://stg.mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img "Zenless Zone Zero"
+                - generic: ZZZ
+        - generic:
+          - link "Riftbound Riftbound New":
+            - /url: https://stg.mobalytics.gg/riftbound
+            - generic:
+              - generic:
+                - img "Riftbound"
+                - generic: Riftbound
+                - generic: New
+        - generic:
+          - link "2XKO 2XKO New":
+            - /url: https://stg.mobalytics.gg/2xko
+            - generic:
+              - generic:
+                - img "2XKO"
+                - generic: 2XKO
+                - generic: New
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - link "win logo Download app" [ref=e104] [cursor=pointer]:
+          - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-deadlock&utm_medium=homepage&utm_source=web
+          - button "win logo Download app" [ref=e105]:
+            - img "win logo" [ref=e107]
+            - generic [ref=e108]: Download app
+        - combobox [ref=e109]:
+          - textbox "Steam Name or Steam ID" [ref=e112]
+          - listbox
+        - generic [ref=e115] [cursor=pointer]: Community
+        - generic [ref=e117] [cursor=pointer]:
+          - generic [ref=e118]: News
+          - generic [ref=e120]: new
+        - text: new
+      - generic [ref=e121]:
+        - img "settings" [ref=e125] [cursor=pointer]
+        - img "support" [ref=e129] [cursor=pointer]
+    - generic [ref=e131]:
+      - link "Home" [ref=e134] [cursor=pointer]:
+        - /url: /deadlock
+        - img "Home" [ref=e136]
+      - link "Profile" [ref=e139] [cursor=pointer]:
+        - /url: /deadlock/player-profile
+        - img "Profile" [ref=e141]
+      - link "Tier List" [ref=e144] [cursor=pointer]:
+        - /url: /deadlock/tier-list
+        - img "Tier List" [ref=e146]
+      - link "Heroes" [ref=e149] [cursor=pointer]:
+        - /url: /deadlock/heroes
+        - img "Heroes" [ref=e151]
+      - link "Builds" [ref=e154] [cursor=pointer]:
+        - /url: /deadlock/builds
+        - img "Builds" [ref=e156]
+      - link "Build Stats" [ref=e159] [cursor=pointer]:
+        - /url: /deadlock/build-stats
+        - img "Build Stats" [ref=e161]
+      - link "Guides" [ref=e164] [cursor=pointer]:
+        - /url: /deadlock/guides
+        - img "Guides" [ref=e166]
+      - link "Items" [ref=e169] [cursor=pointer]:
+        - /url: /deadlock/items
+        - img "Items" [ref=e171]
+    - main [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]:
+          - heading "Structure Pages" [level=1] [ref=e177]
+          - link "Create Page" [ref=e179] [cursor=pointer]:
+            - /url: /deadlock/planner/st
+            - img [ref=e180]
+            - generic [ref=e181]: Create Page
+        - generic [ref=e182]:
+          - generic [ref=e183] [cursor=pointer]:
+            - generic [ref=e185]: /1001
+            - generic [ref=e186]:
+              - link "Edit" [ref=e187]:
+                - /url: /deadlock/1001
+                - generic [ref=e188]: Edit
+              - button [ref=e189]:
+                - img [ref=e190]
+          - generic [ref=e191] [cursor=pointer]:
+            - generic [ref=e193]: /1004
+            - generic [ref=e194]:
+              - link "Edit" [ref=e195]:
+                - /url: /deadlock/1004
+                - generic [ref=e196]: Edit
+              - button [ref=e197]:
+                - img [ref=e198]
+          - generic [ref=e199] [cursor=pointer]:
+            - generic [ref=e201]: /1011
+            - generic [ref=e202]:
+              - link "Edit" [ref=e203]:
+                - /url: /deadlock/1011
+                - generic [ref=e204]: Edit
+              - button [ref=e205]:
+                - img [ref=e206]
+          - generic [ref=e207] [cursor=pointer]:
+            - generic [ref=e209]: /1012
+            - generic [ref=e210]:
+              - link "Edit" [ref=e211]:
+                - /url: /deadlock/1012
+                - generic [ref=e212]: Edit
+              - button [ref=e213]:
+                - img [ref=e214]
+          - generic [ref=e215] [cursor=pointer]:
+            - generic [ref=e217]: /1013
+            - generic [ref=e218]:
+              - link "Edit" [ref=e219]:
+                - /url: /deadlock/1013
+                - generic [ref=e220]: Edit
+              - button [ref=e221]:
+                - img [ref=e222]
+          - generic [ref=e223] [cursor=pointer]:
+            - generic [ref=e225]: /1034
+            - generic [ref=e226]:
+              - link "Edit" [ref=e227]:
+                - /url: /deadlock/1034
+                - generic [ref=e228]: Edit
+              - button [ref=e229]:
+                - img [ref=e230]
+          - generic [ref=e231] [cursor=pointer]:
+            - generic [ref=e233]: /11
+            - generic [ref=e234]:
+              - link "Edit" [ref=e235]:
+                - /url: /deadlock/11
+                - generic [ref=e236]: Edit
+              - button [ref=e237]:
+                - img [ref=e238]
+          - generic [ref=e239] [cursor=pointer]:
+            - generic [ref=e241]: /1116
+            - generic [ref=e242]:
+              - link "Edit" [ref=e243]:
+                - /url: /deadlock/1116
+                - generic [ref=e244]: Edit
+              - button [ref=e245]:
+                - img [ref=e246]
+          - generic [ref=e247] [cursor=pointer]:
+            - generic [ref=e249]: /1125
+            - generic [ref=e250]:
+              - link "Edit" [ref=e251]:
+                - /url: /deadlock/1125
+                - generic [ref=e252]: Edit
+              - button [ref=e253]:
+                - img [ref=e254]
+          - generic [ref=e255] [cursor=pointer]:
+            - generic [ref=e257]: /1137
+            - generic [ref=e258]:
+              - link "Edit" [ref=e259]:
+                - /url: /deadlock/1137
+                - generic [ref=e260]: Edit
+              - button [ref=e261]:
+                - img [ref=e262]
+          - generic [ref=e263] [cursor=pointer]:
+            - generic [ref=e265]: /1143
+            - generic [ref=e266]:
+              - link "Edit" [ref=e267]:
+                - /url: /deadlock/1143
+                - generic [ref=e268]: Edit
+              - button [ref=e269]:
+                - img [ref=e270]
+          - generic [ref=e271] [cursor=pointer]:
+            - generic [ref=e273]: /1146
+            - generic [ref=e274]:
+              - link "Edit" [ref=e275]:
+                - /url: /deadlock/1146
+                - generic [ref=e276]: Edit
+              - button [ref=e277]:
+                - img [ref=e278]
+          - generic [ref=e279] [cursor=pointer]:
+            - generic [ref=e281]: /1154
+            - generic [ref=e282]:
+              - link "Edit" [ref=e283]:
+                - /url: /deadlock/1154
+                - generic [ref=e284]: Edit
+              - button [ref=e285]:
+                - img [ref=e286]
+          - generic [ref=e287] [cursor=pointer]:
+            - generic [ref=e289]: /1155
+            - generic [ref=e290]:
+              - link "Edit" [ref=e291]:
+                - /url: /deadlock/1155
+                - generic [ref=e292]: Edit
+              - button [ref=e293]:
+                - img [ref=e294]
+          - generic [ref=e295] [cursor=pointer]:
+            - generic [ref=e297]: /1157
+            - generic [ref=e298]:
+              - link "Edit" [ref=e299]:
+                - /url: /deadlock/1157
+                - generic [ref=e300]: Edit
+              - button [ref=e301]:
+                - img [ref=e302]
+          - generic [ref=e303] [cursor=pointer]:
+            - generic [ref=e305]: /1160
+            - generic [ref=e306]:
+              - link "Edit" [ref=e307]:
+                - /url: /deadlock/1160
+                - generic [ref=e308]: Edit
+              - button [ref=e309]:
+                - img [ref=e310]
+          - generic [ref=e311] [cursor=pointer]:
+            - generic [ref=e313]: /1165
+            - generic [ref=e314]:
+              - link "Edit" [ref=e315]:
+                - /url: /deadlock/1165
+                - generic [ref=e316]: Edit
+              - button [ref=e317]:
+                - img [ref=e318]
+          - generic [ref=e319] [cursor=pointer]:
+            - generic [ref=e321]: /1abrams
+            - generic [ref=e322]:
+              - link "Edit" [ref=e323]:
+                - /url: /deadlock/1abrams
+                - generic [ref=e324]: Edit
+              - button [ref=e325]:
+                - img [ref=e326]
+          - generic [ref=e327] [cursor=pointer]:
+            - generic [ref=e329]: /2024
+            - generic [ref=e330]:
+              - link "Edit" [ref=e331]:
+                - /url: /deadlock/2024
+                - generic [ref=e332]: Edit
+              - button [ref=e333]:
+                - img [ref=e334]
+          - generic [ref=e335] [cursor=pointer]:
+            - generic [ref=e337]: /22222
+            - generic [ref=e338]:
+              - link "Edit" [ref=e339]:
+                - /url: /deadlock/22222
+                - generic [ref=e340]: Edit
+              - button [ref=e341]:
+                - img [ref=e342]
+          - generic [ref=e343] [cursor=pointer]:
+            - generic [ref=e345]: /2247
+            - generic [ref=e346]:
+              - link "Edit" [ref=e347]:
+                - /url: /deadlock/2247
+                - generic [ref=e348]: Edit
+              - button [ref=e349]:
+                - img [ref=e350]
+          - generic [ref=e351] [cursor=pointer]:
+            - generic [ref=e353]: /2323
+            - generic [ref=e354]:
+              - link "Edit" [ref=e355]:
+                - /url: /deadlock/2323
+                - generic [ref=e356]: Edit
+              - button [ref=e357]:
+                - img [ref=e358]
+          - generic [ref=e359] [cursor=pointer]:
+            - generic [ref=e361]: /2abrams
+            - generic [ref=e362]:
+              - link "Edit" [ref=e363]:
+                - /url: /deadlock/2abrams
+                - generic [ref=e364]: Edit
+              - button [ref=e365]:
+                - img [ref=e366]
+          - generic [ref=e367] [cursor=pointer]:
+            - generic [ref=e369]: /47856
+            - generic [ref=e370]:
+              - link "Edit" [ref=e371]:
+                - /url: /deadlock/47856
+                - generic [ref=e372]: Edit
+              - button [ref=e373]:
+                - img [ref=e374]
+          - generic [ref=e375] [cursor=pointer]:
+            - generic [ref=e377]: /author-redirect-profile
+            - generic [ref=e378]:
+              - link "Edit" [ref=e379]:
+                - /url: /deadlock/author-redirect-profile
+                - generic [ref=e380]: Edit
+              - button [ref=e381]:
+                - img [ref=e382]
+          - generic [ref=e383] [cursor=pointer]:
+            - generic [ref=e385]: /berserk
+            - generic [ref=e386]:
+              - link "Edit" [ref=e387]:
+                - /url: /deadlock/berserk
+                - generic [ref=e388]: Edit
+              - button [ref=e389]:
+                - img [ref=e390]
+          - generic [ref=e391] [cursor=pointer]:
+            - generic [ref=e393]: /builds
+            - generic [ref=e394]:
+              - link "Edit" [ref=e395]:
+                - /url: /deadlock/builds
+                - generic [ref=e396]: Edit
+              - button [ref=e397]:
+                - img [ref=e398]
+          - generic [ref=e399] [cursor=pointer]:
+            - generic [ref=e401]: /builds-stats-shiv
+            - generic [ref=e402]:
+              - link "Edit" [ref=e403]:
+                - /url: /deadlock/builds-stats-shiv
+                - generic [ref=e404]: Edit
+              - button [ref=e405]:
+                - img [ref=e406]
+          - generic [ref=e407] [cursor=pointer]:
+            - generic [ref=e409]: /build-stats
+            - generic [ref=e410]:
+              - link "Edit" [ref=e411]:
+                - /url: /deadlock/build-stats
+                - generic [ref=e412]: Edit
+              - button [ref=e413]:
+                - img [ref=e414]
+          - generic [ref=e415] [cursor=pointer]:
+            - generic [ref=e417]: /build-stats-abrams
+            - generic [ref=e418]:
+              - link "Edit" [ref=e419]:
+                - /url: /deadlock/build-stats-abrams
+                - generic [ref=e420]: Edit
+              - button [ref=e421]:
+                - img [ref=e422]
+          - generic [ref=e423] [cursor=pointer]:
+            - generic [ref=e425]: /build-stats-bebop
+            - generic [ref=e426]:
+              - link "Edit" [ref=e427]:
+                - /url: /deadlock/build-stats-bebop
+                - generic [ref=e428]: Edit
+              - button [ref=e429]:
+                - img [ref=e430]
+          - generic [ref=e431] [cursor=pointer]:
+            - generic [ref=e433]: /build-stats-dynamo
+            - generic [ref=e434]:
+              - link "Edit" [ref=e435]:
+                - /url: /deadlock/build-stats-dynamo
+                - generic [ref=e436]: Edit
+              - button [ref=e437]:
+                - img [ref=e438]
+          - generic [ref=e439] [cursor=pointer]:
+            - generic [ref=e441]: /build-stats-grey-talon
+            - generic [ref=e442]:
+              - link "Edit" [ref=e443]:
+                - /url: /deadlock/build-stats-grey-talon
+                - generic [ref=e444]: Edit
+              - button [ref=e445]:
+                - img [ref=e446]
+          - generic [ref=e447] [cursor=pointer]:
+            - generic [ref=e449]: /build-stats-haze
+            - generic [ref=e450]:
+              - link "Edit" [ref=e451]:
+                - /url: /deadlock/build-stats-haze
+                - generic [ref=e452]: Edit
+              - button [ref=e453]:
+                - img [ref=e454]
+          - generic [ref=e455] [cursor=pointer]:
+            - generic [ref=e457]: /build-stats-infernus
+            - generic [ref=e458]:
+              - link "Edit" [ref=e459]:
+                - /url: /deadlock/build-stats-infernus
+                - generic [ref=e460]: Edit
+              - button [ref=e461]:
+                - img [ref=e462]
+          - generic [ref=e463] [cursor=pointer]:
+            - generic [ref=e465]: /build-stats-ivy
+            - generic [ref=e466]:
+              - link "Edit" [ref=e467]:
+                - /url: /deadlock/build-stats-ivy
+                - generic [ref=e468]: Edit
+              - button [ref=e469]:
+                - img [ref=e470]
+          - generic [ref=e471] [cursor=pointer]:
+            - generic [ref=e473]: /build-stats-kelvin
+            - generic [ref=e474]:
+              - link "Edit" [ref=e475]:
+                - /url: /deadlock/build-stats-kelvin
+                - generic [ref=e476]: Edit
+              - button [ref=e477]:
+                - img [ref=e478]
+          - generic [ref=e479] [cursor=pointer]:
+            - generic [ref=e481]: /build-stats-lady-geist
+            - generic [ref=e482]:
+              - link "Edit" [ref=e483]:
+                - /url: /deadlock/build-stats-lady-geist
+                - generic [ref=e484]: Edit
+              - button [ref=e485]:
+                - img [ref=e486]
+          - generic [ref=e487] [cursor=pointer]:
+            - generic [ref=e489]: /build-stats-lash
+            - generic [ref=e490]:
+              - link "Edit" [ref=e491]:
+                - /url: /deadlock/build-stats-lash
+                - generic [ref=e492]: Edit
+              - button [ref=e493]:
+                - img [ref=e494]
+          - generic [ref=e495] [cursor=pointer]:
+            - generic [ref=e497]: /build-stats-mcginnis
+            - generic [ref=e498]:
+              - link "Edit" [ref=e499]:
+                - /url: /deadlock/build-stats-mcginnis
+                - generic [ref=e500]: Edit
+              - button [ref=e501]:
+                - img [ref=e502]
+          - generic [ref=e503] [cursor=pointer]:
+            - generic [ref=e505]: /build-stats-mirage
+            - generic [ref=e506]:
+              - link "Edit" [ref=e507]:
+                - /url: /deadlock/build-stats-mirage
+                - generic [ref=e508]: Edit
+              - button [ref=e509]:
+                - img [ref=e510]
+          - generic [ref=e511] [cursor=pointer]:
+            - generic [ref=e513]: /build-stats-mo-and-krill
+            - generic [ref=e514]:
+              - link "Edit" [ref=e515]:
+                - /url: /deadlock/build-stats-mo-and-krill
+                - generic [ref=e516]: Edit
+              - button [ref=e517]:
+                - img [ref=e518]
+          - generic [ref=e519] [cursor=pointer]:
+            - generic [ref=e521]: /build-stats-paradox
+            - generic [ref=e522]:
+              - link "Edit" [ref=e523]:
+                - /url: /deadlock/build-stats-paradox
+                - generic [ref=e524]: Edit
+              - button [ref=e525]:
+                - img [ref=e526]
+          - generic [ref=e527] [cursor=pointer]:
+            - generic [ref=e529]: /build-stats-pocket
+            - generic [ref=e530]:
+              - link "Edit" [ref=e531]:
+                - /url: /deadlock/build-stats-pocket
+                - generic [ref=e532]: Edit
+              - button [ref=e533]:
+                - img [ref=e534]
+          - generic [ref=e535] [cursor=pointer]:
+            - generic [ref=e537]: /build-stats-seven
+            - generic [ref=e538]:
+              - link "Edit" [ref=e539]:
+                - /url: /deadlock/build-stats-seven
+                - generic [ref=e540]: Edit
+              - button [ref=e541]:
+                - img [ref=e542]
+          - generic [ref=e543] [cursor=pointer]:
+            - generic [ref=e545]: /build-stats-shiv
+            - generic [ref=e546]:
+              - link "Edit" [ref=e547]:
+                - /url: /deadlock/build-stats-shiv
+                - generic [ref=e548]: Edit
+              - button [ref=e549]:
+                - img [ref=e550]
+          - generic [ref=e551] [cursor=pointer]:
+            - generic [ref=e553]: /build-stats-vindicta
+            - generic [ref=e554]:
+              - link "Edit" [ref=e555]:
+                - /url: /deadlock/build-stats-vindicta
+                - generic [ref=e556]: Edit
+              - button [ref=e557]:
+                - img [ref=e558]
+          - generic [ref=e559] [cursor=pointer]:
+            - generic [ref=e561]: /build-stats-viscous
+            - generic [ref=e562]:
+              - link "Edit" [ref=e563]:
+                - /url: /deadlock/build-stats-viscous
+                - generic [ref=e564]: Edit
+              - button [ref=e565]:
+                - img [ref=e566]
+          - generic [ref=e567] [cursor=pointer]:
+            - generic [ref=e569]: /build-stats-warden
+            - generic [ref=e570]:
+              - link "Edit" [ref=e571]:
+                - /url: /deadlock/build-stats-warden
+                - generic [ref=e572]: Edit
+              - button [ref=e573]:
+                - img [ref=e574]
+          - generic [ref=e575] [cursor=pointer]:
+            - generic [ref=e577]: /build-stats-wraith
+            - generic [ref=e578]:
+              - link "Edit" [ref=e579]:
+                - /url: /deadlock/build-stats-wraith
+                - generic [ref=e580]: Edit
+              - button [ref=e581]:
+                - img [ref=e582]
+          - generic [ref=e583] [cursor=pointer]:
+            - generic [ref=e585]: /build-stats-yamato
+            - generic [ref=e586]:
+              - link "Edit" [ref=e587]:
+                - /url: /deadlock/build-stats-yamato
+                - generic [ref=e588]: Edit
+              - button [ref=e589]:
+                - img [ref=e590]
+          - generic [ref=e591] [cursor=pointer]:
+            - generic [ref=e593]: /calico
+            - generic [ref=e594]:
+              - link "Edit" [ref=e595]:
+                - /url: /deadlock/calico
+                - generic [ref=e596]: Edit
+              - button [ref=e597]:
+                - img [ref=e598]
+          - generic [ref=e599] [cursor=pointer]:
+            - generic [ref=e601]: /c-p-tab-bar1
+            - generic [ref=e602]:
+              - link "Edit" [ref=e603]:
+                - /url: /deadlock/c-p-tab-bar1
+                - generic [ref=e604]: Edit
+              - button [ref=e605]:
+                - img [ref=e606]
+          - generic [ref=e607] [cursor=pointer]:
+            - generic [ref=e609]: /c-p-tab-bar10
+            - generic [ref=e610]:
+              - link "Edit" [ref=e611]:
+                - /url: /deadlock/c-p-tab-bar10
+                - generic [ref=e612]: Edit
+              - button [ref=e613]:
+                - img [ref=e614]
+          - generic [ref=e615] [cursor=pointer]:
+            - generic [ref=e617]: /c-p-tab-bar11
+            - generic [ref=e618]:
+              - link "Edit" [ref=e619]:
+                - /url: /deadlock/c-p-tab-bar11
+                - generic [ref=e620]: Edit
+              - button [ref=e621]:
+                - img [ref=e622]
+          - generic [ref=e623] [cursor=pointer]:
+            - generic [ref=e625]: /c-p-tab-bar12
+            - generic [ref=e626]:
+              - link "Edit" [ref=e627]:
+                - /url: /deadlock/c-p-tab-bar12
+                - generic [ref=e628]: Edit
+              - button [ref=e629]:
+                - img [ref=e630]
+          - generic [ref=e631] [cursor=pointer]:
+            - generic [ref=e633]: /c-p-tab-bar13
+            - generic [ref=e634]:
+              - link "Edit" [ref=e635]:
+                - /url: /deadlock/c-p-tab-bar13
+                - generic [ref=e636]: Edit
+              - button [ref=e637]:
+                - img [ref=e638]
+          - generic [ref=e639] [cursor=pointer]:
+            - generic [ref=e641]: /c-p-tab-bar14
+            - generic [ref=e642]:
+              - link "Edit" [ref=e643]:
+                - /url: /deadlock/c-p-tab-bar14
+                - generic [ref=e644]: Edit
+              - button [ref=e645]:
+                - img [ref=e646]
+          - generic [ref=e647] [cursor=pointer]:
+            - generic [ref=e649]: /c-p-tab-bar15
+            - generic [ref=e650]:
+              - link "Edit" [ref=e651]:
+                - /url: /deadlock/c-p-tab-bar15
+                - generic [ref=e652]: Edit
+              - button [ref=e653]:
+                - img [ref=e654]
+          - generic [ref=e655] [cursor=pointer]:
+            - generic [ref=e657]: /c-p-tab-bar2
+            - generic [ref=e658]:
+              - link "Edit" [ref=e659]:
+                - /url: /deadlock/c-p-tab-bar2
+                - generic [ref=e660]: Edit
+              - button [ref=e661]:
+                - img [ref=e662]
+          - generic [ref=e663] [cursor=pointer]:
+            - generic [ref=e665]: /c-p-tab-bar3
+            - generic [ref=e666]:
+              - link "Edit" [ref=e667]:
+                - /url: /deadlock/c-p-tab-bar3
+                - generic [ref=e668]: Edit
+              - button [ref=e669]:
+                - img [ref=e670]
+          - generic [ref=e671] [cursor=pointer]:
+            - generic [ref=e673]: /c-p-tab-bar4
+            - generic [ref=e674]:
+              - link "Edit" [ref=e675]:
+                - /url: /deadlock/c-p-tab-bar4
+                - generic [ref=e676]: Edit
+              - button [ref=e677]:
+                - img [ref=e678]
+          - generic [ref=e679] [cursor=pointer]:
+            - generic [ref=e681]: /c-p-tab-bar5
+            - generic [ref=e682]:
+              - link "Edit" [ref=e683]:
+                - /url: /deadlock/c-p-tab-bar5
+                - generic [ref=e684]: Edit
+              - button [ref=e685]:
+                - img [ref=e686]
+          - generic [ref=e687] [cursor=pointer]:
+            - generic [ref=e689]: /c-p-tab-bar6
+            - generic [ref=e690]:
+              - link "Edit" [ref=e691]:
+                - /url: /deadlock/c-p-tab-bar6
+                - generic [ref=e692]: Edit
+              - button [ref=e693]:
+                - img [ref=e694]
+          - generic [ref=e695] [cursor=pointer]:
+            - generic [ref=e697]: /c-p-tab-bar7
+            - generic [ref=e698]:
+              - link "Edit" [ref=e699]:
+                - /url: /deadlock/c-p-tab-bar7
+                - generic [ref=e700]: Edit
+              - button [ref=e701]:
+                - img [ref=e702]
+          - generic [ref=e703] [cursor=pointer]:
+            - generic [ref=e705]: /c-p-tab-bar8
+            - generic [ref=e706]:
+              - link "Edit" [ref=e707]:
+                - /url: /deadlock/c-p-tab-bar8
+                - generic [ref=e708]: Edit
+              - button [ref=e709]:
+                - img [ref=e710]
+          - generic [ref=e711] [cursor=pointer]:
+            - generic [ref=e713]: /c-p-tab-bar9
+            - generic [ref=e714]:
+              - link "Edit" [ref=e715]:
+                - /url: /deadlock/c-p-tab-bar9
+                - generic [ref=e716]: Edit
+              - button [ref=e717]:
+                - img [ref=e718]
+          - generic [ref=e719] [cursor=pointer]:
+            - generic [ref=e721]: /deadlock-discovery-widgets--1-114-1177-rc-37
+            - generic [ref=e722]:
+              - link "Edit" [ref=e723]:
+                - /url: /deadlock/deadlock-discovery-widgets--1-114-1177-rc-37
+                - generic [ref=e724]: Edit
+              - button [ref=e725]:
+                - img [ref=e726]
+          - generic [ref=e727] [cursor=pointer]:
+            - generic [ref=e729]: /deadlock-discovery-widgets--1-114-1205
+            - generic [ref=e730]:
+              - link "Edit" [ref=e731]:
+                - /url: /deadlock/deadlock-discovery-widgets--1-114-1205
+                - generic [ref=e732]: Edit
+              - button [ref=e733]:
+                - img [ref=e734]
+          - generic [ref=e735] [cursor=pointer]:
+            - generic [ref=e737]: /deadlock-discovery-widgets--1-114-1230-rc-2
+            - generic [ref=e738]:
+              - link "Edit" [ref=e739]:
+                - /url: /deadlock/deadlock-discovery-widgets--1-114-1230-rc-2
+                - generic [ref=e740]: Edit
+              - button [ref=e741]:
+                - img [ref=e742]
+          - generic [ref=e743] [cursor=pointer]:
+            - generic [ref=e745]: /deadlock-qa-smoke-1-114-1205
+            - generic [ref=e746]:
+              - link "Edit" [ref=e747]:
+                - /url: /deadlock/deadlock-qa-smoke-1-114-1205
+                - generic [ref=e748]: Edit
+              - button [ref=e749]:
+                - img [ref=e750]
+          - generic [ref=e751] [cursor=pointer]:
+            - generic [ref=e753]: /deadlock-qa-smoke-1-114-1205-duplicate
+            - generic [ref=e754]:
+              - link "Edit" [ref=e755]:
+                - /url: /deadlock/deadlock-qa-smoke-1-114-1205-duplicate
+                - generic [ref=e756]: Edit
+              - button [ref=e757]:
+                - img [ref=e758]
+          - generic [ref=e759] [cursor=pointer]:
+            - generic [ref=e761]: /deadlock-upload
+            - generic [ref=e762]:
+              - link "Edit" [ref=e763]:
+                - /url: /deadlock/deadlock-upload
+                - generic [ref=e764]: Edit
+              - button [ref=e765]:
+                - img [ref=e766]
+          - generic [ref=e767] [cursor=pointer]:
+            - generic [ref=e769]: /deadlock-video-widget
+            - generic [ref=e770]:
+              - link "Edit" [ref=e771]:
+                - /url: /deadlock/deadlock-video-widget
+                - generic [ref=e772]: Edit
+              - button [ref=e773]:
+                - img [ref=e774]
+          - generic [ref=e775] [cursor=pointer]:
+            - generic [ref=e777]: /derftgyhuji
+            - generic [ref=e778]:
+              - link "Edit" [ref=e779]:
+                - /url: /deadlock/derftgyhuji
+                - generic [ref=e780]: Edit
+              - button [ref=e781]:
+                - img [ref=e782]
+          - generic [ref=e783] [cursor=pointer]:
+            - generic [ref=e785]: /dfsdfsdf
+            - generic [ref=e786]:
+              - link "Edit" [ref=e787]:
+                - /url: /deadlock/dfsdfsdf
+                - generic [ref=e788]: Edit
+              - button [ref=e789]:
+                - img [ref=e790]
+          - generic [ref=e791] [cursor=pointer]:
+            - generic [ref=e793]: /discovery-test
+            - generic [ref=e794]:
+              - link "Edit" [ref=e795]:
+                - /url: /deadlock/discovery-test
+                - generic [ref=e796]: Edit
+              - button [ref=e797]:
+                - img [ref=e798]
+          - generic [ref=e799] [cursor=pointer]:
+            - generic [ref=e801]: /el
+            - generic [ref=e802]:
+              - link "Edit" [ref=e803]:
+                - /url: /deadlock/el
+                - generic [ref=e804]: Edit
+              - button [ref=e805]:
+                - img [ref=e806]
+          - generic [ref=e807] [cursor=pointer]:
+            - generic [ref=e809]: /el-1
+            - generic [ref=e810]:
+              - link "Edit" [ref=e811]:
+                - /url: /deadlock/el-1
+                - generic [ref=e812]: Edit
+              - button [ref=e813]:
+                - img [ref=e814]
+          - generic [ref=e815] [cursor=pointer]:
+            - generic [ref=e817]: /el-2
+            - generic [ref=e818]:
+              - link "Edit" [ref=e819]:
+                - /url: /deadlock/el-2
+                - generic [ref=e820]: Edit
+              - button [ref=e821]:
+                - img [ref=e822]
+          - generic [ref=e823] [cursor=pointer]:
+            - generic [ref=e825]: /el-3
+            - generic [ref=e826]:
+              - link "Edit" [ref=e827]:
+                - /url: /deadlock/el-3
+                - generic [ref=e828]: Edit
+              - button [ref=e829]:
+                - img [ref=e830]
+          - generic [ref=e831] [cursor=pointer]:
+            - generic [ref=e833]: /el-permissions-test
+            - generic [ref=e834]:
+              - link "Edit" [ref=e835]:
+                - /url: /deadlock/el-permissions-test
+                - generic [ref=e836]: Edit
+              - button [ref=e837]:
+                - img [ref=e838]
+          - generic [ref=e839] [cursor=pointer]:
+            - generic [ref=e841]: /el-test-page-1
+            - generic [ref=e842]:
+              - link "Edit" [ref=e843]:
+                - /url: /deadlock/el-test-page-1
+                - generic [ref=e844]: Edit
+              - button [ref=e845]:
+                - img [ref=e846]
+          - generic [ref=e847] [cursor=pointer]:
+            - generic [ref=e849]: /el-toc-1
+            - generic [ref=e850]:
+              - link "Edit" [ref=e851]:
+                - /url: /deadlock/el-toc-1
+                - generic [ref=e852]: Edit
+              - button [ref=e853]:
+                - img [ref=e854]
+          - generic [ref=e855] [cursor=pointer]:
+            - generic [ref=e857]: /ffsff
+            - generic [ref=e858]:
+              - link "Edit" [ref=e859]:
+                - /url: /deadlock/ffsff
+                - generic [ref=e860]: Edit
+              - button [ref=e861]:
+                - img [ref=e862]
+          - generic [ref=e863] [cursor=pointer]:
+            - generic [ref=e865]: /fsfsdff
+            - generic [ref=e866]:
+              - link "Edit" [ref=e867]:
+                - /url: /deadlock/fsfsdff
+                - generic [ref=e868]: Edit
+              - button [ref=e869]:
+                - img [ref=e870]
+          - generic [ref=e871] [cursor=pointer]:
+            - generic [ref=e873]: /guides
+            - generic [ref=e874]:
+              - link "Edit" [ref=e875]:
+                - /url: /deadlock/guides
+                - generic [ref=e876]: Edit
+              - button [ref=e877]:
+                - img [ref=e878]
+          - generic [ref=e879] [cursor=pointer]:
+            - generic [ref=e881]: /hello
+            - generic [ref=e882]:
+              - link "Edit" [ref=e883]:
+                - /url: /deadlock/hello
+                - generic [ref=e884]: Edit
+              - button [ref=e885]:
+                - img [ref=e886]
+          - generic [ref=e887] [cursor=pointer]:
+            - generic [ref=e889]: /hero/abrams-guide
+            - generic [ref=e890]:
+              - link "Edit" [ref=e891]:
+                - /url: /deadlock/hero/abrams-guide
+                - generic [ref=e892]: Edit
+              - button [ref=e893]:
+                - img [ref=e894]
+          - generic [ref=e895] [cursor=pointer]:
+            - generic [ref=e897]: /heroes
+            - generic [ref=e898]:
+              - link "Edit" [ref=e899]:
+                - /url: /deadlock/heroes
+                - generic [ref=e900]: Edit
+              - button [ref=e901]:
+                - img [ref=e902]
+          - generic [ref=e903] [cursor=pointer]:
+            - generic [ref=e905]: /heroes/abrams
+            - generic [ref=e906]:
+              - link "Edit" [ref=e907]:
+                - /url: /deadlock/heroes/abrams
+                - generic [ref=e908]: Edit
+              - button [ref=e909]:
+                - img [ref=e910]
+          - generic [ref=e911] [cursor=pointer]:
+            - generic [ref=e913]: /home
+            - generic [ref=e914]:
+              - link "Edit" [ref=e915]:
+                - /url: /deadlock/home
+                - generic [ref=e916]: Edit
+              - button [ref=e917]:
+                - img [ref=e918]
+          - generic [ref=e919] [cursor=pointer]:
+            - generic [ref=e921]: /items
+            - generic [ref=e922]:
+              - link "Edit" [ref=e923]:
+                - /url: /deadlock/items
+                - generic [ref=e924]: Edit
+              - button [ref=e925]:
+                - img [ref=e926]
+          - generic [ref=e927] [cursor=pointer]:
+            - generic [ref=e929]: /kazakov-test-1
+            - generic [ref=e930]:
+              - link "Edit" [ref=e931]:
+                - /url: /deadlock/kazakov-test-1
+                - generic [ref=e932]: Edit
+              - button [ref=e933]:
+                - img [ref=e934]
+          - generic [ref=e935] [cursor=pointer]:
+            - generic [ref=e937]: /mirage
+            - generic [ref=e938]:
+              - link "Edit" [ref=e939]:
+                - /url: /deadlock/mirage
+                - generic [ref=e940]: Edit
+              - button [ref=e941]:
+                - img [ref=e942]
+          - generic [ref=e943] [cursor=pointer]:
+            - generic [ref=e945]: /mirage1
+            - generic [ref=e946]:
+              - link "Edit" [ref=e947]:
+                - /url: /deadlock/mirage1
+                - generic [ref=e948]: Edit
+              - button [ref=e949]:
+                - img [ref=e950]
+          - generic [ref=e951] [cursor=pointer]:
+            - generic [ref=e953]: /mirage-build-testing
+            - generic [ref=e954]:
+              - link "Edit" [ref=e955]:
+                - /url: /deadlock/mirage-build-testing
+                - generic [ref=e956]: Edit
+              - button [ref=e957]:
+                - img [ref=e958]
+          - generic [ref=e959] [cursor=pointer]:
+            - generic [ref=e961]: /og-image-check
+            - generic [ref=e962]:
+              - link "Edit" [ref=e963]:
+                - /url: /deadlock/og-image-check
+                - generic [ref=e964]: Edit
+              - button [ref=e965]:
+                - img [ref=e966]
+          - generic [ref=e967] [cursor=pointer]:
+            - generic [ref=e969]: /ololo/123/ggg
+            - generic [ref=e970]:
+              - link "Edit" [ref=e971]:
+                - /url: /deadlock/ololo/123/ggg
+                - generic [ref=e972]: Edit
+              - button [ref=e973]:
+                - img [ref=e974]
+          - generic [ref=e975] [cursor=pointer]:
+            - generic [ref=e977]: /ololo/124/hhh
+            - generic [ref=e978]:
+              - link "Edit" [ref=e979]:
+                - /url: /deadlock/ololo/124/hhh
+                - generic [ref=e980]: Edit
+              - button [ref=e981]:
+                - img [ref=e982]
+          - generic [ref=e983] [cursor=pointer]:
+            - generic [ref=e985]: /ololo/trololo
+            - generic [ref=e986]:
+              - link "Edit" [ref=e987]:
+                - /url: /deadlock/ololo/trololo
+                - generic [ref=e988]: Edit
+              - button [ref=e989]:
+                - img [ref=e990]
+          - generic [ref=e991] [cursor=pointer]:
+            - generic [ref=e993]: /opa-test
+            - generic [ref=e994]:
+              - link "Edit" [ref=e995]:
+                - /url: /deadlock/opa-test
+                - generic [ref=e996]: Edit
+              - button [ref=e997]:
+                - img [ref=e998]
+          - generic [ref=e999] [cursor=pointer]:
+            - generic [ref=e1001]: /p-b-netboard-qa
+            - generic [ref=e1002]:
+              - link "Edit" [ref=e1003]:
+                - /url: /deadlock/p-b-netboard-qa
+                - generic [ref=e1004]: Edit
+              - button [ref=e1005]:
+                - img [ref=e1006]
+          - generic [ref=e1007] [cursor=pointer]:
+            - generic [ref=e1009]: /post-release-test
+            - generic [ref=e1010]:
+              - link "Edit" [ref=e1011]:
+                - /url: /deadlock/post-release-test
+                - generic [ref=e1012]: Edit
+              - button [ref=e1013]:
+                - img [ref=e1014]
+          - generic [ref=e1015] [cursor=pointer]:
+            - generic [ref=e1017]: /promo-banners
+            - generic [ref=e1018]:
+              - link "Edit" [ref=e1019]:
+                - /url: /deadlock/promo-banners
+                - generic [ref=e1020]: Edit
+              - button [ref=e1021]:
+                - img [ref=e1022]
+          - generic [ref=e1023] [cursor=pointer]:
+            - generic [ref=e1025]: /qa-agnostic-cm-widget-documents-feed
+            - generic [ref=e1026]:
+              - link "Edit" [ref=e1027]:
+                - /url: /deadlock/qa-agnostic-cm-widget-documents-feed
+                - generic [ref=e1028]: Edit
+              - button [ref=e1029]:
+                - img [ref=e1030]
+          - generic [ref=e1031] [cursor=pointer]:
+            - generic [ref=e1033]: /qa-check-static-data-not-delete
+            - generic [ref=e1034]:
+              - link "Edit" [ref=e1035]:
+                - /url: /deadlock/qa-check-static-data-not-delete
+                - generic [ref=e1036]: Edit
+              - button [ref=e1037]:
+                - img [ref=e1038]
+          - generic [ref=e1039] [cursor=pointer]:
+            - generic [ref=e1041]: /qa-crud-1-114-1141
+            - generic [ref=e1042]:
+              - link "Edit" [ref=e1043]:
+                - /url: /deadlock/qa-crud-1-114-1141
+                - generic [ref=e1044]: Edit
+              - button [ref=e1045]:
+                - img [ref=e1046]
+          - generic [ref=e1047] [cursor=pointer]:
+            - generic [ref=e1049]: /qa-deadlock-old-discovery-widgets
+            - generic [ref=e1050]:
+              - link "Edit" [ref=e1051]:
+                - /url: /deadlock/qa-deadlock-old-discovery-widgets
+                - generic [ref=e1052]: Edit
+              - button [ref=e1053]:
+                - img [ref=e1054]
+          - generic [ref=e1055] [cursor=pointer]:
+            - generic [ref=e1057]: /qa-dw-1-114-1169
+            - generic [ref=e1058]:
+              - link "Edit" [ref=e1059]:
+                - /url: /deadlock/qa-dw-1-114-1169
+                - generic [ref=e1060]: Edit
+              - button [ref=e1061]:
+                - img [ref=e1062]
+          - generic [ref=e1063] [cursor=pointer]:
+            - generic [ref=e1065]: /qa-game-dara-card-grid-widget
+            - generic [ref=e1066]:
+              - link "Edit" [ref=e1067]:
+                - /url: /deadlock/qa-game-dara-card-grid-widget
+                - generic [ref=e1068]: Edit
+              - button [ref=e1069]:
+                - img [ref=e1070]
+          - generic [ref=e1071] [cursor=pointer]:
+            - generic [ref=e1073]: /qa-smoke-1-114-1154
+            - generic [ref=e1074]:
+              - link "Edit" [ref=e1075]:
+                - /url: /deadlock/qa-smoke-1-114-1154
+                - generic [ref=e1076]: Edit
+              - button [ref=e1077]:
+                - img [ref=e1078]
+          - generic [ref=e1079] [cursor=pointer]:
+            - generic [ref=e1081]: /qa-smoke-1-114-1154-duplicate
+            - generic [ref=e1082]:
+              - link "Edit" [ref=e1083]:
+                - /url: /deadlock/qa-smoke-1-114-1154-duplicate
+                - generic [ref=e1084]: Edit
+              - button [ref=e1085]:
+                - img [ref=e1086]
+          - generic [ref=e1087] [cursor=pointer]:
+            - generic [ref=e1089]: /qa-smoke-1-114-1154-duplicate-1
+            - generic [ref=e1090]:
+              - link "Edit" [ref=e1091]:
+                - /url: /deadlock/qa-smoke-1-114-1154-duplicate-1
+                - generic [ref=e1092]: Edit
+              - button [ref=e1093]:
+                - img [ref=e1094]
+          - generic [ref=e1095] [cursor=pointer]:
+            - generic [ref=e1097]: /qa-smoke-1-114-1172
+            - generic [ref=e1098]:
+              - link "Edit" [ref=e1099]:
+                - /url: /deadlock/qa-smoke-1-114-1172
+                - generic [ref=e1100]: Edit
+              - button [ref=e1101]:
+                - img [ref=e1102]
+          - generic [ref=e1103] [cursor=pointer]:
+            - generic [ref=e1105]: /qa-smoke-1-114-1172-duplicate
+            - generic [ref=e1106]:
+              - link "Edit" [ref=e1107]:
+                - /url: /deadlock/qa-smoke-1-114-1172-duplicate
+                - generic [ref=e1108]: Edit
+              - button [ref=e1109]:
+                - img [ref=e1110]
+          - generic [ref=e1111] [cursor=pointer]:
+            - generic [ref=e1113]: /qa-test1-bg
+            - generic [ref=e1114]:
+              - link "Edit" [ref=e1115]:
+                - /url: /deadlock/qa-test1-bg
+                - generic [ref=e1116]: Edit
+              - button [ref=e1117]:
+                - img [ref=e1118]
+          - generic [ref=e1119] [cursor=pointer]:
+            - generic [ref=e1121]: /qa-test3-bg
+            - generic [ref=e1122]:
+              - link "Edit" [ref=e1123]:
+                - /url: /deadlock/qa-test3-bg
+                - generic [ref=e1124]: Edit
+              - button [ref=e1125]:
+                - img [ref=e1126]
+          - generic [ref=e1127] [cursor=pointer]:
+            - generic [ref=e1129]: /qa-test-bg-images
+            - generic [ref=e1130]:
+              - link "Edit" [ref=e1131]:
+                - /url: /deadlock/qa-test-bg-images
+                - generic [ref=e1132]: Edit
+              - button [ref=e1133]:
+                - img [ref=e1134]
+          - generic [ref=e1135] [cursor=pointer]:
+            - generic [ref=e1137]: /qa-test-local-storage-deadlock1
+            - generic [ref=e1138]:
+              - link "Edit" [ref=e1139]:
+                - /url: /deadlock/qa-test-local-storage-deadlock1
+                - generic [ref=e1140]: Edit
+              - button [ref=e1141]:
+                - img [ref=e1142]
+          - generic [ref=e1143] [cursor=pointer]:
+            - generic [ref=e1145]: /qwerty10
+            - generic [ref=e1146]:
+              - link "Edit" [ref=e1147]:
+                - /url: /deadlock/qwerty10
+                - generic [ref=e1148]: Edit
+              - button [ref=e1149]:
+                - img [ref=e1150]
+          - generic [ref=e1151] [cursor=pointer]:
+            - generic [ref=e1153]: /qwerty11
+            - generic [ref=e1154]:
+              - link "Edit" [ref=e1155]:
+                - /url: /deadlock/qwerty11
+                - generic [ref=e1156]: Edit
+              - button [ref=e1157]:
+                - img [ref=e1158]
+          - generic [ref=e1159] [cursor=pointer]:
+            - generic [ref=e1161]: /qwerty12
+            - generic [ref=e1162]:
+              - link "Edit" [ref=e1163]:
+                - /url: /deadlock/qwerty12
+                - generic [ref=e1164]: Edit
+              - button [ref=e1165]:
+                - img [ref=e1166]
+          - generic [ref=e1167] [cursor=pointer]:
+            - generic [ref=e1169]: /qwerty14
+            - generic [ref=e1170]:
+              - link "Edit" [ref=e1171]:
+                - /url: /deadlock/qwerty14
+                - generic [ref=e1172]: Edit
+              - button [ref=e1173]:
+                - img [ref=e1174]
+          - generic [ref=e1175] [cursor=pointer]:
+            - generic [ref=e1177]: /qwerty15
+            - generic [ref=e1178]:
+              - link "Edit" [ref=e1179]:
+                - /url: /deadlock/qwerty15
+                - generic [ref=e1180]: Edit
+              - button [ref=e1181]:
+                - img [ref=e1182]
+          - generic [ref=e1183] [cursor=pointer]:
+            - generic [ref=e1185]: /qwerty17
+            - generic [ref=e1186]:
+              - link "Edit" [ref=e1187]:
+                - /url: /deadlock/qwerty17
+                - generic [ref=e1188]: Edit
+              - button [ref=e1189]:
+                - img [ref=e1190]
+          - generic [ref=e1191] [cursor=pointer]:
+            - generic [ref=e1193]: /qwerty19
+            - generic [ref=e1194]:
+              - link "Edit" [ref=e1195]:
+                - /url: /deadlock/qwerty19
+                - generic [ref=e1196]: Edit
+              - button [ref=e1197]:
+                - img [ref=e1198]
+          - generic [ref=e1199] [cursor=pointer]:
+            - generic [ref=e1201]: /qwerty5
+            - generic [ref=e1202]:
+              - link "Edit" [ref=e1203]:
+                - /url: /deadlock/qwerty5
+                - generic [ref=e1204]: Edit
+              - button [ref=e1205]:
+                - img [ref=e1206]
+          - generic [ref=e1207] [cursor=pointer]:
+            - generic [ref=e1209]: /qwerty50
+            - generic [ref=e1210]:
+              - link "Edit" [ref=e1211]:
+                - /url: /deadlock/qwerty50
+                - generic [ref=e1212]: Edit
+              - button [ref=e1213]:
+                - img [ref=e1214]
+          - generic [ref=e1215] [cursor=pointer]:
+            - generic [ref=e1217]: /qwerty7
+            - generic [ref=e1218]:
+              - link "Edit" [ref=e1219]:
+                - /url: /deadlock/qwerty7
+                - generic [ref=e1220]: Edit
+              - button [ref=e1221]:
+                - img [ref=e1222]
+          - generic [ref=e1223] [cursor=pointer]:
+            - generic [ref=e1225]: /qwerty8
+            - generic [ref=e1226]:
+              - link "Edit" [ref=e1227]:
+                - /url: /deadlock/qwerty8
+                - generic [ref=e1228]: Edit
+              - button [ref=e1229]:
+                - img [ref=e1230]
+          - generic [ref=e1231] [cursor=pointer]:
+            - generic [ref=e1233]: /qwerty9
+            - generic [ref=e1234]:
+              - link "Edit" [ref=e1235]:
+                - /url: /deadlock/qwerty9
+                - generic [ref=e1236]: Edit
+              - button [ref=e1237]:
+                - img [ref=e1238]
+          - generic [ref=e1239] [cursor=pointer]:
+            - generic [ref=e1241]: /rich-text-test1
+            - generic [ref=e1242]:
+              - link "Edit" [ref=e1243]:
+                - /url: /deadlock/rich-text-test1
+                - generic [ref=e1244]: Edit
+              - button [ref=e1245]:
+                - img [ref=e1246]
+          - generic [ref=e1247] [cursor=pointer]:
+            - generic [ref=e1249]: /sdfsdf
+            - generic [ref=e1250]:
+              - link "Edit" [ref=e1251]:
+                - /url: /deadlock/sdfsdf
+                - generic [ref=e1252]: Edit
+              - button [ref=e1253]:
+                - img [ref=e1254]
+          - generic [ref=e1255] [cursor=pointer]:
+            - generic [ref=e1257]: /sdfsdf3423
+            - generic [ref=e1258]:
+              - link "Edit" [ref=e1259]:
+                - /url: /deadlock/sdfsdf3423
+                - generic [ref=e1260]: Edit
+              - button [ref=e1261]:
+                - img [ref=e1262]
+          - generic [ref=e1263] [cursor=pointer]:
+            - generic [ref=e1265]: /sdfsdfsdf
+            - generic [ref=e1266]:
+              - link "Edit" [ref=e1267]:
+                - /url: /deadlock/sdfsdfsdf
+                - generic [ref=e1268]: Edit
+              - button [ref=e1269]:
+                - img [ref=e1270]
+          - generic [ref=e1271] [cursor=pointer]:
+            - generic [ref=e1273]: /seven
+            - generic [ref=e1274]:
+              - link "Edit" [ref=e1275]:
+                - /url: /deadlock/seven
+                - generic [ref=e1276]: Edit
+              - button [ref=e1277]:
+                - img [ref=e1278]
+          - generic [ref=e1279] [cursor=pointer]:
+            - generic [ref=e1281]: /smoke-1-117-3
+            - generic [ref=e1282]:
+              - link "Edit" [ref=e1283]:
+                - /url: /deadlock/smoke-1-117-3
+                - generic [ref=e1284]: Edit
+              - button [ref=e1285]:
+                - img [ref=e1286]
+          - generic [ref=e1287] [cursor=pointer]:
+            - generic [ref=e1289]: /smoke-1-131-2-rc-1
+            - generic [ref=e1290]:
+              - link "Edit" [ref=e1291]:
+                - /url: /deadlock/smoke-1-131-2-rc-1
+                - generic [ref=e1292]: Edit
+              - button [ref=e1293]:
+                - img [ref=e1294]
+          - generic [ref=e1295] [cursor=pointer]:
+            - generic [ref=e1297]: /smoke-1-195-4
+            - generic [ref=e1298]:
+              - link "Edit" [ref=e1299]:
+                - /url: /deadlock/smoke-1-195-4
+                - generic [ref=e1300]: Edit
+              - button [ref=e1301]:
+                - img [ref=e1302]
+          - generic [ref=e1303] [cursor=pointer]:
+            - generic [ref=e1305]: /smoke-test-qa1-1-114-1250
+            - generic [ref=e1306]:
+              - link "Edit" [ref=e1307]:
+                - /url: /deadlock/smoke-test-qa1-1-114-1250
+                - generic [ref=e1308]: Edit
+              - button [ref=e1309]:
+                - img [ref=e1310]
+          - generic [ref=e1311] [cursor=pointer]:
+            - generic [ref=e1313]: /smoke-test-qa2-1-114-1250
+            - generic [ref=e1314]:
+              - link "Edit" [ref=e1315]:
+                - /url: /deadlock/smoke-test-qa2-1-114-1250
+                - generic [ref=e1316]: Edit
+              - button [ref=e1317]:
+                - img [ref=e1318]
+          - generic [ref=e1319] [cursor=pointer]:
+            - generic [ref=e1321]: /smoke-test-qa3-1-114-1250
+            - generic [ref=e1322]:
+              - link "Edit" [ref=e1323]:
+                - /url: /deadlock/smoke-test-qa3-1-114-1250
+                - generic [ref=e1324]: Edit
+              - button [ref=e1325]:
+                - img [ref=e1326]
+          - generic [ref=e1327] [cursor=pointer]:
+            - generic [ref=e1329]: /some-page/some-other-page/ggwp
+            - generic [ref=e1330]:
+              - link "Edit" [ref=e1331]:
+                - /url: /deadlock/some-page/some-other-page/ggwp
+                - generic [ref=e1332]: Edit
+              - button [ref=e1333]:
+                - img [ref=e1334]
+          - generic [ref=e1335] [cursor=pointer]:
+            - generic [ref=e1337]: /static-data-1
+            - generic [ref=e1338]:
+              - link "Edit" [ref=e1339]:
+                - /url: /deadlock/static-data-1
+                - generic [ref=e1340]: Edit
+              - button [ref=e1341]:
+                - img [ref=e1342]
+          - generic [ref=e1343] [cursor=pointer]:
+            - generic [ref=e1345]: /static-data-2
+            - generic [ref=e1346]:
+              - link "Edit" [ref=e1347]:
+                - /url: /deadlock/static-data-2
+                - generic [ref=e1348]: Edit
+              - button [ref=e1349]:
+                - img [ref=e1350]
+          - generic [ref=e1351] [cursor=pointer]:
+            - generic [ref=e1353]: /test11
+            - generic [ref=e1354]:
+              - link "Edit" [ref=e1355]:
+                - /url: /deadlock/test11
+                - generic [ref=e1356]: Edit
+              - button [ref=e1357]:
+                - img [ref=e1358]
+          - generic [ref=e1359] [cursor=pointer]:
+            - generic [ref=e1361]: /test123
+            - generic [ref=e1362]:
+              - link "Edit" [ref=e1363]:
+                - /url: /deadlock/test123
+                - generic [ref=e1364]: Edit
+              - button [ref=e1365]:
+                - img [ref=e1366]
+          - generic [ref=e1367] [cursor=pointer]:
+            - generic [ref=e1369]: /test2
+            - generic [ref=e1370]:
+              - link "Edit" [ref=e1371]:
+                - /url: /deadlock/test2
+                - generic [ref=e1372]: Edit
+              - button [ref=e1373]:
+                - img [ref=e1374]
+          - generic [ref=e1375] [cursor=pointer]:
+            - generic [ref=e1377]: /test-build-1
+            - generic [ref=e1378]:
+              - link "Edit" [ref=e1379]:
+                - /url: /deadlock/test-build-1
+                - generic [ref=e1380]: Edit
+              - button [ref=e1381]:
+                - img [ref=e1382]
+          - generic [ref=e1383] [cursor=pointer]:
+            - generic [ref=e1385]: /test-build-2
+            - generic [ref=e1386]:
+              - link "Edit" [ref=e1387]:
+                - /url: /deadlock/test-build-2
+                - generic [ref=e1388]: Edit
+              - button [ref=e1389]:
+                - img [ref=e1390]
+          - generic [ref=e1391] [cursor=pointer]:
+            - generic [ref=e1393]: /test-build-stats-abrams
+            - generic [ref=e1394]:
+              - link "Edit" [ref=e1395]:
+                - /url: /deadlock/test-build-stats-abrams
+                - generic [ref=e1396]: Edit
+              - button [ref=e1397]:
+                - img [ref=e1398]
+          - generic [ref=e1399] [cursor=pointer]:
+            - generic [ref=e1401]: /test-build-stats-haze
+            - generic [ref=e1402]:
+              - link "Edit" [ref=e1403]:
+                - /url: /deadlock/test-build-stats-haze
+                - generic [ref=e1404]: Edit
+              - button [ref=e1405]:
+                - img [ref=e1406]
+          - generic [ref=e1407] [cursor=pointer]:
+            - generic [ref=e1409]: /test-build-stats-infernus
+            - generic [ref=e1410]:
+              - link "Edit" [ref=e1411]:
+                - /url: /deadlock/test-build-stats-infernus
+                - generic [ref=e1412]: Edit
+              - button [ref=e1413]:
+                - img [ref=e1414]
+          - generic [ref=e1415] [cursor=pointer]:
+            - generic [ref=e1417]: /test-build-stats-lash
+            - generic [ref=e1418]:
+              - link "Edit" [ref=e1419]:
+                - /url: /deadlock/test-build-stats-lash
+                - generic [ref=e1420]: Edit
+              - button [ref=e1421]:
+                - img [ref=e1422]
+          - generic [ref=e1423] [cursor=pointer]:
+            - generic [ref=e1425]: /test-build-stats-seven
+            - generic [ref=e1426]:
+              - link "Edit" [ref=e1427]:
+                - /url: /deadlock/test-build-stats-seven
+                - generic [ref=e1428]: Edit
+              - button [ref=e1429]:
+                - img [ref=e1430]
+          - generic [ref=e1431] [cursor=pointer]:
+            - generic [ref=e1433]: /test-build-stats-shiv
+            - generic [ref=e1434]:
+              - link "Edit" [ref=e1435]:
+                - /url: /deadlock/test-build-stats-shiv
+                - generic [ref=e1436]: Edit
+              - button [ref=e1437]:
+                - img [ref=e1438]
+          - generic [ref=e1439] [cursor=pointer]:
+            - generic [ref=e1441]: /test-build-stats-warden
+            - generic [ref=e1442]:
+              - link "Edit" [ref=e1443]:
+                - /url: /deadlock/test-build-stats-warden
+                - generic [ref=e1444]: Edit
+              - button [ref=e1445]:
+                - img [ref=e1446]
+          - generic [ref=e1447] [cursor=pointer]:
+            - generic [ref=e1449]: /test-build-stats-wraith
+            - generic [ref=e1450]:
+              - link "Edit" [ref=e1451]:
+                - /url: /deadlock/test-build-stats-wraith
+                - generic [ref=e1452]: Edit
+              - button [ref=e1453]:
+                - img [ref=e1454]
+          - generic [ref=e1455] [cursor=pointer]:
+            - generic [ref=e1457]: /test-deadlock-int-gql-el
+            - generic [ref=e1458]:
+              - link "Edit" [ref=e1459]:
+                - /url: /deadlock/test-deadlock-int-gql-el
+                - generic [ref=e1460]: Edit
+              - button [ref=e1461]:
+                - img [ref=e1462]
+          - generic [ref=e1463] [cursor=pointer]:
+            - generic [ref=e1465]: /test/deadlock/int-tooltips/stas
+            - generic [ref=e1466]:
+              - link "Edit" [ref=e1467]:
+                - /url: /deadlock/test/deadlock/int-tooltips/stas
+                - generic [ref=e1468]: Edit
+              - button [ref=e1469]:
+                - img [ref=e1470]
+          - generic [ref=e1471] [cursor=pointer]:
+            - generic [ref=e1473]: /test-deadlock-stg-widgets-refactoring-el
+            - generic [ref=e1474]:
+              - link "Edit" [ref=e1475]:
+                - /url: /deadlock/test-deadlock-stg-widgets-refactoring-el
+                - generic [ref=e1476]: Edit
+              - button [ref=e1477]:
+                - img [ref=e1478]
+          - generic [ref=e1479] [cursor=pointer]:
+            - generic [ref=e1481]: /test-discovery-preview-compact
+            - generic [ref=e1482]:
+              - link "Edit" [ref=e1483]:
+                - /url: /deadlock/test-discovery-preview-compact
+                - generic [ref=e1484]: Edit
+              - button [ref=e1485]:
+                - img [ref=e1486]
+          - generic [ref=e1487] [cursor=pointer]:
+            - generic [ref=e1489]: /test-display-policy
+            - generic [ref=e1490]:
+              - link "Edit" [ref=e1491]:
+                - /url: /deadlock/test-display-policy
+                - generic [ref=e1492]: Edit
+              - button [ref=e1493]:
+                - img [ref=e1494]
+          - generic [ref=e1495] [cursor=pointer]:
+            - generic [ref=e1497]: /test/heroes/abrams
+            - generic [ref=e1498]:
+              - link "Edit" [ref=e1499]:
+                - /url: /deadlock/test/heroes/abrams
+                - generic [ref=e1500]: Edit
+              - button [ref=e1501]:
+                - img [ref=e1502]
+          - generic [ref=e1503] [cursor=pointer]:
+            - generic [ref=e1505]: /test/heroes/abrams-build
+            - generic [ref=e1506]:
+              - link "Edit" [ref=e1507]:
+                - /url: /deadlock/test/heroes/abrams-build
+                - generic [ref=e1508]: Edit
+              - button [ref=e1509]:
+                - img [ref=e1510]
+          - generic [ref=e1511] [cursor=pointer]:
+            - generic [ref=e1513]: /test/home
+            - generic [ref=e1514]:
+              - link "Edit" [ref=e1515]:
+                - /url: /deadlock/test/home
+                - generic [ref=e1516]: Edit
+              - button [ref=e1517]:
+                - img [ref=e1518]
+          - generic [ref=e1519] [cursor=pointer]:
+            - generic [ref=e1521]: /test-int-deadlock-discovery-widgets-tier-list
+            - generic [ref=e1522]:
+              - link "Edit" [ref=e1523]:
+                - /url: /deadlock/test-int-deadlock-discovery-widgets-tier-list
+                - generic [ref=e1524]: Edit
+              - button [ref=e1525]:
+                - img [ref=e1526]
+          - generic [ref=e1527] [cursor=pointer]:
+            - generic [ref=e1529]: /test-int-deadlock-doc-discovery-tier-list-1
+            - generic [ref=e1530]:
+              - link "Edit" [ref=e1531]:
+                - /url: /deadlock/test-int-deadlock-doc-discovery-tier-list-1
+                - generic [ref=e1532]: Edit
+              - button [ref=e1533]:
+                - img [ref=e1534]
+          - generic [ref=e1535] [cursor=pointer]:
+            - generic [ref=e1537]: /test-int-deadlock-image-upload
+            - generic [ref=e1538]:
+              - link "Edit" [ref=e1539]:
+                - /url: /deadlock/test-int-deadlock-image-upload
+                - generic [ref=e1540]: Edit
+              - button [ref=e1541]:
+                - img [ref=e1542]
+          - generic [ref=e1543] [cursor=pointer]:
+            - generic [ref=e1545]: /test-int-deadlock-mobile-improvement
+            - generic [ref=e1546]:
+              - link "Edit" [ref=e1547]:
+                - /url: /deadlock/test-int-deadlock-mobile-improvement
+                - generic [ref=e1548]: Edit
+              - button [ref=e1549]:
+                - img [ref=e1550]
+          - generic [ref=e1551] [cursor=pointer]:
+            - generic [ref=e1553]: /test-int-deadlock-toc-1
+            - generic [ref=e1554]:
+              - link "Edit" [ref=e1555]:
+                - /url: /deadlock/test-int-deadlock-toc-1
+                - generic [ref=e1556]: Edit
+              - button [ref=e1557]:
+                - img [ref=e1558]
+          - generic [ref=e1559] [cursor=pointer]:
+            - generic [ref=e1561]: /test-int-deadlock-toc-2
+            - generic [ref=e1562]:
+              - link "Edit" [ref=e1563]:
+                - /url: /deadlock/test-int-deadlock-toc-2
+                - generic [ref=e1564]: Edit
+              - button [ref=e1565]:
+                - img [ref=e1566]
+          - generic [ref=e1567] [cursor=pointer]:
+            - generic [ref=e1569]: /test-int-deadlock-widgets-refactoring-el
+            - generic [ref=e1570]:
+              - link "Edit" [ref=e1571]:
+                - /url: /deadlock/test-int-deadlock-widgets-refactoring-el
+                - generic [ref=e1572]: Edit
+              - button [ref=e1573]:
+                - img [ref=e1574]
+          - generic [ref=e1575] [cursor=pointer]:
+            - generic [ref=e1577]: /test-int-deadlock-widgets-rendering-el
+            - generic [ref=e1578]:
+              - link "Edit" [ref=e1579]:
+                - /url: /deadlock/test-int-deadlock-widgets-rendering-el
+                - generic [ref=e1580]: Edit
+              - button [ref=e1581]:
+                - img [ref=e1582]
+          - generic [ref=e1583] [cursor=pointer]:
+            - generic [ref=e1585]: /test-int-permission-mapping-deadlock
+            - generic [ref=e1586]:
+              - link "Edit" [ref=e1587]:
+                - /url: /deadlock/test-int-permission-mapping-deadlock
+                - generic [ref=e1588]: Edit
+              - button [ref=e1589]:
+                - img [ref=e1590]
+          - generic [ref=e1591] [cursor=pointer]:
+            - generic [ref=e1593]: /test-link-settings
+            - generic [ref=e1594]:
+              - link "Edit" [ref=e1595]:
+                - /url: /deadlock/test-link-settings
+                - generic [ref=e1596]: Edit
+              - button [ref=e1597]:
+                - img [ref=e1598]
+          - generic [ref=e1599] [cursor=pointer]:
+            - generic [ref=e1601]: /test-link-settings-dublicate
+            - generic [ref=e1602]:
+              - link "Edit" [ref=e1603]:
+                - /url: /deadlock/test-link-settings-dublicate
+                - generic [ref=e1604]: Edit
+              - button [ref=e1605]:
+                - img [ref=e1606]
+          - generic [ref=e1607] [cursor=pointer]:
+            - generic [ref=e1609]: /test-local-storage
+            - generic [ref=e1610]:
+              - link "Edit" [ref=e1611]:
+                - /url: /deadlock/test-local-storage
+                - generic [ref=e1612]: Edit
+              - button [ref=e1613]:
+                - img [ref=e1614]
+          - generic [ref=e1615] [cursor=pointer]:
+            - generic [ref=e1617]: /test-skill-order
+            - generic [ref=e1618]:
+              - link "Edit" [ref=e1619]:
+                - /url: /deadlock/test-skill-order
+                - generic [ref=e1620]: Edit
+              - button [ref=e1621]:
+                - img [ref=e1622]
+          - generic [ref=e1623] [cursor=pointer]:
+            - generic [ref=e1625]: /test-stg-deadlock-doc-discovery-1
+            - generic [ref=e1626]:
+              - link "Edit" [ref=e1627]:
+                - /url: /deadlock/test-stg-deadlock-doc-discovery-1
+                - generic [ref=e1628]: Edit
+              - button [ref=e1629]:
+                - img [ref=e1630]
+          - generic [ref=e1631] [cursor=pointer]:
+            - generic [ref=e1633]: /test-stg-deadlock-doc-discovery-tier-list-1
+            - generic [ref=e1634]:
+              - link "Edit" [ref=e1635]:
+                - /url: /deadlock/test-stg-deadlock-doc-discovery-tier-list-1
+                - generic [ref=e1636]: Edit
+              - button [ref=e1637]:
+                - img [ref=e1638]
+          - generic [ref=e1639] [cursor=pointer]:
+            - generic [ref=e1641]: /test-stg-deadlock-el
+            - generic [ref=e1642]:
+              - link "Edit" [ref=e1643]:
+                - /url: /deadlock/test-stg-deadlock-el
+                - generic [ref=e1644]: Edit
+              - button [ref=e1645]:
+                - img [ref=e1646]
+          - generic [ref=e1647] [cursor=pointer]:
+            - generic [ref=e1649]: /test-stg-deadlock-images-gifs
+            - generic [ref=e1650]:
+              - link "Edit" [ref=e1651]:
+                - /url: /deadlock/test-stg-deadlock-images-gifs
+                - generic [ref=e1652]: Edit
+              - button [ref=e1653]:
+                - img [ref=e1654]
+          - generic [ref=e1655] [cursor=pointer]:
+            - generic [ref=e1657]: /test-stg-deadlock-refactoring-stas
+            - generic [ref=e1658]:
+              - link "Edit" [ref=e1659]:
+                - /url: /deadlock/test-stg-deadlock-refactoring-stas
+                - generic [ref=e1660]: Edit
+              - button [ref=e1661]:
+                - img [ref=e1662]
+          - generic [ref=e1663] [cursor=pointer]:
+            - generic [ref=e1665]: /test-stg-deadlock-rtv2-1
+            - generic [ref=e1666]:
+              - link "Edit" [ref=e1667]:
+                - /url: /deadlock/test-stg-deadlock-rtv2-1
+                - generic [ref=e1668]: Edit
+              - button [ref=e1669]:
+                - img [ref=e1670]
+          - generic [ref=e1671] [cursor=pointer]:
+            - generic [ref=e1673]: /test-stg-deadlock-rtv2-toc--2
+            - generic [ref=e1674]:
+              - link "Edit" [ref=e1675]:
+                - /url: /deadlock/test-stg-deadlock-rtv2-toc--2
+                - generic [ref=e1676]: Edit
+              - button [ref=e1677]:
+                - img [ref=e1678]
+          - generic [ref=e1679] [cursor=pointer]:
+            - generic [ref=e1681]: /test-stg-d-new-api-stas
+            - generic [ref=e1682]:
+              - link "Edit" [ref=e1683]:
+                - /url: /deadlock/test-stg-d-new-api-stas
+                - generic [ref=e1684]: Edit
+              - button [ref=e1685]:
+                - img [ref=e1686]
+          - generic [ref=e1687] [cursor=pointer]:
+            - generic [ref=e1689]: /test-stg-permission-dublicate-deadlock
+            - generic [ref=e1690]:
+              - link "Edit" [ref=e1691]:
+                - /url: /deadlock/test-stg-permission-dublicate-deadlock
+                - generic [ref=e1692]: Edit
+              - button [ref=e1693]:
+                - img [ref=e1694]
+          - generic [ref=e1695] [cursor=pointer]:
+            - generic [ref=e1697]: /test-unreg-error4
+            - generic [ref=e1698]:
+              - link "Edit" [ref=e1699]:
+                - /url: /deadlock/test-unreg-error4
+                - generic [ref=e1700]: Edit
+              - button [ref=e1701]:
+                - img [ref=e1702]
+          - generic [ref=e1703] [cursor=pointer]:
+            - generic [ref=e1705]: /test-unregistered-user-error
+            - generic [ref=e1706]:
+              - link "Edit" [ref=e1707]:
+                - /url: /deadlock/test-unregistered-user-error
+                - generic [ref=e1708]: Edit
+              - button [ref=e1709]:
+                - img [ref=e1710]
+          - generic [ref=e1711] [cursor=pointer]:
+            - generic [ref=e1713]: /test-unregistered-user-error1
+            - generic [ref=e1714]:
+              - link "Edit" [ref=e1715]:
+                - /url: /deadlock/test-unregistered-user-error1
+                - generic [ref=e1716]: Edit
+              - button [ref=e1717]:
+                - img [ref=e1718]
+          - generic [ref=e1719] [cursor=pointer]:
+            - generic [ref=e1721]: /tier-list
+            - generic [ref=e1722]:
+              - link "Edit" [ref=e1723]:
+                - /url: /deadlock/tier-list
+                - generic [ref=e1724]: Edit
+              - button [ref=e1725]:
+                - img [ref=e1726]
+          - generic [ref=e1727] [cursor=pointer]:
+            - generic [ref=e1729]: /tier-list/expert
+            - generic [ref=e1730]:
+              - link "Edit" [ref=e1731]:
+                - /url: /deadlock/tier-list/expert
+                - generic [ref=e1732]: Edit
+              - button [ref=e1733]:
+                - img [ref=e1734]
+          - generic [ref=e1735] [cursor=pointer]:
+            - generic [ref=e1737]: /tier-list-v1
+            - generic [ref=e1738]:
+              - link "Edit" [ref=e1739]:
+                - /url: /deadlock/tier-list-v1
+                - generic [ref=e1740]: Edit
+              - button [ref=e1741]:
+                - img [ref=e1742]
+          - generic [ref=e1743] [cursor=pointer]:
+            - generic [ref=e1745]: /tier-list-widget
+            - generic [ref=e1746]:
+              - link "Edit" [ref=e1747]:
+                - /url: /deadlock/tier-list-widget
+                - generic [ref=e1748]: Edit
+              - button [ref=e1749]:
+                - img [ref=e1750]
+          - generic [ref=e1751] [cursor=pointer]:
+            - generic [ref=e1753]: /wraith
+            - generic [ref=e1754]:
+              - link "Edit" [ref=e1755]:
+                - /url: /deadlock/wraith
+                - generic [ref=e1756]: Edit
+              - button [ref=e1757]:
+                - img [ref=e1758]
+          - generic [ref=e1759] [cursor=pointer]:
+            - generic [ref=e1761]: /zeron-disc-test
+            - generic [ref=e1762]:
+              - link "Edit" [ref=e1763]:
+                - /url: /deadlock/zeron-disc-test
+                - generic [ref=e1764]: Edit
+              - button [ref=e1765]:
+                - img [ref=e1766]
+```

@@ -1,0 +1,174 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - link "Deadlock banner text Learn more Close":
+    - /url: https://www.google.com
+    - generic [ref=e4] [cursor=pointer]:
+      - generic [ref=e5]:
+        - paragraph [ref=e7]: Deadlock banner text
+        - button "Learn more" [ref=e8]
+      - img "Close" [ref=e9]
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - link "Mobalytics" [ref=e12] [cursor=pointer]:
+        - /url: /deadlock
+        - img "Mobalytics" [ref=e13]
+      - generic [ref=e15]:
+        - link "League of Legends LoL" [ref=e17] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/lol
+          - generic [ref=e19]:
+            - img "League of Legends" [ref=e20]
+            - generic [ref=e21]: LoL
+        - link "Teamfight Tactics TFT" [ref=e23] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/tft
+          - generic [ref=e25]:
+            - img "Teamfight Tactics" [ref=e26]
+            - generic [ref=e27]: TFT
+        - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/diablo-4
+          - generic [ref=e31]:
+            - img "Diablo 4" [ref=e32]
+            - generic [ref=e33]: Diablo 4
+        - link "Path of Exile 2 PoE 2" [ref=e35] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe-2
+          - generic [ref=e37]:
+            - img "Path of Exile 2" [ref=e38]
+            - generic [ref=e39]: PoE 2
+        - link "Path of Exile PoE" [ref=e41] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe
+          - generic [ref=e43]:
+            - img "Path of Exile" [ref=e44]
+            - generic [ref=e45]: PoE
+        - link "Destiny 2 Destiny 2" [ref=e47] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/destiny-2
+          - generic [ref=e49]:
+            - img "Destiny 2" [ref=e50]
+            - generic [ref=e51]: Destiny 2
+        - link "Borderlands 4 Borderlands 4" [ref=e53] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/borderlands-4
+          - generic [ref=e55]:
+            - img "Borderlands 4" [ref=e56]
+            - generic [ref=e57]: Borderlands 4
+        - link "Hades 2 Hades 2" [ref=e59] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/hades-2
+          - generic [ref=e61]:
+            - img "Hades 2" [ref=e62]
+            - generic [ref=e63]: Hades 2
+        - link "Elden Ring Nightreign Nightreign" [ref=e65] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e67]:
+            - img "Elden Ring Nightreign" [ref=e68]
+            - generic [ref=e69]: Nightreign
+        - link "Deadlock Deadlock" [ref=e71] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/deadlock
+          - generic [ref=e73]:
+            - img "Deadlock" [ref=e74]
+            - generic [ref=e75]: Deadlock
+        - link "Valorant VAL" [ref=e77] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/valorant
+          - generic [ref=e79]:
+            - img "Valorant" [ref=e80]
+            - generic [ref=e81]: VAL
+        - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e83] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/mhw
+          - generic [ref=e85]:
+            - img "Monster Hunter Wilds" [ref=e86]
+            - generic [ref=e87]: Monster Hunter Wilds
+        - link "Example game ExG" [ref=e89] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/example-game
+          - generic [ref=e91]:
+            - img "Example game" [ref=e92]
+            - generic [ref=e93]: ExG
+        - link "The Bazaar The Bazaar" [ref=e95] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/the-bazaar
+          - generic [ref=e97]:
+            - img "The Bazaar" [ref=e98]
+            - generic [ref=e99]: The Bazaar
+        - button [ref=e100] [cursor=pointer]:
+          - img [ref=e101]
+        - generic:
+          - link "Marvel Rivals Marvel Rivals":
+            - /url: https://stg.mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img "Marvel Rivals"
+                - generic: Marvel Rivals
+        - generic:
+          - link "Zenless Zone Zero ZZZ":
+            - /url: https://stg.mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img "Zenless Zone Zero"
+                - generic: ZZZ
+        - generic:
+          - link "Riftbound Riftbound New":
+            - /url: https://stg.mobalytics.gg/riftbound
+            - generic:
+              - generic:
+                - img "Riftbound"
+                - generic: Riftbound
+                - generic: New
+        - generic:
+          - link "2XKO 2XKO New":
+            - /url: https://stg.mobalytics.gg/2xko
+            - generic:
+              - generic:
+                - img "2XKO"
+                - generic: 2XKO
+                - generic: New
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - link "win logo Download app" [ref=e104] [cursor=pointer]:
+          - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-deadlock&utm_medium=homepage&utm_source=web
+          - button "win logo Download app" [ref=e105]:
+            - img "win logo" [ref=e107]
+            - generic [ref=e108]: Download app
+        - combobox [ref=e109]:
+          - textbox "Steam Name or Steam ID" [ref=e112]
+          - listbox
+        - generic [ref=e115] [cursor=pointer]: Community
+        - generic [ref=e117] [cursor=pointer]:
+          - generic [ref=e118]: News
+          - generic [ref=e120]: new
+        - text: new
+      - generic [ref=e121]:
+        - img "settings" [ref=e125] [cursor=pointer]
+        - img "support" [ref=e129] [cursor=pointer]
+    - generic [ref=e131]:
+      - link "Home" [ref=e134] [cursor=pointer]:
+        - /url: /deadlock
+        - img "Home" [ref=e136]
+      - link "Profile" [ref=e139] [cursor=pointer]:
+        - /url: /deadlock/player-profile
+        - img "Profile" [ref=e141]
+      - link "Tier List" [ref=e144] [cursor=pointer]:
+        - /url: /deadlock/tier-list
+        - img "Tier List" [ref=e146]
+      - link "Heroes" [ref=e149] [cursor=pointer]:
+        - /url: /deadlock/heroes
+        - img "Heroes" [ref=e151]
+      - link "Builds" [ref=e154] [cursor=pointer]:
+        - /url: /deadlock/builds
+        - img "Builds" [ref=e156]
+      - link "Build Stats" [ref=e159] [cursor=pointer]:
+        - /url: /deadlock/build-stats
+        - img "Build Stats" [ref=e161]
+      - link "Guides" [ref=e164] [cursor=pointer]:
+        - /url: /deadlock/guides
+        - img "Guides" [ref=e166]
+      - link "Items" [ref=e169] [cursor=pointer]:
+        - /url: /deadlock/items
+        - img "Items" [ref=e171]
+    - main [ref=e174]:
+      - generic [ref=e176]:
+        - generic [ref=e177]: Something went wrong...
+        - generic [ref=e178]: Refresh the page several times over 5 seconds. If it won't help, contact support.
+        - generic [ref=e179]:
+          - button "Refresh Page" [ref=e180] [cursor=pointer]:
+            - img [ref=e181]
+            - text: Refresh Page
+          - link "Contact Support" [ref=e182] [cursor=pointer]:
+            - /url: https://support.mobalytics.gg/hc/en-us
+            - generic [ref=e183]: Contact Support
+```
