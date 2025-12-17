@@ -268,8 +268,23 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
   });
 });
 
+test('Error validation: 404 status code & title on NGF page', async ({ page }) => {
+  let response = null;
+  await test.step('Open not existing page', async () => {
+    response = await page.goto(`${process.env.BASE_URL}/hades-2/builds/dystopianteddybear-aspect-of-charonsrghhfg`, {
+      waitUntil: 'domcontentloaded',
+    });
+  });
+  await test.step('Expected Result: 404 status code is present on the response', async () => {
+    expect(response.status()).toBe(404);
+  });
+  await test.step("Expected Result: '404' title is present on the page", async () => {
+    await expect(page.getByRole('heading', { name: '404' })).toBeVisible();
+  });
+});
+
 // hydrationLinks.forEach((link) => {
-//   test(`Check that hydration is ok on the featured profile: ${process.env.BASE_URL}${link}`, async ({ page }) => {
+//   test(`Check that hydration is ok on: ${process.env.BASE_URL}${link}`, async ({ page }) => {
 //     const consoleMessages = [];
 //     const pageErrors = [];
 
