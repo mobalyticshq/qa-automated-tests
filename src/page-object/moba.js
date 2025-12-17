@@ -19,7 +19,6 @@ import {
 
 export class Moba {
   constructor(page) {
-    this.page = page;
     this.stAdminPage = new StAdminPage(page);
     this.ugBuildPlanner = new UgBuildPlanner(page);
     this.homePage = new HomePage(page);

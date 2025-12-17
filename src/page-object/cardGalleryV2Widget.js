@@ -1,9 +1,7 @@
-import { StPage } from './stPage';
 import { test } from '@playwright/test';
 
-export class CardGalleryV2Widget extends StPage {
+export class CardGalleryV2Widget {
   constructor(page) {
-    super(page);
     this.plusButton = page.locator('.xg1i4pw > .x19l6gds');
     this.linkButtonInModal = page.getByText('Link', { exact: true });
     this.inputBackgroundImageInModal = page.getByRole('textbox', {

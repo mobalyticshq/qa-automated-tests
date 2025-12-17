@@ -8,7 +8,10 @@ export class AccountSettings {
     this.changeNameButton = page.getByRole('button', { name: 'change name' });
     this.inputAccountName = page.getByRole('textbox', { name: 'Account name' });
     this.modalChangeNameButton = page.getByRole('button', { name: 'change', exact: true });
-    this.accountName = (accountName) => page.getByText(accountName);
+  }
+
+  accountName(accountName) {
+    return this.page.getByText(accountName);
   }
 
   async deleteAccount() {

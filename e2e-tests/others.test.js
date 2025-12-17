@@ -269,7 +269,7 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
 });
 
 // hydrationLinks.forEach((link) => {
-//   test(`Check that hydration is ok on the featured profile: ${link}`, async ({ page }) => {
+//   test(`Check that hydration is ok on the featured profile: ${process.env.BASE_URL}${link}`, async ({ page }) => {
 //     const consoleMessages = [];
 //     const pageErrors = [];
 
@@ -287,16 +287,17 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
 //       pageErrors.push(errorInfo);
 //     });
 
-//     await page.goto(link, { waitUntil: 'domcontentloaded' });
+//     await test.step(`Open ${link}`, async () => {
+//       await page.goto(`${process.env.BASE_URL}${link}`, { waitUntil: 'domcontentloaded' });
 
-//     const allErrors = [...consoleMessages, ...pageErrors];
-//     const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+//       const allErrors = [...consoleMessages, ...pageErrors];
+//       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
 
-//     console.log(`Total messages captured: ${allErrors.length}`);
-//     console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
-
-//     expect(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-//     expect(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
-//     expect(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+//       // console.log(`Total messages captured: ${allErrors.length}`);
+//       // console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
+//       expect(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+//       expect(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+//       expect(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+//     });
 //   });
 // });
