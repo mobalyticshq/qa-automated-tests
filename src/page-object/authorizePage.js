@@ -2,7 +2,6 @@ import { test } from '@playwright/test';
 
 export class AuthorizePage {
   constructor(page) {
-    this.page = page;
     this.fieldEmail = page.getByRole('textbox', { name: 'Email' });
     this.fieldName = page.getByRole('textbox', { name: 'Name' });
     this.fieldPassword = page.getByRole('textbox', { name: 'Password' });

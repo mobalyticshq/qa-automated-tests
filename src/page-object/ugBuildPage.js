@@ -2,7 +2,6 @@ import { test } from '@playwright/test';
 
 export class UgBuildPage {
   constructor(page) {
-    this.page = page;
     this.inputBuildName = page.locator('#title-id');
     this.buttonSaveDraft = page.getByTestId('ug-document-save-draft-button');
     this.buttonResetBuild = page.getByRole('button', { name: 'Reset Build' });
@@ -24,6 +23,8 @@ export class UgBuildPage {
     this.inputBuildOverviewVariants = page.getByRole('textbox').nth(1);
     this.updateButton = page.getByTestId('ug-document-update-button');
     this.descriptionBuildOverviewVariants = page.locator('span[data-lexical-text="true"]');
+    this.getDescriptionBuildOverviewVariants = (text) =>
+      page.locator('span[data-lexical-text="true"]').filter({ hasText: text });
   }
 
   async createUgDraftPage(pageName) {
@@ -47,7 +48,7 @@ export class UgBuildPage {
     });
   }
 
-  getDescriptionBuildOverviewVariants(text) {
-    return this.descriptionBuildOverviewVariants.filter({ hasText: text });
-  }
+  // getDescriptionBuildOverviewVariants(text) {
+  //   return this.descriptionBuildOverviewVariants.filter({ hasText: text });
+  // }
 }

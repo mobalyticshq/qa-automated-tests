@@ -10,9 +10,9 @@ export class StAdminPage {
       page.getByTestId('admin-page-st-document-item-card').filter({ hasText: stPageName }).getByTestId('edit-button');
     this.deleteButton = (stPageName) =>
       page.getByTestId('admin-page-st-document-item-card').filter({ hasText: stPageName }).getByTestId('delete-button');
-    this.stAdminTitle = (adminTitle) => page.getByRole('heading', { name: `${adminTitle}` });
     this.stCardWidget = (stPageName) =>
       page.getByTestId('admin-page-st-document-item-card').filter({ hasText: stPageName });
+    this.stAdminTitle = (adminTitle) => page.getByRole('heading', { name: `${adminTitle}` });
   }
 
   async gotoStPlannerPage() {

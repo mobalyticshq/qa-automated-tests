@@ -21,8 +21,8 @@ test('Change account name', async ({ page }) => {
   const newAccountName = `newAccountName-${uniqueId}`;
   const credentials =
     process.env.BASE_URL === 'https://mobalytics.gg'
-      ? 'rewad+prod-aqa-change-name@mobalyticshq.com'
-      : 'rewad+stg-aqa-change-name@mobalyticshq.com';
+      ? 'rewad+prod-aqa-change-name@mobalyticshq.com' // prod account
+      : 'rewad+stg-aqa-change-name@mobalyticshq.com'; // stg account
 
   await moba.mainURLs.openBorderlands4Page();
   await moba.navbar.gotoSignInPage();

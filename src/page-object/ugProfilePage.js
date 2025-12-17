@@ -2,12 +2,10 @@ import { test } from '@playwright/test';
 
 export class UgProfilePage {
   constructor(page) {
-    this.page = page;
     this.createButton = page.getByRole('button', { name: 'Create' });
     this.deleteButton = page.getByRole('menuitem', { name: 'Delete' });
     this.buttonDeleteInModal = page.getByRole('button', { name: 'Delete' });
     this.dotesButton = page.locator('section').getByRole('button').filter({ hasText: /^$/ });
-    this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
     this.buildButton = page.getByRole('menuitem', {
       name: 'Build Create a Build',
     });
@@ -21,6 +19,7 @@ export class UgProfilePage {
       name: 'Tier List Create a Tier List',
     });
     this.deckButton = page.getByRole('menuitem', { name: 'Build a Deck' });
+    this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
   }
 
   async gotoBuildPlannerPage() {

@@ -2,7 +2,6 @@ import { test } from '@playwright/test';
 
 export class MainPage {
   constructor(page) {
-    this.page = page;
     this.diabloGame = page.getByRole('link', {
       name: "5c7b868f-logo-diablo-'",
     });

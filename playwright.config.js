@@ -39,6 +39,7 @@ export default defineConfig({
           os_release: os.release(),
           os_version: os.version(),
           node_version: process.version,
+          environment: process.env.BASE_URL === 'https://mobalytics.gg' ? 'PROD' : 'STG',
         },
       },
     ],
