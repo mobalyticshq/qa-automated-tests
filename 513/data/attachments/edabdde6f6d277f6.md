@@ -1,0 +1,220 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link [ref=e6] [cursor=pointer]:
+        - /url: /destiny-2
+        - img [ref=e7]
+      - generic [ref=e9]:
+        - link [ref=e11] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/lol
+          - generic [ref=e13]:
+            - img [ref=e14]
+            - generic [ref=e15]: LoL
+        - link [ref=e17] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/tft
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - generic [ref=e21]: TFT
+        - link [ref=e23] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/diablo-4
+          - generic [ref=e25]:
+            - img [ref=e26]
+            - generic [ref=e27]: Diablo 4
+        - link [ref=e29] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe-2
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - generic [ref=e33]: PoE 2
+        - link [ref=e35] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe
+          - generic [ref=e37]:
+            - img [ref=e38]
+            - generic [ref=e39]: PoE
+        - link [ref=e41] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/destiny-2
+          - generic [ref=e43]:
+            - img [ref=e44]
+            - generic [ref=e45]: Destiny 2
+        - link [ref=e47] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/borderlands-4
+          - generic [ref=e49]:
+            - img [ref=e50]
+            - generic [ref=e51]: Borderlands 4
+        - link [ref=e53] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/hades-2
+          - generic [ref=e55]:
+            - img [ref=e56]
+            - generic [ref=e57]: Hades 2
+        - link [ref=e59] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e61]:
+            - img [ref=e62]
+            - generic [ref=e63]: Nightreign
+        - link [ref=e65] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/deadlock
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - generic [ref=e69]: Deadlock
+        - link [ref=e71] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/valorant
+          - generic [ref=e73]:
+            - img [ref=e74]
+            - generic [ref=e75]: VAL
+        - link [ref=e77] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/mhw
+          - generic [ref=e79]:
+            - img [ref=e80]
+            - generic [ref=e81]: Monster Hunter Wilds
+        - link [ref=e83] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/example-game
+          - generic [ref=e85]:
+            - img [ref=e86]
+            - generic [ref=e87]: ExG
+        - link [ref=e89] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/the-bazaar
+          - generic [ref=e91]:
+            - img [ref=e92]
+            - generic [ref=e93]: The Bazaar
+        - button [ref=e94] [cursor=pointer]:
+          - img [ref=e95]
+        - generic:
+          - link:
+            - /url: https://stg.mobalytics.gg/2xko
+            - generic:
+              - generic:
+                - img
+                - generic: 2XKO
+                - generic: New
+        - generic:
+          - link:
+            - /url: https://stg.mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img
+                - generic: Marvel Rivals
+        - generic:
+          - link:
+            - /url: https://stg.mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img
+                - generic: ZZZ
+        - generic:
+          - link:
+            - /url: https://stg.mobalytics.gg/riftbound
+            - generic:
+              - generic:
+                - img
+                - generic: Riftbound
+                - generic: New
+    - generic [ref=e96]:
+      - generic [ref=e97]:
+        - link [ref=e98] [cursor=pointer]:
+          - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-destiny-2&utm_medium=homepage&utm_source=web
+          - button [ref=e99]:
+            - img [ref=e101]
+            - generic [ref=e102]: Download app
+        - generic [ref=e105] [cursor=pointer]: Community
+        - generic [ref=e107] [cursor=pointer]:
+          - generic [ref=e108]: News
+          - generic [ref=e110]: new
+        - text: new
+      - generic [ref=e111]:
+        - img [ref=e115] [cursor=pointer]
+        - img [ref=e119] [cursor=pointer]
+    - generic [ref=e121]:
+      - link [ref=e124] [cursor=pointer]:
+        - /url: /destiny-2
+        - img [ref=e126]
+      - link [ref=e129] [cursor=pointer]:
+        - /url: /destiny-2/profile
+        - img [ref=e131]
+      - link [ref=e134] [cursor=pointer]:
+        - /url: /destiny-2/build-planner
+        - img [ref=e136]
+      - link [ref=e140] [cursor=pointer]:
+        - /url: /destiny-2/tier-list
+        - img [ref=e142]
+      - link [ref=e146] [cursor=pointer]:
+        - /url: /destiny-2/weapons
+        - img [ref=e148]
+      - link [ref=e152] [cursor=pointer]:
+        - /url: /destiny-2/builds
+        - img [ref=e154]
+    - main [ref=e157]:
+      - generic [ref=e158]:
+        - generic [ref=e160]:
+          - generic [ref=e162]: New Page
+          - generic [ref=e163]:
+            - button [ref=e164] [cursor=pointer]: Create and Save
+            - button [ref=e165] [cursor=pointer]:
+              - img [ref=e166]
+              - text: Reset
+            - button [ref=e167] [cursor=pointer]: Cancel
+        - generic [ref=e168]:
+          - button [ref=e172]:
+            - generic [ref=e173]:
+              - generic [ref=e175]:
+                - generic [ref=e177]: 1 columnAuto
+                - button [ref=e179] [cursor=pointer]:
+                  - img [ref=e181]
+              - generic [ref=e182]:
+                - button [ref=e185]:
+                  - generic [ref=e186]:
+                    - generic [ref=e188]:
+                      - heading [level=2] [ref=e191]: Cards Gallery V2
+                      - generic [ref=e192]:
+                        - button [ref=e193] [cursor=pointer]: Edit
+                        - button [ref=e195] [cursor=pointer]:
+                          - img [ref=e197]
+                    - generic [ref=e199]:
+                      - button [ref=e201] [cursor=pointer]:
+                        - img [ref=e202]
+                      - button [ref=e204] [cursor=pointer]:
+                        - img [ref=e205]
+                      - button [ref=e207] [cursor=pointer]:
+                        - img [ref=e208]
+                      - button [ref=e210] [cursor=pointer]:
+                        - img [ref=e211]
+                      - button [ref=e213] [cursor=pointer]:
+                        - img [ref=e214]
+                - button [ref=e218] [cursor=pointer]:
+                  - img [ref=e220]
+          - button [ref=e222] [cursor=pointer]:
+            - img [ref=e223]
+            - text: Add section
+          - status [ref=e224]
+  - dialog [ref=e227]:
+    - generic [ref=e231]:
+      - generic [ref=e232]: Create and Save Page
+      - button [ref=e234] [cursor=pointer]:
+        - img [ref=e235]
+    - generic [ref=e236]:
+      - generic [ref=e238]:
+        - generic [ref=e242]: Page Path
+        - textbox [ref=e245]:
+          - /placeholder: /path
+          - text: /qa-automation-st-page-06e30c82-4054-4f30-860b-39d69438db60
+      - generic [ref=e247]:
+        - button [ref=e248] [cursor=pointer]: Cancel
+        - button [ref=e249] [cursor=pointer]: Create and Save
+  - dialog [active] [ref=e252]:
+    - generic [ref=e256]:
+      - generic [ref=e257]: Changes could not be saved
+      - button [ref=e259] [cursor=pointer]:
+        - img [ref=e260]
+    - generic [ref=e262]:
+      - generic [ref=e263]: There was an unexpected error while saving your changes. Please reload the page and try again. If this issue persists please contact support, or submit a bug report to notify our team.
+      - generic [ref=e264]: Information for the Support Center
+      - generic [ref=e265]: "BAD_REQUEST - request_id: f5075a51-43ae-4f63-b72d-765fa742a874, widgets generating error: widget 1 err - got error from InitWidgetFunc: widget_id: validation error, 1, LinksGridManualV2Widget is invalid: items amount must be in [1, 5]"
+    - generic [ref=e267]:
+      - link "Contact Support" [ref=e268] [cursor=pointer]:
+        - /url: https://support.mobalytics.gg/hc/en-us
+        - generic [ref=e269]: Contact Support
+      - button "Submit Bug" [ref=e270] [cursor=pointer]:
+        - img [ref=e271]
+        - text: Submit Bug
+```
