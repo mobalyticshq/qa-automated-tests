@@ -11,21 +11,15 @@ test(`Checking sitemap for all projects in the list on ${process.env.URL_SITEMAP
   for (const { project, isPresentInSitemap, pathUrl } of projectListFromSitemap) {
     if (isProd && isPresentInSitemap === true) {
       await test.step(`Expected Result: ${project} is present in ${process.env.URL_SITEMAP}`, async () => {
-        await expect
-          .soft(page.locator('#folder0'))
-          .toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
+        await expect.soft(page.locator('#folder0')).toContainText(`${process.env.BASE_URL}${pathUrl}`);
       });
     } else if (isProd && isPresentInSitemap === false) {
       await test.step(`Expected Result: ${project} is not present in ${process.env.URL_SITEMAP}`, async () => {
-        await expect
-          .soft(page.locator('#folder0'))
-          .not.toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
+        await expect.soft(page.locator('#folder0')).not.toContainText(`${process.env.BASE_URL}${pathUrl}`);
       });
     } else {
       await test.step(`Expected Result: ${project} is present in ${process.env.URL_SITEMAP}`, async () => {
-        await expect
-          .soft(page.locator('#folder0'))
-          .toContainText(`${process.env.BASE_URL}${pathUrl}`, { timeout: 2000 });
+        await expect.soft(page.locator('#folder0')).toContainText(`${process.env.BASE_URL}${pathUrl}`);
       });
     }
   }

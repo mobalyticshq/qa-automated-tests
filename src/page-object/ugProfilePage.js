@@ -18,7 +18,7 @@ export class UgProfilePage {
     this.tierListButton = page.getByRole('menuitem', {
       name: 'Tier List Create a Tier List',
     });
-    this.deckButton = page.getByRole('menuitem', { name: 'Build a Deck' });
+    this.deckButton = page.getByRole('menuitem', { name: 'Create a Deck' });
     this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
   }
 

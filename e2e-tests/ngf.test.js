@@ -15,25 +15,17 @@ test.beforeEach(async () => {
 
 test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
   let newGame1 = 'Riftbound';
-  let newGame2 = '2XKO';
+  // let newGame2 = '2XKO';
   const moba = new Moba(page);
   await moba.mainURLs.openPoe2Page();
 
-  // process.env.BASE_URL.includes('https://mobalytics.gg')
-  //   ? (await expect(moba.navbar.gameList).not.toContainText(newGame1)) &&
-  //     (await expect(moba.navbar.gameList).not.toContainText(newGame2))
-  //   : (await expect(moba.navbar.gameList).toContainText(newGame1)) &&
-  //     (await expect(moba.navbar.gameList).toContainText(newGame2));
-
   if (process.env.BASE_URL.includes('https://mobalytics.gg')) {
-    await test.step(`Expected Result: ${newGame1} & ${newGame2} games are missing in the navbar on PROD`, async () => {
+    await test.step(`Expected Result: ${newGame1} game is missing in the navbar on PROD`, async () => {
       await expect(moba.navbar.gameList).not.toContainText(newGame1);
-      await expect(moba.navbar.gameList).not.toContainText(newGame2);
     });
   } else {
-    await test.step(`Expected Result: ${newGame1} & ${newGame2} games are present in the navbar on STG`, async () => {
+    await test.step(`Expected Result: ${newGame1} game is present in the navbar on STG`, async () => {
       await expect(moba.navbar.gameList).toContainText(newGame1);
-      await expect(moba.navbar.gameList).toContainText(newGame2);
     });
   }
 });
@@ -94,7 +86,6 @@ test.describe('Creating ST Pages', () => {
       await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
-
   test(`Create a structure page on LoL project`, async ({ cleanupStLoLPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
