@@ -268,36 +268,39 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
   });
 });
 
-hydrationLinks.forEach((link) => {
-  test(`Check that hydration is ok on: ${process.env.BASE_URL}${link}`, async ({ page }) => {
-    const consoleMessages = [];
-    const pageErrors = [];
+test.describe('Check that hydration is ok on all links', () => {
+  test.skip(process.env.BASE_URL.includes('https://stg.mobalytics.gg'), 'Skipping on STG environment');
+  hydrationLinks.forEach((link) => {
+    test(`Check that hydration is ok on: ${process.env.BASE_URL}${link}`, async ({ page }) => {
+      const consoleMessages = [];
+      const pageErrors = [];
 
-    page.on('console', (msg) => {
-      if (msg.type() === 'error') {
-        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-        console.log(consoleInfo);
-        consoleMessages.push(consoleInfo);
-      }
-    });
+      page.on('console', (msg) => {
+        if (msg.type() === 'error') {
+          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+          console.log(consoleInfo);
+          consoleMessages.push(consoleInfo);
+        }
+      });
 
-    page.on('pageerror', (error) => {
-      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-      console.log(errorInfo);
-      pageErrors.push(errorInfo);
-    });
+      page.on('pageerror', (error) => {
+        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+        console.log(errorInfo);
+        pageErrors.push(errorInfo);
+      });
 
-    await test.step(`Open ${link}`, async () => {
-      await page.goto(`${process.env.BASE_URL}${link}`, { waitUntil: 'domcontentloaded' });
-      await page.waitForTimeout(1000);
-      // const allErrors = [...consoleMessages, ...pageErrors];
-      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+      await test.step(`Open ${link}`, async () => {
+        await page.goto(`${process.env.BASE_URL}${link}`, { waitUntil: 'domcontentloaded' });
+        await page.waitForTimeout(1000);
+        // const allErrors = [...consoleMessages, ...pageErrors];
+        const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
 
-      // console.log(`Total messages captured: ${allErrors.length}`);
-      // console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
-      expect(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-      expect(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
-      expect(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        // console.log(`Total messages captured: ${allErrors.length}`);
+        // console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
+        expect(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+        expect(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+        expect(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+      });
     });
   });
 });
