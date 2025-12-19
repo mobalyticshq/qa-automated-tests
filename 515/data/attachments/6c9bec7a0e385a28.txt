@@ -1,0 +1,12 @@
+Console error: 
+[error]: [GPT] Invalid arguments: googletag.display('undefined').
+https://goo.gle/gpt-message#96
+Console error: 
+[error]: [GPT] Invalid arguments: googletag.display('undefined').
+https://goo.gle/gpt-message#96
+Console error: 
+[error]: [GPT] Invalid arguments: googletag.display('undefined').
+https://goo.gle/gpt-message#96
+Console error: 
+[error]: [GPT] Invalid arguments: googletag.display('undefined').
+https://goo.gle/gpt-message#96

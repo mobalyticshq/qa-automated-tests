@@ -1,0 +1,20 @@
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"
+Page error: 
+[Uncaught (in promise) ReferenceError]: "Buffer is not defined"

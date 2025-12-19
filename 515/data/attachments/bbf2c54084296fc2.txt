@@ -1,0 +1,5 @@
+Console error: 
+[error]: Failed to load resource: the server responded with a status of 404 ()
+Console error: 
+[error]: Refused to load the script 'blob:https://mobalytics.gg/93c02ed9-f13f-44c1-b8e1-44ac55e38e5a' because it violates the following Content Security Policy directive: "script-src * 'unsafe-inline' 'unsafe-eval'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly.
+
