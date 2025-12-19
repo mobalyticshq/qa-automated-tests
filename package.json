@@ -17,15 +17,15 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@faker-js/faker": "^9.8.0",
-    "@playwright/test": "^1.56.1",
-    "@types/node": "^22.15.19",
-    "allure": "^3.0.0-beta.15",
-    "allure-playwright": "^3.2.2",
-    "prettier": "^3.7.3"
+    "@faker-js/faker": "^10.1.0",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3",
+    "allure": "^3.0.0-beta.27",
+    "allure-playwright": "^3.4.3",
+    "prettier": "^3.7.4"
   },
   "dependencies": {
-    "dotenv": "^16.5.0",
-    "uuid": "^11.1.0"
+    "dotenv": "^17.2.3",
+    "uuid": "^13.0.0"
   }
 }

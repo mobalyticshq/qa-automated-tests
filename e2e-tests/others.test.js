@@ -268,7 +268,7 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
   });
 });
 
-test.describe('Check that hydration is ok on all links', () => {
+test.describe('Check that hydration is ok on the core projects pages', () => {
   test.skip(process.env.BASE_URL.includes('https://stg.mobalytics.gg'), 'Skipping on STG environment');
   hydrationLinks.forEach((link) => {
     test(`Check that hydration is ok on: ${process.env.BASE_URL}${link}`, async ({ page }) => {
@@ -278,14 +278,17 @@ test.describe('Check that hydration is ok on all links', () => {
       page.on('console', (msg) => {
         if (msg.type() === 'error') {
           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          console.log(consoleInfo);
+          // console.log(consoleInfo);
           consoleMessages.push(consoleInfo);
         }
       });
 
       page.on('pageerror', (error) => {
+        //
         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        console.log(errorInfo);
+        if (error.message.match(/Minified React error #(418|423)/i)) {
+          // console.log(errorInfo);
+        }
         pageErrors.push(errorInfo);
       });
 
@@ -293,13 +296,17 @@ test.describe('Check that hydration is ok on all links', () => {
         await page.goto(`${process.env.BASE_URL}${link}`, { waitUntil: 'domcontentloaded' });
         await page.waitForTimeout(1000);
         // const allErrors = [...consoleMessages, ...pageErrors];
-        const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
 
         // console.log(`Total messages captured: ${allErrors.length}`);
         // console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
-        expect(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
-        expect(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+      });
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors are present in the console', async () => {
+        // expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     });
   });

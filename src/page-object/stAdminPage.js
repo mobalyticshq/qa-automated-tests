@@ -33,7 +33,7 @@ export class StAdminPage {
     });
   }
 
-  async clickDeleteButton(stPageName) {
+  async deleteStCardWidget(stPageName) {
     await test.step(`Click Delete button on ${stPageName} widget`, async () => {
       await this.deleteButton(stPageName).click();
       await this.buttonDeleteInModal.click();

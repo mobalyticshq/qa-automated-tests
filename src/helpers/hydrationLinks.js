@@ -15,7 +15,7 @@ export const hydrationLinks = [
   // '/deadlock/tier-list/matchups',
   // '/deadlock/tier-list/synergies',
   // '/the-bazaar/planner/builds',
-  // '/tft/team-comps',
+  '/tft/team-comps',
   '/diablo-4/profile/cliptis',
   '/lol',
   '/lol/lp/profile',

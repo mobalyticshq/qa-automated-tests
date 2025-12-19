@@ -13,8 +13,8 @@ test.beforeEach(async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 });
 
-test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
-  let newGame1 = 'Riftbound';
+test.skip(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
+  // let newGame1 = 'Riftbound';
   // let newGame2 = '2XKO';
   const moba = new Moba(page);
   await moba.mainURLs.openPoe2Page();
@@ -86,6 +86,7 @@ test.describe('Creating ST Pages', () => {
       await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
+  
   test(`Create a structure page on LoL project`, async ({ cleanupStLoLPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;

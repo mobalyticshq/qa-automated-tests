@@ -43,7 +43,7 @@ const sitemapList = [
   { linkInList: `${process.env.BASE_URL}/poe-2`, isPresentInSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
   { linkInList: `${process.env.BASE_URL}/the-bazaar`, isPresentInSitemap: true, pathUrl: '/the-bazaar/sitemap.xml' },
   { linkInList: `${process.env.BASE_URL}/poe`, isPresentInSitemap: true, pathUrl: '/poe/sitemap.xml' },
-  { linkInList: `${process.env.BASE_URL}/riftbound`, isPresentInSitemap: false, pathUrl: '/riftbound/sitemap.xml' },
+  { linkInList: `${process.env.BASE_URL}/riftbound`, isPresentInSitemap: true, pathUrl: '/riftbound/sitemap.xml' },
   { linkInList: `${process.env.BASE_URL}/2xko`, isPresentInSitemap: true, pathUrl: '/2xko/sitemap.xml' },
 ];
 
@@ -69,7 +69,7 @@ const projectListFromSitemap = [
   { project: 'PoE 2', isPresentInSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
   { project: 'The Bazaar', isPresentInSitemap: true, pathUrl: '/the-bazaar/sitemap.xml' },
   { project: 'PoE', isPresentInSitemap: true, pathUrl: '/poe/sitemap.xml' },
-  { project: 'Riftbound', isPresentInSitemap: false, pathUrl: '/riftbound/sitemap.xml' },
+  { project: 'Riftbound', isPresentInSitemap: true, pathUrl: '/riftbound/sitemap.xml' },
   { project: '2XKO', isPresentInSitemap: true, pathUrl: '/2xko/sitemap.xml' },
 ];
 

@@ -169,7 +169,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminPoe2Page();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -193,7 +193,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminPoePage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -217,7 +217,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminLoLPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -241,7 +241,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminTFTPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -265,7 +265,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminValorantPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -289,7 +289,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminDestiny2Page();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -313,7 +313,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminDiablo4Page();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -337,7 +337,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdmin2xkoPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -361,7 +361,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminHades2Page();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -385,7 +385,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminBorderlands4Page();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -409,7 +409,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminNightreignPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -433,7 +433,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminDeadlockPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -457,7 +457,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminMhwPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -481,7 +481,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminMarvelRivalsPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -505,7 +505,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminBazaarPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -529,7 +529,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminZzzPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
@@ -553,7 +553,7 @@ export const test = base.extend({
       await moba.mainURLs.openAdminRiftboundPage();
 
       for (const pageName of pagesToCleanup) {
-        await moba.stAdminPage.clickDeleteButton(pageName);
+        await moba.stAdminPage.deleteStCardWidget(pageName);
         await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
 
         await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();

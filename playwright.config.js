@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
  * https://github.com/motdotla/dotenv
  */
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 /**
  * @see https://playwright.dev/docs/test-configuration
