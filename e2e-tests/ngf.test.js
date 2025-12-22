@@ -9,9 +9,7 @@ import {
   filterProjectsByFeatureStatus as filterProjectsByTierLists,
 } from '../src/helpers/index';
 
-test.beforeEach(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-});
+test.beforeEach(() => new Promise((resolve) => setTimeout(resolve, 1000)));
 
 test.skip(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
   // let newGame1 = 'Riftbound';
@@ -86,7 +84,7 @@ test.describe('Creating ST Pages', () => {
       await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });
-  
+
   test(`Create a structure page on LoL project`, async ({ cleanupStLoLPages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
@@ -878,6 +876,17 @@ filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStP
 
     try {
       switch (game) {
+        case 'Riftbound': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
+
+          const gameSpecificItem = 'Adaptatron';
+
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
         case 'ZZZ': {
           await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
           await admin.stPage.editButton.click();

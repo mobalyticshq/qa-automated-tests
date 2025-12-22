@@ -51,7 +51,7 @@ const projectList = [
       tierList: true,
       team: false,
       deck: true,
-      staticData: false,
+      staticData: true,
       advertisement: true,
     },
   },
