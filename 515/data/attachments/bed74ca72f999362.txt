@@ -1,3 +1,0 @@
-Console error: 
-[error]: Refused to load the script 'blob:https://mobalytics.gg/05395b19-a85d-4665-ace3-84c4f5209eb2' because it violates the following Content Security Policy directive: "script-src * 'unsafe-inline' 'unsafe-eval'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly.
-
