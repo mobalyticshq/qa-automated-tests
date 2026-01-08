@@ -1,0 +1,222 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - link "Mobalytics" [ref=e6] [cursor=pointer]:
+      - /url: /riftbound
+      - img "Mobalytics" [ref=e7]
+    - generic [ref=e9]:
+      - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/lol
+        - generic [ref=e13]:
+          - img "League of Legends" [ref=e14]
+          - generic [ref=e15]: LoL
+      - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/tft
+        - generic [ref=e19]:
+          - img "Teamfight Tactics" [ref=e20]
+          - generic [ref=e21]: TFT
+      - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/diablo-4
+        - generic [ref=e25]:
+          - img "Diablo 4" [ref=e26]
+          - generic [ref=e27]: Diablo 4
+      - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/poe-2
+        - generic [ref=e31]:
+          - img "Path of Exile 2" [ref=e32]
+          - generic [ref=e33]: PoE 2
+      - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/poe
+        - generic [ref=e37]:
+          - img "Path of Exile" [ref=e38]
+          - generic [ref=e39]: PoE
+      - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/destiny-2
+        - generic [ref=e43]:
+          - img "Destiny 2" [ref=e44]
+          - generic [ref=e45]: Destiny 2
+      - link "Borderlands 4 Borderlands 4" [ref=e47] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/borderlands-4
+        - generic [ref=e49]:
+          - img "Borderlands 4" [ref=e50]
+          - generic [ref=e51]: Borderlands 4
+      - link "Hades 2 Hades 2" [ref=e53] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/hades-2
+        - generic [ref=e55]:
+          - img "Hades 2" [ref=e56]
+          - generic [ref=e57]: Hades 2
+      - link "Elden Ring Nightreign Nightreign" [ref=e59] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+        - generic [ref=e61]:
+          - img "Elden Ring Nightreign" [ref=e62]
+          - generic [ref=e63]: Nightreign
+      - link "Deadlock Deadlock" [ref=e65] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/deadlock
+        - generic [ref=e67]:
+          - img "Deadlock" [ref=e68]
+          - generic [ref=e69]: Deadlock
+      - link "Valorant VAL" [ref=e71] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/valorant
+        - generic [ref=e73]:
+          - img "Valorant" [ref=e74]
+          - generic [ref=e75]: VAL
+      - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e77] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/mhw
+        - generic [ref=e79]:
+          - img "Monster Hunter Wilds" [ref=e80]
+          - generic [ref=e81]: Monster Hunter Wilds
+      - link "Example game ExG" [ref=e83] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/example-game
+        - generic [ref=e85]:
+          - img "Example game" [ref=e86]
+          - generic [ref=e87]: ExG
+      - link "The Bazaar The Bazaar" [ref=e89] [cursor=pointer]:
+        - /url: https://stg.mobalytics.gg/the-bazaar
+        - generic [ref=e91]:
+          - img "The Bazaar" [ref=e92]
+          - generic [ref=e93]: The Bazaar
+      - button [ref=e94] [cursor=pointer]:
+        - img [ref=e95]
+      - generic:
+        - link "2XKO 2XKO New":
+          - /url: https://stg.mobalytics.gg/2xko
+          - generic:
+            - generic:
+              - img "2XKO"
+              - generic: 2XKO
+              - generic: New
+      - generic:
+        - link "Marvel Rivals Marvel Rivals":
+          - /url: https://stg.mobalytics.gg/marvel-rivals
+          - generic:
+            - generic:
+              - img "Marvel Rivals"
+              - generic: Marvel Rivals
+      - generic:
+        - link "Zenless Zone Zero ZZZ":
+          - /url: https://stg.mobalytics.gg/zzz
+          - generic:
+            - generic:
+              - img "Zenless Zone Zero"
+              - generic: ZZZ
+      - generic:
+        - link "Riftbound Riftbound New":
+          - /url: https://stg.mobalytics.gg/riftbound
+          - generic:
+            - generic:
+              - img "Riftbound"
+              - generic: Riftbound
+              - generic: New
+  - generic [ref=e96]:
+    - generic [ref=e97]:
+      - link "win logo Download app" [ref=e98] [cursor=pointer]:
+        - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-riftbound&utm_medium=homepage&utm_source=web
+        - button "win logo Download app" [ref=e99]:
+          - img "win logo" [ref=e101]
+          - generic [ref=e102]: Download app
+      - generic [ref=e105] [cursor=pointer]: Community
+      - generic [ref=e107] [cursor=pointer]:
+        - generic [ref=e108]: News
+        - generic [ref=e110]: new
+      - text: new
+    - generic [ref=e111]:
+      - img "settings" [ref=e115] [cursor=pointer]
+      - img "support" [ref=e119] [cursor=pointer]
+  - generic [ref=e121]:
+    - link "Home" [ref=e124] [cursor=pointer]:
+      - /url: /riftbound
+      - img "Home" [ref=e126]
+    - link "Profile" [ref=e129] [cursor=pointer]:
+      - /url: /riftbound/profile
+      - img "Profile" [ref=e131]
+    - link "Decks" [ref=e134] [cursor=pointer]:
+      - /url: /riftbound/decks
+      - img "Decks" [ref=e136]
+    - link "Tournaments" [ref=e139] [cursor=pointer]:
+      - /url: /riftbound/tournaments
+      - img "Tournaments" [ref=e141]
+    - link "Tier List" [ref=e144] [cursor=pointer]:
+      - /url: /riftbound/tier-list
+      - img "Tier List" [ref=e146]
+    - link "Guides" [ref=e149] [cursor=pointer]:
+      - /url: /riftbound/guides
+      - img "Guides" [ref=e151]
+    - link "Gallery" [ref=e154] [cursor=pointer]:
+      - /url: /riftbound/gallery
+      - img "Gallery" [ref=e156]
+  - main [ref=e159]:
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - heading "Structure Pages" [level=1] [ref=e162]
+        - link "Create Page" [ref=e164] [cursor=pointer]:
+          - /url: /riftbound/planner/st
+          - img [ref=e165]
+          - generic [ref=e166]: Create Page
+      - generic [ref=e167]:
+        - generic [ref=e168] [cursor=pointer]:
+          - generic [ref=e170]: /app-version-1-555-5
+          - generic [ref=e171]:
+            - link "Edit" [ref=e172]:
+              - /url: /riftbound/app-version-1-555-5
+              - generic [ref=e173]: Edit
+            - button [ref=e174]:
+              - img [ref=e175]
+        - generic [ref=e176] [cursor=pointer]:
+          - generic [ref=e178]: /app-version-1-555-5-d
+          - generic [ref=e179]:
+            - link "Edit" [ref=e180]:
+              - /url: /riftbound/app-version-1-555-5-d
+              - generic [ref=e181]: Edit
+            - button [ref=e182]:
+              - img [ref=e183]
+        - generic [ref=e184] [cursor=pointer]:
+          - generic [ref=e186]: /home
+          - generic [ref=e187]:
+            - link "Edit" [ref=e188]:
+              - /url: /riftbound/home
+              - generic [ref=e189]: Edit
+            - button [ref=e190]:
+              - img [ref=e191]
+        - generic [ref=e192] [cursor=pointer]:
+          - generic [ref=e194]: /mimimi
+          - generic [ref=e195]:
+            - link "Edit" [ref=e196]:
+              - /url: /riftbound/mimimi
+              - generic [ref=e197]: Edit
+            - button [ref=e198]:
+              - img [ref=e199]
+        - generic [ref=e200] [cursor=pointer]:
+          - generic [ref=e202]: /qa-check-static-data-not-delete
+          - generic [ref=e203]:
+            - link "Edit" [ref=e204]:
+              - /url: /riftbound/qa-check-static-data-not-delete
+              - generic [ref=e205]: Edit
+            - button [ref=e206]:
+              - img [ref=e207]
+        - generic [ref=e208] [cursor=pointer]:
+          - generic [ref=e210]: /test-rb-int-gql-el
+          - generic [ref=e211]:
+            - link "Edit" [ref=e212]:
+              - /url: /riftbound/test-rb-int-gql-el
+              - generic [ref=e213]: Edit
+            - button [ref=e214]:
+              - img [ref=e215]
+        - generic [ref=e216] [cursor=pointer]:
+          - generic [ref=e218]: /wiki
+          - generic [ref=e219]:
+            - link "Edit" [ref=e220]:
+              - /url: /riftbound/wiki
+              - generic [ref=e221]: Edit
+            - button [ref=e222]:
+              - img [ref=e223]
+        - generic [ref=e224] [cursor=pointer]:
+          - generic [ref=e226]: /wiki-cards
+          - generic [ref=e227]:
+            - link "Edit" [ref=e228]:
+              - /url: /riftbound/wiki-cards
+              - generic [ref=e229]: Edit
+            - button [ref=e230]:
+              - img [ref=e231]
+```
