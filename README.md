@@ -64,7 +64,7 @@ Once the job is completed, you will receive one of two results:
    - Open the terminal and paste the following command, then press **Enter**:
 
    ```bash
-   git clone https://github.com/mobalyticshq/qa-automated-tests.git .
+   git clone --branch main --single-branch https://github.com/mobalyticshq/qa-automated-tests.git .
    ```
 
    > After the repository has been cloned successfully, you will see the new folders & files in your created folder and **done** status messages in the terminal process.![alt text](src/images/cloned-repo.png)
