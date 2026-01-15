@@ -8,8 +8,6 @@
     "ui": "npx playwright test --ui",
     "generate-report": "npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
     "open-report": "npx allure open ./allure-report/",
-    "generate-report-mac": "rm -rf allure-report && npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
-    "generate-report-win": "rmdir /s /q allure-report 2>nul && npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
     "telegram": "java -DconfigFile=notifications/config.json -jar notifications/allure-notifications-4.9.0.jar"
   },
   "keywords": [],

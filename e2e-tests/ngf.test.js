@@ -9,7 +9,7 @@ import {
   filterProjectsByFeatureStatus as filterProjectsByTierLists,
 } from '../src/helpers/index';
 
-test.beforeEach(() => new Promise((resolve) => setTimeout(resolve, 1000)));
+test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)));
 
 test.skip(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ page }) => {
   // let newGame1 = 'Riftbound';
