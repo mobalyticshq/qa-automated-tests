@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { projectListFromSitemap } from '../src/helpers/index';
 
-test(`Checking sitemap for all projects in the list on ${process.env.URL_SITEMAP}`, async ({ page }) => {
+test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ page }) => {
   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
 
   await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
@@ -25,7 +25,7 @@ test(`Checking sitemap for all projects in the list on ${process.env.URL_SITEMAP
   }
 });
 
-test.describe('Sitemap links opens successfully for each project', { timeout: 300000 }, async () => {
+test.describe('Sitemap links open successfully for each project', { timeout: 300000 }, async () => {
   test(`Check 10 featured builds on diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async ({
     request,
     page,
@@ -123,7 +123,7 @@ test.describe('Sitemap links opens successfully for each project', { timeout: 30
 
       filteredLinks = arrayLinks.filter((match) => {
         const filterPattern =
-          /mobalytics\.gg\/(?!post|the-bazaar|marvel-rivals|2xko|diablo-4|news_category|valorant_category|tft_game)[\w-]+\-sitemap\.xml$/; //* added some links to exceptions because they are bugged
+          /mobalytics\.gg\/(?!post|the-bazaar|marvel-rivals|2xko|diablo-4|news_category|valorant_category|tft_game|overwatch-)[\w-]+\-sitemap\.xml$/; //* added some links to exceptions because they are bugged
         return filterPattern.test(match.groups.link);
       });
       // .slice(0, 10);

@@ -38,23 +38,23 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
 test.describe('Creating ST Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
 
-  // test(`Create a structure page on Overwatch project`, async ({ cleanupSt2xkoPages }) => {
-  //   const uniqueId = uuidv4();
-  //   const pageName = `/qa-automation-st-page-${uniqueId}`;
-  //   const { moba, addPageForCleanup } = cleanupSt2xkoPages;
+  test(`Create a structure page on Overwatch project`, async ({ cleanupStOverwatchPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const { moba, addPageForCleanup } = cleanupStOverwatchPages;
 
-  //   await moba.mainURLs.openAdmin2xkoPage();
-  //   await moba.stAdminPage.gotoStPlannerPage();
-  //   await moba.stPage.addHeaderWidget();
-  //   await moba.stPage.createStPage(pageName);
+    await moba.mainURLs.openAdminOverwatchPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
 
-  //   addPageForCleanup(pageName); // Register page for deleting
+    addPageForCleanup(pageName); // Register page for deleting
 
-  //   await test.step(`Expected Result: Structure page with the name: ${pageName} is created on 2xko project`, async () => {
-  //     await expect(moba.stPage.header2xko).toContainText('2XKO');
-  //     await expect(moba.stPage.controlPanel).toContainText(pageName);
-  //   });
-  // });
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Overwatch project`, async () => {
+      await expect(moba.stPage.headerOverwatch).toContainText('Overwatch');
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
 
   test(`Create a structure page on 2xko project`, async ({ cleanupSt2xkoPages }) => {
     const uniqueId = uuidv4();
@@ -454,7 +454,7 @@ test.describe('Creating UG Pages', () => {
   filterProjectsByTierLists('tierList').forEach(({ game, projectPath }) => {
     test(`Create a tier-list page on ${game} project`, async ({ page }) => {
       test.skip(
-        game === 'Diablo 4' && process.env.BASE_URL.includes('https://mobalytics.gg'),
+        game === 'Diablo 4' && process.env.BASE_URL === 'https://mobalytics.gg',
         'Diablo 4 Tier List is not supported yet on production'
       );
       const uniqueId = uuidv4();
@@ -934,6 +934,11 @@ test('Check error state for empty "CardGrid" widget', async ({ browser }) => {
 
 filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStPage }) => {
   test(`Check static data on NGF ${game}`, async ({ browser }) => {
+    test.skip(
+      game === 'Overwatch' && process.env.BASE_URL === 'https://mobalytics.gg',
+      'Overwatch static data is not supported yet on production'
+    );
+
     const adminContext = await browser.newContext({ storageState: '.auth/adminAuth.json' });
     const adminPage = await adminContext.newPage();
     const admin = new Moba(adminPage);

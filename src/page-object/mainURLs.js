@@ -49,6 +49,12 @@ export class MainURLs {
     });
   }
 
+  async openAdminOverwatchPage() {
+    await test.step(`Open 'Overwatch' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/overwatch/admin`);
+    });
+  }
+
   async openAdminEndfieldPage() {
     await test.step(`Open 'Endfield' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/arknights-endfield/admin`);
@@ -212,6 +218,14 @@ export class MainURLs {
   async openUgMarvelRivalsPage() {
     await test.step(`Open 'Marvel Rivals' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/marvel-rivals/profile`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openUgOverwatchPage() {
+    await test.step(`Open 'Overwatch' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/overwatch/profile`, {
         waitUntil: 'domcontentloaded',
       });
     });
@@ -444,6 +458,14 @@ export class MainURLs {
   async openMarathonPage() {
     await test.step(`Open url: ${process.env.BASE_URL}/marathon`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/marathon`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openOverwatchPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/overwatch`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/overwatch`, {
         waitUntil: 'domcontentloaded',
       });
     });

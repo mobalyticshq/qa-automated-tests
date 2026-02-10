@@ -177,6 +177,30 @@ export const test = base.extend({
     }
   },
 
+  cleanupStOverwatchPages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ moba, addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      await moba.mainURLs.openAdminOverwatchPage();
+
+      for (const pageName of pagesToCleanup) {
+        await moba.stAdminPage.deleteStCardWidget(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
+      }
+    }
+  },
+
   cleanupStMarathonPages: async ({ page, apiAuthAdmin }, use) => {
     const moba = new Moba(page);
     await page.context().addCookies(apiAuthAdmin.cookies);

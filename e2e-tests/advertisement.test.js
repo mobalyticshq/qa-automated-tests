@@ -653,7 +653,7 @@ filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) =
           await expect
             .soft(
               page
-                .locator('#endfield-display-all-pages')
+                .locator('#endfield-display-small-all-pages')
                 .or(page.locator('#arknights-endfield-nitro-m').locator('xpath=..'))
             )
             .toBeVisible();
@@ -690,7 +690,11 @@ filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) =
         });
         await test.step(`Expected Result: Small vertical banner is present on the page`, async () => {
           await expect
-            .soft(page.locator('#marathon-display-all-pages').or(page.locator('#marathon-nitro-m').locator('xpath=..')))
+            .soft(
+              page
+                .locator('#marathon-display-small-all-pages')
+                .or(page.locator('#marathon-nitro-m').locator('xpath=..'))
+            )
             .toBeVisible();
         });
         await test.step(`Expected Result: Footer banner is present on the page`, async () => {
@@ -726,7 +730,9 @@ filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) =
         await test.step(`Expected Result: Small vertical banner is present on the page`, async () => {
           await expect
             .soft(
-              page.locator('#overwatch-display-all-pages').or(page.locator('#overwatch-nitro-m').locator('xpath=..'))
+              page
+                .locator('#overwatch-display-small-all-pages')
+                .or(page.locator('#overwatch-nitro-m').locator('xpath=..'))
             )
             .toBeVisible();
         });

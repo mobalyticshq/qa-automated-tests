@@ -69,6 +69,7 @@ export class StPage {
     this.headerEndfield = page.locator('#container').getByText('Endfield');
     this.headerMarathon = page.locator('#container').getByText('Marathon');
     this.headerRiftbound = page.locator('#container').getByText('Riftbound');
+    this.headerOverwatch = page.locator('#container').getByText('Overwatch');
     this.headerLoL = page.locator('#container').getByText('LoL');
     this.headerValorant = page.locator('#container').getByText('Val');
     this.headerPoE2 = page.locator('#container').getByText('PoE 2');
