@@ -934,11 +934,6 @@ test('Check error state for empty "CardGrid" widget', async ({ browser }) => {
 
 filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStPage }) => {
   test(`Check static data on NGF ${game}`, async ({ browser }) => {
-    test.skip(
-      game === 'Overwatch' && process.env.BASE_URL === 'https://mobalytics.gg',
-      'Overwatch static data is not supported yet on production'
-    );
-
     const adminContext = await browser.newContext({ storageState: '.auth/adminAuth.json' });
     const adminPage = await adminContext.newPage();
     const admin = new Moba(adminPage);

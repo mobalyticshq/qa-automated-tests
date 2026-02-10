@@ -278,7 +278,7 @@ const projectList = [
       team: false,
       deck: false,
       character: false,
-      staticData: true,
+      staticData: false,
       advertisement: true,
     },
   },
