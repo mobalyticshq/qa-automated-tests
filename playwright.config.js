@@ -18,6 +18,7 @@ export default defineConfig({
   timeout: 90_000,
   expect: { timeout: 15_000 },
   testDir: './e2e-tests',
+  snapshotPathTemplate: '{testDir}/__screenshots__/{arg}{ext}',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

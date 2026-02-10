@@ -1,5 +1,6 @@
 # Playwright
 .allure
+.auth/
 node_modules/
 test-results/
 playwright-report/
@@ -13,4 +14,3 @@ allure-results
 data/
 */data/attachments/*
 src/setup/
-.auth/

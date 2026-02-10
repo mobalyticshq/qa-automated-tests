@@ -25,7 +25,9 @@ export class MainURLs {
 
   async openUgTierListPlannerPage(projectPath) {
     await test.step(`Open ${projectPath} UG tier-list planner page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}${projectPath}/planner/tier-lists`, { waitUntil: 'domcontentloaded' });
+      await this.page.goto(`${process.env.BASE_URL}${projectPath}/planner/tier-lists`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
@@ -44,6 +46,12 @@ export class MainURLs {
   async openAdminPoePage() {
     await test.step(`Open 'PoE' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe/admin`);
+    });
+  }
+
+  async openAdminEndfieldPage() {
+    await test.step(`Open 'Endfield' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/arknights-endfield/admin`);
     });
   }
 
@@ -82,7 +90,7 @@ export class MainURLs {
   }
 
   async openAdminMhwPage() {
-    await test.step(`Open "MHW" ST admin page`, async () => {
+    await test.step(`Open 'MHW' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/mhw/admin`, {
         waitUntil: 'domcontentloaded',
       });
@@ -108,6 +116,14 @@ export class MainURLs {
   async openAdminZzzPage() {
     await test.step(`Open 'ZZZ' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/zzz/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openAdminMarathonPage() {
+    await test.step(`Open 'Marathon' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/marathon/admin`, {
         waitUntil: 'domcontentloaded',
       });
     });
@@ -281,6 +297,22 @@ export class MainURLs {
     });
   }
 
+  async openUgEndfieldPage() {
+    await test.step(`Open 'Endfield' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/arknights-endfield/profile`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openUgMarathonPage() {
+    await test.step(`Open 'Marathon' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/marathon/profile`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
   async openUgLolPage() {
     await test.step(`Open 'LoL' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/lol/creator-profile`, {
@@ -404,6 +436,22 @@ export class MainURLs {
   async openZzzPage() {
     await test.step(`Open url: ${process.env.BASE_URL}/zzz`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/zzz`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openMarathonPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/marathon`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/marathon`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openEndfieldPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/arknights-endfield`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/arknights-endfield`, {
         waitUntil: 'domcontentloaded',
       });
     });

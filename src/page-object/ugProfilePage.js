@@ -18,6 +18,9 @@ export class UgProfilePage {
     this.tierListButton = page.getByRole('menuitem', {
       name: 'Tier List Create a Tier List',
     });
+    this.characterButton = page.getByRole('menuitem', {
+      name: 'Character Create a Character',
+    });
     this.deckButton = page.getByRole('menuitem', { name: 'Create a Deck' });
     this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
   }
@@ -33,6 +36,13 @@ export class UgProfilePage {
     await test.step('Go to Deck Planner Page', async () => {
       await this.createButton.click();
       await this.deckButton.click();
+    });
+  }
+
+  async gotoCharacterPlannerPage() {
+    await test.step('Go to Character Planner Page', async () => {
+      await this.createButton.click();
+      await this.characterButton.click();
     });
   }
 
