@@ -740,7 +740,7 @@ filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) =
           await expect
             .soft(
               page
-                .locator('#web-ovw-display-footer-d')
+                .locator('#web-overwatch-display-footer-d')
                 .locator('xpath=..')
                 .or(page.locator('#overwatch-nitro-anchor').locator('xpath=..'))
             )
