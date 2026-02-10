@@ -586,7 +586,7 @@ filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) =
           await expect
             .soft(
               page
-                .locator('#web-bl4-display-footer-d')
+                .locator('#web-borderlands-4-display-footer-d')
                 .locator('xpath=..')
                 .or(page.locator('#borderlands-4-nitro-anchor').locator('xpath=..'))
             )
@@ -662,7 +662,7 @@ filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) =
           await expect
             .soft(
               page
-                .locator('#web-endfield-display-footer-d')
+                .locator('#web-arknights-endfield-display-footer-d')
                 .locator('xpath=..')
                 .or(page.locator('#arknights-endfield-nitro-anchor').locator('xpath=..'))
             )
