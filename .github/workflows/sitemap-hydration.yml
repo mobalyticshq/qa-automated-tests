@@ -24,7 +24,6 @@ permissions:
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-  REPORT_LINK_TELEGRAM: ${{ secrets.REPORT_LINK_TELEGRAM }}
   SLACK_CHAT_ID: ${{ secrets.SLACK_CHAT_ID }}
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
@@ -32,6 +31,8 @@ jobs:
   sitemap-hydration-tests:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    env:
+      REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/sitemap-hydration
     steps:
       - name: Clone the code from repository into runner (virtual machine)
         uses: actions/checkout@v4
@@ -116,7 +117,7 @@ jobs:
             -e "s|\$SLACK_TOKEN|${{ secrets.SLACK_TOKEN }}|g" \
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
-            -e "s|\$REPORT_LINK_TELEGRAM|${{ secrets.REPORT_LINK_TELEGRAM }}|g" \
+            -e "s|\$REPORT_LINK_SLACK|${{ secrets.REPORT_LINK_SLACK }}|g" \
             -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://stg.mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
             notifications/config.json > notifications/tmp/config.json
 

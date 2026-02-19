@@ -3,7 +3,7 @@
     "project": "NGF",
     "environment": "$BASE_URL",
     "comment": "some comment",
-    "reportLink": "$REPORT_LINK_TELEGRAM",
+    "reportLink": "$REPORT_LINK_SLACK",
     "language": "en",
     "allureFolder": "allure-report",
     "enableChart": true
