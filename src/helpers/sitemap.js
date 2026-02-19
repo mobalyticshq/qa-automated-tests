@@ -74,7 +74,7 @@ const projectListFromSitemap = [
   { project: 'Riftbound', isPresentInProdSitemap: true, pathUrl: '/riftbound/sitemap.xml' },
   { project: '2XKO', isPresentInProdSitemap: true, pathUrl: '/2xko/sitemap.xml' },
   { project: 'Endfield', isPresentInProdSitemap: true, pathUrl: '/arknights-endfield/sitemap.xml' },
-  { project: 'Marathon', isPresentInProdSitemap: false, pathUrl: '/marathon/sitemap.xml' },
+  { project: 'Marathon', isPresentInProdSitemap: true, pathUrl: '/marathon/sitemap.xml' },
   { project: 'Overwatch', isPresentInProdSitemap: false, pathUrl: '/overwatch/sitemap.xml' },
 ];
 

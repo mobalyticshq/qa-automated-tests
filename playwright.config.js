@@ -77,9 +77,9 @@ export default defineConfig({
     {
       name: 'account-tests',
       // dependencies: ["setup"],
-      use: {
-        // storageState: ".auth/userRoleAuth.json",
-      },
+      // use: {
+      //   storageState: ".auth/userRoleAuth.json",
+      // },
       testMatch: 'e2e-tests/account.test.js',
     },
     {
@@ -94,6 +94,20 @@ export default defineConfig({
     {
       name: 'sitemap-tests',
       testMatch: 'e2e-tests/sitemap.test.js',
+      use: {
+        video: 'off',
+        screenshot: 'off',
+        trace: 'off',
+      },
+    },
+    {
+      name: 'hydration-tests',
+      testMatch: 'e2e-tests/hydration.test.js',
+      use: {
+        video: 'off',
+        screenshot: 'off',
+        trace: 'off',
+      },
     },
   ],
   /* Run your local dev server before starting the tests */

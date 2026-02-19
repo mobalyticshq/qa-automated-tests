@@ -1,5 +1,5 @@
 # Name workflow
-name: mobalytics-tests
+name: ngf-tests
 
 # When launch auto-tests
 on:
@@ -92,7 +92,7 @@ jobs:
           GAME_MANAGER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_PASSWORD || github.event_name == 'schedule' && secrets.STG_GAME_MANAGER_PASSWORD || secrets.STG_GAME_MANAGER_PASSWORD }}
           INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
-        run: npm test
+        run: npm test -- --project account-tests advertisement-tests ngf-tests others-tests 
 
       - name: Save playwright-results
         uses: actions/upload-artifact@v4
@@ -137,7 +137,8 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: gh-pages/allure-history
+          destination_dir: ngf
 
       - name: Generate config.json with the secrets
         if: always()

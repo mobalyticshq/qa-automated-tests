@@ -148,71 +148,154 @@ test('Error validation: 404 status code & title on NGF page', async ({ page }) =
   });
 });
 
-// test.describe('Check that hydration is ok on the core projects pages', () => {
-//   test.skip(process.env.BASE_URL.includes('https://stg.mobalytics.gg'), 'Skipping on STG environment');
-//   hydrationLinks.forEach((link) => {
-//     test(`Check that hydration is ok on: ${process.env.BASE_URL}${link}`, async ({ page }) => {
-//       const consoleMessages = [];
-//       const pageErrors = [];
+// test.describe('Screenshot tests on various projects', async () => {
+//   test(`Screenshot check poe-2`, async ({ page, request }) => {
+//     test.setTimeout(600000);
 
-//       page.on('console', (msg) => {
-//         if (msg.type() === 'error') {
-//           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-//           // console.log(consoleInfo);
-//           consoleMessages.push(consoleInfo);
-//         }
+//     const response = await request.get(`${process.env.BASE_URL}/poe-2/sitemap.xml`);
+//     expect(response.ok()).toBeTruthy();
+//     const xmlData = await response.text();
+//     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//     for (const takeLink of arrayLinks) {
+//       const screenshotName = `${takeLink.groups.link}.png`;
+//       // const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
+//       await page.goto(takeLink.groups.link);
+//       await expect.soft(page).toHaveScreenshot(screenshotName, {
+//         threshold: 0.2,
+//         maxDiffPixelRatio: 0.01,
+//         fullPage: true,
+//         mask: [page.locator('#poe-2-video-all-pages').or(page.locator('#poe-2-nitro-video'))],
+//         // stylePath: 'e2e-tests/screenshot-styles.css',
 //       });
-
-//       page.on('pageerror', (error) => {
-//         //
-//         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-//         if (error.message.match(/Minified React error #(418|423)/i)) {
-//           // console.log(errorInfo);
-//         }
-//         pageErrors.push(errorInfo);
-//       });
-
-//       await test.step(`Open ${link}`, async () => {
-//         await page.goto(`${process.env.BASE_URL}${link}`, { waitUntil: 'domcontentloaded' });
-//         await page.waitForTimeout(1000);
-//         // const allErrors = [...consoleMessages, ...pageErrors];
-
-//         // console.log(`Total messages captured: ${allErrors.length}`);
-//         // console.log(`Console errors: ${consoleMessages.length}, Page errors: ${pageErrors.length}`);
-//       });
-//       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
-
-//       await test.step('Expected Result: No hydration errors are present in the console', async () => {
-//         // expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-//         expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-//         expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
-//         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
-//       });
-//     });
+//     }
 //   });
-// });
 
-// test(`Screenshot check`, async ({ page, request }) => {
-//   test.setTimeout(600000);
+//   test(`Screenshot check tft`, async ({ page, request }) => {
+//     test.setTimeout(600000);
 
-//   const response = await request.get(`${process.env.BASE_URL}/poe-2/sitemap.xml`);
-//   expect(response.ok()).toBeTruthy();
-//   const xmlData = await response.text();
-//   const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-//   const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-//   // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-//   // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+//     const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
+//     expect(response.ok()).toBeTruthy();
+//     const xmlData = await response.text();
+//     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
 
-//   for (const takeLink of arrayLinks) {
-//     const screenshotName = `${takeLink.groups.link}.png`;
-//     const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
-//     await page.goto(modifiedLink);
-//     await expect.soft(page).toHaveScreenshot(screenshotName, {
-//       threshold: 0.2,
-//       maxDiffPixelRatio: 0.01,
-//       fullPage: true,
-//       mask: [page.locator('#poe-2-video-all-pages').or(page.locator('#poe-2-nitro-video'))],
-//       // stylePath: 'e2e-tests/screenshot-styles.css',
-//     });
-//   }
+//     for (const takeLink of arrayLinks) {
+//       const screenshotName = `${takeLink.groups.link}.png`;
+//       // const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
+//       await page.goto(takeLink.groups.link);
+//       await expect.soft(page).toHaveScreenshot(screenshotName, {
+//         threshold: 0.2,
+//         maxDiffPixelRatio: 0.01,
+//         fullPage: true,
+//         mask: [page.locator('#tft-video-all-pages').or(page.locator('#tft-nitro-video'))],
+//         // stylePath: 'e2e-tests/screenshot-styles.css',
+//       });
+//     }
+//   });
+
+//   test(`Screenshot check news`, async ({ page, request }) => {
+//     test.setTimeout(600000);
+
+//     const response = await request.get(`${process.env.BASE_URL}/news/sitemap.xml`);
+//     expect(response.ok()).toBeTruthy();
+//     const xmlData = await response.text();
+//     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//     for (const takeLink of arrayLinks) {
+//       const screenshotName = `${takeLink.groups.link}.png`;
+//       // const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
+//       await page.goto(takeLink.groups.link);
+//       await expect.soft(page).toHaveScreenshot(screenshotName, {
+//         threshold: 0.2,
+//         maxDiffPixelRatio: 0.01,
+//         fullPage: true,
+//         mask: [page.locator('#news-video-all-pages').or(page.locator('#news-nitro-video'))],
+//         // stylePath: 'e2e-tests/screenshot-styles.css',
+//       });
+//     }
+//   });
+
+//   test(`Screenshot check diablo-4`, async ({ page, request }) => {
+//     test.setTimeout(600000);
+
+//     const response = await request.get(`${process.env.BASE_URL}/diablo-4/sitemap.xml`);
+//     expect(response.ok()).toBeTruthy();
+//     const xmlData = await response.text();
+//     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//     for (const takeLink of arrayLinks) {
+//       const screenshotName = `${takeLink.groups.link}.png`;
+//       // const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
+//       await page.goto(takeLink.groups.link);
+//       await expect.soft(page).toHaveScreenshot(screenshotName, {
+//         threshold: 0.2,
+//         maxDiffPixelRatio: 0.01,
+//         fullPage: true,
+//         mask: [page.locator('#diablo-4-video-all-pages').or(page.locator('#diablo-4-nitro-video'))],
+//         // stylePath: 'e2e-tests/screenshot-styles.css',
+//       });
+//     }
+//   });
+
+//   test(`Screenshot check valorant`, async ({ page, request }) => {
+//     test.setTimeout(600000);
+
+//     const response = await request.get(`${process.env.BASE_URL}/valorant/sitemap.xml`);
+//     expect(response.ok()).toBeTruthy();
+//     const xmlData = await response.text();
+//     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//     for (const takeLink of arrayLinks) {
+//       const screenshotName = `${takeLink.groups.link}.png`;
+//       // const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
+//       await page.goto(takeLink.groups.link);
+//       await expect.soft(page).toHaveScreenshot(screenshotName, {
+//         threshold: 0.2,
+//         maxDiffPixelRatio: 0.01,
+//         fullPage: true,
+//         mask: [page.locator('#valorant-video-all-pages').or(page.locator('#valorant-nitro-video'))],
+//         // stylePath: 'e2e-tests/screenshot-styles.css',
+//       });
+//     }
+//   });
+
+//   test(`Screenshot check deadlock`, async ({ page, request }) => {
+//     test.setTimeout(600000);
+
+//     const response = await request.get(`${process.env.BASE_URL}/deadlock/sitemap.xml`);
+//     expect(response.ok()).toBeTruthy();
+//     const xmlData = await response.text();
+//     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//     for (const takeLink of arrayLinks) {
+//       const screenshotName = `${takeLink.groups.link}.png`;
+//       // const modifiedLink = takeLink.groups.link.replace(/stg\.mobalytics/g, 'as.int.mobalytics');
+//       await page.goto(takeLink.groups.link);
+//       await expect.soft(page).toHaveScreenshot(screenshotName, {
+//         threshold: 0.2,
+//         maxDiffPixelRatio: 0.01,
+//         fullPage: true,
+//         mask: [page.locator('#deadlock-video-all-pages').or(page.locator('#deadlock-nitro-video'))],
+//         // stylePath: 'e2e-tests/screenshot-styles.css',
+//       });
+//     }
+//   });
 // });
