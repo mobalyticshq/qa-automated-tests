@@ -1,15 +1,10 @@
 # Name workflow
-name: ngf-tests
+name: sitemap-hydration-tests
 
 # When launch auto-tests
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
   schedule:
-    - cron: '30 6 * * *'
-    - cron: '20 11 * * 2,4'
+    - cron: '30 6 * * 5'
 
   # Manual hook for launch
   workflow_dispatch:
@@ -21,7 +16,7 @@ on:
         options:
           - STG
           - PROD
-        default: 'STG'
+        default: 'PROD'
 
 permissions:
   contents: write
@@ -34,7 +29,7 @@ env:
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
 jobs:
-  ngf-tests:
+  sitemap-hydration-tests:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
@@ -52,50 +47,17 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # Caching npm-dependecies to speed up subsequent builds
-      # - uses: actions/cache@v3
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-npm-
-
       - name: Install npm
         run: npm i
 
       - name: Install PW with dependencies
         run: npx playwright install --with-deps
 
-      # - name: Cache Playwright browsers
-      #   uses: actions/cache@v3
-      #   id: cache-pw
-      #   with:
-      #     path: ~/.cache/ms-playwright
-      #     key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-playwright-
-
-      # If cache miss, download browsers + deps
-      # - name: Install Playwright (full)
-      #   if: steps.cache-pw.outputs.cache-hit != 'true'
-      #   run: npx playwright install --with-deps
-
-      # If cache hit, only install OS deps
-      # - name: Install Playwright (OS deps only)
-      #   if: steps.cache-pw.outputs.cache-hit == 'true'
-      #   run: npx playwright install-deps
-
       - name: Launch auto-tests with ENV-override
         env:
           URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_SITEMAP_URL || github.event_name == 'schedule' && secrets.STG_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
           BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
-          ADMIN_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_EMAIL || github.event_name == 'schedule' && secrets.STG_ADMIN_EMAIL || secrets.STG_ADMIN_EMAIL }}
-          ADMIN_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_PASSWORD || github.event_name == 'schedule' && secrets.STG_ADMIN_PASSWORD || secrets.STG_ADMIN_PASSWORD }}
-          GAME_MANAGER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_EMAIL || github.event_name == 'schedule' && secrets.STG_GAME_MANAGER_EMAIL || secrets.STG_GAME_MANAGER_EMAIL }}
-          GAME_MANAGER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_PASSWORD || github.event_name == 'schedule' && secrets.STG_GAME_MANAGER_PASSWORD || secrets.STG_GAME_MANAGER_PASSWORD }}
-          INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
-          INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
-        run: npm test -- --project account-tests advertisement-tests ngf-tests others-tests
+        run: npx playwright test --project sitemap-tests hydration-tests
 
       - name: Save playwright-results
         uses: actions/upload-artifact@v4
@@ -132,7 +94,7 @@ jobs:
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
-          subfolder: ngf
+          subfolder: sitemap-hydration
           keep_reports: 10
 
       - name: Deploy report to GitHub Pages
@@ -141,8 +103,8 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: allure-history/ngf
-          destination_dir: ngf
+          publish_dir: allure-history/sitemap-hydration
+          destination_dir: sitemap-hydration
 
       - name: Generate config.json with the secrets
         if: always()
