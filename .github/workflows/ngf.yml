@@ -131,6 +131,10 @@ jobs:
           allure_history: allure-history
           keep_reports: 10
 
+      - name: Remove .git from report dir (simple-elf copies it from gh-pages)
+        if: always()
+        run: rm -rf allure-history/.git
+
       - name: Deploy report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
