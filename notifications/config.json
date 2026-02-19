@@ -1,6 +1,6 @@
 {
   "base": {
-    "project": "NGF",
+    "project": "$TESTS_NAME",
     "environment": "$BASE_URL",
     "comment": "some comment",
     "reportLink": "$REPORT_LINK_SLACK",

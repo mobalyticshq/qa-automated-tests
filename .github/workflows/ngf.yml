@@ -38,6 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/ngf
+      TESTS_NAME: 'NGF'
     steps:
       - name: Clone the code from repository into runner (virtual machine)
         uses: actions/checkout@v4
@@ -151,6 +152,7 @@ jobs:
         run: |
           mkdir -p notifications/tmp
           sed \
+            -e "s|\$TESTS_NAME|${{ env.TESTS_NAME }}|g" \
             -e "s|\$SLACK_CHAT_ID|${{ secrets.SLACK_CHAT_ID }}|g" \
             -e "s|\$SLACK_TOKEN|${{ secrets.SLACK_TOKEN }}|g" \
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
