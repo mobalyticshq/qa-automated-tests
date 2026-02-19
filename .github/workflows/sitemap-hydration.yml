@@ -99,7 +99,7 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: gh-pages/sitemap-hydration
+          publish_dir: sitemap-hydration
           destination_dir: sitemap-hydration
 
       - name: Generate config.json with the secrets

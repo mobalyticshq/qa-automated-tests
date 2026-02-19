@@ -29,7 +29,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
   test.describe.configure({ timeout: 600_000 });
   const quantityLinks = 100;
 
-  test(`Check ${quantityLinks} featured builds on diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} featured builds is opened successfully on diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -67,7 +67,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} wiki pages on borderlands-4 sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} wiki pages is opened successfully on borderlands-4 sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -109,7 +109,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on sitemap_index: ${process.env.BASE_URL}/sitemap_index.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on sitemap_index: ${process.env.BASE_URL}/sitemap_index.xml`, async ({
     request,
     page,
   }) => {
@@ -152,7 +152,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -194,7 +194,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on valorant sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on valorant sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -236,7 +236,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on tft sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on tft sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -278,7 +278,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on tft set-16 sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on tft set-16 sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -320,7 +320,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on tft set4-5 sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on tft set4-5 sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -362,7 +362,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on destiny-2 sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on destiny-2 sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -404,7 +404,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on arknights-endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on arknights-endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -446,7 +446,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on 2xko sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on 2xko sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -488,7 +488,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on example-game sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on example-game sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -532,7 +532,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on riftbound sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on riftbound sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -574,7 +574,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on poe sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on poe sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -616,7 +616,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on hades-2 sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on hades-2 sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -658,7 +658,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on news sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on news sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -700,7 +700,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on zzz sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on zzz sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -742,7 +742,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on elden-ring-nightreign sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on elden-ring-nightreign sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -784,7 +784,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on mhw sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on mhw sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -826,7 +826,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on marvel-rivals sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on marvel-rivals sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -868,7 +868,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on deadlock sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on deadlock sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -910,7 +910,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on poe-2 sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on poe-2 sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -952,7 +952,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on the-bazaar sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on the-bazaar sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -994,7 +994,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -1036,7 +1036,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on marathon sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on marathon sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async ({
     request,
     page,
   }) => {
@@ -1078,7 +1078,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
     }
   });
 
-  test(`Check ${quantityLinks} links in the table on overwatch sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async ({
+  test(`Check ${quantityLinks} links is opened successfully in the table on overwatch sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async ({
     request,
     page,
   }) => {
