@@ -57,8 +57,8 @@ jobs:
 
       - name: Launch auto-tests with ENV-override
         env:
-          URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_SITEMAP_URL || github.event_name == 'schedule' && secrets.STG_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
-          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
+          URL_SITEMAP: ${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && secrets.PROD_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
+          BASE_URL: ${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && secrets.PROD_URL || secrets.STG_URL }}
         run: npx playwright test --project sitemap-tests hydration-tests
 
       - name: Save playwright-results
@@ -120,7 +120,7 @@ jobs:
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
             -e "s|\$REPORT_LINK_SLACK|${{ env.REPORT_LINK_SLACK }}|g" \
-            -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://stg.mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
+            -e "s|\$BASE_URL|${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification
