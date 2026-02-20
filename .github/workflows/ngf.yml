@@ -25,6 +25,8 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+  checks: write
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -99,7 +101,7 @@ jobs:
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
         run: npm test -- --project account-tests advertisement-tests ngf-tests others-tests
 
-      - name: Get previous report Allure history
+      - name: Get Allure history from gh-pages
         uses: actions/checkout@v4
         if: always()
         continue-on-error: true
@@ -107,26 +109,34 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Create allure-report from allure-results
-        uses: simple-elf/allure-report-action@master
+      - name: Restore Allure history
         if: always()
-        id: allure-report
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          gh_pages: gh-pages
-          allure_report: allure-report
-          subfolder: ngf
-          keep_reports: 10
+        continue-on-error: true
+        run: cp gh-pages/ngf/history.jsonl ./allure-history.jsonl
+
+      - name: Generate Allure 3 report
+        if: always()
+        run: npx allure generate allure-results --clean
+
+      - name: Save history for next run
+        if: always()
+        continue-on-error: true
+        run: cp ./allure-history.jsonl allure-report/history.jsonl
 
       - name: Deploy report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history/ngf
+          publish_dir: allure-report
           destination_dir: ngf
+
+      - name: Post Allure summary to Pull Request
+        if: always()
+        uses: allure-framework/allure-report@v0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate config.json with the secrets
         if: always()

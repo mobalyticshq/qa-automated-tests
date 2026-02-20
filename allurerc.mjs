@@ -3,6 +3,7 @@ import { defineConfig } from 'allure';
 export default defineConfig({
   name: 'Allure Report 3',
   output: './allure-report',
+  historyPath: './allure-history.jsonl',
   plugins: {
     awesome: {
       options: {
