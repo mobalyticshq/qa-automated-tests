@@ -116,7 +116,9 @@ jobs:
 
       - name: Generate Allure 3 report
         if: always()
-        run: npx allure generate allure-results --clean
+        run: |
+          rm -rf allure-report
+          npx allure generate allure-results
 
       - name: Save history for next run
         if: always()
