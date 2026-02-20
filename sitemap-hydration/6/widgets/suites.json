@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"7844648bf69d74ba154174291b2ec0f0","name":"sitemap-tests","statistic":{"failed":3,"broken":0,"skipped":0,"passed":24,"unknown":0,"total":27}},{"uid":"de85fc549718656767ba2c3befc0c67f","name":"hydration-tests","statistic":{"failed":0,"broken":0,"skipped":0,"passed":16,"unknown":0,"total":16}}]}
