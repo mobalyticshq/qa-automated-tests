@@ -134,7 +134,7 @@ jobs:
 
       - name: Post Allure summary to Pull Request
         if: always()
-        uses: allure-framework/allure-report@v0
+        uses: allure-framework/allure-action@v0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
