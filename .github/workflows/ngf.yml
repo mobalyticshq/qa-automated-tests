@@ -116,9 +116,7 @@ jobs:
 
       - name: Generate Allure 3 report
         if: always()
-        run: |
-          rm -rf allure-report
-          npx allure generate allure-results
+        run: npx allure generate allure-results
 
       - name: Save history for next run
         if: always()
@@ -139,6 +137,13 @@ jobs:
         uses: allure-framework/allure-action@v0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Allure v2-compatible widgets structure
+        if: always()
+        continue-on-error: true
+        run: |
+          mkdir -p allure-report/widgets
+          cp allure-report/summary.json allure-report/widgets/summary.json
 
       - name: Generate config.json with the secrets
         if: always()
