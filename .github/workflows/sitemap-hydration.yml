@@ -70,16 +70,7 @@ jobs:
           path: playwright-report
           retention-days: 10
 
-      - name: Save allure-results
-        uses: actions/upload-artifact@v4
-        if: always()
-        continue-on-error: true
-        with:
-          name: allure-results
-          path: allure-results
-          retention-days: 10
-
-      - name: Get results from the previous launch
+      - name: Get previous report Allure history
         uses: actions/checkout@v4
         if: always()
         continue-on-error: true
@@ -90,7 +81,6 @@ jobs:
       - name: Create allure-report from allure-results
         uses: GuitaristForEver/allure-v3-report-action@v1.1.0
         if: always()
-        id: allure-report
         with:
           allure_results: allure-results
           gh_pages: gh-pages
