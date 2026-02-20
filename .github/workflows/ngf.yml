@@ -101,7 +101,7 @@ jobs:
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
         run: npm test -- --project account-tests advertisement-tests ngf-tests others-tests
 
-      - name: Get Allure history from gh-pages
+      - name: Get previous report Allure history
         uses: actions/checkout@v4
         if: always()
         continue-on-error: true
@@ -109,41 +109,25 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Restore Allure history
+      - name: Create allure-report from allure-results
+        uses: simple-elf/allure-report-action@master
         if: always()
-        continue-on-error: true
-        run: cp gh-pages/ngf/history.jsonl ./allure-history.jsonl
-
-      - name: Generate Allure 3 report
-        if: always()
-        run: npx allure generate allure-results
-
-      - name: Save history for next run
-        if: always()
-        continue-on-error: true
-        run: cp ./allure-history.jsonl allure-report/history.jsonl
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+          subfolder: ngf
+          keep_reports: 10
 
       - name: Deploy report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: allure-report
+          publish_dir: allure-history/ngf
           destination_dir: ngf
-
-      - name: Post Allure summary to Pull Request
-        if: always()
-        uses: allure-framework/allure-action@v0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Allure v2-compatible widgets structure
-        if: always()
-        continue-on-error: true
-        run: |
-          mkdir -p allure-report/widgets
-          cp allure-report/summary.json allure-report/widgets/summary.json
 
       - name: Generate config.json with the secrets
         if: always()

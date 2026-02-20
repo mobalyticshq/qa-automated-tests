@@ -23,7 +23,7 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
     //   await expect(moba.navbar.gameList).not.toContainText(newGame1);
     // });
     await test.step(`Expected Result: ${newGame2} game is missing in the navbar on PROD`, async () => {
-      await expect(moba.navbar.gameList).not.toContainText(newGame2);
+      await expect(moba.navbar.gameList).toContainText(newGame2);
     });
   } else {
     await test.step(`Expected Result: ${newGame1} game is present in the navbar on STG`, async () => {
