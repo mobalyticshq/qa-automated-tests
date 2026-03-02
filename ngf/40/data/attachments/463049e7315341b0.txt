@@ -1,0 +1,29 @@
+Attempt 1/10: Opening https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header found on attempt 1: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+ST page updated by admin
+Attempt 1/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 1
+Attempt 2/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 2
+Attempt 3/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 3: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 1/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 1: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 2/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 2: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 3/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 3: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 4/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 4: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 5/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 5: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 6/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 6: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 7/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 7: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 8/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 8: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 9/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 9: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
+Attempt 10/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✓ Header and text found on attempt 10: x-moba-ssr-cache = h-mhw-|stg|-hourly-static-ngf-st-doc-x-moba-ssr-cache-/mhw/x-moba-ssr-cache-null-en_us-true-b
