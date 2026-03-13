@@ -1,0 +1,903 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "Mobalytics" [ref=e6] [cursor=pointer]:
+          - /url: /valorant
+          - img "Mobalytics" [ref=e7]
+        - generic [ref=e9]:
+          - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+            - /url: https://mobalytics.gg/lol
+            - generic [ref=e13]:
+              - img "League of Legends" [ref=e14]
+              - generic [ref=e15]: LoL
+          - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+            - /url: https://mobalytics.gg/tft
+            - generic [ref=e19]:
+              - img "Teamfight Tactics" [ref=e20]
+              - generic [ref=e21]: TFT
+          - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+            - /url: https://mobalytics.gg/diablo-4
+            - generic [ref=e25]:
+              - img "Diablo 4" [ref=e26]
+              - generic [ref=e27]: Diablo 4
+          - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe-2
+            - generic [ref=e31]:
+              - img "Path of Exile 2" [ref=e32]
+              - generic [ref=e33]: PoE 2
+          - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe
+            - generic [ref=e37]:
+              - img "Path of Exile" [ref=e38]
+              - generic [ref=e39]: PoE
+          - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+            - /url: https://mobalytics.gg/destiny-2
+            - generic [ref=e43]:
+              - img "Destiny 2" [ref=e44]
+              - generic [ref=e45]: Destiny 2
+          - link "Marathon Marathon New" [ref=e47] [cursor=pointer]:
+            - /url: https://mobalytics.gg/marathon
+            - generic [ref=e49]:
+              - img "Marathon" [ref=e50]
+              - generic [ref=e51]: Marathon
+              - generic [ref=e53]: New
+          - link "Slay the Spire 2 STS 2 New" [ref=e55] [cursor=pointer]:
+            - /url: https://mobalytics.gg/slay-the-spire-2
+            - generic [ref=e57]:
+              - img "Slay the Spire 2" [ref=e58]
+              - generic [ref=e59]: STS 2
+              - generic [ref=e61]: New
+          - link "Deadlock Deadlock" [ref=e63] [cursor=pointer]:
+            - /url: https://mobalytics.gg/deadlock
+            - generic [ref=e65]:
+              - img "Deadlock" [ref=e66]
+              - generic [ref=e67]: Deadlock
+          - link "Overwatch Overwatch New" [ref=e69] [cursor=pointer]:
+            - /url: https://mobalytics.gg/overwatch
+            - generic [ref=e71]:
+              - img "Overwatch" [ref=e72]
+              - generic [ref=e73]: Overwatch
+              - generic [ref=e75]: New
+          - link "Borderlands 4 Borderlands 4" [ref=e77] [cursor=pointer]:
+            - /url: https://mobalytics.gg/borderlands-4
+            - generic [ref=e79]:
+              - img "Borderlands 4" [ref=e80]
+              - generic [ref=e81]: Borderlands 4
+          - link "Valorant VAL" [ref=e83] [cursor=pointer]:
+            - /url: https://mobalytics.gg/valorant
+            - generic [ref=e85]:
+              - img "Valorant" [ref=e86]
+              - generic [ref=e87]: VAL
+          - 'link "Arknights: Endfield Endfield" [ref=e89] [cursor=pointer]':
+            - /url: https://mobalytics.gg/arknights-endfield
+            - generic [ref=e91]:
+              - 'img "Arknights: Endfield" [ref=e92]'
+              - generic [ref=e93]: Endfield
+          - button [ref=e94] [cursor=pointer]:
+            - img [ref=e95]
+          - generic:
+            - link "Elden Ring Nightreign Nightreign":
+              - /url: https://mobalytics.gg/elden-ring-nightreign
+              - generic:
+                - generic:
+                  - img "Elden Ring Nightreign"
+                  - generic: Nightreign
+          - generic:
+            - link "Monster Hunter Wilds Monster Hunter Wilds":
+              - /url: https://mobalytics.gg/mhw
+              - generic:
+                - generic:
+                  - img "Monster Hunter Wilds"
+                  - generic: Monster Hunter Wilds
+          - generic:
+            - link "The Bazaar The Bazaar":
+              - /url: https://mobalytics.gg/the-bazaar
+              - generic:
+                - generic:
+                  - img "The Bazaar"
+                  - generic: The Bazaar
+          - generic:
+            - link "Hades 2 Hades 2":
+              - /url: https://mobalytics.gg/hades-2
+              - generic:
+                - generic:
+                  - img "Hades 2"
+                  - generic: Hades 2
+          - generic:
+            - link "Marvel Rivals Marvel Rivals":
+              - /url: https://mobalytics.gg/marvel-rivals
+              - generic:
+                - generic:
+                  - img "Marvel Rivals"
+                  - generic: Marvel Rivals
+          - generic:
+            - link "Zenless Zone Zero ZZZ":
+              - /url: https://mobalytics.gg/zzz
+              - generic:
+                - generic:
+                  - img "Zenless Zone Zero"
+                  - generic: ZZZ
+          - generic:
+            - link "2XKO 2XKO":
+              - /url: https://mobalytics.gg/2xko
+              - generic:
+                - generic:
+                  - img "2XKO"
+                  - generic: 2XKO
+          - generic:
+            - link "Riftbound Riftbound":
+              - /url: https://mobalytics.gg/riftbound
+              - generic:
+                - generic:
+                  - img "Riftbound"
+                  - generic: Riftbound
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - link "DOWNLOAD APP" [ref=e98] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-valorant&utm_medium=homepage&utm_source=web
+            - button "DOWNLOAD APP" [ref=e100]:
+              - img [ref=e101]
+              - text: DOWNLOAD APP
+          - link "News" [ref=e103] [cursor=pointer]:
+            - /url: /news
+            - generic [ref=e104]: News
+        - generic [ref=e105]:
+          - button "sign in" [ref=e106] [cursor=pointer]:
+            - generic [ref=e107]: sign in
+          - img "support" [ref=e111] [cursor=pointer]
+          - img "language" [ref=e114] [cursor=pointer]
+      - generic [ref=e116]:
+        - link "Home" [ref=e119] [cursor=pointer]:
+          - /url: /valorant/search
+          - img "Home" [ref=e121]
+        - link "Profile" [ref=e124] [cursor=pointer]:
+          - /url: /valorant/lp/profile
+          - img "Profile" [ref=e126]
+        - link "Leaderboard" [ref=e129] [cursor=pointer]:
+          - /url: /valorant/leaderboard
+          - img "Leaderboard" [ref=e131]
+        - link "Agents" [ref=e134] [cursor=pointer]:
+          - /url: /valorant/agents
+          - img "Agents" [ref=e136]
+        - link "Weapons" [ref=e139] [cursor=pointer]:
+          - /url: /valorant/weapons
+          - img "Weapons" [ref=e141]
+        - link "Maps" [ref=e144] [cursor=pointer]:
+          - /url: /valorant/maps
+          - img "Maps" [ref=e146]
+        - link "Guides" [ref=e149] [cursor=pointer]:
+          - /url: /valorant/map/all/guides
+          - img "Guides" [ref=e151]
+        - link "Master Classes" [ref=e154] [cursor=pointer]:
+          - /url: /valorant/lesson-plan/master-valorant
+          - img "Master Classes" [ref=e156]
+      - generic [ref=e158]:
+        - main [ref=e159]:
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e167]:
+                - generic [ref=e168]:
+                  - img "Deadlock" [ref=e170]
+                  - generic [ref=e171]:
+                    - heading "Deadlock • Guide" [level=1] [ref=e172]:
+                      - text: Deadlock
+                      - generic [ref=e173]: • Guide
+                    - paragraph [ref=e174]: “My territory, my rules!”
+                - generic [ref=e175]:
+                  - generic [ref=e176]:
+                    - text: Class
+                    - generic [ref=e177]:
+                      - img "Sentinel" [ref=e178]
+                      - paragraph [ref=e179]: Sentinel
+                  - generic [ref=e180]:
+                    - text: Playstyle
+                    - paragraph [ref=e182]: Support
+                  - generic [ref=e183]:
+                    - text: Difficulty
+                    - paragraph [ref=e186]: Hard
+                  - generic [ref=e187]:
+                    - text: Skill Distribution
+                    - generic [ref=e193]:
+                      - paragraph [ref=e194]: 30% Utility
+                      - paragraph [ref=e195]: 60% CC
+                      - paragraph [ref=e196]: 10% Dmg
+              - tablist [ref=e200]:
+                - tab "Overview" [ref=e201] [cursor=pointer]:
+                  - paragraph [ref=e202]: Overview
+                - tab "Guide" [selected] [ref=e203] [cursor=pointer]:
+                  - paragraph [ref=e204]: Guide
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - generic [ref=e207]:
+                  - generic [ref=e208]: Deadlock Guides
+                  - generic [ref=e210]:
+                    - generic [ref=e211]:
+                      - generic [ref=e212]:
+                        - iframe [ref=e215]:
+                          
+                        - img "Play video"
+                      - generic [ref=e217]:
+                        - img "Barrier Mesh" [ref=e220]
+                        - generic [ref=e221]:
+                          - generic [ref=e222]: A Cubby Barrier Mesh
+                          - generic [ref=e223]:
+                            - paragraph [ref=e224]: Barrier Mesh
+                            - paragraph [ref=e225]: Medium
+                            - paragraph [ref=e226]: Defenders
+                        - link [ref=e227] [cursor=pointer]:
+                          - /url: /valorant/map/bind?advice=deadlock-bind-a-cubby-barrier-mesh&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e228]
+                      - generic [ref=e234]:
+                        - paragraph [ref=e235]: Use this Barrier Mesh to trap players in the cubby A Short, stall attackers going A Short, and to funnel attackers by making their only means of entry to site the boxes they must jump off of.
+                        - paragraph [ref=e236]: When throwing this Barrier Mesh make sure you do not expose yourself to the door to Showers.
+                      - button "Show more" [ref=e237] [cursor=pointer]
+                    - generic [ref=e238]:
+                      - generic [ref=e239]:
+                        - iframe [ref=e242]:
+                          
+                        - img "Play video"
+                      - generic [ref=e244]:
+                        - img "GravNet" [ref=e247]
+                        - generic [ref=e248]:
+                          - generic [ref=e249]: A Main to Sands GravNet
+                          - generic [ref=e250]:
+                            - paragraph [ref=e251]: GravNet
+                            - paragraph [ref=e252]: Easy
+                            - paragraph [ref=e253]: Attackers
+                        - link [ref=e254] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock_fracture_amain_sand_gravnet&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_c&team=attackers
+                          - img [ref=e255]
+                      - generic [ref=e261]:
+                        - paragraph [ref=e262]: Use this GravNet to capture an enemy playing close sands for a teammate to swing or to combo with damaging utility.
+                        - paragraph [ref=e263]: This lineup opens the door, allowing a teammate to quickly take the fight.
+                      - button "Show more" [ref=e264] [cursor=pointer]
+                    - generic [ref=e265]:
+                      - generic [ref=e266]:
+                        - iframe [ref=e269]:
+                          
+                        - img "Play video"
+                      - generic [ref=e271]:
+                        - img "Annihilation" [ref=e274]
+                        - generic [ref=e275]:
+                          - generic [ref=e276]: Annihilation for A Heaven
+                          - generic [ref=e277]:
+                            - paragraph [ref=e278]: Annihilation
+                            - paragraph [ref=e279]: Medium
+                            - paragraph [ref=e280]: Attackers
+                        - link [ref=e281] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-heaven-annihilation&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_x&team=attackers
+                          - img [ref=e282]
+                      - generic [ref=e288]:
+                        - paragraph [ref=e289]: Use this Annihilation if you suspect enemies to be holding from the A Heaven angle. This will catch any enemies holding close to the A Heaven angle and bring them towards A Main. Note however this will NOT kill the enemies at the end, they will fall around A Main so make sure you or your teammates finish off the enemy after they get released.
+                        - paragraph [ref=e290]: Walk along the elevated area of the right side of A Main and aim at the underside of the balcony and jump shoot.
+                      - button "Show more" [ref=e291] [cursor=pointer]
+                    - generic [ref=e292]:
+                      - generic [ref=e293]:
+                        - iframe [ref=e296]:
+                          
+                        - img "Play video"
+                      - generic [ref=e298]:
+                        - img "Annihilation" [ref=e301]
+                        - generic [ref=e302]:
+                          - generic [ref=e303]: Annihilation for A Main
+                          - generic [ref=e304]:
+                            - paragraph [ref=e305]: Annihilation
+                            - paragraph [ref=e306]: Hard
+                            - paragraph [ref=e307]: Defenders
+                        - link [ref=e308] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-main-annihilation&agent=deadlock&difc=hard&misc=callouts&skills=deadlock_x&team=defenders
+                          - img [ref=e309]
+                      - generic [ref=e315]:
+                        - paragraph [ref=e316]: Use this Annihilation when you suspect lurkers A Main or your team plans to aggressively fight for A Main control. This will catch an enemy playing near the typical spawn start for A Main.
+                        - paragraph [ref=e317]: Peek from Ramps until you can see the dark wooden area on the A Main wall. Aim at the top edge of the dark wood. There is a sliver of the edge where the ultimate will angle downwards so make sure the indicator shows that before shooting.
+                      - button "Show more" [ref=e318] [cursor=pointer]
+                    - generic [ref=e319]:
+                      - generic [ref=e320]:
+                        - iframe [ref=e323]:
+                          
+                        - img "Play video"
+                      - generic [ref=e325]:
+                        - img "Annihilation" [ref=e328]
+                        - generic [ref=e329]:
+                          - generic [ref=e330]: Annihilation for A Ramps
+                          - generic [ref=e331]:
+                            - paragraph [ref=e332]: Annihilation
+                            - paragraph [ref=e333]: Hard
+                            - paragraph [ref=e334]: Attackers
+                        - link [ref=e335] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-ramps-annihilation&agent=deadlock&difc=hard&misc=callouts&skills=deadlock_x&team=attackers
+                          - img [ref=e336]
+                      - generic [ref=e342]:
+                        - paragraph [ref=e343]: Use this Annihilation when you suspect enemies to be holding from A Ramps and you have teammates ready to push it. This ultimate will NOT kill the enemy captured, as they will be blocked by the walls and eventually be released at the end of the 8 seconds, so make sure you have teammates ready to kill the enemy after they get released on Ramps.
+                        - paragraph [ref=e344]: Stand on the spotlight against the wall and aim at the underhang of the structure to bounce the ultimate onto A Ramps.
+                      - button "Show more" [ref=e345] [cursor=pointer]
+                    - generic [ref=e346]:
+                      - generic [ref=e347]:
+                        - iframe [ref=e350]:
+                          
+                        - img "Play video"
+                      - generic [ref=e352]:
+                        - img "Annihilation" [ref=e355]
+                        - generic [ref=e356]:
+                          - generic [ref=e357]: Annihilation for A Sign Retake
+                          - generic [ref=e358]:
+                            - paragraph [ref=e359]: Annihilation
+                            - paragraph [ref=e360]: Easy
+                            - paragraph [ref=e361]: Defenders
+                        - link [ref=e362] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-sign-annihilation&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_x&team=defenders
+                          - img [ref=e363]
+                      - paragraph [ref=e370]: Use this Annihilation when retaking A from Heaven and you see or suspect an enemy playing behind the Sign on A Site. Coming from the left side of Heaven, aim at the corner of the right wall on site.
+                      - button "Show more" [ref=e371] [cursor=pointer]
+                    - generic [ref=e372]:
+                      - generic [ref=e373]:
+                        - iframe [ref=e376]:
+                          
+                        - img "Play video"
+                      - generic [ref=e378]:
+                        - img "Annihilation" [ref=e381]
+                        - generic [ref=e382]:
+                          - generic [ref=e383]: Annihilation for A Site
+                          - generic [ref=e384]:
+                            - paragraph [ref=e385]: Annihilation
+                            - paragraph [ref=e386]: Hard
+                            - paragraph [ref=e387]: Defenders
+                        - link [ref=e388] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-site-annihilation&agent=deadlock&difc=hard&misc=callouts&skills=deadlock_x&team=defenders
+                          - img [ref=e389]
+                      - generic [ref=e395]:
+                        - paragraph [ref=e396]: Use this Annihilation to catch any enemies playing around the default area on A Site. This can also be used on a defender retake.
+                        - paragraph [ref=e397]: Walk along the left wall of A Main until you see the Heaven plant box, and aim your ultimate at the edge between the white and gray parts of the wall. There is a sliver of the edge where the angle points down, so make sure your ultimate indicator shows the proper angle before shooting.
+                      - button "Show more" [ref=e398] [cursor=pointer]
+                    - generic [ref=e399]:
+                      - generic [ref=e400]:
+                        - iframe [ref=e403]:
+                          
+                        - img "Play video"
+                      - generic [ref=e405]:
+                        - img "Annihilation" [ref=e408]
+                        - generic [ref=e409]:
+                          - generic [ref=e410]: Annihilation for B Default
+                          - generic [ref=e411]:
+                            - paragraph [ref=e412]: Annihilation
+                            - paragraph [ref=e413]: Medium
+                            - paragraph [ref=e414]: Attackers
+                        - link [ref=e415] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-b-default-annihilation&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_x&team=attackers
+                          - img [ref=e416]
+                      - generic [ref=e422]:
+                        - paragraph [ref=e423]: Use this Annihilation when you see or suspect an enemy to be holding from the default area on B.
+                        - paragraph [ref=e424]: Walk along the wall of B Main until you can see the box on the left side of the Main choke. Aim at the middle right edge of the box and shoot.
+                      - button "Show more" [ref=e425] [cursor=pointer]
+                    - generic [ref=e426]:
+                      - generic [ref=e427]:
+                        - iframe [ref=e430]:
+                          
+                        - img "Play video"
+                      - generic [ref=e432]:
+                        - img "Annihilation" [ref=e435]
+                        - generic [ref=e436]:
+                          - generic [ref=e437]: Annihilation for B Main
+                          - generic [ref=e438]:
+                            - paragraph [ref=e439]: Annihilation
+                            - paragraph [ref=e440]: Easy
+                            - paragraph [ref=e441]: Defenders
+                        - link [ref=e442] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-b-main-annihilation&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_x&team=defenders
+                          - img [ref=e443]
+                      - generic [ref=e449]:
+                        - paragraph [ref=e450]: Use this Annihilation when you see or suspect enemies in B Main.
+                        - paragraph [ref=e451]: Walk along the back wall of B Site until you can just see the edge of the pinkish box on the rightside of B Main. Aim at the top right corner of the box and shoot.
+                      - button "Show more" [ref=e452] [cursor=pointer]
+                    - generic [ref=e453]:
+                      - generic [ref=e454]:
+                        - iframe [ref=e457]:
+                          
+                        - img "Play video"
+                      - generic [ref=e459]:
+                        - img "Annihilation" [ref=e462]
+                        - generic [ref=e463]:
+                          - generic [ref=e464]: Annihilation for B Pillar Retake
+                          - generic [ref=e465]:
+                            - paragraph [ref=e466]: Annihilation
+                            - paragraph [ref=e467]: Medium
+                            - paragraph [ref=e468]: Defenders
+                        - link [ref=e469] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-b-pillar-annihilation&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_x&team=defenders
+                          - img [ref=e470]
+                      - generic [ref=e476]:
+                        - paragraph [ref=e477]: Use this Annihilation when retaking B Site from Heaven. This will catch enemies playing behind Pillar or Default box.
+                        - paragraph [ref=e478]: From the left side of Heaven, jump until you can see the papers on the wall and shoot your ultimate.
+                      - button "Show more" [ref=e479] [cursor=pointer]
+                    - generic [ref=e480]:
+                      - generic [ref=e481]:
+                        - iframe [ref=e484]:
+                          
+                        - img "Play video"
+                      - generic [ref=e486]:
+                        - img "Annihilation" [ref=e489]
+                        - generic [ref=e490]:
+                          - generic [ref=e491]: Annihilation for Mid Mail
+                          - generic [ref=e492]:
+                            - paragraph [ref=e493]: Annihilation
+                            - paragraph [ref=e494]: Medium
+                            - paragraph [ref=e495]: Attackers
+                        - link [ref=e496] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-mid-mail-annihilation&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_x&team=attackers
+                          - img [ref=e497]
+                      - generic [ref=e503]:
+                        - paragraph [ref=e504]: Use this Annihilation when you see or suspect enemies to be peeking from or playing in Mid Mail.
+                        - paragraph [ref=e505]: Stand in the back corner of Market and aim at the edge of the wall just left of the brown box. Make sure to aim on the lighter gray side of the wall and just above the midline of the brown box and run forwards for a second before shooting.
+                      - button "Show more" [ref=e506] [cursor=pointer]
+                    - generic [ref=e507]:
+                      - generic [ref=e508]:
+                        - iframe [ref=e511]:
+                          
+                        - img "Play video"
+                      - generic [ref=e513]:
+                        - img "Annihilation" [ref=e516]
+                        - generic [ref=e517]:
+                          - generic [ref=e518]: Annihilation for Mid Market
+                          - generic [ref=e519]:
+                            - paragraph [ref=e520]: Annihilation
+                            - paragraph [ref=e521]: Medium
+                            - paragraph [ref=e522]: Defenders
+                        - link [ref=e523] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-mid-market-annihilation&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_x&team=defenders
+                          - img [ref=e524]
+                      - generic [ref=e530]:
+                        - paragraph [ref=e531]: Use this Annihilation when you hear or suspect enemies playing towards Mid from Market side.
+                        - paragraph [ref=e532]: Stand in the corner of Mid Mail and aim at the right side of the edge where the wall turns from dark gray to light gray. Aim between the floor and the first indent. Run forwards for a second before shooting.
+                      - button "Show more" [ref=e533] [cursor=pointer]
+                    - generic [ref=e534]:
+                      - generic [ref=e535]:
+                        - iframe [ref=e538]:
+                          
+                        - img "Play video"
+                      - generic [ref=e540]:
+                        - img "GravNet" [ref=e543]
+                        - generic [ref=e544]:
+                          - generic [ref=e545]: Arcade to Tower GravNet
+                          - generic [ref=e546]:
+                            - paragraph [ref=e547]: GravNet
+                            - paragraph [ref=e548]: Medium
+                            - paragraph [ref=e549]: Attackers
+                        - link [ref=e550] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock_fracture_arcade_tower_gravnet&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_c&team=attackers
+                          - img [ref=e551]
+                      - paragraph [ref=e558]: Use this GravNet to assist a teammate in taking Arcade control.
+                    - generic [ref=e559]:
+                      - generic [ref=e560]:
+                        - iframe [ref=e563]:
+                          
+                        - img "Play video"
+                      - generic [ref=e565]:
+                        - img "Barrier Mesh" [ref=e568]
+                        - generic [ref=e569]:
+                          - generic [ref=e570]: A Short Barrier Mesh
+                          - generic [ref=e571]:
+                            - paragraph [ref=e572]: Barrier Mesh
+                            - paragraph [ref=e573]: Easy
+                            - paragraph [ref=e574]: Defenders
+                        - link [ref=e575] [cursor=pointer]:
+                          - /url: /valorant/map/bind?advice=deadlock-bind-a-short-tp-barrier-mesh&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e576]
+                      - paragraph [ref=e583]: This Barrier Mesh stalls attackers A Short and cuts off access to the Teleporter to B Short.
+                    - generic [ref=e584]:
+                      - generic [ref=e585]:
+                        - iframe [ref=e588]:
+                          
+                        - img "Play video"
+                      - generic [ref=e590]:
+                        - img "Barrier Mesh" [ref=e593]
+                        - generic [ref=e594]:
+                          - generic [ref=e595]: Barrier Mesh for A Ramps
+                          - generic [ref=e596]:
+                            - paragraph [ref=e597]: Barrier Mesh
+                            - paragraph [ref=e598]: Easy
+                            - paragraph [ref=e599]: Defenders
+                        - link [ref=e600] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-ramps-barrier&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e601]
+                      - generic [ref=e607]:
+                        - paragraph [ref=e608]: Use this Barrier Mesh to block off A Ramps from attackers coming to A. This barrier makes attackers funnel through the A Main choke, while also letting your teammate fight from Ramps without getting pushed.
+                        - paragraph [ref=e609]: Stand along the left wall of the A Main choke and throw it against the wall of A Ramps.
+                      - button "Show more" [ref=e610] [cursor=pointer]
+                    - generic [ref=e611]:
+                      - generic [ref=e612]:
+                        - iframe [ref=e615]:
+                          
+                        - img "Play video"
+                      - generic [ref=e617]:
+                        - img "Barrier Mesh" [ref=e620]
+                        - generic [ref=e621]:
+                          - generic [ref=e622]: Barrier Mesh for A Site
+                          - generic [ref=e623]:
+                            - paragraph [ref=e624]: Barrier Mesh
+                            - paragraph [ref=e625]: Hard
+                            - paragraph [ref=e626]: Defenders
+                        - link [ref=e627] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-a-site-barrier&agent=deadlock&difc=hard&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e628]
+                      - generic [ref=e634]:
+                        - paragraph [ref=e635]: Use this Barrier Mesh to stop attackers from getting onto site directly. This will make it difficult for attackers to get onto safe positions on A Site when trying to plant. You can hide behind Sign and shoot them as they try to break the wall or go around. This should also stall them long enough for your teammates rotated in Heaven to help as well.
+                        - paragraph [ref=e636]: Stand on the back wall in the middle of the tile shown, and put the top right corner of the Barrier icon at the tip of the tree and throw the Barrier.
+                      - button "Show more" [ref=e637] [cursor=pointer]
+                    - generic [ref=e638]:
+                      - generic [ref=e639]:
+                        - iframe [ref=e642]:
+                          
+                        - img "Play video"
+                      - generic [ref=e644]:
+                        - img "Barrier Mesh" [ref=e647]
+                        - generic [ref=e648]:
+                          - generic [ref=e649]: Barrier Mesh for B Pillar
+                          - generic [ref=e650]:
+                            - paragraph [ref=e651]: Barrier Mesh
+                            - paragraph [ref=e652]: Medium
+                            - paragraph [ref=e653]: Defenders
+                        - link [ref=e654] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-split-b-pillar-barrier&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e655]
+                      - generic [ref=e661]:
+                        - paragraph [ref=e662]: Use this Barrier Mesh when the attackers are executing onto B Site. This will block them at Pillar so they are unable to get directly onto site and delay their push. You can shoot attackers as they try to break the wall or stall long enough for your teammates in Heaven to apply pressure as well.
+                        - paragraph [ref=e663]: Stand along the wall in backsite B behind the wood and line your positioning to throw your Barrier in the small gap on the wooden wall edge.
+                      - button "Show more" [ref=e664] [cursor=pointer]
+                    - generic [ref=e665]:
+                      - generic [ref=e666]:
+                        - iframe [ref=e669]:
+                          
+                        - img "Play video"
+                      - generic [ref=e671]:
+                        - img "Barrier Mesh" [ref=e674]
+                        - generic [ref=e675]:
+                          - generic [ref=e676]: Barrier Mesh for Drop from Spawn
+                          - generic [ref=e677]:
+                            - paragraph [ref=e678]: Barrier Mesh
+                            - paragraph [ref=e679]: Easy
+                            - paragraph [ref=e680]: Defenders
+                        - link [ref=e681] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock_fracture_drop_barrier_mesh&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e682]
+                      - generic [ref=e688]:
+                        - paragraph [ref=e689]: Use this Barrier Mesh to block off Drop when rotating towards A Site to assist a teammate on Site or during a retake.
+                        - paragraph [ref=e690]: Do not use this if a teammate has control of or is rotating near Dish as this will block them off.
+                      - button "Show more" [ref=e691] [cursor=pointer]
+                    - generic [ref=e692]:
+                      - generic [ref=e693]:
+                        - iframe [ref=e696]:
+                          
+                        - img "Play video"
+                      - generic [ref=e698]:
+                        - img "Barrier Mesh" [ref=e701]
+                        - generic [ref=e702]:
+                          - generic [ref=e703]: Barrier Mesh to Block B Halls Rotation
+                          - generic [ref=e704]:
+                            - paragraph [ref=e705]: Barrier Mesh
+                            - paragraph [ref=e706]: Medium
+                            - paragraph [ref=e707]: Attackers
+                        - link [ref=e708] [cursor=pointer]:
+                          - /url: /valorant/map/bind?advice=deadlock-bind-b-halls-barrier-mesh&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=attackers
+                          - img [ref=e709]
+                      - paragraph [ref=e716]: Use this Barrier Mesh to slow enemy rotations through B Halls before or during a post plant on B Site.
+                    - generic [ref=e717]:
+                      - generic [ref=e718]:
+                        - iframe [ref=e721]:
+                          
+                        - img "Play video"
+                      - generic [ref=e723]:
+                        - img "Barrier Mesh" [ref=e726]
+                        - generic [ref=e727]:
+                          - generic [ref=e728]: B Elbow Barrier Mesh
+                          - generic [ref=e729]:
+                            - paragraph [ref=e730]: Barrier Mesh
+                            - paragraph [ref=e731]: Medium
+                            - paragraph [ref=e732]: Attackers
+                        - link [ref=e733] [cursor=pointer]:
+                          - /url: /valorant/map/bind?advice=deadlock-bind-elbow-barrier-mesh&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=attackers
+                          - img [ref=e734]
+                      - paragraph [ref=e741]: Use this Barrier Mesh to prevent a defender from pushing a smoke that is placed Elbow. This also prevents an enemy who is playing near front site from retreating towards Elbow.
+                      - button "Show more" [ref=e742] [cursor=pointer]
+                    - generic [ref=e743]:
+                      - generic [ref=e744]:
+                        - iframe [ref=e747]:
+                          
+                        - img "Play video"
+                      - generic [ref=e749]:
+                        - img "Barrier Mesh" [ref=e752]
+                        - generic [ref=e753]:
+                          - generic [ref=e754]: B Garden Barrier Mesh
+                          - generic [ref=e755]:
+                            - paragraph [ref=e756]: Barrier Mesh
+                            - paragraph [ref=e757]: Medium
+                            - paragraph [ref=e758]: Defenders
+                        - link [ref=e759] [cursor=pointer]:
+                          - /url: /valorant/map/bind?advice=deadlock-bind-garden-barrier-mesh&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e760]
+                      - paragraph [ref=e767]: This Barrier Mesh cuts off attackers B Long from entering Garden and into B Site as well as traps attackers in Garden to be combined with damaging utility.
+                      - button "Show more" [ref=e768] [cursor=pointer]
+                    - generic [ref=e769]:
+                      - generic [ref=e770]:
+                        - iframe [ref=e773]:
+                          
+                        - img "Play video"
+                      - generic [ref=e775]:
+                        - img "GravNet" [ref=e778]
+                        - generic [ref=e779]:
+                          - generic [ref=e780]: B Tree to B Site Box GravNet
+                          - generic [ref=e781]:
+                            - paragraph [ref=e782]: GravNet
+                            - paragraph [ref=e783]: Medium
+                            - paragraph [ref=e784]: Attackers
+                        - link [ref=e785] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock_fracture_tree_sitebox_gravnet&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_c&team=attackers
+                          - img [ref=e786]
+                      - generic [ref=e792]:
+                        - paragraph [ref=e793]: Run and jump while throwing this GravNet to capute an enemy playing behind the box or steps on B Site.
+                        - paragraph [ref=e794]: This can be combined with a Raze Grenade or Breach Aftershock to kill the player.
+                      - button "Show more" [ref=e795] [cursor=pointer]
+                    - generic [ref=e796]:
+                      - generic [ref=e797]:
+                        - iframe [ref=e800]:
+                          
+                        - img "Play video"
+                      - generic [ref=e802]:
+                        - img "GravNet" [ref=e805]
+                        - generic [ref=e806]:
+                          - generic [ref=e807]: Drop to Rope GravNet
+                          - generic [ref=e808]:
+                            - paragraph [ref=e809]: GravNet
+                            - paragraph [ref=e810]: Easy
+                            - paragraph [ref=e811]: Attackers
+                        - link [ref=e812] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock_fracture_rope_gravnet&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_c&team=attackers
+                          - img [ref=e813]
+                      - paragraph [ref=e820]: This GravNet will capture an enemy playing on the top side of Rope. If standing in the correct position, this lineup will not expose you to a player watching drop from site.
+                      - button "Show more" [ref=e821] [cursor=pointer]
+                    - generic [ref=e822]:
+                      - generic [ref=e823]:
+                        - iframe [ref=e826]:
+                          
+                        - img "Play video"
+                      - generic [ref=e828]:
+                        - img "Barrier Mesh" [ref=e831]
+                        - generic [ref=e832]:
+                          - generic [ref=e833]: Drop to Sands Barrier Mesh
+                          - generic [ref=e834]:
+                            - paragraph [ref=e835]: Barrier Mesh
+                            - paragraph [ref=e836]: Easy
+                            - paragraph [ref=e837]: Attackers
+                        - link [ref=e838] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock_fracture_sands_barrier_mesh&agent=deadlock&difc=easy&misc=callouts&skills=deadlock_e&team=attackers
+                          - img [ref=e839]
+                      - generic [ref=e845]:
+                        - paragraph [ref=e846]: Use this Barrier Mesh to prevent enemies on A Site from escaping to Sands and players from Sands pushing to A Site.
+                        - paragraph [ref=e847]: Only use this lineup if your team does not have control of Sands.
+                      - button "Show more" [ref=e848] [cursor=pointer]
+                    - generic [ref=e849]:
+                      - generic [ref=e850]:
+                        - iframe [ref=e853]:
+                          
+                        - img "Play video"
+                      - generic [ref=e855]:
+                        - img "Barrier Mesh" [ref=e858]
+                        - generic [ref=e859]:
+                          - generic [ref=e860]: Full Setup A
+                          - generic [ref=e861]:
+                            - paragraph [ref=e862]: Barrier Mesh
+                            - paragraph [ref=e863]: Medium
+                            - paragraph [ref=e864]: Defenders
+                        - link [ref=e865] [cursor=pointer]:
+                          - /url: /valorant/map/abyss?advice=deadlock-full-setup-a-abyss&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e866]
+                      - paragraph [ref=e873]: An example of a good setup to be able to hold the site.
+                    - generic [ref=e874]:
+                      - generic [ref=e875]:
+                        - iframe [ref=e878]:
+                          
+                        - img "Play video"
+                      - generic [ref=e880]:
+                        - img "Barrier Mesh" [ref=e883]
+                        - generic [ref=e884]:
+                          - generic [ref=e885]: Full Setup A Site
+                          - generic [ref=e886]:
+                            - paragraph [ref=e887]: Barrier Mesh
+                            - paragraph [ref=e888]: Medium
+                            - paragraph [ref=e889]: Defenders
+                        - link [ref=e890] [cursor=pointer]:
+                          - /url: /valorant/map/haven?advice=deadlock-full-setup-a-site-haven&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e891]
+                      - paragraph [ref=e898]: An example of a good setup to be able to hold the site
+                    - generic [ref=e899]:
+                      - generic [ref=e900]:
+                        - iframe [ref=e903]:
+                          
+                        - img "Play video"
+                      - generic [ref=e905]:
+                        - img "Barrier Mesh" [ref=e908]
+                        - generic [ref=e909]:
+                          - generic [ref=e910]: Full setup (A site)
+                          - generic [ref=e911]:
+                            - paragraph [ref=e912]: Barrier Mesh
+                            - paragraph [ref=e913]: Medium
+                            - paragraph [ref=e914]: Defenders
+                        - link [ref=e915] [cursor=pointer]:
+                          - /url: /valorant/map/split?advice=deadlock-full-setup-a-site-sunset&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e916]
+                      - paragraph [ref=e923]: An example of a good setup to be able to hold the site.
+                    - generic [ref=e924]:
+                      - generic [ref=e925]:
+                        - iframe [ref=e928]:
+                          
+                        - img "Play video"
+                      - generic [ref=e930]:
+                        - img "Barrier Mesh" [ref=e933]
+                        - generic [ref=e934]:
+                          - generic [ref=e935]: Full setup (A site)
+                          - generic [ref=e936]:
+                            - paragraph [ref=e937]: Barrier Mesh
+                            - paragraph [ref=e938]: Medium
+                            - paragraph [ref=e939]: Defenders
+                        - link [ref=e940] [cursor=pointer]:
+                          - /url: /valorant/map/lotus?advice=deadlock-full-setup-a-site-lotus&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e941]
+                      - paragraph [ref=e948]: An example of a good setup to be able to hold the site.
+                    - generic [ref=e949]:
+                      - generic [ref=e950]:
+                        - iframe [ref=e953]:
+                          
+                        - img "Play video"
+                      - generic [ref=e955]:
+                        - img "Barrier Mesh" [ref=e958]
+                        - generic [ref=e959]:
+                          - generic [ref=e960]: Full setup (A site)
+                          - generic [ref=e961]:
+                            - paragraph [ref=e962]: Barrier Mesh
+                            - paragraph [ref=e963]: Medium
+                            - paragraph [ref=e964]: Defenders
+                        - link [ref=e965] [cursor=pointer]:
+                          - /url: /valorant/map/pearl?advice=deadlock-full-setup-a-site-pearl&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e966]
+                      - paragraph [ref=e973]: An example of a good setup to be able to hold the site.
+                    - generic [ref=e974]:
+                      - generic [ref=e975]:
+                        - iframe [ref=e978]:
+                          
+                        - img "Play video"
+                      - generic [ref=e980]:
+                        - img "Barrier Mesh" [ref=e983]
+                        - generic [ref=e984]:
+                          - generic [ref=e985]: Full setup (A site)
+                          - generic [ref=e986]:
+                            - paragraph [ref=e987]: Barrier Mesh
+                            - paragraph [ref=e988]: Medium
+                            - paragraph [ref=e989]: Defenders
+                        - link [ref=e990] [cursor=pointer]:
+                          - /url: /valorant/map/fracture?advice=deadlock-full-setup-a-site-fracture&agent=deadlock&difc=medium&misc=callouts&skills=deadlock_e&team=defenders
+                          - img [ref=e991]
+                      - paragraph [ref=e998]: An example of a good setup to be able to hold the site.
+                - generic [ref=e999]:
+                  - link "<<":
+                    - /url: /valorant/agent/deadlock/guide
+                    - button "<<" [disabled]
+                  - link "<":
+                    - /url: "#"
+                    - button "<" [disabled]
+                  - link "1" [ref=e1000] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide
+                    - button "1" [ref=e1001]
+                  - link "2" [ref=e1002] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide/2
+                    - button "2" [ref=e1003]
+                  - link "3" [ref=e1004] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide/3
+                    - button "3" [ref=e1005]
+                  - link "4" [ref=e1006] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide/4
+                    - button "4" [ref=e1007]
+                  - link "5" [ref=e1008] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide/5
+                    - button "5" [ref=e1009]
+                  - link ">" [ref=e1010] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide/2
+                    - button ">" [ref=e1011]
+                  - link ">>" [ref=e1012] [cursor=pointer]:
+                    - /url: /valorant/agent/deadlock/guide/5
+                    - button ">>" [ref=e1013]
+                - generic [ref=e1014]:
+                  - generic [ref=e1015]: 1 - 30
+                  - text: out of
+                  - generic [ref=e1016]: "139"
+                  - text: Guides
+              - generic [ref=e1018]:
+                - generic [ref=e1019]: Deadlock Skills by Map
+                - generic [ref=e1020]:
+                  - paragraph [ref=e1021]: Select a map to see the best way to use Deadlock skills
+                  - generic [ref=e1022]:
+                    - link "Abyss" [ref=e1023] [cursor=pointer]:
+                      - /url: /valorant/map/abyss?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1025]: Abyss
+                    - link "Bind" [ref=e1026] [cursor=pointer]:
+                      - /url: /valorant/map/bind?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1028]: Bind
+                    - link "Corrode" [ref=e1029] [cursor=pointer]:
+                      - /url: /valorant/map/corrode?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1031]: Corrode
+                    - link "Fracture" [ref=e1032] [cursor=pointer]:
+                      - /url: /valorant/map/fracture?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1034]: Fracture
+                    - link "Haven" [ref=e1035] [cursor=pointer]:
+                      - /url: /valorant/map/haven?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1037]: Haven
+                    - link "Lotus" [ref=e1038] [cursor=pointer]:
+                      - /url: /valorant/map/lotus?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1040]: Lotus
+                    - link "Pearl" [ref=e1041] [cursor=pointer]:
+                      - /url: /valorant/map/pearl?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1043]: Pearl
+                    - link "Split" [ref=e1044] [cursor=pointer]:
+                      - /url: /valorant/map/split?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1046]: Split
+                    - link "Sunset" [ref=e1047] [cursor=pointer]:
+                      - /url: /valorant/map/sunset?agent=deadlock&misc=callouts
+                      - paragraph [ref=e1049]: Sunset
+          - iframe [ref=e1057]:
+            - iframe [ref=f1089e2]:
+              - iframe [ref=f1109e2]:
+                - iframe [ref=f1111e3]:
+                  - generic [ref=f1112e3]:
+                    - link "Advertisement" [ref=f1112e6] [cursor=pointer]:
+                      - /url: https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjstAjMZ3fEqporNEi_k59nlXYOqIYIpR_Xyg13Yr9XSJA9fpqJ9l2SojIE0l1lo46zaUyKiKPIpg4dqV78JX_1IZ6wahFWBdQ0wTmnHmjM-r5B9ucRacGxAk7izyH242jSgrAFtR2sRvPdgsJRn69oeA_5rB5hjSrCp3zPRWCYf-U9yBXfwfdpfmsrCeGfIJSPj8MEJkwhVrCX6aDtph6l5ACyXXxNipeqvXrEGqlbsxXcEEYT_8Yn4UUJ6dZfW5CVpiTcElPrseIzCe0dMREnvKF3iBRkwmzsPspT8maIvGm-lKEE1WLU5Gg9h0R9Kw2JvmegPswb5dByMUHcHmMIF2fWC_8MShdw7jc50nt9IxxM33FD7x3-_9O-Rua_S_0Dj6xMz6ADLcbwMQZs-Rk-xvWi9YUIDzZiMOJR3X4s13NZGQQM4Pm5lPGfJ9xBkNpah_RknQaYdnOThF1hJ2hx9mnao5TTtgA6PbrwL9jC82bwoigZ_uVECUiZixmB1Cen5h2pNzZHukFXdnsG1FtWuZTYYdL1YlUVuRZCxm5jyeWR9N-Gnp_MHask6G1S-oNaSsoYEd_KEX4zVzAxyHZDFd_kVbXTub-kmoD0YKotTc5h4im67wM1aflhJYHqeSdahJ0_k86Yg-ieJu9xfxjU0sB77jQ9H44_Yvo7YQK4DKQxXqDIOSDJ-7SgjZ19bi8mQtg2FzbLJNzE3duUpITK1ID1oAcNWPSf54ZhUcA1hSwBQ1h6nfAUiKRWzvrvKT6tDFtT9XsN0RTTr4R4sL_6QRD9TsG2ne4Y1LTTBya5loyvzhOHiCwhrIsOM0s03zlpGoelKkGZ43KGBTlYWfSSX6r18VdJ9kbX9Ju1jBBWVSBVH6chXz9z2C16Mq7-2a7PJFl2mNuQPkyZf2a5IEKC2Oa7EseGgbtet2xVQhmrEbCmXYa-FXA1Os8Xa-xdLwLLcHXt2aTlq4Wrn-q3qJCDFYMku85s9Azc-quvmRiMRI1a9zER7oQwNc2Mz4J_Et-a1ANUxdPeBACyfxeeWnZh75O_Rgn_M5YNKDZJwCbDHydAjSe4Ov2Gc31dEdq4XqTXwwVSUcM3S0-V4tQg3bUOmA6Uwijk6BdDSnanLKX2IyjWWJzCzTx3dFm_-R11LJRVm6F08hE8qeJFeMKb-aMuFeT6xtUauqqqVjueWEUzD6TMbeLHtSup35E-wW-QHTQdEwzZnqEmdraiBi6dldaUp0hSkVhK5FUjbVmfX4PgtCpbtK9XQM6rnE9l6QK-FaKf7pvqhTJCWqMDgnwXiOpGX3t9WP92hRacpjFpmvBMXKIpPcU9yrsJRWM9FuRUwyvCOeH0zTAJs7VHhsvknjQQFMp7KlARgUGq9x6vML5aqRrf0wGzWAdptpkQQZjbSzEaxGagpy7kxRfdfdVHuTBbEbpszAE-d3DWYl9CNLLrTS6T_qGzhD6BEkA_s4ge7UTJ-6JNDUtopwvmvEUWZPfP_k1WyHG2a4aiLt-ZThxZV-lC_El3D6w0ftvtubM_8oEKEzcxgIcO0zQn0QusofEfovk7ViPCzAN1OX7feGmWJyzXriKDwlJwKAXQzvzm_iOZWXWPMiEdQJNLvKxjFj8Gn96i6v2QDEyNfIMPttlPMBBMG_C2giiIZSMBc3yGfIR4EZhmlUKssjiZKCFmoHZn-CBNrJW_00tF_o46u7JvGHNdg477x0rrX8cTR2inq7Brcs5nT9RNJHld35wC2Bt33ioommVAM0gp3fy7v-akszLYry0fZ3IXskKxlyYL6wPiP0WXVCIb_A4BSbpLK0mBkBRoM4S8hif5RF_dr79vQdpJ4q_eVidYYQlgbOOwgkPnsEFElXAQTXcojv-Nw7EeywBSG-__mDVg7vPYikuuzg8oH6jBl5Kc1lBIkcOeOcgZ8zZ945ep9pwq8WKgWnH-4BVi6ZlgsTQjjGzu1RLFDUfGyj-7aCaHN0MmCtvSsjC_dXpSoY-Lqda8YuxyPWFhHttKNSVl4Pyw&sai=AMfl-YRvXLeDk5jwDi6xXkf7Ud-39DR1KWbYD06IAeKvx_RyYo7--GqZ35cJWmU6AtPsoU5CoTEtAMmaVBWZvRNcJUpZ4htIMzBQCdqt3HCMCOWE4VrX-OmmeXZLa0YGQBhrAkBisTNguZptrZdPOJzPy_aOW_ZJx3DEJopgncklAz7xwVYhplw68CWmA9h5yN2IeKaoyenjG-Bct2mcvS__IuvJeeP95Ub5c8uJRIg0C98oSHY1wtAIcIF4Wjs-fIecs6p5rNfm1M8IyZGt_d0Utyq65S2p72Xm7YK7uvAwW9Rwurug2pDOLwED4wMBc6TJ_K3606DV6iGcUpxVpu2EHf50cpxY-7L8shtEV-su5R9Ha3Djc6s9xQLIKpr43I-QvfjiHkRxYPboTSF2lkt0EqZzYOqsLvg3nMjvhIoFuzEfEl7cqHOs4XhMxq9-8zBXTfIW3tTvbdmTRM4XtklgB06Eo3apR2JPpWqj6maosnGjG2-mdOyqAbA-UB7eVdWn01749yRZv9TWgl2Mosv3e52Nc8EjiGm1U_zrCPAF9_NKkJdQ7MMLfaUuurGB7-nsB5S9x6HSsGGHS8IY_SALgB4UJIhTUuz3_HwG9I_TLTcx9e7K5iVVwFX6p-DtdO15zU3HysXY7fWRrVshcvDAvvmpUtuuMzOkH7Mm_Kx6LSh7D_eEEuntMD6WDqbiQ6eXE6f51Dlf2l6ZCxCs_xeGYu-96VITwrEgz_PYb6AW2t8nU4Hu9VlTDxc2LzkIrcscErVbILTRy8FbUZLId9c-Y9qjTB8CLLcGsOXVwWtjWei7g3gBznQ3ak8-S140KIWrBYqrNvn_gwquVJ-HYv2oLvGlRMND_IV4dhevNVfsajNtaWZMNpOjg2FEuDZf4FNeLyChPDFS2A&sig=Cg0ArKJSzD0KRtGrEk84&cry=1&fbs_aeid=%5Bgw_fbsaeid%5D&urlfix=1&adurl=https://d.agkn.com/pixel/10691/%3Fche%3D2539275908%26cmid%3D35098758%26sid%3D6031710%26pid%3D440977882%26cgid%3D634581096%26cid%3D250637410%26aid%3D9902108%26gdpr%3D%24%7BGDPR%7D%26gdpr_consent%3D%24%7BGDPR_CONSENT_468%7D%26l1%3Dhttps://www.peacocktv.com/stream-tv/vanderpump-rules%3Fcid%3D2601aoalwsonpkpddisp300217%26utm_campaign%3D2601aoalwson%26utm_source%3Dpk_vrs_dv360%26utm_medium%3Dpd_disp_awa_bnr%26utm_term%3D440977882%26utm_content%3D250637410%26dclid%3D%25edclid!%26gad_source%3D7%26gad_campaignid%3D23605922362
+                      - img "Advertisement" [ref=f1112e7]
+                    - generic:
+                      - generic:
+                        - link:
+                          - /url: https://adssettings.google.com/whythisad?source=display&reasons=AcrBLeWWWW7NrVv9FPFaLLjNEHdVb-lvVQuhIt-mSfr9zcZk_MtUCrpm0Gfx9PJbdL53ovHKFmchnEnA6GpMIACRxsF10IqxJ77kPNYELkKatJbH0KMseOgBcteEjDGisAfVlSERHRbH6EfrHD1pktAbvGCqIeUmKDPGKfdK3Dgp3sM33WN63uKEfjubwmfLUnPb_SR3WN6qeS9DkKO1eSVlTaYvgKWBINR-ouQ39bPN5r0UJ4CYaX7R4aqVPfhO1ydtAbb3P-j7lX4sbdEFareT1NTvu6W0i-ngstwJazoV7V1hOxYwY9Ay4oXPO9ipM5rjo7DZUZDXhe9YBoNFiKPlykMIRdCF-tijnFjG_TFtq6JK8mHaY5_8shNQ87z1FnsC6pNxWm8rqDYp2OseXY2bP0FHofTCoe1iDqW8Tn5Tyu3_JYWJRxbB1hU3VnQue8KTaSrBfUwvhMLa5o6b9JPUq6aOCJQ0SDsdwy4vZr4LbjSUXUnqlvW_SVOMOTjGziTpvhBIhI14j_sQB3xA3li579zttNsyyJLi4ckXMqPHPwms6BaXwMCi5wrCjAFlUQxgHZJK9u6kovWrtMNWTmlKKBzvEp3n0op9V3rhzDsAhMEbP8np9vxF5a1VUI7pNpDkEHH9ywbSbvTUZ4TnYtlAiLj0jB_J7mIBCrsLfM6JpUBC9i0_AyisJ3nUMKvIDJ3-pQOjrHJPU6cGK_EcsIxwMc-XeJVa-5AVXQbUwdGN_2RUWPs9rKeoCdgLGPiLZ8htaJM3v2b7TbDQW01ygifc-T1UOcpnAOFZW4ywFuFV2D9yP-BpidPLeIezTjtNZrtq5Cc5STzjiCFtGS7tLsr-MEnWXFYInHi_XpZqzMBK2o0bHJKQF8bceZ1G_FjUNseljIr87okM3DL2dRUYUPPZ6i-u_0C3QjUUtv1k0pCpGwyLDwJnZ6-TBh8roPXEkX05CPOa9lU2nVpqaSbGklcR6T5S47HWsMPxQj_ndm757pTCSWA4fazDqwuy8jVT6-Mq99DulAKgr9E598_rvsIsUvKqkLtIbI1GXrwSKkVwjiS4ad7OrL06yzLuJOrcH4CKysJq1hx5Iwoj-wzZBud_b45JDlD_0j-s7Tfb8mcrpXD2Lgx97nXdvTOzF3LM4jpevtTK91dAq5KYGaNSWr_Nthnp8Bb1DRYInKSwfuHGgkT-gSBqLVpPQ8dNN4c6jBTscK1aDanq2IMW8JfE-7yHlUcAu5hEUb_vag9vKcqsWaNb70dMbi6_j3LsFqjhTZSODwHAFSpl9MJgpxWhzzuy7RkrXcA55JrUT15cjLFERIA9LT_kW4if4gCCbENrZKwv8yqYSGwDgkuyvbEJtxHLDR_yvHFTvj8hlEwHRRjEWSGW1OHilCqwd7z8HcQlwSFMk3mbJewqrbt54Jsel34yEB4EfSK1AFlEnASUUf_MtfCurEvFy2541qWTLAnhTujdgWOc3lpwwd4NOSc2asnNrzLjPZHiN9dhpIgIFF53x8VRFzzC0AV_zz5gjRNGbSb3HO2opUC8eaNr-Ol96_2MB-RAq32i3fxuO8q9jui3KvuljLOKQEWB_dWqFfHaR-VQNmeTBI3f-zQqI6WKkatxXfbnKxtQrT-2GDnziZLOBWZq8I1cOxCnP9YbKo3Gs3qAO2uinpCgtoUKQpsf6FfPzaJoT2S65KfMyu-TYP4-bqaQs83AKCjizec640I0QBZaK9PSoFTcosCKXwMHFXJpka2hTREtVWTXqFh3-LrqPw7yPQBNTDyw61pjhP7iEqfNNBjcMLrCEDPFTwNnLNmgeh4xirYda6h22-7AfF-Ty5k_7-vYggnwvFlSNHT2EPPyrpracb6hSiATsXZjFgcM6UNTIoUA9t4gLEXqxPhpUrL-bdIdcUs7Q2QmFjBQrPJ9vZNcTpySJF4j1IBdtsZvkqXNAqgJzpq4F3-fxJoZfHUVmPMqEBQJyEg3WHmRegVJpwggIAlOhT_QD6V52bc7Cf-S-urIhbrqiKVlMquAzkRK4osURroX90PwFWOKXTqmMWrEbEJGvcsi0-DLbHwrTK1cxUvqrLmGam6wyHvepb0_ySoqTvl-j11Cw3-uRk7SZNzZ3Xih5q22Q3Q70iaNoEtQ1EfSVDnnIH4uhWTg0j-HNyw2ZK4Ryrdk61wHllXCIFu0MljgDza7wcXkScsMswCHAUeRyfPH0qtI-Wv4AGjWCG-vrjD2iHKJH7kQ90PwSsqTNZwYQaBLtOa1RUt9apEbYJXonrilkdwkR5y2mKIzXwTJtN_mJ3dHwgf-Vl7O1XzaXb285CqeQfmy-FfB-2JQXhy4eoM&opi=122715837
+        - complementary [ref=e1058]:
+          - generic [ref=e1059]:
+            - generic [ref=e1061]:
+              - generic [ref=e1063] [cursor=pointer]:
+                - generic [ref=e1064]: Advertisement
+                - generic [ref=e1065]: Remove Ads
+              - generic [ref=e1066]:
+                - iframe [ref=e1071]:
+                  - generic [ref=f1090e2]:
+                    - link "Advertisement" [ref=f1090e4] [cursor=pointer]:
+                      - /url: https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsv2T8MaIG1-NXgEEU-9S80CPqgarkPwYUg31RPErJloa4Nk5kZlA2UrT5K4NSvqaRl8GZnojqrtwyyPzL2dATWI3It06M275NNlm6KeiWRv45PJO6pdPiDz6p5sQTcFSRtWzOIybyFKUsHtPcOj4FcCfRy0dHjlujJw1toKFrNxjlMIPr-oAhljcOf3ENSj1M2-uIWySfkJ9uNmIsnG_6EcVfh9bbUx7u8wMA2sHbmYSNG_rYH1WW9K3ISLElPaOgCn478FRWYNn90oWvcV1cAE1Am7hZVjJbJYfSo4BjpGZrHlzoPtKdJ6gRkIDYIAaQOyoIo0-2U3RvZoy7FuzV7vp3hM1txPH2XXINa1E3AwmgXastkuZ_KXieLCLXWHkiH2WiZ_qASSbLMb3_1H6vJowUOqi1lKJbYfYj0KWmOHRr2kW0l2aLorArAjY3VoLTrgChMBP-J8cH6N2hwF3GEHQ5BUUHgW2-N4MsnIdXapyLlcjNl8aBaxS0_BLFcTUVEAClWDRMheIFT8SltDKU2nJkkUEOm4bofJmor5GfOnk74G-BJMmjBXzbf1lQFnOAiKNCtJdil3y0hNAH2wMHlZFLRvid3mNy_8UTDJMq9QAb8gKpILH9wjGrENfw-cwtN4pCk-FSdJlPUO9y9enQ1Ece76oFliLCx0S5dLiswjIn3EeX_quYmpz4IuryzCZEJhNZN_35izONQtGcletyGut6RljHYa7RENkKLMOeLL1MK8DWh9scgmGCP__lXMiaN_GjzS3Phynzh3NEeFcEgt2v4HM3YpMHnKj78sLd1MBQE7mgmfAA7tL4NFiru-nQoeD1HhaDT2KpDpdwsK6KSNSyp_aux04YEoaa9OGmPB6OLu0INBUsb-TmeownvjThpk-LUYsumIN9FOpvmcFGi3UnJwt1ZGIbv6abYPd8UBdr6iIUuHdc80yhZXQvSRC0IlWCOMT4Vf0iu9pfarC1iypAJ7miJ0RFQC7_2GGPqeC1CvqaO_tkMex8T6UhSbue9YkYlh5dN4PC0ifciCifMmm1FFNxfOizghnzIY0GV6u5kd4gzy0vRHeUI4psftjCUmPUwK63FG5FwtRAOxzlYCHvR9cIQ3eW-DOgTCBQKwr0ll6Uuy1y0QUkxeZ-tR1l22SGYbaDtlNrfDEziPIAxI-lCQuUsQzaFgNyHhut8LHxjlfiGvua8ykhUVchW5DXkUqHep6RbQa80eI6iStI1g4_BNvFmfWRfqQa3nj4fgrN0SjNmXE91QE0Y-zwTygF9yOobx9LmUi80RNFR56qRVcinnXhXhLl_4f7G-6uJZBLIdnrE6UilLaJEHTgPtOIwsSXQvpgy_F9d0xzEc3ayuJNpB0NkL-TENtUevrZ5_-XKGnCe8HJuS4AcVOYOaFkq7oJ0W8kVaEk-CWPXRylocetv0m3NpWdkkwbWC6AV8oKaxV7smGXn3u0t0k62pbgjk5J5y3P9tPnWLXB9sx23akeFYlfKWmPdjQjJ72nu3oFIUBadO05gLE8tOIl6jIxXCrWfWjIGaHlw7IZexXgl3zA6lYubU1FjZDyN7_Rn7kEGrgdVBipuDFWgCMs4Irucd3_eZ9VqSev3vRGhU6j_nMvvY5F-yFb5Qd7JFlawoW9oI0VR3ipua_Ir-VaeYD2mRULvP90b3o-XZ6MParnm1dqYXB1J19NjMHrwxIpF6XCMxmvrBs__GCXTFQhMmeXe1nHyL4xaGh665Fk9pp7PG5MIFnTdc1UZH_gUYI9dqjqjYUggHwnR3Ww&sai=AMfl-YQ_5cDmX6Y3r-mn75Tx1DEkPvaKX1NAppfltpiQ_IOfSlhqv8HsCZVRZIHh3vD8bDULaYyfTrCree_yL-uAlSYZ0R5dPLqBENBKXGWFEXY9Xjp5KyyBg5VRLP5o4MVWGNMDTgLEDolDWgvUHUQIabDQ2YkpdKqupsl72nxOyjSSsq2AdChuLcIqH1OfiE-jWyTbcZawT3J_ozE2N_CLvLf-Dh76IlUHWkCVHIRoEb7PlGg3dvcfH7FSOrW4q2YfQnxfDEM37ghESH9_m7lzES_bXpHnyOcKq6kHLh4NYpZIL2Wp2nds7yHJ5Old7uFbGAm3LpQvzqRGAAFE8Cm1ojvFALkEeY2HQa2k0dsC9eobaAOlA8deR5S9dP3VcGamYVM3xI9N-bMQDPoamwP-NC7ZhUP2tVA2Z3ydTgQNdkUDuh9qtQHH1PyvmkPKsDwSvMe01D7vIOLrFOBd428SDWC7HocRMSWETz78hdbZQ6TUcQ3fIJdCzWPNZ4c5t8e7noV71OCAx7_QrySfD9G8EapA5bx685M7-XwDSUKRPAUPUMbSb64ygqp85IA34l_WOJDjk_ff0eU5uioyPF9CAHURy5gzXMFAR2TduO15Bj58ZwqSYESzezyBmbsqZ7Mi758RiBeeYNpzxX5_g15D8zAqTCR1pePwDsmWWd4J7At0CfS6hGksTCt5tjR4BWsQIV7J0HbeI9NFhx2X-M5KTIDTGuAu8_YrKwyfJskKpDKE&sig=Cg0ArKJSzMbpQ6e2O2wi&fbs_aeid=%5Bgw_fbsaeid%5D&urlfix=1&adurl=https://www.visitchapelhill.org%3Futm_source%3DN84702.3378211DV360%26utm_medium%3Ddisplay%26utm_campaign%3Dm2%26dclid%3D%25edclid!%26gad_source%3D7%26gad_campaignid%3D18284719131
+                      - img "Advertisement" [ref=f1090e5]
+                    - generic [ref=f1090e6]:
+                      - generic:
+                        - generic:
+                          - link:
+                            - /url: https://adssettings.google.com/whythisad?source=display&reasons=AcrBLeXhMe3NwzyjXBgoBsWnXofATZMCDDguR5dV3UESzKdOk6iE0AH863X9ukhs5Ue-VXfwl1pL0jaPYTaYniBclxPUyW5aHrqHqKkPEDurBXl2ybmRWU_yr5CvxS7QKKcuzb-LILo1V54okDYLRGAMJyRYG4Sy9rHiojuahn8BfTcbnZ701E_GvnnArT3quAfiTybheb3czgimkqVwvIsuutaOzXl3CDvVgZyHheCtBF8Uw8xW5TiFCtZNnkk0DFcqA7n2e404QnZ0rFxgiCzqFZyF7u5y8SsGff9uDgoCz8x2-3az_F3CiD1UoeCcknWG2xkIDHJ1DlQDXrJ5EiLc1GkU6HaMZtNUBcOi1CGJiJvNzq5G2SP7YLAou9ZTlZitcMjDz0lSJslrCEkwJyh6KDLn4_rjHgEcCx9vjrGvI7zlp4M2gWrB2o3RMs8tcoEp2s8osjIXGqsmU05utDz9Vaan4b4uwto1cNJ-lbXPdbgDQ3YZRjd-zgPpm0kym4scj9GX2Vnc9Y7_uT_99criJqRlvIs_K97Ci4U8FjEQMbOqG4ITLoAdaH4iZ8-yu84ymQunBVeFSsZd0l74ATGYz0PWvAkcvvbraXxASCwh5-oaubKQVPyQwrHyB-euUZJYyWzwdX7AaTebBnzmje-si6yvJ9ua7IrYiotWP7dzDkHt8LTnNM6meHFiXwArcmoWrbnWx2XF69tmU8vyVVPWCx9-ZPRPq-VIt2S9YYtZYEinKbie7Ppwqujjnlmr2fUS3zcvGZMmZ81YEi2gg2HiuX9v-GOsZxpqtfpCgGTal5qenYuwbDNerN0vbN9ayRlMa1lvTq7UaOjEdc_HqqJke4AROGPFR9FCcyPWJF1bHqYmJOKaL-WaBxPMlHtaReWyZDlhK3ICk0HEGnzYSK6rQ3p8EKFwfNel1V8i7O9sO9Rbs6YLFVnxce7IdqYQLfUOLD3-qcwxa9I0gx2H8t5nC5mAWAgFX1E6YVuajRZOgahJ2BT51yD2IAVic6rflL18kMdWFZBuGrxrk2TxHsyjeal65TvpTQk10cZ3enbkfMpelXsepCtAVjCLm7mS78DgBMwX0sGMzIFJgTr2-DPDbgwegF15Q3ootEJ-XAGfUVes3upC0Zj0TJ_Yw1mni3Srkama9p8UFQJ7z-Eo72rk5AFWr1KgztiMpIlVSmH4zKyFmgjEYli11_dL_tOOvZDaqgo8kQqzTF_SMbB160o_z7zIypx5fSpSUHfrQOIz0luPwvkkSWzruAidct7KqYlR1qKTsXSuyjffbcq2eWf3gWM1bKZc6afyNsf3x88XYFjkBQMLBt4lO77IEnsXSnQs5ZaobqyUDK07jD_ywDw3qNxEXui9wG1WBwIy0YynHD9ZC0b75qwwqqfLUO-J7ujWh6MdYUSf0XCxXDnAjKVnKE9_z3pMCJU8fG98N7PHgG-tppEiAOVXpKNJR8Uo_OWvVEeruuWszSHogttIh-fpb6dJh-Rw82IxtMwKAYeeUeKX7z6-fmNRLNaBVSA7EMcbYjFvFZgXo50nJncn9USxk2gUaUbjV1R5RYMQs--4fqTBJIlpaknhjuX_QKTcqna-4W2s-uopnNqRDff4yLTVGa15mpC7b9wApFNc1HHNpa1dmWS2wh6rMymuVIICcrSldkU1cR_tcUg3IBwthaMNU8UM2oZTwY36BZIGP5VpMlejir4ccKjbxSGlxyuIwtUzrQybt6JH8vyZHP3sctbEBVmB1ouRJxNJ-Mbu8DS_sQwTmOuOeRLDcajlSwipHAkxI2cigGtoGJgo4Ag3i5f3-m2HGY4cyadaKmR8bucXuc87zY_kBcM4isdUCv1cAVCYgRuq39-ESjjkek2-lq747_Q7iPSE8-0JtR_Bzp5OsSbV7Dh0q78Nhl8iWKMO_4JbPoz8AuKN-hThAwSJc8OLzsoZdyt1lfjaNaX8p0iebweF77hETp7KlniO0Ge_n-0BVLmHxnneSaRum8o4lhZRNOS1ssRTqqe67UjYxSgpD4RVStKybVF9pe9nhdM3vdb_AG2ajEjiSgjmU5-bQlqqv1Z23iQOfpH8ua33vQYUV3FgIgfCc9vYMpo0duxci7xoms_eWlpBaJo1N6LADaEtRUlamL_JYZEzWxh6p6ijDfH0Jqr8ZzemxfP8GH3wSQmZhdY6Go27MvYvuB-cOUd-YdAbV3m_n11MKMEfycWtmDsZyw5kqDvNsbtxqfaPvOWx9gohF3TrDlNwQ4XcDr46IJfh8I1fu7wlDgUCfGT6IxCeGBLAzO6SEwkHRo8YKcSlc3vudR_euJhGp2omMSPXzSATnYIKYpcj16jWCJ2H_9od_7-2KvF_KqnZ-Dji8SDXBO9ymZJtf6I
+                - generic [ref=e1072] [cursor=pointer]:
+                  - generic [ref=e1073]: Remove all ads
+                  - generic [ref=e1074]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e1075]:
+                    - generic [ref=e1076]: Remove ads
+            - generic [ref=e1078]:
+              - generic [ref=e1080] [cursor=pointer]:
+                - generic [ref=e1081]: Advertisement
+                - generic [ref=e1082]: Remove Ads
+              - generic [ref=e1086] [cursor=pointer]:
+                - generic [ref=e1087]: Remove all ads
+                - generic [ref=e1088]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e1089]:
+                  - generic [ref=e1090]: Remove ads
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e1093]:
+    - banner [ref=e1094]:
+      - generic [ref=e1095] [cursor=pointer]:
+        - generic [ref=e1096]: Advertisement
+        - generic [ref=e1097]: Remove Ads
+    - generic [ref=e1100] [cursor=pointer]:
+      - generic [ref=e1101]: Remove all ads
+      - generic [ref=e1102]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e1103]:
+        - generic [ref=e1104]: Remove ads
+```
