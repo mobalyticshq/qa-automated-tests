@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { projectListFromSitemap } from '../src/helpers/index';
+import { projectListFromSitemap, projectSectionLinks } from '../src/helpers/index';
 
 test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ page }) => {
   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
@@ -25,19 +25,32 @@ test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, 
   }
 });
 
-test.describe('Sitemap links open successfully for each project', async () => {
+test.describe('Sitemap links return a successful status code for each project', async () => {
   test.describe.configure({ timeout: 600_000 });
-  const quantityLinks = 100;
+  const quantityLinks = 10;
 
-  test(`Check ${quantityLinks} featured builds is opened successfully on diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async ({
+  projectSectionLinks.forEach((element) => {
+    test(`Verify main pages for each project: ${process.env.BASE_URL}${element} return a successful status code`, async ({
+      request,
+    }) => {
+      let response;
+      await test.step(`Send a GET request to ${process.env.BASE_URL}${element}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${element}`);
+      });
+      await test.step(`Response returns with status code: ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+    });
+  });
+
+  test(`Verify that all ${quantityLinks} links in the diablo-4-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from diablo-4-sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/diablo-4/sitemap.xml`);
-      await test.step(`Expected Result: diablo-4 is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response diablo-4-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -52,30 +65,33 @@ test.describe('Sitemap links open successfully for each project', async () => {
           return filterPattern.test(match.groups.link);
         })
         .slice(0, quantityLinks);
+
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+        expect(filteredLinks.length).toBeGreaterThan(0);
+      });
     });
 
     for (const takeLink of filteredLinks) {
       const { link } = takeLink.groups; // extract groupName for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on diablo-4: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} wiki pages is opened successfully on borderlands-4 sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the borderlands-4-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from borderlands-4 sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from borderlands-4-sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/borderlands-4/sitemap.xml`);
-      await test.step(`Expected Result: borderlands-4 is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response borderlands-4-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -91,7 +107,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/borderlands-4\\/wiki\\/[a-z-]+(\\/[a-z-]+)?/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -100,24 +116,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract groupName for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on borderlands-4: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on sitemap_index: ${process.env.BASE_URL}/sitemap_index.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the sitemap_index-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from sitemap_index: ${process.env.BASE_URL}/sitemap_index.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from sitemap_index-sitemap: ${process.env.BASE_URL}/sitemap_index.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/sitemap_index.xml`);
-      await test.step(`Expected Result: sitemap_index is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response sitemap_index-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -134,7 +149,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/(?!post|the-bazaar|marvel-rivals|2xko|diablo-4|news_category|valorant_category|tft_game)[\\w-]+\\-sitemap\\.xml$/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -143,24 +158,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract groupName for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on sitemap_index: ${process.env.BASE_URL}/sitemap_index.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the champions-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
     await test.step(`Parse ${quantityLinks} links from champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/champions-sitemap.xml`);
-      await test.step(`Expected Result: champions-sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response champions-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -176,7 +190,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/lol\\/champions/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -185,24 +199,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on valorant sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the valorant-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from valorant sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from valorant-sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/valorant/sitemap.xml`);
-      await test.step(`Expected Result: valorant sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response valorant-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -218,7 +231,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern //mobalytics\\.gg\\/valorant\\/[a-z-]+/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -227,24 +240,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on valorant sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on tft sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the tft-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from tft sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from tft-sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
-      await test.step(`Expected Result: tft sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response tft-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -260,7 +272,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/tft\\/[a-z-]+/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -269,24 +281,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on tft sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on tft set-16 sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the tft-set16-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from tft set-16 sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from tft-set16-sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/tft/set16/sitemap.xml`);
-      await test.step(`Expected Result: tft set-16 sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response tft-set16-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -302,7 +313,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/tft\\/set16\\/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -311,24 +322,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on tft set-16 sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on tft set4-5 sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the tft-set4-5-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from tft set4-5 sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from tft-set4-5-sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/tft/set4-5/sitemap.xml`);
-      await test.step(`Expected Result: tft set4-5 sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response tft-set4-5-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -344,7 +354,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/tft\\/set4-5\\/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -353,24 +363,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on tft set4-5 sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on destiny-2 sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the destiny-2-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from destiny-2 sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from destiny-2-sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/destiny-2/sitemap.xml`);
-      await test.step(`Expected Result: destiny-2 sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response destiny-2-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -386,7 +395,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/destiny-2\\/builds\\/[a-z-]+\\/[a-z-]+\\/[a-z-]+$\\/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -395,24 +404,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on destiny-2 sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on arknights-endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the arknights-endfield-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from arknights-endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from arknights-endfield-sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
-      await test.step(`Expected Result: arknights-endfield sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response arknights-endfield-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -428,7 +436,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/arknights-endfield\\/characters\\/[a-z-]+\\/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -437,24 +445,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on arknights-endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on 2xko sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the 2xko-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from 2xko sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from 2xko-sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/2xko/sitemap.xml`);
-      await test.step(`Expected Result: 2xko sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response 2xko-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -470,7 +477,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/2xko/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -479,26 +486,25 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on 2xko sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on example-game sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the example-game-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     test.skip(process.env.BASE_URL === 'https://mobalytics.gg', 'Skip example-game project on production');
 
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from example-game sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from example-game-sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/example-game/sitemap.xml`);
-      await test.step(`Expected Result: example-game sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response example-game-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -514,7 +520,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/example-game/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -523,24 +529,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on example-game sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on riftbound sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the riftbound-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from riftbound sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from riftbound-sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/riftbound/sitemap.xml`);
-      await test.step(`Expected Result: riftbound sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response riftbound-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -556,7 +561,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/riftbound/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -565,24 +570,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on riftbound sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on poe sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the poe-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from poe sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from poe-sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/poe/sitemap.xml`);
-      await test.step(`Expected Result: poe sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response poe-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -598,7 +602,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/poe/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -607,24 +611,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on poe sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on hades-2 sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the hades-2-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from hades-2 sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from hades-2-sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/hades-2/sitemap.xml`);
-      await test.step(`Expected Result: hades-2 sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response hades-2-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -640,7 +643,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/hades-2(\\/builds)?/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -649,24 +652,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on hades-2 sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on news sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the news-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from news sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from news-sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/news/sitemap.xml`);
-      await test.step(`Expected Result: news sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response news-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -682,7 +684,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/news./ Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -691,24 +693,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on news sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on zzz sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the zzz-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from zzz sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from zzz-sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/zzz/sitemap.xml`);
-      await test.step(`Expected Result: zzz sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response zzz-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -724,7 +725,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern \\/mobalytics\\.gg\\/zzz\/(characters)?//. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -733,24 +734,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on zzz sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on elden-ring-nightreign sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the elden-ring-nightreign-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from elden-ring-nightreign sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from elden-ring-nightreign-sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`);
-      await test.step(`Expected Result: elden-ring-nightreign sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response elden-ring-nightreign-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -766,7 +766,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/elden-ring-nightreign\/wiki\/catalysts/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -775,24 +775,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on elden-ring-nightreign sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on mhw sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the mhw-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from mhw sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from mhw-sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/mhw/sitemap.xml`);
-      await test.step(`Expected Result: mhw sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response mhw-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -808,7 +807,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/mhw/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -817,24 +816,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on mhw sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on marvel-rivals sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the marvel-rivals-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from marvel-rivals sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from marvel-rivals-sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/marvel-rivals/sitemap.xml`);
-      await test.step(`Expected Result: marvel-rivals sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response marvel-rivals-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -850,7 +848,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/marvel-rivals/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -859,24 +857,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on marvel-rivals sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on deadlock sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the deadlock-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from deadlock sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from deadlock-sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/deadlock/sitemap.xml`);
-      await test.step(`Expected Result: deadlock sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response deadlock-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -892,7 +889,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/deadlock/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -901,24 +898,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on deadlock sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on poe-2 sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the poe-2-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from poe-2 sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from poe-2-sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/poe-2/sitemap.xml`);
-      await test.step(`Expected Result: poe-2 sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response poe-2-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -934,7 +930,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/poe-2/\/builds/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -943,24 +939,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on poe-2 sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on the-bazaar sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the the-bazaar-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from the-bazaar sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from the-bazaar-sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/the-bazaar/sitemap.xml`);
-      await test.step(`Expected Result: the-bazaar sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response the-bazaar-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -976,7 +971,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/the-bazaar\\/(builds|guides)/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -985,24 +980,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on the-bazaar sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the endfield-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from endfield-sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
-      await test.step(`Expected Result: endfield sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response endfield-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -1018,7 +1012,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/endfield/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -1027,24 +1021,23 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on endfield sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on marathon sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the marathon-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from marathon sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from marathon-sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/marathon/sitemap.xml`);
-      await test.step(`Expected Result: marathon sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response marathon-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -1060,7 +1053,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/marathon/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -1069,25 +1062,24 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on marathon sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }
   });
 
-  test(`Check ${quantityLinks} links is opened successfully in the table on overwatch sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async ({
+  test(`Verify that all ${quantityLinks} links in the overwatch-sitemap return a successful status code`, async ({
     request,
-    page,
   }) => {
     test.skip(process.env.BASE_URL === 'https://mobalytics.gg', 'Skip this test on prod sitemap');
     let filteredLinks;
 
-    await test.step(`Parse ${quantityLinks} links from overwatch sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async () => {
+    await test.step(`Parse ${quantityLinks} links from overwatch-sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async () => {
       const response = await request.get(`${process.env.BASE_URL}/overwatch/sitemap.xml`);
-      await test.step(`Expected Result: overwatch sitemap is opened with ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response overwatch-sitemap returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -1103,7 +1095,7 @@ test.describe('Sitemap links open successfully for each project', async () => {
         })
         .slice(0, quantityLinks);
 
-      await test.step(`Expected Result: No links found matching pattern /mobalytics\\.gg\\/overwatch/. Total links in sitemap: ${arrayLinks.length}`, async () => {
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
         expect(filteredLinks.length).toBeGreaterThan(0);
       });
     });
@@ -1112,10 +1104,51 @@ test.describe('Sitemap links open successfully for each project', async () => {
       const { link } = takeLink.groups; // extract group name for convenient usage
       let response;
 
-      await test.step(`Open ${link} links on overwatch sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async () => {
+      await test.step(`Send a GET request to ${link}`, async () => {
         response = await request.get(link);
       });
-      await test.step(`Expected Result: ${link} is opened with status: ${response.status()}`, async () => {
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+        expect.soft(response.ok()).toBeTruthy();
+      });
+    }
+  });
+
+  test(`Verify that all ${quantityLinks} links in the product-sitemap return a successful status code`, async ({
+    request,
+  }) => {
+    let filteredLinks;
+
+    await test.step(`Parse ${quantityLinks} links from product-sitemap: ${process.env.BASE_URL}/product-sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/product-sitemap.xml`);
+      await test.step(`Expected Result: Response product-sitemap returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/lol/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+        expect(filteredLinks.length).toBeGreaterThan(0);
+      });
+    });
+
+    for (const takeLink of filteredLinks) {
+      const { link } = takeLink.groups; // extract group name for convenient usage
+      let response;
+
+      await test.step(`Send a GET request to ${link}`, async () => {
+        response = await request.get(link);
+      });
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }

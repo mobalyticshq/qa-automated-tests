@@ -1,4 +1,4 @@
 export * from './projects';
 export * from './sitemap';
-export * from './hydrationLinks';
+export * from './projectSectionLinks';
 export * from './user.builder';

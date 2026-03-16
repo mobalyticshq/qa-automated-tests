@@ -39,43 +39,57 @@ export class MainURLs {
 
   async openAdminPoe2Page() {
     await test.step(`Open 'PoE 2' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/poe-2/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/poe-2/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
   async openAdminPoePage() {
     await test.step(`Open 'PoE' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/poe/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/poe/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
   async openAdminOverwatchPage() {
     await test.step(`Open 'Overwatch' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/overwatch/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/overwatch/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
   async openAdminEndfieldPage() {
     await test.step(`Open 'Endfield' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/arknights-endfield/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/arknights-endfield/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
   async openAdminDiablo4Page() {
     await test.step(`Open 'Diablo4' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/diablo-4/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/diablo-4/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
   async openAdmin2xkoPage() {
     await test.step(`Open '2XKO' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/2xko/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/2xko/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 
   async openAdminRiftboundPage() {
     await test.step(`Open 'Riftbound' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/riftbound/admin`);
+      await this.page.goto(`${process.env.BASE_URL}/riftbound/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
     });
   }
 

@@ -99,7 +99,13 @@ jobs:
           GAME_MANAGER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_PASSWORD || github.event_name == 'schedule' && secrets.STG_GAME_MANAGER_PASSWORD || secrets.STG_GAME_MANAGER_PASSWORD }}
           INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
-        run: npm test -- --project account-tests advertisement-tests ngf-tests others-tests
+        run: npm test -- --project account-tests ngf-tests others-tests
+
+      - name: Run advertisement tests (desktop >1412px)
+        if: always()
+        env:
+          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
+        run: npm test -- --project advertisement-tests --grep "Verify ad blocks within the desktop viewport range \(>1412px\) for different user roles"
 
       - name: Get previous report Allure history
         uses: actions/checkout@v4

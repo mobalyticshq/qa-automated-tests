@@ -14,3 +14,4 @@ allure-results
 data/
 */data/attachments/*
 src/setup/
+allure-history.jsonl

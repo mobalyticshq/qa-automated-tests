@@ -30,8 +30,7 @@ export default defineConfig({
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['list'],
-    ['github'],
+    [process.env.CI ? 'github' : 'list'],
     ['html', { open: 'never' }],
     [
       'allure-playwright',
@@ -57,11 +56,7 @@ export default defineConfig({
     // Browser settings:
     userAgent: 'mobalytics-automation-qa',
     browserName: 'chromium',
-    screen: { width: 1920, height: 1080 },
     viewport: { width: 1680, height: 1050 },
-    deviceScaleFactor: 1,
-    isMobile: false,
-    hasTouch: false,
   },
 
   /* Configure projects for major browsers */
