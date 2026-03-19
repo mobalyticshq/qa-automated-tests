@@ -1,5 +1,5 @@
 # Name workflow
-name: sitemap-hydration-tests
+name: advertisement-tests
 
 # When launch auto-tests
 on:
