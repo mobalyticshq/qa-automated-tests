@@ -92,7 +92,6 @@ jobs:
       - name: Launch auto-tests with ENV-override
         env:
           URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_SITEMAP_URL || github.event_name == 'schedule' && secrets.STG_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
-
           BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
 
           ADMIN_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_EMAIL || github.event_name == 'schedule' && secrets.STG_ADMIN_EMAIL || secrets.STG_ADMIN_EMAIL }}

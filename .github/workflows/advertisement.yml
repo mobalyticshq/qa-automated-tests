@@ -57,7 +57,7 @@ jobs:
 
       - name: Run advertisement tests
         env:
-          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
+          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.PROD_URL || secrets.STG_URL }}
 
           REGULAR_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_EMAIL || github.event_name == 'schedule' && secrets.PROD_REGULAR_USER_EMAIL || secrets.STG_REGULAR_USER_EMAIL }}
           REGULAR_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_PASSWORD || github.event_name == 'schedule' && secrets.PROD_REGULAR_USER_PASSWORD || secrets.STG_REGULAR_USER_PASSWORD }}
