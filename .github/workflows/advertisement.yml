@@ -1,0 +1,119 @@
+# Name workflow
+name: sitemap-hydration-tests
+
+# When launch auto-tests
+on:
+  schedule:
+    - cron: '30 6 * * 5'
+
+  # Manual hook for launch
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Choose environment'
+        required: true
+        type: choice
+        options:
+          - STG
+          - PROD
+        default: 'PROD'
+
+permissions:
+  contents: write
+
+env:
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  SLACK_CHAT_ID: ${{ secrets.SLACK_CHAT_ID }}
+  SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+
+jobs:
+  sitemap-hydration-tests:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/advertisement
+      TESTS_NAME: 'Advertisement'
+    steps:
+      - name: Clone the code from repository into runner (virtual machine)
+        uses: actions/checkout@v4
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install npm
+        run: npm i
+
+      - name: Install PW with dependencies
+        run: npx playwright install --with-deps
+
+      - name: Run advertisement tests
+        env:
+          BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
+
+          REGULAR_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_EMAIL || github.event_name == 'schedule' && secrets.PROD_REGULAR_USER_EMAIL || secrets.STG_REGULAR_USER_EMAIL }}
+          REGULAR_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_PASSWORD || github.event_name == 'schedule' && secrets.PROD_REGULAR_USER_PASSWORD || secrets.STG_REGULAR_USER_PASSWORD }}
+
+          ADD_FREE_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADD_FREE_USER_EMAIL || github.event_name == 'schedule' && secrets.PROD_ADD_FREE_USER_EMAIL || secrets.STG_ADD_FREE_USER_EMAIL }}
+          ADD_FREE_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADD_FREE_USER_PASSWORD || github.event_name == 'schedule' && secrets.PROD_ADD_FREE_USER_PASSWORD || secrets.STG_ADD_FREE_USER_PASSWORD }}
+
+          PLUS_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_PLUS_USER_EMAIL || github.event_name == 'schedule' && secrets.PROD_PLUS_USER_EMAIL || secrets.STG_PLUS_USER_EMAIL }}
+          PLUS_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_PLUS_USER_PASSWORD || github.event_name == 'schedule' && secrets.PROD_PLUS_USER_PASSWORD || secrets.STG_PLUS_USER_PASSWORD }}
+        run: npm test -- --project advertisement-tests
+
+      - name: Get previous report Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Create allure-report from allure-results
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+          subfolder: sitemap-hydration
+          keep_reports: 10
+
+      - name: Deploy report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_branch: gh-pages
+          publish_dir: allure-history/sitemap-hydration
+          destination_dir: sitemap-hydration
+
+      - name: Generate config.json with the secrets
+        if: always()
+        continue-on-error: true
+        run: |
+          mkdir -p notifications/tmp
+          sed \
+            -e "s|\$TESTS_NAME|${{ env.TESTS_NAME }}|g" \
+            -e "s|\$SLACK_CHAT_ID|${{ secrets.SLACK_CHAT_ID }}|g" \
+            -e "s|\$SLACK_TOKEN|${{ secrets.SLACK_TOKEN }}|g" \
+            -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
+            -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
+            -e "s|\$REPORT_LINK_SLACK|${{ env.REPORT_LINK_SLACK }}|g" \
+            -e "s|\$BASE_URL|${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && 'https://mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
+            notifications/config.json > notifications/tmp/config.json
+
+      - name: Send Telegram & Slack notification
+        if: always()
+        continue-on-error: true
+        run: |
+          java "-DconfigFile=notifications/tmp/config.json" -jar notifications/allure-notifications-4.11.0.jar

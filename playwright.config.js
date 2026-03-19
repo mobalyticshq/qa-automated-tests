@@ -85,6 +85,7 @@ export default defineConfig({
     },
     {
       name: 'advertisement-tests',
+      dependencies: ['setup'],
       testMatch: 'e2e-tests/advertisement.test.js',
     },
     {

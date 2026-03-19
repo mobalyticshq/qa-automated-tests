@@ -27,7 +27,7 @@ test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, 
 
 test.describe('Sitemap links return a successful status code for each project', async () => {
   test.describe.configure({ timeout: 600_000 });
-  const quantityLinks = 10;
+  const quantityLinks = 100;
 
   projectSectionLinks.forEach((element) => {
     test(`Verify main pages for each project: ${process.env.BASE_URL}${element} return a successful status code`, async ({

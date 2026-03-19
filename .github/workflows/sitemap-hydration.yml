@@ -55,11 +55,11 @@ jobs:
       - name: Install PW with dependencies
         run: npx playwright install --with-deps
 
-      - name: Launch auto-tests with ENV-override
+      - name: Run sitemap/hydration tests
         env:
           URL_SITEMAP: ${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && secrets.PROD_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
           BASE_URL: ${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && secrets.PROD_URL || secrets.STG_URL }}
-        run: npm test -- --project sitemap-tests hydration-tests advertisement-tests
+        run: npm test -- --project sitemap-tests hydration-tests
 
       - name: Get previous report Allure history
         uses: actions/checkout@v4

@@ -92,11 +92,15 @@ jobs:
       - name: Launch auto-tests with ENV-override
         env:
           URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_SITEMAP_URL || github.event_name == 'schedule' && secrets.STG_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
+
           BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
+
           ADMIN_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_EMAIL || github.event_name == 'schedule' && secrets.STG_ADMIN_EMAIL || secrets.STG_ADMIN_EMAIL }}
           ADMIN_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADMIN_PASSWORD || github.event_name == 'schedule' && secrets.STG_ADMIN_PASSWORD || secrets.STG_ADMIN_PASSWORD }}
+
           GAME_MANAGER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_EMAIL || github.event_name == 'schedule' && secrets.STG_GAME_MANAGER_EMAIL || secrets.STG_GAME_MANAGER_EMAIL }}
           GAME_MANAGER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_GAME_MANAGER_PASSWORD || github.event_name == 'schedule' && secrets.STG_GAME_MANAGER_PASSWORD || secrets.STG_GAME_MANAGER_PASSWORD }}
+
           INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
         run: npm test -- --project account-tests ngf-tests others-tests
@@ -105,7 +109,16 @@ jobs:
         if: always()
         env:
           BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
-        run: npm test -- --project advertisement-tests --grep "Verify ad blocks within the desktop viewport range \(>1412px\) for different user roles"
+
+          REGULAR_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_EMAIL || github.event_name == 'schedule' && secrets.STG_REGULAR_USER_EMAIL || secrets.STG_REGULAR_USER_EMAIL }}
+          REGULAR_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_PASSWORD || github.event_name == 'schedule' && secrets.STG_REGULAR_USER_PASSWORD || secrets.STG_REGULAR_USER_PASSWORD }}
+
+          ADD_FREE_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADD_FREE_USER_EMAIL || github.event_name == 'schedule' && secrets.STG_ADD_FREE_USER_EMAIL || secrets.STG_ADD_FREE_USER_EMAIL }}
+          ADD_FREE_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADD_FREE_USER_PASSWORD || github.event_name == 'schedule' && secrets.STG_ADD_FREE_USER_PASSWORD || secrets.STG_ADD_FREE_USER_PASSWORD }}
+
+          PLUS_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_PLUS_USER_EMAIL || github.event_name == 'schedule' && secrets.STG_PLUS_USER_EMAIL || secrets.STG_PLUS_USER_EMAIL }}
+          PLUS_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_PLUS_USER_PASSWORD || github.event_name == 'schedule' && secrets.STG_PLUS_USER_PASSWORD || secrets.STG_PLUS_USER_PASSWORD }}
+        run: npm test -- --project advertisement-tests --grep "Check video block, footer banner, L vertical banner, S vertical banner for unauthorized user"
 
       - name: Get previous report Allure history
         uses: actions/checkout@v4
