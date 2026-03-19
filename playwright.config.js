@@ -62,12 +62,16 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'setup',
+      name: 'auth-setup',
       testMatch: '**/auth.setup.test.js',
     },
     {
+      name: 'user-roles-setup',
+      testMatch: '**/userRoles.setup.test.js',
+    },
+    {
       name: 'ngf-tests',
-      dependencies: ['setup'],
+      dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/ngf.test.js',
     },
     {
@@ -80,12 +84,12 @@ export default defineConfig({
     },
     {
       name: 'others-tests',
-      dependencies: ['setup'],
+      dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/others.test.js',
     },
     {
       name: 'advertisement-tests',
-      dependencies: ['setup'],
+      dependencies: ['user-roles-setup'],
       testMatch: 'e2e-tests/advertisement.test.js',
     },
     {
