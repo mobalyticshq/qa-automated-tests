@@ -143,4 +143,10 @@ export const projectSectionLinks = [
   '/news',
   '/news/goty-watch',
   '/news/release-calendar',
+  '/slay-the-spire-2',
+  '/slay-the-spire-2/profile',
+  '/slay-the-spire-2/characters',
+  '/slay-the-spire-2/tier-lists',
+  '/slay-the-spire-2/encounters',
+  '/slay-the-spire-2/wiki',
 ];

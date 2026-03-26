@@ -37,6 +37,24 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
 
 test.describe('Creating ST Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
+  //? Added new locator for header widget. It needs for testing purpose this locater
+  test(`Create a structure page on STS2 project`, async ({ cleanupStSts2Pages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const { moba, addPageForCleanup } = cleanupStSts2Pages;
+
+    await moba.mainURLs.openAdminSts2Page();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Overwatch project`, async () => {
+      await expect(moba.stPage.headerSts2).toContainText('STS 2');
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
 
   test(`Create a structure page on Overwatch project`, async ({ cleanupStOverwatchPages }) => {
     const uniqueId = uuidv4();
@@ -474,7 +492,6 @@ test.describe('Creating UG Pages', () => {
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
-    // }
   });
 
   filterProjectsByTeams('team').forEach(({ game, projectPath }) => {
@@ -1100,6 +1117,17 @@ filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStP
           await admin.stPage.staticDataButton.click();
 
           const gameSpecificItem = 'Light Rounds';
+
+          await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
+          await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();
+          break;
+        }
+        case 'STS2': {
+          await adminPage.goto(`${process.env.BASE_URL}${staticDataStPage}`);
+          await admin.stPage.editButton.click();
+          await admin.stPage.staticDataButton.click();
+
+          const gameSpecificItem = 'Defect';
 
           await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
           await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();

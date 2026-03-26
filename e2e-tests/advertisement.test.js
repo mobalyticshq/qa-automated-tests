@@ -1,7 +1,7 @@
 import { test, expect, devices } from '@playwright/test';
 import { filterProjectsByFeatureStatus as filterProjectsByAdvertisement } from '../src/helpers/index';
 const { defaultBrowserType: _1, ...galaxyS24 } = devices['Galaxy S24']; // 360x780 viewport size
-//* DONE
+
 test.describe('Verify ad blocks within the mobile viewport range (320–575px) for different user roles', async () => {
   test.use({ ...galaxyS24 }); // set up the mobile device 360x780 viewport size
 
@@ -10,7 +10,6 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
       page,
     }) => {
       test.skip(game === 'Val', "Valorant doesn't contain ad on mobile devices");
-      // await page.setViewportSize({ width: 1280, height: 800 }); // custom viewport range
       await test.step(`Open project url: "${process.env.BASE_URL}${projectPath}"`, async () => {
         await page.goto(`${process.env.BASE_URL}${projectPath}`, {
           waitUntil: 'domcontentloaded',
@@ -18,6 +17,44 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages-mobile')
+                  .or(page.locator('#slay-the-spire-2-nitro-video'))
+              )
+              .toBeAttached();
+          });
+          await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3'))
+                  .first()
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page.locator('#slay-the-spire-2-display-small-all-pages').or(page.locator('#slay-the-spire-2-nitro-m'))
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-m')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor-mobile'))
+              )
+              .toBeAttached();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect
@@ -596,8 +633,49 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
           waitUntil: 'domcontentloaded',
         });
       });
+
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages-mobile')
+                    .or(page.locator('#slay-the-spire-2-nitro-video'))
+                )
+                .toBeAttached();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-m')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor-mobile'))
+                )
+                .toBeAttached();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -796,46 +874,6 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
                 .toBeAttached();
             });
             break;
-          // case 'Nightreign':
-          //   await test.step(`Expected Result: Video banner is present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-video-all-pages-mobile')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-video'))
-          //       )
-          //       .toBeAttached();
-          //   });
-          //   await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-display-all-pages')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-l'))
-          //           .or(page.locator('#elden-ring-nightreign-nitro-3'))
-          //           .first()
-          //       )
-          //       .not.toBeVisible();
-          //   });
-          //   await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-display-small-all-pages')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-m'))
-          //       )
-          //       .not.toBeVisible();
-          //   });
-          //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#web-elden-ring-nightreign-display-footer-m')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-anchor-mobile'))
-          //       )
-          //       .toBeAttached();
-          //   });
-          //   break;
           case 'Riftbound':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -1166,6 +1204,46 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
                 .toBeAttached();
             });
             break;
+          // case 'Nightreign':
+          //   await test.step(`Expected Result: Video banner is present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-video-all-pages-mobile')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-video'))
+          //       )
+          //       .toBeAttached();
+          //   });
+          //   await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-display-all-pages')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-l'))
+          //           .or(page.locator('#elden-ring-nightreign-nitro-3'))
+          //           .first()
+          //       )
+          //       .not.toBeVisible();
+          //   });
+          //   await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-display-small-all-pages')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-m'))
+          //       )
+          //       .not.toBeVisible();
+          //   });
+          //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#web-elden-ring-nightreign-display-footer-m')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-anchor-mobile'))
+          //       )
+          //       .toBeAttached();
+          //   });
+          //   break;
         }
       } finally {
         await regularUserContext.close();
@@ -1187,6 +1265,46 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages-mobile')
+                    .or(page.locator('#slay-the-spire-2-nitro-video'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-m')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor-mobile'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -1385,46 +1503,6 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
                 .not.toBeVisible();
             });
             break;
-          // case 'Nightreign':
-          //   await test.step(`Expected Result: Video banner is present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-video-all-pages-mobile')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-video'))
-          //       )
-          //       .toBeAttached();
-          //   });
-          //   await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-display-all-pages')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-l'))
-          //           .or(page.locator('#elden-ring-nightreign-nitro-3'))
-          //           .first()
-          //       )
-          //       .not.toBeVisible();
-          //   });
-          //   await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-display-small-all-pages')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-m'))
-          //       )
-          //       .not.toBeVisible();
-          //   });
-          //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#web-elden-ring-nightreign-display-footer-m')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-anchor-mobile'))
-          //       )
-          //       .toBeAttached();
-          //   });
-          //   break;
           case 'Riftbound':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -1755,6 +1833,46 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
                 .not.toBeVisible();
             });
             break;
+          // case 'Nightreign':
+          //   await test.step(`Expected Result: Video banner is present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-video-all-pages-mobile')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-video'))
+          //       )
+          //       .toBeAttached();
+          //   });
+          //   await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-display-all-pages')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-l'))
+          //           .or(page.locator('#elden-ring-nightreign-nitro-3'))
+          //           .first()
+          //       )
+          //       .not.toBeVisible();
+          //   });
+          //   await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-display-small-all-pages')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-m'))
+          //       )
+          //       .not.toBeVisible();
+          //   });
+          //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#web-elden-ring-nightreign-display-footer-m')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-anchor-mobile'))
+          //       )
+          //       .toBeAttached();
+          //   });
+          //   break;
         }
       } finally {
         await adFreeUserContext.close();
@@ -1776,6 +1894,46 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages-mobile')
+                    .or(page.locator('#slay-the-spire-2-nitro-video'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-m')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor-mobile'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -1974,46 +2132,6 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
                 .not.toBeVisible();
             });
             break;
-          // case 'Nightreign':
-          //   await test.step(`Expected Result: Video banner is present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-video-all-pages-mobile')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-video'))
-          //       )
-          //       .toBeAttached();
-          //   });
-          //   await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-display-all-pages')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-l'))
-          //           .or(page.locator('#elden-ring-nightreign-nitro-3'))
-          //           .first()
-          //       )
-          //       .not.toBeVisible();
-          //   });
-          //   await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#elden-ring-nightreign-display-small-all-pages')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-m'))
-          //       )
-          //       .not.toBeVisible();
-          //   });
-          //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
-          //     await expect
-          //       .soft(
-          //         page
-          //           .locator('#web-elden-ring-nightreign-display-footer-m')
-          //           .or(page.locator('#elden-ring-nightreign-nitro-anchor-mobile'))
-          //       )
-          //       .toBeAttached();
-          //   });
-          //   break;
           case 'Riftbound':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -2344,6 +2462,46 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
                 .not.toBeVisible();
             });
             break;
+          // case 'Nightreign':
+          //   await test.step(`Expected Result: Video banner is present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-video-all-pages-mobile')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-video'))
+          //       )
+          //       .toBeAttached();
+          //   });
+          //   await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-display-all-pages')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-l'))
+          //           .or(page.locator('#elden-ring-nightreign-nitro-3'))
+          //           .first()
+          //       )
+          //       .not.toBeVisible();
+          //   });
+          //   await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#elden-ring-nightreign-display-small-all-pages')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-m'))
+          //       )
+          //       .not.toBeVisible();
+          //   });
+          //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+          //     await expect
+          //       .soft(
+          //         page
+          //           .locator('#web-elden-ring-nightreign-display-footer-m')
+          //           .or(page.locator('#elden-ring-nightreign-nitro-anchor-mobile'))
+          //       )
+          //       .toBeAttached();
+          //   });
+          //   break;
         }
       } finally {
         await plusUserContext.close();
@@ -2351,7 +2509,7 @@ test.describe('Verify ad blocks within the mobile viewport range (320–575px) f
     });
   });
 });
-//* DONE
+
 test.describe('Verify ad blocks within the desktop viewport range (576-767px) for different user roles', async () => {
   filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) => {
     test(`Check advertisement blocks for unauthorized user - ${game} in desktop at 640x1024 viewport size`, async ({
@@ -2367,6 +2525,45 @@ test.describe('Verify ad blocks within the desktop viewport range (576-767px) fo
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-video'))
+                  .first()
+              )
+              .toBeAttached();
+          });
+          await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3'))
+                  .first()
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page.locator('#slay-the-spire-2-display-small-all-pages').or(page.locator('#slay-the-spire-2-nitro-m'))
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-d')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+              )
+              .toBeAttached();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect
@@ -2938,6 +3135,47 @@ test.describe('Verify ad blocks within the desktop viewport range (576-767px) fo
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video'))
+                    .first()
+                )
+                .toBeAttached();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+                )
+                .toBeAttached();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -3516,6 +3754,47 @@ test.describe('Verify ad blocks within the desktop viewport range (576-767px) fo
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -4094,6 +4373,47 @@ test.describe('Verify ad blocks within the desktop viewport range (576-767px) fo
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -4657,7 +4977,7 @@ test.describe('Verify ad blocks within the desktop viewport range (576-767px) fo
     });
   });
 });
-//* DONE
+
 test.describe('Verify video ad block & footer banner within the desktop viewport range (768-1023px) for different user roles', async () => {
   filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) => {
     test(`Check video block & footer banner for unauthorized user - ${game} in desktop at 800x800 viewport size`, async ({
@@ -4671,6 +4991,44 @@ test.describe('Verify video ad block & footer banner within the desktop viewport
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3'))
+                  .first()
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page.locator('#slay-the-spire-2-display-small-all-pages').or(page.locator('#slay-the-spire-2-nitro-m'))
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-d')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+              )
+              .toBeAttached();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect.soft(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video'))).toBeAttached();
@@ -5300,6 +5658,46 @@ test.describe('Verify video ad block & footer banner within the desktop viewport
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+                )
+                .toBeAttached();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -5950,6 +6348,46 @@ test.describe('Verify video ad block & footer banner within the desktop viewport
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -6600,6 +7038,46 @@ test.describe('Verify video ad block & footer banner within the desktop viewport
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -7235,7 +7713,7 @@ test.describe('Verify video ad block & footer banner within the desktop viewport
     });
   });
 });
-//* DONE
+
 test.describe('Verify ad blocks within the desktop viewport range (1024-1232px) for different user roles', async () => {
   filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) => {
     test(`Check video block & footer banner for unauthorized user - ${game} in desktop at 1100x800 viewport size`, async ({
@@ -7249,6 +7727,45 @@ test.describe('Verify ad blocks within the desktop viewport range (1024-1232px) 
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3'))
+                  .first()
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page.locator('#slay-the-spire-2-display-small-all-pages').or(page.locator('#slay-the-spire-2-nitro-m'))
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-d')
+                  .locator('xpath=..')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect.soft(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video'))).toBeAttached();
@@ -7966,6 +8483,47 @@ test.describe('Verify ad blocks within the desktop viewport range (1024-1232px) 
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -8699,6 +9257,47 @@ test.describe('Verify ad blocks within the desktop viewport range (1024-1232px) 
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -9432,6 +10031,47 @@ test.describe('Verify ad blocks within the desktop viewport range (1024-1232px) 
       });
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -10164,6 +10804,45 @@ test.describe('Verify ad blocks within the desktop viewport range (1233-1411px) 
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Big vertical banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                  .first()
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page.locator('#slay-the-spire-2-display-small-all-pages').or(page.locator('#slay-the-spire-2-nitro-m'))
+              )
+              .not.toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-d')
+                  .locator('xpath=..')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect.soft(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video'))).toBeAttached();
@@ -10883,6 +11562,47 @@ test.describe('Verify ad blocks within the desktop viewport range (1233-1411px) 
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                    .first()
+                )
+                .toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -11669,6 +12389,47 @@ test.describe('Verify ad blocks within the desktop viewport range (1233-1411px) 
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -12455,6 +13216,47 @@ test.describe('Verify ad blocks within the desktop viewport range (1233-1411px) 
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -13238,6 +14040,47 @@ test.describe('Verify ad blocks within the desktop viewport range (>1412px) for 
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                  .first()
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-small-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-m').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-d')
+                  .locator('xpath=..')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect.soft(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video'))).toBeAttached();
@@ -13832,6 +14675,47 @@ test.describe('Verify ad blocks within the desktop viewport range (>1412px) for 
       });
 
       switch (game) {
+        case 'STS 2':
+          await test.step(`Expected Result: Video banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-video-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                  .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                  .first()
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#slay-the-spire-2-display-all-pages')
+                  .or(page.locator('#slay-the-spire-2-nitro-m').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+            await expect
+              .soft(
+                page
+                  .locator('#web-slay-the-spire-2-display-footer-d')
+                  .locator('xpath=..')
+                  .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+              )
+              .toBeVisible();
+          });
+          break;
         case 'LoL':
           await test.step(`Expected Result: Video banner is present on the page`, async () => {
             await expect.soft(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video'))).toBeAttached();
@@ -14427,6 +15311,47 @@ test.describe('Verify ad blocks within the desktop viewport range (>1412px) for 
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect
@@ -15034,6 +15959,47 @@ test.describe('Verify ad blocks within the desktop viewport range (>1412px) for 
 
       try {
         switch (game) {
+          case 'STS 2':
+            await test.step(`Expected Result: Video banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-video-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-l').locator('xpath=..'))
+                    .or(page.locator('#slay-the-spire-2-nitro-3').locator('xpath=..'))
+                    .first()
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#slay-the-spire-2-display-small-all-pages')
+                    .or(page.locator('#slay-the-spire-2-nitro-m').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+              await expect
+                .soft(
+                  page
+                    .locator('#web-slay-the-spire-2-display-footer-d')
+                    .locator('xpath=..')
+                    .or(page.locator('#slay-the-spire-2-nitro-anchor').locator('xpath=..'))
+                )
+                .not.toBeVisible();
+            });
+            break;
           case 'LoL':
             await test.step(`Expected Result: Video banner is present on the page`, async () => {
               await expect

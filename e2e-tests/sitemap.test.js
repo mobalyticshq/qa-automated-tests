@@ -1153,6 +1153,47 @@ test.describe('Sitemap links return a successful status code for each project', 
       });
     }
   });
+
+  test(`Verify that all ${quantityLinks} links in the sts2-sitemap return a successful status code`, async ({
+    request,
+  }) => {
+    let filteredLinks;
+
+    await test.step(`Parse ${quantityLinks} links from product-sitemap: ${process.env.BASE_URL}/product-sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/slay-the-spire-2/sitemap.xml`);
+      await test.step(`Expected Result: Response product-sitemap returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/slay-the-spire-2/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+
+      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+        expect(filteredLinks.length).toBeGreaterThan(0);
+      });
+    });
+
+    for (const takeLink of filteredLinks) {
+      const { link } = takeLink.groups; // extract group name for convenient usage
+      let response;
+
+      await test.step(`Send a GET request to ${link}`, async () => {
+        response = await request.get(link);
+      });
+      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+        expect.soft(response.ok()).toBeTruthy();
+      });
+    }
+  });
 });
 
 // sitemapList.forEach(({ linkInList, isPresentInSitemap, pathUrl }) => {

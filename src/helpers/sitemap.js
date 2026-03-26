@@ -76,6 +76,7 @@ const projectListFromSitemap = [
   { project: 'Endfield', isPresentInProdSitemap: true, pathUrl: '/arknights-endfield/sitemap.xml' },
   { project: 'Marathon', isPresentInProdSitemap: true, pathUrl: '/marathon/sitemap.xml' },
   { project: 'Overwatch', isPresentInProdSitemap: true, pathUrl: '/overwatch/sitemap.xml' },
+  { project: 'STS2', isPresentInProdSitemap: true, pathUrl: '/slay-the-spire-2/sitemap.xml' },
 ];
 
 export { projectListFromSitemap };

@@ -282,6 +282,21 @@ const projectList = [
       advertisement: true,
     },
   },
+  {
+    game: 'STS 2',
+    projectPath: '/slay-the-spire-2',
+    staticDataStPage: '/slay-the-spire-2/qa-check-static-data-not-delete',
+    features: {
+      build: true,
+      guide: true,
+      tierList: true,
+      team: false,
+      deck: false,
+      character: false,
+      staticData: true,
+      advertisement: true,
+    },
+  },
 ];
 
 export const filterProjectsByFeatureStatus = (featureStatus) => {

@@ -45,6 +45,14 @@ export class MainURLs {
     });
   }
 
+  async openAdminSts2Page() {
+    await test.step(`Open 'STS 2' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/slay-the-spire-2/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
   async openAdminPoePage() {
     await test.step(`Open 'PoE' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe/admin`, {

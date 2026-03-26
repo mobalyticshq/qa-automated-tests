@@ -152,7 +152,31 @@ export const test = base.extend({
     // 4. Pass cookie into test
     await use({ cookies });
   },
-  // Cleanup pages
+
+  cleanupStSts2Pages: async ({ page, apiAuthAdmin }, use) => {
+    const moba = new Moba(page);
+    await page.context().addCookies(apiAuthAdmin.cookies);
+    const pagesToCleanup = [];
+
+    const addPageForCleanup = (pageName) => {
+      pagesToCleanup.push(pageName);
+    };
+
+    await use({ moba, addPageForCleanup });
+
+    // Cleanup после теста
+    if (pagesToCleanup.length > 0) {
+      await moba.mainURLs.openAdminSts2Page();
+
+      for (const pageName of pagesToCleanup) {
+        await moba.stAdminPage.deleteStCardWidget(pageName);
+        await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
+
+        await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
+      }
+    }
+  },
+
   cleanupStPoE2Pages: async ({ page, apiAuthAdmin }, use) => {
     const moba = new Moba(page);
     await page.context().addCookies(apiAuthAdmin.cookies);
