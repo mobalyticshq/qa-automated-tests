@@ -43,15 +43,15 @@ jobs:
       TESTS_NAME: 'NGF'
     steps:
       - name: Clone the code from repository into runner (virtual machine)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
 
       - name: Setup nodejs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6.3.0
         with:
-          node-version: lts/*
+          node-version: 24
 
       - name: Setup Java 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5.2.0
         with:
           distribution: 'temurin'
           java-version: '17'
