@@ -37,8 +37,8 @@ test(`Checking "New Games" in the navbar on ${process.env.BASE_URL}`, async ({ p
 
 test.describe('Creating ST Pages', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
-  //? Added new locator for header widget. It needs for testing purpose this locater
-  test(`Create a structure page on STS2 project`, async ({ cleanupStSts2Pages }) => {
+  //* Added new locator for header widget. It needs for testing purpose this locater
+  test(`Create a structure page on STS 2 project`, async ({ cleanupStSts2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
     const { moba, addPageForCleanup } = cleanupStSts2Pages;
@@ -50,7 +50,7 @@ test.describe('Creating ST Pages', () => {
 
     addPageForCleanup(pageName); // Register page for deleting
 
-    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Overwatch project`, async () => {
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on STS 2  project`, async () => {
       await expect(moba.stPage.headerSts2).toContainText('STS 2');
       await expect(moba.stPage.controlPanel).toContainText(pageName);
     });

@@ -8,8 +8,8 @@ on:
   pull_request:
     branches: [main, master]
   schedule:
-    - cron: '30 6 * * *'
-    - cron: '20 11 * * 2,4'
+    - cron: '30 5 * * *'
+    - cron: '20 10 * * 2,4'
 
   # Manual hook for launch
   workflow_dispatch:
