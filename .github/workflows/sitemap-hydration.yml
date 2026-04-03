@@ -41,7 +41,7 @@ jobs:
       - name: Setup nodejs
         uses: actions/setup-node@v6.3.0
         with:
-          node-version: 24
+          node-version: lts/*
 
       - name: Setup Java 17
         uses: actions/setup-java@v5.2.0
@@ -62,7 +62,7 @@ jobs:
         run: npm test -- --project sitemap-tests hydration-tests
 
       - name: Get previous report Allure history
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         if: always()
         continue-on-error: true
         with:
