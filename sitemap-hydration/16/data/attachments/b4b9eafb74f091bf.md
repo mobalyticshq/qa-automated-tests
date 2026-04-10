@@ -1,0 +1,224 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "Mobalytics" [ref=e6] [cursor=pointer]:
+        - /url: /2xko
+        - img "Mobalytics" [ref=e7]
+      - generic [ref=e9]:
+        - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+          - /url: https://mobalytics.gg/lol
+          - generic [ref=e13]:
+            - img "League of Legends" [ref=e14]
+            - generic [ref=e15]: LoL
+        - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+          - /url: https://mobalytics.gg/tft
+          - generic [ref=e19]:
+            - img "Teamfight Tactics" [ref=e20]
+            - generic [ref=e21]: TFT
+        - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+          - /url: https://mobalytics.gg/diablo-4
+          - generic [ref=e25]:
+            - img "Diablo 4" [ref=e26]
+            - generic [ref=e27]: Diablo 4
+        - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+          - /url: https://mobalytics.gg/poe-2
+          - generic [ref=e31]:
+            - img "Path of Exile 2" [ref=e32]
+            - generic [ref=e33]: PoE 2
+        - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+          - /url: https://mobalytics.gg/poe
+          - generic [ref=e37]:
+            - img "Path of Exile" [ref=e38]
+            - generic [ref=e39]: PoE
+        - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+          - /url: https://mobalytics.gg/destiny-2
+          - generic [ref=e43]:
+            - img "Destiny 2" [ref=e44]
+            - generic [ref=e45]: Destiny 2
+        - link "Marathon Marathon New" [ref=e47] [cursor=pointer]:
+          - /url: https://mobalytics.gg/marathon
+          - generic [ref=e49]:
+            - img "Marathon" [ref=e50]
+            - generic [ref=e51]: Marathon
+            - generic [ref=e53]: New
+        - link "Slay the Spire 2 STS 2 New" [ref=e55] [cursor=pointer]:
+          - /url: https://mobalytics.gg/slay-the-spire-2
+          - generic [ref=e57]:
+            - img "Slay the Spire 2" [ref=e58]
+            - generic [ref=e59]: STS 2
+            - generic [ref=e61]: New
+        - link "Deadlock Deadlock" [ref=e63] [cursor=pointer]:
+          - /url: https://mobalytics.gg/deadlock
+          - generic [ref=e65]:
+            - img "Deadlock" [ref=e66]
+            - generic [ref=e67]: Deadlock
+        - link "Overwatch Overwatch New" [ref=e69] [cursor=pointer]:
+          - /url: https://mobalytics.gg/overwatch
+          - generic [ref=e71]:
+            - img "Overwatch" [ref=e72]
+            - generic [ref=e73]: Overwatch
+            - generic [ref=e75]: New
+        - link "Borderlands 4 Borderlands 4" [ref=e77] [cursor=pointer]:
+          - /url: https://mobalytics.gg/borderlands-4
+          - generic [ref=e79]:
+            - img "Borderlands 4" [ref=e80]
+            - generic [ref=e81]: Borderlands 4
+        - link "Valorant VAL" [ref=e83] [cursor=pointer]:
+          - /url: https://mobalytics.gg/valorant
+          - generic [ref=e85]:
+            - img "Valorant" [ref=e86]
+            - generic [ref=e87]: VAL
+        - 'link "Arknights: Endfield Endfield" [ref=e89] [cursor=pointer]':
+          - /url: https://mobalytics.gg/arknights-endfield
+          - generic [ref=e91]:
+            - 'img "Arknights: Endfield" [ref=e92]'
+            - generic [ref=e93]: Endfield
+        - button [ref=e94] [cursor=pointer]:
+          - img [ref=e95]
+        - generic:
+          - link "Elden Ring Nightreign Nightreign":
+            - /url: https://mobalytics.gg/elden-ring-nightreign
+            - generic:
+              - generic:
+                - img "Elden Ring Nightreign"
+                - generic: Nightreign
+        - generic:
+          - link "Monster Hunter Wilds Monster Hunter Wilds":
+            - /url: https://mobalytics.gg/mhw
+            - generic:
+              - generic:
+                - img "Monster Hunter Wilds"
+                - generic: Monster Hunter Wilds
+        - generic:
+          - link "The Bazaar The Bazaar":
+            - /url: https://mobalytics.gg/the-bazaar
+            - generic:
+              - generic:
+                - img "The Bazaar"
+                - generic: The Bazaar
+        - generic:
+          - link "Hades 2 Hades 2":
+            - /url: https://mobalytics.gg/hades-2
+            - generic:
+              - generic:
+                - img "Hades 2"
+                - generic: Hades 2
+        - generic:
+          - link "Marvel Rivals Marvel Rivals":
+            - /url: https://mobalytics.gg/marvel-rivals
+            - generic:
+              - generic:
+                - img "Marvel Rivals"
+                - generic: Marvel Rivals
+        - generic:
+          - link "Zenless Zone Zero ZZZ":
+            - /url: https://mobalytics.gg/zzz
+            - generic:
+              - generic:
+                - img "Zenless Zone Zero"
+                - generic: ZZZ
+        - generic:
+          - link "2XKO 2XKO":
+            - /url: https://mobalytics.gg/2xko
+            - generic:
+              - generic:
+                - img "2XKO"
+                - generic: 2XKO
+        - generic:
+          - link "Riftbound Riftbound":
+            - /url: https://mobalytics.gg/riftbound
+            - generic:
+              - generic:
+                - img "Riftbound"
+                - generic: Riftbound
+    - generic [ref=e96]:
+      - generic [ref=e97]:
+        - link "DOWNLOAD APP" [ref=e98] [cursor=pointer]:
+          - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-2xko&utm_medium=homepage&utm_source=web
+          - button "DOWNLOAD APP" [ref=e100]:
+            - img [ref=e101]
+            - text: DOWNLOAD APP
+        - link "News" [ref=e103] [cursor=pointer]:
+          - /url: /news
+          - generic [ref=e104]: News
+      - generic [ref=e105]:
+        - button "sign in" [ref=e106] [cursor=pointer]:
+          - generic [ref=e107]: sign in
+        - img "support" [ref=e111] [cursor=pointer]
+    - generic [ref=e113]:
+      - link "Home" [ref=e116] [cursor=pointer]:
+        - /url: /2xko
+        - img "Home" [ref=e118]
+      - link "Champions" [ref=e121] [cursor=pointer]:
+        - /url: /2xko/champions
+        - img "Champions" [ref=e123]
+      - link "Tier List" [ref=e126] [cursor=pointer]:
+        - /url: /2xko/tier-lists
+        - img "Tier List" [ref=e128]
+      - link "Guides" [ref=e131] [cursor=pointer]:
+        - /url: /2xko/guides
+        - img "Guides" [ref=e133]
+    - generic [ref=e135]:
+      - main [ref=e136]:
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: Mobalytics
+              - generic [ref=e142]:
+                - button "Share" [ref=e144] [cursor=pointer]:
+                  - img [ref=e145]
+                  - text: Share
+                - link [ref=e146] [cursor=pointer]:
+                  - /url: https://www.youtube.com/c/mobalytics
+                  - button [ref=e147]:
+                    - img [ref=e148]
+            - tablist [ref=e152]:
+              - tab "Builds" [selected] [ref=e153] [cursor=pointer]:
+                - generic [ref=e154]: Builds
+              - tab "Tier Lists" [ref=e156] [cursor=pointer]:
+                - generic [ref=e157]: Tier Lists
+          - generic [ref=e159]:
+            - generic [ref=e164]:
+              - generic "select" [ref=e166]:
+                - generic [ref=e167]:
+                  - textbox [ref=e168]
+                  - combobox [ref=e170]
+                - button "Verified" [ref=e173] [cursor=pointer]:
+                  - generic [ref=e174]: Verified
+                  - img [ref=e176]
+              - generic "select" [ref=e179]:
+                - generic [ref=e180]:
+                  - textbox [ref=e181]
+                  - combobox [ref=e183]
+                - button "Featured" [ref=e186] [cursor=pointer]:
+                  - generic [ref=e187]: Featured
+                  - img [ref=e189]
+            - generic [ref=e192]:
+              - generic [ref=e193]: No Builds
+              - generic [ref=e194]: Mobalytics has not published any Builds that match active filters
+      - complementary [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e202]:
+            - generic [ref=e204] [cursor=pointer]:
+              - generic [ref=e205]: Advertisement
+              - generic [ref=e206]: Remove Ads
+            - generic [ref=e209] [cursor=pointer]:
+              - generic [ref=e210]: Remove all ads
+              - generic [ref=e211]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+              - button "Remove ads" [ref=e212]:
+                - generic [ref=e213]: Remove ads
+          - generic [ref=e215]:
+            - generic [ref=e217] [cursor=pointer]:
+              - generic [ref=e218]: Advertisement
+              - generic [ref=e219]: Remove Ads
+            - generic [ref=e222] [cursor=pointer]:
+              - generic [ref=e223]: Remove all ads
+              - generic [ref=e224]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+              - button "Remove ads" [ref=e225]:
+                - generic [ref=e226]: Remove ads
+  - generic:
+    - region "Notifications Alt+T"
+```
