@@ -1,0 +1,1283 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Zenless Zone Zero banner text Learn more Close":
+        - /url: https://www.google.com
+        - generic [ref=e4] [cursor=pointer]:
+          - generic [ref=e5]:
+            - paragraph [ref=e7]: Zenless Zone Zero banner text
+            - button "Learn more" [ref=e8]
+          - img "Close" [ref=e9]
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - link "Mobalytics" [ref=e12] [cursor=pointer]:
+            - /url: /zzz
+            - img "Mobalytics" [ref=e13]
+          - generic [ref=e15]:
+            - link "League of Legends LoL" [ref=e17] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/lol
+              - generic [ref=e19]:
+                - img "League of Legends" [ref=e20]
+                - generic [ref=e21]: LoL
+            - link "Teamfight Tactics TFT" [ref=e23] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/tft
+              - generic [ref=e25]:
+                - img "Teamfight Tactics" [ref=e26]
+                - generic [ref=e27]: TFT
+            - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/diablo-4
+              - generic [ref=e31]:
+                - img "Diablo 4" [ref=e32]
+                - generic [ref=e33]: Diablo 4
+            - link "Path of Exile 2 PoE 2" [ref=e35] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe-2
+              - generic [ref=e37]:
+                - img "Path of Exile 2" [ref=e38]
+                - generic [ref=e39]: PoE 2
+            - link "Path of Exile PoE" [ref=e41] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe
+              - generic [ref=e43]:
+                - img "Path of Exile" [ref=e44]
+                - generic [ref=e45]: PoE
+            - link "Destiny 2 Destiny 2" [ref=e47] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/destiny-2
+              - generic [ref=e49]:
+                - img "Destiny 2" [ref=e50]
+                - generic [ref=e51]: Destiny 2
+            - link "Marathon Marathon" [ref=e53] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/marathon
+              - generic [ref=e55]:
+                - img "Marathon" [ref=e56]
+                - generic [ref=e57]: Marathon
+            - link "Slay the Spire 2 STS 2 New" [ref=e59] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/slay-the-spire-2
+              - generic [ref=e61]:
+                - img "Slay the Spire 2" [ref=e62]
+                - generic [ref=e63]: STS 2
+                - generic [ref=e65]: New
+            - link "Deadlock Deadlock" [ref=e67] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/deadlock
+              - generic [ref=e69]:
+                - img "Deadlock" [ref=e70]
+                - generic [ref=e71]: Deadlock
+            - link "Overwatch Overwatch" [ref=e73] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/overwatch
+              - generic [ref=e75]:
+                - img "Overwatch" [ref=e76]
+                - generic [ref=e77]: Overwatch
+            - link "Borderlands 4 Borderlands 4" [ref=e79] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/borderlands-4
+              - generic [ref=e81]:
+                - img "Borderlands 4" [ref=e82]
+                - generic [ref=e83]: Borderlands 4
+            - link "Valorant VAL" [ref=e85] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/valorant
+              - generic [ref=e87]:
+                - img "Valorant" [ref=e88]
+                - generic [ref=e89]: VAL
+            - 'link "Arknights: Endfield Endfield" [ref=e91] [cursor=pointer]':
+              - /url: https://stg.mobalytics.gg/arknights-endfield
+              - generic [ref=e93]:
+                - 'img "Arknights: Endfield" [ref=e94]'
+                - generic [ref=e95]: Endfield
+            - link "Elden Ring Nightreign Nightreign" [ref=e97] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+              - generic [ref=e99]:
+                - img "Elden Ring Nightreign" [ref=e100]
+                - generic [ref=e101]: Nightreign
+            - button [ref=e102] [cursor=pointer]:
+              - img [ref=e103]
+            - generic:
+              - link "Monster Hunter Wilds Monster Hunter Wilds":
+                - /url: https://stg.mobalytics.gg/mhw
+                - generic:
+                  - generic:
+                    - img "Monster Hunter Wilds"
+                    - generic: Monster Hunter Wilds
+            - generic:
+              - link "The Bazaar The Bazaar":
+                - /url: https://stg.mobalytics.gg/the-bazaar
+                - generic:
+                  - generic:
+                    - img "The Bazaar"
+                    - generic: The Bazaar
+            - generic:
+              - link "Hades 2 Hades 2":
+                - /url: https://stg.mobalytics.gg/hades-2
+                - generic:
+                  - generic:
+                    - img "Hades 2"
+                    - generic: Hades 2
+            - generic:
+              - link "Marvel Rivals Marvel Rivals":
+                - /url: https://stg.mobalytics.gg/marvel-rivals
+                - generic:
+                  - generic:
+                    - img "Marvel Rivals"
+                    - generic: Marvel Rivals
+            - generic:
+              - link "Zenless Zone Zero ZZZ":
+                - /url: https://stg.mobalytics.gg/zzz
+                - generic:
+                  - generic:
+                    - img "Zenless Zone Zero"
+                    - generic: ZZZ
+            - generic:
+              - link "2XKO 2XKO":
+                - /url: https://stg.mobalytics.gg/2xko
+                - generic:
+                  - generic:
+                    - img "2XKO"
+                    - generic: 2XKO
+            - generic:
+              - link "Riftbound Riftbound":
+                - /url: https://stg.mobalytics.gg/riftbound
+                - generic:
+                  - generic:
+                    - img "Riftbound"
+                    - generic: Riftbound
+            - generic:
+              - link "Example game ExG":
+                - /url: https://stg.mobalytics.gg/example-game
+                - generic:
+                  - generic:
+                    - img "Example game"
+                    - generic: ExG
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - link "DOWNLOAD APP" [ref=e106] [cursor=pointer]:
+              - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-zzz&utm_medium=homepage&utm_source=web
+              - button "DOWNLOAD APP" [ref=e108]:
+                - img [ref=e109]
+                - text: DOWNLOAD APP
+            - link "News" [ref=e111] [cursor=pointer]:
+              - /url: /news
+              - generic [ref=e112]: News
+          - generic [ref=e113]:
+            - button "sign in" [ref=e114] [cursor=pointer]:
+              - generic [ref=e115]: sign in
+            - img "support" [ref=e119] [cursor=pointer]
+        - generic [ref=e121]:
+          - link "Home" [ref=e124] [cursor=pointer]:
+            - /url: /zzz
+            - img "Home" [ref=e126]
+          - link "Profile" [ref=e129] [cursor=pointer]:
+            - /url: /zzz/profile
+            - img "Profile" [ref=e131]
+          - link "Characters" [ref=e134] [cursor=pointer]:
+            - /url: /zzz/characters
+            - img "Characters" [ref=e136]
+          - link "Builds" [ref=e139] [cursor=pointer]:
+            - /url: /zzz/builds
+            - img "Builds" [ref=e141]
+          - link "Teams" [ref=e144] [cursor=pointer]:
+            - /url: /zzz/teams
+            - img "Teams" [ref=e146]
+          - link "Tier List" [ref=e149] [cursor=pointer]:
+            - /url: /zzz/tier-list
+            - img "Tier List" [ref=e151]
+          - link "W-Engines" [ref=e154] [cursor=pointer]:
+            - /url: /zzz/w-engines
+            - img "W-Engines" [ref=e156]
+          - link "Drive Discs" [ref=e159] [cursor=pointer]:
+            - /url: /zzz/drive-discs
+            - img "Drive Discs" [ref=e161]
+          - link "Bangboos" [ref=e164] [cursor=pointer]:
+            - /url: /zzz/bangboos
+            - img "Bangboos" [ref=e166]
+          - link "Guides" [ref=e169] [cursor=pointer]:
+            - /url: /zzz/guides
+            - img "Guides" [ref=e171]
+        - generic [ref=e173]:
+          - main [ref=e174]:
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - button "Page Header <H1>" [ref=e180]:
+                  - generic [ref=e186]:
+                    - img [ref=e188]
+                    - heading "Page Header <H1>" [level=1] [ref=e189]
+                - generic [ref=e192]:
+                  - generic [ref=e193]:
+                    - heading "Rich Text V2" [level=2] [ref=e197]
+                    - generic [ref=e202]:
+                      - paragraph [ref=e203]: "123"
+                      - paragraph [ref=e207]:
+                        - generic [ref=e212]: Avocaboo
+                  - link "Promo Banner Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium. Button" [ref=e214] [cursor=pointer]:
+                    - /url: /
+                    - generic [ref=e217]:
+                      - generic [ref=e218]:
+                        - paragraph [ref=e219]: Promo Banner
+                        - paragraph [ref=e220]: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+                      - button "Button" [ref=e222]: Button
+                  - generic [ref=e225]:
+                    - generic [ref=e230]:
+                      - generic [ref=e234]:
+                        - img [ref=e235]
+                        - textbox "search by name" [ref=e237]:
+                          - /placeholder: Search...
+                      - generic "select" [ref=e239]:
+                        - generic [ref=e240]:
+                          - textbox [ref=e241]
+                          - combobox [ref=e243]
+                        - button "Verified" [ref=e246] [cursor=pointer]:
+                          - generic [ref=e247]: Verified
+                          - img [ref=e249]
+                      - generic "select" [ref=e252]:
+                        - generic [ref=e253]:
+                          - textbox [ref=e254]
+                          - combobox [ref=e256]
+                        - button "Featured" [ref=e259] [cursor=pointer]:
+                          - generic [ref=e260]: Featured
+                          - img [ref=e262]
+                      - generic "select" [ref=e265]:
+                        - generic [ref=e266]:
+                          - textbox [ref=e267]
+                          - combobox [ref=e269]
+                        - button "Trending" [ref=e272] [cursor=pointer]:
+                          - generic [ref=e273]: Trending
+                          - img [ref=e275]
+                      - generic "select" [ref=e278]:
+                        - generic [ref=e279]:
+                          - textbox [ref=e280]
+                          - combobox [ref=e282]
+                        - button "All time" [ref=e285] [cursor=pointer]:
+                          - generic [ref=e286]: All time
+                          - img [ref=e288]
+                    - generic [ref=e291]:
+                      - generic [ref=e294] [cursor=pointer]:
+                        - link [ref=e295]:
+                          - /url: /zzz/profile/kototina/builds/fir-fir-fir
+                        - generic [ref=e297]:
+                          - generic [ref=e298]: Fir-fir-fir
+                          - generic [ref=e299]:
+                            - text: By
+                            - link "Porring" [ref=e300]:
+                              - /url: /zzz/profile/kototina
+                            - text: ∙
+                            - generic [ref=e301]: Updated on
+                            - generic [ref=e302]: Nov 18, 2025
+                        - generic [ref=e305]:
+                          - button "1 Favorite" [ref=e306]:
+                            - img [ref=e307]
+                            - text: 1 Favorite
+                          - button "Share" [ref=e308]:
+                            - img [ref=e309]
+                            - text: Share
+                      - generic [ref=e312] [cursor=pointer]:
+                        - link [ref=e313]:
+                          - /url: /zzz/profile/hugebeam/builds/cbf01bb5-f7db-460b-b277-e47cf8870d63
+                        - generic [ref=e315]:
+                          - generic [ref=e316]: /qa-automation-build-page-fac21db3-98ed-4638-84f0-c1bfa7dc1879
+                          - generic [ref=e317]:
+                            - text: By
+                            - link "admin+stg+ns@mobalyticshq.com" [ref=e318]:
+                              - /url: /zzz/profile/hugebeam
+                            - text: ∙
+                            - generic [ref=e319]: Updated on
+                            - generic [ref=e320]: Oct 29, 2025
+                        - generic [ref=e323]:
+                          - button "Add to Favorites" [ref=e324]:
+                            - img [ref=e325]
+                            - text: Add to Favorites
+                          - button "Share" [ref=e326]:
+                            - img [ref=e327]
+                            - text: Share
+                      - generic [ref=e330] [cursor=pointer]:
+                        - link [ref=e331]:
+                          - /url: /zzz/profile/legendary-roma-bbd9c539/builds/887da588-eb56-4c71-b928-384698569dd1
+                        - generic [ref=e333]:
+                          - generic [ref=e334]: My Build Published
+                          - generic [ref=e335]:
+                            - text: By
+                            - link "Anastasiia Sidorenko" [ref=e336]:
+                              - /url: /zzz/profile/legendary-roma-bbd9c539
+                            - text: ∙
+                            - generic [ref=e337]: Updated on
+                            - generic [ref=e338]: Oct 27, 2025
+                        - generic [ref=e341]:
+                          - button "Add to Favorites" [ref=e342]:
+                            - img [ref=e343]
+                            - text: Add to Favorites
+                          - button "Share" [ref=e344]:
+                            - img [ref=e345]
+                            - text: Share
+                      - generic [ref=e348] [cursor=pointer]:
+                        - link [ref=e349]:
+                          - /url: /zzz/profile/great-ilia-070f8f10/builds/231b0764-8f82-4bab-b739-33dbf420a020
+                        - generic [ref=e351]:
+                          - generic [ref=e352]: My Build 123
+                          - generic [ref=e353]:
+                            - text: By
+                            - link "anastas" [ref=e354]:
+                              - /url: /zzz/profile/great-ilia-070f8f10
+                            - text: ∙
+                            - generic [ref=e355]: Updated on
+                            - generic [ref=e356]: Oct 23, 2025
+                        - generic [ref=e359]:
+                          - button "Add to Favorites" [ref=e360]:
+                            - img [ref=e361]
+                            - text: Add to Favorites
+                          - button "Share" [ref=e362]:
+                            - img [ref=e363]
+                            - text: Share
+                      - generic [ref=e366] [cursor=pointer]:
+                        - link [ref=e367]:
+                          - /url: /zzz/profile/16434e54-be01-498d-a86d-1fd405cb46a6/builds/f2c50057-86c0-4015-8635-4f0e8be5b7c9
+                        - generic [ref=e369]:
+                          - generic [ref=e370]: My Build
+                          - generic [ref=e371]:
+                            - text: By
+                            - link:
+                              - /url: /zzz/profile/16434e54-be01-498d-a86d-1fd405cb46a6
+                            - text: ∙
+                            - generic [ref=e372]: Updated on
+                            - generic [ref=e373]: Oct 3, 2025
+                        - generic [ref=e376]:
+                          - button "Add to Favorites" [ref=e377]:
+                            - img [ref=e378]
+                            - text: Add to Favorites
+                          - button "Share" [ref=e379]:
+                            - img [ref=e380]
+                            - text: Share
+                      - button "Show more" [ref=e381] [cursor=pointer]
+                  - heading "ZZZ Page Header <H1>" [level=1] [ref=e387]:
+                    - generic [ref=e388]: ZZZ
+                    - generic [ref=e389]: Page Header <H1>
+                  - generic [ref=e390]:
+                    - heading "Document Feed V2" [level=2] [ref=e394]
+                    - generic [ref=e397]:
+                      - generic [ref=e402] [cursor=pointer]:
+                        - link [ref=e403]:
+                          - /url: /zzz/builds/dima-molodec1
+                        - generic [ref=e405]:
+                          - generic [ref=e406]: Privetic
+                          - generic [ref=e407]:
+                            - text: By
+                            - link "Porring" [ref=e408]:
+                              - /url: /zzz/profile/kototina
+                            - text: ∙
+                            - generic [ref=e409]: Jul 11, 2025
+                        - generic [ref=e411]:
+                          - generic [ref=e412]: Creator
+                          - generic [ref=e413]: Featured
+                      - generic [ref=e418] [cursor=pointer]:
+                        - link [ref=e419]:
+                          - /url: /zzz/builds/2345324524
+                        - generic [ref=e421]:
+                          - generic [ref=e422]: f My New Build
+                          - generic [ref=e423]:
+                            - text: By
+                            - link "Vitaliy Sharshunov" [ref=e424]:
+                              - /url: /zzz/profile/pro-dima-1321a783
+                            - text: ∙
+                            - generic [ref=e425]: Jun 13, 2025
+                  - generic [ref=e427]:
+                    - heading "Discovery Preview Compact V2" [level=2] [ref=e431]
+                    - generic [ref=e433]:
+                      - generic [ref=e435] [cursor=pointer]:
+                        - link [ref=e436]:
+                          - /url: /zzz/builds/dima-molodec1
+                        - generic [ref=e440]:
+                          - generic [ref=e441]: Privetic
+                          - generic [ref=e442]: Updated on Jul 11, 2025
+                      - generic [ref=e445] [cursor=pointer]:
+                        - link [ref=e446]:
+                          - /url: /zzz/builds/2345324524
+                        - generic [ref=e450]:
+                          - generic [ref=e451]: f My New Build
+                          - generic [ref=e452]: Updated on Jun 13, 2025
+                  - generic [ref=e454]:
+                    - heading "Discovery Preview V2" [level=2] [ref=e458]
+                    - generic [ref=e460]:
+                      - generic [ref=e463] [cursor=pointer]:
+                        - link [ref=e464]:
+                          - /url: /zzz/builds/dima-molodec1
+                        - generic [ref=e466]:
+                          - generic [ref=e467]: Privetic
+                          - generic [ref=e468]:
+                            - text: By
+                            - link "Porring" [ref=e469]:
+                              - /url: /zzz/profile/kototina
+                            - text: ∙
+                            - generic [ref=e470]: Updated on
+                            - generic [ref=e471]: Jul 11, 2025
+                        - generic [ref=e472]:
+                          - generic [ref=e474]:
+                            - button "1 Favorite" [ref=e475]:
+                              - img [ref=e476]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e477]:
+                              - img [ref=e478]
+                              - text: Share
+                          - generic [ref=e479]:
+                            - generic [ref=e480]: Creator
+                            - generic [ref=e481]: Featured
+                      - generic [ref=e484] [cursor=pointer]:
+                        - link [ref=e485]:
+                          - /url: /zzz/builds/2345324524
+                        - generic [ref=e487]:
+                          - generic [ref=e488]: f My New Build
+                          - generic [ref=e489]:
+                            - text: By
+                            - link "Vitaliy Sharshunov" [ref=e490]:
+                              - /url: /zzz/profile/pro-dima-1321a783
+                            - text: ∙
+                            - generic [ref=e491]: Updated on
+                            - generic [ref=e492]: Jun 13, 2025
+                        - generic [ref=e495]:
+                          - button "1 Favorite" [ref=e496]:
+                            - img [ref=e497]
+                            - text: 1 Favorite
+                          - button "Share" [ref=e498]:
+                            - img [ref=e499]
+                            - text: Share
+                  - generic [ref=e502]:
+                    - generic [ref=e507]:
+                      - generic [ref=e511]:
+                        - img [ref=e512]
+                        - textbox "search by name" [ref=e514]:
+                          - /placeholder: Search...
+                      - generic "select" [ref=e516]:
+                        - generic [ref=e517]:
+                          - textbox [ref=e518]
+                          - combobox [ref=e520]
+                        - button "Element" [ref=e523] [cursor=pointer]:
+                          - generic [ref=e524]: Element
+                          - img [ref=e526]
+                      - radiogroup [ref=e530]:
+                        - generic [ref=e534] [cursor=pointer]:
+                          - radio "Any" [checked] [ref=e536]
+                          - generic [ref=e538]: Any
+                        - generic [ref=e541] [cursor=pointer]:
+                          - radio "S Rank" [ref=e543]
+                          - generic [ref=e545]: S Rank
+                        - generic [ref=e548] [cursor=pointer]:
+                          - radio "A Rank" [ref=e550]
+                          - generic [ref=e552]: A Rank
+                        - generic [ref=e554] [cursor=pointer]:
+                          - radio "B Rank" [ref=e556]
+                          - generic [ref=e558]: B Rank
+                      - radiogroup [ref=e561]:
+                        - generic [ref=e565] [cursor=pointer]:
+                          - radio "Any" [checked] [ref=e567]
+                          - generic [ref=e569]: Any
+                        - generic [ref=e572] [cursor=pointer]:
+                          - radio "Attack" [ref=e574]
+                          - generic [ref=e576]: Attack
+                        - generic [ref=e579] [cursor=pointer]:
+                          - radio "Defense" [ref=e581]
+                          - generic [ref=e583]: Defense
+                        - generic [ref=e586] [cursor=pointer]:
+                          - radio "Anomaly" [ref=e588]
+                          - generic [ref=e590]: Anomaly
+                        - generic [ref=e593] [cursor=pointer]:
+                          - radio "Stun" [ref=e595]
+                          - generic [ref=e597]: Stun
+                        - generic [ref=e600] [cursor=pointer]:
+                          - radio "Support" [ref=e602]
+                          - generic [ref=e604]: Support
+                        - generic [ref=e606] [cursor=pointer]:
+                          - radio "Rupture" [ref=e608]
+                          - generic [ref=e610]: Rupture
+                      - generic "select" [ref=e612]:
+                        - generic [ref=e613]:
+                          - textbox [ref=e614]
+                          - combobox [ref=e616]
+                        - button "Attack Type" [ref=e619] [cursor=pointer]:
+                          - generic [ref=e620]: Attack Type
+                          - img [ref=e622]
+                      - generic "select" [ref=e625]:
+                        - generic [ref=e626]:
+                          - textbox [ref=e627]
+                          - combobox [ref=e629]
+                        - button "Camp" [ref=e632] [cursor=pointer]:
+                          - generic [ref=e633]: Camp
+                          - img [ref=e635]
+                    - generic [ref=e639]:
+                      - generic [ref=e644]:
+                        - generic [ref=e649]:
+                          - paragraph [ref=e650]: Alice
+                          - paragraph [ref=e651]: Agent
+                        - generic [ref=e652]:
+                          - generic [ref=e653]:
+                            - img "presentation" [ref=e654]
+                            - text: S Rank
+                          - generic [ref=e655]:
+                            - img "presentation" [ref=e656]
+                            - text: Physical
+                          - generic [ref=e657]:
+                            - img "presentation" [ref=e658]
+                            - text: Anomaly
+                          - generic [ref=e659]:
+                            - img "presentation" [ref=e660]
+                            - text: Spook Shack
+                      - generic [ref=e665]:
+                        - generic [ref=e670]:
+                          - paragraph [ref=e671]: Anby
+                          - paragraph [ref=e672]: Agent
+                        - generic [ref=e673]:
+                          - generic [ref=e674]:
+                            - img "presentation" [ref=e675]
+                            - text: A Rank
+                          - generic [ref=e676]:
+                            - img "presentation" [ref=e677]
+                            - text: Electric
+                          - generic [ref=e678]:
+                            - img "presentation" [ref=e679]
+                            - text: Stun
+                          - generic [ref=e680]:
+                            - img "presentation" [ref=e681]
+                            - text: Cunning Hares
+                      - generic [ref=e686]:
+                        - generic [ref=e691]:
+                          - paragraph [ref=e692]: Anton
+                          - paragraph [ref=e693]: Agent
+                        - generic [ref=e694]:
+                          - generic [ref=e695]:
+                            - img "presentation" [ref=e696]
+                            - text: A Rank
+                          - generic [ref=e697]:
+                            - img "presentation" [ref=e698]
+                            - text: Electric
+                          - generic [ref=e699]:
+                            - img "presentation" [ref=e700]
+                            - text: Attack
+                          - generic [ref=e701]:
+                            - img "presentation" [ref=e702]
+                            - text: Belobog Heavy Industries
+                      - generic [ref=e707]:
+                        - generic [ref=e712]:
+                          - paragraph [ref=e713]: Aria
+                          - paragraph [ref=e714]: Agent
+                        - generic [ref=e715]:
+                          - generic [ref=e716]:
+                            - img "presentation" [ref=e717]
+                            - text: S Rank
+                          - generic [ref=e718]:
+                            - img "presentation" [ref=e719]
+                            - text: Ether
+                          - generic [ref=e720]:
+                            - img "presentation" [ref=e721]
+                            - text: Anomaly
+                          - generic [ref=e722]:
+                            - img "presentation" [ref=e723]
+                            - text: Angels of Delusion
+                      - generic [ref=e728]:
+                        - generic [ref=e733]:
+                          - paragraph [ref=e734]: Astra Yao
+                          - paragraph [ref=e735]: Agent
+                        - generic [ref=e736]:
+                          - generic [ref=e737]:
+                            - img "presentation" [ref=e738]
+                            - text: S Rank
+                          - generic [ref=e739]:
+                            - img "presentation" [ref=e740]
+                            - text: Ether
+                          - generic [ref=e741]:
+                            - img "presentation" [ref=e742]
+                            - text: Support
+                          - generic [ref=e743]:
+                            - img "presentation" [ref=e744]
+                            - text: Stars Of Lyra
+                      - generic [ref=e749]:
+                        - generic [ref=e754]:
+                          - paragraph [ref=e755]: Banyue
+                          - paragraph [ref=e756]: Agent
+                        - generic [ref=e757]:
+                          - generic [ref=e758]:
+                            - img "presentation" [ref=e759]
+                            - text: S Rank
+                          - generic [ref=e760]:
+                            - img "presentation" [ref=e761]
+                            - text: Fire
+                          - generic [ref=e762]:
+                            - img "presentation" [ref=e763]
+                            - text: Rupture
+                          - generic [ref=e764]:
+                            - img "presentation" [ref=e765]
+                            - text: Krampus Compliance Authority
+                      - generic [ref=e770]:
+                        - generic [ref=e775]:
+                          - paragraph [ref=e776]: Ben
+                          - paragraph [ref=e777]: Agent
+                        - generic [ref=e778]:
+                          - generic [ref=e779]:
+                            - img "presentation" [ref=e780]
+                            - text: A Rank
+                          - generic [ref=e781]:
+                            - img "presentation" [ref=e782]
+                            - text: Fire
+                          - generic [ref=e783]:
+                            - img "presentation" [ref=e784]
+                            - text: Defense
+                          - generic [ref=e785]:
+                            - img "presentation" [ref=e786]
+                            - text: Belobog Heavy Industries
+                      - generic [ref=e791]:
+                        - generic [ref=e796]:
+                          - paragraph [ref=e797]: Billy
+                          - paragraph [ref=e798]: Agent
+                        - generic [ref=e799]:
+                          - generic [ref=e800]:
+                            - img "presentation" [ref=e801]
+                            - text: A Rank
+                          - generic [ref=e802]:
+                            - img "presentation" [ref=e803]
+                            - text: Physical
+                          - generic [ref=e804]:
+                            - img "presentation" [ref=e805]
+                            - text: Attack
+                          - generic [ref=e806]:
+                            - img "presentation" [ref=e807]
+                            - text: Cunning Hares
+                      - generic [ref=e812]:
+                        - generic [ref=e817]:
+                          - paragraph [ref=e818]: Burnice
+                          - paragraph [ref=e819]: Agent
+                        - generic [ref=e820]:
+                          - generic [ref=e821]:
+                            - img "presentation" [ref=e822]
+                            - text: S Rank
+                          - generic [ref=e823]:
+                            - img "presentation" [ref=e824]
+                            - text: Fire
+                          - generic [ref=e825]:
+                            - img "presentation" [ref=e826]
+                            - text: Anomaly
+                          - generic [ref=e827]:
+                            - img "presentation" [ref=e828]
+                            - text: Sons of Calydon
+                      - generic [ref=e833]:
+                        - generic [ref=e838]:
+                          - paragraph [ref=e839]: Caesar
+                          - paragraph [ref=e840]: Agent
+                        - generic [ref=e841]:
+                          - generic [ref=e842]:
+                            - img "presentation" [ref=e843]
+                            - text: S Rank
+                          - generic [ref=e844]:
+                            - img "presentation" [ref=e845]
+                            - text: Physical
+                          - generic [ref=e846]:
+                            - img "presentation" [ref=e847]
+                            - text: Defense
+                          - generic [ref=e848]:
+                            - img "presentation" [ref=e849]
+                            - text: Sons of Calydon
+                      - generic [ref=e854]:
+                        - generic [ref=e859]:
+                          - paragraph [ref=e860]: Corin
+                          - paragraph [ref=e861]: Agent
+                        - generic [ref=e862]:
+                          - generic [ref=e863]:
+                            - img "presentation" [ref=e864]
+                            - text: A Rank
+                          - generic [ref=e865]:
+                            - img "presentation" [ref=e866]
+                            - text: Physical
+                          - generic [ref=e867]:
+                            - img "presentation" [ref=e868]
+                            - text: Attack
+                          - generic [ref=e869]:
+                            - img "presentation" [ref=e870]
+                            - text: Victoria Housekeeping Co.
+                      - generic [ref=e875]:
+                        - generic [ref=e880]:
+                          - paragraph [ref=e881]: Dialyn
+                          - paragraph [ref=e882]: Agent
+                        - generic [ref=e883]:
+                          - generic [ref=e884]:
+                            - img "presentation" [ref=e885]
+                            - text: S Rank
+                          - generic [ref=e886]:
+                            - img "presentation" [ref=e887]
+                            - text: Physical
+                          - generic [ref=e888]:
+                            - img "presentation" [ref=e889]
+                            - text: Stun
+                          - generic [ref=e890]:
+                            - img "presentation" [ref=e891]
+                            - text: Krampus Compliance Authority
+                    - button "Show more" [ref=e892] [cursor=pointer]
+                  - generic [ref=e893]:
+                    - generic [ref=e894]:
+                      - heading "Content Variants" [level=2] [ref=e898]
+                      - tablist [ref=e902]:
+                        - tablist [ref=e904]:
+                          - tab "Default" [selected] [ref=e905] [cursor=pointer]:
+                            - generic [ref=e906]: Default
+                          - tab "2" [ref=e908] [cursor=pointer]:
+                            - generic [ref=e909]: "2"
+                    - generic [ref=e913]:
+                      - generic [ref=e918]:
+                        - generic [ref=e922]:
+                          - img [ref=e923]
+                          - textbox "search by name" [ref=e925]:
+                            - /placeholder: Search...
+                        - generic "select" [ref=e927]:
+                          - generic [ref=e928]:
+                            - textbox [ref=e929]
+                            - combobox [ref=e931]
+                          - button "Rarity" [ref=e934] [cursor=pointer]:
+                            - generic [ref=e935]: Rarity
+                            - img [ref=e937]
+                        - generic "select" [ref=e940]:
+                          - generic [ref=e941]:
+                            - textbox [ref=e942]
+                            - combobox [ref=e944]
+                          - button "Weapon Type" [ref=e947] [cursor=pointer]:
+                            - generic [ref=e948]: Weapon Type
+                            - img [ref=e950]
+                      - tablist [ref=e954]:
+                        - tablist [ref=e956]:
+                          - tab "Default" [selected] [ref=e957] [cursor=pointer]:
+                            - generic [ref=e958]: Default
+                          - tab "2" [ref=e960] [cursor=pointer]:
+                            - generic [ref=e961]: "2"
+                      - generic [ref=e964]:
+                        - generic [ref=e969]:
+                          - generic [ref=e974]:
+                            - paragraph [ref=e975]: Angel in the Shell
+                            - paragraph [ref=e976]: W-Engine
+                          - generic [ref=e977]:
+                            - generic [ref=e978]:
+                              - img "presentation" [ref=e979]
+                              - text: S Rank
+                            - generic [ref=e980]:
+                              - img "presentation" [ref=e981]
+                              - text: Anomaly
+                          - paragraph [ref=e982]: "Increases the equipper's Anomaly Proficiency by 90/103/117/130/144. When the equipper is an Ether character, and comes on-field or uses a Special Attack or EX Special Attack, they gain a buff: DMG dealt to enemies afflicted with Attribute Anomalies increases by 20/23/26/29/32%, and all Attribute Anomaly DMG they trigger increases by 10/11.5/13/14.5/16%, lasting 15s. Repeated triggers reset the duration, and the effect is removed when switching off-field."
+                        - generic [ref=e987]:
+                          - generic [ref=e992]:
+                            - paragraph [ref=e993]: Bashful Demon
+                            - paragraph [ref=e994]: W-Engine
+                          - generic [ref=e995]:
+                            - generic [ref=e996]:
+                              - img "presentation" [ref=e997]
+                              - text: A Rank
+                            - generic [ref=e998]:
+                              - img "presentation" [ref=e999]
+                              - text: Support
+                          - paragraph [ref=e1000]: Increases Ice DMG by 15%/17.5%/20%/22%/24%. When launching an EX Special Attack, all squad members ' ATK increases by 2%/2.3%/2.6%/2.9%/3.2% for 12s, stacking up to 4 times. Repeated triggers reset the duration. Passive effects of the same name do not stack.
+                          - generic [ref=e1001]:
+                            - generic [ref=e1002]:
+                              - generic [ref=e1003]: Stat (LVL. 60)
+                              - generic [ref=e1004]: Value
+                            - generic [ref=e1005]:
+                              - generic [ref=e1006]: Base ATK
+                              - generic [ref=e1007]: "624"
+                            - generic [ref=e1008]:
+                              - generic [ref=e1009]: ATK
+                              - generic [ref=e1010]: 25%
+                        - generic [ref=e1015]:
+                          - generic [ref=e1020]:
+                            - paragraph [ref=e1021]: Bellicose Blaze
+                            - paragraph [ref=e1022]: W-Engine
+                          - generic [ref=e1023]:
+                            - generic [ref=e1024]:
+                              - img "presentation" [ref=e1025]
+                              - text: S Rank
+                            - generic [ref=e1026]:
+                              - img "presentation" [ref=e1027]
+                              - text: Attack
+                          - paragraph [ref=e1028]: Increases CRIT Rate by 20%/23%/26%/29%/32%././././. When the equipper triggers an Aftershock that deals Fire DMG, their attacks ignore 15%/17.2%/19.5%/21.7%/24% of the target's DEF for 8/8/8/8/8s././././. Can stack once every 3/3/3/3/3s, up to 2/2/2/2/2 stacks././././. Repeated triggers reset the duration././././.
+                          - generic [ref=e1029]:
+                            - generic [ref=e1030]:
+                              - generic [ref=e1031]: Stat (LVL. 60)
+                              - generic [ref=e1032]: Value
+                            - generic [ref=e1033]:
+                              - generic [ref=e1034]: Base ATK
+                              - generic [ref=e1035]: "713"
+                            - generic [ref=e1036]:
+                              - generic [ref=e1037]: Energy Regen
+                              - generic [ref=e1038]: 60%
+                        - generic [ref=e1043]:
+                          - generic [ref=e1048]:
+                            - paragraph [ref=e1049]: Big Cylinder
+                            - paragraph [ref=e1050]: W-Engine
+                          - generic [ref=e1051]:
+                            - generic [ref=e1052]:
+                              - img "presentation" [ref=e1053]
+                              - text: A Rank
+                            - generic [ref=e1054]:
+                              - img "presentation" [ref=e1055]
+                              - text: Defense
+                          - paragraph [ref=e1056]: Reduces DMG taken by 7.5%/8.5%/9.5%/10.5%/12%. After being attacked, the next attack to hit an enemy will trigger a critical hit and deal 600%/690%/780%/870%/960% of the equipper's DEF as additional DMG. This effect can be triggered once every 7.5s.
+                          - generic [ref=e1057]:
+                            - generic [ref=e1058]:
+                              - generic [ref=e1059]: Stat (LVL. 60)
+                              - generic [ref=e1060]: Value
+                            - generic [ref=e1061]:
+                              - generic [ref=e1062]: Base ATK
+                              - generic [ref=e1063]: "624"
+                            - generic [ref=e1064]:
+                              - generic [ref=e1065]: DEF
+                              - generic [ref=e1066]: 40%
+                        - generic [ref=e1071]:
+                          - generic [ref=e1076]:
+                            - paragraph [ref=e1077]: Blazing Laurel
+                            - paragraph [ref=e1078]: W-Engine
+                          - generic [ref=e1079]:
+                            - generic [ref=e1080]:
+                              - img "presentation" [ref=e1081]
+                              - text: S Rank
+                            - generic [ref=e1082]:
+                              - img "presentation" [ref=e1083]
+                              - text: Stun
+                          - paragraph [ref=e1084]: Upon launching a Quick Assist or Perfect Assist, the equipper's Impact increases by 25%/28.75%/32.5%/36.25%/40% for 8s. When the equipper launches and hits an enemy with a Basic Attack, apply Wilt to the target for 30s, stacking up to 20 times, repeated triggers reset the duration. When any squad member hits an enemy, for every stack of Wilt applied to the target, the CRIT DMG of the Ice DMG and Fire DMG dealt by that attack increases by 1.5%/1.72%/1.95%/2.17%/2.4%. Only one instance of this effect can exist in the same squad.
+                          - generic [ref=e1085]:
+                            - generic [ref=e1086]:
+                              - generic [ref=e1087]: Stat (LVL. 60)
+                              - generic [ref=e1088]: Value
+                            - generic [ref=e1089]:
+                              - generic [ref=e1090]: Base ATK
+                              - generic [ref=e1091]: "713"
+                            - generic [ref=e1092]:
+                              - generic [ref=e1093]: Impact
+                              - generic [ref=e1094]: 18%
+                        - generic [ref=e1099]:
+                          - generic [ref=e1104]:
+                            - paragraph [ref=e1105]: Box Cutter
+                            - paragraph [ref=e1106]: W-Engine
+                          - generic [ref=e1107]:
+                            - generic [ref=e1108]:
+                              - img "presentation" [ref=e1109]
+                              - text: A Rank
+                            - generic [ref=e1110]:
+                              - img "presentation" [ref=e1111]
+                              - text: Stun
+                          - paragraph [ref=e1112]: Upon launching an Aftershock, the equipper's Physical DMG increases by 15%/17.3%/19.5%/21.8%/24%, and Daze increases by 10%/11.5%/13%/14.5%/16%, lasting 10s.
+                          - generic [ref=e1113]:
+                            - generic [ref=e1114]:
+                              - generic [ref=e1115]: Stat (LVL. 60)
+                              - generic [ref=e1116]: Value
+                            - generic [ref=e1117]:
+                              - generic [ref=e1118]: Base ATK
+                              - generic [ref=e1119]: "624"
+                            - generic [ref=e1120]:
+                              - generic [ref=e1121]: Impact
+                              - generic [ref=e1122]: 15%
+                        - generic [ref=e1127]:
+                          - generic [ref=e1132]:
+                            - paragraph [ref=e1133]: Bunny Band
+                            - paragraph [ref=e1134]: W-Engine
+                          - generic [ref=e1135]:
+                            - generic [ref=e1136]:
+                              - img "presentation" [ref=e1137]
+                              - text: A Rank
+                            - generic [ref=e1138]:
+                              - img "presentation" [ref=e1139]
+                              - text: Defense
+                          - paragraph [ref=e1140]: Increases Max HP by 8%/9.2%/10.4%/11.6%/12.8%. Increases the equipper's ATK by 10%/11.5%/13%/14.5%/16% when they are shielded.
+                          - generic [ref=e1141]:
+                            - generic [ref=e1142]:
+                              - generic [ref=e1143]: Stat (LVL. 60)
+                              - generic [ref=e1144]: Value
+                            - generic [ref=e1145]:
+                              - generic [ref=e1146]: Base ATK
+                              - generic [ref=e1147]: "594"
+                            - generic [ref=e1148]:
+                              - generic [ref=e1149]: DEF
+                              - generic [ref=e1150]: 40%
+                        - generic [ref=e1155]:
+                          - generic [ref=e1160]:
+                            - paragraph [ref=e1161]: Cannon Rotor
+                            - paragraph [ref=e1162]: W-Engine
+                          - generic [ref=e1163]:
+                            - generic [ref=e1164]:
+                              - img "presentation" [ref=e1165]
+                              - text: A Rank
+                            - generic [ref=e1166]:
+                              - img "presentation" [ref=e1167]
+                              - text: Attack
+                          - paragraph [ref=e1168]: Increases ATK by 7.5%/8.6%/9.7%/10.8%/12%. Landing a critical hit on an enemy will inflict an additional 200% of ATK as DMG. This effect can trigger once every 8s./7.5s/7s./6.5s/6s.
+                          - generic [ref=e1169]:
+                            - generic [ref=e1170]:
+                              - generic [ref=e1171]: Stat (LVL. 60)
+                              - generic [ref=e1172]: Value
+                            - generic [ref=e1173]:
+                              - generic [ref=e1174]: Base ATK
+                              - generic [ref=e1175]: "594"
+                            - generic [ref=e1176]:
+                              - generic [ref=e1177]: CRIT Rate
+                              - generic [ref=e1178]: 20%
+                        - generic [ref=e1183]:
+                          - generic [ref=e1188]:
+                            - paragraph [ref=e1189]: Cauldron of Clarity
+                            - paragraph [ref=e1190]: W-Engine
+                          - generic [ref=e1191]:
+                            - generic [ref=e1192]:
+                              - img "presentation" [ref=e1193]
+                              - text: S Rank
+                            - generic [ref=e1194]:
+                              - img "presentation" [ref=e1195]
+                              - text: Rupture
+                          - paragraph [ref=e1196]: When the equipper activates an EX Special Attack, they gain 1 stack of a buff. Each stack increases the equipper's DMG by 4/4.6/5.2/5.8/6.4%, up to 3 stacks, and lasting 20s. This effect can trigger once every 0.5s, and repeated triggers reset the duration. At 3 stacks, the equipper's CRIT Rate increases by 6.5/7.5/8.5/9.4/10.4%.
+                        - generic [ref=e1201]:
+                          - generic [ref=e1206]:
+                            - paragraph [ref=e1207]: "[Cinder] Cobalt"
+                            - paragraph [ref=e1208]: W-Engine
+                          - generic [ref=e1209]:
+                            - generic [ref=e1210]:
+                              - img "presentation" [ref=e1211]
+                              - text: B Rank
+                            - generic [ref=e1212]:
+                              - img "presentation" [ref=e1213]
+                              - text: Rupture
+                          - paragraph [ref=e1214]: Upon entering combat or switching in, the equipper's ATK increases by 7.2%/8.2%/9.3%/10.4%/11.5% for 10s. This effect can trigger once every 20s.
+                          - generic [ref=e1215]:
+                            - generic [ref=e1216]:
+                              - generic [ref=e1217]: Stat (LVL. 60)
+                              - generic [ref=e1218]: Value
+                            - generic [ref=e1219]:
+                              - generic [ref=e1220]: Base ATK
+                              - generic [ref=e1221]: "475"
+                            - generic [ref=e1222]:
+                              - generic [ref=e1223]: HP
+                              - generic [ref=e1224]: 20%
+                        - generic [ref=e1229]:
+                          - generic [ref=e1234]:
+                            - paragraph [ref=e1235]: Cloudcleave Radiance
+                            - paragraph [ref=e1236]: W-Engine
+                          - generic [ref=e1237]:
+                            - generic [ref=e1238]:
+                              - img "presentation" [ref=e1239]
+                              - text: S Rank
+                            - generic [ref=e1240]:
+                              - img "presentation" [ref=e1241]
+                              - text: Attack
+                          - paragraph [ref=e1242]: The equipper's DMG ignores 20/22/24/26/28% of the target's Physical RES. When the equipper activates an Ether Veil, the equipper's DMG increases by 20/24/28/32/26% and CRIT DMG increases by 20/23/26/29/32% for 40s. Repeated triggers reset the duration.
+                        - generic [ref=e1247]:
+                          - generic [ref=e1252]:
+                            - paragraph [ref=e1253]: Cordis Germina
+                            - paragraph [ref=e1254]: W-Engine
+                          - generic [ref=e1255]:
+                            - generic [ref=e1256]:
+                              - img "presentation" [ref=e1257]
+                              - text: S Rank
+                            - generic [ref=e1258]:
+                              - img "presentation" [ref=e1259]
+                              - text: Attack
+                          - paragraph [ref=e1260]: Increases CRIT Rate by 15%/17%/19%/21%/23%. When the equipper deals DMG with a Basic Attack or EX Special Attack, they gain 1 stack of a buff. Each stack increases the equipper's Electric DMG by 12.5%/14.5%/16.5%/18.5%/20%, up to 2 stacks. Each stack lasts 40s. The duration of each stack is calculated separately. Can trigger once per use of a skill. At 2 stacks, the wearer's Basic Attack and Ultimate DMG ignore 20%/23%/26%/29%/32% of enemy DEF.
+                          - generic [ref=e1261]:
+                            - generic [ref=e1262]:
+                              - generic [ref=e1263]: Stat (LVL. 60)
+                              - generic [ref=e1264]: Value
+                            - generic [ref=e1265]:
+                              - generic [ref=e1266]: Base ATK
+                              - generic [ref=e1267]: "713"
+                            - generic [ref=e1268]:
+                              - generic [ref=e1269]: CRIT Rate
+                              - generic [ref=e1270]: 24%
+                      - button "Show more" [ref=e1271] [cursor=pointer]
+                  - generic [ref=e1272]:
+                    - heading "Cards Gallery V2" [level=2] [ref=e1276]
+                    - link "Title Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium." [ref=e1280] [cursor=pointer]:
+                      - /url: /
+                      - generic [ref=e1283]:
+                        - paragraph [ref=e1284]: Title
+                        - paragraph [ref=e1285]: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+                  - generic [ref=e1288]:
+                    - generic [ref=e1293]:
+                      - generic [ref=e1297]:
+                        - img [ref=e1298]
+                        - textbox "search by name" [ref=e1300]:
+                          - /placeholder: Search...
+                      - generic "select" [ref=e1302]:
+                        - generic [ref=e1303]:
+                          - textbox [ref=e1304]
+                          - combobox [ref=e1306]
+                        - button "Rarity" [ref=e1309] [cursor=pointer]:
+                          - generic [ref=e1310]: Rarity
+                          - img [ref=e1312]
+                      - generic "select" [ref=e1315]:
+                        - generic [ref=e1316]:
+                          - textbox [ref=e1317]
+                          - combobox [ref=e1319]
+                        - button "Weapon Type" [ref=e1322] [cursor=pointer]:
+                          - generic [ref=e1323]: Weapon Type
+                          - img [ref=e1325]
+                    - generic [ref=e1329]:
+                      - generic [ref=e1334]:
+                        - generic [ref=e1339]:
+                          - paragraph [ref=e1340]: Angel in the Shell
+                          - paragraph [ref=e1341]: W-Engine
+                        - generic [ref=e1342]:
+                          - generic [ref=e1343]:
+                            - img "presentation" [ref=e1344]
+                            - text: S Rank
+                          - generic [ref=e1345]:
+                            - img "presentation" [ref=e1346]
+                            - text: Anomaly
+                        - paragraph [ref=e1347]: "Increases the equipper's Anomaly Proficiency by 90/103/117/130/144. When the equipper is an Ether character, and comes on-field or uses a Special Attack or EX Special Attack, they gain a buff: DMG dealt to enemies afflicted with Attribute Anomalies increases by 20/23/26/29/32%, and all Attribute Anomaly DMG they trigger increases by 10/11.5/13/14.5/16%, lasting 15s. Repeated triggers reset the duration, and the effect is removed when switching off-field."
+                      - generic [ref=e1352]:
+                        - generic [ref=e1357]:
+                          - paragraph [ref=e1358]: Bashful Demon
+                          - paragraph [ref=e1359]: W-Engine
+                        - generic [ref=e1360]:
+                          - generic [ref=e1361]:
+                            - img "presentation" [ref=e1362]
+                            - text: A Rank
+                          - generic [ref=e1363]:
+                            - img "presentation" [ref=e1364]
+                            - text: Support
+                        - paragraph [ref=e1365]: Increases Ice DMG by 15%/17.5%/20%/22%/24%. When launching an EX Special Attack, all squad members ' ATK increases by 2%/2.3%/2.6%/2.9%/3.2% for 12s, stacking up to 4 times. Repeated triggers reset the duration. Passive effects of the same name do not stack.
+                        - generic [ref=e1366]:
+                          - generic [ref=e1367]:
+                            - generic [ref=e1368]: Stat (LVL. 60)
+                            - generic [ref=e1369]: Value
+                          - generic [ref=e1370]:
+                            - generic [ref=e1371]: Base ATK
+                            - generic [ref=e1372]: "624"
+                          - generic [ref=e1373]:
+                            - generic [ref=e1374]: ATK
+                            - generic [ref=e1375]: 25%
+                      - generic [ref=e1380]:
+                        - generic [ref=e1385]:
+                          - paragraph [ref=e1386]: Bellicose Blaze
+                          - paragraph [ref=e1387]: W-Engine
+                        - generic [ref=e1388]:
+                          - generic [ref=e1389]:
+                            - img "presentation" [ref=e1390]
+                            - text: S Rank
+                          - generic [ref=e1391]:
+                            - img "presentation" [ref=e1392]
+                            - text: Attack
+                        - paragraph [ref=e1393]: Increases CRIT Rate by 20%/23%/26%/29%/32%././././. When the equipper triggers an Aftershock that deals Fire DMG, their attacks ignore 15%/17.2%/19.5%/21.7%/24% of the target's DEF for 8/8/8/8/8s././././. Can stack once every 3/3/3/3/3s, up to 2/2/2/2/2 stacks././././. Repeated triggers reset the duration././././.
+                        - generic [ref=e1394]:
+                          - generic [ref=e1395]:
+                            - generic [ref=e1396]: Stat (LVL. 60)
+                            - generic [ref=e1397]: Value
+                          - generic [ref=e1398]:
+                            - generic [ref=e1399]: Base ATK
+                            - generic [ref=e1400]: "713"
+                          - generic [ref=e1401]:
+                            - generic [ref=e1402]: Energy Regen
+                            - generic [ref=e1403]: 60%
+                      - generic [ref=e1408]:
+                        - generic [ref=e1413]:
+                          - paragraph [ref=e1414]: Big Cylinder
+                          - paragraph [ref=e1415]: W-Engine
+                        - generic [ref=e1416]:
+                          - generic [ref=e1417]:
+                            - img "presentation" [ref=e1418]
+                            - text: A Rank
+                          - generic [ref=e1419]:
+                            - img "presentation" [ref=e1420]
+                            - text: Defense
+                        - paragraph [ref=e1421]: Reduces DMG taken by 7.5%/8.5%/9.5%/10.5%/12%. After being attacked, the next attack to hit an enemy will trigger a critical hit and deal 600%/690%/780%/870%/960% of the equipper's DEF as additional DMG. This effect can be triggered once every 7.5s.
+                        - generic [ref=e1422]:
+                          - generic [ref=e1423]:
+                            - generic [ref=e1424]: Stat (LVL. 60)
+                            - generic [ref=e1425]: Value
+                          - generic [ref=e1426]:
+                            - generic [ref=e1427]: Base ATK
+                            - generic [ref=e1428]: "624"
+                          - generic [ref=e1429]:
+                            - generic [ref=e1430]: DEF
+                            - generic [ref=e1431]: 40%
+                      - generic [ref=e1436]:
+                        - generic [ref=e1441]:
+                          - paragraph [ref=e1442]: Blazing Laurel
+                          - paragraph [ref=e1443]: W-Engine
+                        - generic [ref=e1444]:
+                          - generic [ref=e1445]:
+                            - img "presentation" [ref=e1446]
+                            - text: S Rank
+                          - generic [ref=e1447]:
+                            - img "presentation" [ref=e1448]
+                            - text: Stun
+                        - paragraph [ref=e1449]: Upon launching a Quick Assist or Perfect Assist, the equipper's Impact increases by 25%/28.75%/32.5%/36.25%/40% for 8s. When the equipper launches and hits an enemy with a Basic Attack, apply Wilt to the target for 30s, stacking up to 20 times, repeated triggers reset the duration. When any squad member hits an enemy, for every stack of Wilt applied to the target, the CRIT DMG of the Ice DMG and Fire DMG dealt by that attack increases by 1.5%/1.72%/1.95%/2.17%/2.4%. Only one instance of this effect can exist in the same squad.
+                        - generic [ref=e1450]:
+                          - generic [ref=e1451]:
+                            - generic [ref=e1452]: Stat (LVL. 60)
+                            - generic [ref=e1453]: Value
+                          - generic [ref=e1454]:
+                            - generic [ref=e1455]: Base ATK
+                            - generic [ref=e1456]: "713"
+                          - generic [ref=e1457]:
+                            - generic [ref=e1458]: Impact
+                            - generic [ref=e1459]: 18%
+                      - generic [ref=e1464]:
+                        - generic [ref=e1469]:
+                          - paragraph [ref=e1470]: Box Cutter
+                          - paragraph [ref=e1471]: W-Engine
+                        - generic [ref=e1472]:
+                          - generic [ref=e1473]:
+                            - img "presentation" [ref=e1474]
+                            - text: A Rank
+                          - generic [ref=e1475]:
+                            - img "presentation" [ref=e1476]
+                            - text: Stun
+                        - paragraph [ref=e1477]: Upon launching an Aftershock, the equipper's Physical DMG increases by 15%/17.3%/19.5%/21.8%/24%, and Daze increases by 10%/11.5%/13%/14.5%/16%, lasting 10s.
+                        - generic [ref=e1478]:
+                          - generic [ref=e1479]:
+                            - generic [ref=e1480]: Stat (LVL. 60)
+                            - generic [ref=e1481]: Value
+                          - generic [ref=e1482]:
+                            - generic [ref=e1483]: Base ATK
+                            - generic [ref=e1484]: "624"
+                          - generic [ref=e1485]:
+                            - generic [ref=e1486]: Impact
+                            - generic [ref=e1487]: 15%
+                      - generic [ref=e1492]:
+                        - generic [ref=e1497]:
+                          - paragraph [ref=e1498]: Bunny Band
+                          - paragraph [ref=e1499]: W-Engine
+                        - generic [ref=e1500]:
+                          - generic [ref=e1501]:
+                            - img "presentation" [ref=e1502]
+                            - text: A Rank
+                          - generic [ref=e1503]:
+                            - img "presentation" [ref=e1504]
+                            - text: Defense
+                        - paragraph [ref=e1505]: Increases Max HP by 8%/9.2%/10.4%/11.6%/12.8%. Increases the equipper's ATK by 10%/11.5%/13%/14.5%/16% when they are shielded.
+                        - generic [ref=e1506]:
+                          - generic [ref=e1507]:
+                            - generic [ref=e1508]: Stat (LVL. 60)
+                            - generic [ref=e1509]: Value
+                          - generic [ref=e1510]:
+                            - generic [ref=e1511]: Base ATK
+                            - generic [ref=e1512]: "594"
+                          - generic [ref=e1513]:
+                            - generic [ref=e1514]: DEF
+                            - generic [ref=e1515]: 40%
+                      - generic [ref=e1520]:
+                        - generic [ref=e1525]:
+                          - paragraph [ref=e1526]: Cannon Rotor
+                          - paragraph [ref=e1527]: W-Engine
+                        - generic [ref=e1528]:
+                          - generic [ref=e1529]:
+                            - img "presentation" [ref=e1530]
+                            - text: A Rank
+                          - generic [ref=e1531]:
+                            - img "presentation" [ref=e1532]
+                            - text: Attack
+                        - paragraph [ref=e1533]: Increases ATK by 7.5%/8.6%/9.7%/10.8%/12%. Landing a critical hit on an enemy will inflict an additional 200% of ATK as DMG. This effect can trigger once every 8s./7.5s/7s./6.5s/6s.
+                        - generic [ref=e1534]:
+                          - generic [ref=e1535]:
+                            - generic [ref=e1536]: Stat (LVL. 60)
+                            - generic [ref=e1537]: Value
+                          - generic [ref=e1538]:
+                            - generic [ref=e1539]: Base ATK
+                            - generic [ref=e1540]: "594"
+                          - generic [ref=e1541]:
+                            - generic [ref=e1542]: CRIT Rate
+                            - generic [ref=e1543]: 20%
+                      - generic [ref=e1548]:
+                        - generic [ref=e1553]:
+                          - paragraph [ref=e1554]: Cauldron of Clarity
+                          - paragraph [ref=e1555]: W-Engine
+                        - generic [ref=e1556]:
+                          - generic [ref=e1557]:
+                            - img "presentation" [ref=e1558]
+                            - text: S Rank
+                          - generic [ref=e1559]:
+                            - img "presentation" [ref=e1560]
+                            - text: Rupture
+                        - paragraph [ref=e1561]: When the equipper activates an EX Special Attack, they gain 1 stack of a buff. Each stack increases the equipper's DMG by 4/4.6/5.2/5.8/6.4%, up to 3 stacks, and lasting 20s. This effect can trigger once every 0.5s, and repeated triggers reset the duration. At 3 stacks, the equipper's CRIT Rate increases by 6.5/7.5/8.5/9.4/10.4%.
+                      - generic [ref=e1566]:
+                        - generic [ref=e1571]:
+                          - paragraph [ref=e1572]: "[Cinder] Cobalt"
+                          - paragraph [ref=e1573]: W-Engine
+                        - generic [ref=e1574]:
+                          - generic [ref=e1575]:
+                            - img "presentation" [ref=e1576]
+                            - text: B Rank
+                          - generic [ref=e1577]:
+                            - img "presentation" [ref=e1578]
+                            - text: Rupture
+                        - paragraph [ref=e1579]: Upon entering combat or switching in, the equipper's ATK increases by 7.2%/8.2%/9.3%/10.4%/11.5% for 10s. This effect can trigger once every 20s.
+                        - generic [ref=e1580]:
+                          - generic [ref=e1581]:
+                            - generic [ref=e1582]: Stat (LVL. 60)
+                            - generic [ref=e1583]: Value
+                          - generic [ref=e1584]:
+                            - generic [ref=e1585]: Base ATK
+                            - generic [ref=e1586]: "475"
+                          - generic [ref=e1587]:
+                            - generic [ref=e1588]: HP
+                            - generic [ref=e1589]: 20%
+                      - generic [ref=e1594]:
+                        - generic [ref=e1599]:
+                          - paragraph [ref=e1600]: Cloudcleave Radiance
+                          - paragraph [ref=e1601]: W-Engine
+                        - generic [ref=e1602]:
+                          - generic [ref=e1603]:
+                            - img "presentation" [ref=e1604]
+                            - text: S Rank
+                          - generic [ref=e1605]:
+                            - img "presentation" [ref=e1606]
+                            - text: Attack
+                        - paragraph [ref=e1607]: The equipper's DMG ignores 20/22/24/26/28% of the target's Physical RES. When the equipper activates an Ether Veil, the equipper's DMG increases by 20/24/28/32/26% and CRIT DMG increases by 20/23/26/29/32% for 40s. Repeated triggers reset the duration.
+                      - generic [ref=e1612]:
+                        - generic [ref=e1617]:
+                          - paragraph [ref=e1618]: Cordis Germina
+                          - paragraph [ref=e1619]: W-Engine
+                        - generic [ref=e1620]:
+                          - generic [ref=e1621]:
+                            - img "presentation" [ref=e1622]
+                            - text: S Rank
+                          - generic [ref=e1623]:
+                            - img "presentation" [ref=e1624]
+                            - text: Attack
+                        - paragraph [ref=e1625]: Increases CRIT Rate by 15%/17%/19%/21%/23%. When the equipper deals DMG with a Basic Attack or EX Special Attack, they gain 1 stack of a buff. Each stack increases the equipper's Electric DMG by 12.5%/14.5%/16.5%/18.5%/20%, up to 2 stacks. Each stack lasts 40s. The duration of each stack is calculated separately. Can trigger once per use of a skill. At 2 stacks, the wearer's Basic Attack and Ultimate DMG ignore 20%/23%/26%/29%/32% of enemy DEF.
+                        - generic [ref=e1626]:
+                          - generic [ref=e1627]:
+                            - generic [ref=e1628]: Stat (LVL. 60)
+                            - generic [ref=e1629]: Value
+                          - generic [ref=e1630]:
+                            - generic [ref=e1631]: Base ATK
+                            - generic [ref=e1632]: "713"
+                          - generic [ref=e1633]:
+                            - generic [ref=e1634]: CRIT Rate
+                            - generic [ref=e1635]: 24%
+                    - button "Show more" [ref=e1636] [cursor=pointer]
+              - status [ref=e1637]
+          - complementary [ref=e1638]
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e1641]:
+    - banner [ref=e1642]:
+      - generic [ref=e1643] [cursor=pointer]:
+        - generic [ref=e1644]: Advertisement
+        - generic [ref=e1645]: Remove Ads
+    - generic [ref=e1646]:
+      - region "Video Player" [ref=e1649]:
+        - text: 
+        - generic:
+          - button "Pause":
+            - text: 
+            - generic: Pause
+          - generic:
+            - button "Unmute":
+              - text: 
+              - generic: Unmute
+            - generic:
+              - slider "Volume Level":
+                - generic: 
+          - generic:
+            - slider "Progress Bar":
+              - generic:
+                - generic: "Loaded: 31.04%"
+              - generic: 
+          - text: 
+          - generic: Remaining Time -1:44
+          - text:    
+          - button "Picture-in-Picture":
+            - text: 
+            - generic: Picture-in-Picture
+          - button "Fullscreen":
+            - text: 
+            - generic: Fullscreen
+        - text:    
+      - generic [ref=e1651] [cursor=pointer]:
+        - generic [ref=e1652]: Remove all ads
+        - generic [ref=e1653]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+        - button "Remove ads" [ref=e1654]:
+          - generic [ref=e1655]: Remove ads
+```
