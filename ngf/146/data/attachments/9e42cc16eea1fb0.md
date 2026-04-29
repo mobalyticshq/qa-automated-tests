@@ -1,0 +1,232 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Test banner text Test banner link text Close":
+        - /url: https://www.google.com
+        - generic [ref=e4] [cursor=pointer]:
+          - generic [ref=e5]:
+            - paragraph [ref=e7]: Test banner text
+            - button "Test banner link text" [ref=e8]
+          - img "Close" [ref=e9]
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - link "Mobalytics" [ref=e12] [cursor=pointer]:
+            - /url: /the-bazaar
+            - img "Mobalytics" [ref=e13]
+          - generic [ref=e15]:
+            - link "League of Legends LoL" [ref=e17] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/lol
+              - generic [ref=e19]:
+                - img "League of Legends" [ref=e20]
+                - generic [ref=e21]: LoL
+            - link "Teamfight Tactics TFT" [ref=e23] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/tft
+              - generic [ref=e25]:
+                - img "Teamfight Tactics" [ref=e26]
+                - generic [ref=e27]: TFT
+            - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/diablo-4
+              - generic [ref=e31]:
+                - img "Diablo 4" [ref=e32]
+                - generic [ref=e33]: Diablo 4
+            - link "Path of Exile 2 PoE 2" [ref=e35] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe-2
+              - generic [ref=e37]:
+                - img "Path of Exile 2" [ref=e38]
+                - generic [ref=e39]: PoE 2
+            - link "Path of Exile PoE" [ref=e41] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe
+              - generic [ref=e43]:
+                - img "Path of Exile" [ref=e44]
+                - generic [ref=e45]: PoE
+            - link "Destiny 2 Destiny 2" [ref=e47] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/destiny-2
+              - generic [ref=e49]:
+                - img "Destiny 2" [ref=e50]
+                - generic [ref=e51]: Destiny 2
+            - link "Marathon Marathon" [ref=e53] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/marathon
+              - generic [ref=e55]:
+                - img "Marathon" [ref=e56]
+                - generic [ref=e57]: Marathon
+            - link "Slay the Spire 2 STS 2 New" [ref=e59] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/slay-the-spire-2
+              - generic [ref=e61]:
+                - img "Slay the Spire 2" [ref=e62]
+                - generic [ref=e63]: STS 2
+                - generic [ref=e65]: New
+            - link "Deadlock Deadlock" [ref=e67] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/deadlock
+              - generic [ref=e69]:
+                - img "Deadlock" [ref=e70]
+                - generic [ref=e71]: Deadlock
+            - link "Overwatch Overwatch" [ref=e73] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/overwatch
+              - generic [ref=e75]:
+                - img "Overwatch" [ref=e76]
+                - generic [ref=e77]: Overwatch
+            - link "Borderlands 4 Borderlands 4" [ref=e79] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/borderlands-4
+              - generic [ref=e81]:
+                - img "Borderlands 4" [ref=e82]
+                - generic [ref=e83]: Borderlands 4
+            - link "Valorant VAL" [ref=e85] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/valorant
+              - generic [ref=e87]:
+                - img "Valorant" [ref=e88]
+                - generic [ref=e89]: VAL
+            - link "Neverness to Everness NTE New" [ref=e91] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/neverness-to-everness
+              - generic [ref=e93]:
+                - img "Neverness to Everness" [ref=e94]
+                - generic [ref=e95]: NTE
+                - generic [ref=e97]: New
+            - 'link "Arknights: Endfield Endfield" [ref=e99] [cursor=pointer]':
+              - /url: https://stg.mobalytics.gg/arknights-endfield
+              - generic [ref=e101]:
+                - 'img "Arknights: Endfield" [ref=e102]'
+                - generic [ref=e103]: Endfield
+            - button [ref=e104] [cursor=pointer]:
+              - img [ref=e105]
+            - generic:
+              - link "Elden Ring Nightreign Nightreign":
+                - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+                - generic:
+                  - generic:
+                    - img "Elden Ring Nightreign"
+                    - generic: Nightreign
+            - generic:
+              - link "Monster Hunter Wilds Monster Hunter Wilds":
+                - /url: https://stg.mobalytics.gg/mhw
+                - generic:
+                  - generic:
+                    - img "Monster Hunter Wilds"
+                    - generic: Monster Hunter Wilds
+            - generic:
+              - link "Hades 2 Hades 2":
+                - /url: https://stg.mobalytics.gg/hades-2
+                - generic:
+                  - generic:
+                    - img "Hades 2"
+                    - generic: Hades 2
+            - generic:
+              - link "The Bazaar The Bazaar":
+                - /url: https://stg.mobalytics.gg/the-bazaar
+                - generic:
+                  - generic:
+                    - img "The Bazaar"
+                    - generic: The Bazaar
+            - generic:
+              - link "Marvel Rivals Marvel Rivals":
+                - /url: https://stg.mobalytics.gg/marvel-rivals
+                - generic:
+                  - generic:
+                    - img "Marvel Rivals"
+                    - generic: Marvel Rivals
+            - generic:
+              - link "Zenless Zone Zero ZZZ":
+                - /url: https://stg.mobalytics.gg/zzz
+                - generic:
+                  - generic:
+                    - img "Zenless Zone Zero"
+                    - generic: ZZZ
+            - generic:
+              - link "2XKO 2XKO":
+                - /url: https://stg.mobalytics.gg/2xko
+                - generic:
+                  - generic:
+                    - img "2XKO"
+                    - generic: 2XKO
+            - generic:
+              - link "Riftbound Riftbound":
+                - /url: https://stg.mobalytics.gg/riftbound
+                - generic:
+                  - generic:
+                    - img "Riftbound"
+                    - generic: Riftbound
+            - generic:
+              - link "Example game ExG":
+                - /url: https://stg.mobalytics.gg/example-game
+                - generic:
+                  - generic:
+                    - img "Example game"
+                    - generic: ExG
+        - generic [ref=e106]:
+          - link "News" [ref=e109] [cursor=pointer]:
+            - /url: /news
+            - generic [ref=e110]: News
+          - generic [ref=e111]:
+            - link "A admin+stg+ns@mobalyticshq.com" [ref=e112] [cursor=pointer]:
+              - /url: /the-bazaar/profile/shiny-storm-j7667g
+              - generic [ref=e113]:
+                - generic [ref=e115]: A
+                - generic [ref=e117]: admin+stg+ns@mobalyticshq.com
+            - generic [ref=e118]:
+              - img "settings" [ref=e122] [cursor=pointer]
+              - img "support" [ref=e126] [cursor=pointer]
+        - generic [ref=e128]:
+          - link "Home" [ref=e131] [cursor=pointer]:
+            - /url: /the-bazaar
+            - img "Home" [ref=e133]
+          - link "Profile" [ref=e136] [cursor=pointer]:
+            - /url: /the-bazaar/profile
+            - img "Profile" [ref=e138]
+          - link "Build Planner" [ref=e141] [cursor=pointer]:
+            - /url: /the-bazaar/planner/builds
+            - img "Build Planner" [ref=e143]
+          - link "Builds" [ref=e146] [cursor=pointer]:
+            - /url: /the-bazaar/builds
+            - img "Builds" [ref=e148]
+          - link "Meta Builds" [ref=e151] [cursor=pointer]:
+            - /url: /the-bazaar/guides/meta-builds
+            - img "Meta Builds" [ref=e153]
+          - link "Heroes" [ref=e156] [cursor=pointer]:
+            - /url: /the-bazaar/heroes
+            - img "Heroes" [ref=e158]
+          - link "Items | Skills" [ref=e161] [cursor=pointer]:
+            - /url: /the-bazaar/database/items-and-enchantments
+            - img "Items | Skills" [ref=e163]
+          - link "Guides" [ref=e166] [cursor=pointer]:
+            - /url: /the-bazaar/guides
+            - img "Guides" [ref=e168]
+          - link "PvE Monsters" [ref=e171] [cursor=pointer]:
+            - /url: /the-bazaar/guides/pve-encounters-and-drops
+            - img "PvE Monsters" [ref=e173]
+        - main [ref=e176]:
+          - generic [ref=e177]:
+            - generic [ref=e179]:
+              - generic [ref=e181]: New Page
+              - generic [ref=e182]:
+                - button "Create and Save" [ref=e183] [cursor=pointer]
+                - button "Reset" [disabled] [ref=e184]:
+                  - img [ref=e185]
+                  - text: Reset
+                - button "Cancel" [ref=e186] [cursor=pointer]
+            - generic [ref=e187]:
+              - button "Add section" [ref=e190] [cursor=pointer]:
+                - img [ref=e191]
+                - text: Add section
+              - status [ref=e192]
+    - generic:
+      - region "Notifications Alt+T"
+  - dialog [active] [ref=e202]:
+    - generic [ref=e206]:
+      - generic [ref=e207]: Add Section
+      - button [ref=e209] [cursor=pointer]:
+        - img [ref=e210]
+    - generic [ref=e212]:
+      - generic "select" [ref=e213]:
+        - combobox [ref=e216]
+        - generic [ref=e217]:
+          - generic [ref=e221]: Column layout
+          - button "1 column Column layout" [ref=e223] [cursor=pointer]:
+            - generic [ref=e224]: 1 column
+            - img [ref=e226]
+      - generic [ref=e229]: Auto
+    - generic [ref=e231]:
+      - button "Cancel" [ref=e232] [cursor=pointer]
+      - button "Add Section" [ref=e233] [cursor=pointer]
+```
