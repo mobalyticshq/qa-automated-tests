@@ -1,0 +1,237 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "Mobalytics" [ref=e6] [cursor=pointer]:
+          - /url: /diablo-4
+          - img "Mobalytics" [ref=e7]
+        - generic [ref=e9]:
+          - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/lol
+            - generic [ref=e13]:
+              - img "League of Legends" [ref=e14]
+              - generic [ref=e15]: LoL
+          - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/tft
+            - generic [ref=e19]:
+              - img "Teamfight Tactics" [ref=e20]
+              - generic [ref=e21]: TFT
+          - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/diablo-4
+            - generic [ref=e25]:
+              - img "Diablo 4" [ref=e26]
+              - generic [ref=e27]: Diablo 4
+          - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/poe-2
+            - generic [ref=e31]:
+              - img "Path of Exile 2" [ref=e32]
+              - generic [ref=e33]: PoE 2
+          - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/poe
+            - generic [ref=e37]:
+              - img "Path of Exile" [ref=e38]
+              - generic [ref=e39]: PoE
+          - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/destiny-2
+            - generic [ref=e43]:
+              - img "Destiny 2" [ref=e44]
+              - generic [ref=e45]: Destiny 2
+          - link "Marathon Marathon" [ref=e47] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/marathon
+            - generic [ref=e49]:
+              - img "Marathon" [ref=e50]
+              - generic [ref=e51]: Marathon
+          - link "Slay the Spire 2 STS 2 New" [ref=e53] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/slay-the-spire-2
+            - generic [ref=e55]:
+              - img "Slay the Spire 2" [ref=e56]
+              - generic [ref=e57]: STS 2
+              - generic [ref=e59]: New
+          - link "Deadlock Deadlock" [ref=e61] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/deadlock
+            - generic [ref=e63]:
+              - img "Deadlock" [ref=e64]
+              - generic [ref=e65]: Deadlock
+          - link "Overwatch Overwatch" [ref=e67] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/overwatch
+            - generic [ref=e69]:
+              - img "Overwatch" [ref=e70]
+              - generic [ref=e71]: Overwatch
+          - link "Borderlands 4 Borderlands 4" [ref=e73] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/borderlands-4
+            - generic [ref=e75]:
+              - img "Borderlands 4" [ref=e76]
+              - generic [ref=e77]: Borderlands 4
+          - link "Valorant VAL" [ref=e79] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/valorant
+            - generic [ref=e81]:
+              - img "Valorant" [ref=e82]
+              - generic [ref=e83]: VAL
+          - link "Neverness to Everness NTE New" [ref=e85] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/neverness-to-everness
+            - generic [ref=e87]:
+              - img "Neverness to Everness" [ref=e88]
+              - generic [ref=e89]: NTE
+              - generic [ref=e91]: New
+          - 'link "Arknights: Endfield Endfield" [ref=e93] [cursor=pointer]':
+            - /url: https://stg.mobalytics.gg/arknights-endfield
+            - generic [ref=e95]:
+              - 'img "Arknights: Endfield" [ref=e96]'
+              - generic [ref=e97]: Endfield
+          - button [ref=e98] [cursor=pointer]:
+            - img [ref=e99]
+          - generic:
+            - link "Elden Ring Nightreign Nightreign":
+              - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+              - generic:
+                - generic:
+                  - img "Elden Ring Nightreign"
+                  - generic: Nightreign
+          - generic:
+            - link "Monster Hunter Wilds Monster Hunter Wilds":
+              - /url: https://stg.mobalytics.gg/mhw
+              - generic:
+                - generic:
+                  - img "Monster Hunter Wilds"
+                  - generic: Monster Hunter Wilds
+          - generic:
+            - link "Hades 2 Hades 2":
+              - /url: https://stg.mobalytics.gg/hades-2
+              - generic:
+                - generic:
+                  - img "Hades 2"
+                  - generic: Hades 2
+          - generic:
+            - link "The Bazaar The Bazaar":
+              - /url: https://stg.mobalytics.gg/the-bazaar
+              - generic:
+                - generic:
+                  - img "The Bazaar"
+                  - generic: The Bazaar
+          - generic:
+            - link "Marvel Rivals Marvel Rivals":
+              - /url: https://stg.mobalytics.gg/marvel-rivals
+              - generic:
+                - generic:
+                  - img "Marvel Rivals"
+                  - generic: Marvel Rivals
+          - generic:
+            - link "Zenless Zone Zero ZZZ":
+              - /url: https://stg.mobalytics.gg/zzz
+              - generic:
+                - generic:
+                  - img "Zenless Zone Zero"
+                  - generic: ZZZ
+          - generic:
+            - link "2XKO 2XKO":
+              - /url: https://stg.mobalytics.gg/2xko
+              - generic:
+                - generic:
+                  - img "2XKO"
+                  - generic: 2XKO
+          - generic:
+            - link "Riftbound Riftbound":
+              - /url: https://stg.mobalytics.gg/riftbound
+              - generic:
+                - generic:
+                  - img "Riftbound"
+                  - generic: Riftbound
+          - generic:
+            - link "Example game ExG":
+              - /url: https://stg.mobalytics.gg/example-game
+              - generic:
+                - generic:
+                  - img "Example game"
+                  - generic: ExG
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - link "DOWNLOAD APP" [ref=e102] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?utm_campaign=eRtDdtB&utm_medium=owaa&utm_source=app
+            - button "DOWNLOAD APP" [ref=e104]:
+              - img [ref=e105]
+              - text: DOWNLOAD APP
+          - link "News" [ref=e107] [cursor=pointer]:
+            - /url: /news
+            - generic [ref=e108]: News
+        - generic [ref=e109]:
+          - link "A admin+stg+ns@mobalyticshq.com" [ref=e110] [cursor=pointer]:
+            - /url: /diablo-4/profile/shiny-storm-j7667g
+            - generic [ref=e111]:
+              - generic [ref=e113]: A
+              - generic [ref=e115]: admin+stg+ns@mobalyticshq.com
+          - generic [ref=e116]:
+            - img "settings" [ref=e120] [cursor=pointer]
+            - img "support" [ref=e124] [cursor=pointer]
+      - generic [ref=e126]:
+        - link "Home" [ref=e129] [cursor=pointer]:
+          - /url: /diablo-4
+          - img "Home" [ref=e131]
+        - link "Profile" [ref=e134] [cursor=pointer]:
+          - /url: /diablo-4/profile
+          - img "Profile" [ref=e136]
+        - link "Build Planner" [ref=e139] [cursor=pointer]:
+          - /url: /diablo-4/planner/builds
+          - img "Build Planner" [ref=e141]
+        - link "Tier List" [ref=e144] [cursor=pointer]:
+          - /url: /diablo-4/tier-list
+          - img "Tier List" [ref=e146]
+        - link "Builds" [ref=e150] [cursor=pointer]:
+          - /url: /diablo-4/builds
+          - img "Builds" [ref=e152]
+        - link "Leveling Builds" [ref=e155] [cursor=pointer]:
+          - /url: /diablo-4/leveling-builds
+          - img "Leveling Builds" [ref=e157]
+        - link "Guides" [ref=e160] [cursor=pointer]:
+          - /url: /diablo-4/guides
+          - img "Guides" [ref=e162]
+        - link "News" [ref=e165] [cursor=pointer]:
+          - /url: /diablo-4/news
+          - img "News" [ref=e167]
+        - link "Creators" [ref=e170] [cursor=pointer]:
+          - /url: /diablo-4/creators
+          - img "Creators" [ref=e172]
+        - link "Interactive Map" [ref=e175] [cursor=pointer]:
+          - /url: /diablo-4/interactive-map
+          - img "Interactive Map" [ref=e177]
+      - main [ref=e180]:
+        - generic [ref=e181]:
+          - img "Diablo 4 s10 builder takeover" [ref=e182] [cursor=pointer]
+          - generic [ref=e185]:
+            - generic [ref=e187]:
+              - generic [ref=e189]: New Page
+              - generic [ref=e190]:
+                - button "Create and Save" [ref=e191] [cursor=pointer]
+                - button "Reset" [disabled] [ref=e192]:
+                  - img [ref=e193]
+                  - text: Reset
+                - button "Cancel" [ref=e194] [cursor=pointer]
+            - generic [ref=e195]:
+              - button "Add section" [ref=e198] [cursor=pointer]:
+                - img [ref=e199]
+                - text: Add section
+              - status [ref=e200]
+    - generic:
+      - region "Notifications Alt+T"
+  - button "Do Not Sell or Share My Personal Information" [ref=e211] [cursor=pointer]:
+    - paragraph [ref=e213]: Do Not Sell or Share My Personal Information
+  - dialog [active] [ref=e216]:
+    - generic [ref=e220]:
+      - generic [ref=e221]: Add Section
+      - button [ref=e223] [cursor=pointer]:
+        - img [ref=e224]
+    - generic [ref=e226]:
+      - generic "select" [ref=e227]:
+        - combobox [ref=e230]
+        - generic [ref=e231]:
+          - generic [ref=e235]: Column layout
+          - button "1 column Column layout" [ref=e237] [cursor=pointer]:
+            - generic [ref=e238]: 1 column
+            - img [ref=e240]
+      - generic [ref=e243]: Auto
+    - generic [ref=e245]:
+      - button "Cancel" [ref=e246] [cursor=pointer]
+      - button "Add Section" [ref=e247] [cursor=pointer]
+```
