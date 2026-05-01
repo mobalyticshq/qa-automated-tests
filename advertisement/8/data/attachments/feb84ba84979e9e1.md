@@ -1,0 +1,172 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+        - link "menu" [ref=e10] [cursor=pointer]:
+          - /url: /riftbound
+          - img "menu" [ref=e11]
+      - generic [ref=e13]:
+        - main [ref=e14]:
+          - text:                
+          - generic [ref=e16]:
+            - generic [ref=e17]:
+              - button "Riftbound Decks, Guides, Tier List, & More Find the best resources for Riftbound with Mobalytics, including tournament winning decks, in-depth guides, an updated meta tier list, and much more." [ref=e20]:
+                - generic [ref=e25]:
+                  - generic [ref=e26]:
+                    - img [ref=e28]
+                    - heading "Riftbound Decks, Guides, Tier List, & More" [level=1] [ref=e29]
+                  - paragraph [ref=e37]: Find the best resources for Riftbound with Mobalytics, including tournament winning decks, in-depth guides, an updated meta tier list, and much more.
+              - generic [ref=e38]:
+                - generic [ref=e40]:
+                  - heading "Trending Decks" [level=2] [ref=e44]
+                  - generic [ref=e47]:
+                    - generic [ref=e52] [cursor=pointer]:
+                      - link [ref=e53]:
+                        - /url: /riftbound/decks/fiora-grand-duelist-lille-regional-qualifier-best-of-azirim
+                      - generic [ref=e55]:
+                        - generic [ref=e56]: "Fiora, Grand Duelist: Lille Regional Qualifier Best-Of (Azirim)"
+                        - generic [ref=e57]:
+                          - text: By
+                          - link "Mobalytics" [ref=e58]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e59]: Apr 24, 2026
+                      - generic [ref=e60]:
+                        - generic [ref=e61]:
+                          - img "presentation" [ref=e62]
+                          - text: Fiora, Grand Duelist
+                        - generic [ref=e63]: Regional Qualifier
+                        - generic [ref=e64]: EU
+                    - generic [ref=e69] [cursor=pointer]:
+                      - link [ref=e70]:
+                        - /url: /riftbound/decks/yasuo-unforgiven-lille-regional-qualifier-best-of-boky
+                      - generic [ref=e72]:
+                        - generic [ref=e73]: "Yasuo, Unforgiven: Lille Regional Qualifier Best-Of (Boky)"
+                        - generic [ref=e74]:
+                          - text: By
+                          - link "Mobalytics" [ref=e75]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e76]: Apr 24, 2026
+                      - generic [ref=e77]:
+                        - generic [ref=e78]:
+                          - img "presentation" [ref=e79]
+                          - text: Yasuo, Unforgiven
+                        - generic [ref=e80]: Regional Qualifier
+                        - generic [ref=e81]: EU
+                    - generic [ref=e86] [cursor=pointer]:
+                      - link [ref=e87]:
+                        - /url: /riftbound/decks/kaisa-daughter-of-the-void-lille-regional-qualifier-best-of-risolan
+                      - generic [ref=e89]:
+                        - generic [ref=e90]: "Kai'Sa, Daughter of the Void: Lille Regional Qualifier Best-Of (Risolan)"
+                        - generic [ref=e91]:
+                          - text: By
+                          - link "Mobalytics" [ref=e92]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e93]: Apr 24, 2026
+                      - generic [ref=e94]:
+                        - generic [ref=e95]:
+                          - img "presentation" [ref=e96]
+                          - text: Kai'Sa, Daughter of the Void
+                        - generic [ref=e97]: Regional Qualifier
+                        - generic [ref=e98]: EU
+                    - generic [ref=e103] [cursor=pointer]:
+                      - link [ref=e104]:
+                        - /url: /riftbound/decks/ezreal-prodigal-explorer-lille-regional-qualifier-best-of-afrozial
+                      - generic [ref=e106]:
+                        - generic [ref=e107]: "Ezreal, Prodigal Explorer: Lille Regional Qualifier Best-Of (Afrozial)"
+                        - generic [ref=e108]:
+                          - text: By
+                          - link "Mobalytics" [ref=e109]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e110]: Apr 24, 2026
+                      - generic [ref=e111]:
+                        - generic [ref=e112]:
+                          - img "presentation" [ref=e113]
+                          - text: Ezreal, Prodigal Explorer
+                        - generic [ref=e114]: Regional Qualifier
+                        - generic [ref=e115]: EU
+                - generic [ref=e117]:
+                  - heading "Trending Guides" [level=2] [ref=e121]
+                  - generic [ref=e124]:
+                    - generic [ref=e129] [cursor=pointer]:
+                      - link [ref=e130]:
+                        - /url: /riftbound/guides/banned-cards
+                      - generic [ref=e132]:
+                        - generic [ref=e133]: "Riftbound: Banned Cards List"
+                        - generic [ref=e134]:
+                          - text: By
+                          - link "Mobalytics" [ref=e135]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e136]: Apr 14, 2026
+                      - generic [ref=e138]: News
+                    - generic [ref=e143] [cursor=pointer]:
+                      - link [ref=e144]:
+                        - /url: /riftbound/guides/formats
+                      - generic [ref=e146]:
+                        - generic [ref=e147]: All Riftbound Formats Explained
+                        - generic [ref=e148]:
+                          - text: By
+                          - link "Mobalytics" [ref=e149]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e150]: Apr 14, 2026
+                      - generic [ref=e151]:
+                        - generic [ref=e152]: Beginner
+                        - generic [ref=e153]: Mechanics
+                    - generic [ref=e158] [cursor=pointer]:
+                      - link [ref=e159]:
+                        - /url: /riftbound/guides/new-set-release-schedule
+                      - generic [ref=e161]:
+                        - generic [ref=e162]: "Riftbound: New Set Release Schedule"
+                        - generic [ref=e163]:
+                          - text: By
+                          - link "Mobalytics" [ref=e164]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e165]: Apr 14, 2026
+                      - generic [ref=e167]: News
+                    - generic [ref=e172] [cursor=pointer]:
+                      - link [ref=e173]:
+                        - /url: /riftbound/guides/intro-to-yellow
+                      - generic [ref=e175]:
+                        - generic [ref=e176]: Intro to Playing Yellow (Order)
+                        - generic [ref=e177]:
+                          - text: By
+                          - link "Mobalytics" [ref=e178]:
+                            - /url: /riftbound/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e179]: Jan 20, 2026
+                      - generic [ref=e180]:
+                        - generic [ref=e181]: Beginner
+                        - generic [ref=e182]: Mechanics
+              - link "Mobalytics Riftbound Tier List Check out our latest Riftbound Tier List Update Tier List" [ref=e186] [cursor=pointer]:
+                - /url: /riftbound/tier-list
+                - generic [ref=e189]:
+                  - generic [ref=e190]:
+                    - paragraph [ref=e191]: Mobalytics Riftbound Tier List
+                    - paragraph [ref=e192]: Check out our latest Riftbound Tier List Update
+                  - button "Tier List" [ref=e194]: Tier List
+            - status [ref=e196]
+        - complementary
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e200]:
+    - banner [ref=e201]:
+      - generic [ref=e202] [cursor=pointer]:
+        - generic [ref=e203]: Advertisement
+        - generic [ref=e204]: Remove Ads
+    - generic [ref=e209] [cursor=pointer]:
+      - generic [ref=e210]: Remove all ads
+      - generic [ref=e211]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e212]:
+        - generic [ref=e213]: Remove ads
+```

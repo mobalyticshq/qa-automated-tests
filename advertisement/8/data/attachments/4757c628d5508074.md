@@ -1,0 +1,296 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+        - link "menu" [ref=e10] [cursor=pointer]:
+          - /url: /marathon
+          - img "menu" [ref=e11]
+      - generic [ref=e13]:
+        - main [ref=e14]:
+          - text:                
+          - generic [ref=e16]:
+            - generic [ref=e17]:
+              - button "Marathon Loadouts, Guides & More Learn the best loadouts, guides, rankings, and more Marathon information with Mobalytics!" [ref=e20]:
+                - generic [ref=e25]:
+                  - generic [ref=e26]:
+                    - img [ref=e28]
+                    - heading "Marathon Loadouts, Guides & More" [level=1] [ref=e29]
+                  - paragraph [ref=e37]: Learn the best loadouts, guides, rankings, and more Marathon information with Mobalytics!
+              - generic [ref=e39]:
+                - generic [ref=e41]:
+                  - generic [ref=e42]:
+                    - heading "Runner Shell Guides" [level=2] [ref=e45]
+                    - paragraph [ref=e52]:
+                      - text: Learn more about each available
+                      - link "Runner" [ref=e53] [cursor=pointer]:
+                        - /url: /marathon/runners
+                      - text: Shell in Marathon. Discover their abilities, stats, strengths, weaknesses, and recommended loadouts.
+                  - generic [ref=e55]:
+                    - link "Destroyer Locus" [ref=e56] [cursor=pointer]:
+                      - /url: /marathon/runners/destroyer
+                      - generic [ref=e60]:
+                        - generic "Destroyer" [ref=e61]
+                        - generic "Locus" [ref=e62]
+                    - link "Vandal Glitch" [ref=e63] [cursor=pointer]:
+                      - /url: /marathon/runners/vandal
+                      - generic [ref=e67]:
+                        - generic "Vandal" [ref=e68]
+                        - generic "Glitch" [ref=e69]
+                    - link "Recon Blackbird" [ref=e70] [cursor=pointer]:
+                      - /url: /marathon/runners/recon
+                      - generic [ref=e74]:
+                        - generic "Recon" [ref=e75]
+                        - generic "Blackbird" [ref=e76]
+                    - link "Assassin Void" [ref=e77] [cursor=pointer]:
+                      - /url: /marathon/runners/assassin
+                      - generic [ref=e81]:
+                        - generic "Assassin" [ref=e82]
+                        - generic "Void" [ref=e83]
+                    - link "Triage Aux" [ref=e84] [cursor=pointer]:
+                      - /url: /marathon/runners/triage
+                      - generic [ref=e88]:
+                        - generic "Triage" [ref=e89]
+                        - generic "Aux" [ref=e90]
+                    - link "Thief Icon" [ref=e91] [cursor=pointer]:
+                      - /url: /marathon/runners/thief
+                      - generic [ref=e95]:
+                        - generic "Thief" [ref=e96]
+                        - generic "Icon" [ref=e97]
+                    - link "Rook Prototype Shell" [ref=e98] [cursor=pointer]:
+                      - /url: /marathon/runners/rook
+                      - generic [ref=e102]:
+                        - generic "Rook" [ref=e103]
+                        - generic "Prototype Shell" [ref=e104]
+                - generic [ref=e105]:
+                  - generic [ref=e106]:
+                    - heading "Runner Shell Tier Lists" [level=2] [ref=e109]
+                    - paragraph [ref=e116]:
+                      - text: Learn which
+                      - link "Runner Shells" [ref=e117] [cursor=pointer]:
+                        - /url: /marathon/runners
+                      - text: are the best for Solo and Team play.
+                  - generic [ref=e120]:
+                    - generic [ref=e125] [cursor=pointer]:
+                      - link [ref=e126]:
+                        - /url: /marathon/tier-lists/best-solo-runner-shells
+                      - generic [ref=e128]:
+                        - generic [ref=e129]: Runner Shell Tier List (Solo Mode)
+                        - generic [ref=e130]:
+                          - text: By
+                          - link "Mobalytics" [ref=e131]:
+                            - /url: /marathon/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e132]: Mar 24, 2026
+                      - generic [ref=e134]: Runners
+                    - generic [ref=e139] [cursor=pointer]:
+                      - link [ref=e140]:
+                        - /url: /marathon/tier-lists/best-squad-runner-shells
+                      - generic [ref=e142]:
+                        - generic [ref=e143]: Runner Shell Tier List (Squad Mode)
+                        - generic [ref=e144]:
+                          - text: By
+                          - link "Mobalytics" [ref=e145]:
+                            - /url: /marathon/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e146]: Mar 24, 2026
+                      - generic [ref=e148]: Runners
+                - generic [ref=e149]:
+                  - generic [ref=e150]:
+                    - heading "Runner Shell Builds" [level=2] [ref=e153]
+                    - paragraph [ref=e160]:
+                      - text: Explore
+                      - link "Loadout Builds" [ref=e161] [cursor=pointer]:
+                        - /url: /marathon/builds
+                      - text: for
+                      - link "Runner Shells" [ref=e162] [cursor=pointer]:
+                        - /url: /marathon/runners
+                      - text: based on different Cores, Implants,
+                      - link "Weapons" [ref=e163] [cursor=pointer]:
+                        - /url: /marathon/weapons
+                      - text: ", and more."
+                  - generic [ref=e165]:
+                    - generic [ref=e166]:
+                      - generic [ref=e171] [cursor=pointer]:
+                        - link [ref=e172]:
+                          - /url: /marathon/builds/byrdman-trauma-triage-endgame
+                        - generic [ref=e174]:
+                          - generic [ref=e175]: Trauma Triage Endgame Build
+                          - generic [ref=e176]:
+                            - text: By
+                            - link "Byrdman" [ref=e177]:
+                              - /url: /marathon/profile/byrdman
+                            - text: ∙
+                            - generic [ref=e178]: Mar 29, 2026
+                        - generic [ref=e179]:
+                          - generic [ref=e180]: Season 1
+                          - generic [ref=e181]:
+                            - img "presentation" [ref=e182]
+                            - text: Triage
+                          - generic [ref=e183]: Cryo Archive
+                          - generic [ref=e184]: "+6"
+                      - generic [ref=e189] [cursor=pointer]:
+                        - link [ref=e190]:
+                          - /url: /marathon/builds/wallzer-greed-is-good-thief
+                        - generic [ref=e192]:
+                          - generic [ref=e193]: Greed is Good Thief
+                          - generic [ref=e194]:
+                            - text: By
+                            - link "Wallzer" [ref=e195]:
+                              - /url: /marathon/profile/wallzer
+                            - text: ∙
+                            - generic [ref=e196]: Mar 27, 2026
+                        - generic [ref=e197]:
+                          - generic [ref=e198]: Season 1
+                          - generic [ref=e199]:
+                            - img "presentation" [ref=e200]
+                            - text: Thief
+                          - generic [ref=e201]: Outpost
+                          - generic [ref=e202]: "+7"
+                      - generic [ref=e207] [cursor=pointer]:
+                        - link [ref=e208]:
+                          - /url: /marathon/builds/siegeoc-beginner-vandal
+                        - generic [ref=e210]:
+                          - generic [ref=e211]: Beginner Vandal Build
+                          - generic [ref=e212]:
+                            - text: By
+                            - link "SiegeOC" [ref=e213]:
+                              - /url: /marathon/profile/siegeoc
+                            - text: ∙
+                            - generic [ref=e214]: Mar 23, 2026
+                        - generic [ref=e215]:
+                          - generic [ref=e216]: Season 1
+                          - generic [ref=e217]:
+                            - img "presentation" [ref=e218]
+                            - text: Vandal
+                          - generic [ref=e219]: Verified
+                      - generic [ref=e224] [cursor=pointer]:
+                        - link [ref=e225]:
+                          - /url: /marathon/builds/siegeoc-super-dash-vandal
+                        - generic [ref=e227]:
+                          - generic [ref=e228]: Super Dash Vandal
+                          - generic [ref=e229]:
+                            - text: By
+                            - link "SiegeOC" [ref=e230]:
+                              - /url: /marathon/profile/siegeoc
+                            - text: ∙
+                            - generic [ref=e231]: Mar 11, 2026
+                        - generic [ref=e232]:
+                          - generic [ref=e233]: Season 1
+                          - generic [ref=e234]:
+                            - img "presentation" [ref=e235]
+                            - text: Vandal
+                          - generic [ref=e236]: Solo
+                          - generic [ref=e237]: "+6"
+                    - link "View All Builds" [ref=e238] [cursor=pointer]:
+                      - /url: /marathon/builds
+                      - generic [ref=e239]: View All Builds
+                - link "Loadout Planner Select Shells, Weapons, Cores, Implants, and Equipment and share it with others. Create Loadoout" [ref=e241] [cursor=pointer]:
+                  - /url: /marathon/planner/builds
+                  - generic [ref=e244]:
+                    - generic [ref=e245]:
+                      - paragraph [ref=e246]: Loadout Planner
+                      - paragraph [ref=e247]: Select Shells, Weapons, Cores, Implants, and Equipment and share it with others.
+                    - button "Create Loadoout" [ref=e249]: Create Loadoout
+              - generic [ref=e251]:
+                - link "Weapons Explore all weapons, their stats, mods and how to get them. Explore Weapons" [ref=e254] [cursor=pointer]:
+                  - /url: /marathon/weapons
+                  - generic [ref=e257]:
+                    - generic [ref=e258]:
+                      - paragraph [ref=e259]: Weapons
+                      - paragraph [ref=e260]: Explore all weapons, their stats, mods and how to get them.
+                    - button "Explore Weapons" [ref=e262]: Explore Weapons
+                - link "Factions Explore their upgrades, rank bonuses and contracts. Explore Factions" [ref=e266] [cursor=pointer]:
+                  - /url: /marathon/factions
+                  - generic [ref=e269]:
+                    - generic [ref=e270]:
+                      - paragraph [ref=e271]: Factions
+                      - paragraph [ref=e272]: Explore their upgrades, rank bonuses and contracts.
+                    - button "Explore Factions" [ref=e274]: Explore Factions
+                - link "Maps Learn the loot spots and routes, points of interest and major locations. Explore Maps" [ref=e278] [cursor=pointer]:
+                  - /url: /marathon/maps
+                  - generic [ref=e281]:
+                    - generic [ref=e282]:
+                      - paragraph [ref=e283]: Maps
+                      - paragraph [ref=e284]: Learn the loot spots and routes, points of interest and major locations.
+                    - button "Explore Maps" [ref=e286]: Explore Maps
+              - generic [ref=e290]:
+                - generic [ref=e291]:
+                  - heading "Guides" [level=2] [ref=e294]
+                  - paragraph [ref=e301]: "Find everything you need to succeed in Marathon: from game mechanics, to advanced tips and tricks"
+                - generic [ref=e303]:
+                  - generic [ref=e304]:
+                    - generic [ref=e309] [cursor=pointer]:
+                      - link [ref=e310]:
+                        - /url: /marathon/guides/patch-notes
+                      - generic [ref=e312]:
+                        - generic [ref=e313]: Patch Notes Breakdown (1.0.6.2)
+                        - generic [ref=e314]:
+                          - text: By
+                          - link "Mobalytics" [ref=e315]:
+                            - /url: /marathon/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e316]: Apr 28, 2026
+                      - generic [ref=e318]: News
+                    - generic [ref=e323] [cursor=pointer]:
+                      - link [ref=e324]:
+                        - /url: /marathon/guides/ranked-mode
+                      - generic [ref=e326]:
+                        - generic [ref=e327]: How Ranked Mode Works (Holotags and Rewards)
+                        - generic [ref=e328]:
+                          - text: By
+                          - link "Mobalytics" [ref=e329]:
+                            - /url: /marathon/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e330]: Mar 25, 2026
+                      - generic [ref=e331]:
+                        - generic [ref=e332]: Mechanics
+                        - generic [ref=e333]: News
+                    - generic [ref=e338] [cursor=pointer]:
+                      - link [ref=e339]:
+                        - /url: /marathon/guides/where-to-find-loot
+                      - generic [ref=e341]:
+                        - generic [ref=e342]: Types of Loot and Where to Find Them
+                        - generic [ref=e343]:
+                          - text: By
+                          - link "Mobalytics" [ref=e344]:
+                            - /url: /marathon/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e345]: Mar 13, 2026
+                      - generic [ref=e346]:
+                        - generic [ref=e347]: Mechanics
+                        - generic [ref=e348]: Beginner
+                    - generic [ref=e353] [cursor=pointer]:
+                      - link [ref=e354]:
+                        - /url: /marathon/guides/pc-optimization
+                      - generic [ref=e356]:
+                        - generic [ref=e357]: PC Optimization Guide (For Max FPS)
+                        - generic [ref=e358]:
+                          - text: By
+                          - link "Mobalytics" [ref=e359]:
+                            - /url: /marathon/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e360]: Mar 8, 2026
+                      - generic [ref=e362]: Beginner
+                  - link "View All Guides" [ref=e363] [cursor=pointer]:
+                    - /url: /marathon/guides
+                    - generic [ref=e364]: View All Guides
+            - status [ref=e365]
+        - complementary
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e369]:
+    - banner [ref=e370]:
+      - generic [ref=e371] [cursor=pointer]:
+        - generic [ref=e372]: Advertisement
+        - generic [ref=e373]: Remove Ads
+    - generic [ref=e378] [cursor=pointer]:
+      - generic [ref=e379]: Remove all ads
+      - generic [ref=e380]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e381]:
+        - generic [ref=e382]: Remove ads
+```

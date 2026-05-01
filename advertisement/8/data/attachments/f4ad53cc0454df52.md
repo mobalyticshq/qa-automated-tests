@@ -1,0 +1,219 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - button [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+        - link "menu" [ref=e10] [cursor=pointer]:
+          - /url: /the-bazaar
+          - img "menu" [ref=e11]
+      - generic [ref=e13]:
+        - main [ref=e14]:
+          - text:                
+          - generic [ref=e16]:
+            - generic [ref=e17]:
+              - 'button "The Bazaar Builds, Guides, and More Mobalytics is your #1 source of The Bazaar builds, guides, and everything else you need to learn and master the game." [ref=e20]':
+                - generic [ref=e24]:
+                  - generic [ref=e25]:
+                    - img [ref=e27]
+                    - heading "The Bazaar Builds, Guides, and More" [level=1] [ref=e28]
+                  - paragraph [ref=e31]: "Mobalytics is your #1 source of The Bazaar builds, guides, and everything else you need to learn and master the game."
+              - generic [ref=e33]:
+                - 'link "Mobalytics is home to builds by Kripparrian, the #1 player of The Bazaar! Updated every patch and every meta Explore Kripp''s Builds" [ref=e35] [cursor=pointer]':
+                  - /url: /the-bazaar/kripparrian
+                  - generic [ref=e37]:
+                    - paragraph [ref=e39]: "Mobalytics is home to builds by Kripparrian, the #1 player of The Bazaar!"
+                    - paragraph [ref=e40]: Updated every patch and every meta
+                    - button "Explore Kripp's Builds" [ref=e42]: Explore Kripp's Builds
+                - generic [ref=e45]:
+                  - heading "Explore our Latest Guides and News" [level=2] [ref=e49]
+                  - generic [ref=e51]:
+                    - generic [ref=e54] [cursor=pointer]:
+                      - link [ref=e55]:
+                        - /url: /the-bazaar/guides/meta-builds
+                      - generic [ref=e57]:
+                        - generic [ref=e58]: The Bazaar Meta Builds (Season 13)
+                        - generic [ref=e59]:
+                          - text: By
+                          - link "Mobalytics" [ref=e60]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e61]: Updated on
+                          - generic [ref=e62]: Apr 17, 2026
+                      - generic [ref=e63]:
+                        - generic [ref=e64]: Meta
+                        - generic [ref=e65]: Heroes
+                      - button "Share" [ref=e69]:
+                        - img [ref=e70]
+                        - text: Share
+                    - generic [ref=e73] [cursor=pointer]:
+                      - link [ref=e74]:
+                        - /url: /the-bazaar/guides/pve-encounters-and-drops
+                      - generic [ref=e76]:
+                        - generic [ref=e77]: The Bazaar PvE Encounters and Drops (Loot, Skills, and Items)
+                        - generic [ref=e78]:
+                          - text: By
+                          - link "Mobalytics" [ref=e79]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e80]: Updated on
+                          - generic [ref=e81]: Apr 16, 2026
+                      - generic [ref=e83]: Mechanics
+                      - button "Share" [ref=e87]:
+                        - img [ref=e88]
+                        - text: Share
+                    - generic [ref=e91] [cursor=pointer]:
+                      - link [ref=e92]:
+                        - /url: /the-bazaar/guides/patch-notes
+                      - generic [ref=e94]:
+                        - generic [ref=e95]: The Bazaar Patch Notes Tracker
+                        - generic [ref=e96]:
+                          - text: By
+                          - link "Mobalytics" [ref=e97]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e98]: Updated on
+                          - generic [ref=e99]: Apr 13, 2026
+                      - generic [ref=e101]: News
+                      - button "Share" [ref=e105]:
+                        - img [ref=e106]
+                        - text: Share
+                    - generic [ref=e109] [cursor=pointer]:
+                      - link [ref=e110]:
+                        - /url: /the-bazaar/guides/keywords-and-terms
+                      - generic [ref=e112]:
+                        - generic [ref=e113]: The Bazaar Keywords and Terms Guide
+                        - generic [ref=e114]:
+                          - text: By
+                          - link "Mobalytics" [ref=e115]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e116]: Updated on
+                          - generic [ref=e117]: Mar 12, 2026
+                      - generic [ref=e119]: Mechanics
+                      - button "Share" [ref=e123]:
+                        - img [ref=e124]
+                        - text: Share
+                    - generic [ref=e127] [cursor=pointer]:
+                      - link [ref=e128]:
+                        - /url: /the-bazaar/guides/crash-site-expeditions-explained
+                      - generic [ref=e130]:
+                        - generic [ref=e131]: Crash Site Expeditions Explained
+                        - generic [ref=e132]:
+                          - text: By
+                          - link "Mobalytics" [ref=e133]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e134]: Updated on
+                          - generic [ref=e135]: Feb 16, 2026
+                      - generic [ref=e136]:
+                        - generic [ref=e137]: News
+                        - generic [ref=e138]: Mechanics
+                      - button "Share" [ref=e142]:
+                        - img [ref=e143]
+                        - text: Share
+                    - generic [ref=e146] [cursor=pointer]:
+                      - link [ref=e147]:
+                        - /url: /the-bazaar/guides/greenheart-expeditions-explained
+                      - generic [ref=e149]:
+                        - generic [ref=e150]: Greenheart Expeditions Explained
+                        - generic [ref=e151]:
+                          - text: By
+                          - link "Mobalytics" [ref=e152]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e153]: Updated on
+                          - generic [ref=e154]: Feb 9, 2026
+                      - generic [ref=e155]:
+                        - generic [ref=e156]: News
+                        - generic [ref=e157]: Mechanics
+                      - button "Share" [ref=e161]:
+                        - img [ref=e162]
+                        - text: Share
+                    - generic [ref=e165] [cursor=pointer]:
+                      - link [ref=e166]:
+                        - /url: /the-bazaar/guides/level-up-rewards
+                      - generic [ref=e168]:
+                        - generic [ref=e169]: The Bazaar Level-Up Rewards Explained
+                        - generic [ref=e170]:
+                          - text: By
+                          - link "Mobalytics" [ref=e171]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e172]: Updated on
+                          - generic [ref=e173]: Dec 4, 2025
+                      - generic [ref=e174]:
+                        - generic [ref=e175]: Beginner
+                        - generic [ref=e176]: Mechanics
+                      - button "Share" [ref=e180]:
+                        - img [ref=e181]
+                        - text: Share
+                    - generic [ref=e184] [cursor=pointer]:
+                      - link [ref=e185]:
+                        - /url: /the-bazaar/guides/steam-release-monetization-updates
+                      - generic [ref=e187]:
+                        - generic [ref=e188]: The Bazaar's Steam Release & Monetization Updates
+                        - generic [ref=e189]:
+                          - text: By
+                          - link "Mobalytics" [ref=e190]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e191]: Updated on
+                          - generic [ref=e192]: Sep 3, 2025
+                      - generic [ref=e194]: News
+                      - button "Share" [ref=e198]:
+                        - img [ref=e199]
+                        - text: Share
+                    - generic [ref=e202] [cursor=pointer]:
+                      - link [ref=e203]:
+                        - /url: /the-bazaar/guides/what-is-the-bazaar
+                      - generic [ref=e205]:
+                        - generic [ref=e206]: What is The Bazaar? - Tempo Storm Reynad's Long-Awaited Game
+                        - generic [ref=e207]:
+                          - text: By
+                          - link "Mobalytics" [ref=e208]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e209]: Updated on
+                          - generic [ref=e210]: Aug 19, 2025
+                      - generic [ref=e212]: News
+                      - button "Share" [ref=e216]:
+                        - img [ref=e217]
+                        - text: Share
+                    - generic [ref=e220] [cursor=pointer]:
+                      - link [ref=e221]:
+                        - /url: /the-bazaar/guides/day-guide
+                      - generic [ref=e223]:
+                        - generic [ref=e224]: How Does a Day Work in The Bazaar?
+                        - generic [ref=e225]:
+                          - text: By
+                          - link "Mobalytics" [ref=e226]:
+                            - /url: /the-bazaar/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e227]: Updated on
+                          - generic [ref=e228]: Aug 14, 2025
+                      - generic [ref=e229]:
+                        - generic [ref=e230]: Beginner
+                        - generic [ref=e231]: Mechanics
+                      - button "Share" [ref=e235]:
+                        - img [ref=e236]
+                        - text: Share
+                  - button "Show more" [ref=e237] [cursor=pointer]
+            - status [ref=e238]
+        - complementary
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e242]:
+    - banner [ref=e243]:
+      - generic [ref=e244] [cursor=pointer]:
+        - generic [ref=e245]: Advertisement
+        - generic [ref=e246]: Remove Ads
+    - generic [ref=e251] [cursor=pointer]:
+      - generic [ref=e252]: Remove all ads
+      - generic [ref=e253]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e254]:
+        - generic [ref=e255]: Remove ads
+```
