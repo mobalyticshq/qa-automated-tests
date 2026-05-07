@@ -28,7 +28,7 @@ env:
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
 jobs:
-  sitemap-hydration-tests:
+  advertisement-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:

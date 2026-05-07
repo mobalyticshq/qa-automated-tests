@@ -32,7 +32,6 @@ export const projectSectionLinks = [
   '/tft/synergies/origins',
   '/tft/synergies/classes',
   '/tft/augments',
-  '/tft/encounters',
   '/tft/tier-list/champions',
   '/tft/tier-list/traits',
   '/tft/comp-builder',

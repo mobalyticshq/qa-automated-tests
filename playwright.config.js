@@ -83,6 +83,14 @@ export default defineConfig({
       testMatch: 'e2e-tests/account.test.js',
     },
     {
+      name: 'payment-tests',
+      // dependencies: ["setup"],
+      // use: {
+      //   storageState: ".auth/userRoleAuth.json",
+      // },
+      testMatch: 'e2e-tests/payment.test.js',
+    },
+    {
       name: 'others-tests',
       dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/others.test.js',

@@ -1033,12 +1033,12 @@ test.describe('Check hydration is successfully for each project', () => {
   //   }
   // });
 
-  test(`Check that hydration is ok on TFT-Set16`, async ({ page, request }) => {
+  test(`Check that hydration is ok on TFT-Set17`, async ({ page, request }) => {
     let filteredLinks;
 
-    await test.step(`Parse up to ${quantityLinks} links from TFT-Set16 sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/tft/set16/sitemap.xml`);
-      await test.step(`Expected Result: ${process.env.BASE_URL}/tft/set16/sitemap.xml returns with ${response.status()}`, async () => {
+    await test.step(`Parse up to ${quantityLinks} links from TFT-Set17 sitemap: ${process.env.BASE_URL}/tft/set17/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/tft/set17/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/tft/set17/sitemap.xml returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -1049,7 +1049,7 @@ test.describe('Check hydration is successfully for each project', () => {
 
       filteredLinks = arrayLinks
         .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/tft\/set16/;
+          const filterPattern = /mobalytics\.gg\/tft\/set17/;
           return filterPattern.test(match.groups.link);
         })
         .slice(0, quantityLinks);

@@ -7,7 +7,7 @@ test('Delete mobalytics account', async ({ registerAccount }) => {
   const moba = registerAccount;
 
   await moba.navbar.gotoAccountSettingsPage();
-  await moba.accountSettings.deleteAccount();
+  await moba.AccountSettingsTab.deleteAccount();
 
   await test.step('Account is deleted', async () => {
     await expect(moba.byeBye.header).toBeVisible();
@@ -28,9 +28,9 @@ test('Change account name', async ({ page }) => {
   await moba.navbar.gotoSignInPage();
   await moba.signInPage.loginUser(credentials, credentials);
   await moba.navbar.gotoAccountSettingsPage();
-  await moba.accountSettings.changeAccountName(newAccountName);
+  await moba.accountInformationTab.changeAccountName(newAccountName);
 
   await test.step(`Account name is changed to a new account name: ${newAccountName}`, async () => {
-    await expect(moba.accountSettings.accountName(newAccountName)).toBeVisible();
+    await expect(moba.accountInformationTab.accountName(newAccountName)).toBeVisible();
   });
 });

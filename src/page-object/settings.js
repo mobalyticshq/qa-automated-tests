@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 
-export class AccountSettings {
+export class AccountInformationTab {
   constructor(page) {
     this.page = page;
     this.buttonDeleteMyAccount = page.getByText('Delete my account');
@@ -27,5 +27,15 @@ export class AccountSettings {
       await this.inputAccountName.fill(name);
       await this.modalChangeNameButton.click();
     });
+  }
+}
+
+export class BillingInfoTab {
+  constructor(page) {
+    this.page = page;
+    this.plusLabel = page.getByText('Mobalytics Plus');
+    this.plusSubscriptionType = page.getByText('Plus Subscription');
+    this.adFreeLabel = page.getByText('Ad-Free plan');
+    this.adFreeSubscriptionType = page.getByText('Ad-free Subscription');
   }
 }

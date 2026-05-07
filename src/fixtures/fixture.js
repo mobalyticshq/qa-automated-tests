@@ -669,4 +669,16 @@ export const test = base.extend({
 
     await use(moba);
   },
+
+  registerAccount: async ({ page }, use) => {
+    const moba = new Moba(page);
+    const uniqueId = uuidv4().substring(0, 4);
+    const credentials = `ns+${uniqueId}@mobalyticshq.com`;
+
+    await moba.mainURLs.openMhwPage();
+    await moba.navbar.gotoSignInPage();
+    await moba.authorizePage.registerAccount(credentials);
+
+    await use(moba);
+  },
 });

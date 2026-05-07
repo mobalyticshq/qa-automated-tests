@@ -13,8 +13,11 @@ import {
   CardGalleryV2Widget,
   UgBuildPlanner,
   AuthorizePage,
-  AccountSettings,
+  AccountInformationTab,
+  BillingInfoTab,
   ByeBye,
+  PricingPage,
+  PaymentPage,
 } from './index';
 
 export class Moba {
@@ -33,7 +36,10 @@ export class Moba {
     this.mainURLs = new MainURLs(page);
     this.cardGalleryV2Widget = new CardGalleryV2Widget(page);
     this.authorizePage = new AuthorizePage(page);
-    this.accountSettings = new AccountSettings(page);
+    this.accountInformationTab = new AccountInformationTab(page);
+    this.billingInfoTab = new BillingInfoTab(page);
     this.byeBye = new ByeBye(page);
+    this.pricingPage = new PricingPage(page);
+    this.paymentPage = new PaymentPage(page);
   }
 }

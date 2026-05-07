@@ -49,7 +49,6 @@
 // ];
 
 const projectListFromSitemap = [
-  { project: 'Set4-5', isPresentInProdSitemap: true, pathUrl: '/tft/set4-5/sitemap.xml' },
   { project: 'ZZZ', isPresentInProdSitemap: true, pathUrl: '/zzz/sitemap.xml' },
   { project: 'Example Game', isPresentInProdSitemap: false, pathUrl: '/example-game/sitemap.xml' },
   { project: 'Valorant', isPresentInProdSitemap: true, pathUrl: '/valorant/sitemap.xml' },
@@ -58,7 +57,7 @@ const projectListFromSitemap = [
   { project: 'Sitemap', isPresentInProdSitemap: true, pathUrl: '/sitemap_index.xml' },
   { project: 'Champions', isPresentInProdSitemap: true, pathUrl: '/champions-sitemap.xml' },
   { project: 'TFT', isPresentInProdSitemap: true, pathUrl: '/tft/sitemap.xml' },
-  { project: 'Set15', isPresentInProdSitemap: true, pathUrl: '/tft/set16/sitemap.xml' },
+  { project: 'Set17', isPresentInProdSitemap: true, pathUrl: '/tft/set17/sitemap.xml' },
   { project: 'Destiny 2', isPresentInProdSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
   { project: 'Diablo 4', isPresentInProdSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
   { project: 'Nightreign', isPresentInProdSitemap: true, pathUrl: '/elden-ring-nightreign/sitemap.xml' },

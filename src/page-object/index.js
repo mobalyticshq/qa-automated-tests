@@ -12,5 +12,7 @@ export * from './homePage';
 export * from './cardGalleryV2Widget';
 export * from './ugBuildPlanner';
 export * from './authorizePage';
-export * from './accountSettings';
+export * from './settings';
 export * from './bye-bye';
+export * from './pricingPage';
+export * from './paymentPage';
