@@ -1,0 +1,1053 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "Mobalytics" [ref=e6] [cursor=pointer]:
+          - /url: /poe-2
+          - img "Mobalytics" [ref=e7]
+        - generic [ref=e9]:
+          - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+            - /url: https://mobalytics.gg/lol
+            - generic [ref=e13]:
+              - img "League of Legends" [ref=e14]
+              - generic [ref=e15]: LoL
+          - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+            - /url: https://mobalytics.gg/tft
+            - generic [ref=e19]:
+              - img "Teamfight Tactics" [ref=e20]
+              - generic [ref=e21]: TFT
+          - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+            - /url: https://mobalytics.gg/diablo-4
+            - generic [ref=e25]:
+              - img "Diablo 4" [ref=e26]
+              - generic [ref=e27]: Diablo 4
+          - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe-2
+            - generic [ref=e31]:
+              - img "Path of Exile 2" [ref=e32]
+              - generic [ref=e33]: PoE 2
+          - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe
+            - generic [ref=e37]:
+              - img "Path of Exile" [ref=e38]
+              - generic [ref=e39]: PoE
+          - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+            - /url: https://mobalytics.gg/destiny-2
+            - generic [ref=e43]:
+              - img "Destiny 2" [ref=e44]
+              - generic [ref=e45]: Destiny 2
+          - link "Marathon Marathon" [ref=e47] [cursor=pointer]:
+            - /url: https://mobalytics.gg/marathon
+            - generic [ref=e49]:
+              - img "Marathon" [ref=e50]
+              - generic [ref=e51]: Marathon
+          - link "Slay the Spire 2 STS 2 New" [ref=e53] [cursor=pointer]:
+            - /url: https://mobalytics.gg/slay-the-spire-2
+            - generic [ref=e55]:
+              - img "Slay the Spire 2" [ref=e56]
+              - generic [ref=e57]: STS 2
+              - generic [ref=e59]: New
+          - link "Deadlock Deadlock" [ref=e61] [cursor=pointer]:
+            - /url: https://mobalytics.gg/deadlock
+            - generic [ref=e63]:
+              - img "Deadlock" [ref=e64]
+              - generic [ref=e65]: Deadlock
+          - link "Overwatch Overwatch" [ref=e67] [cursor=pointer]:
+            - /url: https://mobalytics.gg/overwatch
+            - generic [ref=e69]:
+              - img "Overwatch" [ref=e70]
+              - generic [ref=e71]: Overwatch
+          - link "Borderlands 4 Borderlands 4" [ref=e73] [cursor=pointer]:
+            - /url: https://mobalytics.gg/borderlands-4
+            - generic [ref=e75]:
+              - img "Borderlands 4" [ref=e76]
+              - generic [ref=e77]: Borderlands 4
+          - link "Valorant VAL" [ref=e79] [cursor=pointer]:
+            - /url: https://mobalytics.gg/valorant
+            - generic [ref=e81]:
+              - img "Valorant" [ref=e82]
+              - generic [ref=e83]: VAL
+          - link "Neverness to Everness NTE New" [ref=e85] [cursor=pointer]:
+            - /url: https://mobalytics.gg/neverness-to-everness
+            - generic [ref=e87]:
+              - img "Neverness to Everness" [ref=e88]
+              - generic [ref=e89]: NTE
+              - generic [ref=e91]: New
+          - 'link "Arknights: Endfield Endfield" [ref=e93] [cursor=pointer]':
+            - /url: https://mobalytics.gg/arknights-endfield
+            - generic [ref=e95]:
+              - 'img "Arknights: Endfield" [ref=e96]'
+              - generic [ref=e97]: Endfield
+          - button [ref=e98] [cursor=pointer]:
+            - img [ref=e99]
+          - generic:
+            - link "Elden Ring Nightreign Nightreign":
+              - /url: https://mobalytics.gg/elden-ring-nightreign
+              - generic:
+                - generic:
+                  - img "Elden Ring Nightreign"
+                  - generic: Nightreign
+          - generic:
+            - link "Monster Hunter Wilds Monster Hunter Wilds":
+              - /url: https://mobalytics.gg/mhw
+              - generic:
+                - generic:
+                  - img "Monster Hunter Wilds"
+                  - generic: Monster Hunter Wilds
+          - generic:
+            - link "Hades 2 Hades 2":
+              - /url: https://mobalytics.gg/hades-2
+              - generic:
+                - generic:
+                  - img "Hades 2"
+                  - generic: Hades 2
+          - generic:
+            - link "The Bazaar The Bazaar":
+              - /url: https://mobalytics.gg/the-bazaar
+              - generic:
+                - generic:
+                  - img "The Bazaar"
+                  - generic: The Bazaar
+          - generic:
+            - link "Marvel Rivals Marvel Rivals":
+              - /url: https://mobalytics.gg/marvel-rivals
+              - generic:
+                - generic:
+                  - img "Marvel Rivals"
+                  - generic: Marvel Rivals
+          - generic:
+            - link "Zenless Zone Zero ZZZ":
+              - /url: https://mobalytics.gg/zzz
+              - generic:
+                - generic:
+                  - img "Zenless Zone Zero"
+                  - generic: ZZZ
+          - generic:
+            - link "2XKO 2XKO":
+              - /url: https://mobalytics.gg/2xko
+              - generic:
+                - generic:
+                  - img "2XKO"
+                  - generic: 2XKO
+          - generic:
+            - link "Riftbound Riftbound":
+              - /url: https://mobalytics.gg/riftbound
+              - generic:
+                - generic:
+                  - img "Riftbound"
+                  - generic: Riftbound
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - link "DOWNLOAD APP" [ref=e102] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?utm_campaign=I5qu0ij&utm_medium=owaa&utm_source=app
+            - button "DOWNLOAD APP" [ref=e104]:
+              - img [ref=e105]
+              - text: DOWNLOAD APP
+          - generic [ref=e110]:
+            - img [ref=e111]
+            - textbox "global search input" [ref=e113]:
+              - /placeholder: Ask me anything about PoE builds!
+          - link "News" [ref=e115] [cursor=pointer]:
+            - /url: /news
+            - generic [ref=e116]: News
+        - generic [ref=e117]:
+          - button "sign in" [ref=e118] [cursor=pointer]:
+            - generic [ref=e119]: sign in
+          - img "support" [ref=e124] [cursor=pointer]
+      - generic [ref=e126]:
+        - link "Home" [ref=e129] [cursor=pointer]:
+          - /url: /poe-2
+          - img "Home" [ref=e131]
+        - link "Profile" [ref=e134] [cursor=pointer]:
+          - /url: /poe-2/profile
+          - img "Profile" [ref=e136]
+        - link "Build Planner" [ref=e139] [cursor=pointer]:
+          - /url: /poe-2/planner/builds
+          - img "Build Planner" [ref=e141]
+        - link "Tier List" [ref=e144] [cursor=pointer]:
+          - /url: /poe-2/tier-list
+          - img "Tier List" [ref=e146]
+        - link "Starter Builds" [ref=e149] [cursor=pointer]:
+          - /url: /poe-2/starter-builds
+          - img "Starter Builds" [ref=e151]
+        - link "Builds" [ref=e154] [cursor=pointer]:
+          - /url: /poe-2/builds
+          - img "Builds" [ref=e156]
+        - link "Guides" [ref=e159] [cursor=pointer]:
+          - /url: /poe-2/guides
+          - img "Guides" [ref=e161]
+        - link "Creators" [ref=e164] [cursor=pointer]:
+          - /url: /poe-2/creators
+          - img "Creators" [ref=e166]
+      - generic [ref=e168]:
+        - main [ref=e169]:
+          - generic [ref=e170]:
+            - navigation [ref=e171]:
+              - list [ref=e172]:
+                - listitem [ref=e173]:
+                  - link "Path of Exile 2" [ref=e174] [cursor=pointer]:
+                    - /url: /poe-2
+                - listitem [ref=e175]:
+                  - img [ref=e176]
+                - listitem [ref=e177]:
+                  - link "Builds" [ref=e178] [cursor=pointer]:
+                    - /url: /poe-2/builds
+                - listitem [ref=e179]:
+                  - img [ref=e180]
+                - listitem [ref=e181]: "[0.3] Lazy's Ballista Banner Tactician"
+            - generic [ref=e182]:
+              - generic [ref=e183]:
+                - button "PoE 2 Build [0.3] Lazy's Ballista Banner Tactician presentation Mercenary Verified presentation Tactician 0.3 TTE Starter End Game By Lazy Exile Updated on Nov 20, 2025 Track Build 906 Favorites Share Focus Mode" [ref=e186]:
+                  - generic [ref=e187]:
+                    - generic [ref=e189]:
+                      - generic [ref=e190]: PoE 2 Build
+                      - heading "[0.3] Lazy's Ballista Banner Tactician" [level=1] [ref=e191]
+                      - generic [ref=e192]:
+                        - generic [ref=e193]:
+                          - img "presentation" [ref=e194]
+                          - text: Mercenary
+                        - generic [ref=e195]: Verified
+                        - generic [ref=e196]:
+                          - img "presentation" [ref=e197]
+                          - text: Tactician
+                        - generic [ref=e198]: 0.3 TTE
+                        - generic [ref=e199]: Starter
+                        - generic [ref=e200]: End Game
+                      - generic [ref=e201]:
+                        - generic [ref=e202]:
+                          - generic [ref=e203]:
+                            - text: By
+                            - link "Lazy Exile" [ref=e204] [cursor=pointer]:
+                              - /url: /poe-2/profile/lazy-exile
+                          - link [ref=e205] [cursor=pointer]:
+                            - /url: https://www.twitch.tv/lazyexdee
+                            - button [ref=e206]:
+                              - img [ref=e207]
+                          - link [ref=e208] [cursor=pointer]:
+                            - /url: https://www.youtube.com/@LazyExile
+                            - button [ref=e209]:
+                              - img [ref=e210]
+                          - link [ref=e211] [cursor=pointer]:
+                            - /url: https://discord.gg/ccK7ZP3CRB
+                            - button [ref=e212]:
+                              - img [ref=e213]
+                          - link [ref=e214] [cursor=pointer]:
+                            - /url: https://x.com/LazyExile
+                            - button [ref=e215]:
+                              - img [ref=e216]
+                        - generic [ref=e218]:
+                          - text: Updated on
+                          - generic [ref=e219]: Nov 20, 2025
+                    - generic [ref=e221]:
+                      - button "Track Build" [ref=e222] [cursor=pointer]:
+                        - img [ref=e223]
+                        - text: Track Build
+                      - button "906 Favorites" [ref=e225] [cursor=pointer]:
+                        - img [ref=e226]
+                        - text: 906 Favorites
+                      - button "Share" [ref=e228] [cursor=pointer]:
+                        - img [ref=e229]
+                        - text: Share
+                      - button "Focus Mode" [disabled] [ref=e231]:
+                        - img [ref=e232]
+                        - text: Focus Mode
+                - generic [ref=e234]:
+                  - generic [ref=e235]:
+                    - generic [ref=e236]:
+                      - heading "Build Overview" [level=2] [ref=e240]
+                      - generic [ref=e247]:
+                        - paragraph [ref=e248]: Hey guys, It's Lazy Exile, and I want to share my League Starter for 0.3.
+                        - paragraph [ref=e249]: This is going to be Ballista Totem + Banner Build on Tactician.
+                        - heading "This guide will be keep up-to-date as I progress through the league in 0.3. Final Endgame Update Done. Max Difficulty Xesht also done with this End Game update." [level=4] [ref=e250]
+                        - heading "Day 2 Update - Early Game Setup (can refer to Day 4 Setup instead of running 0 res)" [level=4] [ref=e251]
+                        - paragraph [ref=e252]:
+                          - link "https://www.youtube.com/watch?v=RfmGTMtOrDU" [ref=e253] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=RfmGTMtOrDU
+                        - heading "Day 3 Update - Budget MF setup (150-200% rarity)" [level=4] [ref=e254]
+                        - paragraph [ref=e255]:
+                          - link "https://youtu.be/vzm9yqPgokM" [ref=e256] [cursor=pointer]:
+                            - /url: https://youtu.be/vzm9yqPgokM
+                        - heading "Day 4 Update - End Game Totem Banner Dual Curse" [level=4] [ref=e257]
+                        - paragraph [ref=e258]:
+                          - link "https://youtu.be/gPvV3KLr7E0" [ref=e259] [cursor=pointer]:
+                            - /url: https://youtu.be/gPvV3KLr7E0
+                        - heading "Build Summary" [level=3] [ref=e260]
+                        - paragraph [ref=e261]:
+                          - text: This is a build revolve around Ballista Totem (
+                          - generic [ref=e266]: Mortar Cannon
+                          - text: ) and Banners (
+                          - generic [ref=e271]: War Banner
+                          - text: ","
+                          - generic [ref=e276]: Defiance Banner
+                          - text: ) with a Dual Curse setup (
+                          - generic [ref=e281]: Elemental Weakness
+                          - text: ","
+                          - generic [ref=e286]: Temporal Chains
+                          - text: ). A comfy totem setup where you can drop totem and let your totem do the works.
+                          - text: This play a lot similar to the traditional totem setup and place totem and go.
+                        - heading "Defensive" [level=4] [ref=e287]
+                        - paragraph [ref=e288]: Pinning is also insane on Tactician, and most of the time, you can kill enemies before they get a chance to fight back. Decently tanky in Armour and Evasion setup. The main thing is you can drop your totem and run around to dodge everything.
+                        - heading "Offensive" [level=4] [ref=e289]
+                        - paragraph [ref=e290]:
+                          - generic [ref=e295]: Mortar Cannon
+                          - text: have 100% uptime with pinning, and they will hardly die if you position them correctly.
+                          - generic [ref=e300]: Elemental Weakness
+                          - text: +
+                          - generic [ref=e305]: Frost Bomb
+                          - text: in this setup is a lot stronger than the traditional Crossbow build because we run Sceptre in our setup.
+                        - paragraph [ref=e306]: Ultimately, going for crit in the end game will give you enough damage for pinnacle bossing.
+                        - heading "Content this is good for?" [level=3] [ref=e307]
+                        - list [ref=e308]:
+                          - listitem [ref=e309]: Mapping
+                          - listitem [ref=e310]: Ritual (Banner + Totem is good for stationary content)
+                          - listitem [ref=e311]: Abyss (Banner + Totem is good for stationary content)
+                          - listitem [ref=e312]: Essence (Banner + Totem is good for stationary content)
+                          - listitem [ref=e313]: Bossing (A lot of strong scaling vector for endgame)
+                        - heading "Campaign Bonuses" [level=3] [ref=e314]
+                        - heading "Valley of the Titans (Act 2)" [level=4] [ref=e315]
+                        - paragraph [ref=e316]: 30% Increased Charm Effect Duration & +1 Charm Slot
+                        - heading "The Venom Crypts" [level=4] [ref=e317]
+                        - paragraph [ref=e318]: 30% Elemental Ailment Threshold
+                        - heading "Hall of the Dead" [level=4] [ref=e319]
+                        - paragraph [ref=e320]: +5 Strength, +5 Dexterity, +5 Intelligence
+                        - heading "Act 5.2 - Qimah - 7 Pillars" [level=4] [ref=e321]
+                        - paragraph [ref=e322]: +5 to All Attributes (if lacking attributes)
+                        - paragraph [ref=e323]: +5% to Elemental Resistances (if lacking resistances)
+                        - paragraph [ref=e324]: 3% increased Movement Speed (best choice)
+                    - generic [ref=e325]:
+                      - heading "Strengths and Weaknesses" [level=2] [ref=e329]
+                      - generic [ref=e332]:
+                        - list [ref=e339]:
+                          - listitem [ref=e340]: Unique Ballista/Totem Playstyle
+                          - listitem [ref=e341]: Beginner Friendly
+                          - listitem [ref=e342]: Strong early game
+                          - listitem [ref=e343]: Should scale relatively well into late game
+                          - listitem [ref=e344]: Endgame version can clear Pinnacle boss
+                        - list [ref=e351]:
+                          - listitem [ref=e352]: Banner is extra buttons
+                          - listitem [ref=e353]: Visual Clarity (might be a plus)
+                    - generic [ref=e354]:
+                      - generic [ref=e355]:
+                        - heading "Build Variants" [level=2] [ref=e359]
+                        - tablist [ref=e363]:
+                          - tablist [ref=e365]:
+                            - tab "End Game" [selected] [ref=e366] [cursor=pointer]:
+                              - generic [ref=e367]: End Game
+                            - tab "Early Game" [ref=e369] [cursor=pointer]:
+                              - generic [ref=e370]: Early Game
+                            - tab "Budget MF" [ref=e371] [cursor=pointer]:
+                              - generic [ref=e372]: Budget MF
+                            - tab "Act 1" [ref=e373] [cursor=pointer]:
+                              - generic [ref=e374]: Act 1
+                            - tab "Act 2" [ref=e375] [cursor=pointer]:
+                              - generic [ref=e376]: Act 2
+                            - tab "Act 3" [ref=e377] [cursor=pointer]:
+                              - generic [ref=e378]: Act 3
+                            - tab "Act 4 & Interlude" [ref=e379] [cursor=pointer]:
+                              - generic [ref=e380]: Act 4 & Interlude
+                        - generic [ref=e387]:
+                          - paragraph [ref=e388]:
+                            - text: With a good crossbow, you can go with this setup. Going for Armour and be tanky. The tree is for level 90 and up, and most item is still fairly budget beside the
+                            - generic [ref=e393]: From Nothing
+                            - text: jewel which is optional. All rare items are achievable and you can slowly works some rarity into the gear.
+                          - paragraph [ref=e394]:
+                            - strong [ref=e395]: "Budget:"
+                            - text: 10-15 Divines
+                          - paragraph [ref=e396]:
+                            - strong [ref=e397]: "Level:"
+                            - text: 85-95+
+                      - generic [ref=e400]:
+                        - generic [ref=e401]:
+                          - heading "Equipment" [level=2] [ref=e405]
+                          - tablist [ref=e408]:
+                            - tablist [ref=e410]:
+                              - tab "End Game" [selected] [ref=e411] [cursor=pointer]:
+                                - generic [ref=e412]: End Game
+                              - tab "Early Game" [ref=e414] [cursor=pointer]:
+                                - generic [ref=e415]: Early Game
+                              - tab "Budget MF" [ref=e416] [cursor=pointer]:
+                                - generic [ref=e417]: Budget MF
+                              - tab "Act 1" [ref=e418] [cursor=pointer]:
+                                - generic [ref=e419]: Act 1
+                              - tab "Act 2" [ref=e420] [cursor=pointer]:
+                                - generic [ref=e421]: Act 2
+                              - tab "Act 3" [ref=e422] [cursor=pointer]:
+                                - generic [ref=e423]: Act 3
+                              - tab "Act 4 & Interlude" [ref=e424] [cursor=pointer]:
+                                - generic [ref=e425]: Act 4 & Interlude
+                          - generic [ref=e426]:
+                            - generic [ref=e428]:
+                              - radiogroup [ref=e431]:
+                                - generic [ref=e435] [cursor=pointer]:
+                                  - radio "Set 1" [checked] [ref=e437]
+                                  - generic [ref=e439]: Set 1
+                                - generic [ref=e441] [cursor=pointer]:
+                                  - radio "Set 2" [ref=e443]
+                                  - generic [ref=e445]: Set 2
+                              - generic [ref=e448]:
+                                - generic [ref=e449]:
+                                  - generic [ref=e450]:
+                                    - generic [ref=e459]:
+                                      - link:
+                                        - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22name%22%3A%22Lifesprig%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                    - generic [ref=e462]: "1"
+                                  - generic [ref=e464]:
+                                    - generic [ref=e468]:
+                                      - link:
+                                        - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22name%22%3A%22Doedre's%20Damning%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                    - generic [ref=e471]: "4"
+                                  - generic [ref=e472]:
+                                    - generic [ref=e473]:
+                                      - generic [ref=e480]:
+                                        - link:
+                                          - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22name%22%3A%22Constricting%20Command%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                      - generic [ref=e483]: "2"
+                                    - generic [ref=e484]:
+                                      - generic [ref=e488]:
+                                        - link:
+                                          - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A23%7D%7D%2C%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A138%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A80%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A149%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2144192055%22%2C%22value%22%3A%7B%22min%22%3A123%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1062208444%22%2C%22value%22%3A%7B%22min%22%3A110%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.chest%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                      - generic [ref=e491]: "7"
+                                  - generic [ref=e492]:
+                                    - generic [ref=e493]:
+                                      - generic [ref=e497]:
+                                        - link:
+                                          - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22name%22%3A%22Idol%20of%20Uldurn%22%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22rarity%22%3A%7B%22option%22%3A%22unique%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                      - generic [ref=e500]: "3"
+                                    - generic [ref=e501]:
+                                      - generic [ref=e505]:
+                                        - link:
+                                          - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A24%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A70%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2144192055%22%2C%22value%22%3A%7B%22min%22%3A176%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A11%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.ring%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                      - generic [ref=e508]: "10"
+                                  - generic [ref=e509]:
+                                    - generic [ref=e513]:
+                                      - link:
+                                        - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A27%7D%7D%2C%7B%22id%22%3A%22explicit.stat_328541901%22%2C%22value%22%3A%7B%22min%22%3A12%7D%7D%2C%7B%22id%22%3A%22explicit.stat_849987426%22%2C%22value%22%3A%7B%22min%22%3A8%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1798257884%22%2C%22value%22%3A%7B%22min%22%3A44%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1416406066%22%2C%22value%22%3A%7B%22min%22%3A50%7D%7D%2C%7B%22id%22%3A%22explicit.stat_315791320%22%2C%22value%22%3A%7B%22min%22%3A20%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22weapon.sceptre%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                    - generic [ref=e516]: "6"
+                                - generic [ref=e517]:
+                                  - generic [ref=e518]:
+                                    - generic [ref=e525]:
+                                      - link:
+                                        - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A75%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A174%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2866361420%22%2C%22value%22%3A%7B%22min%22%3A38%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3032590688%22%2C%22value%22%3A%7B%22min%22%3A19%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.gloves%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                    - generic [ref=e528]: "8"
+                                  - generic [ref=e529]:
+                                    - generic [ref=e533]:
+                                      - link:
+                                        - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22explicit.stat_3325883026%22%2C%22value%22%3A%7B%22min%22%3A3%7D%7D%2C%7B%22id%22%3A%22explicit.stat_809229260%22%2C%22value%22%3A%7B%22min%22%3A168%7D%7D%2C%7B%22id%22%3A%22explicit.stat_4080418644%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A174%7D%7D%2C%7B%22id%22%3A%22explicit.stat_1050105434%22%2C%22value%22%3A%7B%22min%22%3A54%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22accessory.belt%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                    - generic [ref=e536]: "11"
+                                  - generic [ref=e537]:
+                                    - generic [ref=e541]:
+                                      - link:
+                                        - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%7B%22id%22%3A%22pseudo.pseudo_total_elemental_resistance%22%2C%22value%22%3A%7B%22min%22%3A15%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3299347043%22%2C%22value%22%3A%7B%22min%22%3A119%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2866361420%22%2C%22value%22%3A%7B%22min%22%3A44%7D%7D%2C%7B%22id%22%3A%22explicit.stat_2250533757%22%2C%22value%22%3A%7B%22min%22%3A30%7D%7D%2C%7B%22id%22%3A%22explicit.stat_3917489142%22%2C%22value%22%3A%7B%22min%22%3A25%7D%7D%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22armour.boots%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                                    - generic [ref=e544]: "9"
+                                - generic [ref=e550]:
+                                  - link:
+                                    - /url: https://www.pathofexile.com/trade2/search/Fate of the Vaal?q=%7B%22query%22%3A%7B%22status%22%3A%7B%22option%22%3A%22any%22%7D%2C%22stats%22%3A%5B%7B%22type%22%3A%22and%22%2C%22filters%22%3A%5B%5D%7D%5D%2C%22filters%22%3A%7B%22type_filters%22%3A%7B%22filters%22%3A%7B%22category%22%3A%7B%22option%22%3A%22flask.life%22%7D%7D%7D%7D%7D%2C%22sort%22%3A%7B%22price%22%3A%22asc%22%7D%7D
+                            - generic [ref=e577]:
+                              - generic [ref=e578]: Equipment Priority
+                              - button "Track Build" [ref=e579] [cursor=pointer]:
+                                - img [ref=e580]
+                                - text: Track Build
+                            - button "Show All" [ref=e627] [cursor=pointer]:
+                              - text: Show All
+                              - img [ref=e628]
+                        - generic [ref=e637]:
+                          - heading "Equipment Guide" [level=3] [ref=e638]
+                          - paragraph [ref=e639]:
+                            - strong [ref=e640]: Check the Vendor
+                            - strong [ref=e641]
+                            - text: when you go back to town, paste the regex into the search box to highlight the items.
+                          - heading "Gear & Stats Priorities" [level=4] [ref=e642]
+                          - heading "Weapon Set 1" [level=4] [ref=e643]
+                          - paragraph [ref=e644]:
+                            - generic [ref=e649]: Lifesprig
+                            - text: (or any wand with fast cast speed)
+                          - list [ref=e650]:
+                            - listitem [ref=e651]:
+                              - text: I use
+                              - generic [ref=e656]: Mana Drain
+                              - text: to recover my mana
+                            - listitem [ref=e657]: I think there are better option than this
+                          - paragraph [ref=e658]:
+                            - generic [ref=e663]: Shrine Sceptre
+                          - list [ref=e664]:
+                            - listitem [ref=e665]: Increased spirit (no definite number, but if you want to run my exact gem and support, 55+)
+                            - listitem [ref=e666]:
+                              - text: Intelligence (30+ since we need high intelligence to run at least level 18
+                              - generic [ref=e671]: Frost Bomb
+                              - text: )
+                            - listitem [ref=e672]:
+                              - text: Use
+                              - strong [ref=e673]: Perfect Essence of Command
+                              - text: (Aura Magnitudes works with Banner, and will make it a lot better)
+                            - listitem [ref=e674]: Purity of Fire at higher level will give better fire resistances, and you can also quality this to 20%
+                          - heading "Weapon Set 2" [level=4] [ref=e675]
+                          - paragraph [ref=e676]:
+                            - generic [ref=e681]: Siege Crossbow
+                            - text: (Highest lv base)
+                          - list [ref=e682]:
+                            - listitem [ref=e683]: As high physical damage roll as possible
+                            - listitem [ref=e684]: +1 to Ballista (BiS I think) / Increased Grenade Damage (also very good mod)
+                            - listitem [ref=e685]: + 6 Level to attack skills
+                            - listitem [ref=e686]: Attack Speed
+                          - paragraph [ref=e687]:
+                            - generic [ref=e692]: Zealot Gauntlets
+                            - text: (any Armour/Evasion bases)
+                          - list [ref=e693]:
+                            - listitem [ref=e694]:
+                              - text: Physical Damage to Attack +
+                              - generic [ref=e699]: The Greatwolf's Rune of Claws
+                              - text: for more phys damage to attack
+                            - listitem [ref=e700]: Maximum Life / Resistances / Increased Rarity
+                          - paragraph [ref=e701]:
+                            - generic [ref=e706]: Constricting Command
+                          - list [ref=e707]:
+                            - listitem [ref=e708]: Require 5 fewer enemies to be surrounded
+                            - listitem [ref=e709]: It's either 5 or nothing, don't try to get 4 or 3 or 2
+                          - paragraph [ref=e710]:
+                            - generic [ref=e715]: Breach Ring
+                            - text: /
+                            - generic [ref=e720]: Gold Ring
+                            - text: / Any Bases
+                          - list [ref=e721]:
+                            - listitem [ref=e722]: Add phys damage to attack (higher tier is better)
+                            - listitem [ref=e723]: Intelligence
+                            - listitem [ref=e724]: Elemental resistances
+                            - listitem [ref=e725]: Maximum life / Increased rarity
+                          - paragraph [ref=e726]:
+                            - generic [ref=e731]: Doedre's Damning
+                          - list [ref=e732]:
+                            - listitem [ref=e733]: Additional curse
+                          - paragraph [ref=e734]:
+                            - generic [ref=e739]: Death Mail
+                            - text: /
+                            - generic [ref=e744]: Dastard Armour
+                            - text: (armour/evasion base)
+                          - list [ref=e745]:
+                            - listitem [ref=e746]: Look for Highest roll of armour and evasion
+                            - listitem [ref=e747]: Elemental resistances
+                            - listitem [ref=e748]: Maximum life
+                            - listitem [ref=e749]: Armour also applies to elemental damage
+                          - paragraph [ref=e750]:
+                            - generic [ref=e755]: Fortress Sabatons
+                            - text: (armour/evasion base)
+                          - list [ref=e756]:
+                            - listitem [ref=e757]: Movement speed 30%+
+                            - listitem [ref=e758]: Maximum life
+                            - listitem [ref=e759]: Increased rarity / Elemental resistances
+                          - paragraph [ref=e760]:
+                            - generic [ref=e765]: Utility Belt
+                            - text: (rare belt)
+                          - list [ref=e766]:
+                            - listitem [ref=e767]: + Armour / Maximum life
+                            - listitem [ref=e768]: + Strength (at least +30)
+                            - listitem [ref=e769]: Elemental resistances (if missing)
+                      - generic [ref=e772]:
+                        - generic [ref=e773]:
+                          - heading "Skill Gems" [level=2] [ref=e777]
+                          - tablist [ref=e780]:
+                            - tablist [ref=e782]:
+                              - tab "End Game" [selected] [ref=e783] [cursor=pointer]:
+                                - generic [ref=e784]: End Game
+                              - tab "Early Game" [ref=e786] [cursor=pointer]:
+                                - generic [ref=e787]: Early Game
+                              - tab "Budget MF" [ref=e788] [cursor=pointer]:
+                                - generic [ref=e789]: Budget MF
+                              - tab "Act 1" [ref=e790] [cursor=pointer]:
+                                - generic [ref=e791]: Act 1
+                              - tab "Act 2" [ref=e792] [cursor=pointer]:
+                                - generic [ref=e793]: Act 2
+                              - tab "Act 3" [ref=e794] [cursor=pointer]:
+                                - generic [ref=e795]: Act 3
+                              - tab "Act 4 & Interlude" [ref=e796] [cursor=pointer]:
+                                - generic [ref=e797]: Act 4 & Interlude
+                          - generic [ref=e798]:
+                            - generic [ref=e799]:
+                              - generic [ref=e800]:
+                                - generic [ref=e801]:
+                                  - paragraph [ref=e802]: "Support Gem Requirements:"
+                                  - paragraph [ref=e803]: Str 75
+                                  - paragraph [ref=e804]: Dex 55
+                                  - paragraph [ref=e805]: Int 65
+                                - button "Collapse all" [ref=e806] [cursor=pointer]:
+                                  - text: Collapse all
+                                  - img [ref=e807]
+                              - generic [ref=e808]:
+                                - button "1 Purity of Fire supportvitalityplayertwo Vitality II supportclarityplayertwo Clarity II supportwarmbloodedplayer Warm Blooded supportherbalismplayertwo Herbalism II" [ref=e809]:
+                                  - generic [ref=e810]:
+                                    - generic [ref=e811] [cursor=pointer]:
+                                      - generic [ref=e815]: "1"
+                                      - paragraph [ref=e817]: Purity of Fire
+                                    - generic [ref=e818]:
+                                      - generic [ref=e819] [cursor=pointer]:
+                                        - img "supportvitalityplayertwo" [ref=e823]
+                                        - generic [ref=e824]: Vitality II
+                                      - generic [ref=e825] [cursor=pointer]:
+                                        - img "supportclarityplayertwo" [ref=e829]
+                                        - generic [ref=e830]: Clarity II
+                                      - generic [ref=e831] [cursor=pointer]:
+                                        - img "supportwarmbloodedplayer" [ref=e835]
+                                        - generic [ref=e836]: Warm Blooded
+                                      - generic [ref=e837] [cursor=pointer]:
+                                        - img "supportherbalismplayertwo" [ref=e841]
+                                        - generic [ref=e842]: Herbalism II
+                                - button "2 Mana Drain supportrapidcastingplayertwo Rapid Casting II supportmobilityplayer Mobility supportslowpotencyplayer Slow Potency supportefficiencyplayertwo Efficiency II" [ref=e843]:
+                                  - generic [ref=e844]:
+                                    - generic [ref=e845] [cursor=pointer]:
+                                      - generic [ref=e849]: "2"
+                                      - paragraph [ref=e851]: Mana Drain
+                                    - generic [ref=e852]:
+                                      - generic [ref=e853] [cursor=pointer]:
+                                        - img "supportrapidcastingplayertwo" [ref=e857]
+                                        - generic [ref=e858]: Rapid Casting II
+                                      - generic [ref=e859] [cursor=pointer]:
+                                        - img "supportmobilityplayer" [ref=e863]
+                                        - generic [ref=e864]: Mobility
+                                      - generic [ref=e865] [cursor=pointer]:
+                                        - img "supportslowpotencyplayer" [ref=e869]
+                                        - generic [ref=e870]: Slow Potency
+                                      - generic [ref=e871] [cursor=pointer]:
+                                        - img "supportefficiencyplayertwo" [ref=e875]
+                                        - generic [ref=e876]: Efficiency II
+                                - button "3 Blasphemy elementalweaknessplayer Elemental Weakness supportritualisticcurseplayer Ritualistic Curse supportmagnifiedareaplayertwo Magnified Area II supportcurseeffectplayer Heightened Curse temporalchainsplayer Temporal Chains" [ref=e877]:
+                                  - generic [ref=e878]:
+                                    - generic [ref=e879] [cursor=pointer]:
+                                      - generic [ref=e883]: "3"
+                                      - paragraph [ref=e885]: Blasphemy
+                                    - generic [ref=e886]:
+                                      - generic [ref=e887] [cursor=pointer]:
+                                        - img "elementalweaknessplayer" [ref=e891]
+                                        - generic [ref=e892]: Elemental Weakness
+                                      - generic [ref=e893] [cursor=pointer]:
+                                        - img "supportritualisticcurseplayer" [ref=e897]
+                                        - generic [ref=e898]: Ritualistic Curse
+                                      - generic [ref=e899] [cursor=pointer]:
+                                        - img "supportmagnifiedareaplayertwo" [ref=e903]
+                                        - generic [ref=e904]: Magnified Area II
+                                      - generic [ref=e905] [cursor=pointer]:
+                                        - img "supportcurseeffectplayer" [ref=e909]
+                                        - generic [ref=e910]: Heightened Curse
+                                      - generic [ref=e911] [cursor=pointer]:
+                                        - img "temporalchainsplayer" [ref=e915]
+                                        - generic [ref=e916]: Temporal Chains
+                                - button "4 Frost Bomb supportpotentexposureplayer Potent Exposure supportmagnifiedareaplayertwo Magnified Area II prolongeddurationsupportplayertwo Prolonged Duration II supportlongfuseplayertwo Long Fuse II" [ref=e917]:
+                                  - generic [ref=e918]:
+                                    - generic [ref=e919] [cursor=pointer]:
+                                      - generic [ref=e923]: "4"
+                                      - paragraph [ref=e925]: Frost Bomb
+                                    - generic [ref=e926]:
+                                      - generic [ref=e927] [cursor=pointer]:
+                                        - img "supportpotentexposureplayer" [ref=e931]
+                                        - generic [ref=e932]: Potent Exposure
+                                      - generic [ref=e933] [cursor=pointer]:
+                                        - img "supportmagnifiedareaplayertwo" [ref=e937]
+                                        - generic [ref=e938]: Magnified Area II
+                                      - generic [ref=e939] [cursor=pointer]:
+                                        - img "prolongeddurationsupportplayertwo" [ref=e943]
+                                        - generic [ref=e944]: Prolonged Duration II
+                                      - generic [ref=e945] [cursor=pointer]:
+                                        - img "supportlongfuseplayertwo" [ref=e949]
+                                        - generic [ref=e950]: Long Fuse II
+                                - button "5 Mortar Cannon clustergrenadeplayer Cluster Grenade supportpayloadplayer Payload supportheftplayer Heft supportnovaprojectilesplayer Nova Projectiles I supportshortfuseplayer Short Fuse I" [ref=e951]:
+                                  - generic [ref=e952]:
+                                    - generic [ref=e953] [cursor=pointer]:
+                                      - generic [ref=e957]: "5"
+                                      - paragraph [ref=e959]: Mortar Cannon
+                                    - generic [ref=e960]:
+                                      - generic [ref=e961] [cursor=pointer]:
+                                        - img "clustergrenadeplayer" [ref=e965]
+                                        - generic [ref=e966]: Cluster Grenade
+                                      - generic [ref=e967] [cursor=pointer]:
+                                        - img "supportpayloadplayer" [ref=e971]
+                                        - generic [ref=e972]: Payload
+                                      - generic [ref=e973] [cursor=pointer]:
+                                        - img "supportheftplayer" [ref=e977]
+                                        - generic [ref=e978]: Heft
+                                      - generic [ref=e979] [cursor=pointer]:
+                                        - img "supportnovaprojectilesplayer" [ref=e983]
+                                        - generic [ref=e984]: Nova Projectiles I
+                                      - generic [ref=e985] [cursor=pointer]:
+                                        - img "supportshortfuseplayer" [ref=e989]
+                                        - generic [ref=e990]: Short Fuse I
+                                - button "6 Wind Dancer supportblindplayertwo Blind II supportpinplayer Pin I supportmaimplayer Maim supportclarityplayer Clarity I" [ref=e991]:
+                                  - generic [ref=e992]:
+                                    - generic [ref=e993] [cursor=pointer]:
+                                      - generic [ref=e997]: "6"
+                                      - paragraph [ref=e999]: Wind Dancer
+                                    - generic [ref=e1000]:
+                                      - generic [ref=e1001] [cursor=pointer]:
+                                        - img "supportblindplayertwo" [ref=e1005]
+                                        - generic [ref=e1006]: Blind II
+                                      - generic [ref=e1007] [cursor=pointer]:
+                                        - img "supportpinplayer" [ref=e1011]
+                                        - generic [ref=e1012]: Pin I
+                                      - generic [ref=e1013] [cursor=pointer]:
+                                        - img "supportmaimplayer" [ref=e1017]
+                                        - generic [ref=e1018]: Maim
+                                      - generic [ref=e1019] [cursor=pointer]:
+                                        - img "supportclarityplayer" [ref=e1023]
+                                        - generic [ref=e1024]: Clarity I
+                                - 'button "7 Companion: {0} supportmeatshieldplayer Meat Shield I supportlastgaspplayer Last Gasp supportelementalarmyplayer Elemental Army" [ref=e1025]':
+                                  - generic [ref=e1026]:
+                                    - generic [ref=e1027] [cursor=pointer]:
+                                      - generic [ref=e1031]: "7"
+                                      - paragraph [ref=e1033]: "Companion: {0}"
+                                    - generic [ref=e1034]:
+                                      - generic [ref=e1035] [cursor=pointer]:
+                                        - img "supportmeatshieldplayer" [ref=e1039]
+                                        - generic [ref=e1040]: Meat Shield I
+                                      - generic [ref=e1041] [cursor=pointer]:
+                                        - img "supportlastgaspplayer" [ref=e1045]
+                                        - generic [ref=e1046]: Last Gasp
+                                      - generic [ref=e1047] [cursor=pointer]:
+                                        - img "supportelementalarmyplayer" [ref=e1051]
+                                        - generic [ref=e1052]: Elemental Army
+                                - button "8 Mirage Archer explosivegrenadeplayer Explosive Grenade supportmultishotplayertwo Multishot II supportelementalarmamentplayertwo Elemental Armament II supportpayloadplayer Payload" [ref=e1053]:
+                                  - generic [ref=e1054]:
+                                    - generic [ref=e1055] [cursor=pointer]:
+                                      - generic [ref=e1059]: "8"
+                                      - paragraph [ref=e1061]: Mirage Archer
+                                    - generic [ref=e1062]:
+                                      - generic [ref=e1063] [cursor=pointer]:
+                                        - img "explosivegrenadeplayer" [ref=e1067]
+                                        - generic [ref=e1068]: Explosive Grenade
+                                      - generic [ref=e1069] [cursor=pointer]:
+                                        - img "supportmultishotplayertwo" [ref=e1073]
+                                        - generic [ref=e1074]: Multishot II
+                                      - generic [ref=e1075] [cursor=pointer]:
+                                        - img "supportelementalarmamentplayertwo" [ref=e1079]
+                                        - generic [ref=e1080]: Elemental Armament II
+                                      - generic [ref=e1081] [cursor=pointer]:
+                                        - img "supportpayloadplayer" [ref=e1085]
+                                        - generic [ref=e1086]: Payload
+                                - button "9 Dread Banner prolongeddurationsupportplayertwo Prolonged Duration II supportmagnifiedareaplayertwo Magnified Area II" [ref=e1087]:
+                                  - generic [ref=e1088]:
+                                    - generic [ref=e1089] [cursor=pointer]:
+                                      - generic [ref=e1093]: "9"
+                                      - paragraph [ref=e1095]: Dread Banner
+                                    - generic [ref=e1096]:
+                                      - generic [ref=e1097] [cursor=pointer]:
+                                        - img "prolongeddurationsupportplayertwo" [ref=e1101]
+                                        - generic [ref=e1102]: Prolonged Duration II
+                                      - generic [ref=e1103] [cursor=pointer]:
+                                        - img "supportmagnifiedareaplayertwo" [ref=e1107]
+                                        - generic [ref=e1108]: Magnified Area II
+                                - button "10 War Banner supportrefractionplayerthree Refraction III supportmagnifiedareaplayertwo Magnified Area II prolongeddurationsupportplayertwo Prolonged Duration II supportmobilityplayer Mobility" [ref=e1109]:
+                                  - generic [ref=e1110]:
+                                    - generic [ref=e1111] [cursor=pointer]:
+                                      - generic [ref=e1115]: "10"
+                                      - paragraph [ref=e1117]: War Banner
+                                    - generic [ref=e1118]:
+                                      - generic [ref=e1119] [cursor=pointer]:
+                                        - img "supportrefractionplayerthree" [ref=e1123]
+                                        - generic [ref=e1124]: Refraction III
+                                      - generic [ref=e1125] [cursor=pointer]:
+                                        - img "supportmagnifiedareaplayertwo" [ref=e1129]
+                                        - generic [ref=e1130]: Magnified Area II
+                                      - generic [ref=e1131] [cursor=pointer]:
+                                        - img "prolongeddurationsupportplayertwo" [ref=e1135]
+                                        - generic [ref=e1136]: Prolonged Duration II
+                                      - generic [ref=e1137] [cursor=pointer]:
+                                        - img "supportmobilityplayer" [ref=e1141]
+                                        - generic [ref=e1142]: Mobility
+                                - button "11 Defiance Banner prolongeddurationsupportplayertwo Prolonged Duration II supportmagnifiedareaplayertwo Magnified Area II supportrefractionplayertwo Refraction II supportdaressospassionplayer Daresso's Passion" [ref=e1143]:
+                                  - generic [ref=e1144]:
+                                    - generic [ref=e1145] [cursor=pointer]:
+                                      - generic [ref=e1149]: "11"
+                                      - paragraph [ref=e1151]: Defiance Banner
+                                    - generic [ref=e1152]:
+                                      - generic [ref=e1153] [cursor=pointer]:
+                                        - img "prolongeddurationsupportplayertwo" [ref=e1157]
+                                        - generic [ref=e1158]: Prolonged Duration II
+                                      - generic [ref=e1159] [cursor=pointer]:
+                                        - img "supportmagnifiedareaplayertwo" [ref=e1163]
+                                        - generic [ref=e1164]: Magnified Area II
+                                      - generic [ref=e1165] [cursor=pointer]:
+                                        - img "supportrefractionplayertwo" [ref=e1169]
+                                        - generic [ref=e1170]: Refraction II
+                                      - generic [ref=e1171] [cursor=pointer]:
+                                        - img "supportdaressospassionplayer" [ref=e1175]
+                                        - generic [ref=e1176]: Daresso's Passion
+                                - status [ref=e1177]
+                            - generic [ref=e1178]:
+                              - generic [ref=e1179]:
+                                - generic [ref=e1180]: Gem Priority
+                                - button "Track Build" [ref=e1181] [cursor=pointer]:
+                                  - img [ref=e1182]
+                                  - text: Track Build
+                              - generic [ref=e1184]:
+                                - generic [ref=e1246]: "+19"
+                                - button "Show All" [ref=e1247] [cursor=pointer]:
+                                  - text: Show All
+                                  - img [ref=e1248]
+                        - generic [ref=e1256]:
+                          - heading "Important" [level=3] [ref=e1257]
+                          - paragraph [ref=e1258]:
+                            - text: Keep in mind, we are running
+                            - generic [ref=e1263]: Gem Enthusiast
+                            - text: ", so you need to have at least 10x green and red support gem. Fill the missing color in auto attack if needed."
+                          - heading "Pinnacle Bossing" [level=4] [ref=e1264]
+                          - paragraph [ref=e1265]:
+                            - text: Swap
+                            - generic [ref=e1270]: Short Fuse I
+                            - text: with
+                            - generic [ref=e1275]: Short Fuse II
+                            - text: for pinnacle bossing.
+                          - heading "Weapon Swap" [level=4] [ref=e1276]
+                          - paragraph [ref=e1277]:
+                            - text: In order to play smoothly, you will drop totem (auto swap to weapon set 2), and use
+                            - generic [ref=e1282]: Mana Drain
+                            - text: ", or"
+                            - generic [ref=e1287]: Frost Bomb
+                            - text: to swap back to weapon set 1, and drop
+                            - generic [ref=e1292]: War Banner
+                            - text: ","
+                            - generic [ref=e1297]: Defiance Banner
+                            - text: .
+                          - heading "Skill Rotation" [level=4] [ref=e1298]
+                          - list [ref=e1299]:
+                            - listitem [ref=e1300]:
+                              - text: Drop
+                              - generic [ref=e1305]: Mortar Cannon
+                            - listitem [ref=e1306]:
+                              - text: Cast
+                              - generic [ref=e1311]: Frost Bomb
+                              - text: (auto swap to set 1)
+                            - listitem [ref=e1312]:
+                              - text: Drop
+                              - generic [ref=e1317]: War Banner
+                              - text: ","
+                              - generic [ref=e1322]: Defiance Banner
+                              - text: ","
+                              - generic [ref=e1327]: Dread Banner
+                            - listitem [ref=e1328]:
+                              - text: Cast
+                              - generic [ref=e1333]: Mana Drain
+                              - text: if run out of mana
+                            - listitem [ref=e1334]:
+                              - text: Repeat step 1 once your
+                              - generic [ref=e1339]: Mortar Cannon
+                              - text: shoot out all the grenades (4 times)
+                          - paragraph [ref=e1340]:
+                            - text: For normal mobbing, just drop
+                            - generic [ref=e1345]: Mortar Cannon
+                          - heading "Weapon Set 1 (Banner Setup)" [level=4] [ref=e1346]
+                          - paragraph [ref=e1347]: Check the little box next to Used with weapon set I
+                          - paragraph [ref=e1348]:
+                            - generic [ref=e1353]: Blasphemy
+                            - text: "- Set 1"
+                          - paragraph [ref=e1354]:
+                            - generic [ref=e1359]: Frost Bomb
+                            - text: "- Set 1"
+                          - paragraph [ref=e1360]:
+                            - generic [ref=e1365]: "Companion: {0}"
+                            - text: "- Set 1 & 2 - Haste or Extra Phys Aura"
+                          - paragraph [ref=e1366]:
+                            - generic [ref=e1371]: Dread Banner
+                            - text: "- Set 1"
+                          - paragraph [ref=e1372]:
+                            - generic [ref=e1377]: War Banner
+                            - text: "- Set 1"
+                          - paragraph [ref=e1378]:
+                            - generic [ref=e1383]: Defiance Banner
+                            - text: "- Set 1"
+                          - heading "Weapon Set 2 (Mortar Cannon)" [level=4] [ref=e1384]
+                          - paragraph [ref=e1385]:
+                            - generic [ref=e1390]: Mortar Cannon
+                            - text: "- Set 2"
+                          - paragraph [ref=e1391]:
+                            - generic [ref=e1396]: Wind Dancer
+                            - text: "- Set 2"
+                          - paragraph [ref=e1397]:
+                            - generic [ref=e1402]: "Companion: {0}"
+                            - text: "- Set 1 & 2 - Haste Aura or Extra Phys Aura"
+                          - paragraph [ref=e1403]:
+                            - generic [ref=e1408]: Mirage Archer
+                            - text: "- Set 2"
+                      - generic [ref=e1411]:
+                        - generic [ref=e1412]:
+                          - heading "Passive Tree" [level=2] [ref=e1416]
+                          - tablist [ref=e1419]:
+                            - tablist [ref=e1421]:
+                              - tab "End Game" [selected] [ref=e1422] [cursor=pointer]:
+                                - generic [ref=e1423]: End Game
+                              - tab "Early Game" [ref=e1425] [cursor=pointer]:
+                                - generic [ref=e1426]: Early Game
+                              - tab "Budget MF" [ref=e1427] [cursor=pointer]:
+                                - generic [ref=e1428]: Budget MF
+                              - tab "Act 1" [ref=e1429] [cursor=pointer]:
+                                - generic [ref=e1430]: Act 1
+                              - tab "Act 2" [ref=e1431] [cursor=pointer]:
+                                - generic [ref=e1432]: Act 2
+                              - tab "Act 3" [ref=e1433] [cursor=pointer]:
+                                - generic [ref=e1434]: Act 3
+                              - tab "Act 4 & Interlude" [ref=e1435] [cursor=pointer]:
+                                - generic [ref=e1436]: Act 4 & Interlude
+                          - generic [ref=e1442]:
+                            - generic [ref=e1443]:
+                              - generic [ref=e1444]: "main:"
+                              - generic [ref=e1445]: "29"
+                              - generic [ref=e1446]: "123"
+                            - generic [ref=e1447]:
+                              - generic [ref=e1448]: "set 1:"
+                              - generic [ref=e1449]: "-4"
+                              - generic [ref=e1450]: "20"
+                            - generic [ref=e1451]:
+                              - generic [ref=e1452]: "set 2:"
+                              - generic [ref=e1453]: "-4"
+                              - generic [ref=e1454]: "20"
+                        - generic [ref=e1468]:
+                          - heading "Ascendancy" [level=3] [ref=e1469]
+                          - paragraph [ref=e1470]: You should have 4 ascendancy points to run this tree, especially the Banner.
+                          - heading "Notables" [level=3] [ref=e1471]
+                          - paragraph [ref=e1472]: This is a level 96 tree, follow the notable priority to know what you should get first.
+                    - generic [ref=e1473]:
+                      - heading "Changelog" [level=2] [ref=e1477]
+                      - generic [ref=e1484]:
+                        - paragraph [ref=e1485]: 23/8 - Initial Draft (Pre-Detail Patch Notes and Skill Trees)
+                        - paragraph [ref=e1486]: 28/8 - Update Mapping Gem Prep
+                        - paragraph [ref=e1487]: 2/9 - Day 3 update Magic Find Setup
+                        - paragraph [ref=e1488]: 4/9 - Totem Banner Setup
+                  - generic [ref=e1489]:
+                    - generic [ref=e1490]:
+                      - heading "Video Guide" [level=2] [ref=e1494]
+                      - iframe [ref=e1500]:
+                        - generic [active] [ref=f864e1]:
+                          - generic "YouTube Video Player" [ref=f864e3]
+                          - generic [ref=f864e5]:
+                            - generic:
+                              - generic:
+                                - button "Play video" [ref=f864e10] [cursor=pointer]:
+                                  - generic [ref=f864e13]:
+                                    - img
+                                - button "Hide player controls" [ref=f864e14] [cursor=pointer]
+                                - generic [ref=f864e16]:
+                                  - generic [ref=f864e21]:
+                                    - generic [ref=f864e22]:
+                                      - link "[PoE 2] The Totem Setup that Nuke Bosses & AoE Screen clear | Ballista Banner Tactician | 0.3" [ref=f864e23] [cursor=pointer]:
+                                        - /url: https://www.youtube.com/watch?v=-ZrdQ8CzpZk
+                                      - link "Lazy Exile" [ref=f864e24] [cursor=pointer]:
+                                        - /url: /channel/UCB39i-f7IG1d6zBpM-Ey6Qg
+                                        - generic [ref=f864e25]: Lazy Exile
+                                    - generic [ref=f864e26]:
+                                      - button "thumbnail-image" [ref=f864e27] [cursor=pointer]:
+                                        - img "thumbnail-image" [ref=f864e28]
+                                      - generic [ref=f864e30]:
+                                        - generic: Lazy Exile
+                                        - generic: 35K subscribers
+                                  - generic [ref=f864e31]:
+                                    - button "Share" [ref=f864e34] [cursor=pointer]:
+                                      - generic [ref=f864e38]:
+                                        - img
+                                    - link "Watch on YouTube" [ref=f864e45] [cursor=pointer]:
+                                      - /url: https://www.youtube.com/watch?v=-ZrdQ8CzpZk
+                                      - generic [ref=f864e48]:
+                                        - text: Watch on
+                                        - img [ref=f864e50]:
+                                          - generic [ref=f864e52]:
+                                            - img
+                    - generic [ref=e1501]:
+                      - generic [ref=e1502]:
+                        - heading "Table of Contents" [level=2] [ref=e1506]
+                        - generic [ref=e1507]:
+                          - generic [ref=e1508]:
+                            - link "1. Build Overview" [ref=e1509] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#c81bc723-60d4-42bc-acf2-59b5ed7b2fe1-build-overview-0
+                            - link "Build Summary" [ref=e1510] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#c81bc723-60d4-42bc-acf2-59b5ed7b2fe1-build-summary-0
+                              - generic [ref=e1512]: Build Summary
+                            - link "Content this is good for?" [ref=e1513] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#c81bc723-60d4-42bc-acf2-59b5ed7b2fe1-content-this-is-good-for-1
+                              - generic [ref=e1515]: Content this is good for?
+                            - link "Campaign Bonuses" [ref=e1516] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#c81bc723-60d4-42bc-acf2-59b5ed7b2fe1-campaign-bonuses-2
+                              - generic [ref=e1518]: Campaign Bonuses
+                            - link "2. Strengths and Weaknesses" [ref=e1519] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#91048081-0a41-44a5-871d-578e28f52491-strengths-and-weaknesses-0
+                            - link "3. Build Variants" [ref=e1520] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#f7d82102-7e77-4a44-ad24-33b67e8ae7bf-build-variants-0
+                            - link "4. Equipment" [ref=e1521] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#fe46ab74-00b4-4e80-b220-461343b3b375-equipment-0
+                            - link "5. Skill Gems" [ref=e1522] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#c1b1f718-718e-44a7-8c09-ef31ef3ad7f4-skill-gems-0
+                            - link "6. Passive Tree" [ref=e1523] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#c813326d-8c28-430d-a07f-bc6e9a4e5b98-passive-tree-0
+                            - link "7. Changelog" [ref=e1524] [cursor=pointer]:
+                              - /url: /poe-2/builds/lazyexile-ballista--banner-tactician-league-starter#a7505586-ae24-481b-b2d9-624e9e932dec-changelog-3
+                          - button "Back to top" [ref=e1526] [cursor=pointer]
+                      - generic [ref=e1528]:
+                        - heading "Featured Builds" [level=2] [ref=e1532]
+                        - generic [ref=e1534]:
+                          - generic [ref=e1536] [cursor=pointer]:
+                            - link [ref=e1537]:
+                              - /url: /poe-2/builds/falling-thunder-wyvern-monk-leaguestarter
+                            - generic [ref=e1541]:
+                              - generic [ref=e1542]: Falling Thunder Wyvern Monk Leaguestarter
+                              - generic [ref=e1543]: Updated on May 7, 2026
+                          - generic [ref=e1546] [cursor=pointer]:
+                            - link [ref=e1547]:
+                              - /url: /poe-2/builds/spin-to-win-whirling-assault-invoker-monk
+                            - generic [ref=e1551]:
+                              - generic [ref=e1552]: SPIN TO WIN - Whirling Assault Invoker Monk
+                              - generic [ref=e1553]: Updated on May 3, 2026
+                          - generic [ref=e1556] [cursor=pointer]:
+                            - link [ref=e1557]:
+                              - /url: /poe-2/builds/ice-shot-snipe-ranger-leveling
+                            - generic [ref=e1561]:
+                              - generic [ref=e1562]: "[0.4] Ice Shot Snipe Ranger Leveling"
+                              - generic [ref=e1563]: Updated on May 2, 2026
+                          - generic [ref=e1566] [cursor=pointer]:
+                            - link [ref=e1567]:
+                              - /url: /poe-2/builds/werewolf-druid-league-stater-peuget
+                            - generic [ref=e1571]:
+                              - generic [ref=e1572]: "[0.4] Werewolf Oracle / Shaman - League Starter to Uber Endgame"
+                              - generic [ref=e1573]: Updated on May 1, 2026
+                          - generic [ref=e1576] [cursor=pointer]:
+                            - link [ref=e1577]:
+                              - /url: /poe-2/builds/bonestorm-levelling-and-league-starter
+                            - generic [ref=e1581]:
+                              - generic [ref=e1582]: ED / Bonestorm Levelling & League Starter
+                              - generic [ref=e1583]: Updated on May 1, 2026
+                      - link "Become a Creator Want to earn rewards by sharing your builds with your community? Join Creator Program" [ref=e1585] [cursor=pointer]:
+                        - /url: https://form.typeform.com/to/iDJST6r5#email=xxxxx
+                        - generic [ref=e1588]:
+                          - generic [ref=e1589]:
+                            - paragraph [ref=e1590]: Become a Creator
+                            - paragraph [ref=e1591]: Want to earn rewards by sharing your builds with your community?
+                          - button "Join Creator Program" [ref=e1593]: Join Creator Program
+              - status [ref=e1595]
+        - complementary [ref=e1600]:
+          - generic [ref=e1601]:
+            - generic [ref=e1603]:
+              - generic [ref=e1605] [cursor=pointer]:
+                - generic [ref=e1606]: Advertisement
+                - generic [ref=e1607]: Remove Ads
+              - generic [ref=e1610] [cursor=pointer]:
+                - generic [ref=e1611]: Remove all ads
+                - generic [ref=e1612]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e1613]:
+                  - generic [ref=e1614]: Remove ads
+            - generic [ref=e1616]:
+              - generic [ref=e1618] [cursor=pointer]:
+                - generic [ref=e1619]: Advertisement
+                - generic [ref=e1620]: Remove Ads
+              - generic [ref=e1623] [cursor=pointer]:
+                - generic [ref=e1624]: Remove all ads
+                - generic [ref=e1625]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e1626]:
+                  - generic [ref=e1627]: Remove ads
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e1630]:
+    - banner [ref=e1631]:
+      - generic [ref=e1632] [cursor=pointer]:
+        - generic [ref=e1633]: Advertisement
+        - generic [ref=e1634]: Remove Ads
+    - generic [ref=e1637] [cursor=pointer]:
+      - generic [ref=e1638]: Remove all ads
+      - generic [ref=e1639]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e1640]:
+        - generic [ref=e1641]: Remove ads
+```
