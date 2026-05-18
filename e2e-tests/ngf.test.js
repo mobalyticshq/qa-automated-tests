@@ -434,6 +434,7 @@ test.describe('Creating UG Pages', () => {
       const moba = new Moba(page);
 
       if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+        // await moba.mainURLs.openTftPage();
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -1050,7 +1051,7 @@ filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStP
           await admin.stPage.editButton.click();
           await admin.stPage.staticDataButton.click();
 
-          const gameSpecificItem = 'Channeling Time';
+          const gameSpecificItem = 'Alchemical Fire';
 
           await expect(admin.stPage.dropdownStaticData).toContainText(gameSpecificItem);
           await expect(adminPage.getByText(gameSpecificItem)).toBeVisible();

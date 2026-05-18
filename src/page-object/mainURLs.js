@@ -13,7 +13,10 @@ export class MainURLs {
 
   async openUgCreatorProfilePage(projectPath) {
     await test.step(`Open ${projectPath} UG creator profile page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}${projectPath}/creator-profile`, { waitUntil: 'domcontentloaded' });
+      await this.page.goto(`${process.env.BASE_URL}${projectPath}`, { waitUntil: 'domcontentloaded' });
+      const profileLink = this.page.locator(`a[href^="${projectPath}/profile/"]`).first();
+      const href = await profileLink.getAttribute('href');
+      await this.page.goto(`${process.env.BASE_URL}${href}`, { waitUntil: 'domcontentloaded' });
     });
   }
 

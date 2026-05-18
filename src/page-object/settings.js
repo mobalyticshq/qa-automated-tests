@@ -3,15 +3,15 @@ import { test } from '@playwright/test';
 export class AccountInformationTab {
   constructor(page) {
     this.page = page;
-    this.buttonDeleteMyAccount = page.getByText('Delete my account');
-    this.modalDeleteButton = page.getByRole('button', { name: 'Delete' });
+    this.buttonDeleteMyAccount = page.getByRole('button', { name: 'Delete Account' });
+    this.modalDeleteButton = page.getByRole('button', { name: 'Delete', exact: true });
     this.changeNameButton = page.getByRole('button', { name: 'change name' });
     this.inputAccountName = page.getByRole('textbox', { name: 'Account name' });
     this.modalChangeNameButton = page.getByRole('button', { name: 'change', exact: true });
   }
 
-  accountName(accountName) {
-    return this.page.getByText(accountName);
+  userName(userName) {
+    return this.page.getByText(userName);
   }
 
   async deleteAccount() {
@@ -20,12 +20,24 @@ export class AccountInformationTab {
       await this.modalDeleteButton.click();
     });
   }
+}
 
-  async changeAccountName(name) {
-    await test.step(`Change account name to ${name}`, async () => {
-      await this.changeNameButton.click();
-      await this.inputAccountName.fill(name);
-      await this.modalChangeNameButton.click();
+export class ProfileTab {
+  constructor(page) {
+    this.page = page;
+    this.plusLabel = page.getByText('Mobalytics Plus');
+    this.changeDisplayNameButton = page.getByRole('button', { name: 'Change Display Name' });
+    this.modalInputDisplayName = page.getByRole('textbox', { name: 'Display name' });
+    this.modalChangeButton = page.getByRole('button', { name: 'Change', exact: true });
+    this.previewProfileDisplayName = (displayName) => page.getByText(displayName).first();
+    this.widgetDisplayName = (displayName) => page.getByText(displayName).nth(1);
+  }
+
+  async changeDisplayName(displayName) {
+    await test.step(`Change display name to ${displayName}`, async () => {
+      await this.changeDisplayNameButton.click();
+      await this.modalInputDisplayName.fill(displayName);
+      await this.modalChangeButton.click();
     });
   }
 }
@@ -37,5 +49,18 @@ export class BillingInfoTab {
     this.plusSubscriptionType = page.getByText('Plus Subscription');
     this.adFreeLabel = page.getByText('Ad-Free plan');
     this.adFreeSubscriptionType = page.getByText('Ad-free Subscription');
+  }
+}
+
+export class AccountSettingsPage {
+  constructor(page) {
+    this.page = page;
+    this.profileTab = page.locator('#container').getByRole('link', { name: 'Profile' });
+  }
+
+  async selectProfileTab() {
+    test.step('Go to profile tab', async () => {
+      await this.profileTab.click();
+    });
   }
 }

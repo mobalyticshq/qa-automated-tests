@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 export class PaymentPage {
   constructor(page) {
@@ -6,7 +6,9 @@ export class PaymentPage {
     this.creditCardTab = page.getByRole('tab', { name: 'Credit/debit card' });
     this.activatePlusButton = page.getByRole('button', { name: 'Activate plus' });
     this.activateAdFreeButton = page.getByRole('button', { name: 'Activate ad-free' });
-    const stripeFrame = page.frameLocator('iframe[name^="__privateStripeFrame"]').first();
+
+    this.stripeIframe = page.locator('iframe[src*="elements-inner-accessory-target"]');
+    const stripeFrame = this.stripeIframe.contentFrame();
     this.cardNumberField = stripeFrame.getByRole('textbox', { name: 'Card number' });
     this.expiryField = stripeFrame.getByRole('textbox', { name: 'Expiration date MM / YY' });
     this.cvcField = stripeFrame.getByRole('textbox', { name: 'Security code' });
@@ -14,9 +16,19 @@ export class PaymentPage {
 
   async fillCardDetails(cardNumber, expiryDate, cvc) {
     await test.step(`Fill card details`, async () => {
+      await this.stripeIframe.waitFor({ state: 'visible' });
+      await this.cardNumberField.waitFor({ state: 'visible' });
+
+      await this.cardNumberField.click();
       await this.cardNumberField.fill(cardNumber);
-      await this.expiryField.fill(expiryDate);
-      await this.cvcField.fill(cvc);
+      await expect(this.cardNumberField).toHaveValue(/4242.*4242.*4242.*4242/);
+
+      await this.expiryField.click();
+      await this.expiryField.pressSequentially(expiryDate);
+
+      await this.cvcField.click();
+      await this.cvcField.pressSequentially(cvc);
+      await expect(this.cvcField).toHaveValue(cvc);
     });
   }
 

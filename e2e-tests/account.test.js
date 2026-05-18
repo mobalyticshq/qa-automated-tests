@@ -7,7 +7,7 @@ test('Delete mobalytics account', async ({ registerAccount }) => {
   const moba = registerAccount;
 
   await moba.navbar.gotoAccountSettingsPage();
-  await moba.AccountSettingsTab.deleteAccount();
+  await moba.accountInformationTab.deleteAccount();
 
   await test.step('Account is deleted', async () => {
     await expect(moba.byeBye.header).toBeVisible();
@@ -15,10 +15,10 @@ test('Delete mobalytics account', async ({ registerAccount }) => {
   });
 });
 
-test('Change account name', async ({ page }) => {
+test('Change display name', async ({ page }) => {
   const moba = new Moba(page);
   const uniqueId = uuidv4().substring(0, 4);
-  const newAccountName = `newAccountName-${uniqueId}`;
+  const displayName = `displayName-${uniqueId}`;
   const credentials =
     process.env.BASE_URL === 'https://mobalytics.gg'
       ? 'rewad+prod-aqa-change-name@mobalyticshq.com' // prod account
@@ -28,9 +28,17 @@ test('Change account name', async ({ page }) => {
   await moba.navbar.gotoSignInPage();
   await moba.signInPage.loginUser(credentials, credentials);
   await moba.navbar.gotoAccountSettingsPage();
-  await moba.accountInformationTab.changeAccountName(newAccountName);
+  await moba.accountSettingsPage.selectProfileTab();
+  await moba.profileTab.changeDisplayName(displayName);
 
-  await test.step(`Account name is changed to a new account name: ${newAccountName}`, async () => {
-    await expect(moba.accountInformationTab.accountName(newAccountName)).toBeVisible();
+  await test.step(`Account name is changed to a new account name: ${displayName}`, async () => {
+    await expect(moba.profileTab.previewProfileDisplayName(displayName)).toBeVisible();
+    await expect(moba.profileTab.widgetDisplayName(displayName)).toBeVisible();
+  });
+
+  await moba.navbar.profileNameMenu(displayName).click();
+
+  await test.step(`Account name isd changed to a new account name: ${displayName}`, async () => {
+    await expect(moba.mgpProfile.displayNameHeader(displayName)).toBeVisible();
   });
 });

@@ -17,9 +17,10 @@ export class StPage {
       })
       .getByRole('button', { name: 'Choose file' });
     this.addSectionButtonInModal = page.getByRole('button', {
-      name: 'Add section',
+      name: 'Add Section',
+      exact: true,
     });
-    this.addSectionButton = page.getByRole('button', { name: 'Add section' });
+    this.addSectionButton = page.getByRole('button', { name: 'Add section', exact: true });
     this.editButton = page.getByTestId('ngf-st-edit-button');
     this.publishButton = page.getByTestId('ngf-st-publish-button');
     this.buttonPublishInModal = page
@@ -31,7 +32,7 @@ export class StPage {
     this.duplicateStPageButton = page.getByRole('menuitem', {
       name: 'Duplicate',
     });
-    this.buttonDeleteInModal = page.getByRole('button', { name: 'Delete' });
+    this.buttonDeleteInModal = page.getByRole('dialog').getByRole('button', { name: 'Delete' });
     this.saveDraftButton = page.getByTestId('ngf-st-update-button');
     this.updateButton = page.getByTestId('ngf-st-update-button');
     this.buttonCreateSave = page.getByTestId('ngf-st-create-button');
@@ -50,7 +51,7 @@ export class StPage {
     this.inputCreateSaveModal = page.getByRole('textbox', {
       name: 'Page Path',
     });
-    this.buttonCreateSaveInModal = page.getByRole('button', {
+    this.buttonCreateSaveInModal = page.getByRole('dialog').getByRole('button', {
       name: 'Create and Save',
     });
     this.documentDiscoveryButton = page.getByRole('menuitem', {
@@ -235,7 +236,7 @@ export class StPage {
       const inputCreateSaveModal = newPage.getByRole('textbox', {
         name: 'Page Path',
       });
-      const buttonCreateSaveInModal = newPage.getByRole('button', {
+      const buttonCreateSaveInModal = newPage.getByRole('dialog').getByRole('button', {
         name: 'Create and Save',
       });
 

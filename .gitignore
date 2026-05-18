@@ -15,3 +15,7 @@ data/
 */data/attachments/*
 src/setup/
 allure-history.jsonl
+
+# Claude Code
+.playwright-mcp/
+.playwright-cli
