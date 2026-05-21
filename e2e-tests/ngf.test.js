@@ -941,7 +941,7 @@ test('Check error state for empty "CardGrid" widget', async ({ browser }) => {
   const uniqueId = uuidv4();
   const pageName = `/qa-automation-st-page-${uniqueId}`;
 
-  await admin.mainURLs.openDestiny2StPlanner();
+  await admin.mainURLs.openPoE2StPlanner();
   await admin.stPage.addCardGalleryWidget();
   await admin.stPage.createStPage(pageName);
 
