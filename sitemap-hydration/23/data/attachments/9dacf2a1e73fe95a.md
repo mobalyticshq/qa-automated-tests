@@ -1,0 +1,7277 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: hydration.test.js >> Check hydration is successfully for each project >> Check that hydration is ok on Bazaar
+- Location: e2e-tests/hydration.test.js:922:3
+
+# Error details
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/bf8412f3-711a-49d1-b114-93731b00894d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/bf8412f3-711a-49d1-b114-93731b00894d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/29fd2410-93c3-417a-b310-34373a157340' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/29fd2410-93c3-417a-b310-34373a157340' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "Mobalytics" [ref=e6] [cursor=pointer]:
+          - /url: /the-bazaar
+          - img "Mobalytics" [ref=e7]
+        - generic [ref=e9]:
+          - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+            - /url: https://mobalytics.gg/lol
+            - generic [ref=e13]:
+              - img "League of Legends" [ref=e14]
+              - generic [ref=e15]: LoL
+          - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+            - /url: https://mobalytics.gg/tft
+            - generic [ref=e19]:
+              - img "Teamfight Tactics" [ref=e20]
+              - generic [ref=e21]: TFT
+          - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+            - /url: https://mobalytics.gg/diablo-4
+            - generic [ref=e25]:
+              - img "Diablo 4" [ref=e26]
+              - generic [ref=e27]: Diablo 4
+          - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe-2
+            - generic [ref=e31]:
+              - img "Path of Exile 2" [ref=e32]
+              - generic [ref=e33]: PoE 2
+          - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe
+            - generic [ref=e37]:
+              - img "Path of Exile" [ref=e38]
+              - generic [ref=e39]: PoE
+          - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+            - /url: https://mobalytics.gg/destiny-2
+            - generic [ref=e43]:
+              - img "Destiny 2" [ref=e44]
+              - generic [ref=e45]: Destiny 2
+          - link "Marathon Marathon" [ref=e47] [cursor=pointer]:
+            - /url: https://mobalytics.gg/marathon
+            - generic [ref=e49]:
+              - img "Marathon" [ref=e50]
+              - generic [ref=e51]: Marathon
+          - link "Slay the Spire 2 STS 2 New" [ref=e53] [cursor=pointer]:
+            - /url: https://mobalytics.gg/slay-the-spire-2
+            - generic [ref=e55]:
+              - img "Slay the Spire 2" [ref=e56]
+              - generic [ref=e57]: STS 2
+              - generic [ref=e59]: New
+          - link "Deadlock Deadlock" [ref=e61] [cursor=pointer]:
+            - /url: https://mobalytics.gg/deadlock
+            - generic [ref=e63]:
+              - img "Deadlock" [ref=e64]
+              - generic [ref=e65]: Deadlock
+          - link "Overwatch Overwatch" [ref=e67] [cursor=pointer]:
+            - /url: https://mobalytics.gg/overwatch
+            - generic [ref=e69]:
+              - img "Overwatch" [ref=e70]
+              - generic [ref=e71]: Overwatch
+          - link "Borderlands 4 Borderlands 4" [ref=e73] [cursor=pointer]:
+            - /url: https://mobalytics.gg/borderlands-4
+            - generic [ref=e75]:
+              - img "Borderlands 4" [ref=e76]
+              - generic [ref=e77]: Borderlands 4
+          - link "Valorant VAL" [ref=e79] [cursor=pointer]:
+            - /url: https://mobalytics.gg/valorant
+            - generic [ref=e81]:
+              - img "Valorant" [ref=e82]
+              - generic [ref=e83]: VAL
+          - link "Neverness to Everness NTE New" [ref=e85] [cursor=pointer]:
+            - /url: https://mobalytics.gg/neverness-to-everness
+            - generic [ref=e87]:
+              - img "Neverness to Everness" [ref=e88]
+              - generic [ref=e89]: NTE
+              - generic [ref=e91]: New
+          - 'link "Arknights: Endfield Endfield" [ref=e93] [cursor=pointer]':
+            - /url: https://mobalytics.gg/arknights-endfield
+            - generic [ref=e95]:
+              - 'img "Arknights: Endfield" [ref=e96]'
+              - generic [ref=e97]: Endfield
+          - button [ref=e98] [cursor=pointer]:
+            - img [ref=e99]
+          - generic:
+            - link "Elden Ring Nightreign Nightreign":
+              - /url: https://mobalytics.gg/elden-ring-nightreign
+              - generic:
+                - generic:
+                  - img "Elden Ring Nightreign"
+                  - generic: Nightreign
+          - generic:
+            - link "Monster Hunter Wilds Monster Hunter Wilds":
+              - /url: https://mobalytics.gg/mhw
+              - generic:
+                - generic:
+                  - img "Monster Hunter Wilds"
+                  - generic: Monster Hunter Wilds
+          - generic:
+            - link "Hades 2 Hades 2":
+              - /url: https://mobalytics.gg/hades-2
+              - generic:
+                - generic:
+                  - img "Hades 2"
+                  - generic: Hades 2
+          - generic:
+            - link "The Bazaar The Bazaar":
+              - /url: https://mobalytics.gg/the-bazaar
+              - generic:
+                - generic:
+                  - img "The Bazaar"
+                  - generic: The Bazaar
+          - generic:
+            - link "Marvel Rivals Marvel Rivals":
+              - /url: https://mobalytics.gg/marvel-rivals
+              - generic:
+                - generic:
+                  - img "Marvel Rivals"
+                  - generic: Marvel Rivals
+          - generic:
+            - link "Zenless Zone Zero ZZZ":
+              - /url: https://mobalytics.gg/zzz
+              - generic:
+                - generic:
+                  - img "Zenless Zone Zero"
+                  - generic: ZZZ
+          - generic:
+            - link "2XKO 2XKO":
+              - /url: https://mobalytics.gg/2xko
+              - generic:
+                - generic:
+                  - img "2XKO"
+                  - generic: 2XKO
+          - generic:
+            - link "Riftbound Riftbound":
+              - /url: https://mobalytics.gg/riftbound
+              - generic:
+                - generic:
+                  - img "Riftbound"
+                  - generic: Riftbound
+      - generic [ref=e100]:
+        - link "News" [ref=e103] [cursor=pointer]:
+          - /url: /news
+          - generic [ref=e104]: News
+        - generic [ref=e106]:
+          - button "Sign In" [ref=e108] [cursor=pointer]
+          - button [ref=e110] [cursor=pointer]:
+            - img [ref=e112]
+          - button "Theme" [ref=e114] [cursor=pointer]:
+            - img "Theme" [ref=e116]
+      - generic [ref=e118]:
+        - link "Home" [ref=e121] [cursor=pointer]:
+          - /url: /the-bazaar
+          - img "Home" [ref=e123]
+        - link "Profile" [ref=e126] [cursor=pointer]:
+          - /url: /the-bazaar/profile
+          - img "Profile" [ref=e128]
+        - link "Build Planner" [ref=e131] [cursor=pointer]:
+          - /url: /the-bazaar/planner/builds
+          - img "Build Planner" [ref=e133]
+        - link "Builds" [ref=e136] [cursor=pointer]:
+          - /url: /the-bazaar/builds
+          - img "Builds" [ref=e138]
+        - link "Meta Builds" [ref=e141] [cursor=pointer]:
+          - /url: /the-bazaar/guides/meta-builds
+          - img "Meta Builds" [ref=e143]
+        - link "Heroes" [ref=e146] [cursor=pointer]:
+          - /url: /the-bazaar/heroes
+          - img "Heroes" [ref=e148]
+        - link "Items | Skills" [ref=e151] [cursor=pointer]:
+          - /url: /the-bazaar/database/items-and-enchantments
+          - img "Items | Skills" [ref=e153]
+        - link "Guides" [ref=e156] [cursor=pointer]:
+          - /url: /the-bazaar/guides
+          - img "Guides" [ref=e158]
+        - link "PvE Monsters" [ref=e161] [cursor=pointer]:
+          - /url: /the-bazaar/guides/pve-encounters-and-drops
+          - img "PvE Monsters" [ref=e163]
+      - generic [ref=e165]:
+        - main [ref=e166]:
+          - generic [ref=e167]:
+            - navigation [ref=e168]:
+              - list [ref=e169]:
+                - listitem [ref=e170]:
+                  - link "The Bazaar" [ref=e171] [cursor=pointer]:
+                    - /url: /the-bazaar
+                - listitem [ref=e172]:
+                  - img [ref=e173]
+                - listitem [ref=e174]:
+                  - link "Guides" [ref=e175] [cursor=pointer]:
+                    - /url: /the-bazaar/guides
+                - listitem [ref=e176]:
+                  - img [ref=e177]
+                - listitem [ref=e178]: The Bazaar Patch Notes Tracker
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - button "The Bazaar Guide The Bazaar Patch Notes Tracker News By Mobalytics Updated on May 5, 2026 Share" [ref=e183]:
+                  - generic [ref=e184]:
+                    - generic [ref=e186]:
+                      - generic [ref=e187]: The Bazaar Guide
+                      - heading "The Bazaar Patch Notes Tracker" [level=1] [ref=e188]
+                      - generic [ref=e190]: News
+                      - generic [ref=e191]:
+                        - generic [ref=e192]:
+                          - generic [ref=e193]:
+                            - text: By
+                            - link "Mobalytics" [ref=e194] [cursor=pointer]:
+                              - /url: /the-bazaar/profile/mobalytics
+                          - link [ref=e195] [cursor=pointer]:
+                            - /url: https://www.youtube.com/c/mobalytics
+                            - button [ref=e196]:
+                              - img [ref=e197]
+                        - generic [ref=e199]:
+                          - text: Updated on
+                          - generic [ref=e200]: May 5, 2026
+                    - button "Share" [ref=e204] [cursor=pointer]:
+                      - img [ref=e205]
+                      - text: Share
+                - generic [ref=e208]:
+                  - generic [ref=e209]:
+                    - heading "Overview" [level=2] [ref=e213]
+                    - generic [ref=e218]:
+                      - paragraph [ref=e219]:
+                        - link "The Bazaar" [ref=e220] [cursor=pointer]:
+                          - /url: /the-bazaar/guides/what-is-the-bazaar
+                        - text: is game that is supposed to be getting balance changes often by design.
+                      - paragraph [ref=e221]: For the latest batches of buffs and nerfs, check back here! We'll be keeping a log of the past 3 months so you can easily track when and why meta shifts happened.
+                      - paragraph [ref=e222]:
+                        - emphasis [ref=e223]: This list was compiled from the official patch notes.
+                  - generic [ref=e224]:
+                    - heading "5-5-2026" [level=2] [ref=e228]
+                    - generic [ref=e233]:
+                      - 'heading "Patch 14.0: Monster Mayhem May 06, 2026" [level=3] [ref=e234]'
+                      - heading "NEW CONTENT" [level=3] [ref=e235]
+                      - heading "MONSTERS" [level=4] [ref=e236]
+                      - paragraph [ref=e237]:
+                        - strong [ref=e238]: Happy Camper
+                      - list [ref=e239]:
+                        - listitem [ref=e240]: Day 1
+                        - listitem [ref=e241]: Silver-tier
+                      - paragraph [ref=e242]:
+                        - strong [ref=e243]: Calico
+                      - list [ref=e244]:
+                        - listitem [ref=e245]: Day 2
+                        - listitem [ref=e246]: Gold-tier
+                      - paragraph [ref=e247]:
+                        - strong [ref=e248]: Overbearing Teacher
+                      - list [ref=e249]:
+                        - listitem [ref=e250]: Day 3
+                        - listitem [ref=e251]: Bronze-tier
+                      - paragraph [ref=e252]:
+                        - strong [ref=e253]: Castaway Corsair
+                      - list [ref=e254]:
+                        - listitem [ref=e255]: Day 3
+                        - listitem [ref=e256]: Diamond-tier
+                      - paragraph [ref=e257]:
+                        - strong [ref=e258]: Overwhelmed Student
+                      - list [ref=e259]:
+                        - listitem [ref=e260]: Day 4
+                        - listitem [ref=e261]: Bronze-tier
+                      - paragraph [ref=e262]:
+                        - strong [ref=e263]: Not a Spy
+                      - list [ref=e264]:
+                        - listitem [ref=e265]: Day 6
+                        - listitem [ref=e266]: Silver-tier
+                      - paragraph [ref=e267]:
+                        - strong [ref=e268]: Byg
+                      - list [ref=e269]:
+                        - listitem [ref=e270]: Day 7
+                        - listitem [ref=e271]: Silver-tier
+                      - paragraph [ref=e272]:
+                        - strong [ref=e273]: Surly Mechanic
+                      - list [ref=e274]:
+                        - listitem [ref=e275]: Day 9
+                        - listitem [ref=e276]: Bronze-tier
+                      - paragraph [ref=e277]:
+                        - strong [ref=e278]: Lost Hero
+                      - list [ref=e279]:
+                        - listitem [ref=e280]: Day 9
+                        - listitem [ref=e281]: Diamond-tier
+                      - paragraph [ref=e282]:
+                        - strong [ref=e283]: Fairy Circle
+                      - list [ref=e284]:
+                        - listitem [ref=e285]: Day 10
+                        - listitem [ref=e286]: Bronze-tier
+                      - paragraph [ref=e287]:
+                        - strong [ref=e288]: Mad Diver
+                      - list [ref=e289]:
+                        - listitem [ref=e290]: Day 10
+                        - listitem [ref=e291]: Diamond-tier
+                      - heading "ENCOUNTERS" [level=4] [ref=e292]
+                      - paragraph [ref=e293]:
+                        - strong [ref=e294]: Shelter Shelby (Merchant)
+                      - list [ref=e295]:
+                        - listitem [ref=e296]: Replaces Dryad, which was our placeholder Friend merchant
+                      - paragraph [ref=e297]:
+                        - strong [ref=e298]: Mystery Box (Encounter)
+                      - list [ref=e299]:
+                        - listitem [ref=e300]: Starts on Day 2
+                        - listitem [ref=e301]: Diamond-tier
+                        - listitem [ref=e302]: Get a small enchanted item from another Hero
+                      - heading "ITEMS" [level=4] [ref=e303]
+                      - paragraph [ref=e304]:
+                        - strong [ref=e305]: The Boss (Medium Weapon)
+                      - list [ref=e306]:
+                        - listitem [ref=e307]: Legendary
+                        - listitem [ref=e308]: CD 7
+                        - listitem [ref=e309]: Damage 100
+                        - listitem [ref=e310]:
+                          - text: When you use another
+                          - strong [ref=e311]: Weapon
+                          - text: ", this gains +Damage equal to that item's Damage"
+                      - paragraph [ref=e312]:
+                        - strong [ref=e313]: Championship Belt (Medium Apparel)
+                      - list [ref=e314]:
+                        - listitem [ref=e315]: Legendary
+                        - listitem [ref=e316]: Adjacent items have +damage equal to 5% of your Max Health.
+                      - paragraph [ref=e317]:
+                        - strong [ref=e318]: Coupon (Small Loot)
+                      - list [ref=e319]:
+                        - listitem [ref=e320]: Gold-tier
+                        - listitem [ref=e321]: When you sell this at a Merchant, discount its items by 50/100%
+                      - paragraph [ref=e322]:
+                        - strong [ref=e323]: Crimson Orchid (Small)
+                      - list [ref=e324]:
+                        - listitem [ref=e325]: Diamond-tier
+                        - listitem [ref=e326]:
+                          - text: When you sell this, your leftmost
+                          - strong [ref=e327]: Weapon
+                          - text: permanently gains Lifesteal
+                      - paragraph [ref=e328]:
+                        - strong [ref=e329]: Fairy Statue (Small Property)
+                      - list [ref=e330]:
+                        - listitem [ref=e331]: Diamond-tier
+                        - listitem [ref=e332]:
+                          - text: When you defeat a Monster with this, transform this into an Enchanted
+                          - strong [ref=e333]: Friend
+                          - text: .
+                      - paragraph [ref=e334]:
+                        - strong [ref=e335]: Foundation Robe (Medium Relic Apparel)
+                      - list [ref=e336]:
+                        - listitem [ref=e337]: Legendary
+                        - listitem [ref=e338]:
+                          - text: The
+                          - strong [ref=e339]: Weapon
+                          - text: to the right of this has +Damage equal to your Regen
+                      - paragraph [ref=e340]:
+                        - strong [ref=e341]: Gorgon Spore (Small)
+                      - list [ref=e342]:
+                        - listitem [ref=e343]: Bronze-tier
+                        - listitem [ref=e344]: At the start of each fight, Poison 6/9/12/15
+                      - paragraph [ref=e345]:
+                        - strong [ref=e346]: Infernal Catapult (Large)
+                      - list [ref=e347]:
+                        - listitem [ref=e348]: Bronze-tier
+                        - listitem [ref=e349]: CD 3
+                        - listitem [ref=e350]: Ammo 1
+                        - listitem [ref=e351]: Burn 15/30/45/60
+                      - paragraph [ref=e352]:
+                        - strong [ref=e353]: Lag-Bolt (Small Tech)
+                      - list [ref=e354]:
+                        - listitem [ref=e355]: Bronze-tier
+                        - listitem [ref=e356]: At the start of each fight, Slow an item 3/4/5/6 seconds
+                      - paragraph [ref=e357]:
+                        - strong [ref=e358]: Penthouse (Large Property)
+                      - list [ref=e359]:
+                        - listitem [ref=e360]: Legendary
+                        - listitem [ref=e361]:
+                          - text: Your other
+                          - strong [ref=e362]: Properties
+                          - text: gain Value equal to half this item's Value
+                        - listitem [ref=e363]:
+                          - text: When you use a
+                          - strong [ref=e364]: Property
+                          - text: ", Charge another"
+                          - strong [ref=e365]: Property
+                          - text: 1 second
+                      - paragraph [ref=e366]:
+                        - strong [ref=e367]: Portable Stove (Small Tool)
+                      - list [ref=e368]:
+                        - listitem [ref=e369]: Bronze-tier
+                        - listitem [ref=e370]: CD 4
+                        - listitem [ref=e371]: Burn 3/5/7/9
+                        - listitem [ref=e372]: Slow an item for 1/2/3/4 second(s)
+                      - paragraph [ref=e373]:
+                        - strong [ref=e374]: Raffle Ticket (Small Loot)
+                      - list [ref=e375]:
+                        - listitem [ref=e376]: Bronze-tier
+                        - listitem [ref=e377]: When you sell this, gain 0 to [5/10/20/40] Gold
+                      - paragraph [ref=e378]:
+                        - strong [ref=e379]: Rimestone Amulet (Small Relic Apparel)
+                      - list [ref=e380]:
+                        - listitem [ref=e381]: Legendary
+                        - listitem [ref=e382]:
+                          - text: When you Freeze with an adjacent item, Charge a
+                          - strong [ref=e383]: Weapon
+                          - text: 1 second
+                      - paragraph [ref=e384]:
+                        - strong [ref=e385]: Shell Necklace (Small Apparel)
+                      - list [ref=e386]:
+                        - listitem [ref=e387]: Silver-tier
+                        - listitem [ref=e388]: CD 6
+                        - listitem [ref=e389]:
+                          - text: Shield 20/30/40 for each
+                          - strong [ref=e390]: Aquatic
+                          - text: item or
+                          - strong [ref=e391]: Tool
+                          - text: you have
+                      - paragraph [ref=e392]:
+                        - strong [ref=e393]: Skill Voucher (Small)
+                      - list [ref=e394]:
+                        - listitem [ref=e395]: Bronze-tier
+                        - listitem [ref=e396]: When you sell this, get a random Skill from any Hero
+                      - paragraph [ref=e397]:
+                        - strong [ref=e398]: Spark Plug (Small Tech)
+                      - list [ref=e399]:
+                        - listitem [ref=e400]: Bronze-tier
+                        - listitem [ref=e401]: At the start of each fight, Haste an item 2/3/4/5 second(s)
+                      - paragraph [ref=e402]:
+                        - strong [ref=e403]: Starfish (Small Aquatic Friend)
+                      - list [ref=e404]:
+                        - listitem [ref=e405]: Bronze-tier
+                        - listitem [ref=e406]: CD 3
+                        - listitem [ref=e407]: Regen 2/4/6/8
+                      - paragraph [ref=e408]:
+                        - strong [ref=e409]: Stress Ball (Small Toy)
+                      - list [ref=e410]:
+                        - listitem [ref=e411]: Bronze-tier
+                        - listitem [ref=e412]: CD 3
+                        - listitem [ref=e413]: Shield 10/20/40/80
+                      - paragraph [ref=e414]:
+                        - strong [ref=e415]: Tracer Pistol (Small Weapon)
+                      - list [ref=e416]:
+                        - listitem [ref=e417]: Legendary
+                        - listitem [ref=e418]: CD 2
+                        - listitem [ref=e419]: Ammo 6
+                        - listitem [ref=e420]: Damage 50
+                        - listitem [ref=e421]: When you Crit, Reload this 1 Ammo
+                      - heading "SKILLS" [level=4] [ref=e422]
+                      - paragraph [ref=e423]:
+                        - strong [ref=e424]: Flashpoint Fuse (Vanessa)
+                      - list [ref=e425]:
+                        - listitem [ref=e426]: When you use an Ammo item, your items gain [1/2/3] Burn
+                      - paragraph [ref=e427]:
+                        - strong [ref=e428]: Lifting (Pygmalien)
+                      - list [ref=e429]:
+                        - listitem [ref=e430]: Returns using our tech new of run persistent references
+                        - listitem [ref=e431]: Your Weapons have +[1/2/3] for each Weapon you have bought this run
+                      - paragraph [ref=e432]:
+                        - strong [ref=e433]: Monster Tracker (Karnok)
+                      - list [ref=e434]:
+                        - listitem [ref=e435]: When you defeat a Gold-tier or higher Monster, get a Loot item
+                        - listitem [ref=e436]: Your Loot items have +1 Value
+                      - paragraph [ref=e437]:
+                        - strong [ref=e438]: Time Eater (Vanessa)
+                      - list [ref=e439]:
+                        - listitem [ref=e440]: At the start of each fight, the fastest enemy item has its cooldown increased by [1/2] second(s)
+                      - paragraph [ref=e441]:
+                        - strong [ref=e442]: Rate Limiter (Common/Monster)
+                      - list [ref=e443]:
+                        - listitem [ref=e444]: All charge effects are reduced by half
+                      - heading "SEASON 14 CHANGES" [level=3] [ref=e445]
+                      - paragraph [ref=e446]:
+                        - strong [ref=e447]: Leaderboard Rewards for Season 13
+                      - list [ref=e448]:
+                        - listitem [ref=e449]: Founding Day Champion (Rank 10 and up)
+                        - listitem [ref=e450]: Founding Day Paragon (Rank 100 and up)
+                        - listitem [ref=e451]: Founding Day Elite (Rank 1000 and up)
+                      - paragraph [ref=e452]:
+                        - strong [ref=e453]: Prize Pass updates
+                      - list [ref=e454]:
+                        - listitem [ref=e455]: Bad Dreams (Carpet)
+                        - listitem [ref=e456]: Dragon of War (Card Back)
+                      - paragraph [ref=e457]:
+                        - strong [ref=e458]: Chests additions
+                      - list [ref=e459]:
+                        - listitem [ref=e460]: Super Dooley (Dooley Skin)
+                        - listitem [ref=e461]: Morning Person Mak (Mak Skin)
+                        - listitem [ref=e462]: Item Skins for Karnok, Vanessa and Stelle
+                      - paragraph [ref=e463]:
+                        - strong [ref=e464]: Seasonal Store Content
+                      - list [ref=e465]:
+                        - listitem [ref=e466]: Visions of War (Carpet)
+                        - listitem [ref=e467]: Civil Strife (Card Back)
+                        - listitem [ref=e468]: Chaos Box (Stash)
+                        - listitem [ref=e469]: Money Madness (Bank)
+                      - heading "GENERAL CHANGES" [level=3] [ref=e470]
+                      - paragraph [ref=e471]:
+                        - strong [ref=e472]: Wording Changes
+                      - list [ref=e473]:
+                        - listitem [ref=e474]: We are taking some steps to reduce the visual complexity of our items via wording changes
+                        - listitem [ref=e475]:
+                          - list [ref=e476]:
+                            - listitem [ref=e477]: This is a work in progress
+                            - listitem [ref=e478]: "Specifically, we are doing the following:"
+                            - listitem [ref=e479]:
+                              - list [ref=e480]:
+                                - listitem [ref=e481]: Removing "for the fight" in favor of specifying permanent effects
+                                - listitem [ref=e482]: Removing "Shield" from sentences like "Your Shield items gain +X Shield" which will now read "Your items gain [Shield Icon] X"
+                            - listitem [ref=e483]: This is not a change in functionality, and is only a change for readability
+                      - paragraph [ref=e484]:
+                        - strong [ref=e485]: Item Spawning
+                      - list [ref=e486]:
+                        - listitem [ref=e487]: Corrected an issue where sometimes Bronze items would spawn late in the run when they should not
+                      - paragraph [ref=e488]:
+                        - strong [ref=e489]: Legendary Item Costs
+                      - list [ref=e490]:
+                        - listitem [ref=e491]: Reduced the sell value of Legendary Small and Medium items to be more in line with normal item value scaling
+                      - paragraph [ref=e492]:
+                        - strong [ref=e493]: Flying
+                      - list [ref=e494]:
+                        - listitem [ref=e495]: Standardized the effect ordering of Flying effects on cooldown such that they fire before other types of outputs that are on also on cooldown
+                        - listitem [ref=e496]:
+                          - list [ref=e497]:
+                            - listitem [ref=e498]: For example, Clockwork Disc will now make itself Fly or stop Flying before dealing damage
+                            - listitem [ref=e499]: This only affects items that makes themselves Fly
+                        - listitem [ref=e500]: When an item is destroyed, it stops Flying
+                        - listitem [ref=e501]:
+                          - list [ref=e502]:
+                            - listitem [ref=e503]: This previously did not trigger "stops Flying" effects and has been corrected to do so
+                      - paragraph [ref=e504]:
+                        - strong [ref=e505]: Enchantments
+                      - list [ref=e506]:
+                        - listitem [ref=e507]: Continued to make consistency pass and improvements to Enchantments across the board
+                        - listitem [ref=e508]: Numerous enchantments have been adjusted and fixed as a result
+                        - listitem [ref=e509]: Many items with missing enchantments gained them
+                        - listitem [ref=e510]: Weights, Lifting Stones, and other similar "buff" items have had many of their enchants updated to also buff items
+                      - paragraph [ref=e511]:
+                        - strong [ref=e512]: "\"is Slowed\" effects"
+                      - list [ref=e513]:
+                        - listitem [ref=e514]: Most effects of this class have been consolidated to "When you Slow this" for consistency and interoperability with Radiant and other Slow prevention effects
+                        - listitem [ref=e515]: Some items like Security Blanket and Moon Orb remain "is Slowed" as they are a different thematic concept
+                        - listitem [ref=e516]: We have also updated "is Hasted" similarly for wording consistency, but this should have minimal gameplay ramifications
+                      - paragraph [ref=e517]:
+                        - strong [ref=e518]: Level Up Changes
+                      - list [ref=e519]:
+                        - listitem [ref=e520]: Made some changes to the gold-gain options
+                        - listitem [ref=e521]:
+                          - list [ref=e522]:
+                            - listitem [ref=e523]: Added secondary tags to many options
+                            - listitem [ref=e524]: Reduced the high end of the gold gain
+                            - listitem [ref=e525]: This normalizes the values you tend to get from the options
+                        - listitem [ref=e526]: Added some additional options to several Heroes
+                      - heading "ENCOUNTERS" [level=3] [ref=e527]
+                      - paragraph [ref=e528]:
+                        - strong [ref=e529]: Banannibal
+                      - list [ref=e530]:
+                        - listitem [ref=e531]: Gained Skill Voucher
+                      - paragraph [ref=e532]:
+                        - strong [ref=e533]: Boss Harrow
+                      - list [ref=e534]:
+                        - listitem [ref=e535]:
+                          - text: Moved to Gold-tier
+                          - emphasis [ref=e536]: (from Bronze-tier)
+                        - listitem [ref=e537]: Gained The Boss (replaces Runic Double Bow)
+                      - paragraph [ref=e538]:
+                        - strong [ref=e539]: Bouncer-Tron
+                      - list [ref=e540]:
+                        - listitem [ref=e541]: Gained Lag-bolt (replaces Sunderer)
+                      - paragraph [ref=e542]:
+                        - strong [ref=e543]: Bounty Hunter
+                      - list [ref=e544]:
+                        - listitem [ref=e545]: Gained Spark Plug (replaces Revolver)
+                        - listitem [ref=e546]: Gained Tracer Pistol (replaces Revolver)
+                      - paragraph [ref=e547]:
+                        - strong [ref=e548]: Covetous Thief
+                      - list [ref=e549]:
+                        - listitem [ref=e550]: Gained Raffle Ticket (replaces Sharpening Stone)
+                      - paragraph [ref=e551]:
+                        - strong [ref=e552]: "Crash Site: Cargo Hold"
+                      - list [ref=e553]:
+                        - listitem [ref=e554]: No longer sometimes drops Gold-tier Hero items
+                        - listitem [ref=e555]: But can still drop Gold-tier Crash Site items
+                        - listitem [ref=e556]: Corrected an issue with Void Disruptor not spawning here
+                      - paragraph [ref=e557]:
+                        - strong [ref=e558]: The Cult
+                      - list [ref=e559]:
+                        - listitem [ref=e560]:
+                          - text: Corrected an issue where this would sometimes spawn a non-Legendary
+                          - strong [ref=e561]: Core
+                          - text: as Legendary
+                        - listitem [ref=e562]: Cult Member (Skill) now reduces the cooldowns of Legendary items
+                        - listitem [ref=e563]: This effect has been removed from Necronomicon specifically in favor of being on the Skill
+                      - paragraph [ref=e564]:
+                        - strong [ref=e565]: Foreman
+                      - list [ref=e566]:
+                        - listitem [ref=e567]: Gained Skill Voucher (replaces Scrap)
+                      - paragraph [ref=e568]:
+                        - strong [ref=e569]: Foundation Revenant
+                      - list [ref=e570]:
+                        - listitem [ref=e571]: Gained Foundation Robe (replaces Shadowed Cloak)
+                      - paragraph [ref=e572]:
+                        - strong [ref=e573]: Frost Street Champion
+                      - list [ref=e574]:
+                        - listitem [ref=e575]: Gained Rimestone Amulet (replaces Frost Potion)
+                      - paragraph [ref=e576]:
+                        - strong [ref=e577]: Gorgon Noble
+                      - list [ref=e578]:
+                        - listitem [ref=e579]: Gained Gorgon Spore (replaces Trained Spider)
+                      - paragraph [ref=e580]:
+                        - strong [ref=e581]: Infernal Frigate
+                      - list [ref=e582]:
+                        - listitem [ref=e583]: Gained Infernal Catapult (replaces Trebuchet)
+                        - listitem [ref=e584]: Gained Inertia Dampener (replaces Thrusters)
+                        - listitem [ref=e585]: Pop Snappers is now Shielded
+                        - listitem [ref=e586]: Pop Snappers is now Heavy
+                        - listitem [ref=e587]:
+                          - text: HP to 1800
+                          - emphasis [ref=e588]: (from 1925)
+                      - paragraph [ref=e589]:
+                        - strong [ref=e590]: Mod Squad
+                      - list [ref=e591]:
+                        - listitem [ref=e592]: Gained Raffle Ticket
+                      - paragraph [ref=e593]:
+                        - strong [ref=e594]: Mr. Morland
+                      - list [ref=e595]:
+                        - listitem [ref=e596]: Starts on Day 3
+                      - paragraph [ref=e597]:
+                        - strong [ref=e598]: Professor Riggle (Skill Vendor)
+                      - list [ref=e599]:
+                        - listitem [ref=e600]: Added to Karnok
+                      - paragraph [ref=e601]:
+                        - strong [ref=e602]: Property Baron
+                      - list [ref=e603]:
+                        - listitem [ref=e604]: Gained Penthouse (replaces Subscraper)
+                      - paragraph [ref=e605]:
+                        - strong [ref=e606]: Trash Golem
+                      - list [ref=e607]:
+                        - listitem [ref=e608]:
+                          - text: Moved to Bronze-tier
+                          - emphasis [ref=e609]: (was Silver)
+                      - paragraph [ref=e610]:
+                        - strong [ref=e611]: Void Knight
+                      - list [ref=e612]:
+                        - listitem [ref=e613]: Gained Rate Limiter (replaces Desperate Cleanse)
+                      - heading "COMMON" [level=3] [ref=e614]
+                      - list [ref=e615]:
+                        - listitem [ref=e616]: We are making some adjustments to monster/common items that do not see much play
+                        - listitem [ref=e617]: This will continue in future seasons
+                      - paragraph [ref=e618]:
+                        - strong [ref=e619]: Nullfrost Altar
+                      - list [ref=e620]:
+                        - listitem [ref=e621]: No longer gives enemy items Freeze immunity
+                      - paragraph [ref=e622]:
+                        - strong [ref=e623]: Hands of Time
+                      - list [ref=e624]:
+                        - listitem [ref=e625]: Simplified this item
+                        - listitem [ref=e626]:
+                          - text: CD to 6/5/4
+                          - emphasis [ref=e627]: (from 9/8/7)
+                        - listitem [ref=e628]: Removed cooldown reduction for adjacent tools
+                      - paragraph [ref=e629]:
+                        - strong [ref=e630]: Junkyard Catapult
+                      - list [ref=e631]:
+                        - listitem [ref=e632]: Starts at Bronze-tier
+                        - listitem [ref=e633]:
+                          - text: CD 6
+                          - emphasis [ref=e634]: (from 7)
+                        - listitem [ref=e635]:
+                          - text: Ammo 3
+                          - emphasis [ref=e636]: (from 1)
+                        - listitem [ref=e637]:
+                          - text: Damage 25/50/100/200
+                          - emphasis [ref=e638]: (from 25/50/100)
+                        - listitem [ref=e639]:
+                          - text: Burn 5/10/15/20
+                          - emphasis [ref=e640]: (6/8/10)
+                        - listitem [ref=e641]:
+                          - text: Poison 5/10/15/20
+                          - emphasis [ref=e642]: (4/6/8)
+                      - paragraph [ref=e643]:
+                        - strong [ref=e644]: Rune Axe
+                      - list [ref=e645]:
+                        - listitem [ref=e646]:
+                          - text: Gained the
+                          - strong [ref=e647]: Relic
+                          - text: type
+                        - listitem [ref=e648]:
+                          - text: CD 6
+                          - emphasis [ref=e649]: (from 8)
+                        - listitem [ref=e650]: Gained Lifesteal
+                      - heading "DOOLEY" [level=3] [ref=e651]
+                      - paragraph [ref=e652]:
+                        - strong [ref=e653]: Rays
+                      - list [ref=e654]:
+                        - listitem [ref=e655]:
+                          - strong [ref=e656]: Rays
+                          - text: now count their own use, with the exception of Beta Ray
+                      - paragraph [ref=e657]:
+                        - strong [ref=e658]: 3D Printer
+                      - list [ref=e659]:
+                        - listitem [ref=e660]: Simplified this item so that it can now transform into Legendary-tier items
+                      - paragraph [ref=e661]:
+                        - strong [ref=e662]: C.O.R.A
+                      - list [ref=e663]:
+                        - listitem [ref=e664]:
+                          - text: CD 8/7/6
+                          - emphasis [ref=e665]: (from 9/7/5)
+                      - paragraph [ref=e666]:
+                        - strong [ref=e667]: Keylogger
+                      - list [ref=e668]:
+                        - listitem [ref=e669]: Simplified this item to focus on buffing Poison
+                        - listitem [ref=e670]:
+                          - text: CD 7
+                          - emphasis [ref=e671]: (from 8)
+                        - listitem [ref=e672]: No longer buffs Shield
+                        - listitem [ref=e673]:
+                          - text: Poison buff to 2/4/6
+                          - emphasis [ref=e674]: (from 1/2/3)
+                      - paragraph [ref=e675]:
+                        - strong [ref=e676]: Launcher Core
+                      - list [ref=e677]:
+                        - listitem [ref=e678]:
+                          - text: CD 6
+                          - emphasis [ref=e679]: (from 7/6/5)
+                        - listitem [ref=e680]:
+                          - text: 2/3/4 items start Flying
+                          - emphasis [ref=e681]: (from 2)
+                        - listitem [ref=e682]: No longer charges itself on use if it is Flying
+                      - paragraph [ref=e683]:
+                        - strong [ref=e684]: Tesla Coil
+                      - list [ref=e685]:
+                        - listitem [ref=e686]:
+                          - text: CD 7/6/5/4
+                          - emphasis [ref=e687]: (from 8/7/6/5)
+                      - paragraph [ref=e688]:
+                        - strong [ref=e689]: Thermal Lance
+                      - list [ref=e690]:
+                        - listitem [ref=e691]: Starts at Gold-tier
+                        - listitem [ref=e692]:
+                          - text: CD 4
+                          - emphasis [ref=e693]: (from 5)
+                        - listitem [ref=e694]: Burn 10
+                      - paragraph [ref=e695]:
+                        - strong [ref=e696]: Walter Cooler
+                      - list [ref=e697]:
+                        - listitem [ref=e698]:
+                          - text: CD 8
+                          - emphasis [ref=e699]: (from 10/9/8)
+                      - paragraph [ref=e700]:
+                        - strong [ref=e701]: Welding Helmet
+                      - list [ref=e702]:
+                        - listitem [ref=e703]:
+                          - text: Burn 3/5/7/9
+                          - emphasis [ref=e704]: (from 2/4/6/8)
+                      - heading "JULES" [level=3] [ref=e705]
+                      - paragraph [ref=e706]:
+                        - strong [ref=e707]: Birthday Cake
+                      - list [ref=e708]:
+                        - listitem [ref=e709]:
+                          - text: Starts with 30% Crit Chance
+                          - emphasis [ref=e710]: (from 20%)
+                      - paragraph [ref=e711]:
+                        - strong [ref=e712]: Dragonmelon
+                      - list [ref=e713]:
+                        - listitem [ref=e714]: This item is dominating the end game by scaling both Max HP and the resulting Shield is also scaling
+                        - listitem [ref=e715]: Starts at Gold-tier
+                        - listitem [ref=e716]:
+                          - text: Shield 15/20% of Max Health
+                          - emphasis [ref=e717]: (from 10/15/20)
+                        - listitem [ref=e718]:
+                          - text: HP Scaling 25%
+                          - emphasis [ref=e719]: (from 20/30/40%)
+                      - paragraph [ref=e720]:
+                        - strong [ref=e721]: Giant Sub
+                      - list [ref=e722]:
+                        - listitem [ref=e723]:
+                          - text: Corrected an issue where this would not Charge itself if it was made a
+                          - strong [ref=e724]: Tool
+                      - paragraph [ref=e725]:
+                        - strong [ref=e726]: Gingerbread House
+                      - list [ref=e727]:
+                        - listitem [ref=e728]:
+                          - text: CD 7/6
+                          - emphasis [ref=e729]: (from 7)
+                      - paragraph [ref=e730]:
+                        - strong [ref=e731]: Gingerbread Man
+                      - list [ref=e732]:
+                        - listitem [ref=e733]:
+                          - text: Shield 10/20/40/80
+                          - emphasis [ref=e734]: (from 10/20/30/40)
+                      - paragraph [ref=e735]:
+                        - strong [ref=e736]: Laurel's Fortress
+                      - list [ref=e737]:
+                        - listitem [ref=e738]:
+                          - text: Gained the
+                          - strong [ref=e739]: Toy
+                          - text: type
+                      - heading "KARNOK" [level=3] [ref=e740]
+                      - paragraph [ref=e741]:
+                        - strong [ref=e742]: Aurora Vista
+                      - list [ref=e743]:
+                        - listitem [ref=e744]:
+                          - text: Cooldown to 5/4 seconds
+                          - emphasis [ref=e745]: (was 6/4)
+                      - paragraph [ref=e746]:
+                        - strong [ref=e747]: Bandoleer
+                      - list [ref=e748]:
+                        - listitem [ref=e749]:
+                          - text: Rage gain to 10/15/20
+                          - emphasis [ref=e750]: (was 9/12/15)
+                      - paragraph [ref=e751]:
+                        - strong [ref=e752]: Beast Call
+                      - list [ref=e753]:
+                        - listitem [ref=e754]: Starts at Bronze
+                      - paragraph [ref=e755]:
+                        - strong [ref=e756]: Dual Reaver
+                      - list [ref=e757]:
+                        - listitem [ref=e758]:
+                          - text: Cooldown to 7/5/3 seconds
+                          - emphasis [ref=e759]: (was 7/6/5)
+                      - paragraph [ref=e760]:
+                        - strong [ref=e761]: Great Eagle
+                      - list [ref=e762]:
+                        - listitem [ref=e763]: Starts at Gold
+                        - listitem [ref=e764]:
+                          - text: Your Flying items have +50/100% Damage and Shield
+                          - emphasis [ref=e765]: (was double)
+                        - listitem [ref=e766]:
+                          - text: Deal 300/600 Damage
+                          - emphasis [ref=e767]: (was 500)
+                      - paragraph [ref=e768]:
+                        - strong [ref=e769]: Hunting Rifle
+                      - list [ref=e770]:
+                        - listitem [ref=e771]:
+                          - text: Max Ammo to 2
+                          - emphasis [ref=e772]: (was 1)
+                      - paragraph [ref=e773]:
+                        - strong [ref=e774]: Infused Arm Wraps
+                      - list [ref=e775]:
+                        - listitem [ref=e776]: Simplified this item
+                        - listitem [ref=e777]: Now reads "When you Damage/Shield"
+                      - paragraph [ref=e778]:
+                        - strong [ref=e779]: Log Trap
+                      - list [ref=e780]:
+                        - listitem [ref=e781]:
+                          - text: Slow to 1 second
+                          - emphasis [ref=e782]: (was 2)
+                      - paragraph [ref=e783]:
+                        - strong [ref=e784]: Runic Claymore
+                      - list [ref=e785]:
+                        - listitem [ref=e786]:
+                          - text: Damage 15% of Max Health
+                          - emphasis [ref=e787]: (from 10%)
+                      - paragraph [ref=e788]:
+                        - strong [ref=e789]: Spiked Collar
+                      - list [ref=e790]:
+                        - listitem [ref=e791]: Starts at Gold-tier
+                      - paragraph [ref=e792]:
+                        - strong [ref=e793]: Trapping Pit
+                      - list [ref=e794]:
+                        - listitem [ref=e795]: Corrected an issue where in certain setups, this item's enchants could go off more than the expected amount
+                      - paragraph [ref=e796]:
+                        - strong [ref=e797]: Trapvine
+                      - list [ref=e798]:
+                        - listitem [ref=e799]:
+                          - text: Poison to 8/16
+                          - emphasis [ref=e800]: (was 10/20)
+                      - paragraph [ref=e801]:
+                        - strong [ref=e802]: Tree Club
+                      - list [ref=e803]:
+                        - listitem [ref=e804]:
+                          - text: Rage gain changed to 10/15
+                          - emphasis [ref=e805]: (was 10)
+                      - paragraph [ref=e806]:
+                        - strong [ref=e807]: Waystones
+                      - list [ref=e808]:
+                        - listitem [ref=e809]:
+                          - text: Cooldown to 5/4/3/2 seconds
+                          - emphasis [ref=e810]: (was 6/5/4/3)
+                      - heading "MAK" [level=3] [ref=e811]
+                      - paragraph [ref=e812]:
+                        - strong [ref=e813]: Adrenal Converter
+                      - list [ref=e814]:
+                        - listitem [ref=e815]:
+                          - text: Hastes for 1/2/3 seconds
+                          - emphasis [ref=e816]: (was 1)
+                      - paragraph [ref=e817]:
+                        - strong [ref=e818]: Alembic
+                      - list [ref=e819]:
+                        - listitem [ref=e820]:
+                          - text: No longer gives
+                          - strong [ref=e821]: Potions
+                          - text: from other Heroes
+                      - paragraph [ref=e822]:
+                        - strong [ref=e823]: Atmospheric Sampler
+                      - list [ref=e824]:
+                        - listitem [ref=e825]: Starts at Diamond-tier
+                      - paragraph [ref=e826]:
+                        - strong [ref=e827]: Blank Slate
+                      - list [ref=e828]:
+                        - listitem [ref=e829]:
+                          - text: Poison/Regen/Burn 8/16/24/32
+                          - emphasis [ref=e830]: (was 5/10/15/20)
+                      - paragraph [ref=e831]:
+                        - strong [ref=e832]: Book of Secrets
+                      - list [ref=e833]:
+                        - listitem [ref=e834]: Starts at Bronze-tier
+                      - paragraph [ref=e835]:
+                        - strong [ref=e836]: Calcinator
+                      - list [ref=e837]:
+                        - listitem [ref=e838]: Updated to use the new tech of run-based attributes
+                        - listitem [ref=e839]: This has +[4/5/6/7] Burn for each Reagent you have transformed this run
+                      - paragraph [ref=e840]:
+                        - strong [ref=e841]: Emerald
+                      - list [ref=e842]:
+                        - listitem [ref=e843]: Now buffs itself
+                        - listitem [ref=e844]: Toxic now doubles the buff
+                      - paragraph [ref=e845]:
+                        - strong [ref=e846]: Optical Augment
+                      - list [ref=e847]:
+                        - listitem [ref=e848]: Gained the Apparel type
+                      - paragraph [ref=e849]:
+                        - strong [ref=e850]: Philosopher's Stone
+                      - list [ref=e851]:
+                        - listitem [ref=e852]: Updated to use the new tech of run-based attributes
+                        - listitem [ref=e853]:
+                          - text: Regen 3
+                          - emphasis [ref=e854]: (from 1)
+                        - listitem [ref=e855]: This has +[1/2/3/4] Regen for each Reagent you have transformed this run
+                      - paragraph [ref=e856]:
+                        - strong [ref=e857]: Potion Distillery
+                      - list [ref=e858]:
+                        - listitem [ref=e859]:
+                          - text: No longer gives
+                          - strong [ref=e860]: Potions
+                          - text: from other Heroes
+                      - paragraph [ref=e861]:
+                        - strong [ref=e862]: Retort
+                      - list [ref=e863]:
+                        - listitem [ref=e864]: Updated to use the new tech of run-based attributes
+                        - listitem [ref=e865]: This has +[4/5/6/7] Poison for each Reagent you have transformed this run
+                      - paragraph [ref=e866]:
+                        - strong [ref=e867]: Ruby
+                      - list [ref=e868]:
+                        - listitem [ref=e869]: Now buffs itself
+                        - listitem [ref=e870]: Fiery now doubles the buff
+                      - paragraph [ref=e871]:
+                        - strong [ref=e872]: Staff of the Wise
+                      - list [ref=e873]:
+                        - listitem [ref=e874]: Starts at Silver-tier
+                        - listitem [ref=e875]:
+                          - text: Damage 50/100/150 for each skill
+                          - emphasis [ref=e876]: (from 100/200)
+                      - paragraph [ref=e877]:
+                        - strong [ref=e878]: Thurible
+                      - list [ref=e879]:
+                        - listitem [ref=e880]:
+                          - text: Cooldown to 4 seconds
+                          - emphasis [ref=e881]: (was 6/5/4/3)
+                        - listitem [ref=e882]:
+                          - text: Burn 3/5/7/9
+                          - emphasis [ref=e883]: (was 5)
+                        - listitem [ref=e884]:
+                          - text: Regen 1/2/3/4
+                          - emphasis [ref=e885]: (was 1)
+                      - paragraph [ref=e886]:
+                        - strong [ref=e887]: Tomb of the Ancients
+                      - list [ref=e888]:
+                        - listitem [ref=e889]:
+                          - text: Freezes for 1 second
+                          - emphasis [ref=e890]: (was .5 seconds)
+                      - paragraph [ref=e891]:
+                        - strong [ref=e892]: Venomander
+                      - list [ref=e893]:
+                        - listitem [ref=e894]:
+                          - text: Cooldown to 4 seconds
+                          - emphasis [ref=e895]: (was 6/5/4/3)
+                        - listitem [ref=e896]:
+                          - text: Poison 3/5/7/9
+                          - emphasis [ref=e897]: (was 2)
+                        - listitem [ref=e898]:
+                          - text: Regen 1/2/3/4
+                          - emphasis [ref=e899]: (was 1)
+                      - heading "PYGMALIEN" [level=3] [ref=e900]
+                      - paragraph [ref=e901]:
+                        - strong [ref=e902]: Billboard
+                      - list [ref=e903]:
+                        - listitem [ref=e904]:
+                          - text: Cooldown to 5/4 second
+                          - emphasis [ref=e905]: (was 3)
+                        - listitem [ref=e906]:
+                          - text: When you use an item, it gains +20% value
+                          - emphasis [ref=e907]: (was 25%)
+                      - paragraph [ref=e908]:
+                        - strong [ref=e909]: Booby Trap
+                      - list [ref=e910]:
+                        - listitem [ref=e911]:
+                          - text: Freeze targets reduced to 1/2/3
+                          - emphasis [ref=e912]: (was 2/3/4)
+                      - paragraph [ref=e913]:
+                        - strong [ref=e914]: Brass Knuckles
+                      - list [ref=e915]:
+                        - listitem [ref=e916]:
+                          - text: CD 5
+                          - emphasis [ref=e917]: (was 6/5/4/3)
+                        - listitem [ref=e918]:
+                          - text: Damage 20/40/80/160
+                          - emphasis [ref=e919]: (was 10)
+                      - paragraph [ref=e920]:
+                        - strong [ref=e921]: Haladie
+                      - list [ref=e922]:
+                        - listitem [ref=e923]:
+                          - text: CD 5
+                          - emphasis [ref=e924]: (was 8/7/6/5)
+                        - listitem [ref=e925]:
+                          - text: Damage 5/10/20/40
+                          - emphasis [ref=e926]: (was 5)
+                      - paragraph [ref=e927]:
+                        - strong [ref=e928]: Kukri
+                      - list [ref=e929]:
+                        - listitem [ref=e930]:
+                          - text: CD 4
+                          - emphasis [ref=e931]: (was 6/5/4/3)
+                        - listitem [ref=e932]:
+                          - text: Damage/Healing 10/20/40/80
+                          - emphasis [ref=e933]: (was 20)
+                      - paragraph [ref=e934]:
+                        - strong [ref=e935]: Pinata
+                      - list [ref=e936]:
+                        - listitem [ref=e937]: Simplified these items to no longer have quests that upgrade them
+                      - paragraph [ref=e938]:
+                        - strong [ref=e939]: Private Jet
+                      - list [ref=e940]:
+                        - listitem [ref=e941]:
+                          - text: This and another item start flying
+                          - emphasis [ref=e942]: (was "an item starts flying")
+                      - paragraph [ref=e943]:
+                        - strong [ref=e944]: Ring King Gauntlets
+                      - list [ref=e945]:
+                        - listitem [ref=e946]: Gained Apparel type
+                      - paragraph [ref=e947]:
+                        - strong [ref=e948]: Safe
+                      - list [ref=e949]:
+                        - listitem [ref=e950]: Simplified these items to no longer have quests that upgrade them
+                      - paragraph [ref=e951]:
+                        - strong [ref=e952]: Showcase
+                      - list [ref=e953]:
+                        - listitem [ref=e954]:
+                          - text: Cooldown to 3 second
+                          - emphasis [ref=e955]: (from 6)
+                        - listitem [ref=e956]:
+                          - text: If you have 2 or more
+                          - strong [ref=e957]: Weapons
+                          - text: ", +5/10/15/20 Damage for the fight"
+                          - emphasis [ref=e958]: (was 10/20/30/40)
+                        - listitem [ref=e959]:
+                          - text: If you have 2 or more Shield items, +5/10/15/20 Shield for the fight
+                          - emphasis [ref=e960]: (was 10/20/30/40)
+                      - paragraph [ref=e961]:
+                        - strong [ref=e962]: Snow Globe
+                      - list [ref=e963]:
+                        - listitem [ref=e964]:
+                          - text: Cooldown to 6/5/4 seconds
+                          - emphasis [ref=e965]: (was 7/6/5)
+                      - paragraph [ref=e966]:
+                        - strong [ref=e967]: Tusked Helm
+                      - list [ref=e968]:
+                        - listitem [ref=e969]:
+                          - text: CD 6
+                          - emphasis [ref=e970]: (was 9/8/7/6)
+                        - listitem [ref=e971]:
+                          - text: Damage and Shield to 5/10/20/40
+                          - emphasis [ref=e972]: (was 10)
+                      - heading "STELLE" [level=3] [ref=e973]
+                      - paragraph [ref=e974]:
+                        - strong [ref=e975]: Air Pressure Rifle
+                      - list [ref=e976]:
+                        - listitem [ref=e977]:
+                          - text: Damage Scaling 25/50/100/200
+                          - emphasis [ref=e978]: (from 25/50/75/100)
+                      - paragraph [ref=e979]:
+                        - strong [ref=e980]: The Big One
+                      - list [ref=e981]:
+                        - listitem [ref=e982]:
+                          - text: Damage to 25/35% of max health
+                          - emphasis [ref=e983]: (was 20/30%)
+                      - paragraph [ref=e984]:
+                        - strong [ref=e985]: Chicken Cannon
+                      - list [ref=e986]:
+                        - listitem [ref=e987]:
+                          - text: No longer a
+                          - strong [ref=e988]: Toy
+                      - paragraph [ref=e989]:
+                        - strong [ref=e990]: Daggerwing
+                      - list [ref=e991]:
+                        - listitem [ref=e992]:
+                          - text: Cooldown to 8/7 seconds
+                          - emphasis [ref=e993]: (was 8)
+                      - paragraph [ref=e994]:
+                        - strong [ref=e995]: Firecrackers
+                      - list [ref=e996]:
+                        - listitem [ref=e997]:
+                          - text: Max Ammo to 2
+                          - emphasis [ref=e998]: (was 3)
+                      - paragraph [ref=e999]:
+                        - strong [ref=e1000]: Darts
+                      - list [ref=e1001]:
+                        - listitem [ref=e1002]: This adjustment makes some internal implementation changes to fix some bugs and inconsistencies with this item
+                        - listitem [ref=e1003]: CD 3
+                        - listitem [ref=e1004]: This starts Flying
+                        - listitem [ref=e1005]: Damage 4/8/16/32
+                        - listitem [ref=e1006]: Every 3rd hit, this deals +50% Damage.
+                      - paragraph [ref=e1007]:
+                        - strong [ref=e1008]: Experimental Garage
+                      - list [ref=e1009]:
+                        - listitem [ref=e1010]: No longer overrides enchants on other items you have
+                      - paragraph [ref=e1011]:
+                        - strong [ref=e1012]: Hangar
+                      - list [ref=e1013]:
+                        - listitem [ref=e1014]: Simplified this item so it's less dependent on making your items Fly before they can be buffed
+                        - listitem [ref=e1015]: Your items have +10 Damage and +10 Shield
+                        - listitem [ref=e1016]:
+                          - text: When you use a Flying item,
+                          - strong [ref=e1017]: Vehicle
+                          - text: or
+                          - strong [ref=e1018]: Drone
+                          - text: ", increase this by 8/16/24"
+                      - paragraph [ref=e1019]:
+                        - strong [ref=e1020]: In-Flight Meal
+                      - list [ref=e1021]:
+                        - listitem [ref=e1022]: Corrected an issue where this item's Quests did not count when Skills made items Fly
+                      - paragraph [ref=e1023]:
+                        - strong [ref=e1024]: Inertial Dampener
+                      - list [ref=e1025]:
+                        - listitem [ref=e1026]:
+                          - text: Gained
+                          - strong [ref=e1027]: Tool
+                          - text: type
+                        - listitem [ref=e1028]:
+                          - text: Burn scaling to 2/4/6
+                          - emphasis [ref=e1029]: (was 1/3/5)
+                      - paragraph [ref=e1030]:
+                        - strong [ref=e1031]: Multitool
+                      - list [ref=e1032]:
+                        - listitem [ref=e1033]: Starts at Bronze-tier
+                        - listitem [ref=e1034]:
+                          - text: CD 6
+                          - emphasis [ref=e1035]: (from 5)
+                        - listitem [ref=e1036]:
+                          - text: Targets 1/2/3/4
+                          - emphasis [ref=e1037]: (from 1/2/3)
+                      - paragraph [ref=e1038]:
+                        - strong [ref=e1039]: Orbital Polisher
+                      - list [ref=e1040]:
+                        - listitem [ref=e1041]:
+                          - text: Quest to make 90 items fly
+                          - emphasis [ref=e1042]: (was 100)
+                      - paragraph [ref=e1043]:
+                        - strong [ref=e1044]: Pogo Stick
+                      - list [ref=e1045]:
+                        - listitem [ref=e1046]:
+                          - text: Cooldown to 4/3/2 seconds
+                          - emphasis [ref=e1047]: (was 5/4/3)
+                        - listitem [ref=e1048]:
+                          - text: Shield to 75/125/175
+                          - emphasis [ref=e1049]: (was 100)
+                      - paragraph [ref=e1050]:
+                        - strong [ref=e1051]: Pinwheel
+                      - list [ref=e1052]:
+                        - listitem [ref=e1053]:
+                          - text: Cooldown to 8/7/6/5 seconds
+                          - emphasis [ref=e1054]: (was 9/8/7/6)
+                      - paragraph [ref=e1055]:
+                        - strong [ref=e1056]: Security Drone
+                      - list [ref=e1057]:
+                        - listitem [ref=e1058]:
+                          - text: Shield 20/40/60/80
+                          - emphasis [ref=e1059]: (was 20)
+                      - paragraph [ref=e1060]:
+                        - strong [ref=e1061]: Windbreaker
+                      - list [ref=e1062]:
+                        - listitem [ref=e1063]:
+                          - text: Shield 25/50/75
+                          - emphasis [ref=e1064]: (was 20/40/60)
+                      - heading "VANESSA" [level=3] [ref=e1065]
+                      - paragraph [ref=e1066]:
+                        - strong [ref=e1067]: Ballista
+                      - list [ref=e1068]:
+                        - listitem [ref=e1069]:
+                          - text: Damage to 200/400
+                          - emphasis [ref=e1070]: (from 150/300)
+                      - paragraph [ref=e1071]:
+                        - strong [ref=e1072]: Beach Ball
+                      - list [ref=e1073]:
+                        - listitem [ref=e1074]:
+                          - text: CD 4
+                          - emphasis [ref=e1075]: (from 5)
+                      - paragraph [ref=e1076]:
+                        - strong [ref=e1077]: The Boulder
+                      - list [ref=e1078]:
+                        - listitem [ref=e1079]:
+                          - text: CD 22/18
+                          - emphasis [ref=e1080]: (from 20/16)
+                      - paragraph [ref=e1081]:
+                        - strong [ref=e1082]: Cannonball
+                      - list [ref=e1083]:
+                        - listitem [ref=e1084]: Trades some early game power (where it is strong) for late-game viability where Ammo needs some help and reduces the positional complexity of the Ammo builds
+                        - listitem [ref=e1085]:
+                          - text: Your items have +1/2/3 Ammo
+                          - emphasis [ref=e1086]: (from Adjacent items have 2/3/4 Ammo)
+                      - paragraph [ref=e1087]:
+                        - strong [ref=e1088]: Card Table
+                      - list [ref=e1089]:
+                        - listitem [ref=e1090]: Simplified this item. It is a below average item with a drawback that doesn't need it.
+                        - listitem [ref=e1091]: Starts at Gold-tier
+                        - listitem [ref=e1092]: Removed the CD increase effect
+                      - paragraph [ref=e1093]:
+                        - strong [ref=e1094]: Flagship
+                      - list [ref=e1095]:
+                        - listitem [ref=e1096]:
+                          - text: CD 5
+                          - emphasis [ref=e1097]: (from 7/6/5)
+                        - listitem [ref=e1098]:
+                          - text: Damage 50/100/200
+                          - emphasis [ref=e1099]: (from 50)
+                      - paragraph [ref=e1100]:
+                        - strong [ref=e1101]: Incendiary Rounds
+                      - list [ref=e1102]:
+                        - listitem [ref=e1103]:
+                          - text: Burn 2/4/6
+                          - emphasis [ref=e1104]: (from 1/2/3)
+                      - paragraph [ref=e1105]:
+                        - strong [ref=e1106]: Lighthouse
+                      - list [ref=e1107]:
+                        - listitem [ref=e1108]: This item does not do enough at Gold-tier, hoping to revive this line for the late game
+                        - listitem [ref=e1109]:
+                          - text: CD 4
+                          - emphasis [ref=e1110]: (from 6)
+                        - listitem [ref=e1111]:
+                          - text: When you Slow, Burn 8/16
+                          - emphasis [ref=e1112]: (from 6/9)
+                      - paragraph [ref=e1113]:
+                        - strong [ref=e1114]: Orange Julian
+                      - list [ref=e1115]:
+                        - listitem [ref=e1116]: CD -1s all tiers
+                        - listitem [ref=e1117]: Corrected an issue with Obsidian where the tooltip did not accurately display the updated value
+                        - listitem [ref=e1118]: This was a visual issue only
+                      - paragraph [ref=e1119]:
+                        - strong [ref=e1120]: Ramrod
+                      - list [ref=e1121]:
+                        - listitem [ref=e1122]: Simplified this item to reload all ammo at all tiers
+                        - listitem [ref=e1123]: This, alone with the Crit scaling change, moves some of its power from the early game where it's strong to the late game where it's weak
+                        - listitem [ref=e1124]:
+                          - text: Crit Chance Scaling to 5/10/20/40
+                          - emphasis [ref=e1125]: (from 10/20/30/40)
+                      - paragraph [ref=e1126]:
+                        - strong [ref=e1127]: Rowboat
+                      - list [ref=e1128]:
+                        - listitem [ref=e1129]: Simplified this item
+                        - listitem [ref=e1130]:
+                          - text: CD 5/3
+                          - emphasis [ref=e1131]: (from 8)
+                        - listitem [ref=e1132]:
+                          - text: Charge 2s
+                          - emphasis [ref=e1133]: (from 1/2)
+                        - listitem [ref=e1134]: Removed cooldown reduction based on tags
+                      - paragraph [ref=e1135]:
+                        - strong [ref=e1136]: Slumbering Primordial
+                      - list [ref=e1137]:
+                        - listitem [ref=e1138]:
+                          - text: Charges 2s
+                          - emphasis [ref=e1139]: (from 1/2)
+                        - listitem [ref=e1140]:
+                          - text: Damage and Damage Scaling to 15/30
+                          - emphasis [ref=e1141]: (from 20/25)
+                      - paragraph [ref=e1142]:
+                        - strong [ref=e1143]: Tropical Island
+                      - list [ref=e1144]:
+                        - listitem [ref=e1145]: Starts at Silver-tier
+                        - listitem [ref=e1146]:
+                          - text: Regen 5/10/15
+                          - emphasis [ref=e1147]: (from 5/10)
+                        - listitem [ref=e1148]: At the end of each fight, get a Coconut and a Citrus.
+                        - listitem [ref=e1149]: Citrus and Coconut now sell for value and have increased sell effects
+                      - paragraph [ref=e1150]:
+                        - strong [ref=e1151]: Wetware
+                      - list [ref=e1152]:
+                        - listitem [ref=e1153]: Simplified this item
+                        - listitem [ref=e1154]:
+                          - text: CD 6
+                          - emphasis [ref=e1155]: (from 8)
+                        - listitem [ref=e1156]:
+                          - text: Removed cooldown reduction for
+                          - strong [ref=e1157]: Tech
+                          - text: items
+                      - heading "SKILLS" [level=3] [ref=e1158]
+                      - list [ref=e1159]:
+                        - listitem [ref=e1160]: Updated the scaling of the base Damage, Heal, Shield, etc.
+                        - listitem [ref=e1161]: The goal is to improve upgrade viability at Gold and Diamond
+                      - paragraph [ref=e1162]:
+                        - strong [ref=e1163]: Karnok
+                      - list [ref=e1164]:
+                        - listitem [ref=e1165]: "Gained the following skills: Heavy Firepower, Improvised Poison, Shatter, Repair Mechanic, Creeping Toxins, Searing Flames, Quick Freeze, Reaching the Summit, Honed Arsenal, Improved Toxins, Invigorating Cold, Circle of Life"
+                      - paragraph [ref=e1166]:
+                        - strong [ref=e1167]: Advanced Synthetics
+                      - list [ref=e1168]:
+                        - listitem [ref=e1169]: Now triggers on Upgrade instead of Buy
+                        - listitem [ref=e1170]: This addresses an issue where the Buy trigger would occur prior to the Skill being upgraded, resulting in a failed upgrade effect in some cases
+                      - paragraph [ref=e1171]:
+                        - strong [ref=e1172]: Blind Fury
+                      - list [ref=e1173]:
+                        - listitem [ref=e1174]: Now reduces the cooldown of Large items
+                      - paragraph [ref=e1175]:
+                        - strong [ref=e1176]: Castle Doctrine
+                      - list [ref=e1177]:
+                        - listitem [ref=e1178]:
+                          - text: Rage gain to 15/30
+                          - emphasis [ref=e1179]: (was 10/20)
+                      - paragraph [ref=e1180]:
+                        - strong [ref=e1181]: Focused Rage
+                      - list [ref=e1182]:
+                        - listitem [ref=e1183]: Also Charges items 2 seconds on trigger
+                      - paragraph [ref=e1184]:
+                        - strong [ref=e1185]: Frozen Secrets
+                      - list [ref=e1186]:
+                        - listitem [ref=e1187]:
+                          - text: The first [--/--/3/6] times you use a
+                          - strong [ref=e1188]: Relic
+                          - text: each fight, Freeze an item for 1 second
+                          - emphasis [ref=e1189]: (from 5/10 times at 0.5 seconds)
+                      - paragraph [ref=e1190]:
+                        - strong [ref=e1191]: Hot Air
+                      - list [ref=e1192]:
+                        - listitem [ref=e1193]: Starts at Silver-tier
+                      - paragraph [ref=e1194]:
+                        - strong [ref=e1195]: Ice Bullets
+                      - list [ref=e1196]:
+                        - listitem [ref=e1197]: The first [--/--/3/6] times you use an Ammo item each fight, Freeze an item for 1 second.
+                      - paragraph [ref=e1198]:
+                        - strong [ref=e1199]: Iron Sharpens Iron
+                      - list [ref=e1200]:
+                        - listitem [ref=e1201]: Using our tech new of run persistent references
+                        - listitem [ref=e1202]: Now Vanessa Only
+                        - listitem [ref=e1203]:
+                          - text: Your leftmost
+                          - strong [ref=e1204]: Weapon
+                          - text: has +[2/4/6] for each
+                          - strong [ref=e1205]: Weapon
+                          - text: you have bought this run
+                      - paragraph [ref=e1206]:
+                        - strong [ref=e1207]: Loaded Fury
+                      - list [ref=e1208]:
+                        - listitem [ref=e1209]:
+                          - text: Scaling per Ammo to 2/4/6
+                          - emphasis [ref=e1210]: (from 1/2/3)
+                      - paragraph [ref=e1211]:
+                        - strong [ref=e1212]: Precision Tools
+                      - list [ref=e1213]:
+                        - listitem [ref=e1214]:
+                          - text: When you Haste or Slow a
+                          - strong [ref=e1215]: Tool
+                          - text: ", it gains +[5/10/15] Damage."
+                      - paragraph [ref=e1216]:
+                        - strong [ref=e1217]: Renovation
+                      - list [ref=e1218]:
+                        - listitem [ref=e1219]: Adding "Buy this" for consistent to similar effects
+                        - listitem [ref=e1220]:
+                          - text: When you buy this or level up, upgrade a
+                          - strong [ref=e1221]: Property
+                      - paragraph [ref=e1222]:
+                        - strong [ref=e1223]: Submerged
+                      - list [ref=e1224]:
+                        - listitem [ref=e1225]:
+                          - text: Scaling per
+                          - strong [ref=e1226]: Aquatic
+                          - text: to 5/10/15
+                          - emphasis [ref=e1227]: (from 3/6/9)
+                  - generic [ref=e1228]:
+                    - heading "4-1-2026" [level=2] [ref=e1232]
+                    - generic [ref=e1237]:
+                      - heading "Hotfix 13.3" [level=3] [ref=e1238]
+                      - list [ref=e1239]:
+                        - listitem [ref=e1240]:
+                          - strong [ref=e1241]: General
+                        - listitem [ref=e1242]:
+                          - list [ref=e1243]:
+                            - listitem [ref=e1244]: Fixed an issue where the sell hot key would some times sell the an incorrect item
+                            - listitem [ref=e1245]: Fixed an issue where gold bars were having a disco party on monster inspection
+                        - listitem [ref=e1246]:
+                          - strong [ref=e1247]: Galactic Translator
+                        - listitem [ref=e1248]:
+                          - list [ref=e1249]:
+                            - listitem [ref=e1250]: Fixed an issue where the effect that modifies the sell price of player items was not working
+                            - listitem [ref=e1251]: This does not yet address the issue where this item does not work on the Merchant you purchased it from
+                        - listitem [ref=e1252]:
+                          - strong [ref=e1253]: Furs/Hammock
+                        - listitem [ref=e1254]:
+                          - list [ref=e1255]:
+                            - listitem [ref=e1256]: Corrected an issue with Shield/Restorative enchants scaling both Shield and Heal values
+                            - listitem [ref=e1257]: Corrected an issue with Toxic/Fiery enchants not always buffing items as expected
+                        - listitem [ref=e1258]:
+                          - strong [ref=e1259]: Ledger
+                        - listitem [ref=e1260]:
+                          - list [ref=e1261]:
+                            - listitem [ref=e1262]: Corrected a tooltip value reference issue
+                        - listitem [ref=e1263]:
+                          - strong [ref=e1264]: Snowshoes
+                        - listitem [ref=e1265]:
+                          - list [ref=e1266]:
+                            - listitem [ref=e1267]: Corrected an issue where radiant was only affecting weapons
+                      - heading "Hotfix 13.2" [level=3] [ref=e1268]
+                      - list [ref=e1269]:
+                        - listitem [ref=e1270]:
+                          - strong [ref=e1271]: Enchantments
+                        - listitem [ref=e1272]:
+                          - list [ref=e1273]:
+                            - listitem [ref=e1274]: Corrected a number of minor issues across various enchants
+                        - listitem [ref=e1275]:
+                          - strong [ref=e1276]: Booby Trap
+                        - listitem [ref=e1277]:
+                          - list [ref=e1278]:
+                            - listitem [ref=e1279]: Fixed an issue where this could target the trigger source multiple times with Freeze
+                        - listitem [ref=e1280]:
+                          - strong [ref=e1281]: Briefcase
+                        - listitem [ref=e1282]:
+                          - list [ref=e1283]:
+                            - listitem [ref=e1284]: Reworked closer to original version
+                            - listitem [ref=e1285]: No longer has Quests
+                            - listitem [ref=e1286]:
+                              - text: Damage 30/60/120/240
+                              - emphasis [ref=e1287]: (from 10/20/40/80)
+                            - listitem [ref=e1288]:
+                              - text: Now gives 2 Spare Change
+                              - emphasis [ref=e1289]: (from 1)
+                        - listitem [ref=e1290]:
+                          - strong [ref=e1291]: Burrito
+                        - listitem [ref=e1292]:
+                          - list [ref=e1293]:
+                            - listitem [ref=e1294]:
+                              - text: Crit 20/35/50%
+                              - emphasis [ref=e1295]: (from 50/75/100%)
+                        - listitem [ref=e1296]:
+                          - strong [ref=e1297]: Caviar
+                        - listitem [ref=e1298]:
+                          - list [ref=e1299]:
+                            - listitem [ref=e1300]: Crit is now double value instead of triple
+                        - listitem [ref=e1301]:
+                          - strong [ref=e1302]: Closed Sign
+                        - listitem [ref=e1303]:
+                          - list [ref=e1304]:
+                            - listitem [ref=e1305]: Shiny now doubles Max Health gain
+                        - listitem [ref=e1306]:
+                          - strong [ref=e1307]: Cyber-sai
+                        - listitem [ref=e1308]:
+                          - list [ref=e1309]:
+                            - listitem [ref=e1310]: Deadly now grants 50% Crit Chance
+                        - listitem [ref=e1311]:
+                          - strong [ref=e1312]: Dishwasher
+                        - listitem [ref=e1313]:
+                          - list [ref=e1314]:
+                            - listitem [ref=e1315]:
+                              - text: Damage scaling to 50/100
+                              - emphasis [ref=e1316]: (from 100)
+                        - listitem [ref=e1317]:
+                          - strong [ref=e1318]: Display Case
+                        - listitem [ref=e1319]:
+                          - list [ref=e1320]:
+                            - listitem [ref=e1321]: Fixed an issue where Icy did not scale with value correctly
+                        - listitem [ref=e1322]:
+                          - strong [ref=e1323]: Fairies
+                        - listitem [ref=e1324]:
+                          - list [ref=e1325]:
+                            - listitem [ref=e1326]: Cooldown +1 at all tiers
+                        - listitem [ref=e1327]:
+                          - strong [ref=e1328]: Fruit Press
+                        - listitem [ref=e1329]:
+                          - list [ref=e1330]:
+                            - listitem [ref=e1331]:
+                              - text: Damage scaling 5/10/20
+                              - emphasis [ref=e1332]: (from 10/15/20)
+                        - listitem [ref=e1333]:
+                          - strong [ref=e1334]: Furnace
+                        - listitem [ref=e1335]:
+                          - list [ref=e1336]:
+                            - listitem [ref=e1337]: Removed Cooldown Reduction Quest
+                        - listitem [ref=e1338]:
+                          - strong [ref=e1339]: Furs
+                        - listitem [ref=e1340]:
+                          - list [ref=e1341]:
+                            - listitem [ref=e1342]:
+                              - text: Charge to 1 second
+                              - emphasis [ref=e1343]: (from 2 seconds)
+                        - listitem [ref=e1344]:
+                          - strong [ref=e1345]: Lost Blade
+                        - listitem [ref=e1346]:
+                          - list [ref=e1347]:
+                            - listitem [ref=e1348]: Starts at Gold-tier
+                            - listitem [ref=e1349]:
+                              - text: Cooldown to 12/10
+                              - emphasis [ref=e1350]: (from 12/11/10)
+                            - listitem [ref=e1351]: Passive simplified and crowd control component removed
+                        - listitem [ref=e1352]:
+                          - strong [ref=e1353]: Orange Julian
+                        - listitem [ref=e1354]:
+                          - list [ref=e1355]:
+                            - listitem [ref=e1356]: Fixed an issue where Obsidian was not working properly
+                        - listitem [ref=e1357]:
+                          - strong [ref=e1358]: Private Hot Springs
+                        - listitem [ref=e1359]:
+                          - list [ref=e1360]:
+                            - listitem [ref=e1361]: Fixed an issue where this was granting Regen from Stash
+                        - listitem [ref=e1362]:
+                          - strong [ref=e1363]: Prospero
+                        - listitem [ref=e1364]:
+                          - list [ref=e1365]:
+                            - listitem [ref=e1366]: Starts on Day 3
+                            - listitem [ref=e1367]: No longer spawns Gold-tier items
+                        - listitem [ref=e1368]:
+                          - strong [ref=e1369]: Safe
+                        - listitem [ref=e1370]:
+                          - list [ref=e1371]:
+                            - listitem [ref=e1372]:
+                              - text: Coin Quest reward reduced to 3 extra Coins
+                              - emphasis [ref=e1373]: (from 6)
+                        - listitem [ref=e1374]:
+                          - strong [ref=e1375]: Spice Rack
+                        - listitem [ref=e1376]:
+                          - list [ref=e1377]:
+                            - listitem [ref=e1378]:
+                              - text: Cooldown 4
+                              - emphasis [ref=e1379]: (from 3)
+                        - listitem [ref=e1380]:
+                          - strong [ref=e1381]: Stealth Glider
+                        - listitem [ref=e1382]:
+                          - list [ref=e1383]:
+                            - listitem [ref=e1384]: Fixed an issue where duplicates counted each other for damage reduction
+                        - listitem [ref=e1385]:
+                          - strong [ref=e1386]: Stew
+                        - listitem [ref=e1387]:
+                          - list [ref=e1388]:
+                            - listitem [ref=e1389]:
+                              - text: Burn 3
+                              - emphasis [ref=e1390]: (from 4)
+                        - listitem [ref=e1391]:
+                          - strong [ref=e1392]: Trapping Pit
+                        - listitem [ref=e1393]:
+                          - list [ref=e1394]:
+                            - listitem [ref=e1395]: Fixed an issue where this did not work on items of the same tier
+                            - listitem [ref=e1396]: Fixed cases where enchant triggers were not properly limited
+                        - listitem [ref=e1397]:
+                          - strong [ref=e1398]: Unibou
+                        - listitem [ref=e1399]:
+                          - list [ref=e1400]:
+                            - listitem [ref=e1401]: Cooldown +1
+                      - heading "Hotfix 13.1" [level=3] [ref=e1402]
+                      - paragraph [ref=e1403]:
+                        - strong [ref=e1404]: Enchants
+                      - list [ref=e1405]:
+                        - listitem [ref=e1406]: Corrected a number of enchantments
+                      - paragraph [ref=e1407]:
+                        - strong [ref=e1408]: Briefcase
+                      - list [ref=e1409]:
+                        - listitem [ref=e1410]: Corrected an issue where winning a fight against a Ghost with this item gives you Spare Change
+                      - paragraph [ref=e1411]:
+                        - strong [ref=e1412]: Broken Bottle
+                      - list [ref=e1413]:
+                        - listitem [ref=e1414]: Now only reloads and charges when a different Potion is used (i.e. not Broken Bottle)
+                      - paragraph [ref=e1415]:
+                        - strong [ref=e1416]: Captain’s Quarters
+                      - list [ref=e1417]:
+                        - listitem [ref=e1418]: Corrected an issue where the reload wasn’t working properly
+                      - paragraph [ref=e1419]:
+                        - strong [ref=e1420]: Ice Swan
+                      - list [ref=e1421]:
+                        - listitem [ref=e1422]: Corrected an issue where this is providing Multicast from the Stash
+                      - paragraph [ref=e1423]:
+                        - strong [ref=e1424]: Lost Blade
+                      - list [ref=e1425]:
+                        - listitem [ref=e1426]: Cooldown to 12/11/10 seconds (was 11/10/9)
+                      - paragraph [ref=e1427]:
+                        - strong [ref=e1428]: Side Hustle (Level Up Option)
+                      - list [ref=e1429]:
+                        - listitem [ref=e1430]: Now gives Gold for Tools and Tech items (from Tools)
+                      - paragraph [ref=e1431]:
+                        - strong [ref=e1432]: Show Globe
+                      - list [ref=e1433]:
+                        - listitem [ref=e1434]: Burn 2 (was 3)
+                        - listitem [ref=e1435]: Regen 2 (was 3)
+                        - listitem [ref=e1436]: Burn and Regen scaling to 2/4/8/12 (was 3/6/9/12)
+                      - paragraph [ref=e1437]:
+                        - strong [ref=e1438]: Street Festival
+                      - list [ref=e1439]:
+                        - listitem [ref=e1440]: Corrected an issue this could still show up on Hour 1 of Day 3
+                      - heading "Original Patch" [level=3] [ref=e1441]
+                      - 'heading "Patch 13.0: Happy Birthday, Bazaar (Real Version)!" [level=2] [ref=e1442]'
+                      - heading "GENERAL" [level=3] [ref=e1443]
+                      - list [ref=e1444]:
+                        - listitem [ref=e1445]:
+                          - strong [ref=e1446]: Quality of Life Features
+                        - listitem [ref=e1447]:
+                          - list [ref=e1448]:
+                            - listitem [ref=e1449]:
+                              - strong [ref=e1450]: "Monster Loadout:"
+                              - text: You can now right click a Monster to see its loadout prior to fighting them
+                            - listitem [ref=e1451]:
+                              - strong [ref=e1452]: "Item Details View:"
+                              - text: You can now right click an item to see its base stats and enchantments
+                            - listitem [ref=e1453]:
+                              - strong [ref=e1454]: "Item Selling Hotkey:"
+                              - text: Added a Hotkey for item selling
+                            - listitem [ref=e1455]:
+                              - strong [ref=e1456]: "Name Hiding:"
+                              - text: PvP opponent names can now be hidden
+                        - listitem [ref=e1457]:
+                          - strong [ref=e1458]: Unity Engine Upgrade
+                        - listitem [ref=e1459]:
+                          - list [ref=e1460]:
+                            - listitem [ref=e1461]: Upgraded to Unity 6.3
+                            - listitem [ref=e1462]: May improve performance but could break some 3rd party mods and utilities
+                            - listitem [ref=e1463]: Due to changes integral to this version of Unity, we will no longer be able to support OSX 11 Mac or earlier
+                        - listitem [ref=e1464]:
+                          - strong [ref=e1465]: Prize Pass
+                        - listitem [ref=e1466]:
+                          - list [ref=e1467]:
+                            - listitem [ref=e1468]: Updated with new Karnok cosmetics
+                        - listitem [ref=e1469]:
+                          - strong [ref=e1470]: Store
+                        - listitem [ref=e1471]:
+                          - list [ref=e1472]:
+                            - listitem [ref=e1473]:
+                              - text: New cosmetics added, including a new
+                              - strong [ref=e1474]: animated
+                              - text: Karnok skin
+                        - listitem [ref=e1475]:
+                          - strong [ref=e1476]: Heated/Chilled Slots
+                        - listitem [ref=e1477]:
+                          - list [ref=e1478]:
+                            - listitem [ref=e1479]: Now prioritize locations where they are not adjacent to an existing slot
+                        - listitem [ref=e1480]:
+                          - strong [ref=e1481]: Item Tier Scaling
+                        - listitem [ref=e1482]:
+                          - list [ref=e1483]:
+                            - listitem [ref=e1484]: Adjusted base scaling for items with flat Damage, Shield, or Heal outputs
+                            - listitem [ref=e1485]: Primarily buffs Gold and Diamond tiers
+                        - listitem [ref=e1486]:
+                          - strong [ref=e1487]: Loot Items
+                        - listitem [ref=e1488]:
+                          - list [ref=e1489]:
+                            - listitem [ref=e1490]: On-Sell Loot items now mostly have Shiny enchants that double their effects
+                        - listitem [ref=e1491]:
+                          - strong [ref=e1492]: Skill Types and Tags
+                        - listitem [ref=e1493]:
+                          - list [ref=e1494]:
+                            - listitem [ref=e1495]: Corrected multiple issues with Skill types and tags
+                      - heading "NEW CONTENT" [level=3] [ref=e1496]
+                      - list [ref=e1497]:
+                        - listitem [ref=e1498]:
+                          - strong [ref=e1499]: General
+                        - listitem [ref=e1500]:
+                          - list [ref=e1501]:
+                            - listitem [ref=e1502]:
+                              - strong [ref=e1503]: Mossy Enchant
+                            - listitem [ref=e1504]:
+                              - list [ref=e1505]:
+                                - listitem [ref=e1506]: New enchantment that grants Regen-based effects
+                        - listitem [ref=e1507]:
+                          - strong [ref=e1508]: Encounters
+                        - listitem [ref=e1509]:
+                          - list [ref=e1510]:
+                            - listitem [ref=e1511]:
+                              - strong [ref=e1512]: Arcane Abyss (Encounter)
+                            - listitem [ref=e1513]:
+                              - list [ref=e1514]:
+                                - listitem [ref=e1515]: Pedestal encounter that enchants an item with Shiny
+                            - listitem [ref=e1516]:
+                              - strong [ref=e1517]: Dabora
+                            - listitem [ref=e1518]:
+                              - list [ref=e1519]:
+                                - listitem [ref=e1520]: "Sell the Rights: Gain 1 Gold for each fight you have won"
+                                - listitem [ref=e1521]: "Monster Sightings: Gain 1 XP for each Monster fight you have lost"
+                                - listitem [ref=e1522]: "Heroic Encounters: Gain 2 Prestige for each Player fight you have lost"
+                            - listitem [ref=e1523]:
+                              - strong [ref=e1524]: Mossy Ridge (Encounter)
+                            - listitem [ref=e1525]:
+                              - list [ref=e1526]:
+                                - listitem [ref=e1527]: Pedestal encounter that enchants an item with Mossy
+                      - heading "NEW ITEMS" [level=3] [ref=e1528]
+                      - list [ref=e1529]:
+                        - listitem [ref=e1530]:
+                          - strong [ref=e1531]: Vanessa
+                        - listitem [ref=e1532]:
+                          - list [ref=e1533]:
+                            - listitem [ref=e1534]: Jetbike
+                            - listitem [ref=e1535]: Flying Fish
+                            - listitem [ref=e1536]: Marlon
+                        - listitem [ref=e1537]:
+                          - strong [ref=e1538]: Dooley
+                        - listitem [ref=e1539]:
+                          - list [ref=e1540]:
+                            - listitem [ref=e1541]: Keylogger
+                            - listitem [ref=e1542]: Trojan Horse
+                            - listitem [ref=e1543]: C.O.R.A.
+                        - listitem [ref=e1544]:
+                          - strong [ref=e1545]: Pygmalien
+                        - listitem [ref=e1546]:
+                          - list [ref=e1547]:
+                            - listitem [ref=e1548]: Pontoon
+                            - listitem [ref=e1549]: Private Jet
+                            - listitem [ref=e1550]: Flying Pig
+                        - listitem [ref=e1551]:
+                          - strong [ref=e1552]: Mak
+                        - listitem [ref=e1553]:
+                          - list [ref=e1554]:
+                            - listitem [ref=e1555]: Broken Bottle
+                            - listitem [ref=e1556]: Scalpel
+                            - listitem [ref=e1557]: Staff of the Wise
+                            - listitem [ref=e1558]: Moss
+                        - listitem [ref=e1559]:
+                          - strong [ref=e1560]: Stelle
+                        - listitem [ref=e1561]:
+                          - list [ref=e1562]:
+                            - listitem [ref=e1563]: Cruise Ship
+                            - listitem [ref=e1564]: Portable Shield Generator
+                            - listitem [ref=e1565]: Inertia Dampener
+                        - listitem [ref=e1566]:
+                          - strong [ref=e1567]: Jules
+                        - listitem [ref=e1568]:
+                          - list [ref=e1569]:
+                            - listitem [ref=e1570]: Meat Grinder
+                            - listitem [ref=e1571]: Cutlery Forge
+                            - listitem [ref=e1572]: Boar Roast
+                        - listitem [ref=e1573]:
+                          - strong [ref=e1574]: Karnok
+                        - listitem [ref=e1575]:
+                          - list [ref=e1576]:
+                            - listitem [ref=e1577]: Lifting Stones
+                            - listitem [ref=e1578]: Enervating Sigil
+                            - listitem [ref=e1579]: Fairies
+                        - listitem [ref=e1580]:
+                          - strong [ref=e1581]: Common
+                        - listitem [ref=e1582]:
+                          - list [ref=e1583]:
+                            - listitem [ref=e1584]:
+                              - strong [ref=e1585]: Bar of Soap
+                            - listitem [ref=e1586]:
+                              - list [ref=e1587]:
+                                - listitem [ref=e1588]: Ammo 6
+                                - listitem [ref=e1589]: Cooldown 2
+                                - listitem [ref=e1590]: Heal 20/40/80/160
+                            - listitem [ref=e1591]:
+                              - strong [ref=e1592]: Lucky Clover
+                            - listitem [ref=e1593]:
+                              - list [ref=e1594]:
+                                - listitem [ref=e1595]: Lucky Clover from the previous event is now a normal item in the game
+                                - listitem [ref=e1596]:
+                                  - text: 10/20/40/80% Chance
+                                  - emphasis [ref=e1597]: (from 20/40/60/80)
+                            - listitem [ref=e1598]:
+                              - strong [ref=e1599]: Moon Lily
+                            - listitem [ref=e1600]:
+                              - list [ref=e1601]:
+                                - listitem [ref=e1602]: When you sell this, your leftmost Regen item gains +[1/2/4/8] Regen
+                      - heading "ENCOUNTER UPDATES" [level=3] [ref=e1603]
+                      - list [ref=e1604]:
+                        - listitem [ref=e1605]:
+                          - strong [ref=e1606]: Merchant / Skill Vendor
+                        - listitem [ref=e1607]:
+                          - list [ref=e1608]:
+                            - listitem [ref=e1609]: "Reroll costs adjusted:"
+                            - listitem [ref=e1610]:
+                              - list [ref=e1611]:
+                                - listitem [ref=e1612]:
+                                  - text: "Silver: 3 Gold"
+                                  - emphasis [ref=e1613]: (from 4)
+                                - listitem [ref=e1614]:
+                                  - text: "Gold: 4 Gold"
+                                  - emphasis [ref=e1615]: (from 6)
+                        - listitem [ref=e1616]:
+                          - strong [ref=e1617]: Aero
+                        - listitem [ref=e1618]:
+                          - list [ref=e1619]:
+                            - listitem [ref=e1620]: Starts on Day 1
+                            - listitem [ref=e1621]: Starts at Silver-tier
+                            - listitem [ref=e1622]:
+                              - text: Spawns earlier and sells
+                              - strong [ref=e1623]: Vehicle
+                              - text: or
+                              - strong [ref=e1624]: Drone
+                              - text: items
+                        - listitem [ref=e1625]:
+                          - strong [ref=e1626]: The Antiquarian
+                        - listitem [ref=e1627]:
+                          - list [ref=e1628]:
+                            - listitem [ref=e1629]: Now spawns on all Heroes
+                        - listitem [ref=e1630]:
+                          - strong [ref=e1631]: Burning Caldera
+                        - listitem [ref=e1632]:
+                          - list [ref=e1633]:
+                            - listitem [ref=e1634]: Updated with new VFX
+                            - listitem [ref=e1635]: Other enchantment pedestals will receive similar updates in the future
+                        - listitem [ref=e1636]:
+                          - strong [ref=e1637]: Dooley’s Crib
+                        - listitem [ref=e1638]:
+                          - list [ref=e1639]:
+                            - listitem [ref=e1640]: "Updated options:"
+                            - listitem [ref=e1641]:
+                              - list [ref=e1642]:
+                                - listitem [ref=e1643]:
+                                  - text: "Call a Friend: Get an Enchanted"
+                                  - strong [ref=e1644]: Friend
+                                  - text: or
+                                  - strong [ref=e1645]: Tech
+                                  - text: item from any Hero (choose 1 of 3)
+                                - listitem [ref=e1646]:
+                                  - text: "Firmware Update: Upgrade your leftmost"
+                                  - strong [ref=e1647]: Core
+                                  - text: and gain +10% Max Health
+                                - listitem [ref=e1648]:
+                                  - text: "Core Study: Get a Skill from any Hero associated with your standard"
+                                  - strong [ref=e1649]: Core
+                                  - text: type (1 of 5)
+                        - listitem [ref=e1650]:
+                          - strong [ref=e1651]: Mr. Morland
+                        - listitem [ref=e1652]:
+                          - list [ref=e1653]:
+                            - listitem [ref=e1654]: Now Pyg only
+                            - listitem [ref=e1655]: Starts at Silver-tier
+                        - listitem [ref=e1656]:
+                          - strong [ref=e1657]: Pinfeather
+                        - listitem [ref=e1658]:
+                          - list [ref=e1659]:
+                            - listitem [ref=e1660]: Starts on Day 6
+                            - listitem [ref=e1661]: Starts at Gold-tier
+                            - listitem [ref=e1662]: Now spawns on all Heroes except Jules
+                            - listitem [ref=e1663]: Now deals items from any Hero
+                        - listitem [ref=e1664]:
+                          - strong [ref=e1665]: Prospero
+                        - listitem [ref=e1666]:
+                          - list [ref=e1667]:
+                            - listitem [ref=e1668]: Starts on Day 1
+                            - listitem [ref=e1669]: Starts at Silver-tier
+                            - listitem [ref=e1670]: Now deals items from any Hero
+                        - listitem [ref=e1671]:
+                          - strong [ref=e1672]: Street Festival
+                        - listitem [ref=e1673]:
+                          - list [ref=e1674]:
+                            - listitem [ref=e1675]:
+                              - text: Starts on Day 5
+                              - emphasis [ref=e1676]: (from 4)
+                      - heading "MONSTER UPDATES" [level=3] [ref=e1677]
+                      - list [ref=e1678]:
+                        - listitem [ref=e1679]:
+                          - strong [ref=e1680]: Caltrops (Obsidian)
+                        - listitem [ref=e1681]:
+                          - list [ref=e1682]:
+                            - listitem [ref=e1683]: Corrected an issue where this monster’s Lockbox had 4 value instead of 41
+                        - listitem [ref=e1684]:
+                          - strong [ref=e1685]: Joyful Jack
+                        - listitem [ref=e1686]:
+                          - list [ref=e1687]:
+                            - listitem [ref=e1688]: Now Day 7 Bronze-tier
+                        - listitem [ref=e1689]:
+                          - strong [ref=e1690]: Oasis Guardian
+                        - listitem [ref=e1691]:
+                          - list [ref=e1692]:
+                            - listitem [ref=e1693]: Sleeping Potion is now Mossy
+                        - listitem [ref=e1694]:
+                          - strong [ref=e1695]: Roaming Isle
+                        - listitem [ref=e1696]:
+                          - list [ref=e1697]:
+                            - listitem [ref=e1698]: Pet Rock is now Mossy
+                        - listitem [ref=e1699]:
+                          - strong [ref=e1700]: Sergeant Suds
+                        - listitem [ref=e1701]:
+                          - list [ref=e1702]:
+                            - listitem [ref=e1703]: Now a Silver-tier monster
+                            - listitem [ref=e1704]: Now has Hogwash and 7 Bars of Soap
+                            - listitem [ref=e1705]: Skill now buffs Heal items based on their value
+                        - listitem [ref=e1706]:
+                          - strong [ref=e1707]: Trash Golem
+                        - listitem [ref=e1708]:
+                          - list [ref=e1709]:
+                            - listitem [ref=e1710]: Grenade is now Mossy
+                        - listitem [ref=e1711]:
+                          - strong [ref=e1712]: Treasure Turtle
+                        - listitem [ref=e1713]:
+                          - list [ref=e1714]:
+                            - listitem [ref=e1715]: Gains a Gold-tier Lucky Clover in place of one Bag of Jewels
+                      - heading "COMMON" [level=3] [ref=e1716]
+                      - list [ref=e1717]:
+                        - listitem [ref=e1718]: "The following items have been adjusted for scaling:"
+                        - listitem [ref=e1719]:
+                          - strong [ref=e1720]: Claws
+                        - listitem [ref=e1721]:
+                          - list [ref=e1722]:
+                            - listitem [ref=e1723]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e1724]: (from 10/20/30/40)
+                        - listitem [ref=e1725]:
+                          - strong [ref=e1726]: Dragon Wing
+                        - listitem [ref=e1727]:
+                          - list [ref=e1728]:
+                            - listitem [ref=e1729]:
+                              - text: Shield 40/80/160
+                              - emphasis [ref=e1730]: (from 40/60/80)
+                        - listitem [ref=e1731]:
+                          - strong [ref=e1732]: Fang
+                        - listitem [ref=e1733]:
+                          - list [ref=e1734]:
+                            - listitem [ref=e1735]:
+                              - text: Damage 5/10/20/40
+                              - emphasis [ref=e1736]: (from 5/10/15/20)
+                        - listitem [ref=e1737]:
+                          - strong [ref=e1738]: Frozen Bludgeon
+                        - listitem [ref=e1739]:
+                          - list [ref=e1740]:
+                            - listitem [ref=e1741]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e1742]: (from 20/40/60/80)
+                        - listitem [ref=e1743]:
+                          - strong [ref=e1744]: Guardian Shell
+                        - listitem [ref=e1745]:
+                          - list [ref=e1746]:
+                            - listitem [ref=e1747]:
+                              - text: Shield 75/150/300
+                              - emphasis [ref=e1748]: (from 40/60/80)
+                        - listitem [ref=e1749]:
+                          - strong [ref=e1750]: Harkuvian Launcher
+                        - listitem [ref=e1751]:
+                          - list [ref=e1752]:
+                            - listitem [ref=e1753]:
+                              - text: Damage 100/200/400/800
+                              - emphasis [ref=e1754]: (from 100/200/300/400)
+                        - listitem [ref=e1755]:
+                          - strong [ref=e1756]: Icebreaker
+                        - listitem [ref=e1757]:
+                          - list [ref=e1758]:
+                            - listitem [ref=e1759]:
+                              - text: Damage 100/200/400
+                              - emphasis [ref=e1760]: (from 100/200/300)
+                        - listitem [ref=e1761]:
+                          - strong [ref=e1762]: Magnifying Glass
+                        - listitem [ref=e1763]:
+                          - list [ref=e1764]:
+                            - listitem [ref=e1765]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e1766]: (from 5/15/30/60)
+                        - listitem [ref=e1767]:
+                          - strong [ref=e1768]: Crusher Claw
+                        - listitem [ref=e1769]:
+                          - list [ref=e1770]:
+                            - listitem [ref=e1771]:
+                              - text: Gains the
+                              - strong [ref=e1772]: Food
+                              - text: type
+                        - listitem [ref=e1773]:
+                          - strong [ref=e1774]: Exoskeleton
+                        - listitem [ref=e1775]:
+                          - list [ref=e1776]:
+                            - listitem [ref=e1777]:
+                              - text: Damage buff 10/20/30/40
+                              - emphasis [ref=e1778]: (from 5/10/20/40)
+                        - listitem [ref=e1779]:
+                          - strong [ref=e1780]: Junkyard Lance
+                        - listitem [ref=e1781]:
+                          - list [ref=e1782]:
+                            - listitem [ref=e1783]: Cooldown 10
+                            - listitem [ref=e1784]: Damage 25/50/100/200
+                        - listitem [ref=e1785]:
+                          - strong [ref=e1786]: Marble Scalemail
+                        - listitem [ref=e1787]:
+                          - list [ref=e1788]:
+                            - listitem [ref=e1789]:
+                              - text: Cooldown 4
+                              - emphasis [ref=e1790]: (from 9)
+                            - listitem [ref=e1791]:
+                              - text: Shield 25/50/100/200
+                              - emphasis [ref=e1792]: (from 20/60/120/200)
+                        - listitem [ref=e1793]:
+                          - strong [ref=e1794]: Sunderer
+                        - listitem [ref=e1795]:
+                          - list [ref=e1796]:
+                            - listitem [ref=e1797]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e1798]: (from 10/20/30/40)
+                            - listitem [ref=e1799]:
+                              - text: Your enemy's highest Shield item loses 10% Shield for the fight
+                              - emphasis [ref=e1800]: (from 5/10/15/20)
+                      - heading "DOOLEY" [level=3] [ref=e1801]
+                      - list [ref=e1802]:
+                        - listitem [ref=e1803]:
+                          - strong [ref=e1804]: Alpha Ray
+                        - listitem [ref=e1805]:
+                          - list [ref=e1806]:
+                            - listitem [ref=e1807]:
+                              - text: Gains the
+                              - strong [ref=e1808]: Tech
+                              - text: type
+                            - listitem [ref=e1809]:
+                              - text: Damage 15/30/60
+                              - emphasis [ref=e1810]: (from 15/20/25)
+                        - listitem [ref=e1811]:
+                          - strong [ref=e1812]: Arc Blaster
+                        - listitem [ref=e1813]:
+                          - list [ref=e1814]:
+                            - listitem [ref=e1815]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e1816]: (from 15/30/45/60)
+                        - listitem [ref=e1817]:
+                          - strong [ref=e1818]: Balloon Bot
+                        - listitem [ref=e1819]:
+                          - list [ref=e1820]:
+                            - listitem [ref=e1821]:
+                              - text: Damage 20/40/80
+                              - emphasis [ref=e1822]: (from 20/40/60)
+                        - listitem [ref=e1823]:
+                          - strong [ref=e1824]: Barbed Wire
+                        - listitem [ref=e1825]:
+                          - list [ref=e1826]:
+                            - listitem [ref=e1827]:
+                              - text: Deal 20/40/80/160
+                              - emphasis [ref=e1828]: (from 20/30/40/50)
+                        - listitem [ref=e1829]:
+                          - strong [ref=e1830]: Beta Ray
+                        - listitem [ref=e1831]:
+                          - list [ref=e1832]:
+                            - listitem [ref=e1833]:
+                              - text: Gains the
+                              - strong [ref=e1834]: Tech
+                              - text: type
+                        - listitem [ref=e1835]:
+                          - strong [ref=e1836]: Blast Doors
+                        - listitem [ref=e1837]:
+                          - list [ref=e1838]:
+                            - listitem [ref=e1839]:
+                              - text: Shield 100/200/400/800
+                              - emphasis [ref=e1840]: (from 100/200/300/400)
+                        - listitem [ref=e1841]:
+                          - strong [ref=e1842]: Chemsnail
+                        - listitem [ref=e1843]:
+                          - list [ref=e1844]:
+                            - listitem [ref=e1845]: Redesigned
+                            - listitem [ref=e1846]: Cooldown 6 seconds
+                            - listitem [ref=e1847]: Slow 1/2/3 item(s) for 2 seconds
+                            - listitem [ref=e1848]: When you Slow, Poison 2/4/6
+                        - listitem [ref=e1849]:
+                          - strong [ref=e1850]: Claw Arm
+                        - listitem [ref=e1851]:
+                          - list [ref=e1852]:
+                            - listitem [ref=e1853]:
+                              - text: Scaling to 12/24/36/48
+                              - emphasis [ref=e1854]: (was 15/30/45/60)
+                        - listitem [ref=e1855]:
+                          - strong [ref=e1856]: Copper Ed
+                        - listitem [ref=e1857]:
+                          - list [ref=e1858]:
+                            - listitem [ref=e1859]:
+                              - text: Cooldown to 6/5/4/3
+                              - emphasis [ref=e1860]: (was 7/6/5/4)
+                            - listitem [ref=e1861]:
+                              - text: Poison to 2
+                              - emphasis [ref=e1862]: (was 4)
+                            - listitem [ref=e1863]:
+                              - text: Shield to 15
+                              - emphasis [ref=e1864]: (was 20)
+                        - listitem [ref=e1865]:
+                          - strong [ref=e1866]: Dooley’s Scarf
+                        - listitem [ref=e1867]:
+                          - list [ref=e1868]:
+                            - listitem [ref=e1869]:
+                              - text: Shield 75/150/300
+                              - emphasis [ref=e1870]: (from 75/100/150)
+                        - listitem [ref=e1871]:
+                          - strong [ref=e1872]: Dooltron
+                        - listitem [ref=e1873]:
+                          - list [ref=e1874]:
+                            - listitem [ref=e1875]:
+                              - text: Cooldown to 30/24
+                              - emphasis [ref=e1876]: (was 24)
+                            - listitem [ref=e1877]:
+                              - text: Charge to 2 seconds
+                              - emphasis [ref=e1878]: (was 1/2)
+                            - listitem [ref=e1879]:
+                              - text: Shield to 25/50
+                              - emphasis [ref=e1880]: (was 50/100)
+                        - listitem [ref=e1881]:
+                          - strong [ref=e1882]: Dinosawer
+                        - listitem [ref=e1883]:
+                          - list [ref=e1884]:
+                            - listitem [ref=e1885]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e1886]: (from 10/20/30/40)
+                        - listitem [ref=e1887]:
+                          - strong [ref=e1888]: Dooltron Mainframe
+                        - listitem [ref=e1889]:
+                          - list [ref=e1890]:
+                            - listitem [ref=e1891]: Corrected an issue where this could Haste items without a Cooldown
+                        - listitem [ref=e1892]:
+                          - strong [ref=e1893]: Epsilon Ray
+                        - listitem [ref=e1894]:
+                          - list [ref=e1895]:
+                            - listitem [ref=e1896]:
+                              - text: Gains the
+                              - strong [ref=e1897]: Tech
+                              - text: type
+                            - listitem [ref=e1898]:
+                              - text: Shield 15/30/60
+                              - emphasis [ref=e1899]: (from 15/20/25)
+                        - listitem [ref=e1900]:
+                          - strong [ref=e1901]: Force Field
+                        - listitem [ref=e1902]:
+                          - list [ref=e1903]:
+                            - listitem [ref=e1904]:
+                              - text: Shield 25/50/100
+                              - emphasis [ref=e1905]: (from 30/40/50)
+                        - listitem [ref=e1906]:
+                          - strong [ref=e1907]: Forklift
+                        - listitem [ref=e1908]:
+                          - list [ref=e1909]:
+                            - listitem [ref=e1910]:
+                              - text: Charge to 2 seconds
+                              - emphasis [ref=e1911]: (was 1/2)
+                            - listitem [ref=e1912]:
+                              - text: Cooldown to 20/14
+                              - emphasis [ref=e1913]: (was 12)
+                        - listitem [ref=e1914]:
+                          - strong [ref=e1915]: Gamma Ray
+                        - listitem [ref=e1916]:
+                          - list [ref=e1917]:
+                            - listitem [ref=e1918]:
+                              - text: Gains the
+                              - strong [ref=e1919]: Tech
+                              - text: type
+                        - listitem [ref=e1920]:
+                          - strong [ref=e1921]: Hammlet
+                        - listitem [ref=e1922]:
+                          - list [ref=e1923]:
+                            - listitem [ref=e1924]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e1925]: (from 15/25/35/50)
+                        - listitem [ref=e1926]:
+                          - strong [ref=e1927]: Ice 9000
+                        - listitem [ref=e1928]:
+                          - list [ref=e1929]:
+                            - listitem [ref=e1930]:
+                              - text: Poison scaling to 20/30
+                              - emphasis [ref=e1931]: (was 20/40)
+                        - listitem [ref=e1932]:
+                          - strong [ref=e1933]: Laser Pistol
+                        - listitem [ref=e1934]:
+                          - list [ref=e1935]:
+                            - listitem [ref=e1936]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e1937]: (from 15/30/45/60)
+                        - listitem [ref=e1938]:
+                          - strong [ref=e1939]: Mech-Moles
+                        - listitem [ref=e1940]:
+                          - list [ref=e1941]:
+                            - listitem [ref=e1942]:
+                              - text: Cooldown to 5 seconds
+                              - emphasis [ref=e1943]: (was 6)
+                        - listitem [ref=e1944]:
+                          - strong [ref=e1945]: Miss Isles
+                        - listitem [ref=e1946]:
+                          - list [ref=e1947]:
+                            - listitem [ref=e1948]:
+                              - text: Damage 20/40/80
+                              - emphasis [ref=e1949]: (from 20/30/40)
+                        - listitem [ref=e1950]:
+                          - strong [ref=e1951]: Oblivion Core
+                        - listitem [ref=e1952]:
+                          - list [ref=e1953]:
+                            - listitem [ref=e1954]: Redesigned
+                            - listitem [ref=e1955]: Starts at Legendary-tier
+                            - listitem [ref=e1956]: Cooldown 8
+                            - listitem [ref=e1957]: Destroy an enemy item for the fight
+                            - listitem [ref=e1958]: When you destroy an item, Charge this 1 second
+                        - listitem [ref=e1959]:
+                          - strong [ref=e1960]: Omega Ray
+                        - listitem [ref=e1961]:
+                          - list [ref=e1962]:
+                            - listitem [ref=e1963]:
+                              - text: Gains the
+                              - strong [ref=e1964]: Tech
+                              - text: type
+                        - listitem [ref=e1965]:
+                          - strong [ref=e1966]: Propeller Hat
+                        - listitem [ref=e1967]:
+                          - list [ref=e1968]:
+                            - listitem [ref=e1969]:
+                              - text: Damage 10/20/40
+                              - emphasis [ref=e1970]: (from 10/20/30)
+                        - listitem [ref=e1971]:
+                          - strong [ref=e1972]: Pulse Rifle
+                        - listitem [ref=e1973]:
+                          - list [ref=e1974]:
+                            - listitem [ref=e1975]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e1976]: (from 15/30/45/60)
+                        - listitem [ref=e1977]:
+                          - strong [ref=e1978]: Pyrocarbon
+                        - listitem [ref=e1979]:
+                          - list [ref=e1980]:
+                            - listitem [ref=e1981]:
+                              - text: Shield 20/40/80
+                              - emphasis [ref=e1982]: (from 20/30/40)
+                        - listitem [ref=e1983]:
+                          - strong [ref=e1984]: Rocket Launcher
+                        - listitem [ref=e1985]:
+                          - list [ref=e1986]:
+                            - listitem [ref=e1987]:
+                              - text: Damage 8/16/32/64
+                              - emphasis [ref=e1988]: (from 8/12/16/20)
+                        - listitem [ref=e1989]:
+                          - strong [ref=e1990]: Tanky Anky
+                        - listitem [ref=e1991]:
+                          - list [ref=e1992]:
+                            - listitem [ref=e1993]: Corrected an issue where Shielded was not working properly
+                        - listitem [ref=e1994]:
+                          - strong [ref=e1995]: Trollosaur
+                        - listitem [ref=e1996]:
+                          - list [ref=e1997]:
+                            - listitem [ref=e1998]:
+                              - text: Damage 50/100/200
+                              - emphasis [ref=e1999]: (from 50/100/150)
+                        - listitem [ref=e2000]:
+                          - strong [ref=e2001]: Virus
+                        - listitem [ref=e2002]:
+                          - list [ref=e2003]:
+                            - listitem [ref=e2004]: Now a Common item instead of a Dooley-specific item
+                            - listitem [ref=e2005]: Starts at Silver-tier
+                            - listitem [ref=e2006]:
+                              - text: Poison to 2/4/6
+                              - emphasis [ref=e2007]: (from 1/2/3/4)
+                        - listitem [ref=e2008]:
+                          - strong [ref=e2009]: Weakpoint Detector
+                        - listitem [ref=e2010]:
+                          - list [ref=e2011]:
+                            - listitem [ref=e2012]:
+                              - text: Scaling to 8/16/24/32
+                              - emphasis [ref=e2013]: (was 5/10/20/40)
+                        - listitem [ref=e2014]:
+                          - strong [ref=e2015]: Welding Helmet
+                        - listitem [ref=e2016]:
+                          - list [ref=e2017]:
+                            - listitem [ref=e2018]:
+                              - text: Shield 10/20/40/80
+                              - emphasis [ref=e2019]: (from 10/20/30/40)
+                      - heading "JULES" [level=3] [ref=e2020]
+                      - list [ref=e2021]:
+                        - listitem [ref=e2022]:
+                          - strong [ref=e2023]: Banu Leaves
+                        - listitem [ref=e2024]:
+                          - list [ref=e2025]:
+                            - listitem [ref=e2026]:
+                              - text: Shield 15/30/60/120
+                              - emphasis [ref=e2027]: (from 20/30/40/50)
+                        - listitem [ref=e2028]:
+                          - strong [ref=e2029]: Blueberry Pie
+                        - listitem [ref=e2030]:
+                          - list [ref=e2031]:
+                            - listitem [ref=e2032]:
+                              - text: Shield 20/40/80/160
+                              - emphasis [ref=e2033]: (from 20/40/60/80)
+                        - listitem [ref=e2034]:
+                          - strong [ref=e2035]: Bubblegum Floor
+                        - listitem [ref=e2036]:
+                          - list [ref=e2037]:
+                            - listitem [ref=e2038]:
+                              - text: Shield 50/100
+                              - emphasis [ref=e2039]: (from 50/70)
+                        - listitem [ref=e2040]:
+                          - strong [ref=e2041]: Burrito
+                        - listitem [ref=e2042]:
+                          - list [ref=e2043]:
+                            - listitem [ref=e2044]:
+                              - text: "Heated: This has +50/75/100% Crit Chance"
+                              - emphasis [ref=e2045]: (was 100%)
+                        - listitem [ref=e2046]:
+                          - strong [ref=e2047]: Cheese Wheel
+                        - listitem [ref=e2048]:
+                          - list [ref=e2049]:
+                            - listitem [ref=e2050]:
+                              - text: Shield 5
+                              - emphasis [ref=e2051]: (was 1)
+                        - listitem [ref=e2052]:
+                          - strong [ref=e2053]: Cookie Cutters
+                        - listitem [ref=e2054]:
+                          - list [ref=e2055]:
+                            - listitem [ref=e2056]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2057]: (from 10/20/30/40)
+                        - listitem [ref=e2058]:
+                          - strong [ref=e2059]: Cooking Mallet
+                        - listitem [ref=e2060]:
+                          - list [ref=e2061]:
+                            - listitem [ref=e2062]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2063]: (from 10/20/30/40)
+                        - listitem [ref=e2064]:
+                          - strong [ref=e2065]: Curry
+                        - listitem [ref=e2066]:
+                          - list [ref=e2067]:
+                            - listitem [ref=e2068]: Starts at Bronze-tier
+                            - listitem [ref=e2069]:
+                              - text: Burn to 3/6/9/12
+                              - emphasis [ref=e2070]: (was 4/6/8)
+                            - listitem [ref=e2071]:
+                              - text: When you Slow, Charge this 1 second
+                              - emphasis [ref=e2072]: (was “Charge another Small item 1/2/3 second(s)”)
+                        - listitem [ref=e2073]:
+                          - strong [ref=e2074]: Cutting Board
+                        - listitem [ref=e2075]:
+                          - list [ref=e2076]:
+                            - listitem [ref=e2077]:
+                              - text: Cooldown to 4 seconds
+                              - emphasis [ref=e2078]: (was 5/4/3)
+                            - listitem [ref=e2079]:
+                              - text: When you use an adjacent
+                              - strong [ref=e2080]: Tool
+                              - text: ", Charge this 1 second and your"
+                              - strong [ref=e2081]: Weapons
+                              - text: gain 5/10/15 Damage for the fight
+                              - emphasis [ref=e2082]: (was “When you use an adjacent Weapon, it gains 10/20/30 Damage for the fight and Charge this 1 second.”)
+                        - listitem [ref=e2083]:
+                          - strong [ref=e2084]: Dishwasher
+                        - listitem [ref=e2085]:
+                          - list [ref=e2086]:
+                            - listitem [ref=e2087]:
+                              - text: Cooldown to 7 seconds
+                              - emphasis [ref=e2088]: (was 6)
+                            - listitem [ref=e2089]:
+                              - text: Haste and Heated duration to 2/3 seconds
+                              - emphasis [ref=e2090]: (was 2/4 seconds)
+                        - listitem [ref=e2091]:
+                          - strong [ref=e2092]: Durian
+                        - listitem [ref=e2093]:
+                          - list [ref=e2094]:
+                            - listitem [ref=e2095]:
+                              - text: Shield 20/40/80
+                              - emphasis [ref=e2096]: (from 20/40/60)
+                        - listitem [ref=e2097]:
+                          - strong [ref=e2098]: Egg Timer
+                        - listitem [ref=e2099]:
+                          - list [ref=e2100]:
+                            - listitem [ref=e2101]:
+                              - text: Charge all your
+                              - strong [ref=e2102]: Food
+                              - text: 1 second
+                              - emphasis [ref=e2103]: (was 5/8 seconds)
+                            - listitem [ref=e2104]: Multicast 4/6
+                        - listitem [ref=e2105]:
+                          - strong [ref=e2106]: Excellent Vintage
+                        - listitem [ref=e2107]:
+                          - list [ref=e2108]:
+                            - listitem [ref=e2109]:
+                              - text: Shield 30/60/120/240
+                              - emphasis [ref=e2110]: (from 30/60/90/120)
+                        - listitem [ref=e2111]:
+                          - strong [ref=e2112]: Fortune Cookie
+                        - listitem [ref=e2113]:
+                          - list [ref=e2114]:
+                            - listitem [ref=e2115]: Now spawns a Skill from any Hero
+                        - listitem [ref=e2116]:
+                          - strong [ref=e2117]: Giant Lollipop
+                        - listitem [ref=e2118]:
+                          - list [ref=e2119]:
+                            - listitem [ref=e2120]:
+                              - text: Cooldown 6
+                              - emphasis [ref=e2121]: (from 5)
+                            - listitem [ref=e2122]:
+                              - text: Damage 50/100/200
+                              - emphasis [ref=e2123]: (from 50/100/150)
+                        - listitem [ref=e2124]:
+                          - strong [ref=e2125]: Giant Sub
+                        - listitem [ref=e2126]:
+                          - list [ref=e2127]:
+                            - listitem [ref=e2128]:
+                              - text: Cooldown to 7/5 seconds
+                              - emphasis [ref=e2129]: (was 8/6)
+                        - listitem [ref=e2130]:
+                          - strong [ref=e2131]: Gingerbread House
+                        - listitem [ref=e2132]:
+                          - list [ref=e2133]:
+                            - listitem [ref=e2134]:
+                              - text: When you use a
+                              - strong [ref=e2135]: Tool
+                              - text: or
+                              - strong [ref=e2136]: Food
+                              - text: ", gain 40/80 Shield"
+                              - emphasis [ref=e2137]: (was just Food)
+                        - listitem [ref=e2138]:
+                          - strong [ref=e2139]: Grater
+                        - listitem [ref=e2140]:
+                          - list [ref=e2141]:
+                            - listitem [ref=e2142]: Redesigned
+                            - listitem [ref=e2143]: Cooldown 6/5/4 seconds
+                            - listitem [ref=e2144]: Deal 1 Damage
+                            - listitem [ref=e2145]: Slow an item for 1 second
+                            - listitem [ref=e2146]:
+                              - text: For each adjacent
+                              - strong [ref=e2147]: Food
+                              - text: ", this has +1 Multicast"
+                        - listitem [ref=e2148]:
+                          - strong [ref=e2149]: Hot Box
+                        - listitem [ref=e2150]:
+                          - list [ref=e2151]:
+                            - listitem [ref=e2152]:
+                              - text: Burn scaling to 3/6/9
+                              - emphasis [ref=e2153]: (was 2/4/6)
+                        - listitem [ref=e2154]:
+                          - strong [ref=e2155]: Ice Swan
+                        - listitem [ref=e2156]:
+                          - list [ref=e2157]:
+                            - listitem [ref=e2158]: Redesigned
+                            - listitem [ref=e2159]: Cooldown 6 seconds
+                            - listitem [ref=e2160]: Freeze your Chilled items for 3/2/1 second(s)
+                            - listitem [ref=e2161]: "Chilled: Your Small Chilled items have +1 Multicast and adjacent items are Chilled"
+                        - listitem [ref=e2162]:
+                          - strong [ref=e2163]: Imu
+                        - listitem [ref=e2164]:
+                          - list [ref=e2165]:
+                            - listitem [ref=e2166]: "Enchants now map to “Heated: When you Slow”"
+                        - listitem [ref=e2167]:
+                          - strong [ref=e2168]: Knife Set
+                        - listitem [ref=e2169]:
+                          - list [ref=e2170]:
+                            - listitem [ref=e2171]:
+                              - text: Damage 20
+                              - emphasis [ref=e2172]: (from 5/10/15/20)
+                        - listitem [ref=e2173]:
+                          - strong [ref=e2174]: Luau
+                        - listitem [ref=e2175]:
+                          - list [ref=e2176]:
+                            - listitem [ref=e2177]:
+                              - text: Slow 2/3/4 items for 1 second(s)
+                              - emphasis [ref=e2178]: (was Slow 1/2/3 for 2 seconds)
+                        - listitem [ref=e2179]:
+                          - strong [ref=e2180]: Massive Cleaver
+                        - listitem [ref=e2181]:
+                          - list [ref=e2182]:
+                            - listitem [ref=e2183]: Starts at Gold-tier
+                        - listitem [ref=e2184]:
+                          - strong [ref=e2185]: Pancakes
+                        - listitem [ref=e2186]:
+                          - list [ref=e2187]:
+                            - listitem [ref=e2188]:
+                              - text: Shield 5/10/20/40
+                              - emphasis [ref=e2189]: (from 5/10/15/20)
+                        - listitem [ref=e2190]:
+                          - strong [ref=e2191]: Pastry Cart
+                        - listitem [ref=e2192]:
+                          - list [ref=e2193]:
+                            - listitem [ref=e2194]: Renamed to Froyo Cart
+                        - listitem [ref=e2195]:
+                          - strong [ref=e2196]: Prep Station
+                        - listitem [ref=e2197]:
+                          - list [ref=e2198]:
+                            - listitem [ref=e2199]: Shielded and Fiery now double the buff
+                            - listitem [ref=e2200]: Restorative, Toxic, and Obsidian now buff items of their respective output
+                        - listitem [ref=e2201]:
+                          - strong [ref=e2202]: Pumpkin
+                        - listitem [ref=e2203]:
+                          - list [ref=e2204]:
+                            - listitem [ref=e2205]:
+                              - text: "Heated: Slow [2/3/4/5] items for 2 seconds"
+                              - emphasis [ref=e2206]: "(was Heated: Slow 1/2/3/4 items for 1 second)"
+                        - listitem [ref=e2207]:
+                          - strong [ref=e2208]: Refrigerator
+                        - listitem [ref=e2209]:
+                          - list [ref=e2210]:
+                            - listitem [ref=e2211]: Redesigned
+                            - listitem [ref=e2212]: When you Freeze, Shield 30/60/90 and gain 3/6/? Regen
+                            - listitem [ref=e2213]: "Chilled: Adjacent items are Chilled"
+                        - listitem [ref=e2214]:
+                          - strong [ref=e2215]: Scorchpepper
+                        - listitem [ref=e2216]:
+                          - list [ref=e2217]:
+                            - listitem [ref=e2218]:
+                              - text: The item to the left of this is Heated
+                              - emphasis [ref=e2219]: (was Food item to the left of this)
+                        - listitem [ref=e2220]:
+                          - strong [ref=e2221]: Seafood Cracker
+                        - listitem [ref=e2222]:
+                          - list [ref=e2223]:
+                            - listitem [ref=e2224]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2225]: (from 10/20/30/40)
+                        - listitem [ref=e2226]:
+                          - strong [ref=e2227]: Skewer
+                        - listitem [ref=e2228]:
+                          - list [ref=e2229]:
+                            - listitem [ref=e2230]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2231]: (from 10/20/30/40)
+                        - listitem [ref=e2232]:
+                          - strong [ref=e2233]: Sorbet
+                        - listitem [ref=e2234]:
+                          - list [ref=e2235]:
+                            - listitem [ref=e2236]:
+                              - text: Shield 15/30/60/120
+                              - emphasis [ref=e2237]: (from 15/30/45/60)
+                        - listitem [ref=e2238]:
+                          - strong [ref=e2239]: Stand Mixer
+                        - listitem [ref=e2240]:
+                          - list [ref=e2241]:
+                            - listitem [ref=e2242]: Multicast 2
+                            - listitem [ref=e2243]:
+                              - text: Haste a
+                              - strong [ref=e2244]: Food
+                              - text: for 2 seconds
+                              - emphasis [ref=e2245]: (was Haste adjacent items for 2 seconds)
+                        - listitem [ref=e2246]:
+                          - strong [ref=e2247]: Universal Sauce
+                        - listitem [ref=e2248]:
+                          - list [ref=e2249]:
+                            - listitem [ref=e2250]:
+                              - text: Crit scaling to 4/7/10%
+                              - emphasis [ref=e2251]: (was 3/6/9%)
+                        - listitem [ref=e2252]:
+                          - strong [ref=e2253]: Whisk
+                        - listitem [ref=e2254]:
+                          - list [ref=e2255]:
+                            - listitem [ref=e2256]:
+                              - text: Damage 15/30/60
+                              - emphasis [ref=e2257]: (from 15/30/45)
+                      - heading "KARNOK" [level=3] [ref=e2258]
+                      - list [ref=e2259]:
+                        - listitem [ref=e2260]:
+                          - strong [ref=e2261]: Anaconda
+                        - listitem [ref=e2262]:
+                          - list [ref=e2263]:
+                            - listitem [ref=e2264]:
+                              - text: Cooldown to 6/4 seconds
+                              - emphasis [ref=e2265]: (was 5)
+                            - listitem [ref=e2266]:
+                              - text: When you Enrage, this gains +3 Multicast for the fight
+                              - emphasis [ref=e2267]: (was 2/3)
+                        - listitem [ref=e2268]:
+                          - strong [ref=e2269]: Aurora Vista
+                        - listitem [ref=e2270]:
+                          - list [ref=e2271]:
+                            - listitem [ref=e2272]: Corrected an issue where Shielded was not working properly
+                        - listitem [ref=e2273]:
+                          - strong [ref=e2274]: Battle Axe
+                        - listitem [ref=e2275]:
+                          - list [ref=e2276]:
+                            - listitem [ref=e2277]:
+                              - text: Deal 60/120/180/240 Damage
+                              - emphasis [ref=e2278]: (was 75/150/225/300)
+                            - listitem [ref=e2279]:
+                              - text: When you Enrage, this gains +60/120/180/240 Damage for the fight
+                              - emphasis [ref=e2280]: (was 75/150/225/300)
+                        - listitem [ref=e2281]:
+                          - strong [ref=e2282]: Bear Trap
+                        - listitem [ref=e2283]:
+                          - list [ref=e2284]:
+                            - listitem [ref=e2285]:
+                              - text: Damage to 25/50/75
+                              - emphasis [ref=e2286]: (was 50/100/150)
+                            - listitem [ref=e2287]:
+                              - text: Slow to 2/3/4 seconds
+                              - emphasis [ref=e2288]: (was 3/4/5 seconds)
+                        - listitem [ref=e2289]:
+                          - strong [ref=e2290]: Boa Constrictor
+                        - listitem [ref=e2291]:
+                          - list [ref=e2292]:
+                            - listitem [ref=e2293]:
+                              - text: Cooldown 6
+                              - emphasis [ref=e2294]: (from 8/7/6)
+                            - listitem [ref=e2295]:
+                              - text: Damage 20/40/80
+                              - emphasis [ref=e2296]: (from 10/20/30)
+                        - listitem [ref=e2297]:
+                          - strong [ref=e2298]: Chains
+                        - listitem [ref=e2299]:
+                          - list [ref=e2300]:
+                            - listitem [ref=e2301]:
+                              - text: When you Slow one of your
+                              - strong [ref=e2302]: Weapons
+                              - text: ", it gains +10/20/30/40 Damage for the fight"
+                              - emphasis [ref=e2303]: (was When one of your Weapons is Slowed, it gains +10/20/30/40 Damage for the fight)
+                        - listitem [ref=e2304]:
+                          - strong [ref=e2305]: Double-bladed Knife
+                        - listitem [ref=e2306]:
+                          - list [ref=e2307]:
+                            - listitem [ref=e2308]:
+                              - text: Damage 5/10/20/40
+                              - emphasis [ref=e2309]: (from 5/10/15/20)
+                        - listitem [ref=e2310]:
+                          - strong [ref=e2311]: Furs
+                        - listitem [ref=e2312]:
+                          - list [ref=e2313]:
+                            - listitem [ref=e2314]: Redesigned
+                            - listitem [ref=e2315]: Cooldown 5 seconds
+                            - listitem [ref=e2316]: Your Shield and Heal items gain +10/15/20 Shield and +10/15/20 Heal for the fight
+                            - listitem [ref=e2317]: When you Freeze or Crit with a non-Weapon item, Charge this 2 seconds
+                            - listitem [ref=e2318]: Your items are affected by Freeze for half as long
+                        - listitem [ref=e2319]:
+                          - strong [ref=e2320]: Giant Sling
+                        - listitem [ref=e2321]:
+                          - list [ref=e2322]:
+                            - listitem [ref=e2323]:
+                              - text: Deal 40/80/120 Damage
+                              - emphasis [ref=e2324]: (was 50/100/150)
+                        - listitem [ref=e2325]:
+                          - strong [ref=e2326]: Healing Draught
+                        - listitem [ref=e2327]:
+                          - list [ref=e2328]:
+                            - listitem [ref=e2329]: Restorative and Shiny now double Heal
+                            - listitem [ref=e2330]:
+                              - text: Heal to 25/50% of Max Health
+                              - emphasis [ref=e2331]: (from 30/60)
+                        - listitem [ref=e2332]:
+                          - strong [ref=e2333]: Hunter’s Axe
+                        - listitem [ref=e2334]:
+                          - list [ref=e2335]:
+                            - listitem [ref=e2336]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2337]: (from 10/20/30/40)
+                        - listitem [ref=e2338]:
+                          - strong [ref=e2339]: Hunter’s Blind
+                        - listitem [ref=e2340]:
+                          - list [ref=e2341]:
+                            - listitem [ref=e2342]:
+                              - text: Shield 50
+                              - emphasis [ref=e2343]: (from 25/50/100)
+                            - listitem [ref=e2344]:
+                              - text: Scaling 25/50/75
+                              - emphasis [ref=e2345]: (from 25/50/100)
+                        - listitem [ref=e2346]:
+                          - strong [ref=e2347]: Hunting Hawk
+                        - listitem [ref=e2348]:
+                          - list [ref=e2349]:
+                            - listitem [ref=e2350]:
+                              - text: Crit 10/20/30/40
+                              - emphasis [ref=e2351]: (from 20/30/40/50)
+                        - listitem [ref=e2352]:
+                          - strong [ref=e2353]: Infused Arm Wraps
+                        - listitem [ref=e2354]:
+                          - list [ref=e2355]:
+                            - listitem [ref=e2356]:
+                              - text: Scaling to 10/20/30 on both effects
+                              - emphasis [ref=e2357]: (was 5/10/15)
+                        - listitem [ref=e2358]:
+                          - strong [ref=e2359]: Jerky
+                        - listitem [ref=e2360]:
+                          - list [ref=e2361]:
+                            - listitem [ref=e2362]:
+                              - text: Heal 30/60/120/240
+                              - emphasis [ref=e2363]: (from 40/80/120/160)
+                        - listitem [ref=e2364]:
+                          - strong [ref=e2365]: Leather Jacket
+                        - listitem [ref=e2366]:
+                          - list [ref=e2367]:
+                            - listitem [ref=e2368]:
+                              - text: When you Enrage or the Sandstorm starts, destroy this for the fight
+                              - emphasis [ref=e2369]: (was just on Enrage)
+                        - listitem [ref=e2370]:
+                          - strong [ref=e2371]: Lichen
+                        - listitem [ref=e2372]:
+                          - list [ref=e2373]:
+                            - listitem [ref=e2374]:
+                              - text: Effects now trigger “When you Enrage”
+                              - emphasis [ref=e2375]: (was “When you stop being Enraged”)
+                        - listitem [ref=e2376]:
+                          - strong [ref=e2377]: Lost Blade
+                        - listitem [ref=e2378]:
+                          - list [ref=e2379]:
+                            - listitem [ref=e2380]:
+                              - text: Deal damage equal to 20% of your Max Health
+                              - emphasis [ref=e2381]: (was 10/15/20%)
+                            - listitem [ref=e2382]:
+                              - text: Cooldown to 11/10/9 seconds
+                              - emphasis [ref=e2383]: (was 10)
+                            - listitem [ref=e2384]: If this is your only item with a Cooldown, its Cooldown is reduced by 5 seconds and it is affected by Freeze and Slow for half as long
+                        - listitem [ref=e2385]:
+                          - strong [ref=e2386]: Resistance Bands
+                        - listitem [ref=e2387]:
+                          - list [ref=e2388]:
+                            - listitem [ref=e2389]:
+                              - text: Cooldown to 6/5/4 seconds
+                              - emphasis [ref=e2390]: (was 6)
+                        - listitem [ref=e2391]:
+                          - strong [ref=e2392]: Shotgun
+                        - listitem [ref=e2393]:
+                          - list [ref=e2394]:
+                            - listitem [ref=e2395]: Starts at Silver-tier
+                            - listitem [ref=e2396]:
+                              - text: Damage to 30/60/120
+                              - emphasis [ref=e2397]: (was 25/50/75/100)
+                        - listitem [ref=e2398]:
+                          - strong [ref=e2399]: Snow Wisp
+                        - listitem [ref=e2400]:
+                          - list [ref=e2401]:
+                            - listitem [ref=e2402]: Starts at Silver-tier
+                            - listitem [ref=e2403]:
+                              - text: Cooldown to 6/5/4 seconds
+                              - emphasis [ref=e2404]: (was 6/5/4/3)
+                            - listitem [ref=e2405]:
+                              - text: Heal 20
+                              - emphasis [ref=e2406]: (from 10/20/30/40)
+                        - listitem [ref=e2407]:
+                          - strong [ref=e2408]: Spiked Wraps
+                        - listitem [ref=e2409]:
+                          - list [ref=e2410]:
+                            - listitem [ref=e2411]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2412]: (from 20/30/40/50)
+                        - listitem [ref=e2413]:
+                          - strong [ref=e2414]: Trapping Pit
+                        - listitem [ref=e2415]:
+                          - list [ref=e2416]:
+                            - listitem [ref=e2417]: Starts at Gold-tier
+                        - listitem [ref=e2418]:
+                          - strong [ref=e2419]: Trapvine
+                        - listitem [ref=e2420]:
+                          - list [ref=e2421]:
+                            - listitem [ref=e2422]:
+                              - text: Poison to 10/20
+                              - emphasis [ref=e2423]: (was 5/10)
+                            - listitem [ref=e2424]: Enchants updated to “when you Slow”
+                        - listitem [ref=e2425]:
+                          - strong [ref=e2426]: Wrist Blade
+                        - listitem [ref=e2427]:
+                          - list [ref=e2428]:
+                            - listitem [ref=e2429]:
+                              - text: Damage 30/60/120/240
+                              - emphasis [ref=e2430]: (from 30/60/90/120)
+                        - listitem [ref=e2431]:
+                          - strong [ref=e2432]: Wrist Crossbow
+                        - listitem [ref=e2433]:
+                          - list [ref=e2434]:
+                            - listitem [ref=e2435]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2436]: (from 15/30/45/60)
+                        - listitem [ref=e2437]:
+                          - strong [ref=e2438]: Yarrow Paste
+                        - listitem [ref=e2439]:
+                          - list [ref=e2440]:
+                            - listitem [ref=e2441]:
+                              - text: Heal 10/20/40/80
+                              - emphasis [ref=e2442]: (from 20/40/60/80)
+                      - heading "MAK" [level=3] [ref=e2443]
+                      - list [ref=e2444]:
+                        - listitem [ref=e2445]:
+                          - strong [ref=e2446]: Apothecary
+                        - listitem [ref=e2447]:
+                          - list [ref=e2448]:
+                            - listitem [ref=e2449]:
+                              - text: Regen to 10/20/30
+                              - emphasis [ref=e2450]: (was 8/16/24)
+                        - listitem [ref=e2451]:
+                          - strong [ref=e2452]: Basilisk Fang
+                        - listitem [ref=e2453]:
+                          - list [ref=e2454]:
+                            - listitem [ref=e2455]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2456]: (from 10/20/30/40)
+                        - listitem [ref=e2457]:
+                          - strong [ref=e2458]: Black Ice
+                        - listitem [ref=e2459]:
+                          - list [ref=e2460]:
+                            - listitem [ref=e2461]:
+                              - text: Poison to 15/30
+                              - emphasis [ref=e2462]: (was 10/15)
+                        - listitem [ref=e2463]:
+                          - strong [ref=e2464]: Blank Slate
+                        - listitem [ref=e2465]:
+                          - list [ref=e2466]:
+                            - listitem [ref=e2467]:
+                              - text: Freeze for 1 second
+                              - emphasis [ref=e2468]: (from 0.5)
+                        - listitem [ref=e2469]:
+                          - strong [ref=e2470]: Boiling Flask
+                        - listitem [ref=e2471]:
+                          - list [ref=e2472]:
+                            - listitem [ref=e2473]: Turbo now Hastes adjacent items
+                        - listitem [ref=e2474]:
+                          - strong [ref=e2475]: Bottled Lightning
+                        - listitem [ref=e2476]:
+                          - list [ref=e2477]:
+                            - listitem [ref=e2478]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e2479]: (from 15/25/35/45)
+                        - listitem [ref=e2480]:
+                          - strong [ref=e2481]: Cauldron
+                        - listitem [ref=e2482]:
+                          - list [ref=e2483]:
+                            - listitem [ref=e2484]:
+                              - text: Cooldown to 4 seconds
+                              - emphasis [ref=e2485]: (was 5)
+                            - listitem [ref=e2486]:
+                              - text: Poison and Burn scaling to 2/4/6
+                              - emphasis [ref=e2487]: (was 3/4/5)
+                        - listitem [ref=e2488]:
+                          - strong [ref=e2489]: Cellar
+                        - listitem [ref=e2490]:
+                          - list [ref=e2491]:
+                            - listitem [ref=e2492]:
+                              - text: Reload 1/2/3/4 item(s)
+                              - emphasis [ref=e2493]: (was 1)
+                        - listitem [ref=e2494]:
+                          - strong [ref=e2495]: Covetous Raven
+                        - listitem [ref=e2496]:
+                          - list [ref=e2497]:
+                            - listitem [ref=e2498]:
+                              - text: Damage 50/100/200/400
+                              - emphasis [ref=e2499]: (from 50/100/150/200)
+                        - listitem [ref=e2500]:
+                          - strong [ref=e2501]: Dragon’s Breath
+                        - listitem [ref=e2502]:
+                          - list [ref=e2503]:
+                            - listitem [ref=e2504]:
+                              - text: Cooldown to 8/7/6
+                              - emphasis [ref=e2505]: (was 9/8/7)
+                            - listitem [ref=e2506]:
+                              - text: Burn scaling to 5/10/15
+                              - emphasis [ref=e2507]: (was 6/8/10)
+                        - listitem [ref=e2508]:
+                          - strong [ref=e2509]: Emerald
+                        - listitem [ref=e2510]:
+                          - list [ref=e2511]:
+                            - listitem [ref=e2512]: Toxic now doubles the buff instead of its base output
+                        - listitem [ref=e2513]:
+                          - strong [ref=e2514]: Eternal Torch
+                        - listitem [ref=e2515]:
+                          - list [ref=e2516]:
+                            - listitem [ref=e2517]: "New Quest: Visit Pearl’s Dig Site – This has -1 second Cooldown"
+                        - listitem [ref=e2518]:
+                          - strong [ref=e2519]: Frost Totem
+                        - listitem [ref=e2520]:
+                          - list [ref=e2521]:
+                            - listitem [ref=e2522]:
+                              - text: Cooldown to 7/6/5 seconds
+                              - emphasis [ref=e2523]: (was 6/5/4)
+                            - listitem [ref=e2524]:
+                              - text: Freezes 1 second
+                              - emphasis [ref=e2525]: (was 0.5)
+                            - listitem [ref=e2526]: "New Quest: Visit Pearl’s Dig Site – This Freezes an additional item"
+                        - listitem [ref=e2527]:
+                          - strong [ref=e2528]: Frozen Flame
+                        - listitem [ref=e2529]:
+                          - list [ref=e2530]:
+                            - listitem [ref=e2531]:
+                              - text: Burn scaling to 5/10/20
+                              - emphasis [ref=e2532]: (was 5/10/15)
+                        - listitem [ref=e2533]:
+                          - strong [ref=e2534]: Idol of Decay
+                        - listitem [ref=e2535]:
+                          - list [ref=e2536]:
+                            - listitem [ref=e2537]: "New Quest: Visit Pearl’s Dig Site – This has -1 second Cooldown"
+                        - listitem [ref=e2538]:
+                          - strong [ref=e2539]: Letter Opener
+                        - listitem [ref=e2540]:
+                          - list [ref=e2541]:
+                            - listitem [ref=e2542]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2543]: (from 10/20/30/40)
+                            - listitem [ref=e2544]:
+                              - text: Crit Chance 100/125/150/200
+                              - emphasis [ref=e2545]: (from 100/125/150/175)
+                        - listitem [ref=e2546]:
+                          - strong [ref=e2547]: Life Conduit
+                        - listitem [ref=e2548]:
+                          - list [ref=e2549]:
+                            - listitem [ref=e2550]: "New Quest: Visit Pearl’s Dig Site – This has -1 second Cooldown"
+                        - listitem [ref=e2551]:
+                          - strong [ref=e2552]: Magic Carpet
+                        - listitem [ref=e2553]:
+                          - list [ref=e2554]:
+                            - listitem [ref=e2555]:
+                              - text: Damage 40/80/160/320
+                              - emphasis [ref=e2556]: (from 50/100/150/200)
+                        - listitem [ref=e2557]:
+                          - strong [ref=e2558]: Plague Glaive
+                        - listitem [ref=e2559]:
+                          - list [ref=e2560]:
+                            - listitem [ref=e2561]:
+                              - text: Cooldown 9
+                              - emphasis [ref=e2562]: (from 9/8)
+                            - listitem [ref=e2563]:
+                              - text: Damage 100/200
+                              - emphasis [ref=e2564]: (from 100/150)
+                        - listitem [ref=e2565]:
+                          - strong [ref=e2566]: Rapid Injection System
+                        - listitem [ref=e2567]:
+                          - list [ref=e2568]:
+                            - listitem [ref=e2569]:
+                              - text: Regen to 3/6/9
+                              - emphasis [ref=e2570]: (was 2/4/6)
+                        - listitem [ref=e2571]:
+                          - strong [ref=e2572]: Runic Great Axe
+                        - listitem [ref=e2573]:
+                          - list [ref=e2574]:
+                            - listitem [ref=e2575]:
+                              - text: Cooldown 6
+                              - emphasis [ref=e2576]: (from 7/6/5)
+                            - listitem [ref=e2577]:
+                              - text: Damage 50/100/200
+                              - emphasis [ref=e2578]: (from 50/75/100)
+                        - listitem [ref=e2579]:
+                          - strong [ref=e2580]: Ruby
+                        - listitem [ref=e2581]:
+                          - list [ref=e2582]:
+                            - listitem [ref=e2583]: Fiery now doubles the buff instead of its base output
+                        - listitem [ref=e2584]:
+                          - strong [ref=e2585]: Sands of Time
+                        - listitem [ref=e2586]:
+                          - list [ref=e2587]:
+                            - listitem [ref=e2588]: "New Quest: Visit Pearl’s Dig Site – This Slows an additional item"
+                        - listitem [ref=e2589]:
+                          - strong [ref=e2590]: Shard of Obsidian
+                        - listitem [ref=e2591]:
+                          - list [ref=e2592]:
+                            - listitem [ref=e2593]:
+                              - text: Damage 5/10/20/40
+                              - emphasis [ref=e2594]: (from 5/10/15/20)
+                        - listitem [ref=e2595]:
+                          - strong [ref=e2596]: Shrinking Potion
+                        - listitem [ref=e2597]:
+                          - list [ref=e2598]:
+                            - listitem [ref=e2599]: Corrected an issue where this could reduce Max Health more than expected with certain scaling effects
+                        - listitem [ref=e2600]:
+                          - strong [ref=e2601]: Spider Fern
+                        - listitem [ref=e2602]:
+                          - list [ref=e2603]:
+                            - listitem [ref=e2604]: Redesigned
+                            - listitem [ref=e2605]:
+                              - text: Poison 4/6/8
+                              - emphasis [ref=e2606]: (from 2)
+                            - listitem [ref=e2607]: When you win a fight, this gains +[2] Multicast. If it already has [2/4/6] of this bonus, reset it instead
+                            - listitem [ref=e2608]: This only counts Multicast granted by this item and ignores other sources
+                            - listitem [ref=e2609]: Adjusted for consistency and improved Silver-tier playability
+                        - listitem [ref=e2610]:
+                          - strong [ref=e2611]: Tazidian Dagger
+                        - listitem [ref=e2612]:
+                          - list [ref=e2613]:
+                            - listitem [ref=e2614]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e2615]: (from 5/10/15/20)
+                        - listitem [ref=e2616]:
+                          - strong [ref=e2617]: Vitality Potion
+                        - listitem [ref=e2618]:
+                          - list [ref=e2619]:
+                            - listitem [ref=e2620]: Restorative now increases Ammo
+                      - heading "PYGMALIEN" [level=3] [ref=e2621]
+                      - list [ref=e2622]:
+                        - listitem [ref=e2623]:
+                          - strong [ref=e2624]: Badblocker
+                        - listitem [ref=e2625]:
+                          - list [ref=e2626]:
+                            - listitem [ref=e2627]:
+                              - text: Shield 20/40/80
+                              - emphasis [ref=e2628]: (from 20/40/60)
+                        - listitem [ref=e2629]:
+                          - strong [ref=e2630]: Belt
+                        - listitem [ref=e2631]:
+                          - list [ref=e2632]:
+                            - listitem [ref=e2633]:
+                              - text: Max Health 40/80%
+                              - emphasis [ref=e2634]: (from 50/75/100%)
+                        - listitem [ref=e2635]:
+                          - strong [ref=e2636]: Billboard
+                        - listitem [ref=e2637]:
+                          - list [ref=e2638]:
+                            - listitem [ref=e2639]: Redesigned
+                            - listitem [ref=e2640]: Starts at Gold-tier
+                            - listitem [ref=e2641]: Cooldown 3 seconds
+                            - listitem [ref=e2642]: Shield equal to 2/3 times this item’s value
+                            - listitem [ref=e2643]: When you use an item, it gains +25% value for the fight
+                            - listitem [ref=e2644]: Your lowest value item has +1 Multicast
+                        - listitem [ref=e2645]:
+                          - strong [ref=e2646]: Boomerang
+                        - listitem [ref=e2647]:
+                          - list [ref=e2648]:
+                            - listitem [ref=e2649]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e2650]: (from 20/40/60/80)
+                            - listitem [ref=e2651]: Gains “This starts Flying”
+                        - listitem [ref=e2652]:
+                          - strong [ref=e2653]: Brass Knuckles
+                        - listitem [ref=e2654]:
+                          - list [ref=e2655]:
+                            - listitem [ref=e2656]: Redesigned
+                            - listitem [ref=e2657]: Cooldown 6/5/4/3 seconds
+                            - listitem [ref=e2658]: Deal 10 Damage
+                            - listitem [ref=e2659]: Gain Max Health for the fight equal to this item’s Damage
+                        - listitem [ref=e2660]:
+                          - strong [ref=e2661]: Briefcase
+                        - listitem [ref=e2662]:
+                          - list [ref=e2663]:
+                            - listitem [ref=e2664]: Redesigned
+                            - listitem [ref=e2665]: Cooldown 4 seconds
+                            - listitem [ref=e2666]: Deal 10/20/40/80 Damage
+                            - listitem [ref=e2667]: When you win a fight with this, get a Spare Change
+                            - listitem [ref=e2668]: "Quests:"
+                            - listitem [ref=e2669]:
+                              - list [ref=e2670]:
+                                - listitem [ref=e2671]: Quest 1 – Level up (twice)
+                                - listitem [ref=e2672]:
+                                  - list [ref=e2673]:
+                                    - listitem [ref=e2674]: When you sell this, get 6 Spare Change
+                                - listitem [ref=e2675]: Quest 2 – Visit Herma
+                                - listitem [ref=e2676]:
+                                  - list [ref=e2677]:
+                                    - listitem [ref=e2678]: Heal equal to this item’s Damage
+                                - listitem [ref=e2679]: Quest 3 – Visit Kev
+                                - listitem [ref=e2680]:
+                                  - list [ref=e2681]:
+                                    - listitem [ref=e2682]: Shield equal to this item’s Damage
+                                - listitem [ref=e2683]: Quest 4 – Sell 25 Spare Change
+                                - listitem [ref=e2684]:
+                                  - list [ref=e2685]:
+                                    - listitem [ref=e2686]: This has +50 Damage
+                                - listitem [ref=e2687]: Quest 5 – Sell 50 Spare Change
+                                - listitem [ref=e2688]:
+                                  - list [ref=e2689]:
+                                    - listitem [ref=e2690]: This has +2 Multicast
+                        - listitem [ref=e2691]:
+                          - strong [ref=e2692]: Bushel
+                        - listitem [ref=e2693]:
+                          - list [ref=e2694]:
+                            - listitem [ref=e2695]:
+                              - text: Heal 20/40/80/160
+                              - emphasis [ref=e2696]: (from 20/40/60/80)
+                            - listitem [ref=e2697]:
+                              - text: When you use an adjacent item, gain 10/20/40/80 Max Health for the fight
+                              - emphasis [ref=e2698]: (was Gain Regen equal to 10% of this item's Heal for the fight)
+                        - listitem [ref=e2699]:
+                          - strong [ref=e2700]: Busy Bee
+                        - listitem [ref=e2701]:
+                          - list [ref=e2702]:
+                            - listitem [ref=e2703]: Added “This starts Flying”
+                        - listitem [ref=e2704]:
+                          - strong [ref=e2705]: Cash Register
+                        - listitem [ref=e2706]:
+                          - list [ref=e2707]:
+                            - listitem [ref=e2708]:
+                              - text: Gives 3 Spare Change
+                              - emphasis [ref=e2709]: (was 2)
+                        - listitem [ref=e2710]:
+                          - strong [ref=e2711]: Closed Sign
+                        - listitem [ref=e2712]:
+                          - list [ref=e2713]:
+                            - listitem [ref=e2714]: Redesigned
+                            - listitem [ref=e2715]:
+                              - text: When you use a
+                              - strong [ref=e2716]: Property
+                              - text: or
+                              - strong [ref=e2717]: Tool
+                              - text: ", gain Max Health for the fight equal to 1/2/3 times its value"
+                        - listitem [ref=e2718]:
+                          - strong [ref=e2719]: Cold Room
+                        - listitem [ref=e2720]:
+                          - list [ref=e2721]:
+                            - listitem [ref=e2722]:
+                              - text: Cooldown to 7/6/5
+                              - emphasis [ref=e2723]: (from 8)
+                            - listitem [ref=e2724]:
+                              - text: Freeze to 2 targets
+                              - emphasis [ref=e2725]: (from 1/2/3)
+                            - listitem [ref=e2726]:
+                              - text: Regen to 2/4/6
+                              - emphasis [ref=e2727]: (from 2/5/8)
+                        - listitem [ref=e2728]:
+                          - strong [ref=e2729]: Dog
+                        - listitem [ref=e2730]:
+                          - list [ref=e2731]:
+                            - listitem [ref=e2732]: Swapped the 2nd and 3rd quest rewards (Multicast for Cooldown reduction)
+                        - listitem [ref=e2733]:
+                          - strong [ref=e2734]: Gavel
+                        - listitem [ref=e2735]:
+                          - list [ref=e2736]:
+                            - listitem [ref=e2737]:
+                              - text: Cooldown 8
+                              - emphasis [ref=e2738]: (from 9/8/7)
+                            - listitem [ref=e2739]:
+                              - text: Damage 100/200/400
+                              - emphasis [ref=e2740]: (from 100/200/300)
+                        - listitem [ref=e2741]:
+                          - strong [ref=e2742]: Growth Spurt (New Skill)
+                        - listitem [ref=e2743]:
+                          - list [ref=e2744]:
+                            - listitem [ref=e2745]: You have +10/15/20% Max Health
+                        - listitem [ref=e2746]:
+                          - strong [ref=e2747]: Gumball Machine
+                        - listitem [ref=e2748]:
+                          - list [ref=e2749]:
+                            - listitem [ref=e2750]:
+                              - text: Shield [--/10/20/30] for each Small item you have in your Stash
+                              - emphasis [ref=e2751]: (from Shield 10/20/30)
+                            - listitem [ref=e2752]:
+                              - text: At the start of each hour, spend 1 Gold to get a Gumball
+                              - emphasis [ref=e2753]: (from 2 Gold)
+                        - listitem [ref=e2754]:
+                          - strong [ref=e2755]: Hogwash
+                        - listitem [ref=e2756]:
+                          - list [ref=e2757]:
+                            - listitem [ref=e2758]:
+                              - text: Max Health gain to 50/100/150
+                              - emphasis [ref=e2759]: (was 30/90/150)
+                        - listitem [ref=e2760]:
+                          - strong [ref=e2761]: Hypergreens
+                        - listitem [ref=e2762]:
+                          - list [ref=e2763]:
+                            - listitem [ref=e2764]:
+                              - text: Damage and Heal scaling to 10/15/20
+                              - emphasis [ref=e2765]: (was 5/10/15)
+                        - listitem [ref=e2766]:
+                          - strong [ref=e2767]: Jabalian Recurve Bow
+                        - listitem [ref=e2768]:
+                          - list [ref=e2769]:
+                            - listitem [ref=e2770]:
+                              - text: Damage 75/150/300
+                              - emphasis [ref=e2771]: (from 75/150/225)
+                        - listitem [ref=e2772]:
+                          - strong [ref=e2773]: Landscraper
+                        - listitem [ref=e2774]:
+                          - list [ref=e2775]:
+                            - listitem [ref=e2776]:
+                              - text: Cooldown to 5/4/3 seconds
+                              - emphasis [ref=e2777]: (was 6/5/4)
+                            - listitem [ref=e2778]:
+                              - text: Shield scaling to 15/20/25
+                              - emphasis [ref=e2779]: (was 10/15/20)
+                        - listitem [ref=e2780]:
+                          - strong [ref=e2781]: Matchbox
+                        - listitem [ref=e2782]:
+                          - list [ref=e2783]:
+                            - listitem [ref=e2784]:
+                              - text: Burn 4/5/6/7
+                              - emphasis [ref=e2785]: (from 3/4/5/6)
+                        - listitem [ref=e2786]:
+                          - strong [ref=e2787]: Model Ship
+                        - listitem [ref=e2788]:
+                          - list [ref=e2789]:
+                            - listitem [ref=e2790]:
+                              - text: Cooldown 6/5/4
+                              - emphasis [ref=e2791]: (from 5/4/3)
+                            - listitem [ref=e2792]:
+                              - text: Shield equal to this item’s value
+                              - emphasis [ref=e2793]: (from 10)
+                        - listitem [ref=e2794]:
+                          - strong [ref=e2795]: Money Furnace
+                        - listitem [ref=e2796]:
+                          - list [ref=e2797]:
+                            - listitem [ref=e2798]: Redesigned
+                            - listitem [ref=e2799]: Cooldown 7 seconds
+                            - listitem [ref=e2800]: Burn equal to this item’s value
+                            - listitem [ref=e2801]: When you sell a Spare Change, this gains +2/3/4/5 Value
+                            - listitem [ref=e2802]: Your Spare Change have 0 Value
+                            - listitem [ref=e2803]: "Quests:"
+                            - listitem [ref=e2804]:
+                              - list [ref=e2805]:
+                                - listitem [ref=e2806]: Quest 1 – Reach 300+ Value
+                                - listitem [ref=e2807]:
+                                  - list [ref=e2808]:
+                                    - listitem [ref=e2809]: This item’s Cooldown is reduced by 3 seconds
+                                - listitem [ref=e2810]: Quest 2 – Visit Valpak
+                                - listitem [ref=e2811]:
+                                  - list [ref=e2812]:
+                                    - listitem [ref=e2813]: Your Spare Change have +1 Value
+                                - listitem [ref=e2814]: Quest 3 – Attend an Economic Seminar
+                                - listitem [ref=e2815]:
+                                  - list [ref=e2816]:
+                                    - listitem [ref=e2817]: Your Spare Change have +1 Value
+                        - listitem [ref=e2818]:
+                          - strong [ref=e2819]: Pepper Spray
+                        - listitem [ref=e2820]:
+                          - list [ref=e2821]:
+                            - listitem [ref=e2822]: Redesigned
+                            - listitem [ref=e2823]: Cooldown 5
+                            - listitem [ref=e2824]: Burn [3/6/9/12]
+                            - listitem [ref=e2825]: Slow an item [1/2/3/4] second(s)
+                            - listitem [ref=e2826]: The first time you fall below half Health each fight, destroy this and Slow all enemy items for [1/2/3/4] seconds
+                        - listitem [ref=e2827]:
+                          - strong [ref=e2828]: Piggles Launcher
+                        - listitem [ref=e2829]:
+                          - list [ref=e2830]:
+                            - listitem [ref=e2831]:
+                              - text: Damage / Heal / Shield 10/20/40/80
+                              - emphasis [ref=e2832]: (from 10/20/30/40)
+                            - listitem [ref=e2833]:
+                              - text: Burn 2/4/6/8
+                              - emphasis [ref=e2834]: (from 1/2/3/4)
+                            - listitem [ref=e2835]: Gains “A Small item starts Flying”
+                        - listitem [ref=e2836]:
+                          - strong [ref=e2837]: Piggles Protector
+                        - listitem [ref=e2838]:
+                          - list [ref=e2839]:
+                            - listitem [ref=e2840]:
+                              - text: Shield 5/10/20/40
+                              - emphasis [ref=e2841]: (from 5/10/15/20)
+                        - listitem [ref=e2842]:
+                          - strong [ref=e2843]: Pinata
+                        - listitem [ref=e2844]:
+                          - list [ref=e2845]:
+                            - listitem [ref=e2846]: "Added Quests:"
+                            - listitem [ref=e2847]:
+                              - list [ref=e2848]:
+                                - listitem [ref=e2849]: Quest 1 – Visit Tatiana
+                                - listitem [ref=e2850]:
+                                  - list [ref=e2851]:
+                                    - listitem [ref=e2852]:
+                                      - text: When you sell this, get another Small
+                                      - strong [ref=e2853]: Toy
+                                      - text: from any Hero
+                                - listitem [ref=e2854]: Quest 2 – Raid a Candy Stash
+                                - listitem [ref=e2855]:
+                                  - list [ref=e2856]:
+                                    - listitem [ref=e2857]: When you sell this, get 3 more Chocolate Bars
+                                - listitem [ref=e2858]: Quest 3 – Visit a Gumball Machine
+                                - listitem [ref=e2859]:
+                                  - list [ref=e2860]:
+                                    - listitem [ref=e2861]: When you sell this, get 3 more Gumballs
+                                - listitem [ref=e2862]: Quest 4 – Visit Likit
+                                - listitem [ref=e2863]:
+                                  - list [ref=e2864]:
+                                    - listitem [ref=e2865]: Upgrade this
+                        - listitem [ref=e2866]:
+                          - strong [ref=e2867]: Pitchfork
+                        - listitem [ref=e2868]:
+                          - list [ref=e2869]:
+                            - listitem [ref=e2870]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e2871]: (from 20/40/60/80)
+                        - listitem [ref=e2872]:
+                          - strong [ref=e2873]: Playtime
+                        - listitem [ref=e2874]:
+                          - list [ref=e2875]:
+                            - listitem [ref=e2876]: Redesigned
+                            - listitem [ref=e2877]:
+                              - text: The first [--/--/4/8] times you use a
+                              - strong [ref=e2878]: Toy
+                              - text: each fight, Charge a Heal item 1 second
+                        - listitem [ref=e2879]:
+                          - strong [ref=e2880]: Premium Piggles
+                        - listitem [ref=e2881]:
+                          - list [ref=e2882]:
+                            - listitem [ref=e2883]: Also gives a Piggles on purchase
+                        - listitem [ref=e2884]:
+                          - strong [ref=e2885]: Private Hot Springs
+                        - listitem [ref=e2886]:
+                          - list [ref=e2887]:
+                            - listitem [ref=e2888]:
+                              - text: Starts at Silver-tier
+                              - emphasis [ref=e2889]: (was Gold)
+                            - listitem [ref=e2890]:
+                              - text: Cooldown to 4
+                              - emphasis [ref=e2891]: (was 6)
+                            - listitem [ref=e2892]:
+                              - text: Burn 6/12/24
+                              - emphasis [ref=e2893]: (was 8/12)
+                            - listitem [ref=e2894]:
+                              - text: You have 20/40/60 Regen for each Frozen item
+                              - emphasis [ref=e2895]: (was Regen 8/12)
+                            - listitem [ref=e2896]:
+                              - text: When you Freeze, Charge this 1/2/3 seconds
+                              - emphasis [ref=e2897]: (was 4 seconds)
+                            - listitem [ref=e2898]:
+                              - text: The first time you fall below half Health each fight, Freeze all other items for 4 second(s)
+                              - emphasis [ref=e2899]: (was 3 seconds)
+                        - listitem [ref=e2900]:
+                          - strong [ref=e2901]: Pyg’s Gym
+                        - listitem [ref=e2902]:
+                          - list [ref=e2903]:
+                            - listitem [ref=e2904]:
+                              - text: Cooldown to 7
+                              - emphasis [ref=e2905]: (from 8)
+                        - listitem [ref=e2906]:
+                          - strong [ref=e2907]: Safe
+                        - listitem [ref=e2908]:
+                          - list [ref=e2909]:
+                            - listitem [ref=e2910]: "Added Quests:"
+                            - listitem [ref=e2911]:
+                              - list [ref=e2912]:
+                                - listitem [ref=e2913]: Quest 1 – Defeat 3 Monsters
+                                - listitem [ref=e2914]:
+                                  - list [ref=e2915]:
+                                    - listitem [ref=e2916]:
+                                      - text: When you sell this, get 3
+                                      - strong [ref=e2917]: Loot
+                                      - text: items
+                                - listitem [ref=e2918]: Quest 2 – Find a Cache of Riches
+                                - listitem [ref=e2919]:
+                                  - list [ref=e2920]:
+                                    - listitem [ref=e2921]: When you sell this, get a Bag of Jewels
+                                - listitem [ref=e2922]: Quest 3 – Look for Spare Change
+                                - listitem [ref=e2923]:
+                                  - list [ref=e2924]:
+                                    - listitem [ref=e2925]: When you sell this, get 6 more Spare Change
+                                - listitem [ref=e2926]: Quest 4 – Invest in Yourself
+                                - listitem [ref=e2927]:
+                                  - list [ref=e2928]:
+                                    - listitem [ref=e2929]: Upgrade this
+                        - listitem [ref=e2930]:
+                          - strong [ref=e2931]: Signet Ring
+                        - listitem [ref=e2932]:
+                          - list [ref=e2933]:
+                            - listitem [ref=e2934]: Starts at Bronze-tier
+                            - listitem [ref=e2935]:
+                              - text: Max Health gain 5/10/15/20
+                              - emphasis [ref=e2936]: (from 5/10/15)
+                            - listitem [ref=e2937]:
+                              - text: Income 1/2/3/4
+                              - emphasis [ref=e2938]: (from 1/2/3)
+                        - listitem [ref=e2939]:
+                          - strong [ref=e2940]: Silk Scarf
+                        - listitem [ref=e2941]:
+                          - list [ref=e2942]:
+                            - listitem [ref=e2943]:
+                              - text: Quest requirements changed to 25/15/10
+                              - emphasis [ref=e2944]: (was 20/10/5)
+                        - listitem [ref=e2945]:
+                          - strong [ref=e2946]: Slingshot
+                        - listitem [ref=e2947]:
+                          - list [ref=e2948]:
+                            - listitem [ref=e2949]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e2950]: (from 30/45/60/75)
+                            - listitem [ref=e2951]: Gains “Another Small item starts Flying”
+                        - listitem [ref=e2952]:
+                          - strong [ref=e2953]: Spices
+                        - listitem [ref=e2954]:
+                          - list [ref=e2955]:
+                            - listitem [ref=e2956]: Starts at Gold-tier
+                            - listitem [ref=e2957]:
+                              - text: Cooldown to 12/10
+                              - emphasis [ref=e2958]: (from 9)
+                        - listitem [ref=e2959]:
+                          - strong [ref=e2960]: Streaming Setup
+                        - listitem [ref=e2961]:
+                          - list [ref=e2962]:
+                            - listitem [ref=e2963]:
+                              - text: Gains the
+                              - strong [ref=e2964]: Toy
+                              - text: type
+                            - listitem [ref=e2965]: Redesigned
+                            - listitem [ref=e2966]:
+                              - text: Your
+                              - strong [ref=e2967]: Toys
+                              - text: and
+                              - strong [ref=e2968]: Friends
+                              - text: have +Damage, Heal, and Shield equal to their Value
+                            - listitem [ref=e2969]:
+                              - text: When you use a
+                              - strong [ref=e2970]: Toy
+                              - text: or
+                              - strong [ref=e2971]: Friend
+                              - text: ", it gains [2/4/6] Value for the fight"
+                        - listitem [ref=e2972]:
+                          - strong [ref=e2973]: Tea Set
+                        - listitem [ref=e2974]:
+                          - list [ref=e2975]:
+                            - listitem [ref=e2976]:
+                              - text: Gains the
+                              - strong [ref=e2977]: Tool
+                              - text: type
+                        - listitem [ref=e2978]:
+                          - strong [ref=e2979]: Uwashiwali Bird
+                        - listitem [ref=e2980]:
+                          - list [ref=e2981]:
+                            - listitem [ref=e2982]:
+                              - text: Heal 20/40/80/160
+                              - emphasis [ref=e2983]: (from 20/30/40/50)
+                            - listitem [ref=e2984]: Gains “The first 10 times you use this each fight, it starts Flying”
+                            - listitem [ref=e2985]:
+                              - text: This has +1 Multicast for each
+                              - strong [ref=e2986]: Property
+                              - text: or
+                              - strong [ref=e2987]: Vehicle
+                              - text: you have
+                              - emphasis [ref=e2988]: (from Property only)
+                      - heading "STELLE" [level=3] [ref=e2989]
+                      - list [ref=e2990]:
+                        - listitem [ref=e2991]:
+                          - strong [ref=e2992]: Aerial Turret
+                        - listitem [ref=e2993]:
+                          - list [ref=e2994]:
+                            - listitem [ref=e2995]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e2996]: (from 15/25/35/45)
+                        - listitem [ref=e2997]:
+                          - strong [ref=e2998]: Airplane Glue
+                        - listitem [ref=e2999]:
+                          - list [ref=e3000]:
+                            - listitem [ref=e3001]:
+                              - text: Scaling 10/20/30/40
+                              - emphasis [ref=e3002]: (was 7/14/21/28)
+                        - listitem [ref=e3003]:
+                          - strong [ref=e3004]: Angle Grinder Drone
+                        - listitem [ref=e3005]:
+                          - list [ref=e3006]:
+                            - listitem [ref=e3007]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3008]: (from 10/20/30/40)
+                        - listitem [ref=e3009]:
+                          - strong [ref=e3010]: Aviators
+                        - listitem [ref=e3011]:
+                          - list [ref=e3012]:
+                            - listitem [ref=e3013]:
+                              - text: Shield 20/40/80/160
+                              - emphasis [ref=e3014]: (from 20/40/60/80)
+                        - listitem [ref=e3015]:
+                          - strong [ref=e3016]: Battle Drone
+                        - listitem [ref=e3017]:
+                          - list [ref=e3018]:
+                            - listitem [ref=e3019]:
+                              - text: Damage 35/70/140
+                              - emphasis [ref=e3020]: (from 35/70/105)
+                        - listitem [ref=e3021]:
+                          - strong [ref=e3022]: Box Cutter
+                        - listitem [ref=e3023]:
+                          - list [ref=e3024]:
+                            - listitem [ref=e3025]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3026]: (from 10/20/30/40)
+                        - listitem [ref=e3027]:
+                          - strong [ref=e3028]: Chicken Cannon
+                        - listitem [ref=e3029]:
+                          - list [ref=e3030]:
+                            - listitem [ref=e3031]: Redesigned
+                            - listitem [ref=e3032]: Cooldown 6/5/4/3 seconds
+                            - listitem [ref=e3033]: Deal Damage equal to the Shield of adjacent Small and Medium items
+                            - listitem [ref=e3034]: Adjacent items start Flying
+                        - listitem [ref=e3035]:
+                          - strong [ref=e3036]: Clockwork Disc
+                        - listitem [ref=e3037]:
+                          - list [ref=e3038]:
+                            - listitem [ref=e3039]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3040]: (from 10/20/30/40)
+                        - listitem [ref=e3041]:
+                          - strong [ref=e3042]: Cloud Tanker
+                        - listitem [ref=e3043]:
+                          - list [ref=e3044]:
+                            - listitem [ref=e3045]: Updated Shielded, Restorative, and Toxic to buff adjacent items
+                        - listitem [ref=e3046]:
+                          - strong [ref=e3047]: Darts
+                        - listitem [ref=e3048]:
+                          - list [ref=e3049]:
+                            - listitem [ref=e3050]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3051]: (from 10/20/30/40)
+                        - listitem [ref=e3052]:
+                          - strong [ref=e3053]: Drafting Table
+                        - listitem [ref=e3054]:
+                          - list [ref=e3055]:
+                            - listitem [ref=e3056]:
+                              - text: Cooldown to 7/6/5
+                              - emphasis [ref=e3057]: (was 8/7/6)
+                        - listitem [ref=e3058]:
+                          - strong [ref=e3059]: Experimental Garage
+                        - listitem [ref=e3060]:
+                          - list [ref=e3061]:
+                            - listitem [ref=e3062]: No longer enchants itself
+                        - listitem [ref=e3063]:
+                          - strong [ref=e3064]: Firecrackers
+                        - listitem [ref=e3065]:
+                          - list [ref=e3066]:
+                            - listitem [ref=e3067]:
+                              - text: Damage 20/40/80
+                              - emphasis [ref=e3068]: (from 20/40/60)
+                        - listitem [ref=e3069]:
+                          - strong [ref=e3070]: Flare Gun
+                        - listitem [ref=e3071]:
+                          - list [ref=e3072]:
+                            - listitem [ref=e3073]:
+                              - text: Burn 10
+                              - emphasis [ref=e3074]: (from 6/9/12)
+                        - listitem [ref=e3075]:
+                          - strong [ref=e3076]: Freefall Simulator
+                        - listitem [ref=e3077]:
+                          - list [ref=e3078]:
+                            - listitem [ref=e3079]:
+                              - text: Gains the
+                              - strong [ref=e3080]: Tech
+                              - text: type
+                        - listitem [ref=e3081]:
+                          - strong [ref=e3082]: Googles
+                        - listitem [ref=e3083]:
+                          - list [ref=e3084]:
+                            - listitem [ref=e3085]:
+                              - text: Shield 20/40/80/160
+                              - emphasis [ref=e3086]: (from 20/40/60/80)
+                        - listitem [ref=e3087]:
+                          - strong [ref=e3088]: Gyro Gunsight
+                        - listitem [ref=e3089]:
+                          - list [ref=e3090]:
+                            - listitem [ref=e3091]:
+                              - text: Scaling to 12/24/36/48
+                              - emphasis [ref=e3092]: (was 10/20/30/40)
+                        - listitem [ref=e3093]:
+                          - strong [ref=e3094]: Hammer
+                        - listitem [ref=e3095]:
+                          - list [ref=e3096]:
+                            - listitem [ref=e3097]:
+                              - text: Damage 80/160
+                              - emphasis [ref=e3098]: (from 60/80)
+                        - listitem [ref=e3099]:
+                          - strong [ref=e3100]: Lightning Butterfly
+                        - listitem [ref=e3101]:
+                          - list [ref=e3102]:
+                            - listitem [ref=e3103]: Starts at Bronze-tier
+                            - listitem [ref=e3104]:
+                              - text: Damage 5/10/15/20
+                              - emphasis [ref=e3105]: (from 5)
+                            - listitem [ref=e3106]:
+                              - text: Buff to 5/10/15/20
+                              - emphasis [ref=e3107]: (from 10/15/20)
+                        - listitem [ref=e3108]:
+                          - strong [ref=e3109]: MagShield
+                        - listitem [ref=e3110]:
+                          - list [ref=e3111]:
+                            - listitem [ref=e3112]: Cooldown to 5 seconds
+                        - listitem [ref=e3113]:
+                          - strong [ref=e3114]: Molten Ball Blaster
+                        - listitem [ref=e3115]:
+                          - list [ref=e3116]:
+                            - listitem [ref=e3117]:
+                              - text: Damage 50/100/200/400
+                              - emphasis [ref=e3118]: (from 50/100/150/200)
+                        - listitem [ref=e3119]:
+                          - strong [ref=e3120]: Oxygen Mask
+                        - listitem [ref=e3121]:
+                          - list [ref=e3122]:
+                            - listitem [ref=e3123]:
+                              - text: Cooldown to 7/6/5/4
+                              - emphasis [ref=e3124]: (was 5)
+                            - listitem [ref=e3125]:
+                              - text: No longer a
+                              - strong [ref=e3126]: Tool
+                            - listitem [ref=e3127]:
+                              - text: When you use a
+                              - strong [ref=e3128]: Tool
+                              - text: or
+                              - strong [ref=e3129]: Vehicle
+                              - text: ", Charge this 2 seconds"
+                              - emphasis [ref=e3130]: (was When you use another Tool or Vehicle, this gains +5/10/15/20 Shield for the fight)
+                        - listitem [ref=e3131]:
+                          - strong [ref=e3132]: Propeller
+                        - listitem [ref=e3133]:
+                          - list [ref=e3134]:
+                            - listitem [ref=e3135]: Updated enchants to work with “When you use a Flying item”
+                        - listitem [ref=e3136]:
+                          - strong [ref=e3137]: Ramming Balloon
+                        - listitem [ref=e3138]:
+                          - list [ref=e3139]:
+                            - listitem [ref=e3140]: Redesigned
+                            - listitem [ref=e3141]: Starts at Silver-tier
+                            - listitem [ref=e3142]: Cooldown 8 seconds
+                            - listitem [ref=e3143]: Deal 10 Damage
+                            - listitem [ref=e3144]: When you use another Flying item, Charge this 2 seconds
+                            - listitem [ref=e3145]: When you Shield, this gains +15/30/45 Damage for the fight
+                        - listitem [ref=e3146]:
+                          - strong [ref=e3147]: Rocket Drone
+                        - listitem [ref=e3148]:
+                          - list [ref=e3149]:
+                            - listitem [ref=e3150]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e3151]: (from 15/30/45/60)
+                        - listitem [ref=e3152]:
+                          - strong [ref=e3153]: Security Drone
+                        - listitem [ref=e3154]:
+                          - list [ref=e3155]:
+                            - listitem [ref=e3156]:
+                              - text: Cooldown to 8/7/6/5 seconds
+                              - emphasis [ref=e3157]: (was 8)
+                            - listitem [ref=e3158]:
+                              - text: Shield 20
+                              - emphasis [ref=e3159]: (from 20/40/60/80)
+                        - listitem [ref=e3160]:
+                          - strong [ref=e3161]: Skyliner
+                        - listitem [ref=e3162]:
+                          - list [ref=e3163]:
+                            - listitem [ref=e3164]:
+                              - text: Damage 150/300
+                              - emphasis [ref=e3165]: (from 150/200)
+                        - listitem [ref=e3166]:
+                          - strong [ref=e3167]: Spotlight
+                        - listitem [ref=e3168]:
+                          - list [ref=e3169]:
+                            - listitem [ref=e3170]: Updated Restorative, Toxic, and Fiery enchants to double the respective buff of the item to the left
+                        - listitem [ref=e3171]:
+                          - strong [ref=e3172]: Stellar Swallowtail
+                        - listitem [ref=e3173]:
+                          - list [ref=e3174]:
+                            - listitem [ref=e3175]:
+                              - text: Damage and Shield to 120/240
+                              - emphasis [ref=e3176]: (was 100/200)
+                        - listitem [ref=e3177]:
+                          - strong [ref=e3178]: Vortex Cannon
+                        - listitem [ref=e3179]:
+                          - list [ref=e3180]:
+                            - listitem [ref=e3181]:
+                              - text: Cooldown to 5/4 seconds
+                              - emphasis [ref=e3182]: (was 5)
+                            - listitem [ref=e3183]:
+                              - text: Damage to 50
+                              - emphasis [ref=e3184]: (was 25)
+                            - listitem [ref=e3185]:
+                              - text: Scaling to 30/50
+                              - emphasis [ref=e3186]: (was 25/50)
+                      - heading "VANESSA" [level=3] [ref=e3187]
+                      - list [ref=e3188]:
+                        - listitem [ref=e3189]:
+                          - strong [ref=e3190]: Anchor
+                        - listitem [ref=e3191]:
+                          - list [ref=e3192]:
+                            - listitem [ref=e3193]:
+                              - text: Cooldown to 12
+                              - emphasis [ref=e3194]: (from 12/10)
+                        - listitem [ref=e3195]:
+                          - strong [ref=e3196]: Astrolabe
+                        - listitem [ref=e3197]:
+                          - list [ref=e3198]:
+                            - listitem [ref=e3199]:
+                              - text: Cooldown to 5
+                              - emphasis [ref=e3200]: (from 6)
+                        - listitem [ref=e3201]:
+                          - strong [ref=e3202]: Ballista
+                        - listitem [ref=e3203]:
+                          - list [ref=e3204]:
+                            - listitem [ref=e3205]:
+                              - text: Damage 150/300
+                              - emphasis [ref=e3206]: (from 150/200)
+                        - listitem [ref=e3207]:
+                          - strong [ref=e3208]: Bayonet
+                        - listitem [ref=e3209]:
+                          - list [ref=e3210]:
+                            - listitem [ref=e3211]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3212]: (from 10/15/20/25)
+                        - listitem [ref=e3213]:
+                          - strong [ref=e3214]: Bilge Worm
+                        - listitem [ref=e3215]:
+                          - list [ref=e3216]:
+                            - listitem [ref=e3217]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3218]: (from 10/20/30/40)
+                        - listitem [ref=e3219]:
+                          - strong [ref=e3220]: Bladed Hoverboard
+                        - listitem [ref=e3221]:
+                          - list [ref=e3222]:
+                            - listitem [ref=e3223]: When you use an adjacent item, deal 20/40/60 Damage and it starts Flying
+                        - listitem [ref=e3224]:
+                          - strong [ref=e3225]: Blunderbuss
+                        - listitem [ref=e3226]:
+                          - list [ref=e3227]:
+                            - listitem [ref=e3228]: Starts at Gold-tier
+                            - listitem [ref=e3229]:
+                              - text: Ammo 3/6
+                              - emphasis [ref=e3230]: (from 3)
+                            - listitem [ref=e3231]:
+                              - text: Damage 15
+                              - emphasis [ref=e3232]: (from 30)
+                        - listitem [ref=e3233]:
+                          - strong [ref=e3234]: Bolas
+                        - listitem [ref=e3235]:
+                          - list [ref=e3236]:
+                            - listitem [ref=e3237]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e3238]: (from 20/40/60/80)
+                        - listitem [ref=e3239]:
+                          - strong [ref=e3240]: Calico
+                        - listitem [ref=e3241]:
+                          - list [ref=e3242]:
+                            - listitem [ref=e3243]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e3244]: (from 15/30/45/60)
+                        - listitem [ref=e3245]:
+                          - strong [ref=e3246]: Cannon
+                        - listitem [ref=e3247]:
+                          - list [ref=e3248]:
+                            - listitem [ref=e3249]:
+                              - text: Damage 40/80/120/160
+                              - emphasis [ref=e3250]: (from 40/60/80/100)
+                        - listitem [ref=e3251]:
+                          - strong [ref=e3252]: Cannonade
+                        - listitem [ref=e3253]:
+                          - list [ref=e3254]:
+                            - listitem [ref=e3255]:
+                              - text: Damage 200/400
+                              - emphasis [ref=e3256]: (from 150/200)
+                        - listitem [ref=e3257]:
+                          - strong [ref=e3258]: Concealed Dagger
+                        - listitem [ref=e3259]:
+                          - list [ref=e3260]:
+                            - listitem [ref=e3261]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3262]: (from 10/20/40/30)
+                        - listitem [ref=e3263]:
+                          - strong [ref=e3264]: Cove
+                        - listitem [ref=e3265]:
+                          - list [ref=e3266]:
+                            - listitem [ref=e3267]:
+                              - text: Cooldown to 3
+                              - emphasis [ref=e3268]: (from 4)
+                        - listitem [ref=e3269]:
+                          - strong [ref=e3270]: Cutlass
+                        - listitem [ref=e3271]:
+                          - list [ref=e3272]:
+                            - listitem [ref=e3273]: Redesigned
+                            - listitem [ref=e3274]: 3 second Cooldown
+                            - listitem [ref=e3275]: Damage 12/24/48/96
+                            - listitem [ref=e3276]: While an enemy item is Slowed, this has +100% Crit Chance
+                        - listitem [ref=e3277]:
+                          - strong [ref=e3278]: Cyber-Sai
+                        - listitem [ref=e3279]:
+                          - list [ref=e3280]:
+                            - listitem [ref=e3281]: Redesigned
+                            - listitem [ref=e3282]:
+                              - text: Damage 10/20/40
+                              - emphasis [ref=e3283]: (from 10/20/30)
+                            - listitem [ref=e3284]:
+                              - text: When you Crit, your
+                              - strong [ref=e3285]: Weapons
+                              - text: gain +10/20/30 Damage for the fight
+                        - listitem [ref=e3286]:
+                          - strong [ref=e3287]: Dart Launcher
+                        - listitem [ref=e3288]:
+                          - list [ref=e3289]:
+                            - listitem [ref=e3290]:
+                              - text: Damage 5/10/20
+                              - emphasis [ref=e3291]: (from 5/10/15)
+                        - listitem [ref=e3292]:
+                          - strong [ref=e3293]: Double Barrel
+                        - listitem [ref=e3294]:
+                          - list [ref=e3295]:
+                            - listitem [ref=e3296]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e3297]: (from 20/40/60/80)
+                        - listitem [ref=e3298]:
+                          - strong [ref=e3299]: Diving Helmet
+                        - listitem [ref=e3300]:
+                          - list [ref=e3301]:
+                            - listitem [ref=e3302]: Redesigned
+                            - listitem [ref=e3303]:
+                              - text: When you use an
+                              - strong [ref=e3304]: Aquatic
+                              - text: item, Shield 50/100
+                            - listitem [ref=e3305]:
+                              - text: Adjacent items are
+                              - strong [ref=e3306]: Aquatic
+                              - text: in combat
+                        - listitem [ref=e3307]:
+                          - strong [ref=e3308]: Elemental Depth Charge
+                        - listitem [ref=e3309]:
+                          - list [ref=e3310]:
+                            - listitem [ref=e3311]:
+                              - text: Cooldown to 11/10/9
+                              - emphasis [ref=e3312]: (from 12/10/8)
+                            - listitem [ref=e3313]:
+                              - text: Freeze to 1 second
+                              - emphasis [ref=e3314]: (from 0.5)
+                        - listitem [ref=e3315]:
+                          - strong [ref=e3316]: Grapeshot
+                        - listitem [ref=e3317]:
+                          - list [ref=e3318]:
+                            - listitem [ref=e3319]:
+                              - text: Damage 30/60/120/240
+                              - emphasis [ref=e3320]: (from 20/30/40/50)
+                        - listitem [ref=e3321]:
+                          - strong [ref=e3322]: Grappling Hook
+                        - listitem [ref=e3323]:
+                          - list [ref=e3324]:
+                            - listitem [ref=e3325]:
+                              - text: Damage 20/40/80/160
+                              - emphasis [ref=e3326]: (from 20/40/60/80)
+                        - listitem [ref=e3327]:
+                          - strong [ref=e3328]: Handaxe
+                        - listitem [ref=e3329]:
+                          - list [ref=e3330]:
+                            - listitem [ref=e3331]:
+                              - text: Damage 15/30/60/120
+                              - emphasis [ref=e3332]: (from 10/15/20/25)
+                            - listitem [ref=e3333]:
+                              - text: Buff to 5/10/15/20
+                              - emphasis [ref=e3334]: (from 6/9/12/15)
+                        - listitem [ref=e3335]:
+                          - strong [ref=e3336]: Harpoon
+                        - listitem [ref=e3337]:
+                          - list [ref=e3338]:
+                            - listitem [ref=e3339]:
+                              - text: Ammo 2
+                              - emphasis [ref=e3340]: (from 1/2/3)
+                        - listitem [ref=e3341]:
+                          - strong [ref=e3342]: Javelin
+                        - listitem [ref=e3343]:
+                          - list [ref=e3344]:
+                            - listitem [ref=e3345]: Redesigned
+                            - listitem [ref=e3346]:
+                              - text: Cooldown 5
+                              - emphasis [ref=e3347]: (from 4)
+                            - listitem [ref=e3348]: Damage 50/100/200
+                            - listitem [ref=e3349]: Haste your other items 1/2/3 second(s)
+                        - listitem [ref=e3350]:
+                          - strong [ref=e3351]: Katana
+                        - listitem [ref=e3352]:
+                          - list [ref=e3353]:
+                            - listitem [ref=e3354]:
+                              - text: Damage 8/16/32/64
+                              - emphasis [ref=e3355]: (from 5/10/15/20)
+                        - listitem [ref=e3356]:
+                          - strong [ref=e3357]: Langxian
+                        - listitem [ref=e3358]:
+                          - list [ref=e3359]:
+                            - listitem [ref=e3360]: This has +40/60/80/100 Damage for each fight you have won with it this run
+                            - listitem [ref=e3361]: Upgrades increase the damage for fights previously won
+                        - listitem [ref=e3362]:
+                          - strong [ref=e3363]: Life Preserver
+                        - listitem [ref=e3364]:
+                          - list [ref=e3365]:
+                            - listitem [ref=e3366]:
+                              - text: Heal 200/400/800/1600
+                              - emphasis [ref=e3367]: (from 200/500/1000/2000)
+                        - listitem [ref=e3368]:
+                          - strong [ref=e3369]: Lighter
+                        - listitem [ref=e3370]:
+                          - list [ref=e3371]:
+                            - listitem [ref=e3372]:
+                              - text: Burn 3/6/9/12
+                              - emphasis [ref=e3373]: (from 3/5/7/9)
+                        - listitem [ref=e3374]:
+                          - strong [ref=e3375]: Musket
+                        - listitem [ref=e3376]:
+                          - list [ref=e3377]:
+                            - listitem [ref=e3378]:
+                              - text: Damage 100/150/300
+                              - emphasis [ref=e3379]: (from 100/150/200)
+                        - listitem [ref=e3380]:
+                          - strong [ref=e3381]: Narwhal
+                        - listitem [ref=e3382]:
+                          - list [ref=e3383]:
+                            - listitem [ref=e3384]:
+                              - text: Damage 5/10/20/40
+                              - emphasis [ref=e3385]: (from 5/10/15/20)
+                        - listitem [ref=e3386]:
+                          - strong [ref=e3387]: Oni Mask
+                        - listitem [ref=e3388]:
+                          - list [ref=e3389]:
+                            - listitem [ref=e3390]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e3391]: (from 10)
+                            - listitem [ref=e3392]: "Removed: “When you Slow, Charge this”"
+                        - listitem [ref=e3393]:
+                          - strong [ref=e3394]: Orange Julian
+                        - listitem [ref=e3395]:
+                          - list [ref=e3396]:
+                            - listitem [ref=e3397]:
+                              - text: Cooldown to 9/8/7
+                              - emphasis [ref=e3398]: (from 10/9/8)
+                        - listitem [ref=e3399]:
+                          - strong [ref=e3400]: Pearl
+                        - listitem [ref=e3401]:
+                          - list [ref=e3402]:
+                            - listitem [ref=e3403]:
+                              - text: Shield 10/20/40/80
+                              - emphasis [ref=e3404]: (from 10/20/30/40)
+                        - listitem [ref=e3405]:
+                          - strong [ref=e3406]: Pesky Pete
+                        - listitem [ref=e3407]:
+                          - list [ref=e3408]:
+                            - listitem [ref=e3409]: Gains “This starts Flying.”
+                        - listitem [ref=e3410]:
+                          - strong [ref=e3411]: Pet Rock
+                        - listitem [ref=e3412]:
+                          - list [ref=e3413]:
+                            - listitem [ref=e3414]:
+                              - text: Damage 10/20/40/80
+                              - emphasis [ref=e3415]: (from 8/16/24/32)
+                        - listitem [ref=e3416]:
+                          - strong [ref=e3417]: Piranha
+                        - listitem [ref=e3418]:
+                          - list [ref=e3419]:
+                            - listitem [ref=e3420]:
+                              - text: Damage 15
+                              - emphasis [ref=e3421]: (from 20)
+                        - listitem [ref=e3422]:
+                          - strong [ref=e3423]: Revolver
+                        - listitem [ref=e3424]:
+                          - list [ref=e3425]:
+                            - listitem [ref=e3426]:
+                              - text: Damage 8/16/32/64
+                              - emphasis [ref=e3427]: (from 8/16/24/32)
+                        - listitem [ref=e3428]:
+                          - strong [ref=e3429]: Pop Snappers
+                        - listitem [ref=e3430]:
+                          - list [ref=e3431]:
+                            - listitem [ref=e3432]:
+                              - text: Burn 4/8/12/16
+                              - emphasis [ref=e3433]: (from 4/6/8/10)
+                        - listitem [ref=e3434]:
+                          - strong [ref=e3435]: Seaweed
+                        - listitem [ref=e3436]:
+                          - list [ref=e3437]:
+                            - listitem [ref=e3438]:
+                              - text: Gains the
+                              - strong [ref=e3439]: Food
+                              - text: type
+                        - listitem [ref=e3440]:
+                          - strong [ref=e3441]: Sextant
+                        - listitem [ref=e3442]:
+                          - list [ref=e3443]:
+                            - listitem [ref=e3444]:
+                              - text: When you Haste, +10% Crit
+                              - emphasis [ref=e3445]: (from 5%)
+                        - listitem [ref=e3446]:
+                          - strong [ref=e3447]: Sharkclaws
+                        - listitem [ref=e3448]:
+                          - list [ref=e3449]:
+                            - listitem [ref=e3450]: Enchanted versions now only buff, and no longer provide both scaling output and buff
+                        - listitem [ref=e3451]:
+                          - strong [ref=e3452]: Shoe Blade
+                        - listitem [ref=e3453]:
+                          - list [ref=e3454]:
+                            - listitem [ref=e3455]:
+                              - text: Damage 25/50/100/200
+                              - emphasis [ref=e3456]: (from 20/40/60/80)
+                        - listitem [ref=e3457]:
+                          - strong [ref=e3458]: Shovel
+                        - listitem [ref=e3459]:
+                          - list [ref=e3460]:
+                            - listitem [ref=e3461]:
+                              - text: Damage 25/50/100/200
+                              - emphasis [ref=e3462]: (from 20/40/60/80)
+                        - listitem [ref=e3463]:
+                          - strong [ref=e3464]: Shuriken
+                        - listitem [ref=e3465]:
+                          - list [ref=e3466]:
+                            - listitem [ref=e3467]:
+                              - text: Damage 5/10/20/40
+                              - emphasis [ref=e3468]: (from 5/10/15/20)
+                        - listitem [ref=e3469]:
+                          - strong [ref=e3470]: Silencer
+                        - listitem [ref=e3471]:
+                          - list [ref=e3472]:
+                            - listitem [ref=e3473]: Renamed to Suppressor
+                        - listitem [ref=e3474]:
+                          - strong [ref=e3475]: Sniper Rifle
+                        - listitem [ref=e3476]:
+                          - list [ref=e3477]:
+                            - listitem [ref=e3478]:
+                              - text: Cooldown to 8 seconds
+                              - emphasis [ref=e3479]: (was 9)
+                        - listitem [ref=e3480]:
+                          - strong [ref=e3481]: Stealth Glider
+                        - listitem [ref=e3482]:
+                          - list [ref=e3483]:
+                            - listitem [ref=e3484]: Redesigned
+                            - listitem [ref=e3485]: Cooldown 6/4/2
+                            - listitem [ref=e3486]: An item starts Flying
+                            - listitem [ref=e3487]: You take 10% less damage for each Flying item you have
+                        - listitem [ref=e3488]:
+                          - strong [ref=e3489]: Submerged
+                        - listitem [ref=e3490]:
+                          - list [ref=e3491]:
+                            - listitem [ref=e3492]:
+                              - text: Corrected an issue where this was not properly targeting all
+                              - strong [ref=e3493]: Weapons
+                        - listitem [ref=e3494]:
+                          - strong [ref=e3495]: Swashbuckle
+                        - listitem [ref=e3496]:
+                          - list [ref=e3497]:
+                            - listitem [ref=e3498]:
+                              - text: Crit 20/40
+                              - emphasis [ref=e3499]: (from 15/30)
+                        - listitem [ref=e3500]:
+                          - strong [ref=e3501]: Trebuchet
+                        - listitem [ref=e3502]:
+                          - list [ref=e3503]:
+                            - listitem [ref=e3504]:
+                              - text: Damage 75/150/300
+                              - emphasis [ref=e3505]: (from 75/150/250)
+                            - listitem [ref=e3506]:
+                              - text: Burn 8/16/24
+                              - emphasis [ref=e3507]: (from 5/15/25)
+                        - listitem [ref=e3508]:
+                          - strong [ref=e3509]: Vampire Squid
+                        - listitem [ref=e3510]:
+                          - list [ref=e3511]:
+                            - listitem [ref=e3512]:
+                              - text: Damage 15/30/60
+                              - emphasis [ref=e3513]: (from 15/30/45)
+                  - generic [ref=e3514]:
+                    - heading "3-3-2026" [level=2] [ref=e3518]
+                    - generic [ref=e3523]:
+                      - 'heading "Patch 12.3: March 11 Hotfix" [level=2] [ref=e3524]'
+                      - heading "ITEMS" [level=3] [ref=e3525]
+                      - list [ref=e3526]:
+                        - listitem [ref=e3527]:
+                          - strong [ref=e3528]: Airplane Glue
+                        - listitem [ref=e3529]:
+                          - list [ref=e3530]:
+                            - listitem [ref=e3531]:
+                              - text: Scaling to 7/14/21/28
+                              - emphasis [ref=e3532]: (was 10/20/30/40)
+                        - listitem [ref=e3533]:
+                          - strong [ref=e3534]: Athanor
+                        - listitem [ref=e3535]:
+                          - list [ref=e3536]:
+                            - listitem [ref=e3537]: Fixed a bug that was causing it to upgrade more Potions than intended
+                        - listitem [ref=e3538]:
+                          - strong [ref=e3539]: Aurora Vista
+                        - listitem [ref=e3540]:
+                          - list [ref=e3541]:
+                            - listitem [ref=e3542]: Gains 20% base Crit Chance
+                        - listitem [ref=e3543]:
+                          - strong [ref=e3544]: Anaconda
+                        - listitem [ref=e3545]:
+                          - list [ref=e3546]:
+                            - listitem [ref=e3547]: Reverted to Multicast 2
+                        - listitem [ref=e3548]:
+                          - strong [ref=e3549]: Athanor
+                        - listitem [ref=e3550]:
+                          - list [ref=e3551]:
+                            - listitem [ref=e3552]: Corrected an issue where this could still upgrade all Potions in some cases
+                        - listitem [ref=e3553]:
+                          - strong [ref=e3554]: Bear Claws
+                        - listitem [ref=e3555]:
+                          - list [ref=e3556]:
+                            - listitem [ref=e3557]:
+                              - text: Cooldown to 6/5/4/3
+                              - emphasis [ref=e3558]: (was 7/6/5/4)
+                            - listitem [ref=e3559]:
+                              - text: Damage to 10
+                              - emphasis [ref=e3560]: (was 20)
+                        - listitem [ref=e3561]:
+                          - strong [ref=e3562]: Briefcase
+                        - listitem [ref=e3563]:
+                          - list [ref=e3564]:
+                            - listitem [ref=e3565]:
+                              - text: Cooldown to 4
+                              - emphasis [ref=e3566]: (was 5)
+                            - listitem [ref=e3567]:
+                              - text: Damage to 25/50/100/200
+                              - emphasis [ref=e3568]: (was 20/40/60/80)
+                        - listitem [ref=e3569]:
+                          - strong [ref=e3570]: Furs
+                        - listitem [ref=e3571]:
+                          - list [ref=e3572]:
+                            - listitem [ref=e3573]:
+                              - text: Shield to 25/50/100
+                              - emphasis [ref=e3574]: (was 20/30/40)
+                        - listitem [ref=e3575]:
+                          - strong [ref=e3576]: Gyro Gunsight
+                        - listitem [ref=e3577]:
+                          - list [ref=e3578]:
+                            - listitem [ref=e3579]:
+                              - text: Damage scaling to 10/20/30/40
+                              - emphasis [ref=e3580]: (was 20/30/40/50)
+                        - listitem [ref=e3581]:
+                          - strong [ref=e3582]: Honey Badger
+                        - listitem [ref=e3583]:
+                          - list [ref=e3584]:
+                            - listitem [ref=e3585]:
+                              - text: Cooldown to 7/6/5/4
+                              - emphasis [ref=e3586]: (was 8/7/6/5)
+                        - listitem [ref=e3587]:
+                          - strong [ref=e3588]: Kite
+                        - listitem [ref=e3589]:
+                          - list [ref=e3590]:
+                            - listitem [ref=e3591]: Starts at Silver-tier
+                            - listitem [ref=e3592]:
+                              - text: When a Small item starts Flying, Charge it 1 second
+                              - emphasis [ref=e3593]: (was starts or stops Flying)
+                        - listitem [ref=e3594]:
+                          - strong [ref=e3595]: Pinwheel
+                        - listitem [ref=e3596]:
+                          - list [ref=e3597]:
+                            - listitem [ref=e3598]:
+                              - text: Cooldown to 9/8/7/6
+                              - emphasis [ref=e3599]: (was 8/7/6/5)
+                        - listitem [ref=e3600]:
+                          - strong [ref=e3601]: Resistance Bands
+                        - listitem [ref=e3602]:
+                          - list [ref=e3603]:
+                            - listitem [ref=e3604]:
+                              - text: Max Health gain to 10/20/40
+                              - emphasis [ref=e3605]: (was 10/20/30)
+                        - listitem [ref=e3606]:
+                          - strong [ref=e3607]: Spice Rack
+                        - listitem [ref=e3608]:
+                          - list [ref=e3609]:
+                            - listitem [ref=e3610]:
+                              - text: Crit and Burn scaling to 4/8/12
+                              - emphasis [ref=e3611]: (was 5/10/15)
+                        - listitem [ref=e3612]:
+                          - strong [ref=e3613]: Tinderbox
+                        - listitem [ref=e3614]:
+                          - list [ref=e3615]:
+                            - listitem [ref=e3616]: Corrected an issue where this charged twice from non-Weapon Tools
+                            - listitem [ref=e3617]:
+                              - text: Cooldown to 12/11/10/9
+                              - emphasis [ref=e3618]: (was 13/12/11/10)
+                            - listitem [ref=e3619]:
+                              - text: Burn to 5
+                              - emphasis [ref=e3620]: (was 4)
+                      - heading "SKILLS" [level=3] [ref=e3621]
+                      - list [ref=e3622]:
+                        - listitem [ref=e3623]:
+                          - strong [ref=e3624]: Retool
+                        - listitem [ref=e3625]:
+                          - list [ref=e3626]:
+                            - listitem [ref=e3627]: Corrected an issue where this was not always working properly
+                      - heading "ART ISSUES" [level=3] [ref=e3628]
+                      - list [ref=e3629]:
+                        - listitem [ref=e3630]: "Corrected art issues with the following items:"
+                        - listitem [ref=e3631]:
+                          - list [ref=e3632]:
+                            - listitem [ref=e3633]: Boar Mask
+                            - listitem [ref=e3634]: Bandoleer
+                            - listitem [ref=e3635]: Burn Scar
+                            - listitem [ref=e3636]: Bagpipes
+                            - listitem [ref=e3637]: Waystones
+                      - 'heading "Patch 12.2: March 9 Hotfix" [level=2] [ref=e3638]'
+                      - heading "GENERAL" [level=3] [ref=e3639]
+                      - list [ref=e3640]:
+                        - listitem [ref=e3641]:
+                          - strong [ref=e3642]: Inspired by Jules (Level Up)
+                        - listitem [ref=e3643]:
+                          - list [ref=e3644]:
+                            - listitem [ref=e3645]: Level Up options can now trigger if you have Skills that reference Heated or Chilled
+                        - listitem [ref=e3646]: Adjusted some spawning priority of Inspired by options at various Levels
+                        - listitem [ref=e3647]:
+                          - strong [ref=e3648]: Eli
+                        - listitem [ref=e3649]:
+                          - list [ref=e3650]:
+                            - listitem [ref=e3651]: No longer sells off-class Potions
+                            - listitem [ref=e3652]: You can still get off-class Potions from other effects
+                        - listitem [ref=e3653]:
+                          - strong [ref=e3654]: Bex
+                        - listitem [ref=e3655]:
+                          - list [ref=e3656]:
+                            - listitem [ref=e3657]: Starts at Gold-tier
+                      - heading "ITEMS" [level=3] [ref=e3658]
+                      - list [ref=e3659]:
+                        - listitem [ref=e3660]:
+                          - strong [ref=e3661]: Hidden Tags
+                        - listitem [ref=e3662]:
+                          - list [ref=e3663]:
+                            - listitem [ref=e3664]: Continued to correct and clean up various hidden tags on items
+                        - listitem [ref=e3665]:
+                          - strong [ref=e3666]: Anaconda
+                        - listitem [ref=e3667]:
+                          - list [ref=e3668]:
+                            - listitem [ref=e3669]: No longer starts with any Multicast
+                        - listitem [ref=e3670]:
+                          - strong [ref=e3671]: Bear Trap
+                        - listitem [ref=e3672]:
+                          - list [ref=e3673]:
+                            - listitem [ref=e3674]: Corrected an issue where this was accidentally renamed to Bolas
+                        - listitem [ref=e3675]:
+                          - strong [ref=e3676]: Business Card
+                        - listitem [ref=e3677]:
+                          - list [ref=e3678]:
+                            - listitem [ref=e3679]: Corrected an issue where this only upgraded itself twice
+                        - listitem [ref=e3680]:
+                          - strong [ref=e3681]: Crook
+                        - listitem [ref=e3682]:
+                          - list [ref=e3683]:
+                            - listitem [ref=e3684]: Is now a Weapon again
+                            - listitem [ref=e3685]: Cooldown to 9 seconds
+                        - listitem [ref=e3686]:
+                          - strong [ref=e3687]: Crystal Bonsai
+                        - listitem [ref=e3688]:
+                          - list [ref=e3689]:
+                            - listitem [ref=e3690]: Corrected an issue where the tooltip indicated this was triggering 1/2/3 times instead of 2/3/4 times its Value
+                        - listitem [ref=e3691]:
+                          - strong [ref=e3692]: Cyber-Sai
+                        - listitem [ref=e3693]:
+                          - list [ref=e3694]:
+                            - listitem [ref=e3695]: Corrected an issue where “When you Crit” did not count Cyber-Sai itself
+                        - listitem [ref=e3696]:
+                          - strong [ref=e3697]: Dishwasher
+                        - listitem [ref=e3698]:
+                          - list [ref=e3699]:
+                            - listitem [ref=e3700]: Corrected an issue where Dishwasher did not give Heated to items without a Cooldown
+                        - listitem [ref=e3701]:
+                          - strong [ref=e3702]: Geyser
+                        - listitem [ref=e3703]:
+                          - list [ref=e3704]:
+                            - listitem [ref=e3705]:
+                              - text: Cooldown to 9/8/7
+                              - emphasis [ref=e3706]: (was 8/7/6)
+                        - listitem [ref=e3707]:
+                          - strong [ref=e3708]: Ghillie Suit
+                        - listitem [ref=e3709]:
+                          - list [ref=e3710]:
+                            - listitem [ref=e3711]: Corrected an issue where this item’s Deadly enchantment was not working properly
+                            - listitem [ref=e3712]:
+                              - text: The first [3/4/5] times you Crit with an item each fight, you take no Damage for 1 second
+                              - emphasis [ref=e3713]: (was 4/5/6)
+                        - listitem [ref=e3714]:
+                          - strong [ref=e3715]: Great Eagle
+                        - listitem [ref=e3716]:
+                          - list [ref=e3717]:
+                            - listitem [ref=e3718]: Corrected an issue where this did not buff passive items
+                        - listitem [ref=e3719]:
+                          - strong [ref=e3720]: Honey Badger
+                        - listitem [ref=e3721]:
+                          - list [ref=e3722]:
+                            - listitem [ref=e3723]: Corrected an issue where this item’s Charge gain occurred when Enrage started instead of when it ended
+                            - listitem [ref=e3724]:
+                              - text: Cooldown to 8/7/6/5
+                              - emphasis [ref=e3725]: (was 6/5/4/3)
+                        - listitem [ref=e3726]:
+                          - strong [ref=e3727]: Hunter’s Boots
+                        - listitem [ref=e3728]:
+                          - list [ref=e3729]:
+                            - listitem [ref=e3730]: Corrected an issue where this item’s Deadly enchantment was not working properly
+                        - listitem [ref=e3731]:
+                          - strong [ref=e3732]: Hunting Hawk
+                        - listitem [ref=e3733]:
+                          - list [ref=e3734]:
+                            - listitem [ref=e3735]:
+                              - text: Haste a non-Flying item for 2 seconds
+                              - emphasis [ref=e3736]: (was 2/3/4/5 seconds)
+                        - listitem [ref=e3737]:
+                          - strong [ref=e3738]: Karst
+                        - listitem [ref=e3739]:
+                          - list [ref=e3740]:
+                            - listitem [ref=e3741]:
+                              - text: Rage gain to 6/8/10
+                              - emphasis [ref=e3742]: (was 5/10/15)
+                            - listitem [ref=e3743]:
+                              - text: Shield to 15/30/45
+                              - emphasis [ref=e3744]: (was 10/20/30)
+                        - listitem [ref=e3745]:
+                          - strong [ref=e3746]: Landscraper
+                        - listitem [ref=e3747]:
+                          - list [ref=e3748]:
+                            - listitem [ref=e3749]: Cooldown to 6/5/4
+                        - listitem [ref=e3750]:
+                          - strong [ref=e3751]: Log Trap
+                        - listitem [ref=e3752]:
+                          - list [ref=e3753]:
+                            - listitem [ref=e3754]: Re-enabled with issues corrected
+                        - listitem [ref=e3755]:
+                          - strong [ref=e3756]: Lumboars
+                        - listitem [ref=e3757]:
+                          - list [ref=e3758]:
+                            - listitem [ref=e3759]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e3760]: (was 7)
+                        - listitem [ref=e3761]:
+                          - strong [ref=e3762]: Meat
+                        - listitem [ref=e3763]:
+                          - list [ref=e3764]:
+                            - listitem [ref=e3765]: Corrected an issue where Shiny Meat was giving +2 Multicast instead of double (+1)
+                        - listitem [ref=e3766]:
+                          - strong [ref=e3767]: Runed Amulet
+                        - listitem [ref=e3768]:
+                          - list [ref=e3769]:
+                            - listitem [ref=e3770]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e3771]: (was 5)
+                        - listitem [ref=e3772]:
+                          - strong [ref=e3773]: Runic Claymore
+                        - listitem [ref=e3774]:
+                          - list [ref=e3775]:
+                            - listitem [ref=e3776]:
+                              - text: Cooldown to 6/5
+                              - emphasis [ref=e3777]: (was 5/4)
+                        - listitem [ref=e3778]:
+                          - strong [ref=e3779]: Security Drone
+                        - listitem [ref=e3780]:
+                          - list [ref=e3781]:
+                            - listitem [ref=e3782]: Corrected an issue where this item’s Cooldown was reduced by 3 seconds instead of 2 seconds while Flying
+                        - listitem [ref=e3783]:
+                          - strong [ref=e3784]: Shrinking Potion
+                        - listitem [ref=e3785]:
+                          - list [ref=e3786]:
+                            - listitem [ref=e3787]: Corrected an issue where this reduced HP by more than expected if the enemy had passive HP scaling effects
+                        - listitem [ref=e3788]:
+                          - strong [ref=e3789]: Spear
+                        - listitem [ref=e3790]:
+                          - list [ref=e3791]:
+                            - listitem [ref=e3792]: Corrected an issue where this was playing the wrong VFX
+                        - listitem [ref=e3793]:
+                          - strong [ref=e3794]: Tinderbox
+                        - listitem [ref=e3795]:
+                          - list [ref=e3796]:
+                            - listitem [ref=e3797]:
+                              - text: Cooldown to 13/12/11/10
+                              - emphasis [ref=e3798]: (was 12/11/10/9)
+                            - listitem [ref=e3799]:
+                              - text: Burn to 4
+                              - emphasis [ref=e3800]: (was 5)
+                        - listitem [ref=e3801]:
+                          - strong [ref=e3802]: Trapping Pit
+                        - listitem [ref=e3803]:
+                          - list [ref=e3804]:
+                            - listitem [ref=e3805]: Corrected an issue where Turbo only Hasted one item
+                        - listitem [ref=e3806]:
+                          - strong [ref=e3807]: Tree Club
+                        - listitem [ref=e3808]:
+                          - list [ref=e3809]:
+                            - listitem [ref=e3810]:
+                              - text: Cooldown to 11
+                              - emphasis [ref=e3811]: (was 10)
+                        - listitem [ref=e3812]:
+                          - strong [ref=e3813]: Warding Glyphs
+                        - listitem [ref=e3814]:
+                          - list [ref=e3815]:
+                            - listitem [ref=e3816]:
+                              - text: When you Enrage, your Heal and Shield items gain +20/40/60/80% Crit Chance for the fight
+                              - emphasis [ref=e3817]: (was Your items have +20/40/60/80% Crit Chance. Double this when you become Enraged)
+                        - listitem [ref=e3818]:
+                          - strong [ref=e3819]: Warpaint
+                        - listitem [ref=e3820]:
+                          - list [ref=e3821]:
+                            - listitem [ref=e3822]:
+                              - text: Rage gain to 8/10/12
+                              - emphasis [ref=e3823]: (was 10/15/20)
+                        - listitem [ref=e3824]:
+                          - strong [ref=e3825]: Wild Boar
+                        - listitem [ref=e3826]:
+                          - list [ref=e3827]:
+                            - listitem [ref=e3828]: Starts at Silver-tier
+                            - listitem [ref=e3829]:
+                              - text: Scaling to 40/60/80
+                              - emphasis [ref=e3830]: (was 50/75/100)
+                      - heading "SKILLS" [level=3] [ref=e3831]
+                      - list [ref=e3832]:
+                        - listitem [ref=e3833]:
+                          - strong [ref=e3834]: Beautiful Friendship
+                        - listitem [ref=e3835]:
+                          - list [ref=e3836]:
+                            - listitem [ref=e3837]:
+                              - text: Your Weapons have +5/10/15 Damage for each Friend item you have
+                              - emphasis [ref=e3838]: (was 10/15/20)
+                        - listitem [ref=e3839]:
+                          - strong [ref=e3840]: Death from Above
+                        - listitem [ref=e3841]:
+                          - list [ref=e3842]:
+                            - listitem [ref=e3843]:
+                              - text: Starts at Silver-tier
+                              - emphasis [ref=e3844]: (was Bronze-tier)
+                        - listitem [ref=e3845]:
+                          - strong [ref=e3846]: Emergency Landing
+                        - listitem [ref=e3847]:
+                          - list [ref=e3848]:
+                            - listitem [ref=e3849]: Corrected the tooltip to indicate it heals for 10% per Flying item, not 5%
+                        - listitem [ref=e3850]:
+                          - strong [ref=e3851]: Frenzy Cache
+                        - listitem [ref=e3852]:
+                          - list [ref=e3853]:
+                            - listitem [ref=e3854]: Corrected an issue where this prioritized items closer to the left when reloading instead of selecting randomly
+                        - listitem [ref=e3855]:
+                          - strong [ref=e3856]: Re-Tool
+                        - listitem [ref=e3857]:
+                          - list [ref=e3858]:
+                            - listitem [ref=e3859]: Corrected an issue where this usually only reloaded the left item instead of a random adjacent item
+                        - listitem [ref=e3860]:
+                          - strong [ref=e3861]: Swift Temper
+                        - listitem [ref=e3862]:
+                          - list [ref=e3863]:
+                            - listitem [ref=e3864]:
+                              - text: Starts at Gold-tier
+                              - emphasis [ref=e3865]: (was Silver-tier)
+                      - 'heading "PATCH PREVIEW: MARCH 4" [level=3] [ref=e3866]'
+                      - 'heading "Patch 12.0: Enter the Hunter" [level=2] [ref=e3867]'
+                      - heading "SEASONAL UPDATES" [level=3] [ref=e3868]
+                      - list [ref=e3869]:
+                        - listitem [ref=e3870]:
+                          - strong [ref=e3871]: Prize Pass
+                          - text: "has been updated with the following free cosmetics:"
+                        - listitem [ref=e3872]:
+                          - list [ref=e3873]:
+                            - listitem [ref=e3874]: "Level 20: Timerbline Glyph's Card Back"
+                            - listitem [ref=e3875]: "Level 40: Talon Talent Karnok"
+                        - listitem [ref=e3876]:
+                          - strong [ref=e3877]: Chests
+                        - listitem [ref=e3878]:
+                          - list [ref=e3879]:
+                            - listitem [ref=e3880]: The cosmetic chest graphics have been updated to be generic instead of Stelle themed
+                            - listitem [ref=e3881]: The cosmetics from the previous Prize Pass has been added to the Chest
+                            - listitem [ref=e3882]: Chests additions
+                            - listitem [ref=e3883]:
+                              - list [ref=e3884]:
+                                - listitem [ref=e3885]: Boreal Guardian (Carpet)
+                                - listitem [ref=e3886]: Owl and Squirrel (Carpet)
+                                - listitem [ref=e3887]: 30 Karnok item skins
+                        - listitem [ref=e3888]:
+                          - strong [ref=e3889]: Store
+                        - listitem [ref=e3890]:
+                          - list [ref=e3891]:
+                            - listitem [ref=e3892]: New Karnok cosmetics are now available for Gems in the Store
+                      - heading "LEADERBOARD REWARDS" [level=3] [ref=e3893]
+                      - list [ref=e3894]:
+                        - listitem [ref=e3895]:
+                          - strong [ref=e3896]: Leaderboard Rewards
+                          - text: "have been given out to the following 1000 Players:"
+                        - listitem [ref=e3897]:
+                          - list [ref=e3898]:
+                            - listitem [ref=e3899]: Crash Site Champion (Top 10)
+                            - listitem [ref=e3900]: Crash Site Paragon (Top 100)
+                            - listitem [ref=e3901]: Crash Site Elite (Top 1000)
+                      - heading "QUALITY OF LIFE CHANGES" [level=3] [ref=e3902]
+                      - list [ref=e3903]:
+                        - listitem [ref=e3904]: Enchantments have been separated from item titles in tooltips
+                        - listitem [ref=e3905]: While in windowed mode, players can now resize their window by dragging the edges or corners
+                        - listitem [ref=e3906]: Videos can now be skipped by any keyboard input
+                      - heading "GAMEPLAY CHANGES" [level=3] [ref=e3907]
+                      - list [ref=e3908]:
+                        - listitem [ref=e3909]: While not playing as Jules, you can now get Heated and Chilled Slots during Level Up, if you have an item that requires Heated or Chilled
+                        - listitem [ref=e3910]:
+                          - list [ref=e3911]:
+                            - listitem [ref=e3912]: You can get a maximum of 1 of each of these
+                        - listitem [ref=e3913]: While not playing as Karnok, you can now get Karnok’s basic Rage Skill during Level Up, if you have an item that requires Rage to function
+                        - listitem [ref=e3914]: Slightly increased the Max HP Gained in the first 8 Levels (+50 each)
+                        - listitem [ref=e3915]: "Adjusted the way “Doubling” and other percentage-based triggered effects work so they no longer double dip with persistent percentage-based bonuses, for example:"
+                        - listitem [ref=e3916]:
+                          - list [ref=e3917]:
+                            - listitem [ref=e3918]: Obsidian Atlas Stone would more than double its damage on use, rather than double, because it’d take the buffed value to calculate the “double” buff, and when applied, this buff would then also be buffed by Obsidian’s doubling effect
+                            - listitem [ref=e3919]: Similarly, Dishwasher and Fruit Press will no longer cause Fruit Press' damage to scale much higher than expected
+                        - listitem [ref=e3920]: Persistent Percentage Max Health Gains now function additively
+                        - listitem [ref=e3921]:
+                          - list [ref=e3922]:
+                            - listitem [ref=e3923]: Two Silver Belts (+50% Max Health) previously would give 125% more Health and now gives 100% more Health
+                        - listitem [ref=e3924]: Reduced the Burn Decay rate
+                      - heading "NEW ENCOUNTERS" [level=3] [ref=e3925]
+                      - list [ref=e3926]:
+                        - listitem [ref=e3927]:
+                          - strong [ref=e3928]: Anaconda (New)
+                        - listitem [ref=e3929]:
+                          - list [ref=e3930]:
+                            - listitem [ref=e3931]: Day 9 Monster
+                            - listitem [ref=e3932]:
+                              - strong [ref=e3933]: "Skill: Honed In"
+                            - listitem [ref=e3934]:
+                              - list [ref=e3935]:
+                                - listitem [ref=e3936]: When you use a Weapon, give your leftmost Weapon +[5/10] Damage for the fight
+                        - listitem [ref=e3937]:
+                          - strong [ref=e3938]: Outlands Terror (New)
+                        - listitem [ref=e3939]:
+                          - list [ref=e3940]:
+                            - listitem [ref=e3941]: Day 10 Monster
+                            - listitem [ref=e3942]:
+                              - strong [ref=e3943]: "Skill: Beast Unleashed"
+                            - listitem [ref=e3944]:
+                              - list [ref=e3945]:
+                                - listitem [ref=e3946]: Your leftmost Weapon has +Damage equal to its Crit Chance
+                                - listitem [ref=e3947]: Your rightmost Weapon has +Damage equal to your Rage
+                        - listitem [ref=e3948]:
+                          - strong [ref=e3949]: Wildman (New)
+                        - listitem [ref=e3950]:
+                          - list [ref=e3951]:
+                            - listitem [ref=e3952]: Day 7 Monster
+                            - listitem [ref=e3953]:
+                              - strong [ref=e3954]: "Skill: Frontier Living"
+                            - listitem [ref=e3955]:
+                              - list [ref=e3956]:
+                                - listitem [ref=e3957]: At the start of each day, get a Rage item
+                        - listitem [ref=e3958]:
+                          - strong [ref=e3959]: Unibou
+                        - listitem [ref=e3960]:
+                          - list [ref=e3961]:
+                            - listitem [ref=e3962]: Day 7 Monster
+                            - listitem [ref=e3963]:
+                              - strong [ref=e3964]: "Skill: Lone Charge"
+                            - listitem [ref=e3965]:
+                              - list [ref=e3966]:
+                                - listitem [ref=e3967]: When you Enrage, deal Damage equal to 50/100% of the Shield of your highest Shield item
+                        - listitem [ref=e3968]:
+                          - strong [ref=e3969]: Wild Boar
+                        - listitem [ref=e3970]:
+                          - list [ref=e3971]:
+                            - listitem [ref=e3972]: Day 4 Monster
+                            - listitem [ref=e3973]:
+                              - strong [ref=e3974]: "Skill: Feeding Frenzy"
+                            - listitem [ref=e3975]:
+                              - list [ref=e3976]:
+                                - listitem [ref=e3977]: When you use a Food, gain 15 Rage
+                                - listitem [ref=e3978]: When you Enrage, Haste your Food for 1/2/3 second(s)
+                        - listitem [ref=e3979]:
+                          - strong [ref=e3980]: Wolverine
+                        - listitem [ref=e3981]:
+                          - list [ref=e3982]:
+                            - listitem [ref=e3983]: Day 8 Monster
+                            - listitem [ref=e3984]:
+                              - strong [ref=e3985]: "Skill: Ferocious Bite"
+                            - listitem [ref=e3986]:
+                              - list [ref=e3987]:
+                                - listitem [ref=e3988]: Your slowest Weapon has +Damage equal to its Crit Chance
+                        - listitem [ref=e3989]:
+                          - strong [ref=e3990]: Worry Wart
+                        - listitem [ref=e3991]:
+                          - list [ref=e3992]:
+                            - listitem [ref=e3993]: Day 4 Monster
+                            - listitem [ref=e3994]:
+                              - strong [ref=e3995]: "Skill: Slippery Fella"
+                            - listitem [ref=e3996]:
+                              - list [ref=e3997]:
+                                - listitem [ref=e3998]: Your Slowed items have their Cooldown reduced by 5/10/15%
+                      - heading "EXPEDITION CHANGES" [level=3] [ref=e3999]
+                      - list [ref=e4000]:
+                        - listitem [ref=e4001]:
+                          - strong [ref=e4002]: Expeditions
+                        - listitem [ref=e4003]:
+                          - list [ref=e4004]:
+                            - listitem [ref=e4005]: Expeditions now consume the Ticket upon entering
+                        - listitem [ref=e4006]:
+                          - strong [ref=e4007]: Eating Contest
+                        - listitem [ref=e4008]:
+                          - list [ref=e4009]:
+                            - listitem [ref=e4010]:
+                              - text: Starts at Gold-tier
+                              - emphasis [ref=e4011]: (was Bronze-tier)
+                        - listitem [ref=e4012]:
+                          - strong [ref=e4013]: Jules' Cafe
+                        - listitem [ref=e4014]:
+                          - list [ref=e4015]:
+                            - listitem [ref=e4016]: No longer offers Heated and Chilled slot options, as these are now part of Level Up
+                        - listitem [ref=e4017]:
+                          - strong [ref=e4018]: Tinker
+                        - listitem [ref=e4019]:
+                          - list [ref=e4020]:
+                            - listitem [ref=e4021]: Can now spawn for Vanessa
+                      - heading "DOOLEY" [level=3] [ref=e4022]
+                      - list [ref=e4023]:
+                        - listitem [ref=e4024]:
+                          - strong [ref=e4025]: Atomic Clock
+                        - listitem [ref=e4026]:
+                          - list [ref=e4027]:
+                            - listitem [ref=e4028]: Gains the Tool type
+                        - listitem [ref=e4029]:
+                          - strong [ref=e4030]: First Aiden
+                        - listitem [ref=e4031]:
+                          - list [ref=e4032]:
+                            - listitem [ref=e4033]:
+                              - text: Heal to 10/20/40/80
+                              - emphasis [ref=e4034]: (was 20/40/60/80)
+                        - listitem [ref=e4035]:
+                          - strong [ref=e4036]: Flint Stones
+                        - listitem [ref=e4037]:
+                          - list [ref=e4038]:
+                            - listitem [ref=e4039]: Redesigned
+                            - listitem [ref=e4040]: Starts at Bronze-tier
+                            - listitem [ref=e4041]: Cooldown to 6
+                            - listitem [ref=e4042]: Burn to 4/6/8/10
+                            - listitem [ref=e4043]: When you use another Relic or Tool, Charge this 1 second
+                        - listitem [ref=e4044]:
+                          - strong [ref=e4045]: Forklift
+                        - listitem [ref=e4046]:
+                          - list [ref=e4047]:
+                            - listitem [ref=e4048]:
+                              - text: This has +[125/250] Damage for each unique Type on your other items
+                              - emphasis [ref=e4049]: (was the specific tag-counting version)
+                        - listitem [ref=e4050]:
+                          - strong [ref=e4051]: Hydraulic Press
+                        - listitem [ref=e4052]:
+                          - list [ref=e4053]:
+                            - listitem [ref=e4054]:
+                              - text: At the end of each fight, permanently destroy the item to the left of this, gain [2/4/6] Gold, and this gains that item’s Types
+                              - emphasis [ref=e4055]: (was At the end of each fight, permanently destroy the item to the left of this, and this gains that item’s Types)
+                        - listitem [ref=e4056]:
+                          - strong [ref=e4057]: Kinetic Cannon
+                        - listitem [ref=e4058]:
+                          - list [ref=e4059]:
+                            - listitem [ref=e4060]: Corrected an issue where this would not Charge itself if it gained the Core tag
+                        - listitem [ref=e4061]:
+                          - strong [ref=e4062]: Propeller Hat (Redesign)
+                        - listitem [ref=e4063]:
+                          - list [ref=e4064]:
+                            - listitem [ref=e4065]: Gains the Weapon type
+                            - listitem [ref=e4066]: Cooldown to 4
+                            - listitem [ref=e4067]: Deal 10/20/30 Damage
+                            - listitem [ref=e4068]:
+                              - text: When you use a Core, an item starts Flying
+                              - emphasis [ref=e4069]: (was At the start of each fight, your Cores start Flying)
+                            - listitem [ref=e4070]: When you use a Flying item, Haste an item for [1/2/3] second(s)
+                      - heading "JULES" [level=3] [ref=e4071]
+                      - list [ref=e4072]:
+                        - listitem [ref=e4073]:
+                          - strong [ref=e4074]: Apron
+                        - listitem [ref=e4075]:
+                          - list [ref=e4076]:
+                            - listitem [ref=e4077]:
+                              - text: Shield to 40
+                              - emphasis [ref=e4078]: (was 20)
+                        - listitem [ref=e4079]:
+                          - strong [ref=e4080]: Azakan Stew
+                        - listitem [ref=e4081]:
+                          - list [ref=e4082]:
+                            - listitem [ref=e4083]:
+                              - text: "Heated: Burn to 4"
+                              - emphasis [ref=e4084]: (was 3)
+                        - listitem [ref=e4085]:
+                          - strong [ref=e4086]: Banu Leaves
+                        - listitem [ref=e4087]:
+                          - list [ref=e4088]:
+                            - listitem [ref=e4089]:
+                              - text: Shield to 20/30/40/50
+                              - emphasis [ref=e4090]: (was 10/20/30/40)
+                        - listitem [ref=e4091]:
+                          - strong [ref=e4092]: Basket
+                        - listitem [ref=e4093]:
+                          - list [ref=e4094]:
+                            - listitem [ref=e4095]:
+                              - text: "Quest 1: 8 Food Required"
+                              - emphasis [ref=e4096]: (was 12)
+                            - listitem [ref=e4097]:
+                              - text: "Quest 2: 15 Food Required"
+                              - emphasis [ref=e4098]: (was 24)
+                            - listitem [ref=e4099]:
+                              - text: "Quest 3: 30 Food Required"
+                              - emphasis [ref=e4100]: (was 48)
+                        - listitem [ref=e4101]:
+                          - strong [ref=e4102]: Corkscrew
+                        - listitem [ref=e4103]:
+                          - list [ref=e4104]:
+                            - listitem [ref=e4105]: Starts at Gold-tier
+                            - listitem [ref=e4106]:
+                              - text: Cooldown to 4/3
+                              - emphasis [ref=e4107]: (was 5/4/3)
+                        - listitem [ref=e4108]:
+                          - strong [ref=e4109]: Decanter
+                        - listitem [ref=e4110]:
+                          - list [ref=e4111]:
+                            - listitem [ref=e4112]: Starts at Silver-tier
+                            - listitem [ref=e4113]:
+                              - text: Charge a Food item for 2/3/4 seconds
+                              - emphasis [ref=e4114]: (was 1/2/3/4 seconds)
+                        - listitem [ref=e4115]:
+                          - strong [ref=e4116]: Dragon Steak
+                        - listitem [ref=e4117]:
+                          - list [ref=e4118]:
+                            - listitem [ref=e4119]:
+                              - text: Cooldown to 7/5
+                              - emphasis [ref=e4120]: (was 8/6)
+                            - listitem [ref=e4121]:
+                              - text: Burn to 10
+                              - emphasis [ref=e4122]: (was 5)
+                        - listitem [ref=e4123]:
+                          - strong [ref=e4124]: Fruit Press
+                        - listitem [ref=e4125]:
+                          - list [ref=e4126]:
+                            - listitem [ref=e4127]:
+                              - text: Damage gain from Food use to 10/15/20
+                              - emphasis [ref=e4128]: (was 5/10/15)
+                        - listitem [ref=e4129]:
+                          - strong [ref=e4130]: Giant Sub
+                        - listitem [ref=e4131]:
+                          - list [ref=e4132]:
+                            - listitem [ref=e4133]:
+                              - text: Cooldown to 8/6 seconds
+                              - emphasis [ref=e4134]: (was 6 seconds)
+                            - listitem [ref=e4135]:
+                              - text: When you use a Tool, Charge this 2 seconds
+                              - emphasis [ref=e4136]: (was 1/2 seconds)
+                            - listitem [ref=e4137]:
+                              - text: "Heated: Burn equal to this item's Regen"
+                              - emphasis [ref=e4138]: "(was Heated: Burn equal to your highest Burn Food)"
+                        - listitem [ref=e4139]:
+                          - strong [ref=e4140]: Imu
+                        - listitem [ref=e4141]:
+                          - list [ref=e4142]:
+                            - listitem [ref=e4143]:
+                              - text: Burn to 4/6/8
+                              - emphasis [ref=e4144]: (was 2/4/6)
+                            - listitem [ref=e4145]:
+                              - text: "Heated: When you Slow, Burn to 4/6/8"
+                              - emphasis [ref=e4146]: (was 2/4/6)
+                        - listitem [ref=e4147]:
+                          - strong [ref=e4148]: Meat Tenderizer
+                        - listitem [ref=e4149]:
+                          - list [ref=e4150]:
+                            - listitem [ref=e4151]: Starts at Gold-tier
+                            - listitem [ref=e4152]:
+                              - text: Cooldown to 4/3
+                              - emphasis [ref=e4153]: (was 5)
+                            - listitem [ref=e4154]:
+                              - text: Deal 10/20 Damage
+                              - emphasis [ref=e4155]: (was 10/20/30)
+                            - listitem [ref=e4156]:
+                              - text: Reduce the Cooldown of adjacent Food by 10% for the fight
+                              - emphasis [ref=e4157]: (was 5/10/15%)
+                        - listitem [ref=e4158]:
+                          - strong [ref=e4159]: Mouse Trap
+                        - listitem [ref=e4160]:
+                          - list [ref=e4161]:
+                            - listitem [ref=e4162]: Gains the Trap type
+                        - listitem [ref=e4163]:
+                          - strong [ref=e4164]: Saffron
+                        - listitem [ref=e4165]:
+                          - list [ref=e4166]:
+                            - listitem [ref=e4167]: Starts at Gold-tier
+                            - listitem [ref=e4168]:
+                              - text: Shield to 25/50
+                              - emphasis [ref=e4169]: (was 5/10/15)
+                        - listitem [ref=e4170]:
+                          - strong [ref=e4171]: Spice Rack
+                        - listitem [ref=e4172]:
+                          - list [ref=e4173]:
+                            - listitem [ref=e4174]:
+                              - text: Crit Chance Scaling to 5/10/15
+                              - emphasis [ref=e4175]: (was 10/15/20)
+                            - listitem [ref=e4176]:
+                              - text: When you Crit with an adjacent item, your Burn items gain +5/10/15 Burn for the fight
+                              - emphasis [ref=e4177]: (was When you Crit with an adjacent item, Charge another item 1 second)
+                        - listitem [ref=e4178]:
+                          - strong [ref=e4179]: Trail Mix
+                        - listitem [ref=e4180]:
+                          - list [ref=e4181]:
+                            - listitem [ref=e4182]:
+                              - text: "Quest 1: 10 Food Required"
+                              - emphasis [ref=e4183]: (was 15)
+                            - listitem [ref=e4184]:
+                              - text: "Quest 2: 20 Food Required"
+                              - emphasis [ref=e4185]: (was 30)
+                        - listitem [ref=e4186]:
+                          - strong [ref=e4187]: Zarlic
+                        - listitem [ref=e4188]:
+                          - list [ref=e4189]:
+                            - listitem [ref=e4190]: Burn to 2
+                            - listitem [ref=e4191]:
+                              - text: Haste 1/2/3 Food for 2 seconds
+                              - emphasis [ref=e4192]: (was 1/2/3 for 1 second)
+                      - heading "MAK" [level=3] [ref=e4193]
+                      - list [ref=e4194]:
+                        - listitem [ref=e4195]:
+                          - strong [ref=e4196]: Athanor
+                        - listitem [ref=e4197]:
+                          - list [ref=e4198]:
+                            - listitem [ref=e4199]: Starts at Silver-tier
+                            - listitem [ref=e4200]:
+                              - text: When you use a Potion, Burn [--/8/16/24]
+                              - emphasis [ref=e4201]: (was 15/25)
+                            - listitem [ref=e4202]:
+                              - text: At the start of each day, upgrade a lower-tier Potion and get a Catalyst
+                              - emphasis [ref=e4203]: (replaces Get a Catalyst)
+                        - listitem [ref=e4204]:
+                          - strong [ref=e4205]: Black Rose
+                        - listitem [ref=e4206]:
+                          - list [ref=e4207]:
+                            - listitem [ref=e4208]:
+                              - text: Regen to 2
+                              - emphasis [ref=e4209]: (was 1)
+                        - listitem [ref=e4210]:
+                          - strong [ref=e4211]: Cellar
+                        - listitem [ref=e4212]:
+                          - list [ref=e4213]:
+                            - listitem [ref=e4214]: Starts at Bronze-tier
+                            - listitem [ref=e4215]:
+                              - text: Regen to 1/2/4/8
+                              - emphasis [ref=e4216]: (was 2/4/6/8)
+                            - listitem [ref=e4217]: No longer upgrades Potions
+                        - listitem [ref=e4218]:
+                          - strong [ref=e4219]: Floor Spike
+                        - listitem [ref=e4220]:
+                          - list [ref=e4221]:
+                            - listitem [ref=e4222]: Gains the Trap type
+                            - listitem [ref=e4223]:
+                              - text: Cooldown to 9/8/7/6
+                              - emphasis [ref=e4224]: (was 7)
+                            - listitem [ref=e4225]:
+                              - text: Damage to 20
+                              - emphasis [ref=e4226]: (was 20/40/60/80)
+                            - listitem [ref=e4227]:
+                              - text: Poison to 2
+                              - emphasis [ref=e4228]: (was 2/4/6/8)
+                        - listitem [ref=e4229]:
+                          - strong [ref=e4230]: Potion Potion
+                        - listitem [ref=e4231]:
+                          - list [ref=e4232]:
+                            - listitem [ref=e4233]: Can transform into a Potion from any Hero
+                        - listitem [ref=e4234]:
+                          - strong [ref=e4235]: Recycling Bin
+                        - listitem [ref=e4236]:
+                          - list [ref=e4237]:
+                            - listitem [ref=e4238]: Can transform Potions into Potions from any Hero
+                        - listitem [ref=e4239]:
+                          - strong [ref=e4240]: Show Globe
+                        - listitem [ref=e4241]:
+                          - list [ref=e4242]:
+                            - listitem [ref=e4243]: Starts at Bronze-tier
+                            - listitem [ref=e4244]:
+                              - text: Burn to 6
+                              - emphasis [ref=e4245]: (was 4)
+                            - listitem [ref=e4246]:
+                              - text: Gain 6 Regen for the fight
+                              - emphasis [ref=e4247]: (was 4)
+                            - listitem [ref=e4248]:
+                              - text: When you use a Potion, this gains +[3/6/9/12] Burn and Regen for the fight
+                              - emphasis [ref=e4249]: (was 4/8/12)
+                        - listitem [ref=e4250]:
+                          - strong [ref=e4251]: Tome of Yyahan
+                        - listitem [ref=e4252]:
+                          - list [ref=e4253]:
+                            - listitem [ref=e4254]: Corrected an issue where Shiny was not working properly
+                      - heading "PYGMALIEN" [level=3] [ref=e4255]
+                      - list [ref=e4256]:
+                        - listitem [ref=e4257]: No longer starts with an additional 50 Max Health compared to other Heroes
+                        - listitem [ref=e4258]:
+                          - strong [ref=e4259]: Beehive
+                        - listitem [ref=e4260]:
+                          - list [ref=e4261]:
+                            - listitem [ref=e4262]: Now gives a Bee when you buy it and at the start of each day
+                            - listitem [ref=e4263]: Now Charges all Drones
+                            - listitem [ref=e4264]: Now Buffs all Small Drones
+                        - listitem [ref=e4265]:
+                          - strong [ref=e4266]: Booby Trap
+                        - listitem [ref=e4267]:
+                          - list [ref=e4268]:
+                            - listitem [ref=e4269]: Reworked
+                            - listitem [ref=e4270]: Gains the Trap type
+                            - listitem [ref=e4271]: The first time an enemy uses an item each fight, Freeze it and [2/3/4] other items for 2 seconds
+                        - listitem [ref=e4272]:
+                          - strong [ref=e4273]: Business Card
+                        - listitem [ref=e4274]:
+                          - list [ref=e4275]:
+                            - listitem [ref=e4276]: Starts at Bronze-tier
+                            - listitem [ref=e4277]:
+                              - text: Value gain to 1/2/3/4
+                              - emphasis [ref=e4278]: (was 1/2/3)
+                        - listitem [ref=e4279]:
+                          - strong [ref=e4280]: Caltrops
+                        - listitem [ref=e4281]:
+                          - list [ref=e4282]:
+                            - listitem [ref=e4283]: Gains the Trap type
+                        - listitem [ref=e4284]:
+                          - strong [ref=e4285]: Cash Cannon
+                        - listitem [ref=e4286]:
+                          - list [ref=e4287]:
+                            - listitem [ref=e4288]: Redesigned
+                            - listitem [ref=e4289]: Deals Damage equal to twice the amount of Gold you have gained this run
+                        - listitem [ref=e4290]:
+                          - strong [ref=e4291]: Cold Room
+                        - listitem [ref=e4292]:
+                          - list [ref=e4293]:
+                            - listitem [ref=e4294]:
+                              - text: Cooldown to 8
+                              - emphasis [ref=e4295]: (was 6)
+                            - listitem [ref=e4296]:
+                              - text: Freeze duration to 1 second
+                              - emphasis [ref=e4297]: (was 0.5 seconds)
+                        - listitem [ref=e4298]:
+                          - strong [ref=e4299]: Crook
+                        - listitem [ref=e4300]:
+                          - list [ref=e4301]:
+                            - listitem [ref=e4302]: Now passive only
+                            - listitem [ref=e4303]:
+                              - text: Buff to 5/10/15/20
+                              - emphasis [ref=e4304]: (was 4/8/16/24)
+                        - listitem [ref=e4305]:
+                          - strong [ref=e4306]: Crystal Bonsai
+                        - listitem [ref=e4307]:
+                          - list [ref=e4308]:
+                            - listitem [ref=e4309]:
+                              - text: Cooldown to 3
+                              - emphasis [ref=e4310]: (was 4)
+                            - listitem [ref=e4311]:
+                              - text: Heals 1/2/3 times
+                              - emphasis [ref=e4312]: (was 2/3/4 times)
+                        - listitem [ref=e4313]:
+                          - strong [ref=e4314]: Dog
+                        - listitem [ref=e4315]:
+                          - list [ref=e4316]:
+                            - listitem [ref=e4317]:
+                              - text: "Quest 1: 15 Food or Toys Required"
+                              - emphasis [ref=e4318]: (was 20)
+                            - listitem [ref=e4319]:
+                              - text: "Quest 2: 30 Food or Toys Required"
+                              - emphasis [ref=e4320]: (was 40)
+                            - listitem [ref=e4321]:
+                              - text: "Quest 3: 45 Food or Toys Required"
+                              - emphasis [ref=e4322]: (was 60)
+                        - listitem [ref=e4323]:
+                          - strong [ref=e4324]: Fort
+                        - listitem [ref=e4325]:
+                          - list [ref=e4326]:
+                            - listitem [ref=e4327]: Starts at Diamond-tier
+                        - listitem [ref=e4328]:
+                          - strong [ref=e4329]: Hogwash
+                        - listitem [ref=e4330]:
+                          - list [ref=e4331]:
+                            - listitem [ref=e4332]: Starts at Silver-tier
+                            - listitem [ref=e4333]:
+                              - text: Cooldown to 6/5/4
+                              - emphasis [ref=e4334]: (was 6/5)
+                            - listitem [ref=e4335]: Heals for 10/15/20% of Max Health
+                            - listitem [ref=e4336]:
+                              - text: Max Health gain to 30/90/150
+                              - emphasis [ref=e4337]: (was 100/150)
+                        - listitem [ref=e4338]:
+                          - strong [ref=e4339]: Jabalian Dagger
+                        - listitem [ref=e4340]:
+                          - list [ref=e4341]:
+                            - listitem [ref=e4342]: Starts at Silver-tier
+                            - listitem [ref=e4343]: Deal Damage equal to [--/1/2/3] times this item’s Value
+                            - listitem [ref=e4344]: When you sell an item, this gains +1 Value
+                        - listitem [ref=e4345]:
+                          - strong [ref=e4346]: Landscraper
+                        - listitem [ref=e4347]:
+                          - list [ref=e4348]:
+                            - listitem [ref=e4349]:
+                              - text: "Gains: This gains +[10/15/20] Value for the fight"
+                              - emphasis [ref=e4350]: (replaces out-of-combat scaling)
+                        - listitem [ref=e4351]:
+                          - strong [ref=e4352]: Monocle
+                        - listitem [ref=e4353]:
+                          - list [ref=e4354]:
+                            - listitem [ref=e4355]: Redesigned
+                            - listitem [ref=e4356]: Cooldown to 6/5/4
+                            - listitem [ref=e4357]: Shields equal to the amount of Gold you have gained this run
+                        - listitem [ref=e4358]:
+                          - strong [ref=e4359]: Oinkment
+                        - listitem [ref=e4360]:
+                          - list [ref=e4361]:
+                            - listitem [ref=e4362]: Redesigned
+                            - listitem [ref=e4363]: Cooldown to 6/5/4
+                            - listitem [ref=e4364]: Heals equal to the amount of Gold you have gained this run
+                        - listitem [ref=e4365]:
+                          - strong [ref=e4366]: Pawn Shop
+                        - listitem [ref=e4367]:
+                          - list [ref=e4368]:
+                            - listitem [ref=e4369]: Starts at Bronze-tier
+                            - listitem [ref=e4370]:
+                              - text: You have +Max Health equal to [10/15/20/25] times this item’s Value
+                              - emphasis [ref=e4371]: (was --/10/15/20)
+                            - listitem [ref=e4372]:
+                              - text: When you sell an item, this gains +1 Value
+                              - emphasis [ref=e4373]: (was 1/2/3)
+                        - listitem [ref=e4374]:
+                          - strong [ref=e4375]: Pinata
+                        - listitem [ref=e4376]:
+                          - list [ref=e4377]:
+                            - listitem [ref=e4378]: Now gives a Chocolate Bar, a Gumball, and a Small Toy
+                        - listitem [ref=e4379]:
+                          - strong [ref=e4380]: Pyg’s Gym
+                        - listitem [ref=e4381]:
+                          - list [ref=e4382]:
+                            - listitem [ref=e4383]: Redesigned
+                            - listitem [ref=e4384]: Cooldown to 8
+                            - listitem [ref=e4385]: (Active) Your Weapons gain +[3/6/9] Damage for each Weapon you have bought this run
+                        - listitem [ref=e4386]:
+                          - strong [ref=e4387]: Regal Blade
+                        - listitem [ref=e4388]:
+                          - list [ref=e4389]:
+                            - listitem [ref=e4390]:
+                              - text: Damage to 50/100/150/200
+                              - emphasis [ref=e4391]: (was 50)
+                            - listitem [ref=e4392]:
+                              - text: Quest 1 now gives 150 Damage and requires 8 Weapons
+                              - emphasis [ref=e4393]: (was 250 Damage and 10 Weapons)
+                            - listitem [ref=e4394]:
+                              - text: Quest 2 now requires 7 Apparel
+                              - emphasis [ref=e4395]: (was 8)
+                        - listitem [ref=e4396]:
+                          - strong [ref=e4397]: Safe
+                        - listitem [ref=e4398]:
+                          - list [ref=e4399]:
+                            - listitem [ref=e4400]: Now has a rare chance to drop a Bar of Gold or Bag of Jewels
+                        - listitem [ref=e4401]:
+                          - strong [ref=e4402]: Shipment
+                        - listitem [ref=e4403]:
+                          - list [ref=e4404]:
+                            - listitem [ref=e4405]: Now only spawns items not from Pyg
+                        - listitem [ref=e4406]:
+                          - strong [ref=e4407]: Snow Globe
+                        - listitem [ref=e4408]:
+                          - list [ref=e4409]:
+                            - listitem [ref=e4410]:
+                              - text: Cooldown to 7/6/5
+                              - emphasis [ref=e4411]: (was 7)
+                            - listitem [ref=e4412]:
+                              - text: Freeze to 1
+                              - emphasis [ref=e4413]: (was 1/1.5/2)
+                        - listitem [ref=e4414]:
+                          - strong [ref=e4415]: Snowmobile
+                        - listitem [ref=e4416]:
+                          - list [ref=e4417]:
+                            - listitem [ref=e4418]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e4419]: (was 8/7/6)
+                        - listitem [ref=e4420]:
+                          - strong [ref=e4421]: Tea Set
+                        - listitem [ref=e4422]:
+                          - list [ref=e4423]:
+                            - listitem [ref=e4424]: No longer Burns
+                            - listitem [ref=e4425]:
+                              - text: Burn buff to 2/4/6
+                              - emphasis [ref=e4426]: (was 1/3/5)
+                        - listitem [ref=e4427]:
+                          - strong [ref=e4428]: Vineyard
+                        - listitem [ref=e4429]:
+                          - list [ref=e4430]:
+                            - listitem [ref=e4431]: Redesigned
+                            - listitem [ref=e4432]: Cooldown to 5
+                            - listitem [ref=e4433]: Multicast to 2
+                            - listitem [ref=e4434]: Heal for [5/10/15]% of your Max Health
+                            - listitem [ref=e4435]: When you Heal, Slow an item for 1 second(s)
+                        - listitem [ref=e4436]:
+                          - strong [ref=e4437]: Yetarian Club
+                        - listitem [ref=e4438]:
+                          - list [ref=e4439]:
+                            - listitem [ref=e4440]: Damage to 750/1500
+                        - listitem [ref=e4441]:
+                          - strong [ref=e4442]: Yo-yo
+                        - listitem [ref=e4443]:
+                          - list [ref=e4444]:
+                            - listitem [ref=e4445]: Starts at Silver-tier
+                            - listitem [ref=e4446]:
+                              - text: Charge to 2/3/4
+                              - emphasis [ref=e4447]: (was 3/4)
+                      - heading "STELLE" [level=3] [ref=e4448]
+                      - list [ref=e4449]:
+                        - listitem [ref=e4450]:
+                          - strong [ref=e4451]: Airplane Glue
+                        - listitem [ref=e4452]:
+                          - list [ref=e4453]:
+                            - listitem [ref=e4454]: Starts at Bronze-tier
+                            - listitem [ref=e4455]:
+                              - text: 10/20/30/40
+                              - emphasis [ref=e4456]: (was 20/30/40)
+                        - listitem [ref=e4457]:
+                          - strong [ref=e4458]: Battle Balloon
+                        - listitem [ref=e4459]:
+                          - list [ref=e4460]:
+                            - listitem [ref=e4461]:
+                              - text: Shield to 25/50/75
+                              - emphasis [ref=e4462]: (was 20/30/40)
+                        - listitem [ref=e4463]:
+                          - strong [ref=e4464]: Boosted Saucer
+                        - listitem [ref=e4465]:
+                          - list [ref=e4466]:
+                            - listitem [ref=e4467]:
+                              - text: Cooldown to 14/13/12
+                              - emphasis [ref=e4468]: (was 12)
+                        - listitem [ref=e4469]:
+                          - strong [ref=e4470]: Darts
+                        - listitem [ref=e4471]:
+                          - list [ref=e4472]:
+                            - listitem [ref=e4473]:
+                              - text: Cooldown to 2 seconds
+                              - emphasis [ref=e4474]: (was 4 seconds)
+                            - listitem [ref=e4475]: This deals half Damage
+                            - listitem [ref=e4476]:
+                              - text: Every third hit deals triple Damage
+                              - emphasis [ref=e4477]: (was every third hit Crits)
+                        - listitem [ref=e4478]:
+                          - strong [ref=e4479]: Firecrackers
+                        - listitem [ref=e4480]:
+                          - list [ref=e4481]:
+                            - listitem [ref=e4482]: Cooldown to 3
+                            - listitem [ref=e4483]:
+                              - text: Ammo to 3
+                              - emphasis [ref=e4484]: (was 5)
+                            - listitem [ref=e4485]:
+                              - text: Damage to 20/40/60
+                              - emphasis [ref=e4486]: (was 20/30/40)
+                            - listitem [ref=e4487]:
+                              - text: 3× Damage on Destroy
+                              - emphasis [ref=e4488]: (was 5×)
+                        - listitem [ref=e4489]:
+                          - strong [ref=e4490]: Flycycle
+                        - listitem [ref=e4491]:
+                          - list [ref=e4492]:
+                            - listitem [ref=e4493]: Redesigned
+                            - listitem [ref=e4494]: Your Shield items have +5/10/15/20 Shield
+                            - listitem [ref=e4495]: If they are Flying, double this
+                        - listitem [ref=e4496]:
+                          - strong [ref=e4497]: Hangar
+                        - listitem [ref=e4498]:
+                          - list [ref=e4499]:
+                            - listitem [ref=e4500]: When you use a Vehicle or Drone, your Flying Weapons and Shield items gain +[8/16/24] Damage and Shield for the fight
+                        - listitem [ref=e4501]:
+                          - strong [ref=e4502]: Hang Glider
+                        - listitem [ref=e4503]:
+                          - list [ref=e4504]:
+                            - listitem [ref=e4505]:
+                              - text: Your Flying Weapons and this gain +[35/70] Damage for the fight
+                              - emphasis [ref=e4506]: (was your Flying Weapons gain this bonus)
+                        - listitem [ref=e4507]:
+                          - strong [ref=e4508]: Hydrogen Tank
+                        - listitem [ref=e4509]:
+                          - list [ref=e4510]:
+                            - listitem [ref=e4511]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e4512]: (was 5)
+                            - listitem [ref=e4513]:
+                              - text: When you use an adjacent Vehicle, Charge this 2 seconds
+                              - emphasis [ref=e4514]: (was If you have a Vehicle, use this at the start of each fight)
+                        - listitem [ref=e4515]:
+                          - strong [ref=e4516]: Ice Bomb
+                        - listitem [ref=e4517]:
+                          - list [ref=e4518]:
+                            - listitem [ref=e4519]:
+                              - text: Starts at Gold-tier
+                              - emphasis [ref=e4520]: (was Silver-tier)
+                            - listitem [ref=e4521]:
+                              - text: Cooldown to 4 seconds
+                              - emphasis [ref=e4522]: (was 3 seconds)
+                            - listitem [ref=e4523]:
+                              - text: Freeze 1/2 items for 1 second
+                              - emphasis [ref=e4524]: (was 1/2/3 items)
+                        - listitem [ref=e4525]:
+                          - strong [ref=e4526]: Kite (Redesign)
+                        - listitem [ref=e4527]:
+                          - list [ref=e4528]:
+                            - listitem [ref=e4529]: Starts at Bronze-tier
+                            - listitem [ref=e4530]: Cooldown to 5 seconds
+                            - listitem [ref=e4531]: 2/3/4/5 Small items start Flying
+                            - listitem [ref=e4532]: When a Small item starts or stops Flying, Charge it 1 second
+                        - listitem [ref=e4533]:
+                          - strong [ref=e4534]: Launch Tower
+                        - listitem [ref=e4535]:
+                          - list [ref=e4536]:
+                            - listitem [ref=e4537]:
+                              - text: Starts at Silver-tier
+                              - emphasis [ref=e4538]: (was Gold-tier)
+                            - listitem [ref=e4539]:
+                              - text: Cooldown to 6 seconds
+                              - emphasis [ref=e4540]: (was 8/7)
+                            - listitem [ref=e4541]:
+                              - text: Charge your Vehicles and Drones 1/2/3 seconds
+                              - emphasis [ref=e4542]: (was use another Vehicle)
+                            - listitem [ref=e4543]:
+                              - text: Your Flying Weapons have +50/100/150 Damage
+                              - emphasis [ref=e4544]: (was 50/100)
+                        - listitem [ref=e4545]:
+                          - strong [ref=e4546]: Lavaroller
+                        - listitem [ref=e4547]:
+                          - list [ref=e4548]:
+                            - listitem [ref=e4549]:
+                              - text: Cooldown to 8/6
+                              - emphasis [ref=e4550]: (was 10/8)
+                            - listitem [ref=e4551]: Destroy an adjacent item for the fight
+                            - listitem [ref=e4552]:
+                              - text: Burn to 50/100
+                              - emphasis [ref=e4553]: (was 40/80)
+                            - listitem [ref=e4554]:
+                              - text: When you destroy an item, this gains +50/100 Burn for the fight
+                              - emphasis [ref=e4555]: (was When you destroy an adjacent item, double this item’s Burn for the fight)
+                        - listitem [ref=e4556]:
+                          - strong [ref=e4557]: Oblivion Cannon
+                        - listitem [ref=e4558]:
+                          - list [ref=e4559]:
+                            - listitem [ref=e4560]:
+                              - text: When an item is destroyed, this gains +200/400 Damage for the fight
+                              - emphasis [ref=e4561]: (was Damage equal to 50/75 times the destroyed item’s Cooldown)
+                        - listitem [ref=e4562]:
+                          - strong [ref=e4563]: Oxygen Mask
+                        - listitem [ref=e4564]:
+                          - list [ref=e4565]:
+                            - listitem [ref=e4566]:
+                              - text: Shield to 20
+                              - emphasis [ref=e4567]: (was 10/20/30/40)
+                            - listitem [ref=e4568]:
+                              - text: When you use another Tool or Vehicle, this gains +5/10/15/20 Shield for the fight
+                              - emphasis [ref=e4569]: (was When you Shield, gain 3/6/9/12 Regen for the fight)
+                        - listitem [ref=e4570]:
+                          - strong [ref=e4571]: Parts Picker
+                        - listitem [ref=e4572]:
+                          - list [ref=e4573]:
+                            - listitem [ref=e4574]:
+                              - text: Cooldown to 10/8
+                              - emphasis [ref=e4575]: (was 8/7)
+                            - listitem [ref=e4576]:
+                              - text: When this destroys an item, reduce the Cooldowns of your other items by 1 second for the fight
+                              - emphasis [ref=e4577]: (was 0.5/1 second)
+                        - listitem [ref=e4578]:
+                          - strong [ref=e4579]: Pressure Heater
+                        - listitem [ref=e4580]:
+                          - list [ref=e4581]:
+                            - listitem [ref=e4582]:
+                              - text: Cooldown to 6 seconds
+                              - emphasis [ref=e4583]: (was 5 seconds)
+                            - listitem [ref=e4584]:
+                              - text: When you use another Tool or Vehicle, Charge this 2 seconds
+                              - emphasis [ref=e4585]: (was 1 second)
+                        - listitem [ref=e4586]:
+                          - strong [ref=e4587]: Recycler Bot
+                        - listitem [ref=e4588]:
+                          - list [ref=e4589]:
+                            - listitem [ref=e4590]: Now also Shields for 20
+                        - listitem [ref=e4591]:
+                          - strong [ref=e4592]: Red Lantern
+                        - listitem [ref=e4593]:
+                          - list [ref=e4594]:
+                            - listitem [ref=e4595]: Starts at Silver-tier
+                        - listitem [ref=e4596]:
+                          - strong [ref=e4597]: Repair Drone
+                        - listitem [ref=e4598]:
+                          - list [ref=e4599]:
+                            - listitem [ref=e4600]:
+                              - text: Cooldown to 4 seconds
+                              - emphasis [ref=e4601]: (was 3 seconds)
+                        - listitem [ref=e4602]:
+                          - strong [ref=e4603]: Security Drone
+                        - listitem [ref=e4604]:
+                          - list [ref=e4605]:
+                            - listitem [ref=e4606]:
+                              - text: Cooldown to 8
+                              - emphasis [ref=e4607]: (was 5)
+                            - listitem [ref=e4608]:
+                              - text: Shield to 20/40/60/80
+                              - emphasis [ref=e4609]: (was 25/50/75/100)
+                            - listitem [ref=e4610]: When an enemy uses an item, Charge this 1 second
+                            - listitem [ref=e4611]: While this is Flying, reduce its Cooldown by 2 seconds
+                        - listitem [ref=e4612]:
+                          - strong [ref=e4613]: Sky Anchor
+                        - listitem [ref=e4614]:
+                          - list [ref=e4615]:
+                            - listitem [ref=e4616]: Damage to 75/150/300
+                        - listitem [ref=e4617]:
+                          - strong [ref=e4618]: Space Laser
+                        - listitem [ref=e4619]:
+                          - list [ref=e4620]:
+                            - listitem [ref=e4621]: Gains the Ray type
+                        - listitem [ref=e4622]:
+                          - strong [ref=e4623]: Stelle’s Workshop
+                        - listitem [ref=e4624]:
+                          - list [ref=e4625]:
+                            - listitem [ref=e4626]:
+                              - text: When you use a Tool, Charge 1/2 Vehicles or Drones 1 second
+                              - emphasis [ref=e4627]: (was Charge a Vehicle or Drone 1/2 seconds)
+                        - listitem [ref=e4628]:
+                          - strong [ref=e4629]: Targeting Drone
+                        - listitem [ref=e4630]:
+                          - list [ref=e4631]:
+                            - listitem [ref=e4632]:
+                              - text: Haste the item to the left of this for 2 seconds
+                              - emphasis [ref=e4633]: (was 1/2/3/4 seconds)
+                            - listitem [ref=e4634]:
+                              - text: That item gains +[3/6/9/12]% Crit Chance for the fight
+                              - emphasis [ref=e4635]: (was 5/10/15/20%)
+                        - listitem [ref=e4636]:
+                          - strong [ref=e4637]: The Big One
+                        - listitem [ref=e4638]:
+                          - list [ref=e4639]:
+                            - listitem [ref=e4640]:
+                              - text: Cooldown to 14 seconds
+                              - emphasis [ref=e4641]: (was 14/12)
+                            - listitem [ref=e4642]:
+                              - text: When this is destroyed, deal Damage equal to 20/30% of your enemy’s Max Health
+                              - emphasis [ref=e4643]: (was 40/50%)
+                        - listitem [ref=e4644]:
+                          - strong [ref=e4645]: Vortex Cannon
+                        - listitem [ref=e4646]:
+                          - list [ref=e4647]:
+                            - listitem [ref=e4648]:
+                              - text: Cooldown to 5 seconds
+                              - emphasis [ref=e4649]: (was 4 seconds)
+                      - heading "VANESSA" [level=3] [ref=e4650]
+                      - list [ref=e4651]:
+                        - listitem [ref=e4652]:
+                          - strong [ref=e4653]: Bilge Worm
+                        - listitem [ref=e4654]:
+                          - list [ref=e4655]:
+                            - listitem [ref=e4656]: Renamed from Hate Leech
+                            - listitem [ref=e4657]: Redesigned
+                            - listitem [ref=e4658]: Gains the Aquatic and Weapon types
+                            - listitem [ref=e4659]: When your enemy uses their leftmost item, deal 10/20/30/40 Damage
+                            - listitem [ref=e4660]: Lifesteal
+                        - listitem [ref=e4661]:
+                          - strong [ref=e4662]: Bladed Hoverboard
+                        - listitem [ref=e4663]:
+                          - list [ref=e4664]:
+                            - listitem [ref=e4665]:
+                              - text: Damage to 20/40/60
+                              - emphasis [ref=e4666]: (was 30/50/80)
+                        - listitem [ref=e4667]:
+                          - strong [ref=e4668]: The Boulder
+                        - listitem [ref=e4669]:
+                          - list [ref=e4670]:
+                            - listitem [ref=e4671]: Gains the Trap type
+                        - listitem [ref=e4672]:
+                          - strong [ref=e4673]: Butterfly Swords
+                        - listitem [ref=e4674]:
+                          - list [ref=e4675]:
+                            - listitem [ref=e4676]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e4677]: (was 7/6/5)
+                        - listitem [ref=e4678]:
+                          - strong [ref=e4679]: Calico
+                        - listitem [ref=e4680]:
+                          - list [ref=e4681]:
+                            - listitem [ref=e4682]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e4683]: (was 7)
+                            - listitem [ref=e4684]: No longer deals double Crit Damage
+                        - listitem [ref=e4685]:
+                          - strong [ref=e4686]: Cannon Ball
+                        - listitem [ref=e4687]:
+                          - list [ref=e4688]:
+                            - listitem [ref=e4689]:
+                              - text: Adjacent items have 2/3/4 Max Ammo
+                              - emphasis [ref=e4690]: (was 1/2/3)
+                        - listitem [ref=e4691]:
+                          - strong [ref=e4692]: Clamera
+                        - listitem [ref=e4693]:
+                          - list [ref=e4694]:
+                            - listitem [ref=e4695]: Starts at Silver-tier
+                            - listitem [ref=e4696]:
+                              - text: Cooldown to 7/6/5
+                              - emphasis [ref=e4697]: (was 7/6/5/4)
+                            - listitem [ref=e4698]:
+                              - text: The first 2/3/4 times your enemy uses an item each fight, use this
+                              - emphasis [ref=e4699]: (was At the start of each fight, use this)
+                        - listitem [ref=e4700]:
+                          - strong [ref=e4701]: Concealed Dagger
+                        - listitem [ref=e4702]:
+                          - list [ref=e4703]:
+                            - listitem [ref=e4704]: Starts at Bronze-tier
+                            - listitem [ref=e4705]: Cooldown to 4 seconds
+                            - listitem [ref=e4706]: Deal 10/20/30/40 Damage
+                            - listitem [ref=e4707]: Haste an item for 1/2/3/4 seconds
+                            - listitem [ref=e4708]: At the start of each fight with this, gain 1 Gold
+                        - listitem [ref=e4709]:
+                          - strong [ref=e4710]: Coral
+                        - listitem [ref=e4711]:
+                          - list [ref=e4712]:
+                            - listitem [ref=e4713]:
+                              - text: Cooldown to 5
+                              - emphasis [ref=e4714]: (was 6)
+                        - listitem [ref=e4715]:
+                          - strong [ref=e4716]: Crow’s Nest
+                        - listitem [ref=e4717]:
+                          - list [ref=e4718]:
+                            - listitem [ref=e4719]:
+                              - text: If you have only one Weapon, it has Lifesteal and is affected by Slow for half as long
+                              - emphasis [ref=e4720]: (was If you have exactly one Weapon, that Weapon has Lifesteal)
+                        - listitem [ref=e4721]:
+                          - strong [ref=e4722]: Cyber-sai
+                        - listitem [ref=e4723]:
+                          - list [ref=e4724]:
+                            - listitem [ref=e4725]: Starts at Silver-tier
+                            - listitem [ref=e4726]:
+                              - text: Deal 10/20/30 Damage
+                              - emphasis [ref=e4727]: (was 10/20/30/40)
+                            - listitem [ref=e4728]:
+                              - text: When you Crit, a Weapon gains +5/10/15% Crit Chance for the fight
+                              - emphasis [ref=e4729]: (was The first 2/3/4/5 times you Crit with this each fight, you take no Damage for 1 second)
+                            - listitem [ref=e4730]: When a Weapon’s Crit Chance increases, it gains 5/10/15 Damage for the fight
+                        - listitem [ref=e4731]:
+                          - strong [ref=e4732]: Diving Helmet
+                        - listitem [ref=e4733]:
+                          - list [ref=e4734]:
+                            - listitem [ref=e4735]: Redesigned
+                            - listitem [ref=e4736]: Starts at Gold-tier
+                            - listitem [ref=e4737]: Cooldown to 8
+                            - listitem [ref=e4738]: Shield to 50/100
+                            - listitem [ref=e4739]: Charge adjacent items 1/2 second
+                            - listitem [ref=e4740]: When you use another Aquatic item, Charge this 1/2 second
+                            - listitem [ref=e4741]: Adjacent items are Aquatic in combat
+                        - listitem [ref=e4742]:
+                          - strong [ref=e4743]: Elemental Depth Charge
+                        - listitem [ref=e4744]:
+                          - list [ref=e4745]:
+                            - listitem [ref=e4746]: Gains the Trap type
+                        - listitem [ref=e4747]:
+                          - strong [ref=e4748]: Fishing Net
+                        - listitem [ref=e4749]:
+                          - list [ref=e4750]:
+                            - listitem [ref=e4751]:
+                              - text: At the start of each day, get a Small Aquatic or Loot item from any Hero
+                              - emphasis [ref=e4752]: (was At the start of each day, get a Piranha)
+                        - listitem [ref=e4753]:
+                          - strong [ref=e4754]: Flame Signal
+                        - listitem [ref=e4755]:
+                          - list [ref=e4756]:
+                            - listitem [ref=e4757]: Renamed to Bonfire
+                        - listitem [ref=e4758]:
+                          - strong [ref=e4759]: Holsters
+                        - listitem [ref=e4760]:
+                          - list [ref=e4761]:
+                            - listitem [ref=e4762]:
+                              - text: The first time you use an item each fight, Haste your Small items for 2/3 seconds
+                              - emphasis [ref=e4763]: (was At the start of each fight, Haste your Small items for 1/2 seconds)
+                        - listitem [ref=e4764]:
+                          - strong [ref=e4765]: Honing Steel
+                        - listitem [ref=e4766]:
+                          - list [ref=e4767]:
+                            - listitem [ref=e4768]:
+                              - text: Cooldown to 3
+                              - emphasis [ref=e4769]: (was 4)
+                            - listitem [ref=e4770]:
+                              - text: Your leftmost and rightmost Weapons gain +5/10/15/20 Damage for the fight
+                              - emphasis [ref=e4771]: (was The Weapon to the right of this gains +6/12/18/24 Damage)
+                        - listitem [ref=e4772]:
+                          - strong [ref=e4773]: Ice Pick
+                        - listitem [ref=e4774]:
+                          - list [ref=e4775]:
+                            - listitem [ref=e4776]:
+                              - text: Cooldown to 4
+                              - emphasis [ref=e4777]: (was 5)
+                        - listitem [ref=e4778]:
+                          - strong [ref=e4779]: Iceberg
+                        - listitem [ref=e4780]:
+                          - list [ref=e4781]:
+                            - listitem [ref=e4782]:
+                              - text: Starts at Diamond-tier
+                              - emphasis [ref=e4783]: (was Gold-tier)
+                            - listitem [ref=e4784]:
+                              - text: When an enemy uses an item, Freeze it for 1 second
+                              - emphasis [ref=e4785]: (was 0.5/1 second)
+                        - listitem [ref=e4786]:
+                          - strong [ref=e4787]: Illusoray
+                        - listitem [ref=e4788]:
+                          - list [ref=e4789]:
+                            - listitem [ref=e4790]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e4791]: (was 7)
+                        - listitem [ref=e4792]:
+                          - strong [ref=e4793]: Javelin
+                        - listitem [ref=e4794]:
+                          - list [ref=e4795]:
+                            - listitem [ref=e4796]:
+                              - text: Cooldown to 4
+                              - emphasis [ref=e4797]: (was 5)
+                            - listitem [ref=e4798]:
+                              - text: Deal 50/100/150 Damage
+                              - emphasis [ref=e4799]: (was 120/180/240)
+                            - listitem [ref=e4800]: When you Crit with this, Haste your other items for 2 seconds
+                            - listitem [ref=e4801]:
+                              - text: When this is reloaded, it gains +50% Crit Chance for the fight
+                              - emphasis [ref=e4802]: (was gains 40/60/80 Damage)
+                        - listitem [ref=e4803]:
+                          - strong [ref=e4804]: Kusarigama
+                        - listitem [ref=e4805]:
+                          - list [ref=e4806]:
+                            - listitem [ref=e4807]:
+                              - text: Damage and Scaling to 4/8/12
+                              - emphasis [ref=e4808]: (was 5/10/15)
+                        - listitem [ref=e4809]:
+                          - strong [ref=e4810]: Life Preserver
+                        - listitem [ref=e4811]:
+                          - list [ref=e4812]:
+                            - listitem [ref=e4813]:
+                              - text: The first time you would be defeated each fight, Heal 200/500/1000/2000
+                              - emphasis [ref=e4814]: (was 200/600/1200/2000)
+                        - listitem [ref=e4815]:
+                          - strong [ref=e4816]: Orange Julian
+                        - listitem [ref=e4817]:
+                          - list [ref=e4818]:
+                            - listitem [ref=e4819]: Redesigned
+                            - listitem [ref=e4820]: Your Weapons gain Damage equal to half the Gold you have gained this run
+                        - listitem [ref=e4821]:
+                          - strong [ref=e4822]: Piranha
+                        - listitem [ref=e4823]:
+                          - list [ref=e4824]:
+                            - listitem [ref=e4825]: Starts at Bronze-tier
+                            - listitem [ref=e4826]:
+                              - text: Cooldown to 8/7/6/5 seconds
+                              - emphasis [ref=e4827]: (was 6)
+                            - listitem [ref=e4828]:
+                              - text: Deal 20 Damage
+                              - emphasis [ref=e4829]: (was 6/12/18/24)
+                            - listitem [ref=e4830]: Base 20% Crit Chance was removed
+                            - listitem [ref=e4831]:
+                              - text: When you use another Friend or Food, Charge this 1 second
+                              - emphasis [ref=e4832]: (was this deals double Crit Damage)
+                        - listitem [ref=e4833]:
+                          - strong [ref=e4834]: Pistol Sword
+                        - listitem [ref=e4835]:
+                          - list [ref=e4836]:
+                            - listitem [ref=e4837]:
+                              - text: Damage to 15/30
+                              - emphasis [ref=e4838]: (was 24/32)
+                        - listitem [ref=e4839]:
+                          - strong [ref=e4840]: Rowboat
+                        - listitem [ref=e4841]:
+                          - list [ref=e4842]:
+                            - listitem [ref=e4843]:
+                              - text: Now requires 7 Types
+                              - emphasis [ref=e4844]: (was 5)
+                        - listitem [ref=e4845]:
+                          - strong [ref=e4846]: Scimitar of the Deep
+                        - listitem [ref=e4847]:
+                          - list [ref=e4848]:
+                            - listitem [ref=e4849]:
+                              - text: Damage to 20
+                              - emphasis [ref=e4850]: (was 20/40/60)
+                            - listitem [ref=e4851]:
+                              - text: When you Crit, Poison equal to half this item’s Damage
+                              - emphasis [ref=e4852]: (was 20%)
+                            - listitem [ref=e4853]:
+                              - text: When this is Hasted, your Poison items gain +3/6/9 Poison for the fight
+                              - emphasis [ref=e4854]: (was 2/4/6)
+                        - listitem [ref=e4855]:
+                          - strong [ref=e4856]: Seadog Saloon
+                        - listitem [ref=e4857]:
+                          - list [ref=e4858]:
+                            - listitem [ref=e4859]: Starts at Silver-tier
+                            - listitem [ref=e4860]:
+                              - text: Cooldown to 6/5/4
+                              - emphasis [ref=e4861]: (was 5/4)
+                        - listitem [ref=e4862]:
+                          - strong [ref=e4863]: Sextant
+                        - listitem [ref=e4864]:
+                          - list [ref=e4865]:
+                            - listitem [ref=e4866]:
+                              - text: When you Haste, an item gains 5% Crit Chance for the fight
+                              - emphasis [ref=e4867]: (was Adjacent items have 15/30/50% Crit Chance)
+                        - listitem [ref=e4868]:
+                          - strong [ref=e4869]: Shark Claws
+                        - listitem [ref=e4870]:
+                          - list [ref=e4871]:
+                            - listitem [ref=e4872]:
+                              - text: Your Weapons gain +10/20/30/40 Damage
+                              - emphasis [ref=e4873]: (was Your other Weapons)
+                        - listitem [ref=e4874]:
+                          - strong [ref=e4875]: Sharkray
+                        - listitem [ref=e4876]:
+                          - list [ref=e4877]:
+                            - listitem [ref=e4878]: Starts at Silver-tier
+                            - listitem [ref=e4879]: Redesigned
+                            - listitem [ref=e4880]: Cooldown to 6
+                            - listitem [ref=e4881]: Damage to 20
+                            - listitem [ref=e4882]: When you Haste a Friend, your Friends gain +5/10/15 Damage and +1/2/3 Poison for the fight
+                        - listitem [ref=e4883]:
+                          - strong [ref=e4884]: Swash Buckle
+                        - listitem [ref=e4885]:
+                          - list [ref=e4886]:
+                            - listitem [ref=e4887]:
+                              - text: Crit bonus to 15/30%
+                              - emphasis [ref=e4888]: (was 25/50%)
+                        - listitem [ref=e4889]:
+                          - strong [ref=e4890]: Spyglass
+                        - listitem [ref=e4891]:
+                          - list [ref=e4892]:
+                            - listitem [ref=e4893]:
+                              - text: When you Slow, an item gains +10% Crit Chance for the fight
+                              - emphasis [ref=e4894]: (was Adjacent items have 25/50% Crit Chance)
+                        - listitem [ref=e4895]:
+                          - strong [ref=e4896]: Submarine
+                        - listitem [ref=e4897]:
+                          - list [ref=e4898]:
+                            - listitem [ref=e4899]:
+                              - text: Deal 60/120/240 Damage
+                              - emphasis [ref=e4900]: (was 50)
+                            - listitem [ref=e4901]: If this is your only Weapon, it is affected by Freeze and Slow for half as long
+                        - listitem [ref=e4902]:
+                          - strong [ref=e4903]: Submersible
+                        - listitem [ref=e4904]:
+                          - list [ref=e4905]:
+                            - listitem [ref=e4906]: Redesigned
+                            - listitem [ref=e4907]: Cooldown to 5
+                            - listitem [ref=e4908]: Your leftmost and rightmost Aquatic Weapon and Shield items gain +10/20/30 Damage and +10/20/30 Shield for the fight
+                            - listitem [ref=e4909]: If you have another Vehicle or Large item, this item’s Cooldown is reduced by 2 seconds
+                        - listitem [ref=e4910]:
+                          - strong [ref=e4911]: Tripwire
+                        - listitem [ref=e4912]:
+                          - list [ref=e4913]:
+                            - listitem [ref=e4914]: Gains the Trap type
+                        - listitem [ref=e4915]:
+                          - strong [ref=e4916]: Turtle Shell
+                        - listitem [ref=e4917]:
+                          - list [ref=e4918]:
+                            - listitem [ref=e4919]: Starts at Gold-tier
+                            - listitem [ref=e4920]:
+                              - text: Shield to 20/40
+                              - emphasis [ref=e4921]: (was 25)
+                            - listitem [ref=e4922]:
+                              - text: Your Shield items gain +20/40 Shield for the fight
+                              - emphasis [ref=e4923]: (was 10/15/20)
+                      - heading "SKILLS" [level=3] [ref=e4924]
+                      - list [ref=e4925]:
+                        - listitem [ref=e4926]: We are reducing Max Health scaling and standardizing some numbers.
+                        - listitem [ref=e4927]:
+                          - strong [ref=e4928]: Arms Dealer
+                        - listitem [ref=e4929]:
+                          - list [ref=e4930]:
+                            - listitem [ref=e4931]:
+                              - text: Max Health +10/20/30/40
+                              - emphasis [ref=e4932]: (was 20/30/40/50)
+                        - listitem [ref=e4933]:
+                          - strong [ref=e4934]: Backroom Dealings
+                        - listitem [ref=e4935]:
+                          - list [ref=e4936]:
+                            - listitem [ref=e4937]:
+                              - text: Max Health +10/20/30/40
+                              - emphasis [ref=e4938]: (was 25/50/75)
+                        - listitem [ref=e4939]:
+                          - strong [ref=e4940]: Bloodhound
+                        - listitem [ref=e4941]:
+                          - list [ref=e4942]:
+                            - listitem [ref=e4943]:
+                              - text: Charge to 1/2/3
+                              - emphasis [ref=e4944]: (was 2/3/4)
+                        - listitem [ref=e4945]:
+                          - strong [ref=e4946]: Bloodthirst
+                        - listitem [ref=e4947]:
+                          - list [ref=e4948]:
+                            - listitem [ref=e4949]:
+                              - text: Damage +10/20/30/40
+                              - emphasis [ref=e4950]: (was 20/30/40/50)
+                        - listitem [ref=e4951]:
+                          - strong [ref=e4952]: Brawler
+                        - listitem [ref=e4953]:
+                          - list [ref=e4954]:
+                            - listitem [ref=e4955]:
+                              - text: Max Health +50/100/150
+                              - emphasis [ref=e4956]: (was 75/150/275)
+                        - listitem [ref=e4957]:
+                          - strong [ref=e4958]: Cherished Keepsake
+                        - listitem [ref=e4959]:
+                          - list [ref=e4960]:
+                            - listitem [ref=e4961]: Disabled, superseded by Special Exhibit
+                            - listitem [ref=e4962]: Will return later in a different form
+                        - listitem [ref=e4963]:
+                          - strong [ref=e4964]: Creeping Chill
+                        - listitem [ref=e4965]:
+                          - list [ref=e4966]:
+                            - listitem [ref=e4967]: Now spawns on Stelle
+                        - listitem [ref=e4968]:
+                          - strong [ref=e4969]: Deadly Waters
+                        - listitem [ref=e4970]:
+                          - list [ref=e4971]:
+                            - listitem [ref=e4972]:
+                              - text: Damage +10/20/30/40
+                              - emphasis [ref=e4973]: (was 20/25/30/35)
+                        - listitem [ref=e4974]:
+                          - strong [ref=e4975]: Endurance
+                        - listitem [ref=e4976]:
+                          - list [ref=e4977]:
+                            - listitem [ref=e4978]:
+                              - text: Heal +3/6/9
+                              - emphasis [ref=e4979]: (was 5/10/15)
+                        - listitem [ref=e4980]:
+                          - strong [ref=e4981]: Expert Pilot
+                        - listitem [ref=e4982]:
+                          - list [ref=e4983]:
+                            - listitem [ref=e4984]:
+                              - text: Damage/Shield +10/20/30/40
+                              - emphasis [ref=e4985]: (was 15/30/45/60)
+                        - listitem [ref=e4986]:
+                          - strong [ref=e4987]: Farm to Table
+                        - listitem [ref=e4988]:
+                          - list [ref=e4989]:
+                            - listitem [ref=e4990]:
+                              - text: Max Health +50/100/150
+                              - emphasis [ref=e4991]: (was 75/150/275)
+                        - listitem [ref=e4992]:
+                          - strong [ref=e4993]: First Responder
+                        - listitem [ref=e4994]:
+                          - list [ref=e4995]:
+                            - listitem [ref=e4996]:
+                              - text: Heal +20/40/60/80
+                              - emphasis [ref=e4997]: (was 20/35/50/65)
+                        - listitem [ref=e4998]:
+                          - strong [ref=e4999]: Follow-up Care
+                        - listitem [ref=e5000]:
+                          - list [ref=e5001]:
+                            - listitem [ref=e5002]:
+                              - text: Heal +20/40/60/80
+                              - emphasis [ref=e5003]: (was 20/35/50/65)
+                        - listitem [ref=e5004]:
+                          - strong [ref=e5005]: Hardened Shield
+                        - listitem [ref=e5006]:
+                          - list [ref=e5007]:
+                            - listitem [ref=e5008]: Redesigned
+                            - listitem [ref=e5009]: Your Shield items have +10/20/30 Shield for each Weapon your enemy has
+                        - listitem [ref=e5010]:
+                          - strong [ref=e5011]: Healthy Hoarder
+                        - listitem [ref=e5012]:
+                          - list [ref=e5013]:
+                            - listitem [ref=e5014]:
+                              - text: Max Health +50/100/150
+                              - emphasis [ref=e5015]: (was 75/150/275)
+                        - listitem [ref=e5016]:
+                          - strong [ref=e5017]: Heat Shield (New)
+                        - listitem [ref=e5018]:
+                          - list [ref=e5019]:
+                            - listitem [ref=e5020]: Spawns on Dooley, Jules, and Stelle
+                            - listitem [ref=e5021]: Your Burn items have +[--/2/3/4] Burn for each Shield item you have
+                        - listitem [ref=e5022]:
+                          - strong [ref=e5023]: I Would Eat That
+                        - listitem [ref=e5024]:
+                          - list [ref=e5025]:
+                            - listitem [ref=e5026]: Redesigned
+                            - listitem [ref=e5027]: Your leftmost item is a Food and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5028]:
+                          - strong [ref=e5029]: Ice Bullets
+                        - listitem [ref=e5030]:
+                          - list [ref=e5031]:
+                            - listitem [ref=e5032]: Corrected an issue where this only worked on Weapons
+                        - listitem [ref=e5033]:
+                          - strong [ref=e5034]: Ice Smasher (New)
+                        - listitem [ref=e5035]:
+                          - list [ref=e5036]:
+                            - listitem [ref=e5037]: Your leftmost item is affected by Freeze for half as long
+                            - listitem [ref=e5038]: If you have exactly one Weapon, all your items are affected by Freeze for half as long
+                        - listitem [ref=e5039]:
+                          - strong [ref=e5040]: Inexorable
+                        - listitem [ref=e5041]:
+                          - list [ref=e5042]:
+                            - listitem [ref=e5043]:
+                              - text: Bonus to 2/3/4%
+                              - emphasis [ref=e5044]: (was 2/4/6%)
+                        - listitem [ref=e5045]:
+                          - strong [ref=e5046]: Iron Sharpens Iron
+                        - listitem [ref=e5047]:
+                          - list [ref=e5048]:
+                            - listitem [ref=e5049]:
+                              - text: Base Damage to 8
+                              - emphasis [ref=e5050]: (was 3)
+                            - listitem [ref=e5051]:
+                              - text: Scaling Damage to 1/2/3
+                              - emphasis [ref=e5052]: (was 3/4/5)
+                        - listitem [ref=e5053]:
+                          - strong [ref=e5054]: It’s a Drone
+                        - listitem [ref=e5055]:
+                          - list [ref=e5056]:
+                            - listitem [ref=e5057]: Redesigned
+                            - listitem [ref=e5058]: Your leftmost item is a Drone and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5059]:
+                          - strong [ref=e5060]: Like Clockwork
+                        - listitem [ref=e5061]:
+                          - list [ref=e5062]:
+                            - listitem [ref=e5063]: Redesigned
+                            - listitem [ref=e5064]: Your leftmost item is a Tech and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5065]:
+                          - strong [ref=e5066]: Lifting
+                        - listitem [ref=e5067]:
+                          - list [ref=e5068]:
+                            - listitem [ref=e5069]: Disabled due to similarity with another Skill
+                            - listitem [ref=e5070]: Will return later
+                        - listitem [ref=e5071]:
+                          - strong [ref=e5072]: Makeshift Plate
+                        - listitem [ref=e5073]:
+                          - list [ref=e5074]:
+                            - listitem [ref=e5075]: Spawns on Dooley, Jules, and Stelle
+                            - listitem [ref=e5076]: Your Shield items have +[--/10/20/30] Shield for each Tool you have
+                        - listitem [ref=e5077]:
+                          - strong [ref=e5078]: Master Diver
+                        - listitem [ref=e5079]:
+                          - list [ref=e5080]:
+                            - listitem [ref=e5081]: Redesigned
+                            - listitem [ref=e5082]: Your leftmost item is Aquatic and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5083]:
+                          - strong [ref=e5084]: Pack Infiltrator
+                        - listitem [ref=e5085]:
+                          - list [ref=e5086]:
+                            - listitem [ref=e5087]: Redesigned
+                            - listitem [ref=e5088]: Your leftmost item is a Dinosaur and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5089]:
+                          - strong [ref=e5090]: Primal Rage
+                        - listitem [ref=e5091]:
+                          - list [ref=e5092]:
+                            - listitem [ref=e5093]: Renamed to Primal Energy
+                            - listitem [ref=e5094]:
+                              - text: Damage +5/10/15/20
+                              - emphasis [ref=e5095]: (was 10/15/20/25)
+                        - listitem [ref=e5096]:
+                          - strong [ref=e5097]: Protein Powder
+                        - listitem [ref=e5098]:
+                          - list [ref=e5099]:
+                            - listitem [ref=e5100]:
+                              - text: Max Health +10/20/30/40
+                              - emphasis [ref=e5101]: (was 20/30/40/50)
+                        - listitem [ref=e5102]:
+                          - strong [ref=e5103]: Pure Imagination
+                        - listitem [ref=e5104]:
+                          - list [ref=e5105]:
+                            - listitem [ref=e5106]: Redesigned
+                            - listitem [ref=e5107]: Your leftmost item is a Toy and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5108]:
+                          - strong [ref=e5109]: Sharp Corners
+                        - listitem [ref=e5110]:
+                          - list [ref=e5111]:
+                            - listitem [ref=e5112]: When you use a Shield, your Weapons gain +[2/4/6] Damage for the fight
+                        - listitem [ref=e5113]:
+                          - strong [ref=e5114]: Sharpshooter (New)
+                        - listitem [ref=e5115]:
+                          - list [ref=e5116]:
+                            - listitem [ref=e5117]: Your leftmost and rightmost Weapon have +10% Crit Chance
+                            - listitem [ref=e5118]: If you only have one Weapon, it has double Crit Damage
+                        - listitem [ref=e5119]:
+                          - strong [ref=e5120]: Shatter
+                        - listitem [ref=e5121]:
+                          - list [ref=e5122]:
+                            - listitem [ref=e5123]:
+                              - text: Damage +5/10/15
+                              - emphasis [ref=e5124]: (was 15/20)
+                        - listitem [ref=e5125]:
+                          - strong [ref=e5126]: Slow Burn
+                        - listitem [ref=e5127]:
+                          - list [ref=e5128]:
+                            - listitem [ref=e5129]: Now spawns on Stelle
+                        - listitem [ref=e5130]:
+                          - strong [ref=e5131]: Special Exhibit
+                        - listitem [ref=e5132]:
+                          - list [ref=e5133]:
+                            - listitem [ref=e5134]:
+                              - text: Now spawns on Mak
+                              - emphasis [ref=e5135]: (was only Dooley)
+                            - listitem [ref=e5136]: Redesigned
+                            - listitem [ref=e5137]: Your leftmost item is a Relic and has its Cooldown reduced by [3/6]%
+                        - listitem [ref=e5138]:
+                          - strong [ref=e5139]: Staying Power
+                        - listitem [ref=e5140]:
+                          - list [ref=e5141]:
+                            - listitem [ref=e5142]: Disabled due to similarity with another Skill
+                            - listitem [ref=e5143]: Will return later
+                        - listitem [ref=e5144]:
+                          - strong [ref=e5145]: Strength
+                        - listitem [ref=e5146]:
+                          - list [ref=e5147]:
+                            - listitem [ref=e5148]:
+                              - text: Damage +5/10/15/20
+                              - emphasis [ref=e5149]: (was 10/15/20/25)
+                        - listitem [ref=e5150]:
+                          - strong [ref=e5151]: Left-Handed and Right-Handed
+                        - listitem [ref=e5152]:
+                          - list [ref=e5153]:
+                            - listitem [ref=e5154]:
+                              - text: Damage +10/20/30/40
+                              - emphasis [ref=e5155]: (was 20/30/40/50)
+                        - listitem [ref=e5156]:
+                          - strong [ref=e5157]: Strong Arm
+                        - listitem [ref=e5158]:
+                          - list [ref=e5159]:
+                            - listitem [ref=e5160]:
+                              - text: Damage 1/2/3 times Income
+                              - emphasis [ref=e5161]: (was 1/2/3/4 times)
+                        - listitem [ref=e5162]:
+                          - strong [ref=e5163]: Stop That
+                        - listitem [ref=e5164]:
+                          - list [ref=e5165]:
+                            - listitem [ref=e5166]:
+                              - text: Slows all items for 1/2/3 seconds
+                              - emphasis [ref=e5167]: (was 2/4/6 items)
+                        - listitem [ref=e5168]:
+                          - strong [ref=e5169]: Streamline Weapon
+                        - listitem [ref=e5170]:
+                          - list [ref=e5171]:
+                            - listitem [ref=e5172]:
+                              - text: Now spawns on Dooley and Jules
+                              - emphasis [ref=e5173]: (was only Vanessa)
+                        - listitem [ref=e5174]:
+                          - strong [ref=e5175]: Titanium Casing
+                        - listitem [ref=e5176]:
+                          - list [ref=e5177]:
+                            - listitem [ref=e5178]:
+                              - text: Shield +5/10/15
+                              - emphasis [ref=e5179]: (was 15/30)
+                        - listitem [ref=e5180]:
+                          - strong [ref=e5181]: Toughness
+                        - listitem [ref=e5182]:
+                          - list [ref=e5183]:
+                            - listitem [ref=e5184]:
+                              - text: Shield +5/10/15/20
+                              - emphasis [ref=e5185]: (was 10/15/20/25)
+                        - listitem [ref=e5186]:
+                          - strong [ref=e5187]: Frontal and Rear Shielding
+                        - listitem [ref=e5188]:
+                          - list [ref=e5189]:
+                            - listitem [ref=e5190]:
+                              - text: Shield +10/20/30/40
+                              - emphasis [ref=e5191]: (was 20/30/40/50)
+                        - listitem [ref=e5192]:
+                          - strong [ref=e5193]: Toxicity
+                        - listitem [ref=e5194]:
+                          - list [ref=e5195]:
+                            - listitem [ref=e5196]:
+                              - text: Damage +2/4/6
+                              - emphasis [ref=e5197]: (was 3/6/9)
+                  - generic [ref=e5198]:
+                    - heading "2-4-2026" [level=2] [ref=e5202]
+                    - generic [ref=e5207]:
+                      - 'heading "HOTFIX: February 5" [level=2] [ref=e5208]'
+                      - heading "SYSTEM CHANGES" [level=3] [ref=e5209]
+                      - list [ref=e5210]:
+                        - listitem [ref=e5211]:
+                          - strong [ref=e5212]: Burn Decrement
+                        - listitem [ref=e5213]:
+                          - list [ref=e5214]:
+                            - listitem [ref=e5215]: We are testing an experimental change to Burn
+                            - listitem [ref=e5216]:
+                              - text: Burn now decrements by 5% per tick
+                              - emphasis [ref=e5217]: (was 1)
+                            - listitem [ref=e5218]: This has little to no impact at low Burn values, but reduces top-end Burn output by ~25–30%
+                      - heading "GENERAL FIXES" [level=3] [ref=e5219]
+                      - list [ref=e5220]:
+                        - listitem [ref=e5221]:
+                          - strong [ref=e5222]: Tickets
+                        - listitem [ref=e5223]:
+                          - list [ref=e5224]:
+                            - listitem [ref=e5225]: Corrected an issue where Tickets could spawn from unintended sources such as Transform
+                        - listitem [ref=e5226]:
+                          - strong [ref=e5227]: Free Item Events
+                        - listitem [ref=e5228]:
+                          - list [ref=e5229]:
+                            - listitem [ref=e5230]: Corrected an issue where these could spawn higher-than-expected item tiers
+                        - listitem [ref=e5231]:
+                          - strong [ref=e5232]: Missing Portrait Bug
+                        - listitem [ref=e5233]:
+                          - list [ref=e5234]:
+                            - listitem [ref=e5235]: Fixed an issue where players would not see their PvP opponent’s character portrait if they did not own that Hero’s collectible
+                        - listitem [ref=e5236]:
+                          - strong [ref=e5237]: Album Not Showing Properly
+                        - listitem [ref=e5238]:
+                          - list [ref=e5239]:
+                            - listitem [ref=e5240]: Fixed an issue where the Album on Collection and Store was not displaying correctly
+                            - listitem [ref=e5241]: Corrected an issue where the Album shown on Inspect was incorrect
+                        - listitem [ref=e5242]:
+                          - strong [ref=e5243]: Card Back Low Quality in Store
+                        - listitem [ref=e5244]:
+                          - list [ref=e5245]:
+                            - listitem [ref=e5246]: Fixed an issue where Card Backs appeared low quality in the Store
+                        - listitem [ref=e5247]:
+                          - strong [ref=e5248]: FPS Limit to 120
+                        - listitem [ref=e5249]:
+                          - list [ref=e5250]:
+                            - listitem [ref=e5251]: FPS is now capped at 120 to prevent crashes caused by extremely high framerates
+                            - listitem [ref=e5252]: Performance beyond this point provided no gameplay benefit
+                        - listitem [ref=e5253]:
+                          - strong [ref=e5254]: VSync Crash Issue
+                        - listitem [ref=e5255]:
+                          - list [ref=e5256]:
+                            - listitem [ref=e5257]: Fixed an issue where VSync was causing crashes for some players
+                            - listitem [ref=e5258]: VSync now matches monitor FPS without enabling full VSync behavior
+                        - listitem [ref=e5259]:
+                          - strong [ref=e5260]: Invalid Steam Ticket
+                        - listitem [ref=e5261]:
+                          - list [ref=e5262]:
+                            - listitem [ref=e5263]: Fixed an account linking issue that was causing players to see an “Invalid Steam Ticket” error
+                        - listitem [ref=e5264]:
+                          - strong [ref=e5265]: High Flyer Mak – Black Square
+                        - listitem [ref=e5266]:
+                          - list [ref=e5267]:
+                            - listitem [ref=e5268]: Fixed a visual issue where one of Mak’s skins displayed a black square
+                      - heading "CRASH SITE EXPEDITION" [level=3] [ref=e5269]
+                      - list [ref=e5270]:
+                        - listitem [ref=e5271]:
+                          - strong [ref=e5272]: Crystal Growth Chamber
+                        - listitem [ref=e5273]:
+                          - list [ref=e5274]:
+                            - listitem [ref=e5275]: Corrected an issue where this was granting too many Crystals
+                            - listitem [ref=e5276]:
+                              - text: Now grants 3 Crystals randomly
+                              - emphasis [ref=e5277]: (was all 5)
+                        - listitem [ref=e5278]:
+                          - strong [ref=e5279]: Command Nexus
+                        - listitem [ref=e5280]:
+                          - list [ref=e5281]:
+                            - listitem [ref=e5282]: Corrected an issue where the Destroy It option could give items from the same Hero instead of another Hero
+                        - listitem [ref=e5283]:
+                          - strong [ref=e5284]: Cargo Hold
+                        - listitem [ref=e5285]:
+                          - list [ref=e5286]:
+                            - listitem [ref=e5287]: Corrected an issue where this generated Gold items more frequently than intended
+                      - heading "ITEM FIXES" [level=3] [ref=e5288]
+                      - list [ref=e5289]:
+                        - listitem [ref=e5290]:
+                          - strong [ref=e5291]: Toxic / Fiery Enchants
+                        - listitem [ref=e5292]:
+                          - list [ref=e5293]:
+                            - listitem [ref=e5294]: Corrected remaining items that were still using 5% values
+                        - listitem [ref=e5295]:
+                          - strong [ref=e5296]: Dino Saddle
+                        - listitem [ref=e5297]:
+                          - list [ref=e5298]:
+                            - listitem [ref=e5299]: Corrected an issue where Shiny worked from Stash
+                        - listitem [ref=e5300]:
+                          - strong [ref=e5301]: Echo Crystal
+                        - listitem [ref=e5302]:
+                          - list [ref=e5303]:
+                            - listitem [ref=e5304]: Corrected an issue where this could upgrade a different item if the target was already Diamond
+                        - listitem [ref=e5305]:
+                          - strong [ref=e5306]: Experimental Garage
+                        - listitem [ref=e5307]:
+                          - list [ref=e5308]:
+                            - listitem [ref=e5309]: Corrected an issue where Shiny worked from Stash
+                        - listitem [ref=e5310]:
+                          - strong [ref=e5311]: Knife Sharpener
+                        - listitem [ref=e5312]:
+                          - list [ref=e5313]:
+                            - listitem [ref=e5314]: Now Hastes for 2 seconds at all tiers
+                        - listitem [ref=e5315]:
+                          - strong [ref=e5316]: Pillbuggy
+                        - listitem [ref=e5317]:
+                          - list [ref=e5318]:
+                            - listitem [ref=e5319]: Corrected an issue where this item’s values were accidentally changed
+                        - listitem [ref=e5320]:
+                          - strong [ref=e5321]: Spiked Buckler
+                        - listitem [ref=e5322]:
+                          - list [ref=e5323]:
+                            - listitem [ref=e5324]: On-Sell effect now uses smart targeting to select a Weapon or Shield item
+                        - listitem [ref=e5325]:
+                          - strong [ref=e5326]: Wrist Warrior
+                        - listitem [ref=e5327]:
+                          - list [ref=e5328]:
+                            - listitem [ref=e5329]: Corrected an issue where Deadly worked from Stash
+                        - listitem [ref=e5330]:
+                          - strong [ref=e5331]: Toxic Flame
+                        - listitem [ref=e5332]:
+                          - list [ref=e5333]:
+                            - listitem [ref=e5334]: No longer buffs Burn items
+                      - heading "Original Patch" [level=3] [ref=e5335]
+                      - 'heading "Patch 11.0: February 4" [level=2] [ref=e5336]'
+                      - heading "CRASH SITE EXPEDITION" [level=3] [ref=e5337]
+                      - list [ref=e5338]:
+                        - listitem [ref=e5339]:
+                          - strong [ref=e5340]: A new expedition has arrived!
+                        - listitem [ref=e5341]: This is a free content update for all players
+                        - listitem [ref=e5342]:
+                          - text: Explore the Outland’s mysterious
+                          - strong [ref=e5343]: Crash Site
+                          - text: ", where a Crystal-based UFO has been spotted"
+                        - listitem [ref=e5344]:
+                          - text: This Expedition is available on Day 6 with the required
+                          - strong [ref=e5345]: Expedition Ticket
+                          - text: ", and offers a number of unique items only available in this area"
+                      - heading "COSMETICS" [level=3] [ref=e5346]
+                      - list [ref=e5347]:
+                        - listitem [ref=e5348]: "The following Cosmetics related to the Crash Site are available for direct purchase via Gems in the game store:"
+                        - listitem [ref=e5349]:
+                          - list [ref=e5350]:
+                            - listitem [ref=e5351]: "Board: Crash Site"
+                            - listitem [ref=e5352]: "Album: Area 67"
+                            - listitem [ref=e5353]: "Carpet: Streamscape"
+                            - listitem [ref=e5354]: "Card Back: Eye of the Vessel"
+                            - listitem [ref=e5355]: "Stash: Crystal Cache"
+                            - listitem [ref=e5356]: "Bank: Excavation Pan"
+                            - listitem [ref=e5357]: They will be available for a limited time but may appear again in the future
+                        - listitem [ref=e5358]:
+                          - strong [ref=e5359]: Prize Pass
+                          - text: "has been updated with the following free cosmetics:"
+                        - listitem [ref=e5360]:
+                          - list [ref=e5361]:
+                            - listitem [ref=e5362]: "Level 20: Hen House"
+                            - listitem [ref=e5363]: "Level 40: Cosmic Fissure"
+                        - listitem [ref=e5364]:
+                          - strong [ref=e5365]: Chests additions
+                        - listitem [ref=e5366]:
+                          - list [ref=e5367]:
+                            - listitem [ref=e5368]: 10 Stelle items
+                            - listitem [ref=e5369]: 10 Jules items
+                            - listitem [ref=e5370]: 10 Vanessa items
+                      - heading "LEADERBOARD REWARDS" [level=3] [ref=e5371]
+                      - list [ref=e5372]:
+                        - listitem [ref=e5373]:
+                          - strong [ref=e5374]: Leaderboard Rewards
+                          - text: "have been given out to the following 1000 Players:"
+                        - listitem [ref=e5375]:
+                          - list [ref=e5376]:
+                            - listitem [ref=e5377]: Yetarian Champion (Top 10)
+                            - listitem [ref=e5378]: Yetarian Paragon (Top 100)
+                            - listitem [ref=e5379]: Yetarian Elite (Top 1000)
+                      - heading "NEW CONTENT" [level=3] [ref=e5380]
+                      - list [ref=e5381]:
+                        - listitem [ref=e5382]:
+                          - strong [ref=e5383]: The Travel Agent
+                        - listitem [ref=e5384]:
+                          - list [ref=e5385]:
+                            - listitem [ref=e5386]: A new encounter that sells Expedition Tickets
+                            - listitem [ref=e5387]: Spawns on Days 2 to 5
+                        - listitem [ref=e5388]:
+                          - strong [ref=e5389]: Random Hero
+                        - listitem [ref=e5390]:
+                          - list [ref=e5391]:
+                            - listitem [ref=e5392]: You can now click a checkbox and play a random Hero from among owned Heroes
+                        - listitem [ref=e5393]:
+                          - strong [ref=e5394]: Cosmetic Loadouts
+                        - listitem [ref=e5395]:
+                          - list [ref=e5396]:
+                            - listitem [ref=e5397]: Cosmetic loadouts are now saved per Hero
+                            - listitem [ref=e5398]: Cosmetic loadouts can now be randomized
+                        - listitem [ref=e5399]:
+                          - strong [ref=e5400]: Repair
+                        - listitem [ref=e5401]:
+                          - list [ref=e5402]:
+                            - listitem [ref=e5403]: Repair is a new mechanic that allows Items and Skills to fix items that are destroyed in combat
+                      - heading "NEW STELLE ITEMS" [level=3] [ref=e5404]
+                      - list [ref=e5405]:
+                        - listitem [ref=e5406]:
+                          - strong [ref=e5407]: Experimental Garage
+                        - listitem [ref=e5408]:
+                          - list [ref=e5409]:
+                            - listitem [ref=e5410]: A disruption based item that overrides existing enchantments
+                        - listitem [ref=e5411]:
+                          - strong [ref=e5412]: Recycler Bot
+                        - listitem [ref=e5413]:
+                          - list [ref=e5414]:
+                            - listitem [ref=e5415]: A specialized repair Tool for repairing small items
+                        - listitem [ref=e5416]:
+                          - strong [ref=e5417]: Boosted Saucer
+                        - listitem [ref=e5418]:
+                          - list [ref=e5419]:
+                            - listitem [ref=e5420]: A repair item that also functions as a destroy payoff
+                        - listitem [ref=e5421]:
+                          - strong [ref=e5422]: Seeker Probe
+                        - listitem [ref=e5423]:
+                          - list [ref=e5424]:
+                            - listitem [ref=e5425]: A sneaky little guy that destroys enemy items when it crits
+                        - listitem [ref=e5426]:
+                          - strong [ref=e5427]: Repair Drone
+                        - listitem [ref=e5428]:
+                          - list [ref=e5429]:
+                            - listitem [ref=e5430]: A more generalized repair item that repairs items of any size
+                        - listitem [ref=e5431]:
+                          - strong [ref=e5432]: Salvage Yard
+                        - listitem [ref=e5433]:
+                          - list [ref=e5434]:
+                            - listitem [ref=e5435]: A defensive destroy/repair payoff item
+                      - heading "GENERAL CHANGES" [level=3] [ref=e5436]
+                      - list [ref=e5437]:
+                        - listitem [ref=e5438]:
+                          - strong [ref=e5439]: Fiery/Toxic Scaling
+                        - listitem [ref=e5440]:
+                          - list [ref=e5441]:
+                            - listitem [ref=e5442]: Fiery and Toxic now scales to 10% of the targeted output’s effect, instead of 5%
+                        - listitem [ref=e5443]:
+                          - strong [ref=e5444]: Shield Interaction with Burn
+                        - listitem [ref=e5445]:
+                          - list [ref=e5446]:
+                            - listitem [ref=e5447]: The amount of Shield reduction of Burn is now capped to the current value of the Shield when the Burn ticks
+                            - listitem [ref=e5448]: 10 Burn on 10 Shield or more remains the same
+                        - listitem [ref=e5449]:
+                          - strong [ref=e5450]: Self Destroy
+                        - listitem [ref=e5451]:
+                          - list [ref=e5452]:
+                            - listitem [ref=e5453]: Corrected an issue with certain Self Destroy items not counting as “used” for other triggers when it destroys itself
+                      - heading "ENCOUNTER CHANGES" [level=3] [ref=e5454]
+                      - list [ref=e5455]:
+                        - listitem [ref=e5456]: A number of Monsters have had their Day 9 Jungle Expedition Ticket changed to Day 6 Crash Site Ticket
+                        - listitem [ref=e5457]: Corrected a general issue with some Loot nodes not spawning the right
+                        - listitem [ref=e5458]:
+                          - strong [ref=e5459]: Aerodrome
+                        - listitem [ref=e5460]:
+                          - list [ref=e5461]:
+                            - listitem [ref=e5462]:
+                              - text: Billboard option now gives +10 Gold
+                              - emphasis [ref=e5463]: (instead of +2 Income)
+                        - listitem [ref=e5464]:
+                          - strong [ref=e5465]: Finn’s Big Bite
+                        - listitem [ref=e5466]:
+                          - list [ref=e5467]:
+                            - listitem [ref=e5468]:
+                              - text: Riceballer option now gives 1 Cinders
+                              - emphasis [ref=e5469]: (from 2)
+                        - listitem [ref=e5470]:
+                          - strong [ref=e5471]: Chilly Charles
+                        - listitem [ref=e5472]:
+                          - list [ref=e5473]:
+                            - listitem [ref=e5474]: Slushee on a Chilled Slot has replaced Icicles
+                            - listitem [ref=e5475]: Gained a Chilled Slot on Ice Cubes
+                        - listitem [ref=e5476]:
+                          - strong [ref=e5477]: Eccentric Etherwright
+                        - listitem [ref=e5478]:
+                          - list [ref=e5479]:
+                            - listitem [ref=e5480]: Found their lost Laser Pistol
+                        - listitem [ref=e5481]:
+                          - strong [ref=e5482]: Infernal Frigate
+                        - listitem [ref=e5483]:
+                          - list [ref=e5484]:
+                            - listitem [ref=e5485]: Gained a Day 9 Jungle Expedition Ticket
+                        - listitem [ref=e5486]:
+                          - strong [ref=e5487]: Joyful Jack
+                        - listitem [ref=e5488]:
+                          - list [ref=e5489]:
+                            - listitem [ref=e5490]: No longer spawns on Day 6
+                            - listitem [ref=e5491]: Gained a Day 9 Jungle Expedition Ticket
+                        - listitem [ref=e5492]:
+                          - strong [ref=e5493]: Kyver Commander
+                        - listitem [ref=e5494]:
+                          - list [ref=e5495]:
+                            - listitem [ref=e5496]: The two Busy Bees are now Obsidian and Deadly
+                        - listitem [ref=e5497]:
+                          - strong [ref=e5498]: Product Demonstrator
+                        - listitem [ref=e5499]:
+                          - list [ref=e5500]:
+                            - listitem [ref=e5501]: Gained Rocket Drone and Recycler Bot
+                        - listitem [ref=e5502]:
+                          - strong [ref=e5503]: Pyro
+                        - listitem [ref=e5504]:
+                          - list [ref=e5505]:
+                            - listitem [ref=e5506]: Gained a Fire Bomb
+                            - listitem [ref=e5507]: Cinders (Silver) is now Cinders (Bronze)
+                      - heading "SKILL CHANGES" [level=3] [ref=e5508]
+                      - list [ref=e5509]:
+                        - listitem [ref=e5510]:
+                          - strong [ref=e5511]: Advanced Synthetics
+                        - listitem [ref=e5512]:
+                          - list [ref=e5513]:
+                            - listitem [ref=e5514]: Now spawns for Stelle
+                            - listitem [ref=e5515]: When you buy this or Level Up, upgrade a lower tier item
+                        - listitem [ref=e5516]:
+                          - strong [ref=e5517]: Beautiful Friendship
+                        - listitem [ref=e5518]:
+                          - list [ref=e5519]:
+                            - listitem [ref=e5520]: Now spawns for Vanessa
+                        - listitem [ref=e5521]:
+                          - strong [ref=e5522]: Burn Containment
+                        - listitem [ref=e5523]:
+                          - list [ref=e5524]:
+                            - listitem [ref=e5525]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5526]: (was 5/10)
+                        - listitem [ref=e5527]:
+                          - strong [ref=e5528]: Calming Heals
+                        - listitem [ref=e5529]:
+                          - list [ref=e5530]:
+                            - listitem [ref=e5531]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5532]: (was 5/10)
+                        - listitem [ref=e5533]:
+                          - strong [ref=e5534]: Coolant Leak
+                        - listitem [ref=e5535]:
+                          - list [ref=e5536]:
+                            - listitem [ref=e5537]: Starts at Gold-tier
+                            - listitem [ref=e5538]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5539]: (was 3/6/9)
+                        - listitem [ref=e5540]:
+                          - strong [ref=e5541]: Creeping Toxins
+                        - listitem [ref=e5542]:
+                          - list [ref=e5543]:
+                            - listitem [ref=e5544]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5545]: (was 5/10)
+                        - listitem [ref=e5546]:
+                          - strong [ref=e5547]: Deadly Waters
+                        - listitem [ref=e5548]:
+                          - list [ref=e5549]:
+                            - listitem [ref=e5550]:
+                              - text: Damage buff to 20/25/30/35
+                              - emphasis [ref=e5551]: (was 20/30/40/50)
+                        - listitem [ref=e5552]:
+                          - strong [ref=e5553]: Desperate Cleanse
+                        - listitem [ref=e5554]:
+                          - list [ref=e5555]:
+                            - listitem [ref=e5556]: Now spawns for all Heroes
+                        - listitem [ref=e5557]:
+                          - strong [ref=e5558]: Emergency Draught
+                        - listitem [ref=e5559]:
+                          - list [ref=e5560]:
+                            - listitem [ref=e5561]: Now spawns for Jules
+                        - listitem [ref=e5562]:
+                          - strong [ref=e5563]: Emergency Landing
+                        - listitem [ref=e5564]:
+                          - list [ref=e5565]:
+                            - listitem [ref=e5566]: Corrected an issue where this was setting Health instead of healing due to using revive heal
+                        - listitem [ref=e5567]:
+                          - strong [ref=e5568]: Everlasting Life
+                        - listitem [ref=e5569]:
+                          - list [ref=e5570]:
+                            - listitem [ref=e5571]: Corrected an issue where this was counting all item uses instead of just Heal and Regen items
+                        - listitem [ref=e5572]:
+                          - strong [ref=e5573]: Hardly Workin'
+                        - listitem [ref=e5574]:
+                          - list [ref=e5575]:
+                            - listitem [ref=e5576]: Starts at Gold-tier
+                            - listitem [ref=e5577]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5578]: (was 4/8/12)
+                        - listitem [ref=e5579]:
+                          - strong [ref=e5580]: Improvised Burn
+                        - listitem [ref=e5581]:
+                          - list [ref=e5582]:
+                            - listitem [ref=e5583]: Now spawns for Dooley
+                        - listitem [ref=e5584]:
+                          - strong [ref=e5585]: Invigorating Blade
+                        - listitem [ref=e5586]:
+                          - list [ref=e5587]:
+                            - listitem [ref=e5588]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5589]: (was 5/10)
+                        - listitem [ref=e5590]:
+                          - strong [ref=e5591]: Repair Mechanic
+                        - listitem [ref=e5592]:
+                          - list [ref=e5593]:
+                            - listitem [ref=e5594]: Renamed from Master Mechanic
+                            - listitem [ref=e5595]: Now spawns for all Heroes
+                            - listitem [ref=e5596]: The first [1/2] times one of your items is destroyed each fight, Repair it
+                        - listitem [ref=e5597]:
+                          - strong [ref=e5598]: Morning Rush
+                        - listitem [ref=e5599]:
+                          - list [ref=e5600]:
+                            - listitem [ref=e5601]: Corrected an issue where this was type Tool instead of Food
+                        - listitem [ref=e5602]:
+                          - strong [ref=e5603]: Outmaneuver
+                        - listitem [ref=e5604]:
+                          - list [ref=e5605]:
+                            - listitem [ref=e5606]: Now spawns for Dooley
+                        - listitem [ref=e5607]:
+                          - strong [ref=e5608]: Sick Burn
+                        - listitem [ref=e5609]:
+                          - list [ref=e5610]:
+                            - listitem [ref=e5611]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5612]: (was 5/10)
+                        - listitem [ref=e5613]:
+                          - strong [ref=e5614]: Slow Burn
+                        - listitem [ref=e5615]:
+                          - list [ref=e5616]:
+                            - listitem [ref=e5617]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5618]: (was 5/10)
+                        - listitem [ref=e5619]:
+                          - strong [ref=e5620]: Temporal Strike
+                        - listitem [ref=e5621]:
+                          - list [ref=e5622]:
+                            - listitem [ref=e5623]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5624]: (was 5/10)
+                        - listitem [ref=e5625]:
+                          - strong [ref=e5626]: Workin' Hard
+                        - listitem [ref=e5627]:
+                          - list [ref=e5628]:
+                            - listitem [ref=e5629]: Starts at Gold-tier
+                            - listitem [ref=e5630]:
+                              - text: Uses to 4/8
+                              - emphasis [ref=e5631]: (was 4/8/12)
+                      - heading "ITEM CHANGES" [level=3] [ref=e5632]
+                      - heading "NEUTRAL" [level=3] [ref=e5633]
+                      - list [ref=e5634]:
+                        - listitem [ref=e5635]:
+                          - strong [ref=e5636]: Clockwork Blades
+                        - listitem [ref=e5637]:
+                          - list [ref=e5638]:
+                            - listitem [ref=e5639]:
+                              - text: Cooldown to 4
+                              - emphasis [ref=e5640]: (was 7)
+                        - listitem [ref=e5641]:
+                          - strong [ref=e5642]: Insect Wing
+                        - listitem [ref=e5643]:
+                          - list [ref=e5644]:
+                            - listitem [ref=e5645]: Starts at Bronze-tier
+                            - listitem [ref=e5646]:
+                              - text: CDR [1/2/4/8]
+                              - emphasis [ref=e5647]: (was [-/2/4/8])
+                        - listitem [ref=e5648]:
+                          - strong [ref=e5649]: Junkyard Repairbot
+                        - listitem [ref=e5650]:
+                          - list [ref=e5651]:
+                            - listitem [ref=e5652]:
+                              - text: Cooldown to 5
+                              - emphasis [ref=e5653]: (was 8)
+                            - listitem [ref=e5654]: Gains "Repair an item"
+                        - listitem [ref=e5655]:
+                          - strong [ref=e5656]: Singularity
+                        - listitem [ref=e5657]:
+                          - list [ref=e5658]:
+                            - listitem [ref=e5659]: No longer has the Tech type
+                        - listitem [ref=e5660]:
+                          - strong [ref=e5661]: Snowflake
+                        - listitem [ref=e5662]:
+                          - list [ref=e5663]:
+                            - listitem [ref=e5664]: Can now target items of any size
+                      - heading "DOOLEY" [level=3] [ref=e5665]
+                      - list [ref=e5666]:
+                        - listitem [ref=e5667]:
+                          - strong [ref=e5668]: Chris Army Knife
+                        - listitem [ref=e5669]:
+                          - list [ref=e5670]:
+                            - listitem [ref=e5671]:
+                              - text: Cooldown to 6/5/4/3
+                              - emphasis [ref=e5672]: (was 7/6/5/4)
+                        - listitem [ref=e5673]:
+                          - strong [ref=e5674]: Claw Arm
+                        - listitem [ref=e5675]:
+                          - list [ref=e5676]:
+                            - listitem [ref=e5677]: Starts at Bronze-tier
+                            - listitem [ref=e5678]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e5679]: (was 5)
+                            - listitem [ref=e5680]:
+                              - text: Damage to 30
+                              - emphasis [ref=e5681]: (was 20)
+                            - listitem [ref=e5682]:
+                              - text: Scaling to 15/30/45/60
+                              - emphasis [ref=e5683]: (was 20/40/60)
+                        - listitem [ref=e5684]:
+                          - strong [ref=e5685]: Dooltron
+                        - listitem [ref=e5686]:
+                          - list [ref=e5687]:
+                            - listitem [ref=e5688]:
+                              - text: Damage to 1000/2000
+                              - emphasis [ref=e5689]: (was 900/1800)
+                            - listitem [ref=e5690]:
+                              - text: When you use a Friend, Shield 50/100
+                              - emphasis [ref=e5691]: (was 75/150)
+                        - listitem [ref=e5692]:
+                          - strong [ref=e5693]: First Aiden
+                        - listitem [ref=e5694]:
+                          - list [ref=e5695]:
+                            - listitem [ref=e5696]: Cooldown to 4
+                            - listitem [ref=e5697]: Heal 20/40/60/80
+                            - listitem [ref=e5698]: Haste an item for [1/2/3/4] second(s)
+                        - listitem [ref=e5699]:
+                          - strong [ref=e5700]: Laser Pistol
+                        - listitem [ref=e5701]:
+                          - list [ref=e5702]:
+                            - listitem [ref=e5703]:
+                              - text: Cooldown to 4
+                              - emphasis [ref=e5704]: (was 5)
+                        - listitem [ref=e5705]:
+                          - strong [ref=e5706]: Levitation Pad
+                        - listitem [ref=e5707]:
+                          - list [ref=e5708]:
+                            - listitem [ref=e5709]: Now correctly states that the item to the left is Hasted and does not require it to already be Flying
+                            - listitem [ref=e5710]: Tooltip was incorrect; functionality unchanged
+                        - listitem [ref=e5711]:
+                          - strong [ref=e5712]: Mech-Moles
+                        - listitem [ref=e5713]:
+                          - list [ref=e5714]:
+                            - listitem [ref=e5715]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e5716]: (was 5)
+                            - listitem [ref=e5717]:
+                              - text: Damage to 8
+                              - emphasis [ref=e5718]: (was 5)
+                            - listitem [ref=e5719]:
+                              - text: Scaling to 4/8/12/16
+                              - emphasis [ref=e5720]: (was 5/10/15/20)
+                        - listitem [ref=e5721]:
+                          - strong [ref=e5722]: Plasma Grenade
+                        - listitem [ref=e5723]:
+                          - list [ref=e5724]:
+                            - listitem [ref=e5725]: Corrected an issue where this Slowed targets from left to right instead of random targeting
+                        - listitem [ref=e5726]:
+                          - strong [ref=e5727]: Pulse Rifle
+                        - listitem [ref=e5728]:
+                          - list [ref=e5729]:
+                            - listitem [ref=e5730]:
+                              - text: Damage to 15/30/45/60
+                              - emphasis [ref=e5731]: (was 10/20/30/40)
+                        - listitem [ref=e5732]:
+                          - strong [ref=e5733]: Pyrocarbon
+                        - listitem [ref=e5734]:
+                          - list [ref=e5735]:
+                            - listitem [ref=e5736]: Redesigned
+                            - listitem [ref=e5737]: Cooldown to 6
+                            - listitem [ref=e5738]: Shield [20/30/40]
+                            - listitem [ref=e5739]: Haste [1/2/3] items for 1 second(s)
+                            - listitem [ref=e5740]: When you Burn, Charge this 2 seconds
+                        - listitem [ref=e5741]:
+                          - strong [ref=e5742]: Tesla Coil
+                        - listitem [ref=e5743]:
+                          - list [ref=e5744]:
+                            - listitem [ref=e5745]: Starts at Bronze-tier
+                            - listitem [ref=e5746]:
+                              - text: Cooldown to 8/7/6/5
+                              - emphasis [ref=e5747]: (was 7/6/5)
+                            - listitem [ref=e5748]:
+                              - text: Damage to 50
+                              - emphasis [ref=e5749]: (was 25/50/75)
+                        - listitem [ref=e5750]:
+                          - strong [ref=e5751]: Virus
+                        - listitem [ref=e5752]:
+                          - list [ref=e5753]:
+                            - listitem [ref=e5754]:
+                              - text: Cooldown to 8/7/6/5
+                              - emphasis [ref=e5755]: (was 9/8/7/6)
+                      - heading "JULES" [level=3] [ref=e5756]
+                      - list [ref=e5757]:
+                        - listitem [ref=e5758]:
+                          - strong [ref=e5759]: Caviar
+                        - listitem [ref=e5760]:
+                          - list [ref=e5761]:
+                            - listitem [ref=e5762]:
+                              - text: Now gives Crit to all items
+                              - emphasis [ref=e5763]: (was Food only)
+                            - listitem [ref=e5764]: Gained the Aquatic type
+                        - listitem [ref=e5765]:
+                          - strong [ref=e5766]: Chef Hat
+                        - listitem [ref=e5767]:
+                          - list [ref=e5768]:
+                            - listitem [ref=e5769]: "Gained: When you buy this, get a Small Food from any Hero"
+                        - listitem [ref=e5770]:
+                          - strong [ref=e5771]: Stand Mixer
+                        - listitem [ref=e5772]:
+                          - list [ref=e5773]:
+                            - listitem [ref=e5774]: Deadly now gives double Crit Chance bonus
+                        - listitem [ref=e5775]:
+                          - strong [ref=e5776]: Farmer’s Market
+                        - listitem [ref=e5777]:
+                          - list [ref=e5778]:
+                            - listitem [ref=e5779]: Corrected an issue where this counted as a Regen output item
+                        - listitem [ref=e5780]:
+                          - strong [ref=e5781]: Feast
+                        - listitem [ref=e5782]:
+                          - list [ref=e5783]:
+                            - listitem [ref=e5784]:
+                              - text: Burn and Regen to 8
+                              - emphasis [ref=e5785]: (was 3/6)
+                        - listitem [ref=e5786]:
+                          - strong [ref=e5787]: Fruit Press
+                        - listitem [ref=e5788]:
+                          - list [ref=e5789]:
+                            - listitem [ref=e5790]: Corrected an issue where Fruit Press could not press itself if it gained the Food type
+                        - listitem [ref=e5791]:
+                          - strong [ref=e5792]: Giant Lollipop
+                        - listitem [ref=e5793]:
+                          - list [ref=e5794]:
+                            - listitem [ref=e5795]: Corrected an issue where this did not count as a Quest item for triggers
+                        - listitem [ref=e5796]:
+                          - strong [ref=e5797]: Gingerbread House
+                        - listitem [ref=e5798]:
+                          - list [ref=e5799]:
+                            - listitem [ref=e5800]:
+                              - text: When you use a Food
+                              - emphasis [ref=e5801]: (was When you use another Food)
+                        - listitem [ref=e5802]:
+                          - strong [ref=e5803]: Hot Sauce
+                        - listitem [ref=e5804]:
+                          - list [ref=e5805]:
+                            - listitem [ref=e5806]:
+                              - text: For each adjacent Food or Tool, this has +1 Multicast
+                              - emphasis [ref=e5807]: (was Food only)
+                        - listitem [ref=e5808]:
+                          - strong [ref=e5809]: Mouse Trap
+                        - listitem [ref=e5810]:
+                          - list [ref=e5811]:
+                            - listitem [ref=e5812]: Starts at Silver-tier
+                        - listitem [ref=e5813]:
+                          - strong [ref=e5814]: Oven
+                        - listitem [ref=e5815]:
+                          - list [ref=e5816]:
+                            - listitem [ref=e5817]: Corrected an issue where this was Heating for 6 seconds instead of 4
+                        - listitem [ref=e5818]:
+                          - strong [ref=e5819]: Pastry Cart
+                        - listitem [ref=e5820]:
+                          - list [ref=e5821]:
+                            - listitem [ref=e5822]:
+                              - text: When you use a Chilled item, Freeze an item for [0.5/1] second(s)
+                              - emphasis [ref=e5823]: (was Freeze 1/2 items for 0.5 second(s))
+                        - listitem [ref=e5824]:
+                          - strong [ref=e5825]: Rolling Pin
+                        - listitem [ref=e5826]:
+                          - list [ref=e5827]:
+                            - listitem [ref=e5828]:
+                              - text: Damage to 25
+                              - emphasis [ref=e5829]: (was 30)
+                            - listitem [ref=e5830]:
+                              - text: Scaling to 25/50/75/100
+                              - emphasis [ref=e5831]: (was 30/60/90/120)
+                        - listitem [ref=e5832]:
+                          - strong [ref=e5833]: Santoku
+                        - listitem [ref=e5834]:
+                          - list [ref=e5835]:
+                            - listitem [ref=e5836]:
+                              - text: The item to the left of this has +Crit Chance equal to this item’s Crit Chance
+                              - emphasis [ref=e5837]: (was The Food to the left)
+                        - listitem [ref=e5838]:
+                          - strong [ref=e5839]: Spatula
+                        - listitem [ref=e5840]:
+                          - list [ref=e5841]:
+                            - listitem [ref=e5842]:
+                              - text: Crit Chance gain [10/15/20/25]
+                              - emphasis [ref=e5843]: (was [5/10/15/20])
+                        - listitem [ref=e5844]:
+                          - strong [ref=e5845]: Sushi Boat
+                        - listitem [ref=e5846]:
+                          - list [ref=e5847]:
+                            - listitem [ref=e5848]: "Gained: Gain [3/6/9] Regen for the fight"
+                            - listitem [ref=e5849]: Corrected an issue where this did not charge itself if it gained the Food type
+                        - listitem [ref=e5850]:
+                          - strong [ref=e5851]: Ulu Knife
+                        - listitem [ref=e5852]:
+                          - list [ref=e5853]:
+                            - listitem [ref=e5854]: Now also gives adjacent items Crit when Hasted
+                            - listitem [ref=e5855]:
+                              - text: Crit bonus to 5/10/15/20
+                              - emphasis [ref=e5856]: (was 10/15/20/25)
+                      - heading "MAK" [level=3] [ref=e5857]
+                      - list [ref=e5858]:
+                        - listitem [ref=e5859]:
+                          - strong [ref=e5860]: Adrenal Converter
+                        - listitem [ref=e5861]:
+                          - list [ref=e5862]:
+                            - listitem [ref=e5863]:
+                              - text: Cooldown to 5
+                              - emphasis [ref=e5864]: (was 6)
+                            - listitem [ref=e5865]:
+                              - text: Regen to 5/10/15
+                              - emphasis [ref=e5866]: (was 8/16/24)
+                            - listitem [ref=e5867]: Corrected an issue where the self Poison clause only cared about items
+                        - listitem [ref=e5868]:
+                          - strong [ref=e5869]: Atmospheric Sampler
+                        - listitem [ref=e5870]:
+                          - list [ref=e5871]:
+                            - listitem [ref=e5872]: No longer gives an item Flying at the start of fight
+                        - listitem [ref=e5873]:
+                          - strong [ref=e5874]: Basilisk Fang
+                        - listitem [ref=e5875]:
+                          - list [ref=e5876]:
+                            - listitem [ref=e5877]: Starts at Bronze-tier
+                            - listitem [ref=e5878]:
+                              - text: Damage to 10/20/30/40
+                              - emphasis [ref=e5879]: (was 10/20/30)
+                            - listitem [ref=e5880]:
+                              - text: Crit to 25/50/75/100
+                              - emphasis [ref=e5881]: (was 25/50/100)
+                        - listitem [ref=e5882]:
+                          - strong [ref=e5883]: Dragon’s Breath
+                        - listitem [ref=e5884]:
+                          - list [ref=e5885]:
+                            - listitem [ref=e5886]: "Gained: When you buy this, get a Small Burn item from any Hero"
+                        - listitem [ref=e5887]:
+                          - strong [ref=e5888]: Earrings
+                        - listitem [ref=e5889]:
+                          - list [ref=e5890]:
+                            - listitem [ref=e5891]:
+                              - text: Cooldown to 6/5/4
+                              - emphasis [ref=e5892]: (was 5)
+                            - listitem [ref=e5893]:
+                              - text: Max Health Gain to 50
+                              - emphasis [ref=e5894]: (was 50/75/100)
+                        - listitem [ref=e5895]:
+                          - strong [ref=e5896]: Floor Spike
+                        - listitem [ref=e5897]:
+                          - list [ref=e5898]:
+                            - listitem [ref=e5899]: Starts at Bronze-tier
+                            - listitem [ref=e5900]: Damage to 10/20/30/40
+                            - listitem [ref=e5901]: Poison to 1/2/3/4
+                        - listitem [ref=e5902]:
+                          - strong [ref=e5903]: Fungal Spores
+                        - listitem [ref=e5904]:
+                          - list [ref=e5905]:
+                            - listitem [ref=e5906]: Loses Catalyst on purchase
+                        - listitem [ref=e5907]:
+                          - strong [ref=e5908]: Ice Claw
+                        - listitem [ref=e5909]:
+                          - list [ref=e5910]:
+                            - listitem [ref=e5911]:
+                              - text: Damage to 60
+                              - emphasis [ref=e5912]: (was 30)
+                            - listitem [ref=e5913]:
+                              - text: Damage Scaling to 60/90/120
+                              - emphasis [ref=e5914]: (was 30/60/120)
+                        - listitem [ref=e5915]:
+                          - strong [ref=e5916]: Ouroboros Statue
+                        - listitem [ref=e5917]:
+                          - list [ref=e5918]:
+                            - listitem [ref=e5919]:
+                              - text: Regen to 3/6/9
+                              - emphasis [ref=e5920]: (was 4/8/12)
+                        - listitem [ref=e5921]:
+                          - strong [ref=e5922]: Rapid Injection System
+                        - listitem [ref=e5923]:
+                          - list [ref=e5924]:
+                            - listitem [ref=e5925]: Corrected an issue where the self Poison clause only cared about items
+                        - listitem [ref=e5926]:
+                          - strong [ref=e5927]: The Tome of Yyahan
+                        - listitem [ref=e5928]:
+                          - list [ref=e5929]:
+                            - listitem [ref=e5930]:
+                              - text: Regen to 3/6/9
+                              - emphasis [ref=e5931]: (was 4/8/12)
+                      - heading "PYGMALIEN" [level=3] [ref=e5932]
+                      - list [ref=e5933]:
+                        - listitem [ref=e5934]:
+                          - strong [ref=e5935]: Level Up
+                        - listitem [ref=e5936]:
+                          - list [ref=e5937]:
+                            - listitem [ref=e5938]:
+                              - text: Property level up to 6 Gold per property
+                              - emphasis [ref=e5939]: (was 7)
+                        - listitem [ref=e5940]:
+                          - strong [ref=e5941]: 28 Hour Fitness
+                        - listitem [ref=e5942]:
+                          - list [ref=e5943]:
+                            - listitem [ref=e5944]:
+                              - text: Scaling to 15/25
+                              - emphasis [ref=e5945]: (was 20/30)
+                        - listitem [ref=e5946]:
+                          - strong [ref=e5947]: Aurora Dome
+                        - listitem [ref=e5948]:
+                          - list [ref=e5949]:
+                            - listitem [ref=e5950]:
+                              - text: Freezes an item for 1 second
+                              - emphasis [ref=e5951]: (was Shield 20)
+                        - listitem [ref=e5952]:
+                          - strong [ref=e5953]: Beast of Burden
+                        - listitem [ref=e5954]:
+                          - list [ref=e5955]:
+                            - listitem [ref=e5956]:
+                              - text: Cooldown to 9
+                              - emphasis [ref=e5957]: (was 10)
+                        - listitem [ref=e5958]:
+                          - strong [ref=e5959]: Cargo Shorts
+                        - listitem [ref=e5960]:
+                          - list [ref=e5961]:
+                            - listitem [ref=e5962]:
+                              - text: Cooldown to 10/9/8
+                              - emphasis [ref=e5963]: (was 8)
+                        - listitem [ref=e5964]:
+                          - strong [ref=e5965]: Cold Room
+                        - listitem [ref=e5966]:
+                          - list [ref=e5967]:
+                            - listitem [ref=e5968]:
+                              - text: Freeze duration to 0.5 seconds
+                              - emphasis [ref=e5969]: (was 1 second)
+                        - listitem [ref=e5970]:
+                          - strong [ref=e5971]: Crook
+                        - listitem [ref=e5972]:
+                          - list [ref=e5973]:
+                            - listitem [ref=e5974]: Starts at Bronze-tier
+                            - listitem [ref=e5975]:
+                              - text: Damage buff to 4/8/12/16
+                              - emphasis [ref=e5976]: (was 8/12/16)
+                        - listitem [ref=e5977]:
+                          - strong [ref=e5978]: Igloo
+                        - listitem [ref=e5979]:
+                          - list [ref=e5980]:
+                            - listitem [ref=e5981]:
+                              - text: Cooldown to 8/7/6
+                              - emphasis [ref=e5982]: (was 7)
+                            - listitem [ref=e5983]:
+                              - text: Freeze 2 items for 1 second(s)
+                              - emphasis [ref=e5984]: (was 1/2/3 items)
+                        - listitem [ref=e5985]:
+                          - strong [ref=e5986]: Oinkment
+                        - listitem [ref=e5987]:
+                          - list [ref=e5988]:
+                            - listitem [ref=e5989]:
+                              - text: Cooldown to 7/6/5
+                              - emphasis [ref=e5990]: (was 6)
+                        - listitem [ref=e5991]:
+                          - strong [ref=e5992]: VIP Pass
+                        - listitem [ref=e5993]:
+                          - list [ref=e5994]:
+                            - listitem [ref=e5995]: No longer buffs its own value
+                        - listitem [ref=e5996]:
+                          - strong [ref=e5997]: Wrist Warrior
+                        - listitem [ref=e5998]:
+                          - list [ref=e5999]:
+                            - listitem [ref=e6000]: Loses the Tech type
+                            - listitem [ref=e6001]:
+                              - text: Damage to 4/8/12/16
+                              - emphasis [ref=e6002]: (was 5/10/15/20)
+                            - listitem [ref=e6003]:
+                              - text: Shield Scaling to 4/8/12/16 and now hits an adjacent item only
+                              - emphasis [ref=e6004]: (was 5/10/15/20 and hit both)
+                            - listitem [ref=e6005]: Deadly now gives adjacent Shield items +30% Crit Chance
+                      - heading "STELLE" [level=3] [ref=e6006]
+                      - list [ref=e6007]:
+                        - listitem [ref=e6008]:
+                          - strong [ref=e6009]: Aviators
+                        - listitem [ref=e6010]:
+                          - list [ref=e6011]:
+                            - listitem [ref=e6012]: Charge also triggers on Destroy
+                        - listitem [ref=e6013]:
+                          - strong [ref=e6014]: Boom Boom Bot
+                        - listitem [ref=e6015]:
+                          - list [ref=e6016]:
+                            - listitem [ref=e6017]:
+                              - text: Damage to 40/80/120/160
+                              - emphasis [ref=e6018]: (was 50/100/150/200)
+                            - listitem [ref=e6019]:
+                              - text: Scaling to 20/40/60/80
+                              - emphasis [ref=e6020]: (was 25/50/75/100)
+                        - listitem [ref=e6021]:
+                          - strong [ref=e6022]: Box Cutter
+                        - listitem [ref=e6023]:
+                          - list [ref=e6024]:
+                            - listitem [ref=e6025]:
+                              - text: Cooldown to 3
+                              - emphasis [ref=e6026]: (was 4)
+                            - listitem [ref=e6027]: Damage to 10/20/30/40
+                            - listitem [ref=e6028]: Damage reduction now lasts until end of combat only
+                            - listitem [ref=e6029]: No longer gains damage on Level Up
+                        - listitem [ref=e6030]:
+                          - strong [ref=e6031]: Clockwork Disc
+                        - listitem [ref=e6032]:
+                          - list [ref=e6033]:
+                            - listitem [ref=e6034]:
+                              - text: Damage to 10/20/30/40
+                              - emphasis [ref=e6035]: (was 5/15/25/35)
+                        - listitem [ref=e6036]:
+                          - strong [ref=e6037]: Fire Bomb
+                        - listitem [ref=e6038]:
+                          - list [ref=e6039]:
+                            - listitem [ref=e6040]: Redesigned
+                            - listitem [ref=e6041]: Cooldown to 3
+                            - listitem [ref=e6042]: Burn [6/9/12/15]
+                            - listitem [ref=e6043]: Destroy this for the fight
+                        - listitem [ref=e6044]:
+                          - strong [ref=e6045]: Ice Bomb
+                        - listitem [ref=e6046]:
+                          - list [ref=e6047]:
+                            - listitem [ref=e6048]: Redesigned
+                            - listitem [ref=e6049]: Cooldown to 3
+                            - listitem [ref=e6050]: Freeze [--/1/2/3] items for 1 second(s)
+                            - listitem [ref=e6051]: Destroy this for the fight
+                        - listitem [ref=e6052]:
+                          - strong [ref=e6053]: Flashbang
+                        - listitem [ref=e6054]:
+                          - list [ref=e6055]:
+                            - listitem [ref=e6056]: Redesigned
+                            - listitem [ref=e6057]: Cooldown to 6
+                            - listitem [ref=e6058]: Slow all enemy items for 1/2/3 second(s)
+                            - listitem [ref=e6059]: Destroy this for the fight
+                        - listitem [ref=e6060]:
+                          - strong [ref=e6061]: Joystick
+                        - listitem [ref=e6062]:
+                          - list [ref=e6063]:
+                            - listitem [ref=e6064]: Starts at Silver-tier
+                            - listitem [ref=e6065]:
+                              - text: Charges to 1/2/3
+                              - emphasis [ref=e6066]: (was 1/2/3/4)
+                        - listitem [ref=e6067]:
+                          - strong [ref=e6068]: Lavaroller
+                        - listitem [ref=e6069]:
+                          - list [ref=e6070]:
+                            - listitem [ref=e6071]: Requires an adjacent item to be destroyed to double its Burn
+                        - listitem [ref=e6072]:
+                          - strong [ref=e6073]: Paper Airplane
+                        - listitem [ref=e6074]:
+                          - list [ref=e6075]:
+                            - listitem [ref=e6076]: Starts at Bronze-tier
+                            - listitem [ref=e6077]:
+                              - text: Cooldown to 5/4/3/2
+                              - emphasis [ref=e6078]: (was 4/3/2)
+                        - listitem [ref=e6079]:
+                          - strong [ref=e6080]: Precision Calipers
+                        - listitem [ref=e6081]:
+                          - list [ref=e6082]:
+                            - listitem [ref=e6083]: Starts at Bronze-tier
+                            - listitem [ref=e6084]:
+                              - text: Cooldown to 7
+                              - emphasis [ref=e6085]: (was 8/7/6)
+                            - listitem [ref=e6086]: Repair a Small item
+                            - listitem [ref=e6087]:
+                              - text: Haste your Small items for [1/2/3/4] second(s)
+                              - emphasis [ref=e6088]: (was Haste for 2 second(s))
+                        - listitem [ref=e6089]:
+                          - strong [ref=e6090]: Rocket Drone
+                        - listitem [ref=e6091]:
+                          - list [ref=e6092]:
+                            - listitem [ref=e6093]: Redesigned
+                            - listitem [ref=e6094]: Cooldown to 4
+                            - listitem [ref=e6095]: Ammo to 1
+                            - listitem [ref=e6096]: Deal [15/30/45/60] Damage
+                            - listitem [ref=e6097]: Burn [3/6/9/12]
+                            - listitem [ref=e6098]: This stops Flying
+                            - listitem [ref=e6099]: When this item starts Flying, reload it
+                        - listitem [ref=e6100]:
+                          - strong [ref=e6101]: Sandbags
+                        - listitem [ref=e6102]:
+                          - list [ref=e6103]:
+                            - listitem [ref=e6104]: "Gained: When this is destroyed, Slow [2/3/4] items for 2 seconds"
+                        - listitem [ref=e6105]:
+                          - strong [ref=e6106]: Steam Hose
+                        - listitem [ref=e6107]:
+                          - list [ref=e6108]:
+                            - listitem [ref=e6109]:
+                              - text: Burn to 8/12/16
+                              - emphasis [ref=e6110]: (was 8/16/24)
+                        - listitem [ref=e6111]:
+                          - strong [ref=e6112]: Steam Washer
+                        - listitem [ref=e6113]:
+                          - list [ref=e6114]:
+                            - listitem [ref=e6115]:
+                              - text: Burn to 8/12/16/20
+                              - emphasis [ref=e6116]: (was 4/8/12/16)
+                        - listitem [ref=e6117]:
+                          - strong [ref=e6118]: Toolbox
+                        - listitem [ref=e6119]:
+                          - list [ref=e6120]:
+                            - listitem [ref=e6121]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e6122]: (was 7)
+                            - listitem [ref=e6123]:
+                              - text: Repair and Haste adjacent tools for 2 seconds
+                              - emphasis [ref=e6124]: (was Haste the tool to the right of this for 2 seconds)
+                            - listitem [ref=e6125]: Enchants now pass to spawned items instead of other effects
+                        - listitem [ref=e6126]:
+                          - strong [ref=e6127]: Tugboat
+                        - listitem [ref=e6128]:
+                          - list [ref=e6129]:
+                            - listitem [ref=e6130]:
+                              - text: Slow duration to 1 second
+                              - emphasis [ref=e6131]: (was 2 seconds)
+                      - heading "VANESSA" [level=3] [ref=e6132]
+                      - list [ref=e6133]:
+                        - listitem [ref=e6134]:
+                          - strong [ref=e6135]: Barrel
+                        - listitem [ref=e6136]:
+                          - list [ref=e6137]:
+                            - listitem [ref=e6138]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e6139]: (was 5)
+                            - listitem [ref=e6140]:
+                              - text: Scaling to 10/20/30/40
+                              - emphasis [ref=e6141]: (was 10/15/20/25)
+                            - listitem [ref=e6142]:
+                              - text: Scales from all items
+                              - emphasis [ref=e6143]: (was non-Weapons)
+                        - listitem [ref=e6144]:
+                          - strong [ref=e6145]: Calico
+                        - listitem [ref=e6146]:
+                          - list [ref=e6147]:
+                            - listitem [ref=e6148]:
+                              - text: Damage to 15/30/45/60
+                              - emphasis [ref=e6149]: (was 10/20/30/40)
+                        - listitem [ref=e6150]:
+                          - strong [ref=e6151]: Disguise
+                        - listitem [ref=e6152]:
+                          - list [ref=e6153]:
+                            - listitem [ref=e6154]: Corrected an issue where Turbo hastes a random item instead of the item being used
+                        - listitem [ref=e6155]:
+                          - strong [ref=e6156]: Flagship
+                        - listitem [ref=e6157]:
+                          - list [ref=e6158]:
+                            - listitem [ref=e6159]: Can now scale Multicast off Relics as well
+                        - listitem [ref=e6160]:
+                          - strong [ref=e6161]: Flame Signal
+                        - listitem [ref=e6162]:
+                          - list [ref=e6163]:
+                            - listitem [ref=e6164]:
+                              - text: Burn to 5/10/15
+                              - emphasis [ref=e6165]: (was 10/15/20)
+                        - listitem [ref=e6166]:
+                          - strong [ref=e6167]: Grappling Hook
+                        - listitem [ref=e6168]:
+                          - list [ref=e6169]:
+                            - listitem [ref=e6170]:
+                              - text: Damage to 20/40/60/80
+                              - emphasis [ref=e6171]: (was 12/18/24/32)
+                        - listitem [ref=e6172]:
+                          - strong [ref=e6173]: Illusoray
+                        - listitem [ref=e6174]:
+                          - list [ref=e6175]:
+                            - listitem [ref=e6176]:
+                              - text: Cooldown to 7
+                              - emphasis [ref=e6177]: (was 8)
+                        - listitem [ref=e6178]:
+                          - strong [ref=e6179]: Integrated HUD
+                        - listitem [ref=e6180]:
+                          - list [ref=e6181]:
+                            - listitem [ref=e6182]: Starts at Silver-tier
+                        - listitem [ref=e6183]:
+                          - strong [ref=e6184]: Javelin
+                        - listitem [ref=e6185]:
+                          - list [ref=e6186]:
+                            - listitem [ref=e6187]:
+                              - text: When this is reloaded, it gains +[40/60/80] Damage for the fight
+                              - emphasis [ref=e6188]: (was When this is Hasted, reload it)
+                        - listitem [ref=e6189]:
+                          - strong [ref=e6190]: Pop Snappers
+                        - listitem [ref=e6191]:
+                          - list [ref=e6192]:
+                            - listitem [ref=e6193]:
+                              - text: Ammo to 4
+                              - emphasis [ref=e6194]: (was 3)
+                        - listitem [ref=e6195]:
+                          - strong [ref=e6196]: Port
+                        - listitem [ref=e6197]:
+                          - list [ref=e6198]:
+                            - listitem [ref=e6199]: Heavy, Icy, and Turbo now trigger off Ammo item use
+                            - listitem [ref=e6200]: Other enchantments received buffs
+                        - listitem [ref=e6201]:
+                          - strong [ref=e6202]: Sharkray
+                        - listitem [ref=e6203]:
+                          - list [ref=e6204]:
+                            - listitem [ref=e6205]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e6206]: (was 7)
+                            - listitem [ref=e6207]:
+                              - text: Damage to 20
+                              - emphasis [ref=e6208]: (was 40)
+                            - listitem [ref=e6209]:
+                              - text: Scaling to 10/20/30/40
+                              - emphasis [ref=e6210]: (was 10/20/40/80)
+                        - listitem [ref=e6211]:
+                          - strong [ref=e6212]: Shoe Blade
+                        - listitem [ref=e6213]:
+                          - list [ref=e6214]:
+                            - listitem [ref=e6215]:
+                              - text: Cooldown to 6
+                              - emphasis [ref=e6216]: (was 7)
+                        - listitem [ref=e6217]:
+                          - strong [ref=e6218]: Slumbering Primordial
+                        - listitem [ref=e6219]:
+                          - list [ref=e6220]:
+                            - listitem [ref=e6221]:
+                              - text: Damage to 20/25
+                              - emphasis [ref=e6222]: (was 25)
+                            - listitem [ref=e6223]:
+                              - text: Scaling Damage to 20/25
+                              - emphasis [ref=e6224]: (was 25)
+                        - listitem [ref=e6225]:
+                          - strong [ref=e6226]: Zoarcid
+                        - listitem [ref=e6227]:
+                          - list [ref=e6228]:
+                            - listitem [ref=e6229]:
+                              - text: Damage to 20
+                              - emphasis [ref=e6230]: (was 30)
+              - status [ref=e6231]
+        - complementary [ref=e6238]:
+          - generic [ref=e6239]:
+            - generic [ref=e6241]:
+              - generic [ref=e6243] [cursor=pointer]:
+                - generic [ref=e6244]: Advertisement
+                - generic [ref=e6245]: Remove Ads
+              - generic [ref=e6250] [cursor=pointer]:
+                - generic [ref=e6251]: Remove all ads
+                - generic [ref=e6252]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e6253]:
+                  - generic [ref=e6254]: Remove ads
+            - generic [ref=e6256]:
+              - generic [ref=e6258] [cursor=pointer]:
+                - generic [ref=e6259]: Advertisement
+                - generic [ref=e6260]: Remove Ads
+              - generic [ref=e6266] [cursor=pointer]:
+                - generic [ref=e6267]: Remove all ads
+                - generic [ref=e6268]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e6269]:
+                  - generic [ref=e6270]: Remove ads
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e6273]:
+    - banner [ref=e6274]:
+      - generic [ref=e6275] [cursor=pointer]:
+        - generic [ref=e6276]: Advertisement
+        - generic [ref=e6277]: Remove Ads
+    - generic [ref=e6280] [cursor=pointer]:
+      - generic [ref=e6281]: Remove all ads
+      - generic [ref=e6282]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e6283]:
+        - generic [ref=e6284]: Remove ads
+```
+
+# Test source
+
+```ts
+  874  |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  875  |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  876  |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  877  |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  878  | 
+  879  |       filteredLinks = arrayLinks
+  880  |         .filter((match) => {
+  881  |           const filterPattern = /mobalytics\.gg\/deadlock/;
+  882  |           return filterPattern.test(match.groups.link);
+  883  |         })
+  884  |         .slice(0, quantityLinks);
+  885  |     });
+  886  | 
+  887  |     for (const takeLink of filteredLinks) {
+  888  |       const consoleMessages = [];
+  889  |       const pageErrors = [];
+  890  |       page.on('console', (msg) => {
+  891  |         if (msg.type() === 'error') {
+  892  |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  893  |           // console.log(consoleInfo);
+  894  |           consoleMessages.push(consoleInfo);
+  895  |         }
+  896  |       });
+  897  |       page.on('pageerror', (error) => {
+  898  |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  899  |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  900  |         //   console.log(errorInfo);
+  901  |         // }
+  902  |         pageErrors.push(errorInfo);
+  903  |       });
+  904  |       const { link } = takeLink.groups; // extract groupName for convenient usage
+  905  | 
+  906  |       await test.step(`Open parsed page: ${link}`, async () => {
+  907  |         await page.goto(link);
+  908  |         await page.waitForTimeout(1000);
+  909  |       });
+  910  | 
+  911  |       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+  912  | 
+  913  |       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+  914  |         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+  915  |         expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+  916  |         expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+  917  |         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+  918  |       });
+  919  |     }
+  920  |   });
+  921  | 
+  922  |   test(`Check that hydration is ok on Bazaar`, async ({ page, request }) => {
+  923  |     let filteredLinks;
+  924  | 
+  925  |     await test.step(`Parse up to ${quantityLinks} links from Bazaar sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async () => {
+  926  |       const response = await request.get(`${process.env.BASE_URL}/the-bazaar/sitemap.xml`);
+  927  |       await test.step(`Expected Result: ${process.env.BASE_URL}/the-bazaar/sitemap.xml returns with ${response.status()}`, async () => {
+  928  |         expect(response.ok()).toBeTruthy();
+  929  |       });
+  930  |       const xmlData = await response.text();
+  931  |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  932  |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  933  |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  934  |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  935  | 
+  936  |       filteredLinks = arrayLinks
+  937  |         .filter((match) => {
+  938  |           const filterPattern = /mobalytics\.gg\/the-bazaar/;
+  939  |           return filterPattern.test(match.groups.link);
+  940  |         })
+  941  |         .slice(0, quantityLinks);
+  942  |     });
+  943  | 
+  944  |     for (const takeLink of filteredLinks) {
+  945  |       const consoleMessages = [];
+  946  |       const pageErrors = [];
+  947  |       page.on('console', (msg) => {
+  948  |         if (msg.type() === 'error') {
+  949  |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  950  |           // console.log(consoleInfo);
+  951  |           consoleMessages.push(consoleInfo);
+  952  |         }
+  953  |       });
+  954  |       page.on('pageerror', (error) => {
+  955  |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  956  |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  957  |         //   console.log(errorInfo);
+  958  |         // }
+  959  |         pageErrors.push(errorInfo);
+  960  |       });
+  961  |       const { link } = takeLink.groups; // extract groupName for convenient usage
+  962  | 
+  963  |       await test.step(`Open parsed page: ${link}`, async () => {
+  964  |         await page.goto(link);
+  965  |         await page.waitForTimeout(1000);
+  966  |       });
+  967  | 
+  968  |       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+  969  | 
+  970  |       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+  971  |         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+  972  |         expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+  973  |         expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+> 974  |         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+       |                                               ^ Error: expect(received).not.toMatch(expected)
+  975  |       });
+  976  |     }
+  977  |   });
+  978  | 
+  979  |   // test(`Check that hydration is ok on TFT`, async ({ page, request }) => {
+  980  |   //   let filteredLinks;
+  981  | 
+  982  |   //   await test.step(`Parse up to ${quantityLinks} links from TFT sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
+  983  |   //     const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
+  984  |   //     await test.step(`Expected Result: ${process.env.BASE_URL}/tft/sitemap.xml returns with ${response.status()}`, async () => {
+  985  |   //       expect(response.ok()).toBeTruthy();
+  986  |   //     });
+  987  |   //     const xmlData = await response.text();
+  988  |   //     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  989  |   //     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  990  |   //     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  991  |   //     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  992  | 
+  993  |   //     filteredLinks = arrayLinks
+  994  |   //       .filter((match) => {
+  995  |   //         const filterPattern = /mobalytics\.gg\/tft/;
+  996  |   //         return filterPattern.test(match.groups.link);
+  997  |   //       })
+  998  |   //       .slice(0, quantityLinks);
+  999  |   //   });
+  1000 | 
+  1001 |   //   for (const takeLink of filteredLinks) {
+  1002 |   //     const consoleMessages = [];
+  1003 |   //     const pageErrors = [];
+  1004 |   //     page.on('console', (msg) => {
+  1005 |   //       if (msg.type() === 'error') {
+  1006 |   //         const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  1007 |   //         // console.log(consoleInfo);
+  1008 |   //         consoleMessages.push(consoleInfo);
+  1009 |   //       }
+  1010 |   //     });
+  1011 |   //     page.on('pageerror', (error) => {
+  1012 |   //       const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  1013 |   //       // if (error.message.match(/Minified React error #(418|423)/i)) {
+  1014 |   //       //   console.log(errorInfo);
+  1015 |   //       // }
+  1016 |   //       pageErrors.push(errorInfo);
+  1017 |   //     });
+  1018 |   //     const { link } = takeLink.groups; // extract groupName for convenient usage
+  1019 | 
+  1020 |   //     await test.step(`Open parsed page: ${link}`, async () => {
+  1021 |   //       await page.goto(link);
+  1022 |   //       await page.waitForTimeout(1000);
+  1023 |   //     });
+  1024 | 
+  1025 |   //     const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+  1026 | 
+  1027 |   //     await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+  1028 |   //       expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+  1029 |   //       expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+  1030 |   //       expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+  1031 |   //       expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+  1032 |   //     });
+  1033 |   //   }
+  1034 |   // });
+  1035 | 
+  1036 |   test(`Check that hydration is ok on TFT-Set17`, async ({ page, request }) => {
+  1037 |     let filteredLinks;
+  1038 | 
+  1039 |     await test.step(`Parse up to ${quantityLinks} links from TFT-Set17 sitemap: ${process.env.BASE_URL}/tft/set17/sitemap.xml`, async () => {
+  1040 |       const response = await request.get(`${process.env.BASE_URL}/tft/set17/sitemap.xml`);
+  1041 |       await test.step(`Expected Result: ${process.env.BASE_URL}/tft/set17/sitemap.xml returns with ${response.status()}`, async () => {
+  1042 |         expect(response.ok()).toBeTruthy();
+  1043 |       });
+  1044 |       const xmlData = await response.text();
+  1045 |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  1046 |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  1047 |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  1048 |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  1049 | 
+  1050 |       filteredLinks = arrayLinks
+  1051 |         .filter((match) => {
+  1052 |           const filterPattern = /mobalytics\.gg\/tft\/set17/;
+  1053 |           return filterPattern.test(match.groups.link);
+  1054 |         })
+  1055 |         .slice(0, quantityLinks);
+  1056 |     });
+  1057 | 
+  1058 |     for (const takeLink of filteredLinks) {
+  1059 |       const consoleMessages = [];
+  1060 |       const pageErrors = [];
+  1061 |       page.on('console', (msg) => {
+  1062 |         if (msg.type() === 'error') {
+  1063 |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  1064 |           // console.log(consoleInfo);
+  1065 |           consoleMessages.push(consoleInfo);
+  1066 |         }
+  1067 |       });
+  1068 |       page.on('pageerror', (error) => {
+  1069 |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  1070 |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  1071 |         //   console.log(errorInfo);
+  1072 |         // }
+  1073 |         pageErrors.push(errorInfo);
+  1074 |       });
+```
