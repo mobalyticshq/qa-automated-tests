@@ -1,0 +1,1752 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: account.test.js >> Delete mobalytics account
+- Location: e2e-tests/account.test.js:6:1
+
+# Error details
+
+```
+Test timeout of 90000ms exceeded.
+```
+
+```
+Error: locator.hover: Test timeout of 90000ms exceeded.
+Call log:
+  - waiting for getByRole('img', { name: 'settings' })
+    - waiting for navigation to finish...
+    - navigated to "https://stg.mobalytics.gg/auth-callback?auth_action=sign_up&lang=en&returnPath=%2Fmhw&theme=mhw"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Monster Hunter World banner text Learn more Close":
+        - /url: https://www.google.com
+        - generic [ref=e4] [cursor=pointer]:
+          - generic [ref=e5]:
+            - paragraph [ref=e7]: Monster Hunter World banner text
+            - button "Learn more" [ref=e8]
+          - img "Close" [ref=e9]
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - link "Mobalytics" [ref=e12] [cursor=pointer]:
+            - /url: /mhw
+            - img "Mobalytics" [ref=e13]
+          - generic [ref=e15]:
+            - link "League of Legends LoL" [ref=e17] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/lol
+              - generic [ref=e19]:
+                - img "League of Legends" [ref=e20]
+                - generic [ref=e21]: LoL
+            - link "Teamfight Tactics TFT" [ref=e23] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/tft
+              - generic [ref=e25]:
+                - img "Teamfight Tactics" [ref=e26]
+                - generic [ref=e27]: TFT
+            - link "Diablo 4 Diablo 4" [ref=e29] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/diablo-4
+              - generic [ref=e31]:
+                - img "Diablo 4" [ref=e32]
+                - generic [ref=e33]: Diablo 4
+            - link "Path of Exile 2 PoE 2" [ref=e35] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe-2
+              - generic [ref=e37]:
+                - img "Path of Exile 2" [ref=e38]
+                - generic [ref=e39]: PoE 2
+            - link "Path of Exile PoE" [ref=e41] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe
+              - generic [ref=e43]:
+                - img "Path of Exile" [ref=e44]
+                - generic [ref=e45]: PoE
+            - link "Destiny 2 Destiny 2" [ref=e47] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/destiny-2
+              - generic [ref=e49]:
+                - img "Destiny 2" [ref=e50]
+                - generic [ref=e51]: Destiny 2
+            - link "Marathon Marathon" [ref=e53] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/marathon
+              - generic [ref=e55]:
+                - img "Marathon" [ref=e56]
+                - generic [ref=e57]: Marathon
+            - link "Slay the Spire 2 STS 2" [ref=e59] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/slay-the-spire-2
+              - generic [ref=e61]:
+                - img "Slay the Spire 2" [ref=e62]
+                - generic [ref=e63]: STS 2
+            - link "Deadlock Deadlock" [ref=e65] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/deadlock
+              - generic [ref=e67]:
+                - img "Deadlock" [ref=e68]
+                - generic [ref=e69]: Deadlock
+            - link "Overwatch Overwatch" [ref=e71] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/overwatch
+              - generic [ref=e73]:
+                - img "Overwatch" [ref=e74]
+                - generic [ref=e75]: Overwatch
+            - link "Borderlands 4 Borderlands 4" [ref=e77] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/borderlands-4
+              - generic [ref=e79]:
+                - img "Borderlands 4" [ref=e80]
+                - generic [ref=e81]: Borderlands 4
+            - link "Valorant VAL" [ref=e83] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/valorant
+              - generic [ref=e85]:
+                - img "Valorant" [ref=e86]
+                - generic [ref=e87]: VAL
+            - link "Neverness to Everness NTE New" [ref=e89] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/neverness-to-everness
+              - generic [ref=e91]:
+                - img "Neverness to Everness" [ref=e92]
+                - generic [ref=e93]: NTE
+                - generic [ref=e95]: New
+            - 'link "Arknights: Endfield Endfield" [ref=e97] [cursor=pointer]':
+              - /url: https://stg.mobalytics.gg/arknights-endfield
+              - generic [ref=e99]:
+                - 'img "Arknights: Endfield" [ref=e100]'
+                - generic [ref=e101]: Endfield
+            - link "Elden Ring Nightreign Nightreign" [ref=e103] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+              - generic [ref=e105]:
+                - img "Elden Ring Nightreign" [ref=e106]
+                - generic [ref=e107]: Nightreign
+            - button [ref=e108] [cursor=pointer]:
+              - img [ref=e109]
+            - generic:
+              - link "Monster Hunter Wilds Monster Hunter Wilds":
+                - /url: https://stg.mobalytics.gg/mhw
+                - generic:
+                  - generic:
+                    - img "Monster Hunter Wilds"
+                    - generic: Monster Hunter Wilds
+            - generic:
+              - link "Hades 2 Hades 2":
+                - /url: https://stg.mobalytics.gg/hades-2
+                - generic:
+                  - generic:
+                    - img "Hades 2"
+                    - generic: Hades 2
+            - generic:
+              - link "The Bazaar The Bazaar":
+                - /url: https://stg.mobalytics.gg/the-bazaar
+                - generic:
+                  - generic:
+                    - img "The Bazaar"
+                    - generic: The Bazaar
+            - generic:
+              - link "Marvel Rivals Marvel Rivals":
+                - /url: https://stg.mobalytics.gg/marvel-rivals
+                - generic:
+                  - generic:
+                    - img "Marvel Rivals"
+                    - generic: Marvel Rivals
+            - generic:
+              - link "Zenless Zone Zero ZZZ":
+                - /url: https://stg.mobalytics.gg/zzz
+                - generic:
+                  - generic:
+                    - img "Zenless Zone Zero"
+                    - generic: ZZZ
+            - generic:
+              - link "2XKO 2XKO":
+                - /url: https://stg.mobalytics.gg/2xko
+                - generic:
+                  - generic:
+                    - img "2XKO"
+                    - generic: 2XKO
+            - generic:
+              - link "Riftbound Riftbound":
+                - /url: https://stg.mobalytics.gg/riftbound
+                - generic:
+                  - generic:
+                    - img "Riftbound"
+                    - generic: Riftbound
+            - generic:
+              - link "Example game ExG":
+                - /url: https://stg.mobalytics.gg/example-game
+                - generic:
+                  - generic:
+                    - img "Example game"
+                    - generic: ExG
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - button "plus Connect game" [ref=e116] [cursor=pointer]:
+              - img "plus" [ref=e118]
+              - generic [ref=e119]: Connect game
+            - link "DOWNLOAD APP" [ref=e120] [cursor=pointer]:
+              - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-mhw&utm_medium=homepage&utm_source=web
+              - button "DOWNLOAD APP" [ref=e122]:
+                - img [ref=e123]
+                - text: DOWNLOAD APP
+            - link "News" [ref=e125] [cursor=pointer]:
+              - /url: /news
+              - generic [ref=e126]: News
+          - generic [ref=e127]:
+            - button "Remove Ads" [ref=e128] [cursor=pointer]:
+              - generic [ref=e129]: Remove Ads
+            - generic [ref=e130]:
+              - link "N ns+be9f@mobalyticshq.com" [ref=e131] [cursor=pointer]:
+                - /url: /mhw/profile/deadly-robot-4p7vf3
+                - generic [ref=e133]:
+                  - generic [ref=e135]: "N"
+                  - generic [ref=e137]: ns+be9f@mobalyticshq.com
+              - button [ref=e139] [cursor=pointer]:
+                - img [ref=e141]
+              - button "Theme" [ref=e143] [cursor=pointer]:
+                - img "Theme" [ref=e145]
+        - generic [ref=e147]:
+          - link "Home" [ref=e150] [cursor=pointer]:
+            - /url: /mhw
+            - img "Home" [ref=e152]
+          - link "Profile" [ref=e155] [cursor=pointer]:
+            - /url: /mhw/profile
+            - img "Profile" [ref=e157]
+          - link "Build Planner" [ref=e160] [cursor=pointer]:
+            - /url: /mhw/planner/builds
+            - img "Build Planner" [ref=e162]
+          - link "Builds" [ref=e165] [cursor=pointer]:
+            - /url: /mhw/builds
+            - img "Builds" [ref=e167]
+          - link "Weapons" [ref=e170] [cursor=pointer]:
+            - /url: /mhw/weapons
+            - img "Weapons" [ref=e172]
+          - link "Monster Guides" [ref=e175] [cursor=pointer]:
+            - /url: /mhw/monster-guides
+            - img "Monster Guides" [ref=e177]
+          - link "Guides" [ref=e180] [cursor=pointer]:
+            - /url: /mhw/guides
+            - img "Guides" [ref=e182]
+        - generic [ref=e184]:
+          - main [ref=e185]:
+            - generic [ref=e187]:
+              - generic [ref=e188]:
+                - button "Home Page Header V2" [ref=e191]:
+                  - generic [ref=e197]:
+                    - img [ref=e199]
+                    - heading "Home Page Header V2" [level=1] [ref=e200]
+                - generic [ref=e205]:
+                  - heading "Privet" [level=2] [ref=e209]
+                  - generic [ref=e211]:
+                    - generic [ref=e213] [cursor=pointer]:
+                      - link [ref=e214]:
+                        - /url: /mhw/builds/test-el-split-mhw
+                      - generic [ref=e218]:
+                        - generic [ref=e219]: test el split
+                        - generic [ref=e220]: Updated on May 7, 2026
+                    - generic [ref=e223] [cursor=pointer]:
+                      - link [ref=e224]:
+                        - /url: /mhw/builds/sssssfffffaaaaaaaaa
+                      - generic [ref=e228]:
+                        - generic [ref=e229]: mhw test build
+                        - generic [ref=e230]: Updated on Feb 26, 2026
+                    - generic [ref=e233] [cursor=pointer]:
+                      - link [ref=e234]:
+                        - /url: /mhw/builds/x-moba-ssr-cache
+                      - generic [ref=e238]:
+                        - generic [ref=e239]: x-moba-ssr-cache
+                        - generic [ref=e240]: Updated on Feb 5, 2026
+                    - generic [ref=e243] [cursor=pointer]:
+                      - link [ref=e244]:
+                        - /url: /mhw/builds/asfiasfasfasf1001
+                      - generic [ref=e248]:
+                        - generic [ref=e249]: test1
+                        - generic [ref=e250]: Updated on Nov 17, 2025
+                    - generic [ref=e253] [cursor=pointer]:
+                      - link [ref=e254]:
+                        - /url: /mhw/builds/privet
+                      - generic [ref=e258]:
+                        - generic [ref=e259]: Privet
+                        - generic [ref=e260]: Updated on Jul 24, 2025
+                - generic [ref=e262]:
+                  - generic [ref=e268]:
+                    - img [ref=e270]
+                    - heading "Page Header <H1>" [level=1] [ref=e271]
+                  - generic [ref=e272]:
+                    - heading "Rich Text V2" [level=2] [ref=e276]
+                    - generic [ref=e281]:
+                      - paragraph [ref=e282]: цуа
+                      - paragraph [ref=e283]:
+                        - generic [ref=e288]: Ancient Potion
+                  - generic [ref=e289]:
+                    - heading "Cards Gallery V2" [level=2] [ref=e293]
+                    - link "Title Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium." [ref=e297] [cursor=pointer]:
+                      - /url: /
+                      - generic [ref=e300]:
+                        - paragraph [ref=e301]: Title
+                        - paragraph [ref=e302]: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+                  - generic [ref=e304]:
+                    - heading "Discovery Preview V2" [level=2] [ref=e308]
+                    - generic [ref=e310]:
+                      - generic [ref=e313] [cursor=pointer]:
+                        - link [ref=e314]:
+                          - /url: /mhw/builds/test-el-split-mhw
+                        - generic [ref=e316]:
+                          - generic [ref=e317]: test el split
+                          - generic [ref=e318]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e319]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e320]: Updated on
+                            - generic [ref=e321]: May 7, 2026
+                        - generic [ref=e322]:
+                          - generic [ref=e324]:
+                            - button "1 Favorite" [ref=e325]:
+                              - img [ref=e326]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e327]:
+                              - img [ref=e328]
+                              - text: Share
+                            - button [ref=e330]:
+                              - img [ref=e332]
+                          - generic [ref=e333]:
+                            - generic [ref=e334]:
+                              - img "presentation" [ref=e335]
+                              - text: Bow
+                            - generic [ref=e336]:
+                              - img "presentation" [ref=e337]
+                              - text: Water
+                            - generic [ref=e338]: Low Rank (Campaign)
+                      - generic [ref=e341] [cursor=pointer]:
+                        - link [ref=e342]:
+                          - /url: /mhw/builds/sssssfffffaaaaaaaaa
+                        - generic [ref=e344]:
+                          - generic [ref=e345]: mhw test build
+                          - generic [ref=e346]:
+                            - text: By
+                            - link "VladTrue" [ref=e347]:
+                              - /url: /mhw/profile/fierce-robot-ea99on
+                            - text: ∙
+                            - generic [ref=e348]: Updated on
+                            - generic [ref=e349]: Feb 26, 2026
+                        - generic [ref=e350]:
+                          - generic [ref=e352]:
+                            - button "1 Favorite" [ref=e353]:
+                              - img [ref=e354]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e355]:
+                              - img [ref=e356]
+                              - text: Share
+                            - button [ref=e358]:
+                              - img [ref=e360]
+                          - generic [ref=e361]:
+                            - generic [ref=e362]:
+                              - img "presentation" [ref=e363]
+                              - text: Bow
+                            - generic [ref=e364]:
+                              - img "presentation" [ref=e365]
+                              - text: Water
+                            - generic [ref=e366]: Low Rank (Campaign)
+                            - generic [ref=e367]: Featured
+                            - generic [ref=e368]: Snap
+                      - generic [ref=e371] [cursor=pointer]:
+                        - link [ref=e372]:
+                          - /url: /mhw/builds/x-moba-ssr-cache
+                        - generic [ref=e374]:
+                          - generic [ref=e375]: x-moba-ssr-cache
+                          - generic [ref=e376]:
+                            - text: By
+                            - link "admin+stg+ns@mobalyticshq.com" [ref=e377]:
+                              - /url: /mhw/profile/new-pika4-2-439blm
+                            - text: ∙
+                            - generic [ref=e378]: Updated on
+                            - generic [ref=e379]: Feb 5, 2026
+                        - generic [ref=e380]:
+                          - generic [ref=e382]:
+                            - button "1 Favorite" [ref=e383]:
+                              - img [ref=e384]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e385]:
+                              - img [ref=e386]
+                              - text: Share
+                            - button [ref=e388]:
+                              - img [ref=e390]
+                          - generic [ref=e391]:
+                            - generic [ref=e392]:
+                              - img "presentation" [ref=e393]
+                              - text: Water
+                            - generic [ref=e394]: Low Rank (Campaign)
+                      - generic [ref=e397] [cursor=pointer]:
+                        - link [ref=e398]:
+                          - /url: /mhw/builds/asfiasfasfasf1001
+                        - generic [ref=e400]:
+                          - generic [ref=e401]: test1
+                          - generic [ref=e402]:
+                            - text: By
+                            - link "VladTrue" [ref=e403]:
+                              - /url: /mhw/profile/fierce-robot-ea99on
+                            - text: ∙
+                            - generic [ref=e404]: Updated on
+                            - generic [ref=e405]: Nov 17, 2025
+                        - generic [ref=e406]:
+                          - generic [ref=e408]:
+                            - button "1 Favorite" [ref=e409]:
+                              - img [ref=e410]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e411]:
+                              - img [ref=e412]
+                              - text: Share
+                            - button [ref=e414]:
+                              - img [ref=e416]
+                          - generic [ref=e417]:
+                            - generic [ref=e418]:
+                              - img "presentation" [ref=e419]
+                              - text: Gun Lance
+                            - generic [ref=e420]:
+                              - img "presentation" [ref=e421]
+                              - text: Dual Blades
+                            - generic [ref=e422]:
+                              - img "presentation" [ref=e423]
+                              - text: Water
+                            - generic [ref=e424]: Low Rank (Campaign)
+                      - generic [ref=e427] [cursor=pointer]:
+                        - generic [ref=e429]:
+                          - generic [ref=e430]: Test 3
+                          - generic [ref=e431]:
+                            - text: By
+                            - text: ∙
+                            - generic [ref=e432]: Updated on
+                            - generic [ref=e433]: Mar 5, 2025
+                        - generic [ref=e434]:
+                          - generic [ref=e436]:
+                            - button "2 Favorites" [ref=e437]:
+                              - img [ref=e438]
+                              - text: 2 Favorites
+                            - button [ref=e440]:
+                              - img [ref=e442]
+                          - generic [ref=e443]:
+                            - generic [ref=e444]:
+                              - img "presentation" [ref=e445]
+                              - text: Water
+                            - generic [ref=e446]:
+                              - img "presentation" [ref=e447]
+                              - text: Bow
+                  - generic [ref=e449]:
+                    - generic [ref=e454]:
+                      - generic [ref=e458]:
+                        - img [ref=e459]
+                        - textbox "search by name" [ref=e461]:
+                          - /placeholder: Search...
+                      - generic "select" [ref=e463]:
+                        - combobox [ref=e466]
+                        - button "Topic" [ref=e469] [cursor=pointer]:
+                          - generic [ref=e470]: Topic
+                          - img [ref=e472]
+                      - generic "select" [ref=e475]:
+                        - combobox [ref=e478]
+                        - button "New" [ref=e481] [cursor=pointer]:
+                          - generic [ref=e482]: New
+                          - img [ref=e484]
+                      - generic "select" [ref=e487]:
+                        - combobox [ref=e490]
+                        - button "All time" [ref=e493] [cursor=pointer]:
+                          - generic [ref=e494]: All time
+                          - img [ref=e496]
+                    - generic [ref=e499]:
+                      - generic [ref=e501] [cursor=pointer]:
+                        - link [ref=e502]:
+                          - /url: /mhw/profile/iron-robot-bg6id8/guides/2ae4e829-9a3f-432f-ab1d-82419836a9fe
+                        - generic [ref=e504]:
+                          - generic [ref=e505]: Test Stas int mhw apollo migration Guide
+                          - generic [ref=e506]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e507]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e508]: Updated on
+                            - generic [ref=e509]: Apr 16, 2026
+                        - generic [ref=e510]:
+                          - generic [ref=e512]:
+                            - button "Add to Favorites" [ref=e513]:
+                              - img [ref=e514]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e515]:
+                              - img [ref=e516]
+                              - text: Share
+                          - generic [ref=e517]:
+                            - generic [ref=e518]: Beginner
+                            - generic [ref=e519]: Guides
+                      - generic [ref=e521] [cursor=pointer]:
+                        - link [ref=e522]:
+                          - /url: /mhw/profile/bright-shield-aisan7/guides/cff3a396-7db4-42f0-86f8-b038fbd4f1cd
+                        - generic [ref=e524]:
+                          - generic [ref=e525]: qa-automation-guide-page-68000a66-431c-41ad-9059-1ccc69370ff1
+                          - generic [ref=e526]:
+                            - text: By
+                            - link "admin_auto_tests+stg+ns@mobalyticshq.com" [ref=e527]:
+                              - /url: /mhw/profile/bright-shield-aisan7
+                            - text: ∙
+                            - generic [ref=e528]: Updated on
+                            - generic [ref=e529]: Mar 16, 2026
+                        - generic [ref=e530]:
+                          - generic [ref=e532]:
+                            - button "Add to Favorites" [ref=e533]:
+                              - img [ref=e534]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e535]:
+                              - img [ref=e536]
+                              - text: Share
+                          - generic [ref=e538]: Beginner
+                      - generic [ref=e540] [cursor=pointer]:
+                        - link [ref=e541]:
+                          - /url: /mhw/profile/iron-robot-bg6id8/guides/c940c098-5254-4209-a5e0-2b338de9e46f
+                        - generic [ref=e543]:
+                          - generic [ref=e544]: My New Guide
+                          - generic [ref=e545]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e546]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e547]: Updated on
+                            - generic [ref=e548]: Nov 10, 2025
+                        - generic [ref=e549]:
+                          - generic [ref=e551]:
+                            - button "Add to Favorites" [ref=e552]:
+                              - img [ref=e553]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e554]:
+                              - img [ref=e555]
+                              - text: Share
+                          - generic [ref=e557]: Beginner
+                      - generic [ref=e559] [cursor=pointer]:
+                        - link [ref=e560]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/guides/fir-fir
+                        - generic [ref=e562]:
+                          - generic [ref=e563]: Fir-fir
+                          - generic [ref=e564]:
+                            - text: By
+                            - link "Porring" [ref=e565]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e566]: Updated on
+                            - generic [ref=e567]: Sep 23, 2025
+                        - generic [ref=e568]:
+                          - generic [ref=e570]:
+                            - button "1 Favorite" [ref=e571]:
+                              - img [ref=e572]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e573]:
+                              - img [ref=e574]
+                              - text: Share
+                          - generic [ref=e576]: Beginner
+                      - generic [ref=e578] [cursor=pointer]:
+                        - link [ref=e579]:
+                          - /url: /mhw/profile/pretty-flame-idoxvl/guides/c34c67ac-f7af-44a0-97fa-2c48bcf1ab18
+                        - generic [ref=e581]:
+                          - generic [ref=e582]: My New Guide
+                          - generic [ref=e583]:
+                            - text: By
+                            - link "PrettyFlame" [ref=e584]:
+                              - /url: /mhw/profile/pretty-flame-idoxvl
+                            - text: ∙
+                            - generic [ref=e585]: Updated on
+                            - generic [ref=e586]: May 13, 2025
+                        - generic [ref=e587]:
+                          - generic [ref=e589]:
+                            - button "1 Favorite" [ref=e590]:
+                              - img [ref=e591]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e592]:
+                              - img [ref=e593]
+                              - text: Share
+                          - generic [ref=e595]: Beginner
+                      - button "Show more" [ref=e596] [cursor=pointer]
+                  - generic [ref=e598]:
+                    - generic [ref=e600]:
+                      - heading "Tier List Maker V1" [level=2] [ref=e602]
+                      - button "Save as Image" [ref=e605] [cursor=pointer]:
+                        - img [ref=e606]
+                        - text: Save as Image
+                    - generic [ref=e607]:
+                      - generic [ref=e608]:
+                        - generic [ref=e613]:
+                          - img [ref=e614]
+                          - textbox "search by name" [ref=e616]:
+                            - /placeholder: Search...
+                        - generic [ref=e617]:
+                          - generic [ref=e619]:
+                            - generic [ref=e621]: "1"
+                            - generic [ref=e623]:
+                              - button "Ajarakan Coil α" [disabled] [ref=e625]:
+                                - generic [ref=e628]: Ajarakan Coil α
+                              - button "Ajarakan Greaves α" [disabled] [ref=e630]:
+                                - generic [ref=e633]: Ajarakan Greaves α
+                              - button "Ajarakan Helm" [disabled] [ref=e635]:
+                                - generic [ref=e638]: Ajarakan Helm
+                          - generic [ref=e640]:
+                            - generic [ref=e642]: "2"
+                            - generic [ref=e644]:
+                              - button "Alloy Vambraces" [disabled] [ref=e646]:
+                                - generic [ref=e649]: Alloy Vambraces
+                              - button "Arkvulcan Coil β" [disabled] [ref=e651]:
+                                - generic [ref=e654]: Arkvulcan Coil β
+                              - button "Azuz Apron α" [disabled] [ref=e656]:
+                                - generic [ref=e659]: Azuz Apron α
+                      - status [ref=e660]
+                  - generic [ref=e662]:
+                    - generic [ref=e667]:
+                      - generic "select" [ref=e669]:
+                        - combobox [ref=e672]
+                        - button "Weapon" [ref=e675] [cursor=pointer]:
+                          - generic [ref=e676]: Weapon
+                          - img [ref=e678]
+                      - generic "select" [ref=e681]:
+                        - combobox [ref=e684]
+                        - button "Raw" [ref=e687] [cursor=pointer]:
+                          - generic [ref=e688]: Raw
+                          - img [ref=e690]
+                      - generic "select" [ref=e693]:
+                        - combobox [ref=e696]
+                        - button "Level" [ref=e699] [cursor=pointer]:
+                          - generic [ref=e700]: Level
+                          - img [ref=e702]
+                      - generic "select" [ref=e705]:
+                        - combobox [ref=e708]
+                        - button "Build Type" [ref=e711] [cursor=pointer]:
+                          - generic [ref=e712]: Build Type
+                          - img [ref=e714]
+                      - generic "select" [ref=e717]:
+                        - combobox [ref=e720]
+                        - button "Creator" [ref=e723] [cursor=pointer]:
+                          - generic [ref=e724]: Creator
+                          - img [ref=e726]
+                      - generic "select" [ref=e729]:
+                        - combobox [ref=e732]
+                        - button "Featured" [ref=e735] [cursor=pointer]:
+                          - generic [ref=e736]: Featured
+                          - img [ref=e738]
+                      - generic "select" [ref=e741]:
+                        - combobox [ref=e744]
+                        - button "Skills" [ref=e747] [cursor=pointer]:
+                          - generic [ref=e748]: Skills
+                          - img [ref=e750]
+                      - generic "select" [ref=e753]:
+                        - combobox [ref=e756]
+                        - button "Trending" [ref=e759] [cursor=pointer]:
+                          - generic [ref=e760]: Trending
+                          - img [ref=e762]
+                    - generic [ref=e765]:
+                      - generic [ref=e768] [cursor=pointer]:
+                        - link [ref=e769]:
+                          - /url: /mhw/profile/rich-dragon-2tdocv/builds/b0cf120f-b6fe-4d17-b41d-6e3edf314aa1
+                        - generic [ref=e770]:
+                          - img "icon" [ref=e777]
+                          - generic [ref=e778]:
+                            - generic [ref=e779]: Copy of Copy of 214
+                            - generic [ref=e780]:
+                              - text: By
+                              - link "rewad+5667@mobalyticshq.com" [ref=e781]:
+                                - /url: /mhw/profile/rich-dragon-2tdocv
+                              - text: ∙
+                              - generic [ref=e782]: Updated on
+                              - generic [ref=e783]: Jul 11, 2025
+                          - generic [ref=e785]:
+                            - generic [ref=e786]:
+                              - img "icon" [ref=e789]
+                              - generic [ref=e791]: "2"
+                            - generic [ref=e792]:
+                              - img "icon" [ref=e795]
+                              - generic [ref=e797]: "1"
+                            - generic [ref=e798]:
+                              - img "icon" [ref=e801]
+                              - generic [ref=e803]: "1"
+                            - generic [ref=e804]:
+                              - img "icon" [ref=e807]
+                              - generic [ref=e809]: "1"
+                            - generic [ref=e810]:
+                              - img "icon" [ref=e813]
+                              - generic [ref=e815]: "1"
+                            - generic [ref=e816]:
+                              - img "icon" [ref=e819]
+                              - generic [ref=e821]: "1"
+                            - generic [ref=e822]:
+                              - img "icon" [ref=e825]
+                              - generic [ref=e827]: "3"
+                            - generic [ref=e828]:
+                              - img "icon" [ref=e831]
+                              - generic [ref=e833]: "1"
+                            - generic [ref=e834]:
+                              - img "icon" [ref=e837]
+                              - generic [ref=e839]: "2"
+                            - generic [ref=e840]:
+                              - img "icon" [ref=e843]
+                              - generic [ref=e845]: "2"
+                        - generic [ref=e846]:
+                          - generic [ref=e848]:
+                            - button "4 Favorites" [ref=e849]:
+                              - img [ref=e850]
+                              - text: 4 Favorites
+                            - button "Share" [ref=e851]:
+                              - img [ref=e852]
+                              - text: Share
+                            - button [ref=e854]:
+                              - img [ref=e856]
+                          - generic [ref=e857]:
+                            - generic [ref=e858]:
+                              - img "presentation" [ref=e859]
+                              - text: Bow
+                            - generic [ref=e860]:
+                              - img "presentation" [ref=e861]
+                              - text: Bow
+                            - generic [ref=e862]:
+                              - img "presentation" [ref=e863]
+                              - text: Raw
+                      - generic [ref=e866] [cursor=pointer]:
+                        - link [ref=e867]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/builds/mix-builds-1-2
+                        - generic [ref=e869]:
+                          - generic [ref=e870]: Mix builds 1+2
+                          - generic [ref=e871]:
+                            - text: By
+                            - link "Porring" [ref=e872]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e873]: Updated on
+                            - generic [ref=e874]: Dec 9, 2025
+                        - generic [ref=e875]:
+                          - generic [ref=e877]:
+                            - button "1 Favorite" [ref=e878]:
+                              - img [ref=e879]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e880]:
+                              - img [ref=e881]
+                              - text: Share
+                            - button [ref=e883]:
+                              - img [ref=e885]
+                          - generic [ref=e886]:
+                            - generic [ref=e887]: Low Rank (Campaign)
+                            - generic [ref=e888]:
+                              - img "presentation" [ref=e889]
+                              - text: Raw
+                            - generic [ref=e890]:
+                              - img "presentation" [ref=e891]
+                              - text: Fire
+                            - generic [ref=e892]:
+                              - img "presentation" [ref=e893]
+                              - text: Sword & Shield
+                      - generic [ref=e896] [cursor=pointer]:
+                        - link [ref=e897]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/builds/b50abdf7-3163-4724-9311-97f181387482
+                        - generic [ref=e899]:
+                          - generic [ref=e900]: My Build
+                          - generic [ref=e901]:
+                            - text: By
+                            - link "Porring" [ref=e902]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e903]: Updated on
+                            - generic [ref=e904]: Jun 20, 2025
+                        - generic [ref=e905]:
+                          - generic [ref=e907]:
+                            - button "1 Favorite" [ref=e908]:
+                              - img [ref=e909]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e910]:
+                              - img [ref=e911]
+                              - text: Share
+                            - button [ref=e913]:
+                              - img [ref=e915]
+                          - generic [ref=e916]:
+                            - generic [ref=e917]:
+                              - img "presentation" [ref=e918]
+                              - text: Raw
+                            - generic [ref=e919]:
+                              - img "presentation" [ref=e920]
+                              - text: Fire
+                      - generic [ref=e923] [cursor=pointer]:
+                        - link [ref=e924]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/builds/0d927bb2-76bf-4480-82ed-dba8ac9b05e1
+                        - generic [ref=e926]:
+                          - generic [ref=e927]: My Build
+                          - generic [ref=e928]:
+                            - text: By
+                            - link "Porring" [ref=e929]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e930]: Updated on
+                            - generic [ref=e931]: Jun 2, 2025
+                        - generic [ref=e932]:
+                          - generic [ref=e934]:
+                            - button "1 Favorite" [ref=e935]:
+                              - img [ref=e936]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e937]:
+                              - img [ref=e938]
+                              - text: Share
+                            - button [ref=e940]:
+                              - img [ref=e942]
+                          - generic [ref=e944]:
+                            - img "presentation" [ref=e945]
+                            - text: Raw
+                      - generic [ref=e948] [cursor=pointer]:
+                        - link [ref=e949]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/builds/copy-of-my-build-0912
+                        - generic [ref=e951]:
+                          - generic [ref=e952]: Copy of My Build 0912
+                          - generic [ref=e953]:
+                            - text: By
+                            - link "Porring" [ref=e954]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e955]: Updated on
+                            - generic [ref=e956]: Dec 9, 2025
+                        - generic [ref=e957]:
+                          - generic [ref=e959]:
+                            - button "Add to Favorites" [ref=e960]:
+                              - img [ref=e961]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e962]:
+                              - img [ref=e963]
+                              - text: Share
+                            - button [ref=e965]:
+                              - img [ref=e967]
+                          - generic [ref=e968]:
+                            - generic [ref=e969]:
+                              - img "presentation" [ref=e970]
+                              - text: Raw
+                            - generic [ref=e971]:
+                              - img "presentation" [ref=e972]
+                              - text: Fire
+                            - generic [ref=e973]: Low Rank (Campaign)
+                      - button "Show more" [ref=e974] [cursor=pointer]
+                  - generic [ref=e976]:
+                    - generic [ref=e981]:
+                      - generic [ref=e985]:
+                        - img [ref=e986]
+                        - textbox "search by name" [ref=e988]:
+                          - /placeholder: Search...
+                      - generic "select" [ref=e990]:
+                        - combobox [ref=e993]
+                        - button "Featured" [ref=e996] [cursor=pointer]:
+                          - generic [ref=e997]: Featured
+                          - img [ref=e999]
+                    - generic [ref=e1002]:
+                      - generic [ref=e1005] [cursor=pointer]:
+                        - link [ref=e1006]:
+                          - /url: /mhw/builds/som-sombra
+                        - generic [ref=e1007]:
+                          - generic [ref=e1012]:
+                            - generic [ref=e1013]: Widget check
+                            - generic [ref=e1014]:
+                              - text: By
+                              - link "Porring" [ref=e1015]:
+                                - /url: /mhw/profile/cool-gun-b9u3qw
+                              - text: ∙
+                              - generic [ref=e1016]: Updated on
+                              - generic [ref=e1017]: Jun 17, 2025
+                          - generic [ref=e1019]:
+                            - generic [ref=e1020]:
+                              - img "icon" [ref=e1023]
+                              - generic [ref=e1025]: "2"
+                            - generic [ref=e1026]:
+                              - img "icon" [ref=e1029]
+                              - generic [ref=e1031]: "1"
+                            - generic [ref=e1032]:
+                              - img "icon" [ref=e1035]
+                              - generic [ref=e1037]: "1"
+                            - generic [ref=e1038]:
+                              - img "icon" [ref=e1041]
+                              - generic [ref=e1043]: "3"
+                            - generic [ref=e1044]:
+                              - img "icon" [ref=e1047]
+                              - generic [ref=e1049]: "3"
+                            - generic [ref=e1050]:
+                              - img "icon" [ref=e1053]
+                              - generic [ref=e1055]: "1"
+                            - generic [ref=e1056]:
+                              - img "icon" [ref=e1059]
+                              - generic [ref=e1061]: "1"
+                        - generic [ref=e1062]:
+                          - generic [ref=e1064]:
+                            - button "3 Favorites" [ref=e1065]:
+                              - img [ref=e1066]
+                              - text: 3 Favorites
+                            - button "Share" [ref=e1067]:
+                              - img [ref=e1068]
+                              - text: Share
+                            - button [ref=e1070]:
+                              - img [ref=e1072]
+                          - generic [ref=e1073]:
+                            - generic [ref=e1074]:
+                              - img "presentation" [ref=e1075]
+                              - text: Heavy Bow Gun
+                            - generic [ref=e1076]:
+                              - img "presentation" [ref=e1077]
+                              - text: Raw
+                      - generic [ref=e1080] [cursor=pointer]:
+                        - link [ref=e1081]:
+                          - /url: /mhw/builds/privet
+                        - generic [ref=e1083]:
+                          - generic [ref=e1084]: Privet
+                          - generic [ref=e1085]:
+                            - text: By
+                            - link "Porring" [ref=e1086]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e1087]: Updated on
+                            - generic [ref=e1088]: Jul 24, 2025
+                        - generic [ref=e1089]:
+                          - generic [ref=e1091]:
+                            - button "2 Favorites" [ref=e1092]:
+                              - img [ref=e1093]
+                              - text: 2 Favorites
+                            - button "Share" [ref=e1094]:
+                              - img [ref=e1095]
+                              - text: Share
+                            - button [ref=e1097]:
+                              - img [ref=e1099]
+                          - generic [ref=e1100]:
+                            - generic [ref=e1101]:
+                              - img "presentation" [ref=e1102]
+                              - text: Raw
+                            - generic [ref=e1103]:
+                              - img "presentation" [ref=e1104]
+                              - text: Fire
+                            - generic [ref=e1105]: Low Rank (Campaign)
+                      - generic [ref=e1108] [cursor=pointer]:
+                        - link [ref=e1109]:
+                          - /url: /mhw/builds/som-som
+                        - generic [ref=e1110]:
+                          - generic [ref=e1115]:
+                            - generic [ref=e1116]: My Build 180620205
+                            - generic [ref=e1117]:
+                              - text: By
+                              - link "Porring" [ref=e1118]:
+                                - /url: /mhw/profile/cool-gun-b9u3qw
+                              - text: ∙
+                              - generic [ref=e1119]: Updated on
+                              - generic [ref=e1120]: Jun 18, 2025
+                          - generic [ref=e1122]:
+                            - generic [ref=e1123]:
+                              - img "icon" [ref=e1126]
+                              - generic [ref=e1128]: "1"
+                            - generic [ref=e1129]:
+                              - img "icon" [ref=e1132]
+                              - generic [ref=e1134]: "2"
+                            - generic [ref=e1135]:
+                              - img "icon" [ref=e1138]
+                              - generic [ref=e1140]: "2"
+                            - generic [ref=e1141]:
+                              - img "icon" [ref=e1144]
+                              - generic [ref=e1146]: "5"
+                            - generic [ref=e1147]:
+                              - img "icon" [ref=e1150]
+                              - generic [ref=e1152]: "1"
+                            - generic [ref=e1153]:
+                              - img "icon" [ref=e1156]
+                              - generic [ref=e1158]: "3"
+                            - generic [ref=e1159]:
+                              - img "icon" [ref=e1162]
+                              - generic [ref=e1164]: "2"
+                            - generic [ref=e1165]:
+                              - img "icon" [ref=e1168]
+                              - generic [ref=e1170]: "1"
+                            - generic [ref=e1171]:
+                              - img "icon" [ref=e1174]
+                              - generic [ref=e1176]: "3"
+                            - generic [ref=e1177]:
+                              - img "icon" [ref=e1180]
+                              - generic [ref=e1182]: "1"
+                            - generic [ref=e1183]:
+                              - img "icon" [ref=e1186]
+                              - generic [ref=e1188]: "3"
+                            - generic [ref=e1189]:
+                              - img "icon" [ref=e1192]
+                              - generic [ref=e1194]: "1"
+                            - generic [ref=e1195]:
+                              - img "icon" [ref=e1198]
+                              - generic [ref=e1200]: "1"
+                            - generic [ref=e1201]:
+                              - img "icon" [ref=e1204]
+                              - generic [ref=e1206]: "3"
+                        - generic [ref=e1207]:
+                          - generic [ref=e1209]:
+                            - button "2 Favorites" [ref=e1210]:
+                              - img [ref=e1211]
+                              - text: 2 Favorites
+                            - button "Share" [ref=e1212]:
+                              - img [ref=e1213]
+                              - text: Share
+                            - button [ref=e1215]:
+                              - img [ref=e1217]
+                          - generic [ref=e1218]:
+                            - generic [ref=e1219]:
+                              - img "presentation" [ref=e1220]
+                              - text: Insect Glaive
+                            - generic [ref=e1221]:
+                              - img "presentation" [ref=e1222]
+                              - text: Gun Lance
+                            - generic [ref=e1223]:
+                              - img "presentation" [ref=e1224]
+                              - text: Raw
+                      - generic [ref=e1227] [cursor=pointer]:
+                        - link [ref=e1228]:
+                          - /url: /mhw/builds/yy
+                        - generic [ref=e1229]:
+                          - img "icon" [ref=e1236]
+                          - generic [ref=e1237]:
+                            - generic [ref=e1238]: Minimi
+                            - generic [ref=e1239]:
+                              - text: By
+                              - link "Porring" [ref=e1240]:
+                                - /url: /mhw/profile/cool-gun-b9u3qw
+                              - text: ∙
+                              - generic [ref=e1241]: Updated on
+                              - generic [ref=e1242]: Jun 2, 2025
+                          - generic [ref=e1244]:
+                            - generic [ref=e1245]:
+                              - img "icon" [ref=e1248]
+                              - generic [ref=e1250]: "2"
+                            - generic [ref=e1251]:
+                              - img "icon" [ref=e1254]
+                              - generic [ref=e1256]: "1"
+                            - generic [ref=e1257]:
+                              - img "icon" [ref=e1260]
+                              - generic [ref=e1262]: "1"
+                            - generic [ref=e1263]:
+                              - img "icon" [ref=e1266]
+                              - generic [ref=e1268]: "3"
+                            - generic [ref=e1269]:
+                              - img "icon" [ref=e1272]
+                              - generic [ref=e1274]: "1"
+                            - generic [ref=e1275]:
+                              - img "icon" [ref=e1278]
+                              - generic [ref=e1280]: "2"
+                            - generic [ref=e1281]:
+                              - img "icon" [ref=e1284]
+                              - generic [ref=e1286]: "2"
+                            - generic [ref=e1287]:
+                              - img "icon" [ref=e1290]
+                              - generic [ref=e1292]: "1"
+                        - generic [ref=e1293]:
+                          - generic [ref=e1295]:
+                            - button "2 Favorites" [ref=e1296]:
+                              - img [ref=e1297]
+                              - text: 2 Favorites
+                            - button "Share" [ref=e1298]:
+                              - img [ref=e1299]
+                              - text: Share
+                            - button [ref=e1301]:
+                              - img [ref=e1303]
+                          - generic [ref=e1304]:
+                            - generic [ref=e1305]:
+                              - img "presentation" [ref=e1306]
+                              - text: Bow
+                            - generic [ref=e1307]:
+                              - img "presentation" [ref=e1308]
+                              - text: Raw
+                            - generic [ref=e1309]:
+                              - img "presentation" [ref=e1310]
+                              - text: Ice
+                            - generic [ref=e1311]: Low Rank (Campaign)
+                            - generic [ref=e1312]: Comfort
+                      - generic [ref=e1315] [cursor=pointer]:
+                        - generic [ref=e1317]:
+                          - generic [ref=e1318]: Test cls
+                          - generic [ref=e1319]:
+                            - text: By
+                            - text: ∙
+                            - generic [ref=e1320]: Updated on
+                            - generic [ref=e1321]: May 8, 2025
+                        - generic [ref=e1322]:
+                          - generic [ref=e1324]:
+                            - button "2 Favorites" [ref=e1325]:
+                              - img [ref=e1326]
+                              - text: 2 Favorites
+                            - button [ref=e1328]:
+                              - img [ref=e1330]
+                          - generic [ref=e1332]:
+                            - img "presentation" [ref=e1333]
+                            - text: Raw
+                      - button "Show more" [ref=e1334] [cursor=pointer]
+                  - generic [ref=e1336]:
+                    - generic [ref=e1337]:
+                      - heading "Documents Tier List V2" [level=2] [ref=e1340]
+                      - generic [ref=e1344]:
+                        - generic [ref=e1348]:
+                          - img [ref=e1349]
+                          - textbox "search by name" [ref=e1351]:
+                            - /placeholder: Search...
+                        - generic "select" [ref=e1353]:
+                          - combobox [ref=e1356]
+                          - button "Weapon" [ref=e1359] [cursor=pointer]:
+                            - generic [ref=e1360]: Weapon
+                            - img [ref=e1362]
+                        - generic "select" [ref=e1365]:
+                          - combobox [ref=e1368]
+                          - button "Water" [ref=e1371] [cursor=pointer]:
+                            - generic [ref=e1372]: Water
+                            - img [ref=e1374]
+                        - generic "select" [ref=e1377]:
+                          - combobox [ref=e1380]
+                          - button "Level" [ref=e1383] [cursor=pointer]:
+                            - generic [ref=e1384]: Level
+                            - img [ref=e1386]
+                        - generic "select" [ref=e1389]:
+                          - combobox [ref=e1392]
+                          - button "Build Type" [ref=e1395] [cursor=pointer]:
+                            - generic [ref=e1396]: Build Type
+                            - img [ref=e1398]
+                        - generic "select" [ref=e1401]:
+                          - combobox [ref=e1404]
+                          - button "Creator" [ref=e1407] [cursor=pointer]:
+                            - generic [ref=e1408]: Creator
+                            - img [ref=e1410]
+                        - generic "select" [ref=e1413]:
+                          - combobox [ref=e1416]
+                          - button "Featured" [ref=e1419] [cursor=pointer]:
+                            - generic [ref=e1420]: Featured
+                            - img [ref=e1422]
+                        - generic "select" [ref=e1425]:
+                          - combobox [ref=e1428]
+                          - button "Skills" [ref=e1431] [cursor=pointer]:
+                            - generic [ref=e1432]: Skills
+                            - img [ref=e1434]
+                    - generic [ref=e1437]:
+                      - generic [ref=e1438]: We couldn't find any documents for your query
+                      - generic [ref=e1439]: Try selecting a different combination of Document type and filters
+                - generic [ref=e1441]:
+                  - generic [ref=e1443]:
+                    - heading "Privet 2.0" [level=2] [ref=e1447]
+                    - generic [ref=e1449]:
+                      - generic [ref=e1451] [cursor=pointer]:
+                        - link [ref=e1452]:
+                          - /url: /mhw/profile/iron-robot-bg6id8/guides/2ae4e829-9a3f-432f-ab1d-82419836a9fe
+                        - generic [ref=e1454]:
+                          - generic [ref=e1455]: Test Stas int mhw apollo migration Guide
+                          - generic [ref=e1456]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e1457]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e1458]: Updated on
+                            - generic [ref=e1459]: Apr 16, 2026
+                        - generic [ref=e1460]:
+                          - generic [ref=e1462]:
+                            - button "Add to Favorites" [ref=e1463]:
+                              - img [ref=e1464]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e1465]:
+                              - img [ref=e1466]
+                              - text: Share
+                          - generic [ref=e1467]:
+                            - generic [ref=e1468]: Beginner
+                            - generic [ref=e1469]: Guides
+                      - generic [ref=e1471] [cursor=pointer]:
+                        - link [ref=e1472]:
+                          - /url: /mhw/profile/bright-shield-aisan7/guides/cff3a396-7db4-42f0-86f8-b038fbd4f1cd
+                        - generic [ref=e1474]:
+                          - generic [ref=e1475]: qa-automation-guide-page-68000a66-431c-41ad-9059-1ccc69370ff1
+                          - generic [ref=e1476]:
+                            - text: By
+                            - link "admin_auto_tests+stg+ns@mobalyticshq.com" [ref=e1477]:
+                              - /url: /mhw/profile/bright-shield-aisan7
+                            - text: ∙
+                            - generic [ref=e1478]: Updated on
+                            - generic [ref=e1479]: Mar 16, 2026
+                        - generic [ref=e1480]:
+                          - generic [ref=e1482]:
+                            - button "Add to Favorites" [ref=e1483]:
+                              - img [ref=e1484]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e1485]:
+                              - img [ref=e1486]
+                              - text: Share
+                          - generic [ref=e1488]: Beginner
+                      - generic [ref=e1490] [cursor=pointer]:
+                        - link [ref=e1491]:
+                          - /url: /mhw/profile/iron-robot-bg6id8/guides/c940c098-5254-4209-a5e0-2b338de9e46f
+                        - generic [ref=e1493]:
+                          - generic [ref=e1494]: My New Guide
+                          - generic [ref=e1495]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e1496]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e1497]: Updated on
+                            - generic [ref=e1498]: Nov 10, 2025
+                        - generic [ref=e1499]:
+                          - generic [ref=e1501]:
+                            - button "Add to Favorites" [ref=e1502]:
+                              - img [ref=e1503]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e1504]:
+                              - img [ref=e1505]
+                              - text: Share
+                          - generic [ref=e1507]: Beginner
+                      - generic [ref=e1509] [cursor=pointer]:
+                        - link [ref=e1510]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/guides/fir-fir
+                        - generic [ref=e1512]:
+                          - generic [ref=e1513]: Fir-fir
+                          - generic [ref=e1514]:
+                            - text: By
+                            - link "Porring" [ref=e1515]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e1516]: Updated on
+                            - generic [ref=e1517]: Sep 23, 2025
+                        - generic [ref=e1518]:
+                          - generic [ref=e1520]:
+                            - button "1 Favorite" [ref=e1521]:
+                              - img [ref=e1522]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1523]:
+                              - img [ref=e1524]
+                              - text: Share
+                          - generic [ref=e1526]: Beginner
+                      - generic [ref=e1528] [cursor=pointer]:
+                        - link [ref=e1529]:
+                          - /url: /mhw/profile/pretty-flame-idoxvl/guides/c34c67ac-f7af-44a0-97fa-2c48bcf1ab18
+                        - generic [ref=e1531]:
+                          - generic [ref=e1532]: My New Guide
+                          - generic [ref=e1533]:
+                            - text: By
+                            - link "PrettyFlame" [ref=e1534]:
+                              - /url: /mhw/profile/pretty-flame-idoxvl
+                            - text: ∙
+                            - generic [ref=e1535]: Updated on
+                            - generic [ref=e1536]: May 13, 2025
+                        - generic [ref=e1537]:
+                          - generic [ref=e1539]:
+                            - button "1 Favorite" [ref=e1540]:
+                              - img [ref=e1541]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1542]:
+                              - img [ref=e1543]
+                              - text: Share
+                          - generic [ref=e1545]: Beginner
+                      - link "NEW TAB" [ref=e1546] [cursor=pointer]:
+                        - /url: https://www.google.com/
+                        - generic [ref=e1547]: NEW TAB
+                  - generic [ref=e1553]:
+                    - img [ref=e1555]
+                    - heading "Home Page Header V2" [level=1] [ref=e1556]
+                - generic [ref=e1558]:
+                  - generic [ref=e1560]:
+                    - heading "Game Data Card Grid Widget V2" [level=2] [ref=e1564]
+                    - generic [ref=e1571]:
+                      - paragraph [ref=e1572]:
+                        - generic [ref=e1577]: Arkveld's Hunger
+                      - paragraph [ref=e1578]:
+                        - generic [ref=e1583]: Arkveld's Hunger
+                      - paragraph [ref=e1584]:
+                        - generic [ref=e1589]: Arkveld's Hunger
+                    - generic [ref=e1595]:
+                      - generic "Arkveld's Hunger" [ref=e1596]
+                      - generic "Set Bonus" [ref=e1597]
+                  - generic [ref=e1599]:
+                    - heading "Card Grid V2" [level=2] [ref=e1603]
+                    - generic "Ark's might" [ref=e1608]
+                  - generic [ref=e1610]:
+                    - heading "Discovery Preview V2" [level=2] [ref=e1614]
+                    - generic [ref=e1616]:
+                      - generic [ref=e1618] [cursor=pointer]:
+                        - link [ref=e1619]:
+                          - /url: /mhw/profile/iron-robot-bg6id8/guides/2ae4e829-9a3f-432f-ab1d-82419836a9fe
+                        - generic [ref=e1621]:
+                          - generic [ref=e1622]: Test Stas int mhw apollo migration Guide
+                          - generic [ref=e1623]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e1624]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e1625]: Updated on
+                            - generic [ref=e1626]: Apr 16, 2026
+                        - generic [ref=e1627]:
+                          - generic [ref=e1629]:
+                            - button "Add to Favorites" [ref=e1630]:
+                              - img [ref=e1631]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e1632]:
+                              - img [ref=e1633]
+                              - text: Share
+                          - generic [ref=e1634]:
+                            - generic [ref=e1635]: Beginner
+                            - generic [ref=e1636]: Guides
+                      - generic [ref=e1638] [cursor=pointer]:
+                        - link [ref=e1639]:
+                          - /url: /mhw/profile/bright-shield-aisan7/guides/cff3a396-7db4-42f0-86f8-b038fbd4f1cd
+                        - generic [ref=e1641]:
+                          - generic [ref=e1642]: qa-automation-guide-page-68000a66-431c-41ad-9059-1ccc69370ff1
+                          - generic [ref=e1643]:
+                            - text: By
+                            - link "admin_auto_tests+stg+ns@mobalyticshq.com" [ref=e1644]:
+                              - /url: /mhw/profile/bright-shield-aisan7
+                            - text: ∙
+                            - generic [ref=e1645]: Updated on
+                            - generic [ref=e1646]: Mar 16, 2026
+                        - generic [ref=e1647]:
+                          - generic [ref=e1649]:
+                            - button "Add to Favorites" [ref=e1650]:
+                              - img [ref=e1651]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e1652]:
+                              - img [ref=e1653]
+                              - text: Share
+                          - generic [ref=e1655]: Beginner
+                      - generic [ref=e1657] [cursor=pointer]:
+                        - link [ref=e1658]:
+                          - /url: /mhw/profile/iron-robot-bg6id8/guides/c940c098-5254-4209-a5e0-2b338de9e46f
+                        - generic [ref=e1660]:
+                          - generic [ref=e1661]: My New Guide
+                          - generic [ref=e1662]:
+                            - text: By
+                            - link "Gattino#Nero" [ref=e1663]:
+                              - /url: /mhw/profile/iron-robot-bg6id8
+                            - text: ∙
+                            - generic [ref=e1664]: Updated on
+                            - generic [ref=e1665]: Nov 10, 2025
+                        - generic [ref=e1666]:
+                          - generic [ref=e1668]:
+                            - button "Add to Favorites" [ref=e1669]:
+                              - img [ref=e1670]
+                              - text: Add to Favorites
+                            - button "Share" [ref=e1671]:
+                              - img [ref=e1672]
+                              - text: Share
+                          - generic [ref=e1674]: Beginner
+                      - generic [ref=e1676] [cursor=pointer]:
+                        - link [ref=e1677]:
+                          - /url: /mhw/profile/cool-gun-b9u3qw/guides/fir-fir
+                        - generic [ref=e1679]:
+                          - generic [ref=e1680]: Fir-fir
+                          - generic [ref=e1681]:
+                            - text: By
+                            - link "Porring" [ref=e1682]:
+                              - /url: /mhw/profile/cool-gun-b9u3qw
+                            - text: ∙
+                            - generic [ref=e1683]: Updated on
+                            - generic [ref=e1684]: Sep 23, 2025
+                        - generic [ref=e1685]:
+                          - generic [ref=e1687]:
+                            - button "1 Favorite" [ref=e1688]:
+                              - img [ref=e1689]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1690]:
+                              - img [ref=e1691]
+                              - text: Share
+                          - generic [ref=e1693]: Beginner
+                      - generic [ref=e1695] [cursor=pointer]:
+                        - link [ref=e1696]:
+                          - /url: /mhw/profile/pretty-flame-idoxvl/guides/c34c67ac-f7af-44a0-97fa-2c48bcf1ab18
+                        - generic [ref=e1698]:
+                          - generic [ref=e1699]: My New Guide
+                          - generic [ref=e1700]:
+                            - text: By
+                            - link "PrettyFlame" [ref=e1701]:
+                              - /url: /mhw/profile/pretty-flame-idoxvl
+                            - text: ∙
+                            - generic [ref=e1702]: Updated on
+                            - generic [ref=e1703]: May 13, 2025
+                        - generic [ref=e1704]:
+                          - generic [ref=e1706]:
+                            - button "1 Favorite" [ref=e1707]:
+                              - img [ref=e1708]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1709]:
+                              - img [ref=e1710]
+                              - text: Share
+                          - generic [ref=e1712]: Beginner
+                    - button "Show more" [ref=e1713] [cursor=pointer]
+                - generic [ref=e1714]:
+                  - generic [ref=e1715]:
+                    - generic [ref=e1717]:
+                      - generic [ref=e1722]:
+                        - generic [ref=e1726]:
+                          - img [ref=e1727]
+                          - textbox "search by name" [ref=e1729]:
+                            - /placeholder: Search...
+                        - button "Filters" [ref=e1730] [cursor=pointer]:
+                          - img [ref=e1731]
+                          - text: Filters
+                      - generic [ref=e1733]:
+                        - generic [ref=e1736] [cursor=pointer]:
+                          - generic [ref=e1737]:
+                            - img "icon" [ref=e1744]
+                            - generic [ref=e1745]:
+                              - generic [ref=e1746]: New Variants 1
+                              - generic [ref=e1747]:
+                                - text: By
+                                - text: ∙
+                                - generic [ref=e1748]: Updated on
+                                - generic [ref=e1749]: Jul 29, 2025
+                            - generic [ref=e1752]:
+                              - img "icon" [ref=e1755]
+                              - generic [ref=e1757]: "3"
+                          - generic [ref=e1758]:
+                            - generic [ref=e1759]:
+                              - img "presentation" [ref=e1760]
+                              - text: Sword & Shield
+                            - generic [ref=e1761]:
+                              - img "presentation" [ref=e1762]
+                              - text: Bow
+                            - generic [ref=e1763]:
+                              - img "presentation" [ref=e1764]
+                              - text: Water
+                            - generic [ref=e1765]: "+1"
+                          - generic [ref=e1768]:
+                            - button "4 Favorites" [ref=e1769]:
+                              - img [ref=e1770]
+                              - text: 4 Favorites
+                            - button [ref=e1772]:
+                              - img [ref=e1774]
+                        - generic [ref=e1777] [cursor=pointer]:
+                          - link [ref=e1778]:
+                            - /url: /mhw/profile/rich-dragon-2tdocv/builds/b0cf120f-b6fe-4d17-b41d-6e3edf314aa1
+                          - generic [ref=e1779]:
+                            - img "icon" [ref=e1786]
+                            - generic [ref=e1787]:
+                              - generic [ref=e1788]: Copy of Copy of 214
+                              - generic [ref=e1789]:
+                                - text: By
+                                - link "rewad+5667@mobalyticshq.com" [ref=e1790]:
+                                  - /url: /mhw/profile/rich-dragon-2tdocv
+                                - text: ∙
+                                - generic [ref=e1791]: Updated on
+                                - generic [ref=e1792]: Jul 11, 2025
+                            - generic [ref=e1794]:
+                              - generic [ref=e1795]:
+                                - img "icon" [ref=e1798]
+                                - generic [ref=e1800]: "2"
+                              - generic [ref=e1801]:
+                                - img "icon" [ref=e1804]
+                                - generic [ref=e1806]: "1"
+                              - generic [ref=e1807]:
+                                - img "icon" [ref=e1810]
+                                - generic [ref=e1812]: "1"
+                              - generic [ref=e1813]:
+                                - img "icon" [ref=e1816]
+                                - generic [ref=e1818]: "1"
+                              - generic [ref=e1819]:
+                                - img "icon" [ref=e1822]
+                                - generic [ref=e1824]: "1"
+                              - generic [ref=e1825]:
+                                - img "icon" [ref=e1828]
+                                - generic [ref=e1830]: "1"
+                              - generic [ref=e1831]:
+                                - img "icon" [ref=e1834]
+                                - generic [ref=e1836]: "3"
+                              - generic [ref=e1837]:
+                                - img "icon" [ref=e1840]
+                                - generic [ref=e1842]: "1"
+                              - generic [ref=e1843]:
+                                - img "icon" [ref=e1846]
+                                - generic [ref=e1848]: "2"
+                              - generic [ref=e1849]:
+                                - img "icon" [ref=e1852]
+                                - generic [ref=e1854]: "2"
+                          - generic [ref=e1855]:
+                            - generic [ref=e1856]:
+                              - img "presentation" [ref=e1857]
+                              - text: Bow
+                            - generic [ref=e1858]:
+                              - img "presentation" [ref=e1859]
+                              - text: Bow
+                            - generic [ref=e1860]:
+                              - img "presentation" [ref=e1861]
+                              - text: Raw
+                          - generic [ref=e1864]:
+                            - button "4 Favorites" [ref=e1865]:
+                              - img [ref=e1866]
+                              - text: 4 Favorites
+                            - button "Share" [ref=e1867]:
+                              - img [ref=e1868]
+                              - text: Share
+                            - button [ref=e1870]:
+                              - img [ref=e1872]
+                        - generic [ref=e1875] [cursor=pointer]:
+                          - link [ref=e1876]:
+                            - /url: /mhw/profile/cool-gun-b9u3qw/builds/mix-builds-1-2
+                          - generic [ref=e1878]:
+                            - generic [ref=e1879]: Mix builds 1+2
+                            - generic [ref=e1880]:
+                              - text: By
+                              - link "Porring" [ref=e1881]:
+                                - /url: /mhw/profile/cool-gun-b9u3qw
+                              - text: ∙
+                              - generic [ref=e1882]: Updated on
+                              - generic [ref=e1883]: Dec 9, 2025
+                          - generic [ref=e1884]:
+                            - generic [ref=e1885]: Low Rank (Campaign)
+                            - generic [ref=e1886]:
+                              - img "presentation" [ref=e1887]
+                              - text: Raw
+                            - generic [ref=e1888]:
+                              - img "presentation" [ref=e1889]
+                              - text: Fire
+                            - generic [ref=e1890]: "+1"
+                          - generic [ref=e1893]:
+                            - button "1 Favorite" [ref=e1894]:
+                              - img [ref=e1895]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1896]:
+                              - img [ref=e1897]
+                              - text: Share
+                            - button [ref=e1899]:
+                              - img [ref=e1901]
+                        - generic [ref=e1904] [cursor=pointer]:
+                          - link [ref=e1905]:
+                            - /url: /mhw/profile/cool-gun-b9u3qw/builds/ho-ho-ho
+                          - generic [ref=e1907]:
+                            - generic [ref=e1908]: ho-ho-ho
+                            - generic [ref=e1909]:
+                              - text: By
+                              - link "Porring" [ref=e1910]:
+                                - /url: /mhw/profile/cool-gun-b9u3qw
+                              - text: ∙
+                              - generic [ref=e1911]: Updated on
+                              - generic [ref=e1912]: Dec 9, 2025
+                          - generic [ref=e1913]:
+                            - generic [ref=e1914]:
+                              - img "presentation" [ref=e1915]
+                              - text: Water
+                            - generic [ref=e1916]: High Rank
+                            - generic [ref=e1917]:
+                              - img "presentation" [ref=e1918]
+                              - text: Great Sword
+                            - generic [ref=e1919]: "+1"
+                          - generic [ref=e1922]:
+                            - button "1 Favorite" [ref=e1923]:
+                              - img [ref=e1924]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1925]:
+                              - img [ref=e1926]
+                              - text: Share
+                            - button [ref=e1928]:
+                              - img [ref=e1930]
+                        - generic [ref=e1933] [cursor=pointer]:
+                          - link [ref=e1934]:
+                            - /url: /mhw/profile/new-pika4-2-439blm/builds/61587412-2f45-47b1-ba77-b97f8f62c00a
+                          - generic [ref=e1936]:
+                            - generic [ref=e1937]: My Build
+                            - generic [ref=e1938]:
+                              - text: By
+                              - link "admin+stg+ns@mobalyticshq.com" [ref=e1939]:
+                                - /url: /mhw/profile/new-pika4-2-439blm
+                              - text: ∙
+                              - generic [ref=e1940]: Updated on
+                              - generic [ref=e1941]: Nov 14, 2025
+                          - generic [ref=e1942]:
+                            - generic [ref=e1943]:
+                              - img "presentation" [ref=e1944]
+                              - text: Water
+                            - generic [ref=e1945]: Low Rank (Campaign)
+                          - generic [ref=e1948]:
+                            - button "1 Favorite" [ref=e1949]:
+                              - img [ref=e1950]
+                              - text: 1 Favorite
+                            - button "Share" [ref=e1951]:
+                              - img [ref=e1952]
+                              - text: Share
+                            - button [ref=e1954]:
+                              - img [ref=e1956]
+                        - button "Show more" [ref=e1957] [cursor=pointer]
+                    - generic [ref=e1959]:
+                      - generic [ref=e1964]:
+                        - generic [ref=e1968]:
+                          - img [ref=e1969]
+                          - textbox "search by name" [ref=e1971]:
+                            - /placeholder: Search...
+                        - button "Filters" [ref=e1972] [cursor=pointer]:
+                          - img [ref=e1973]
+                          - text: Filters
+                      - generic [ref=e1978] [cursor=pointer]:
+                        - link [ref=e1979]:
+                          - /url: /mhw/builds/test-el-split-mhw
+                        - generic [ref=e1980]:
+                          - img "icon" [ref=e1987]
+                          - generic [ref=e1988]:
+                            - generic [ref=e1989]: test el split
+                            - generic [ref=e1990]:
+                              - text: By
+                              - link "Gattino#Nero" [ref=e1991]:
+                                - /url: /mhw/profile/iron-robot-bg6id8
+                              - text: ∙
+                              - generic [ref=e1992]: Updated on
+                              - generic [ref=e1993]: May 7, 2026
+                        - generic [ref=e1994]:
+                          - generic [ref=e1995]:
+                            - img "presentation" [ref=e1996]
+                            - text: Bow
+                          - generic [ref=e1997]:
+                            - img "presentation" [ref=e1998]
+                            - text: Water
+                          - generic [ref=e1999]: Low Rank (Campaign)
+                        - generic [ref=e2002]:
+                          - button "1 Favorite" [ref=e2003]:
+                            - img [ref=e2004]
+                            - text: 1 Favorite
+                          - button "Share" [ref=e2005]:
+                            - img [ref=e2006]
+                            - text: Share
+                          - button [ref=e2008]:
+                            - img [ref=e2010]
+                    - generic [ref=e2012]:
+                      - heading "Discovery Preview V2" [level=2] [ref=e2016]
+                      - generic [ref=e2018]:
+                        - generic [ref=e2019]: Entries are on the way!
+                        - generic [ref=e2020]: Check back later or feel free to create your own
+                    - generic [ref=e2022]:
+                      - heading "Discovery Preview Compact V2" [level=2] [ref=e2026]
+                      - generic [ref=e2028]:
+                        - generic [ref=e2029]: Entries are on the way!
+                        - generic [ref=e2030]: Check back later or feel free to create your own
+                  - generic [ref=e2031]:
+                    - generic [ref=e2033]:
+                      - generic [ref=e2038]:
+                        - generic [ref=e2042]:
+                          - img [ref=e2043]
+                          - textbox "search by name" [ref=e2045]:
+                            - /placeholder: Search...
+                        - button "Filters" [ref=e2046] [cursor=pointer]:
+                          - img [ref=e2047]
+                          - text: Filters
+                      - generic [ref=e2052] [cursor=pointer]:
+                        - link [ref=e2053]:
+                          - /url: /mhw/profile/4elik-1/builds/my-build
+                        - generic [ref=e2055]:
+                          - generic [ref=e2056]: My Build
+                          - generic [ref=e2057]:
+                            - text: By
+                            - link "4elik" [ref=e2058]:
+                              - /url: /mhw/profile/4elik-1
+                            - text: ∙
+                            - generic [ref=e2059]: May 26, 2026
+                        - generic [ref=e2060]:
+                          - generic [ref=e2061]:
+                            - img "presentation" [ref=e2062]
+                            - text: Water
+                          - generic [ref=e2063]: Low Rank (Campaign)
+                        - generic [ref=e2066]:
+                          - button "Add to Favorites" [ref=e2067]:
+                            - img [ref=e2068]
+                            - text: Add to Favorites
+                          - button "Share" [ref=e2069]:
+                            - img [ref=e2070]
+                            - text: Share
+                          - button [ref=e2072]:
+                            - img [ref=e2074]
+                    - generic [ref=e2076]:
+                      - heading "Discovery Preview Compact V2" [level=2] [ref=e2080]
+                      - generic [ref=e2082]:
+                        - generic [ref=e2083]: Entries are on the way!
+                        - generic [ref=e2084]: Check back later or feel free to create your own
+                    - generic [ref=e2086]:
+                      - heading "Discovery Preview V2" [level=2] [ref=e2090]
+                      - generic [ref=e2092]:
+                        - generic [ref=e2093]: Entries are on the way!
+                        - generic [ref=e2094]: Check back later or feel free to create your own
+              - status [ref=e2095]
+          - complementary [ref=e2100]:
+            - generic [ref=e2101]:
+              - generic [ref=e2103]:
+                - generic [ref=e2105] [cursor=pointer]:
+                  - generic [ref=e2106]: Advertisement
+                  - generic [ref=e2107]: Remove Ads
+                - generic [ref=e2110] [cursor=pointer]:
+                  - generic [ref=e2111]: Remove all ads
+                  - generic [ref=e2112]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e2113]:
+                    - generic [ref=e2114]: Remove ads
+              - generic [ref=e2116]:
+                - generic [ref=e2118] [cursor=pointer]:
+                  - generic [ref=e2119]: Advertisement
+                  - generic [ref=e2120]: Remove Ads
+                - generic [ref=e2123] [cursor=pointer]:
+                  - generic [ref=e2124]: Remove all ads
+                  - generic [ref=e2125]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e2126]:
+                    - generic [ref=e2127]: Remove ads
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e2130]:
+    - banner [ref=e2131]:
+      - generic [ref=e2132] [cursor=pointer]:
+        - generic [ref=e2133]: Advertisement
+        - generic [ref=e2134]: Remove Ads
+    - generic [ref=e2137] [cursor=pointer]:
+      - generic [ref=e2138]: Remove all ads
+      - generic [ref=e2139]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e2140]:
+        - generic [ref=e2141]: Remove ads
+  - button "Do Not Sell or Share My Personal Information" [ref=e2145] [cursor=pointer]:
+    - paragraph [ref=e2147]: Do Not Sell or Share My Personal Information
+```
+
+# Test source
+
+```ts
+  1  | import { test } from '@playwright/test';
+  2  | 
+  3  | export class Navbar {
+  4  |   constructor(page) {
+  5  |     this.page = page;
+  6  |     this.settingsButton = page.getByRole('img', { name: 'settings' });
+  7  |     this.signInButton = page.getByRole('button', { name: 'sign in' });
+  8  |     this.getPlusButton = page.getByRole('button', { name: 'Get Plus' });
+  9  |     this.removeAdsButton = page.getByRole('button', { name: 'Remove Ads', exact: true });
+  10 |     this.gameList = page.getByTestId('navbar-game-list');
+  11 |     this.profileButton = page.getByRole('link', { name: 'View your profile' });
+  12 |     this.mgpProfileButton = page.locator('a[href*="/profile/"]').first();
+  13 |     this.accountSettingsButton = page.getByRole('link', { name: 'Account Settings' });
+  14 |     this.billingInfoButton = page.getByRole('link', { name: 'Billing Info' });
+  15 |     this.profileNameMenu = (profileName) => page.getByRole('link', { name: `${profileName}` });
+  16 |   }
+  17 | 
+  18 |   async gotoSignInPage() {
+  19 |     await test.step('Go to the Sign In page', async () => {
+  20 |       await this.signInButton.click();
+  21 |     });
+  22 |   }
+  23 | 
+  24 |   async gotoProfilePage() {
+  25 |     await test.step('Go to Profile page', async () => {
+  26 |       await this.profileButton.click();
+  27 |     });
+  28 |   }
+  29 | 
+  30 |   async gotoMgpProfile() {
+  31 |     await test.step('Go to MGP profile via navbar', async () => {
+  32 |       await this.mgpProfileButton.click();
+  33 |     });
+  34 |   }
+  35 | 
+  36 |   async gotoAccountSettingsPage() {
+  37 |     await test.step('Go to Account Settings page', async () => {
+> 38 |       await this.settingsButton.hover();
+     |                                 ^ Error: locator.hover: Test timeout of 90000ms exceeded.
+  39 |       await this.accountSettingsButton.click();
+  40 |     });
+  41 |   }
+  42 | 
+  43 |   async gotoBillingInfoPage() {
+  44 |     await test.step('Go to Account Settings page', async () => {
+  45 |       await this.settingsButton.hover();
+  46 |       await this.billingInfoButton.click();
+  47 |     });
+  48 |   }
+  49 | 
+  50 |   async clickGetPlus() {
+  51 |     await test.step('Click Get Plus button', async () => {
+  52 |       await this.getPlusButton.click();
+  53 |     });
+  54 |   }
+  55 | 
+  56 |   async clickRemoveAds() {
+  57 |     await test.step('Click Remove Ads button', async () => {
+  58 |       await this.removeAdsButton.click();
+  59 |     });
+  60 |   }
+  61 | }
+  62 | 
+```
