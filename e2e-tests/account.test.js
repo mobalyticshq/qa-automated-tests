@@ -3,10 +3,12 @@ import { expect } from '@playwright/test';
 import { Moba } from '../src/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
-test('Delete mobalytics account', async ({ registerAccount }) => {
+test('Delete mobalytics account', async ({ page, registerAccount }) => {
   const moba = registerAccount;
 
-  await moba.navbar.gotoAccountSettingsPage();
+  await expect(moba.navbar.mgpProfileButton).toBeVisible();
+  await page.goto('https://stg.mobalytics.gg/mhw/account-settings/  account-information');
+  //! await moba.navbar.gotoAccountSettingsPage();
   await moba.accountInformationTab.deleteAccount();
 
   await test.step('Account is deleted', async () => {
@@ -27,7 +29,9 @@ test('Change display name', async ({ page }) => {
   await moba.mainURLs.openBorderlands4Page();
   await moba.navbar.gotoSignInPage();
   await moba.signInPage.loginUser(credentials, credentials);
-  await moba.navbar.gotoAccountSettingsPage();
+  await expect(moba.navbar.mgpProfileButton).toBeVisible();
+  await page.goto('https://stg.mobalytics.gg/mhw/account-settings/account-information');
+  //! await moba.navbar.gotoAccountSettingsPage();
   await moba.accountSettingsPage.selectProfileTab();
   await moba.profileTab.changeDisplayName(displayName);
 
