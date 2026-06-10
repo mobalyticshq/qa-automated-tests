@@ -7,7 +7,7 @@ test('Delete mobalytics account', async ({ page, registerAccount }) => {
   const moba = registerAccount;
 
   await expect(moba.navbar.mgpProfileButton).toBeVisible();
-  await page.goto('https://stg.mobalytics.gg/mhw/account-settings/  account-information');
+  await page.goto(`${process.env.BASE_URL}/mhw/account-settings/account-information`);
   //! await moba.navbar.gotoAccountSettingsPage();
   await moba.accountInformationTab.deleteAccount();
 
@@ -30,7 +30,7 @@ test('Change display name', async ({ page }) => {
   await moba.navbar.gotoSignInPage();
   await moba.signInPage.loginUser(credentials, credentials);
   await expect(moba.navbar.mgpProfileButton).toBeVisible();
-  await page.goto('https://stg.mobalytics.gg/mhw/account-settings/account-information');
+  await page.goto(`${process.env.BASE_URL}/mhw/account-settings/account-information`);
   //! await moba.navbar.gotoAccountSettingsPage();
   await moba.accountSettingsPage.selectProfileTab();
   await moba.profileTab.changeDisplayName(displayName);
