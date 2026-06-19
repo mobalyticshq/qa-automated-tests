@@ -4,7 +4,7 @@ name: advertisement-tests
 # When launch auto-tests
 on:
   schedule:
-    - cron: '30 4 * * 5'
+    - cron: '00 4 * * 5'
 
   # Manual hook for launch
   workflow_dispatch:
