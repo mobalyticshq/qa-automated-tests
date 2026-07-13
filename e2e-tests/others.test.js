@@ -56,7 +56,7 @@ test('Check x-moba-ssr-cache header & new content are present on MHW build page'
       waitUntil: 'domcontentloaded',
     });
     await admin.stPage.updateDescriptionRichTextWidget(text);
-    await expect(admin.stPage.descriptionRichTextWidget).toContainText(text);
+    await expect(admin.stPage.descriptionRichTextWidget(text)).toContainText(text);
     console.log('ST page updated by admin');
   });
   await test.step("Open updated ST page as a guest multiple times until 'x-moba-ssr-cache' header & new description are present", async () => {
@@ -113,7 +113,7 @@ test('Check x-moba-ssr-cache header & new content are present on MHW build page'
     expect(ssrCacheValue).not.toBeNull();
   });
   await test.step(`Expected Result: New description is updated in rich text widget for a guest within all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-    await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
+    await expect(guest.stPage.descriptionRichTextWidget(text)).toContainText(text);
   });
 });
 

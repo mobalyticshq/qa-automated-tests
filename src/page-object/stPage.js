@@ -1,6 +1,7 @@
 import { test } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
+import { text } from 'stream/consumers';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -87,7 +88,8 @@ export class StPage {
     this.headerMarvelRivals = page.locator('#container').getByText('Marvel Rivals');
     this.headerMhw = page.locator('#container').getByText('Monster Hunter Wilds');
     this.inputRichTextWidget = page.getByRole('textbox');
-    this.descriptionRichTextWidget = page.locator('span[data-lexical-text="true"]');
+    this.descriptionRichTextWidget = (text) => page.getByText(text);
+    // this.descriptionRichTextWidget = page.locator('span[data-lexical-text="true"]');
     this.richTextButton = page.locator('[data-key="NgfDocumentCmWidgetRichTextV2"]');
     this.staticDataButton = page.getByTestId('toolbar-plugin-static-data');
     this.dropdownStaticData = page.getByTestId('suggestion-static-data-menu');

@@ -3,16 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 import os from 'os';
 import dotenv from 'dotenv';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-
 dotenv.config({ quiet: true });
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 
 export default defineConfig({
   timeout: 90_000,
@@ -119,10 +110,4 @@ export default defineConfig({
       },
     },
   ],
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
