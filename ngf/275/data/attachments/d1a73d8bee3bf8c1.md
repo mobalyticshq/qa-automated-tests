@@ -1,0 +1,91 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: account.test.js >> Delete mobalytics account
+- Location: e2e-tests/account.test.js:6:1
+
+# Error details
+
+```
+Test timeout of 90000ms exceeded while setting up "registerAccount".
+```
+
+```
+Error: locator.click: Test timeout of 90000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'sign in' })
+
+```
+
+# Test source
+
+```ts
+  1  | import { test } from '@playwright/test';
+  2  | 
+  3  | export class Navbar {
+  4  |   constructor(page) {
+  5  |     this.page = page;
+  6  |     this.settingsButton = page.getByRole('img', { name: 'settings' });
+  7  |     this.signInButton = page.getByRole('button', { name: 'sign in' });
+  8  |     this.getPlusButton = page.getByRole('button', { name: 'Get Plus' });
+  9  |     this.removeAdsButton = page.getByRole('button', { name: 'Remove Ads', exact: true });
+  10 |     this.gameList = page.getByTestId('navbar-game-list');
+  11 |     this.profileButton = page.getByRole('link', { name: 'View your profile' });
+  12 |     this.mgpProfileButton = page.locator('a[href*="/profile/"]').first();
+  13 |     this.accountSettingsButton = page.getByRole('link', { name: 'Account Settings' });
+  14 |     this.billingInfoButton = page.getByRole('link', { name: 'Billing Info' });
+  15 |     this.profileNameMenu = (profileName) => page.getByRole('link', { name: `${profileName}` });
+  16 |   }
+  17 | 
+  18 |   async gotoSignInPage() {
+  19 |     await test.step('Go to the Sign In page', async () => {
+> 20 |       await this.signInButton.click();
+     |                               ^ Error: locator.click: Test timeout of 90000ms exceeded.
+  21 |     });
+  22 |   }
+  23 | 
+  24 |   async gotoProfilePage() {
+  25 |     await test.step('Go to Profile page', async () => {
+  26 |       await this.profileButton.click();
+  27 |     });
+  28 |   }
+  29 | 
+  30 |   async gotoMgpProfile() {
+  31 |     await test.step('Go to MGP profile via navbar', async () => {
+  32 |       await this.mgpProfileButton.click();
+  33 |     });
+  34 |   }
+  35 | 
+  36 |   async gotoAccountSettingsPage() {
+  37 |     await test.step('Go to Account Settings page', async () => {
+  38 |       await this.settingsButton.hover();
+  39 |       await this.accountSettingsButton.click();
+  40 |     });
+  41 |   }
+  42 | 
+  43 |   async gotoBillingInfoPage() {
+  44 |     await test.step('Go to Account Settings page', async () => {
+  45 |       await this.settingsButton.hover();
+  46 |       await this.billingInfoButton.click();
+  47 |     });
+  48 |   }
+  49 | 
+  50 |   async clickGetPlus() {
+  51 |     await test.step('Click Get Plus button', async () => {
+  52 |       await this.getPlusButton.click();
+  53 |     });
+  54 |   }
+  55 | 
+  56 |   async clickRemoveAds() {
+  57 |     await test.step('Click Remove Ads button', async () => {
+  58 |       await this.removeAdsButton.click();
+  59 |     });
+  60 |   }
+  61 | }
+  62 | 
+```
