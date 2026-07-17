@@ -1,0 +1,555 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advertisement.test.js >> Verify ad blocks within the desktop viewport range (1024-1232px) for different user roles >> Check video block & footer banner for ad free user - Marvel Rivals in desktop at 1100x800 viewport size
+- Location: e2e-tests/advertisement.test.js:9246:5
+
+# Error details
+
+```
+Error: expect(locator).not.toBeVisible() failed
+
+Locator:  locator('#web-marvel-rivals-display-footer-d').locator('..').or(locator('#marvel-rivals-nitro-anchor').locator('..'))
+Expected: not visible
+Received: visible
+Timeout:  15000ms
+
+Call log:
+  - Expect "soft not toBeVisible" with timeout 15000ms
+  - waiting for locator('#web-marvel-rivals-display-footer-d').locator('..').or(locator('#marvel-rivals-nitro-anchor').locator('..'))
+    32 × locator resolved to <div class="m-clr6n">…</div>
+       - unexpected value "visible"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "Mobalytics" [ref=e6] [cursor=pointer]:
+          - /url: /marvel-rivals
+          - img "Mobalytics" [ref=e7]
+        - generic [ref=e9]:
+          - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+            - /url: https://mobalytics.gg/lol
+            - generic [ref=e13]:
+              - img "League of Legends" [ref=e14]
+              - generic [ref=e15]: LoL
+          - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+            - /url: https://mobalytics.gg/tft
+            - generic [ref=e19]:
+              - img "Teamfight Tactics" [ref=e20]
+              - generic [ref=e21]: TFT
+          - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+            - /url: https://mobalytics.gg/diablo-4
+            - generic [ref=e25]:
+              - img "Diablo 4" [ref=e26]
+              - generic [ref=e27]: Diablo 4
+          - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe-2
+            - generic [ref=e31]:
+              - img "Path of Exile 2" [ref=e32]
+              - generic [ref=e33]: PoE 2
+          - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe
+            - generic [ref=e37]:
+              - img "Path of Exile" [ref=e38]
+              - generic [ref=e39]: PoE
+          - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+            - /url: https://mobalytics.gg/destiny-2
+            - generic [ref=e43]:
+              - img "Destiny 2" [ref=e44]
+              - generic [ref=e45]: Destiny 2
+          - link "Marathon Marathon" [ref=e47] [cursor=pointer]:
+            - /url: https://mobalytics.gg/marathon
+            - generic [ref=e49]:
+              - img "Marathon" [ref=e50]
+              - generic [ref=e51]: Marathon
+          - link "Slay the Spire 2 STS 2" [ref=e53] [cursor=pointer]:
+            - /url: https://mobalytics.gg/slay-the-spire-2
+            - generic [ref=e55]:
+              - img "Slay the Spire 2" [ref=e56]
+              - generic [ref=e57]: STS 2
+          - link "Deadlock Deadlock" [ref=e59] [cursor=pointer]:
+            - /url: https://mobalytics.gg/deadlock
+            - generic [ref=e61]:
+              - img "Deadlock" [ref=e62]
+              - generic [ref=e63]: Deadlock
+          - button [ref=e64] [cursor=pointer]:
+            - img [ref=e65]
+          - generic:
+            - link "Overwatch Overwatch":
+              - /url: https://mobalytics.gg/overwatch
+              - generic:
+                - generic:
+                  - img "Overwatch"
+                  - generic: Overwatch
+          - generic:
+            - link "Borderlands 4 Borderlands 4":
+              - /url: https://mobalytics.gg/borderlands-4
+              - generic:
+                - generic:
+                  - img "Borderlands 4"
+                  - generic: Borderlands 4
+          - generic:
+            - link "Valorant VAL":
+              - /url: https://mobalytics.gg/valorant
+              - generic:
+                - generic:
+                  - img "Valorant"
+                  - generic: VAL
+          - generic:
+            - link "Neverness to Everness NTE New":
+              - /url: https://mobalytics.gg/neverness-to-everness
+              - generic:
+                - generic:
+                  - img "Neverness to Everness"
+                  - generic: NTE
+                  - generic:
+                    - generic: New
+          - generic:
+            - 'link "Arknights: Endfield Endfield"':
+              - /url: https://mobalytics.gg/arknights-endfield
+              - generic:
+                - generic:
+                  - 'img "Arknights: Endfield"'
+                  - generic: Endfield
+          - generic:
+            - link "Elden Ring Nightreign Nightreign":
+              - /url: https://mobalytics.gg/elden-ring-nightreign
+              - generic:
+                - generic:
+                  - img "Elden Ring Nightreign"
+                  - generic: Nightreign
+          - generic:
+            - link "Monster Hunter Wilds Monster Hunter Wilds":
+              - /url: https://mobalytics.gg/mhw
+              - generic:
+                - generic:
+                  - img "Monster Hunter Wilds"
+                  - generic: Monster Hunter Wilds
+          - generic:
+            - link "Hades 2 Hades 2":
+              - /url: https://mobalytics.gg/hades-2
+              - generic:
+                - generic:
+                  - img "Hades 2"
+                  - generic: Hades 2
+          - generic:
+            - link "The Bazaar The Bazaar":
+              - /url: https://mobalytics.gg/the-bazaar
+              - generic:
+                - generic:
+                  - img "The Bazaar"
+                  - generic: The Bazaar
+          - generic:
+            - link "Marvel Rivals Marvel Rivals":
+              - /url: https://mobalytics.gg/marvel-rivals
+              - generic:
+                - generic:
+                  - img "Marvel Rivals"
+                  - generic: Marvel Rivals
+          - generic:
+            - link "Zenless Zone Zero ZZZ":
+              - /url: https://mobalytics.gg/zzz
+              - generic:
+                - generic:
+                  - img "Zenless Zone Zero"
+                  - generic: ZZZ
+          - generic:
+            - link "2XKO 2XKO":
+              - /url: https://mobalytics.gg/2xko
+              - generic:
+                - generic:
+                  - img "2XKO"
+                  - generic: 2XKO
+          - generic:
+            - link "Riftbound Riftbound":
+              - /url: https://mobalytics.gg/riftbound
+              - generic:
+                - generic:
+                  - img "Riftbound"
+                  - generic: Riftbound
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e72] [cursor=pointer]:
+            - button "plus Rewards" [ref=e73]:
+              - img "plus" [ref=e75]
+              - generic [ref=e76]: Rewards
+            - generic [ref=e78]: New
+          - link "DOWNLOAD APP" [ref=e79] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-marvel-rivals&utm_medium=homepage&utm_source=web
+            - button "DOWNLOAD APP" [ref=e81]:
+              - img [ref=e82]
+              - text: DOWNLOAD APP
+          - link "News" [ref=e84] [cursor=pointer]:
+            - /url: /news
+            - generic [ref=e85]: News
+        - generic [ref=e87]:
+          - button "Sign In" [ref=e89] [cursor=pointer]
+          - button [ref=e91] [cursor=pointer]:
+            - img [ref=e93]
+          - button "Theme" [ref=e95] [cursor=pointer]:
+            - img "Theme" [ref=e97]
+      - generic [ref=e99]:
+        - link "Home" [ref=e102] [cursor=pointer]:
+          - /url: /marvel-rivals
+          - img "Home" [ref=e104]
+        - link "Tier List" [ref=e107] [cursor=pointer]:
+          - /url: /marvel-rivals/tier-list
+          - img "Tier List" [ref=e109]
+        - link "Heroes" [ref=e112] [cursor=pointer]:
+          - /url: /marvel-rivals/heroes
+          - img "Heroes" [ref=e114]
+        - link "Team-Ups" [ref=e117] [cursor=pointer]:
+          - /url: /marvel-rivals/guides/best-team-ups
+          - img "Team-Ups" [ref=e119]
+        - link "Guides" [ref=e122] [cursor=pointer]:
+          - /url: /marvel-rivals/guides
+          - img "Guides" [ref=e124]
+        - link "Battle Matrix" [ref=e127] [cursor=pointer]:
+          - /url: /marvel-rivals/battle-matrix/home
+          - img "Battle Matrix" [ref=e129]
+      - generic [ref=e131]:
+        - main [ref=e132]:
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - button "Marvel Rivals Tier Lists, Heroes, and Guides NetEase Games launched Marvel Rivals, the \"Super Hero Team-based PVP Shooter\", on December 6, 2024. Mobalytics helps players of all skill levels stay on top of the meta, master their heroes, and learn the core fundamentals of the game." [ref=e138]:
+                - generic [ref=e143]:
+                  - generic [ref=e144]:
+                    - img [ref=e146]
+                    - heading "Marvel Rivals Tier Lists, Heroes, and Guides" [level=1] [ref=e147]
+                  - paragraph [ref=e155]: NetEase Games launched Marvel Rivals, the "Super Hero Team-based PVP Shooter", on December 6, 2024. Mobalytics helps players of all skill levels stay on top of the meta, master their heroes, and learn the core fundamentals of the game.
+              - generic [ref=e158]:
+                - link "Meta Tier Lists (Diamond+ and Below Diamond) Find the best heroes for your role and rank, updated constantly Explore Tier Lists" [ref=e160] [cursor=pointer]:
+                  - /url: /marvel-rivals/tier-list
+                  - generic [ref=e162]:
+                    - paragraph [ref=e164]: Meta Tier Lists (Diamond+ and Below Diamond)
+                    - paragraph [ref=e165]: Find the best heroes for your role and rank, updated constantly
+                    - button "Explore Tier Lists" [ref=e167]: Explore Tier Lists
+                - link "Hero Guides Learn every hero's strengths/weaknesses, ability tips, and much more! See Guides" [ref=e170] [cursor=pointer]:
+                  - /url: /marvel-rivals/heroes
+                  - generic [ref=e172]:
+                    - paragraph [ref=e174]: Hero Guides
+                    - paragraph [ref=e175]: Learn every hero's strengths/weaknesses, ability tips, and much more!
+                    - button "See Guides" [ref=e177]: See Guides
+                - generic [ref=e180]:
+                  - heading "Latest Guides and News" [level=2] [ref=e184]
+                  - generic [ref=e186]:
+                    - generic [ref=e189] [cursor=pointer]:
+                      - link [ref=e190]:
+                        - /url: /marvel-rivals/guides/best-team-ups
+                      - generic [ref=e192]:
+                        - generic [ref=e193]: The Best Marvel Rivals Team-Ups Ranked
+                        - generic [ref=e194]:
+                          - text: By
+                          - link "Mobalytics" [ref=e195]:
+                            - /url: /marvel-rivals/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e196]: Updated on
+                          - generic [ref=e197]: Jul 11, 2026
+                      - generic [ref=e198]:
+                        - button "Share" [ref=e201]:
+                          - img [ref=e202]
+                          - text: Share
+                        - generic [ref=e204]: Guides
+                    - generic [ref=e207] [cursor=pointer]:
+                      - link [ref=e208]:
+                        - /url: /marvel-rivals/guides/season-9-team-ups-explained
+                      - generic [ref=e210]:
+                        - generic [ref=e211]: Season 9 Team-Ups Explained
+                        - generic [ref=e212]:
+                          - text: By
+                          - link "Mobalytics" [ref=e213]:
+                            - /url: /marvel-rivals/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e214]: Updated on
+                          - generic [ref=e215]: Jul 10, 2026
+                      - generic [ref=e216]:
+                        - button "Share" [ref=e219]:
+                          - img [ref=e220]
+                          - text: Share
+                        - generic [ref=e221]:
+                          - generic [ref=e222]: Roles
+                          - generic [ref=e223]: Guides
+                    - generic [ref=e226] [cursor=pointer]:
+                      - link [ref=e227]:
+                        - /url: /marvel-rivals/guides/team-comp-examples
+                      - generic [ref=e229]:
+                        - generic [ref=e230]: Marvel Rivals Team Comp Examples
+                        - generic [ref=e231]:
+                          - text: By
+                          - link "Mobalytics" [ref=e232]:
+                            - /url: /marvel-rivals/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e233]: Updated on
+                          - generic [ref=e234]: Mar 24, 2026
+                      - generic [ref=e235]:
+                        - button "Share" [ref=e238]:
+                          - img [ref=e239]
+                          - text: Share
+                        - generic [ref=e241]: Guides
+                    - generic [ref=e244] [cursor=pointer]:
+                      - link [ref=e245]:
+                        - /url: /marvel-rivals/guides/compared-to-overwatch-2
+                      - generic [ref=e247]:
+                        - generic [ref=e248]: Marvel Rivals Compared to Overwatch (Hero Similiarities)
+                        - generic [ref=e249]:
+                          - text: By
+                          - link "Mobalytics" [ref=e250]:
+                            - /url: /marvel-rivals/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e251]: Updated on
+                          - generic [ref=e252]: Mar 13, 2026
+                      - generic [ref=e253]:
+                        - button "Share" [ref=e256]:
+                          - img [ref=e257]
+                          - text: Share
+                        - generic [ref=e259]: Guides
+                    - generic [ref=e262] [cursor=pointer]:
+                      - link [ref=e263]:
+                        - /url: /marvel-rivals/guides/marvel-zombies
+                      - generic [ref=e265]:
+                        - generic [ref=e266]: "Marvel Rivals Zombies: Full Guide"
+                        - generic [ref=e267]:
+                          - text: By
+                          - link "Mobalytics" [ref=e268]:
+                            - /url: /marvel-rivals/profile/mobalytics
+                          - text: ∙
+                          - generic [ref=e269]: Updated on
+                          - generic [ref=e270]: Oct 25, 2025
+                      - generic [ref=e271]:
+                        - button "Share" [ref=e274]:
+                          - img [ref=e275]
+                          - text: Share
+                        - generic [ref=e277]: News
+                  - button "Show more" [ref=e278] [cursor=pointer]
+            - status [ref=e279]
+        - complementary
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e286]:
+    - banner [ref=e287]:
+      - generic [ref=e288] [cursor=pointer]:
+        - generic [ref=e289]: Advertisement
+        - generic [ref=e290]: Remove Ads
+    - generic [ref=e293] [cursor=pointer]:
+      - generic [ref=e294]: Remove all ads
+      - generic [ref=e295]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e296]
+```
+
+# Test source
+
+```ts
+  9615 |                     .or(page.locator('#riftbound-nitro-video').locator('xpath=..'))
+  9616 |                 )
+  9617 |                 .not.toBeVisible();
+  9618 |             });
+  9619 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  9620 |               await expect
+  9621 |                 .soft(
+  9622 |                   page
+  9623 |                     .locator('#riftbound-display-all-pages')
+  9624 |                     .or(page.locator('#riftbound-nitro-l'))
+  9625 |                     .or(page.locator('#riftbound-nitro-3'))
+  9626 |                     .first()
+  9627 |                 )
+  9628 |                 .not.toBeVisible();
+  9629 |             });
+  9630 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  9631 |               await expect
+  9632 |                 .soft(page.locator('#riftbound-display-small-all-pages').or(page.locator('#riftbound-nitro-m')))
+  9633 |                 .not.toBeVisible();
+  9634 |             });
+  9635 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  9636 |               await expect
+  9637 |                 .soft(
+  9638 |                   page
+  9639 |                     .locator('#web-riftbound-display-footer-d')
+  9640 |                     .locator('xpath=..')
+  9641 |                     .or(page.locator('#riftbound-nitro-anchor').locator('xpath=..'))
+  9642 |                 )
+  9643 |                 .not.toBeVisible();
+  9644 |             });
+  9645 |             break;
+  9646 |           case '2XKO':
+  9647 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  9648 |               await expect
+  9649 |                 .soft(
+  9650 |                   page.locator('#xko-video-all-pages').or(page.locator('#\\32 xko-nitro-video').locator('xpath=..'))
+  9651 |                 )
+  9652 |                 .not.toBeVisible();
+  9653 |             });
+  9654 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  9655 |               await expect
+  9656 |                 .soft(
+  9657 |                   page
+  9658 |                     .locator('#xko-display-all-pages')
+  9659 |                     .or(page.locator('#\\32 xko-nitro-l'))
+  9660 |                     .or(page.locator('#\\32 xko-nitro-3'))
+  9661 |                     .first()
+  9662 |                 )
+  9663 |                 .not.toBeVisible();
+  9664 |             });
+  9665 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  9666 |               await expect
+  9667 |                 .soft(page.locator('#xko-display-small-all-pages').or(page.locator('#\\32 xko-nitro-m')))
+  9668 |                 .not.toBeVisible();
+  9669 |             });
+  9670 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  9671 |               await expect
+  9672 |                 .soft(
+  9673 |                   page
+  9674 |                     .locator('#web-2xko-display-footer-d')
+  9675 |                     .locator('xpath=..')
+  9676 |                     .or(page.locator('#\\32 xko-nitro-anchor').locator('xpath=..'))
+  9677 |                 )
+  9678 |                 .not.toBeVisible();
+  9679 |             });
+  9680 |             break;
+  9681 |           case 'Marvel Rivals':
+  9682 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  9683 |               await expect
+  9684 |                 .soft(
+  9685 |                   page
+  9686 |                     .locator('#marvel-rivals-video-all-pages')
+  9687 |                     .or(page.locator('#marvel-rivals-nitro-video').locator('xpath=..'))
+  9688 |                 )
+  9689 |                 .not.toBeVisible();
+  9690 |             });
+  9691 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  9692 |               await expect
+  9693 |                 .soft(
+  9694 |                   page
+  9695 |                     .locator('#marvel-rivals-display-all-pages')
+  9696 |                     .or(page.locator('#marvel-rivals-nitro-l'))
+  9697 |                     .or(page.locator('#marvel-rivals-nitro-3'))
+  9698 |                     .first()
+  9699 |                 )
+  9700 |                 .not.toBeVisible();
+  9701 |             });
+  9702 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  9703 |               await expect
+  9704 |                 .soft(page.locator('#marvel-rivals-display-small-all-pages').or(page.locator('#marvel-rivals-nitro-m')))
+  9705 |                 .not.toBeVisible();
+  9706 |             });
+  9707 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  9708 |               await expect
+  9709 |                 .soft(
+  9710 |                   page
+  9711 |                     .locator('#web-marvel-rivals-display-footer-d')
+  9712 |                     .locator('xpath=..')
+  9713 |                     .or(page.locator('#marvel-rivals-nitro-anchor').locator('xpath=..'))
+  9714 |                 )
+> 9715 |                 .not.toBeVisible();
+       |                      ^ Error: expect(locator).not.toBeVisible() failed
+  9716 |             });
+  9717 |             break;
+  9718 |           case 'Deadlock':
+  9719 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  9720 |               await expect
+  9721 |                 .soft(
+  9722 |                   page
+  9723 |                     .locator('#deadlock-video-all-pages')
+  9724 |                     .or(page.locator('#deadlock-nitro-video').locator('xpath=..'))
+  9725 |                 )
+  9726 |                 .not.toBeVisible();
+  9727 |             });
+  9728 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  9729 |               await expect
+  9730 |                 .soft(
+  9731 |                   page
+  9732 |                     .locator('#deadlock-display-all-pages')
+  9733 |                     .or(page.locator('#deadlock-nitro-l'))
+  9734 |                     .or(page.locator('#deadlock-nitro-3'))
+  9735 |                     .first()
+  9736 |                 )
+  9737 |                 .not.toBeVisible();
+  9738 |             });
+  9739 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  9740 |               await expect
+  9741 |                 .soft(page.locator('#deadlock-display-small-all-pages').or(page.locator('#deadlock-nitro-m')))
+  9742 |                 .not.toBeVisible();
+  9743 |             });
+  9744 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  9745 |               await expect
+  9746 |                 .soft(
+  9747 |                   page
+  9748 |                     .locator('#web-deadlock-display-footer-d')
+  9749 |                     .locator('xpath=..')
+  9750 |                     .or(page.locator('#deadlock-nitro-anchor').locator('xpath=..'))
+  9751 |                 )
+  9752 |                 .not.toBeVisible();
+  9753 |             });
+  9754 |             break;
+  9755 |           case 'Diablo 4':
+  9756 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  9757 |               await expect
+  9758 |                 .soft(
+  9759 |                   page
+  9760 |                     .locator('#diablo-4-video-all-pages')
+  9761 |                     .or(page.locator('#diablo-4-nitro-video').locator('xpath=..'))
+  9762 |                 )
+  9763 |                 .not.toBeVisible();
+  9764 |             });
+  9765 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  9766 |               await expect
+  9767 |                 .soft(
+  9768 |                   page
+  9769 |                     .locator('#diablo-4-display-all-pages')
+  9770 |                     .or(page.locator('#diablo-4-nitro-l'))
+  9771 |                     .or(page.locator('#diablo-4-nitro-3'))
+  9772 |                     .first()
+  9773 |                 )
+  9774 |                 .not.toBeVisible();
+  9775 |             });
+  9776 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  9777 |               await expect
+  9778 |                 .soft(page.locator('#diablo-4-display-small-all-pages').or(page.locator('#diablo-4-nitro-m')))
+  9779 |                 .not.toBeVisible();
+  9780 |             });
+  9781 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  9782 |               await expect
+  9783 |                 .soft(
+  9784 |                   page
+  9785 |                     .locator('#web-diablo-4-display-footer-d')
+  9786 |                     .locator('xpath=..')
+  9787 |                     .or(page.locator('#diablo-4-nitro-anchor').locator('xpath=..'))
+  9788 |                 )
+  9789 |                 .not.toBeVisible();
+  9790 |             });
+  9791 |             break;
+  9792 |           case 'Destiny 2':
+  9793 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  9794 |               await expect
+  9795 |                 .soft(
+  9796 |                   page
+  9797 |                     .locator('#destiny-2-video-all-pages')
+  9798 |                     .or(page.locator('#destiny-2-nitro-video').locator('xpath=..'))
+  9799 |                 )
+  9800 |                 .not.toBeVisible();
+  9801 |             });
+  9802 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  9803 |               await expect
+  9804 |                 .soft(
+  9805 |                   page
+  9806 |                     .locator('#destiny-2-display-all-pages')
+  9807 |                     .or(page.locator('#destiny-2-nitro-l'))
+  9808 |                     .or(page.locator('#destiny-2-nitro-3'))
+  9809 |                     .first()
+  9810 |                 )
+  9811 |                 .not.toBeVisible();
+  9812 |             });
+  9813 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  9814 |               await expect
+  9815 |                 .soft(page.locator('#destiny-2-display-small-all-pages').or(page.locator('#destiny-2-nitro-m')))
+```
