@@ -514,7 +514,27 @@ test.describe('Creating UG Pages', () => {
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
-    // }
+  });
+
+  filterProjectsByTeams('classic').forEach(({ game, projectPath }) => {
+    test(`Create a classic page on ${game} project`, async ({ page }) => {
+      const uniqueId = uuidv4();
+      const pageName = `qa-automation-team-page-${uniqueId}`;
+      const moba = new Moba(page);
+
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+        await moba.mainURLs.openUgCreatorProfilePage(projectPath);
+      } else {
+        await moba.mainURLs.openUgProfilePage(projectPath);
+      }
+      await moba.ugProfilePage.gotoClassicPlannerPage();
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
+
+      await test.step(`Expected Result: Team page with the name: ${pageName} is created on ${game} project`, async () => {
+        await expect(moba.ugBuildPage.header).toContainText(`${game} Classic`);
+        await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      });
+    });
   });
 
   test(`Create a character page on Endfield project`, async ({ page }) => {
@@ -1140,3 +1160,52 @@ filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticDataStP
     }
   });
 });
+
+// test('delete ST page', async ({ playwright }) => {
+//   const api = await playwright.request.newContext({ storageState: '.auth/adminAuth.json' });
+//   const id = 'f9f0ab23-7fd3-4689-b3c2-9283512c221c2';
+//   const status = 'ARCHIVED'
+//   const response = await api.post('https://stg.mobalytics.gg/api/poe-2/v1/graphql/query', {
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     data: {
+//       query: `
+//             mutation Poe2SetStatusStDocumentMutation($input: Poe2StructDocumentSetStatusInput!) {
+//               game: poe2 {
+//                 documents {
+//                   structDocumentSetStatus(input: $input) {
+//                     error
+//                     data {
+//                       ...NgfSetStatusDocumentFragment
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+
+//             fragment NgfSetStatusDocumentFragment on NgfStructDocument {
+//               id
+//               slug
+//               status
+//             }
+//           `,
+//       // Переменные передаём отдельным полем, а не подстановкой в строку
+//       variables: { input: { id, status } },
+//     },
+//   });
+
+//   // GraphQL отвечает 200 даже на ошибку — проверяем оба уровня
+//   expect.soft(response.ok()).toBeTruthy();
+//   const body = await response.json();
+//   console.log(body);
+
+//   // documents === null => запрос ушёл неавторизованным
+//   expect.soft(body.data.game.documents).not.toBeNull();
+
+//   const result = body.data.game.documents?.structDocumentSetStatus;
+//   expect.soft(result.error).toBeNull();
+//   expect.soft(result.data.status).toBe('ARCHIVED');
+
+//   await api.dispose();
+// });

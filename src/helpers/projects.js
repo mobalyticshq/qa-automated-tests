@@ -4,7 +4,8 @@ const projectList = [
     projectPath: '/lol',
     staticDataStPage: '/lol/qa-check-static-data-not-delete',
     features: {
-      build: true,
+      classic: true,
+      build: false,
       guide: true,
       tierList: true,
       team: false,

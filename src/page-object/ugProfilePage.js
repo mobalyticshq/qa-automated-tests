@@ -12,6 +12,9 @@ export class UgProfilePage {
     this.teamButton = page.getByRole('menuitem', {
       name: 'Team Create a Team',
     });
+    this.classicButton = page.getByRole('menuitem', {
+      name: 'Classic Create a Build',
+    });
     this.guideButton = page.getByRole('menuitem', {
       name: 'Guide Create a Guide',
     });
@@ -50,6 +53,13 @@ export class UgProfilePage {
     await test.step('Go to Team Planner Page', async () => {
       await this.createButton.click();
       await this.teamButton.click();
+    });
+  }
+
+  async gotoClassicPlannerPage() {
+    await test.step('Go to Classic Planner Page', async () => {
+      await this.createButton.click();
+      await this.classicButton.click();
     });
   }
 
