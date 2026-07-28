@@ -36,7 +36,7 @@ env:
 
 jobs:
   ngf-tests:
-    timeout-minutes: 30
+    # timeout-minutes: 30
     runs-on: ubuntu-latest
     env:
       REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/ngf
@@ -90,6 +90,7 @@ jobs:
       #   run: npx playwright install-deps
 
       - name: Launch auto-tests with ENV-override
+        timeout-minutes: 30
         env:
           URL_SITEMAP: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_SITEMAP_URL || github.event_name == 'schedule' && secrets.STG_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
           BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
