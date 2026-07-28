@@ -1,0 +1,1908 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: account.test.js >> Change display name
+- Location: e2e-tests/account.test.js:20:1
+
+# Error details
+
+```
+Test timeout of 90000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 90000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'sign in' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "Mobalytics" [ref=e6] [cursor=pointer]:
+        - /url: /borderlands-4
+        - img "Mobalytics" [ref=e7]
+      - generic [ref=e9]:
+        - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/lol
+          - generic [ref=e13]:
+            - img "League of Legends" [ref=e14]
+            - generic [ref=e15]: LoL
+        - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/tft
+          - generic [ref=e19]:
+            - img "Teamfight Tactics" [ref=e20]
+            - generic [ref=e21]: TFT
+        - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/diablo-4
+          - generic [ref=e25]:
+            - img "Diablo 4" [ref=e26]
+            - generic [ref=e27]: Diablo 4
+        - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe-2
+          - generic [ref=e31]:
+            - img "Path of Exile 2" [ref=e32]
+            - generic [ref=e33]: PoE 2
+        - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/poe
+          - generic [ref=e37]:
+            - img "Path of Exile" [ref=e38]
+            - generic [ref=e39]: PoE
+        - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/destiny-2
+          - generic [ref=e43]:
+            - img "Destiny 2" [ref=e44]
+            - generic [ref=e45]: Destiny 2
+        - link "Marathon Marathon" [ref=e47] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/marathon
+          - generic [ref=e49]:
+            - img "Marathon" [ref=e50]
+            - generic [ref=e51]: Marathon
+        - link "Slay the Spire 2 STS 2" [ref=e53] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/slay-the-spire-2
+          - generic [ref=e55]:
+            - img "Slay the Spire 2" [ref=e56]
+            - generic [ref=e57]: STS 2
+        - link "Deadlock Deadlock" [ref=e59] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/deadlock
+          - generic [ref=e61]:
+            - img "Deadlock" [ref=e62]
+            - generic [ref=e63]: Deadlock
+        - link "Overwatch Overwatch" [ref=e65] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/overwatch
+          - generic [ref=e67]:
+            - img "Overwatch" [ref=e68]
+            - generic [ref=e69]: Overwatch
+        - link "Borderlands 4 Borderlands 4" [ref=e71] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/borderlands-4
+          - generic [ref=e73]:
+            - img "Borderlands 4" [ref=e74]
+            - generic [ref=e75]: Borderlands 4
+        - link "Valorant VAL" [ref=e77] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/valorant
+          - generic [ref=e79]:
+            - img "Valorant" [ref=e80]
+            - generic [ref=e81]: VAL
+        - link "Neverness to Everness NTE New" [ref=e83] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/neverness-to-everness
+          - generic [ref=e85]:
+            - img "Neverness to Everness" [ref=e86]
+            - generic [ref=e87]: NTE
+            - generic [ref=e89]: New
+        - 'link "Arknights: Endfield Endfield" [ref=e91] [cursor=pointer]':
+          - /url: https://stg.mobalytics.gg/arknights-endfield
+          - generic [ref=e93]:
+            - 'img "Arknights: Endfield" [ref=e94]'
+            - generic [ref=e95]: Endfield
+        - link "Elden Ring Nightreign Nightreign" [ref=e97] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/elden-ring-nightreign
+          - generic [ref=e99]:
+            - img "Elden Ring Nightreign" [ref=e100]
+            - generic [ref=e101]: Nightreign
+        - link "Monster Hunter Wilds Monster Hunter Wilds" [ref=e103] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/mhw
+          - generic [ref=e105]:
+            - img "Monster Hunter Wilds" [ref=e106]
+            - generic [ref=e107]: Monster Hunter Wilds
+        - link "Hades 2 Hades 2" [ref=e109] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/hades-2
+          - generic [ref=e111]:
+            - img "Hades 2" [ref=e112]
+            - generic [ref=e113]: Hades 2
+        - link "The Bazaar The Bazaar" [ref=e115] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/the-bazaar
+          - generic [ref=e117]:
+            - img "The Bazaar" [ref=e118]
+            - generic [ref=e119]: The Bazaar
+        - link "Marvel Rivals Marvel Rivals" [ref=e121] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/marvel-rivals
+          - generic [ref=e123]:
+            - img "Marvel Rivals" [ref=e124]
+            - generic [ref=e125]: Marvel Rivals
+        - link "Zenless Zone Zero ZZZ" [ref=e127] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/zzz
+          - generic [ref=e129]:
+            - img "Zenless Zone Zero" [ref=e130]
+            - generic [ref=e131]: ZZZ
+        - link "2XKO 2XKO" [ref=e133] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/2xko
+          - generic [ref=e135]:
+            - img "2XKO" [ref=e136]
+            - generic [ref=e137]: 2XKO
+        - link "Riftbound Riftbound" [ref=e139] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/riftbound
+          - generic [ref=e141]:
+            - img "Riftbound" [ref=e142]
+            - generic [ref=e143]: Riftbound
+        - link "Example game ExG" [ref=e145] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/example-game
+          - generic [ref=e147]:
+            - img "Example game" [ref=e148]
+            - generic [ref=e149]: ExG
+        - link "Genshin Impact Genshin New" [ref=e151] [cursor=pointer]:
+          - /url: https://stg.mobalytics.gg/genshin-impact
+          - generic [ref=e153]:
+            - img "Genshin Impact" [ref=e154]
+            - generic [ref=e155]: Genshin
+            - generic [ref=e157]: New
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - link "DOWNLOAD APP" [ref=e160] [cursor=pointer]:
+          - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-borderlands-4&utm_medium=homepage&utm_source=web
+          - button "DOWNLOAD APP" [ref=e162]:
+            - img [ref=e163]
+            - text: DOWNLOAD APP
+        - link "Gamebase" [ref=e165] [cursor=pointer]:
+          - /url: /gamebase
+          - generic [ref=e166]: Gamebase
+      - generic [ref=e168]:
+        - button [ref=e170] [cursor=pointer]:
+          - img [ref=e172]
+        - button "Theme" [ref=e174] [cursor=pointer]:
+          - img "Theme" [ref=e176]
+    - generic [ref=e178]:
+      - link "Home" [ref=e181] [cursor=pointer]:
+        - /url: /borderlands-4
+        - img "Home" [ref=e183]
+      - link "Profile" [ref=e186] [cursor=pointer]:
+        - /url: /borderlands-4/profile
+        - img "Profile" [ref=e188]
+      - link "Build Planner" [ref=e191] [cursor=pointer]:
+        - /url: /borderlands-4/planner/builds
+        - img "Build Planner" [ref=e193]
+      - link "Legendaries" [ref=e196] [cursor=pointer]:
+        - /url: /borderlands-4/guides/legendary-weapons-and-gear
+        - img "Legendaries" [ref=e198]
+      - link "Builds" [ref=e201] [cursor=pointer]:
+        - /url: /borderlands-4/builds
+        - img "Builds" [ref=e203]
+      - link "Vault Hunters" [ref=e206] [cursor=pointer]:
+        - /url: /borderlands-4/vault-hunters
+        - img "Vault Hunters" [ref=e208]
+      - link "Guides" [ref=e211] [cursor=pointer]:
+        - /url: /borderlands-4/guides
+        - img "Guides" [ref=e213]
+      - link "SHiFT Codes" [ref=e216] [cursor=pointer]:
+        - /url: /borderlands-4/shift-codes-borderlands-4
+        - img "SHiFT Codes" [ref=e218]
+      - link "Wiki" [ref=e221] [cursor=pointer]:
+        - /url: /borderlands-4/wiki
+        - img "Wiki" [ref=e223]
+      - link "Creators" [ref=e226] [cursor=pointer]:
+        - /url: /borderlands-4/creators
+        - img "Creators" [ref=e228]
+    - generic [ref=e230]:
+      - main [ref=e231]:
+        - generic [ref=e234]:
+          - button "Home Page Header" [ref=e237]:
+            - generic [ref=e243]:
+              - img [ref=e245]
+              - heading "Home Page Header" [level=1] [ref=e246]
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e250]:
+                - heading "Rich Text V2" [level=2] [ref=e254]
+                - generic [ref=e256]:
+                  - heading "Heading 3" [level=3] [ref=e257]
+                  - paragraph [ref=e258]:
+                    - link "borderlands-4/el-4" [ref=e259] [cursor=pointer]:
+                      - /url: /borderlands-4/el-4
+                  - paragraph [ref=e260]: asdf
+                  - paragraph [ref=e261]:
+                    - generic [ref=e266]: Acid Drop
+                    - generic [ref=e271]: Sangre por Sangre
+                  - paragraph [ref=e272]:
+                    - generic [ref=e277]: Asclepius
+                  - paragraph [ref=e278]:
+                    - generic [ref=e283]: AAA
+                  - paragraph [ref=e284]:
+                    - generic [ref=e289]: Cheddar Shredder
+                  - paragraph [ref=e290]:
+                    - generic [ref=e295]: APOPHIS Lance
+                    - generic [ref=e300]: Arc-Knives
+                    - generic [ref=e305]: Dead Ringer
+                    - generic [ref=e310]: Peacebreaker Cannons
+                    - generic [ref=e315]: Phase Phamiliar
+                  - paragraph [ref=e316]:
+                    - generic [ref=e321]: Vex
+                    - generic [ref=e326]: Rafa
+                  - paragraph [ref=e327]:
+                    - generic [ref=e332]: Phase Covenant
+                    - generic [ref=e337]: Overdrive
+                  - paragraph [ref=e338]:
+                    - link "Atling Gun" [ref=e340] [cursor=pointer]:
+                      - /url: /borderlands-4/wiki/weapons/atling-gun
+                      - generic [ref=e343]: Atling Gun
+                    - link "Atling Gun" [ref=e345] [cursor=pointer]:
+                      - /url: /borderlands-4/wiki/ordnance/atling-gun
+                      - generic [ref=e348]: Atling Gun
+                  - paragraph [ref=e349]:
+                    - link "Acey May" [ref=e351] [cursor=pointer]:
+                      - /url: /borderlands-4/wiki/weapons/acey-may
+                      - generic [ref=e354]: Acey May
+                  - paragraph [ref=e355]:
+                    - link "Anarchy" [ref=e357] [cursor=pointer]:
+                      - /url: /borderlands-4/wiki/weapons/anarchy
+                      - generic [ref=e360]: Anarchy
+                  - paragraph [ref=e361]:
+                    - link "Anarchy" [ref=e363] [cursor=pointer]:
+                      - /url: /borderlands-4/wiki/ordnance/anarchy
+                      - generic [ref=e366]: Anarchy
+                  - paragraph [ref=e367]:
+                    - generic [ref=e372]: Scourge
+                  - paragraph [ref=e373]:
+                    - link "zzz relative" [ref=e374] [cursor=pointer]:
+                      - /url: /zzz
+                  - paragraph [ref=e375]:
+                    - link "blog" [ref=e376] [cursor=pointer]:
+                      - /url: /blog
+                  - paragraph [ref=e377]:
+                    - link "random url" [ref=e378] [cursor=pointer]:
+                      - /url: /random-url
+                  - paragraph [ref=e379]:
+                    - link "borderlands planner" [ref=e380] [cursor=pointer]:
+                      - /url: /borderlands-4/planner/builds
+                  - paragraph [ref=e381]:
+                    - link "poe short" [ref=e382] [cursor=pointer]:
+                      - /url: /poe-2
+                  - paragraph [ref=e383]:
+                    - link "moba youtube" [ref=e384] [cursor=pointer]:
+                      - /url: https://www.youtube.com/c/mobalytics
+                    - link "tft short" [ref=e385] [cursor=pointer]:
+                      - /url: /tft
+                  - paragraph [ref=e386]:
+                    - link "lol build link" [ref=e387] [cursor=pointer]:
+                      - /url: /lol/builds/test-lol-build-link
+                  - paragraph [ref=e388]:
+                    - link "https://el2.int.mobalytics.gg/lol/builds/test-lol-build-link" [ref=e389] [cursor=pointer]:
+                      - /url: https://el2.int.mobalytics.gg/lol/builds/test-lol-build-link
+                  - paragraph [ref=e390]:
+                    - link "diablo-4 guides links test stg" [ref=e391] [cursor=pointer]:
+                      - /url: /diablo-4/guides/links-test-stg
+              - generic [ref=e392]:
+                - generic [ref=e393]:
+                  - heading "Cards Gallery V2" [level=2] [ref=e396]
+                  - paragraph [ref=e399]: "123"
+                - generic [ref=e401]:
+                  - link "Title Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium." [ref=e403] [cursor=pointer]:
+                    - /url: /
+                    - generic [ref=e406]:
+                      - paragraph [ref=e407]: Title
+                      - paragraph [ref=e408]: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+                  - link "Title2 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium." [ref=e410] [cursor=pointer]:
+                    - /url: /
+                    - generic [ref=e413]:
+                      - paragraph [ref=e414]: Title2
+                      - paragraph [ref=e415]: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+                  - link "Title3" [ref=e417] [cursor=pointer]:
+                    - /url: /
+                    - generic [ref=e420]:
+                      - paragraph [ref=e421]: Title3
+                      - paragraph
+              - generic [ref=e423]:
+                - heading "Game Data Card Grid V2" [level=2] [ref=e427]
+                - generic [ref=e431]:
+                  - heading "Game Data Card Grid V2" [level=3] [ref=e432]
+                  - heading "Game Data Card Grid V2" [level=4] [ref=e433]
+                  - paragraph [ref=e434]:
+                    - link "Anarchy" [ref=e436] [cursor=pointer]:
+                      - /url: /borderlands-4/wiki/weapons/anarchy
+                      - generic [ref=e439]: Anarchy
+                - generic [ref=e441]:
+                  - generic [ref=e445]:
+                    - generic "Abajo" [ref=e446]
+                    - generic "Passive" [ref=e447]
+                  - link "APOPHIS Lance Action Skill" [ref=e448] [cursor=pointer]:
+                    - /url: /
+                    - generic [ref=e452]:
+                      - generic "APOPHIS Lance" [ref=e453]
+                      - generic "Action Skill" [ref=e454]
+                  - generic [ref=e458]:
+                    - generic "Rafa" [ref=e459]
+                    - generic "The Exo-Soldier" [ref=e460]
+                  - link "Phase Covenant Vex" [ref=e461] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=pKhfoKOTwZY&ab_channel=SadeVEVO
+                    - generic [ref=e465]:
+                      - generic "Phase Covenant" [ref=e466]
+                      - generic "Vex" [ref=e467]
+              - generic [ref=e469]:
+                - heading "Discovery Preview Compact V2" [level=2] [ref=e473]
+                - generic [ref=e475]:
+                  - generic [ref=e477] [cursor=pointer]:
+                    - link [ref=e478]:
+                      - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int
+                    - generic [ref=e482]:
+                      - generic [ref=e483]: Featured UG Content v2 Stas bl int
+                      - generic [ref=e484]: Updated on Jul 27, 2026
+                  - generic [ref=e487] [cursor=pointer]:
+                    - link [ref=e488]:
+                      - /url: /borderlands-4/builds/amara
+                    - generic [ref=e492]:
+                      - generic [ref=e493]: My Build vb
+                      - generic [ref=e494]: Updated on Jul 16, 2026
+                  - generic [ref=e497] [cursor=pointer]:
+                    - link [ref=e498]:
+                      - /url: /borderlands-4/builds/alab
+                    - generic [ref=e502]:
+                      - generic [ref=e503]: C4sh build
+                      - generic [ref=e504]: Updated on Jul 16, 2026
+                  - generic [ref=e507] [cursor=pointer]:
+                    - link [ref=e508]:
+                      - /url: /borderlands-4/builds/ururu
+                    - generic [ref=e512]:
+                      - generic [ref=e513]: Ololo
+                      - generic [ref=e514]: Updated on Jul 13, 2026
+                  - generic [ref=e517] [cursor=pointer]:
+                    - link [ref=e518]:
+                      - /url: /borderlands-4/builds/bordertestbl4
+                    - generic [ref=e522]:
+                      - generic [ref=e523]: tesstss
+                      - generic [ref=e524]: Updated on Feb 26, 2026
+              - generic [ref=e526]:
+                - heading "Discovery Preview V2" [level=2] [ref=e530]
+                - generic [ref=e532]:
+                  - generic [ref=e535] [cursor=pointer]:
+                    - link [ref=e536]:
+                      - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int
+                    - generic [ref=e538]:
+                      - generic [ref=e539]: Featured UG Content v2 Stas bl int
+                      - generic [ref=e540]:
+                        - text: By
+                        - link "Gattino#Nero" [ref=e541]:
+                          - /url: /borderlands-4/profile/iron-robot
+                        - text: ∙
+                        - generic [ref=e542]: Updated on
+                        - generic [ref=e543]: Jul 27, 2026
+                    - generic [ref=e544]:
+                      - generic [ref=e545]:
+                        - img "presentation" [ref=e546]
+                        - text: Vex
+                      - generic [ref=e547]:
+                        - img [ref=e548]
+                        - text: Flux Generator
+                      - generic [ref=e549]: Verified
+                      - generic [ref=e550]: "+1"
+                    - generic [ref=e553]:
+                      - button "Add to Favorites" [ref=e554]:
+                        - img [ref=e555]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e556]:
+                        - img [ref=e557]
+                        - text: Share
+                      - link "0" [ref=e558]:
+                        - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int#comments
+                        - img [ref=e559]
+                        - generic [ref=e560]: "0"
+                  - generic [ref=e563] [cursor=pointer]:
+                    - link [ref=e564]:
+                      - /url: /borderlands-4/builds/amara
+                    - generic [ref=e566]:
+                      - generic [ref=e567]: My Build vb
+                      - generic [ref=e568]:
+                        - text: By
+                        - link "Polly" [ref=e569]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e570]: Updated on
+                        - generic [ref=e571]: Jul 16, 2026
+                    - generic [ref=e573]:
+                      - img "presentation" [ref=e574]
+                      - text: Vex
+                    - generic [ref=e577]:
+                      - button "Add to Favorites" [ref=e578]:
+                        - img [ref=e579]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e580]:
+                        - img [ref=e581]
+                        - text: Share
+                      - link "2" [ref=e582]:
+                        - /url: /borderlands-4/builds/amara#comments
+                        - img [ref=e583]
+                        - generic [ref=e584]: "2"
+                  - generic [ref=e587] [cursor=pointer]:
+                    - link [ref=e588]:
+                      - /url: /borderlands-4/builds/alab
+                    - generic [ref=e589]:
+                      - generic [ref=e590]:
+                        - generic [ref=e591]: C4sh build
+                        - generic [ref=e592]:
+                          - text: By
+                          - link "NGF Demo userasdsa" [ref=e593]:
+                            - /url: /borderlands-4/profile/demo-creator
+                          - text: ∙
+                          - generic [ref=e594]: Updated on
+                          - generic [ref=e595]: Jul 16, 2026
+                      - generic [ref=e597]:
+                        - generic [ref=e599]:
+                          - img "Cleromancy" [ref=e600]
+                          - img [ref=e601]
+                        - generic [ref=e609]:
+                          - generic [ref=e611]:
+                            - img "Heavenly Sevens" [ref=e612]
+                            - img [ref=e613]
+                          - generic [ref=e623]:
+                            - img "Five is Alive" [ref=e624]
+                            - img [ref=e625]
+                          - generic [ref=e635]:
+                            - img "Mighty Nine" [ref=e636]
+                            - img [ref=e637]
+                          - generic [ref=e647]:
+                            - img "Eights of Hel" [ref=e648]
+                            - img [ref=e649]
+                    - generic [ref=e658]:
+                      - generic [ref=e659]:
+                        - img "presentation" [ref=e660]
+                        - text: C4SH
+                      - generic [ref=e661]:
+                        - img "presentation" [ref=e662]
+                        - text: Onslaughter
+                    - generic [ref=e665]:
+                      - button "Add to Favorites" [ref=e666]:
+                        - img [ref=e667]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e668]:
+                        - img [ref=e669]
+                        - text: Share
+                      - link "4" [ref=e670]:
+                        - /url: /borderlands-4/builds/alab#comments
+                        - img [ref=e671]
+                        - generic [ref=e672]: "4"
+                  - generic [ref=e675] [cursor=pointer]:
+                    - link [ref=e676]:
+                      - /url: /borderlands-4/builds/ururu
+                    - generic [ref=e678]:
+                      - generic [ref=e679]: Ololo
+                      - generic [ref=e680]:
+                        - text: By
+                        - link "Polly" [ref=e681]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e682]: Updated on
+                        - generic [ref=e683]: Jul 13, 2026
+                    - generic [ref=e685]:
+                      - img "presentation" [ref=e686]
+                      - text: Vex
+                    - generic [ref=e689]:
+                      - button "Add to Favorites" [ref=e690]:
+                        - img [ref=e691]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e692]:
+                        - img [ref=e693]
+                        - text: Share
+                      - link "9" [ref=e694]:
+                        - /url: /borderlands-4/builds/ururu#comments
+                        - img [ref=e695]
+                        - generic [ref=e696]: "9"
+                  - generic [ref=e699] [cursor=pointer]:
+                    - link [ref=e700]:
+                      - /url: /borderlands-4/builds/bordertestbl4
+                    - generic [ref=e701]:
+                      - generic [ref=e702]:
+                        - generic [ref=e703]: tesstss
+                        - generic [ref=e704]:
+                          - text: By
+                          - link "VladTrue" [ref=e705]:
+                            - /url: /borderlands-4/profile/vladtrue777-stbz1y
+                          - text: ∙
+                          - generic [ref=e706]: Updated on
+                          - generic [ref=e707]: Feb 26, 2026
+                      - generic [ref=e711]:
+                        - img "Incarnate" [ref=e712]
+                        - img [ref=e713]
+                    - generic [ref=e721]:
+                      - generic [ref=e722]:
+                        - img "presentation" [ref=e723]
+                        - text: Vex
+                      - generic [ref=e724]:
+                        - img "presentation" [ref=e725]
+                        - text: Incarnate
+                    - generic [ref=e728]:
+                      - button "Add to Favorites" [ref=e729]:
+                        - img [ref=e730]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e731]:
+                        - img [ref=e732]
+                        - text: Share
+                      - link "0" [ref=e733]:
+                        - /url: /borderlands-4/builds/bordertestbl4#comments
+                        - img [ref=e734]
+                        - generic [ref=e735]: "0"
+                - button "Show more" [ref=e736] [cursor=pointer]
+              - generic [ref=e738]:
+                - generic [ref=e743]:
+                  - generic [ref=e747]:
+                    - img [ref=e748]
+                    - textbox "search by name" [ref=e750]:
+                      - /placeholder: Search...
+                  - button "Filters" [ref=e751] [cursor=pointer]:
+                    - img [ref=e752]
+                    - text: Filters
+                - generic [ref=e754]:
+                  - generic [ref=e757] [cursor=pointer]:
+                    - link [ref=e758]:
+                      - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments
+                    - generic [ref=e759]:
+                      - generic [ref=e760]:
+                        - generic [ref=e761]: My Build with comments
+                        - generic [ref=e762]:
+                          - text: By
+                          - link "NGF Demo userasdsa" [ref=e763]:
+                            - /url: /borderlands-4/profile/demo-creator
+                          - text: ∙
+                          - generic [ref=e764]: Updated on
+                          - generic [ref=e765]: Jul 27, 2026
+                      - generic [ref=e769]:
+                        - img "Dead Ringer" [ref=e770]
+                        - img [ref=e771]
+                    - generic [ref=e779]:
+                      - generic [ref=e780]:
+                        - img "presentation" [ref=e781]
+                        - text: Vex
+                      - generic [ref=e782]:
+                        - img "presentation" [ref=e783]
+                        - text: Dead Ringer
+                    - generic [ref=e786]:
+                      - button "1 Favorite" [ref=e787]:
+                        - img [ref=e788]
+                        - text: 1 Favorite
+                      - button "Share" [ref=e789]:
+                        - img [ref=e790]
+                        - text: Share
+                      - link "14" [ref=e791]:
+                        - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments#comments
+                        - img [ref=e792]
+                        - generic [ref=e793]: "14"
+                  - generic [ref=e796] [cursor=pointer]:
+                    - link [ref=e797]:
+                      - /url: /borderlands-4/profile/winter-storm/builds/test-stats
+                    - generic [ref=e798]:
+                      - generic [ref=e799]:
+                        - generic [ref=e800]: Test Stats
+                        - generic [ref=e801]:
+                          - text: By
+                          - link "Polly" [ref=e802]:
+                            - /url: /borderlands-4/profile/winter-storm
+                          - text: ∙
+                          - generic [ref=e803]: Updated on
+                          - generic [ref=e804]: Jul 21, 2026
+                      - generic [ref=e806]:
+                        - generic [ref=e808]:
+                          - img "CHROMA Accelerator" [ref=e809]
+                          - img [ref=e810]
+                        - generic [ref=e820]:
+                          - img "Containment Breach" [ref=e821]
+                          - img [ref=e822]
+                    - generic [ref=e831]:
+                      - generic [ref=e832]:
+                        - img "presentation" [ref=e833]
+                        - text: Harlowe
+                      - generic [ref=e834]:
+                        - img "presentation" [ref=e835]
+                        - text: CHROMA Accelerator
+                    - generic [ref=e838]:
+                      - button "2 Favorites" [ref=e839]:
+                        - img [ref=e840]
+                        - text: 2 Favorites
+                      - button "Share" [ref=e841]:
+                        - img [ref=e842]
+                        - text: Share
+                      - link "1" [ref=e843]:
+                        - /url: /borderlands-4/profile/winter-storm/builds/test-stats#comments
+                        - img [ref=e844]
+                        - generic [ref=e845]: "1"
+                  - generic [ref=e848] [cursor=pointer]:
+                    - link [ref=e849]:
+                      - /url: /borderlands-4/profile/vladtrue777-stbz1y/builds/3e4e7813-eb20-429f-8e08-f4a0c2f265f9
+                    - generic [ref=e851]:
+                      - generic [ref=e852]: "112"
+                      - generic [ref=e853]:
+                        - text: By
+                        - link "VladTrue" [ref=e854]:
+                          - /url: /borderlands-4/profile/vladtrue777-stbz1y
+                        - text: ∙
+                        - generic [ref=e855]: Updated on
+                        - generic [ref=e856]: Feb 13, 2026
+                    - generic [ref=e858]:
+                      - img "presentation" [ref=e859]
+                      - text: Vex
+                    - generic [ref=e862]:
+                      - button "1 Favorite" [ref=e863]:
+                        - img [ref=e864]
+                        - text: 1 Favorite
+                      - button "Share" [ref=e865]:
+                        - img [ref=e866]
+                        - text: Share
+                      - link "1" [ref=e867]:
+                        - /url: /borderlands-4/profile/vladtrue777-stbz1y/builds/3e4e7813-eb20-429f-8e08-f4a0c2f265f9#comments
+                        - img [ref=e868]
+                        - generic [ref=e869]: "1"
+                  - generic [ref=e872] [cursor=pointer]:
+                    - link [ref=e873]:
+                      - /url: /borderlands-4/profile/demo-creator/builds/borda-build
+                    - generic [ref=e875]:
+                      - generic [ref=e876]: borda-build
+                      - generic [ref=e877]:
+                        - text: By
+                        - link "NGF Demo userasdsa" [ref=e878]:
+                          - /url: /borderlands-4/profile/demo-creator
+                        - text: ∙
+                        - generic [ref=e879]: Updated on
+                        - generic [ref=e880]: Sep 26, 2025
+                    - generic [ref=e882]:
+                      - img "presentation" [ref=e883]
+                      - text: Vex
+                    - generic [ref=e886]:
+                      - button "1 Favorite" [ref=e887]:
+                        - img [ref=e888]
+                        - text: 1 Favorite
+                      - button "Share" [ref=e889]:
+                        - img [ref=e890]
+                        - text: Share
+                      - link "0" [ref=e891]:
+                        - /url: /borderlands-4/profile/demo-creator/builds/borda-build#comments
+                        - img [ref=e892]
+                        - generic [ref=e893]: "0"
+                  - generic [ref=e896] [cursor=pointer]:
+                    - link [ref=e897]:
+                      - /url: /borderlands-4/profile/demo-creator/builds/my-build-test
+                    - generic [ref=e898]:
+                      - generic [ref=e899]:
+                        - generic [ref=e900]: My Build test
+                        - generic [ref=e901]:
+                          - text: By
+                          - link "NGF Demo userasdsa" [ref=e902]:
+                            - /url: /borderlands-4/profile/demo-creator
+                          - text: ∙
+                          - generic [ref=e903]: Updated on
+                          - generic [ref=e904]: Sep 16, 2025
+                      - generic [ref=e908]:
+                        - img "Dead Ringer" [ref=e909]
+                        - img [ref=e910]
+                    - generic [ref=e918]:
+                      - generic [ref=e919]:
+                        - img "presentation" [ref=e920]
+                        - text: Vex
+                      - generic [ref=e921]:
+                        - img "presentation" [ref=e922]
+                        - text: Dead Ringer
+                    - generic [ref=e925]:
+                      - button "1 Favorite" [ref=e926]:
+                        - img [ref=e927]
+                        - text: 1 Favorite
+                      - button "Share" [ref=e928]:
+                        - img [ref=e929]
+                        - text: Share
+                      - link "0" [ref=e930]:
+                        - /url: /borderlands-4/profile/demo-creator/builds/my-build-test#comments
+                        - img [ref=e931]
+                        - generic [ref=e932]: "0"
+                  - button "Show more" [ref=e933] [cursor=pointer]
+              - generic [ref=e935]:
+                - heading "Discovery Preview Compact V2" [level=2] [ref=e939]
+                - generic [ref=e941]:
+                  - generic [ref=e943] [cursor=pointer]:
+                    - link [ref=e944]:
+                      - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments
+                    - generic [ref=e948]:
+                      - generic [ref=e949]: My Build with comments
+                      - generic [ref=e950]: Updated on Jul 27, 2026
+                  - generic [ref=e953] [cursor=pointer]:
+                    - link [ref=e954]:
+                      - /url: /borderlands-4/profile/iron-robot/builds/public-ug-content-v2-stas-bl-int
+                    - generic [ref=e958]:
+                      - generic [ref=e959]: Public UG Content v2 Stas bl int
+                      - generic [ref=e960]: Updated on Jul 27, 2026
+                  - generic [ref=e963] [cursor=pointer]:
+                    - link [ref=e964]:
+                      - /url: /borderlands-4/profile/asd-das-8to5p0/builds/d979232e-8112-46c7-b0af-eacd5d2869a4
+                    - generic [ref=e968]:
+                      - generic [ref=e969]: qa-automation-build-page-59ded944-d2ff-4c12-8c59-bb089547e940
+                      - generic [ref=e970]: Updated on Jul 23, 2026
+                  - generic [ref=e973] [cursor=pointer]:
+                    - link [ref=e974]:
+                      - /url: /borderlands-4/profile/winter-storm/builds/test-stats
+                    - generic [ref=e978]:
+                      - generic [ref=e979]: Test Stats
+                      - generic [ref=e980]: Updated on Jul 21, 2026
+                  - generic [ref=e983] [cursor=pointer]:
+                    - link [ref=e984]:
+                      - /url: /borderlands-4/profile/winter-storm/builds/next
+                    - generic [ref=e988]:
+                      - generic [ref=e989]: Next
+                      - generic [ref=e990]: Updated on Jul 21, 2026
+              - generic [ref=e991]:
+                - heading "Documents Feed V2" [level=2] [ref=e995]
+                - generic [ref=e998]:
+                  - generic [ref=e1003] [cursor=pointer]:
+                    - link [ref=e1004]:
+                      - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments
+                    - generic [ref=e1006]:
+                      - generic [ref=e1007]: My Build with comments
+                      - generic [ref=e1008]:
+                        - text: By
+                        - link "NGF Demo userasdsa" [ref=e1009]:
+                          - /url: /borderlands-4/profile/demo-creator
+                        - text: ∙
+                        - generic [ref=e1010]: Updated on
+                        - generic [ref=e1011]: Jul 27, 2026
+                    - generic [ref=e1012]:
+                      - generic [ref=e1013]:
+                        - img "presentation" [ref=e1014]
+                        - text: Vex
+                      - generic [ref=e1015]:
+                        - img "presentation" [ref=e1016]
+                        - text: Dead Ringer
+                  - generic [ref=e1021] [cursor=pointer]:
+                    - link [ref=e1022]:
+                      - /url: /borderlands-4/profile/iron-robot/builds/public-ug-content-v2-stas-bl-int
+                    - generic [ref=e1024]:
+                      - generic [ref=e1025]: Public UG Content v2 Stas bl int
+                      - generic [ref=e1026]:
+                        - text: By
+                        - link "Gattino#Nero" [ref=e1027]:
+                          - /url: /borderlands-4/profile/iron-robot
+                        - text: ∙
+                        - generic [ref=e1028]: Updated on
+                        - generic [ref=e1029]: Jul 27, 2026
+                    - generic [ref=e1030]:
+                      - generic [ref=e1031]:
+                        - img "presentation" [ref=e1032]
+                        - text: Vex
+                      - generic [ref=e1033]:
+                        - img [ref=e1034]
+                        - text: Phase Phamiliar
+                      - generic [ref=e1035]: Verified
+                      - generic [ref=e1036]: "+1"
+                  - generic [ref=e1041] [cursor=pointer]:
+                    - link [ref=e1042]:
+                      - /url: /borderlands-4/profile/asd-das-8to5p0/builds/d979232e-8112-46c7-b0af-eacd5d2869a4
+                    - generic [ref=e1044]:
+                      - generic [ref=e1045]: qa-automation-build-page-59ded944-d2ff-4c12-8c59-bb089547e940
+                      - generic [ref=e1046]:
+                        - text: By
+                        - link "admin+stg+ns@mobalyticshq.com" [ref=e1047]:
+                          - /url: /borderlands-4/profile/asd-das-8to5p0
+                        - text: ∙
+                        - generic [ref=e1048]: Updated on
+                        - generic [ref=e1049]: Jul 23, 2026
+                    - generic [ref=e1051]:
+                      - img "presentation" [ref=e1052]
+                      - text: Vex
+                  - generic [ref=e1057] [cursor=pointer]:
+                    - link [ref=e1058]:
+                      - /url: /borderlands-4/profile/winter-storm/builds/test-stats
+                    - generic [ref=e1060]:
+                      - generic [ref=e1061]: Test Stats
+                      - generic [ref=e1062]:
+                        - text: By
+                        - link "Polly" [ref=e1063]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e1064]: Updated on
+                        - generic [ref=e1065]: Jul 21, 2026
+                    - generic [ref=e1066]:
+                      - generic [ref=e1067]:
+                        - img "presentation" [ref=e1068]
+                        - text: Harlowe
+                      - generic [ref=e1069]:
+                        - img "presentation" [ref=e1070]
+                        - text: CHROMA Accelerator
+              - link "1" [ref=e1078] [cursor=pointer]:
+                - /url: /borderlands-4
+                - generic [ref=e1079]: "1"
+            - generic [ref=e1082]:
+              - generic [ref=e1083]:
+                - heading "Table of Contents" [level=2] [ref=e1087]
+                - generic [ref=e1088]:
+                  - generic [ref=e1089]:
+                    - link "1. Rich Text V2" [ref=e1090] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#2-rich-text-v2-0
+                    - link "Heading 3" [ref=e1091] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#2-heading-3-0
+                      - generic [ref=e1093]: Heading 3
+                    - link "2. Cards Gallery V2" [ref=e1094] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#3-cards-gallery-v2-0
+                    - link "3. Game Data Card Grid V2" [ref=e1095] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#4-game-data-card-grid-v2-0
+                    - link "Game Data Card Grid V2" [ref=e1096] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#4-game-data-card-grid-v2-0
+                      - generic [ref=e1098]: Game Data Card Grid V2
+                    - link "4. Discovery Preview Compact V2" [ref=e1099] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#18-discovery-preview-compact-v2-0
+                    - link "5. Discovery Preview V2" [ref=e1100] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#19-discovery-preview-v2-0
+                    - link "6. Discovery Preview Compact V2" [ref=e1101] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#8-discovery-preview-compact-v2-1
+                    - link "7. Documents Feed V2" [ref=e1102] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#9-documents-feed-v2-0
+                    - link "8. Discovery Preview V2" [ref=e1103] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#13-discovery-preview-v2-1
+                    - link "9. Discovery Preview Compact" [ref=e1104] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#22-discovery-preview-compact-2
+                    - link "10. Comments" [ref=e1105] [cursor=pointer]:
+                      - /url: /borderlands-4?_ab=A#25-comments-0
+                  - button "Back to top" [ref=e1107] [cursor=pointer]
+              - heading "Video V2" [level=2] [ref=e1112]
+              - link "Promo Banner Horizontal Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium. Button" [ref=e1117] [cursor=pointer]:
+                - /url: /lol
+                - generic [ref=e1120]:
+                  - generic [ref=e1121]:
+                    - paragraph [ref=e1122]: Promo Banner Horizontal
+                    - paragraph [ref=e1123]: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.
+                  - button "Button" [ref=e1125]: Button
+          - generic [ref=e1131]:
+            - generic [ref=e1136]:
+              - generic [ref=e1140]:
+                - img [ref=e1141]
+                - textbox "search by name" [ref=e1143]:
+                  - /placeholder: Search...
+              - generic "select" [ref=e1145]:
+                - combobox [ref=e1148]
+                - button "Ordnance" [ref=e1151] [cursor=pointer]:
+                  - generic [ref=e1152]: Ordnance
+                  - img [ref=e1154]
+            - generic [ref=e1158]:
+              - link "Atling Gun Move in silence... Heavy Weapon Ordnance Vladof Legendary Extremely High Fire Rate & Projectiles home in on target" [ref=e1159] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/atling-gun
+                - generic [ref=e1164]:
+                  - generic [ref=e1169]:
+                    - paragraph [ref=e1170]: Atling Gun
+                    - paragraph [ref=e1171]: Move in silence...
+                  - generic [ref=e1172]:
+                    - generic [ref=e1173]: Heavy Weapon Ordnance
+                    - generic [ref=e1174]: Vladof
+                    - generic [ref=e1175]: Legendary
+                  - paragraph [ref=e1176]: Extremely High Fire Rate & Projectiles home in on target
+              - link "Barb'ara Ooh, mami. Grenade Ordnance Vladof Legendary Tentacles" [ref=e1177] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/barbara
+                - generic [ref=e1182]:
+                  - generic [ref=e1187]:
+                    - paragraph [ref=e1188]: Barb'ara
+                    - paragraph [ref=e1189]: Ooh, mami.
+                  - generic [ref=e1190]:
+                    - generic [ref=e1191]: Grenade Ordnance
+                    - generic [ref=e1192]: Vladof
+                    - generic [ref=e1193]: Legendary
+                  - paragraph [ref=e1194]: Tentacles
+              - link "Bismuth-Tipped Dagger Get down with the Bismuth! Grenade Ordnance Jakobs Legendary Bismuth - Attaches on Hit. Enemies take 15% more Corrosive damage for each attached Dagger." [ref=e1195] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/bismuth-tipped-dagger
+                - generic [ref=e1200]:
+                  - generic [ref=e1205]:
+                    - paragraph [ref=e1206]: Bismuth-Tipped Dagger
+                    - paragraph [ref=e1207]: Get down with the Bismuth!
+                  - generic [ref=e1208]:
+                    - generic [ref=e1209]: Grenade Ordnance
+                    - generic [ref=e1210]: Jakobs
+                    - generic [ref=e1211]: Legendary
+                  - paragraph [ref=e1212]: Bismuth - Attaches on Hit. Enemies take 15% more Corrosive damage for each attached Dagger.
+              - link "Blockbuster They don't make 'em like this anymore. Grenade Ordnance Vladof Legendary Splits into MIRV and bouncy grenades" [ref=e1213] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/blockbuster
+                - generic [ref=e1218]:
+                  - generic [ref=e1223]:
+                    - paragraph [ref=e1224]: Blockbuster
+                    - paragraph [ref=e1225]: They don't make 'em like this anymore.
+                  - generic [ref=e1226]:
+                    - generic [ref=e1227]: Grenade Ordnance
+                    - generic [ref=e1228]: Vladof
+                    - generic [ref=e1229]: Legendary
+                  - paragraph [ref=e1230]: Splits into MIRV and bouncy grenades
+              - link "Bottled Lightning Hen scarts and filly tails, make lofty ships wear low sails. Heavy Weapon Ordnance Maliwan Legendary" [ref=e1231] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/bottled-lightning
+                - generic [ref=e1236]:
+                  - generic [ref=e1241]:
+                    - paragraph [ref=e1242]: Bottled Lightning
+                    - paragraph [ref=e1243]: Hen scarts and filly tails, make lofty ships wear low sails.
+                  - generic [ref=e1244]:
+                    - generic [ref=e1245]: Heavy Weapon Ordnance
+                    - generic [ref=e1246]: Maliwan
+                    - generic [ref=e1247]: Legendary
+              - link "Buoy No wake zone... Grenade Ordnance Ripper Legendary" [ref=e1248] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/buoy
+                - generic [ref=e1253]:
+                  - generic [ref=e1258]:
+                    - paragraph [ref=e1259]: Buoy
+                    - paragraph [ref=e1260]: No wake zone...
+                  - generic [ref=e1261]:
+                    - generic [ref=e1262]: Grenade Ordnance
+                    - generic [ref=e1263]: Ripper
+                    - generic [ref=e1264]: Legendary
+              - link "Buzz Axe TURN AROUND! Grenade Ordnance Daedalus Legendary" [ref=e1265] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/buzz-axe
+                - generic [ref=e1270]:
+                  - generic [ref=e1275]:
+                    - paragraph [ref=e1276]: Buzz Axe
+                    - paragraph [ref=e1277]: TURN AROUND!
+                  - generic [ref=e1278]:
+                    - generic [ref=e1279]: Grenade Ordnance
+                    - generic [ref=e1280]: Daedalus
+                    - generic [ref=e1281]: Legendary
+              - link "Chaumurky Will someone try it tonight? Grenade Ordnance Order Legendary Continuously homes in on a target" [ref=e1282] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/chaumurky
+                - generic [ref=e1287]:
+                  - generic [ref=e1292]:
+                    - paragraph [ref=e1293]: Chaumurky
+                    - paragraph [ref=e1294]: Will someone try it tonight?
+                  - generic [ref=e1295]:
+                    - generic [ref=e1296]: Grenade Ordnance
+                    - generic [ref=e1297]: Order
+                    - generic [ref=e1298]: Legendary
+                  - paragraph [ref=e1299]: Continuously homes in on a target
+              - link "Countermeasure Separate the wheat from the chaff. Grenade Ordnance Torgue Legendary Decoy - Launches flares that distract nearby enemies" [ref=e1300] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/countermeasure
+                - generic [ref=e1305]:
+                  - generic [ref=e1310]:
+                    - paragraph [ref=e1311]: Countermeasure
+                    - paragraph [ref=e1312]: Separate the wheat from the chaff.
+                  - generic [ref=e1313]:
+                    - generic [ref=e1314]: Grenade Ordnance
+                    - generic [ref=e1315]: Torgue
+                    - generic [ref=e1316]: Legendary
+                  - paragraph [ref=e1317]: Decoy - Launches flares that distract nearby enemies
+              - link "Daedalus Grenade Grenade Ordnance Daedalus Legendary" [ref=e1318] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/daedalus-grenade
+                - generic [ref=e1323]:
+                  - generic [ref=e1328]:
+                    - paragraph [ref=e1329]: Daedalus Grenade
+                    - paragraph
+                  - generic [ref=e1330]:
+                    - generic [ref=e1331]: Grenade Ordnance
+                    - generic [ref=e1332]: Daedalus
+                    - generic [ref=e1333]: Legendary
+              - link "Daedalus Heavy Weapon Heavy Weapon Ordnance Daedalus Legendary" [ref=e1334] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/daedalus-heavy-weapon
+                - generic [ref=e1339]:
+                  - generic [ref=e1344]:
+                    - paragraph [ref=e1345]: Daedalus Heavy Weapon
+                    - paragraph
+                  - generic [ref=e1346]:
+                    - generic [ref=e1347]: Heavy Weapon Ordnance
+                    - generic [ref=e1348]: Daedalus
+                    - generic [ref=e1349]: Legendary
+              - link "Destructo Disco I don't even think the worms are awake yet... Grenade Ordnance Maliwan Legendary Slow spinning disc that deals high status dmg in its beam" [ref=e1350] [cursor=pointer]:
+                - /url: /borderlands-4/wiki/ordnance/destructo-disco
+                - generic [ref=e1355]:
+                  - generic [ref=e1360]:
+                    - paragraph [ref=e1361]: Destructo Disco
+                    - paragraph [ref=e1362]: I don't even think the worms are awake yet...
+                  - generic [ref=e1363]:
+                    - generic [ref=e1364]: Grenade Ordnance
+                    - generic [ref=e1365]: Maliwan
+                    - generic [ref=e1366]: Legendary
+                  - paragraph [ref=e1367]: Slow spinning disc that deals high status dmg in its beam
+            - button "Show more" [ref=e1368] [cursor=pointer]
+          - generic [ref=e1370]:
+            - generic [ref=e1372]:
+              - heading "Discovery Preview V2" [level=2] [ref=e1376]
+              - generic [ref=e1378]:
+                - generic [ref=e1381] [cursor=pointer]:
+                  - link [ref=e1382]:
+                    - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments
+                  - generic [ref=e1383]:
+                    - generic [ref=e1384]:
+                      - generic [ref=e1385]: My Build with comments
+                      - generic [ref=e1386]:
+                        - text: By
+                        - link "NGF Demo userasdsa" [ref=e1387]:
+                          - /url: /borderlands-4/profile/demo-creator
+                        - text: ∙
+                        - generic [ref=e1388]: Updated on
+                        - generic [ref=e1389]: Jul 27, 2026
+                    - generic [ref=e1393]:
+                      - img "Dead Ringer" [ref=e1394]
+                      - img [ref=e1395]
+                  - generic [ref=e1403]:
+                    - generic [ref=e1405]:
+                      - button "1 Favorite" [ref=e1406]:
+                        - img [ref=e1407]
+                        - text: 1 Favorite
+                      - button "Share" [ref=e1408]:
+                        - img [ref=e1409]
+                        - text: Share
+                      - link "14" [ref=e1410]:
+                        - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments#comments
+                        - img [ref=e1411]
+                        - generic [ref=e1412]: "14"
+                    - generic [ref=e1413]:
+                      - generic [ref=e1414]:
+                        - img "presentation" [ref=e1415]
+                        - text: Vex
+                      - generic [ref=e1416]:
+                        - img "presentation" [ref=e1417]
+                        - text: Dead Ringer
+                - generic [ref=e1420] [cursor=pointer]:
+                  - link [ref=e1421]:
+                    - /url: /borderlands-4/profile/iron-robot/builds/public-ug-content-v2-stas-bl-int
+                  - generic [ref=e1423]:
+                    - generic [ref=e1424]: Public UG Content v2 Stas bl int
+                    - generic [ref=e1425]:
+                      - text: By
+                      - link "Gattino#Nero" [ref=e1426]:
+                        - /url: /borderlands-4/profile/iron-robot
+                      - text: ∙
+                      - generic [ref=e1427]: Updated on
+                      - generic [ref=e1428]: Jul 27, 2026
+                  - generic [ref=e1429]:
+                    - generic [ref=e1431]:
+                      - button "Add to Favorites" [ref=e1432]:
+                        - img [ref=e1433]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e1434]:
+                        - img [ref=e1435]
+                        - text: Share
+                      - link "0" [ref=e1436]:
+                        - /url: /borderlands-4/profile/iron-robot/builds/public-ug-content-v2-stas-bl-int#comments
+                        - img [ref=e1437]
+                        - generic [ref=e1438]: "0"
+                    - generic [ref=e1439]:
+                      - generic [ref=e1440]:
+                        - img "presentation" [ref=e1441]
+                        - text: Vex
+                      - generic [ref=e1442]:
+                        - img [ref=e1443]
+                        - text: Phase Phamiliar
+                      - generic [ref=e1444]: Verified
+                      - generic [ref=e1445]: Trending
+                - generic [ref=e1448] [cursor=pointer]:
+                  - link [ref=e1449]:
+                    - /url: /borderlands-4/profile/asd-das-8to5p0/builds/d979232e-8112-46c7-b0af-eacd5d2869a4
+                  - generic [ref=e1451]:
+                    - generic [ref=e1452]: qa-automation-build-page-59ded944-d2ff-4c12-8c59-bb089547e940
+                    - generic [ref=e1453]:
+                      - text: By
+                      - link "admin+stg+ns@mobalyticshq.com" [ref=e1454]:
+                        - /url: /borderlands-4/profile/asd-das-8to5p0
+                      - text: ∙
+                      - generic [ref=e1455]: Updated on
+                      - generic [ref=e1456]: Jul 23, 2026
+                  - generic [ref=e1457]:
+                    - generic [ref=e1459]:
+                      - button "Add to Favorites" [ref=e1460]:
+                        - img [ref=e1461]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e1462]:
+                        - img [ref=e1463]
+                        - text: Share
+                      - link "0" [ref=e1464]:
+                        - /url: /borderlands-4/profile/asd-das-8to5p0/builds/d979232e-8112-46c7-b0af-eacd5d2869a4#comments
+                        - img [ref=e1465]
+                        - generic [ref=e1466]: "0"
+                    - generic [ref=e1468]:
+                      - img "presentation" [ref=e1469]
+                      - text: Vex
+                - generic [ref=e1472] [cursor=pointer]:
+                  - link [ref=e1473]:
+                    - /url: /borderlands-4/profile/winter-storm/builds/test-stats
+                  - generic [ref=e1474]:
+                    - generic [ref=e1475]:
+                      - generic [ref=e1476]: Test Stats
+                      - generic [ref=e1477]:
+                        - text: By
+                        - link "Polly" [ref=e1478]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e1479]: Updated on
+                        - generic [ref=e1480]: Jul 21, 2026
+                    - generic [ref=e1482]:
+                      - generic [ref=e1484]:
+                        - img "CHROMA Accelerator" [ref=e1485]
+                        - img [ref=e1486]
+                      - generic [ref=e1496]:
+                        - img "Containment Breach" [ref=e1497]
+                        - img [ref=e1498]
+                  - generic [ref=e1507]:
+                    - generic [ref=e1509]:
+                      - button "2 Favorites" [ref=e1510]:
+                        - img [ref=e1511]
+                        - text: 2 Favorites
+                      - button "Share" [ref=e1512]:
+                        - img [ref=e1513]
+                        - text: Share
+                      - link "1" [ref=e1514]:
+                        - /url: /borderlands-4/profile/winter-storm/builds/test-stats#comments
+                        - img [ref=e1515]
+                        - generic [ref=e1516]: "1"
+                    - generic [ref=e1517]:
+                      - generic [ref=e1518]:
+                        - img "presentation" [ref=e1519]
+                        - text: Harlowe
+                      - generic [ref=e1520]:
+                        - img "presentation" [ref=e1521]
+                        - text: CHROMA Accelerator
+                - generic [ref=e1524] [cursor=pointer]:
+                  - link [ref=e1525]:
+                    - /url: /borderlands-4/profile/winter-storm/builds/next
+                  - generic [ref=e1526]:
+                    - generic [ref=e1527]:
+                      - generic [ref=e1528]: Next
+                      - generic [ref=e1529]:
+                        - text: By
+                        - link "Polly" [ref=e1530]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e1531]: Updated on
+                        - generic [ref=e1532]: Jul 21, 2026
+                    - generic [ref=e1534]:
+                      - generic [ref=e1536]:
+                        - img "Flux Generator" [ref=e1537]
+                        - img [ref=e1538]
+                      - generic [ref=e1548]:
+                        - img "Blue Giant" [ref=e1549]
+                        - img [ref=e1550]
+                  - generic [ref=e1559]:
+                    - generic [ref=e1561]:
+                      - button "Add to Favorites" [ref=e1562]:
+                        - img [ref=e1563]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e1564]:
+                        - img [ref=e1565]
+                        - text: Share
+                      - link "0" [ref=e1566]:
+                        - /url: /borderlands-4/profile/winter-storm/builds/next#comments
+                        - img [ref=e1567]
+                        - generic [ref=e1568]: "0"
+                    - generic [ref=e1569]:
+                      - generic [ref=e1570]:
+                        - img "presentation" [ref=e1571]
+                        - text: Harlowe
+                      - generic [ref=e1572]:
+                        - img "presentation" [ref=e1573]
+                        - text: Dead Ringer
+              - button "Show more" [ref=e1574] [cursor=pointer]
+            - generic [ref=e1576]:
+              - generic [ref=e1581]:
+                - generic [ref=e1585]:
+                  - img [ref=e1586]
+                  - textbox "search by name" [ref=e1588]:
+                    - /placeholder: Search...
+                - generic "select" [ref=e1590]:
+                  - combobox [ref=e1593]
+                  - button "Character" [ref=e1596] [cursor=pointer]:
+                    - generic [ref=e1597]: Character
+                    - img [ref=e1599]
+                - generic "select" [ref=e1602]:
+                  - combobox [ref=e1605]
+                  - button "Action Skill" [ref=e1608] [cursor=pointer]:
+                    - generic [ref=e1609]: Action Skill
+                    - img [ref=e1611]
+                - generic "select" [ref=e1614]:
+                  - combobox [ref=e1617]
+                  - button "Verified" [ref=e1620] [cursor=pointer]:
+                    - generic [ref=e1621]: Verified
+                    - img [ref=e1623]
+                - generic "select" [ref=e1626]:
+                  - combobox [ref=e1629]
+                  - button "Featured" [ref=e1632] [cursor=pointer]:
+                    - generic [ref=e1633]: Featured
+                    - img [ref=e1635]
+                - generic "select" [ref=e1638]:
+                  - combobox [ref=e1641]
+                  - button "Trending" [ref=e1644] [cursor=pointer]:
+                    - generic [ref=e1645]: Trending
+                    - img [ref=e1647]
+                - generic "select" [ref=e1650]:
+                  - combobox [ref=e1653]
+                  - button "This month" [ref=e1656] [cursor=pointer]:
+                    - generic [ref=e1657]: This month
+                    - img [ref=e1659]
+              - generic [ref=e1662]:
+                - generic [ref=e1665] [cursor=pointer]:
+                  - link [ref=e1666]:
+                    - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments
+                  - generic [ref=e1667]:
+                    - generic [ref=e1668]:
+                      - generic [ref=e1669]: My Build with comments
+                      - generic [ref=e1670]:
+                        - text: By
+                        - link "NGF Demo userasdsa" [ref=e1671]:
+                          - /url: /borderlands-4/profile/demo-creator
+                        - text: ∙
+                        - generic [ref=e1672]: Updated on
+                        - generic [ref=e1673]: Jul 27, 2026
+                    - generic [ref=e1677]:
+                      - img "Dead Ringer" [ref=e1678]
+                      - img [ref=e1679]
+                  - generic [ref=e1687]:
+                    - generic [ref=e1689]:
+                      - button "1 Favorite" [ref=e1690]:
+                        - img [ref=e1691]
+                        - text: 1 Favorite
+                      - button "Share" [ref=e1692]:
+                        - img [ref=e1693]
+                        - text: Share
+                      - link "14" [ref=e1694]:
+                        - /url: /borderlands-4/profile/demo-creator/builds/my-build-with-comments#comments
+                        - img [ref=e1695]
+                        - generic [ref=e1696]: "14"
+                    - generic [ref=e1697]:
+                      - generic [ref=e1698]:
+                        - img "presentation" [ref=e1699]
+                        - text: Vex
+                      - generic [ref=e1700]:
+                        - img "presentation" [ref=e1701]
+                        - text: Dead Ringer
+                - generic [ref=e1704] [cursor=pointer]:
+                  - link [ref=e1705]:
+                    - /url: /borderlands-4/profile/winter-storm/builds/test-stats
+                  - generic [ref=e1706]:
+                    - generic [ref=e1707]:
+                      - generic [ref=e1708]: Test Stats
+                      - generic [ref=e1709]:
+                        - text: By
+                        - link "Polly" [ref=e1710]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e1711]: Updated on
+                        - generic [ref=e1712]: Jul 21, 2026
+                    - generic [ref=e1714]:
+                      - generic [ref=e1716]:
+                        - img "CHROMA Accelerator" [ref=e1717]
+                        - img [ref=e1718]
+                      - generic [ref=e1728]:
+                        - img "Containment Breach" [ref=e1729]
+                        - img [ref=e1730]
+                  - generic [ref=e1739]:
+                    - generic [ref=e1741]:
+                      - button "2 Favorites" [ref=e1742]:
+                        - img [ref=e1743]
+                        - text: 2 Favorites
+                      - button "Share" [ref=e1744]:
+                        - img [ref=e1745]
+                        - text: Share
+                      - link "1" [ref=e1746]:
+                        - /url: /borderlands-4/profile/winter-storm/builds/test-stats#comments
+                        - img [ref=e1747]
+                        - generic [ref=e1748]: "1"
+                    - generic [ref=e1749]:
+                      - generic [ref=e1750]:
+                        - img "presentation" [ref=e1751]
+                        - text: Harlowe
+                      - generic [ref=e1752]:
+                        - img "presentation" [ref=e1753]
+                        - text: CHROMA Accelerator
+                - generic [ref=e1756] [cursor=pointer]:
+                  - link [ref=e1757]:
+                    - /url: /borderlands-4/profile/iron-robot/builds/public-ug-content-v2-stas-bl-int
+                  - generic [ref=e1759]:
+                    - generic [ref=e1760]: Public UG Content v2 Stas bl int
+                    - generic [ref=e1761]:
+                      - text: By
+                      - link "Gattino#Nero" [ref=e1762]:
+                        - /url: /borderlands-4/profile/iron-robot
+                      - text: ∙
+                      - generic [ref=e1763]: Updated on
+                      - generic [ref=e1764]: Jul 27, 2026
+                  - generic [ref=e1765]:
+                    - generic [ref=e1767]:
+                      - button "Add to Favorites" [ref=e1768]:
+                        - img [ref=e1769]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e1770]:
+                        - img [ref=e1771]
+                        - text: Share
+                      - link "0" [ref=e1772]:
+                        - /url: /borderlands-4/profile/iron-robot/builds/public-ug-content-v2-stas-bl-int#comments
+                        - img [ref=e1773]
+                        - generic [ref=e1774]: "0"
+                    - generic [ref=e1775]:
+                      - generic [ref=e1776]:
+                        - img "presentation" [ref=e1777]
+                        - text: Vex
+                      - generic [ref=e1778]:
+                        - img [ref=e1779]
+                        - text: Phase Phamiliar
+                      - generic [ref=e1780]: Verified
+                      - generic [ref=e1781]: Trending
+                - generic [ref=e1784] [cursor=pointer]:
+                  - link [ref=e1785]:
+                    - /url: /borderlands-4/profile/asd-das-8to5p0/builds/d979232e-8112-46c7-b0af-eacd5d2869a4
+                  - generic [ref=e1787]:
+                    - generic [ref=e1788]: qa-automation-build-page-59ded944-d2ff-4c12-8c59-bb089547e940
+                    - generic [ref=e1789]:
+                      - text: By
+                      - link "admin+stg+ns@mobalyticshq.com" [ref=e1790]:
+                        - /url: /borderlands-4/profile/asd-das-8to5p0
+                      - text: ∙
+                      - generic [ref=e1791]: Updated on
+                      - generic [ref=e1792]: Jul 23, 2026
+                  - generic [ref=e1793]:
+                    - generic [ref=e1795]:
+                      - button "Add to Favorites" [ref=e1796]:
+                        - img [ref=e1797]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e1798]:
+                        - img [ref=e1799]
+                        - text: Share
+                      - link "0" [ref=e1800]:
+                        - /url: /borderlands-4/profile/asd-das-8to5p0/builds/d979232e-8112-46c7-b0af-eacd5d2869a4#comments
+                        - img [ref=e1801]
+                        - generic [ref=e1802]: "0"
+                    - generic [ref=e1804]:
+                      - img "presentation" [ref=e1805]
+                      - text: Vex
+                - generic [ref=e1808] [cursor=pointer]:
+                  - link [ref=e1809]:
+                    - /url: /borderlands-4/profile/winter-storm/builds/next
+                  - generic [ref=e1810]:
+                    - generic [ref=e1811]:
+                      - generic [ref=e1812]: Next
+                      - generic [ref=e1813]:
+                        - text: By
+                        - link "Polly" [ref=e1814]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e1815]: Updated on
+                        - generic [ref=e1816]: Jul 21, 2026
+                    - generic [ref=e1818]:
+                      - generic [ref=e1820]:
+                        - img "Flux Generator" [ref=e1821]
+                        - img [ref=e1822]
+                      - generic [ref=e1832]:
+                        - img "Blue Giant" [ref=e1833]
+                        - img [ref=e1834]
+                  - generic [ref=e1843]:
+                    - generic [ref=e1845]:
+                      - button "Add to Favorites" [ref=e1846]:
+                        - img [ref=e1847]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e1848]:
+                        - img [ref=e1849]
+                        - text: Share
+                      - link "0" [ref=e1850]:
+                        - /url: /borderlands-4/profile/winter-storm/builds/next#comments
+                        - img [ref=e1851]
+                        - generic [ref=e1852]: "0"
+                    - generic [ref=e1853]:
+                      - generic [ref=e1854]:
+                        - img "presentation" [ref=e1855]
+                        - text: Harlowe
+                      - generic [ref=e1856]:
+                        - img "presentation" [ref=e1857]
+                        - text: Dead Ringer
+                - button "Show more" [ref=e1858] [cursor=pointer]
+          - generic [ref=e1859]:
+            - generic [ref=e1860]:
+              - generic [ref=e1863]:
+                - generic [ref=e1868]:
+                  - generic [ref=e1872]:
+                    - img [ref=e1873]
+                    - textbox "search by name" [ref=e1875]:
+                      - /placeholder: Search...
+                  - button "Filters" [ref=e1876] [cursor=pointer]:
+                    - img [ref=e1877]
+                    - text: Filters
+                - generic [ref=e1880]:
+                  - link "Abyss It stares back. Sniper Ripper Pearlescent Abyss - Increases damage the higher it is charged. If full charge is held too long, triggers a self-damaging explosion." [ref=e1881] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/abyss
+                    - generic [ref=e1886]:
+                      - generic [ref=e1891]:
+                        - paragraph [ref=e1892]: Abyss
+                        - paragraph [ref=e1893]: It stares back.
+                      - generic [ref=e1894]:
+                        - generic [ref=e1895]: Sniper
+                        - generic [ref=e1896]: Ripper
+                        - generic [ref=e1897]: Pearlescent
+                      - paragraph [ref=e1898]: Abyss - Increases damage the higher it is charged. If full charge is held too long, triggers a self-damaging explosion.
+                  - link "Acey May Kill 'em with kindness, baby. Shotgun Daedalus Legendary Fires in a Heart-shaped spread pattern" [ref=e1899] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/acey-may
+                    - generic [ref=e1904]:
+                      - generic [ref=e1909]:
+                        - paragraph [ref=e1910]: Acey May
+                        - paragraph [ref=e1911]: Kill 'em with kindness, baby.
+                      - generic [ref=e1912]:
+                        - generic [ref=e1913]: Shotgun
+                        - generic [ref=e1914]: Daedalus
+                        - generic [ref=e1915]: Legendary
+                      - paragraph [ref=e1916]: Fires in a Heart-shaped spread pattern
+                  - link "Aching Roil Sleep down in the soil. Submachine Gun Ripper Legendary Hydropower - Overheating prevents firing. Switching modes reduces heat." [ref=e1917] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/aching-roil
+                    - generic [ref=e1922]:
+                      - generic [ref=e1927]:
+                        - paragraph [ref=e1928]: Aching Roil
+                        - paragraph [ref=e1929]: Sleep down in the soil.
+                      - generic [ref=e1930]:
+                        - generic [ref=e1931]: Submachine Gun
+                        - generic [ref=e1932]: Ripper
+                        - generic [ref=e1933]: Legendary
+                      - paragraph [ref=e1934]: Hydropower - Overheating prevents firing. Switching modes reduces heat.
+                  - link "Aegon's Dream Finish the song! Assault Rifle Vladof Legendary Prophetic, Double barrel shoots Incendiary & Cryo" [ref=e1935] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/aegons-dream
+                    - generic [ref=e1940]:
+                      - generic [ref=e1945]:
+                        - paragraph [ref=e1946]: Aegon's Dream
+                        - paragraph [ref=e1947]: Finish the song!
+                      - generic [ref=e1948]:
+                        - generic [ref=e1949]: Assault Rifle
+                        - generic [ref=e1950]: Vladof
+                        - generic [ref=e1951]: Legendary
+                      - paragraph [ref=e1952]: Prophetic, Double barrel shoots Incendiary & Cryo
+                  - link "Anarchy Cause I WANNA be! Shotgun Tediore Legendary Mutualism - On Auto-Reload or kill, grants +15% Damage and -15% Accuracy for a Maximum 20 Stacks which reset on manual Reload" [ref=e1953] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/anarchy
+                    - generic [ref=e1958]:
+                      - generic [ref=e1963]:
+                        - paragraph [ref=e1964]: Anarchy
+                        - paragraph [ref=e1965]: Cause I WANNA be!
+                      - generic [ref=e1966]:
+                        - generic [ref=e1967]: Shotgun
+                        - generic [ref=e1968]: Tediore
+                        - generic [ref=e1969]: Legendary
+                      - paragraph [ref=e1970]: Mutualism - On Auto-Reload or kill, grants +15% Damage and -15% Accuracy for a Maximum 20 Stacks which reset on manual Reload
+                  - link "ARC-TAN Not to go off on a tangent... Shotgun Torgue Legendary KA-BOOM" [ref=e1971] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/arc-tan
+                    - generic [ref=e1976]:
+                      - generic [ref=e1981]:
+                        - paragraph [ref=e1982]: ARC-TAN
+                        - paragraph [ref=e1983]: Not to go off on a tangent...
+                      - generic [ref=e1984]:
+                        - generic [ref=e1985]: Shotgun
+                        - generic [ref=e1986]: Torgue
+                        - generic [ref=e1987]: Legendary
+                      - paragraph [ref=e1988]: KA-BOOM
+                  - link "Asher's Rise How can we possibly have the slightest idea what to expect? Sniper Maliwan Legendary Slow Burn - Critical Hits apply Status Effects instead of increased impact Damage" [ref=e1989] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/ashers-rise
+                    - generic [ref=e1994]:
+                      - generic [ref=e1999]:
+                        - paragraph [ref=e2000]: Asher's Rise
+                        - paragraph [ref=e2001]: How can we possibly have the slightest idea what to expect?
+                      - generic [ref=e2002]:
+                        - generic [ref=e2003]: Sniper
+                        - generic [ref=e2004]: Maliwan
+                        - generic [ref=e2005]: Legendary
+                      - paragraph [ref=e2006]: Slow Burn - Critical Hits apply Status Effects instead of increased impact Damage
+                  - link "Birt's Bees Fill your life with laughter and bees. Submachine Gun Vladof Legendary Hivemind - Shoots out a swarm of projectiles, Spews erratic projectiles that home in on tartgets" [ref=e2007] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/birts-bees
+                    - generic [ref=e2012]:
+                      - generic [ref=e2017]:
+                        - paragraph [ref=e2018]: Birt's Bees
+                        - paragraph [ref=e2019]: Fill your life with laughter and bees.
+                      - generic [ref=e2020]:
+                        - generic [ref=e2021]: Submachine Gun
+                        - generic [ref=e2022]: Vladof
+                        - generic [ref=e2023]: Legendary
+                      - paragraph [ref=e2024]: Hivemind - Shoots out a swarm of projectiles, Spews erratic projectiles that home in on tartgets
+                  - link "Bod Do you believe in this thing, or not? Shotgun Daedalus Legendary Counts as a Shotgun, AR, Sniper, Pistol, & SMG" [ref=e2025] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/bod
+                    - generic [ref=e2030]:
+                      - generic [ref=e2035]:
+                        - paragraph [ref=e2036]: Bod
+                        - paragraph [ref=e2037]: Do you believe in this thing, or not?
+                      - generic [ref=e2038]:
+                        - generic [ref=e2039]: Shotgun
+                        - generic [ref=e2040]: Daedalus
+                        - generic [ref=e2041]: Legendary
+                      - paragraph [ref=e2042]: Counts as a Shotgun, AR, Sniper, Pistol, & SMG
+                  - link "Bonnie and Clyde From a schoolboy to a rattlesnake. Assault Rifle Jakobs Legendary Pair of Thieves - On kill, grants +100% Damage for the Gun's other Mode and refills its Magazine" [ref=e2043] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/bonnie-and-clyde
+                    - generic [ref=e2048]:
+                      - generic [ref=e2053]:
+                        - paragraph [ref=e2054]: Bonnie and Clyde
+                        - paragraph [ref=e2055]: From a schoolboy to a rattlesnake.
+                      - generic [ref=e2056]:
+                        - generic [ref=e2057]: Assault Rifle
+                        - generic [ref=e2058]: Jakobs
+                        - generic [ref=e2059]: Legendary
+                      - paragraph [ref=e2060]: Pair of Thieves - On kill, grants +100% Damage for the Gun's other Mode and refills its Magazine
+                  - link "Boomslang Everything is blooming most recklessly. Sniper Jakobs Legendary Bullet Pollinator - After Reloading, the first Critical Hit Ricochets a Sticky Projectile to up to 3 nearby enemies" [ref=e2061] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/boomslang
+                    - generic [ref=e2066]:
+                      - generic [ref=e2071]:
+                        - paragraph [ref=e2072]: Boomslang
+                        - paragraph [ref=e2073]: Everything is blooming most recklessly.
+                      - generic [ref=e2074]:
+                        - generic [ref=e2075]: Sniper
+                        - generic [ref=e2076]: Jakobs
+                        - generic [ref=e2077]: Legendary
+                      - paragraph [ref=e2078]: Bullet Pollinator - After Reloading, the first Critical Hit Ricochets a Sticky Projectile to up to 3 nearby enemies
+                  - link "Borstel Ballista Go now and speed well! Sniper Jakobs Legendary Propagation - Shots spiral and split into many bullets after a certain distance" [ref=e2079] [cursor=pointer]:
+                    - /url: /borderlands-4/wiki/weapons/borstel-ballista
+                    - generic [ref=e2084]:
+                      - generic [ref=e2089]:
+                        - paragraph [ref=e2090]: Borstel Ballista
+                        - paragraph [ref=e2091]: Go now and speed well!
+                      - generic [ref=e2092]:
+                        - generic [ref=e2093]: Sniper
+                        - generic [ref=e2094]: Jakobs
+                        - generic [ref=e2095]: Legendary
+                      - paragraph [ref=e2096]: Propagation - Shots spiral and split into many bullets after a certain distance
+                - button "Show more" [ref=e2097] [cursor=pointer]
+              - generic [ref=e2099]:
+                - heading "Discovery Preview Compact" [level=2] [ref=e2103]
+                - generic [ref=e2105]:
+                  - generic [ref=e2107] [cursor=pointer]:
+                    - link [ref=e2108]:
+                      - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int
+                    - generic [ref=e2112]:
+                      - generic [ref=e2113]: Featured UG Content v2 Stas bl int
+                      - generic [ref=e2114]: Updated on Jul 27, 2026
+                  - generic [ref=e2117] [cursor=pointer]:
+                    - link [ref=e2118]:
+                      - /url: /borderlands-4/builds/amara
+                    - generic [ref=e2122]:
+                      - generic [ref=e2123]: My Build vb
+                      - generic [ref=e2124]: Updated on Jul 16, 2026
+                  - generic [ref=e2127] [cursor=pointer]:
+                    - link [ref=e2128]:
+                      - /url: /borderlands-4/builds/alab
+                    - generic [ref=e2132]:
+                      - generic [ref=e2133]: C4sh build
+                      - generic [ref=e2134]: Updated on Jul 16, 2026
+                  - generic [ref=e2137] [cursor=pointer]:
+                    - link [ref=e2138]:
+                      - /url: /borderlands-4/builds/ururu
+                    - generic [ref=e2142]:
+                      - generic [ref=e2143]: Ololo
+                      - generic [ref=e2144]: Updated on Jul 13, 2026
+                  - generic [ref=e2147] [cursor=pointer]:
+                    - link [ref=e2148]:
+                      - /url: /borderlands-4/builds/bordertestbl4
+                    - generic [ref=e2152]:
+                      - generic [ref=e2153]: tesstss
+                      - generic [ref=e2154]: Updated on Feb 26, 2026
+            - generic [ref=e2155]:
+              - generic [ref=e2157]:
+                - heading "Discovery Preview V2" [level=2] [ref=e2161]
+                - generic [ref=e2163]:
+                  - generic [ref=e2166] [cursor=pointer]:
+                    - link [ref=e2167]:
+                      - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int
+                    - generic [ref=e2169]:
+                      - generic [ref=e2170]: Featured UG Content v2 Stas bl int
+                      - generic [ref=e2171]:
+                        - text: By
+                        - link "Gattino#Nero" [ref=e2172]:
+                          - /url: /borderlands-4/profile/iron-robot
+                        - text: ∙
+                        - generic [ref=e2173]: Jul 27, 2026
+                    - generic [ref=e2174]:
+                      - generic [ref=e2175]:
+                        - img "presentation" [ref=e2176]
+                        - text: Vex
+                      - generic [ref=e2177]:
+                        - img [ref=e2178]
+                        - text: Flux Generator
+                      - generic [ref=e2179]: Verified
+                      - generic [ref=e2180]: "+1"
+                    - generic [ref=e2183]:
+                      - button "Add to Favorites" [ref=e2184]:
+                        - img [ref=e2185]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e2186]:
+                        - img [ref=e2187]
+                        - text: Share
+                      - link "0" [ref=e2188]:
+                        - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int#comments
+                        - img [ref=e2189]
+                        - generic [ref=e2190]: "0"
+                  - generic [ref=e2193] [cursor=pointer]:
+                    - link [ref=e2194]:
+                      - /url: /borderlands-4/builds/amara
+                    - generic [ref=e2196]:
+                      - generic [ref=e2197]: My Build vb
+                      - generic [ref=e2198]:
+                        - text: By
+                        - link "Polly" [ref=e2199]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e2200]: Jul 16, 2026
+                    - generic [ref=e2202]:
+                      - img "presentation" [ref=e2203]
+                      - text: Vex
+                    - generic [ref=e2206]:
+                      - button "Add to Favorites" [ref=e2207]:
+                        - img [ref=e2208]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e2209]:
+                        - img [ref=e2210]
+                        - text: Share
+                      - link "2" [ref=e2211]:
+                        - /url: /borderlands-4/builds/amara#comments
+                        - img [ref=e2212]
+                        - generic [ref=e2213]: "2"
+                  - generic [ref=e2216] [cursor=pointer]:
+                    - link [ref=e2217]:
+                      - /url: /borderlands-4/builds/alab
+                    - generic [ref=e2218]:
+                      - generic [ref=e2219]:
+                        - generic [ref=e2220]: C4sh build
+                        - generic [ref=e2221]:
+                          - text: By
+                          - link "NGF Demo userasdsa" [ref=e2222]:
+                            - /url: /borderlands-4/profile/demo-creator
+                          - text: ∙
+                          - generic [ref=e2223]: Jul 16, 2026
+                      - generic [ref=e2225]:
+                        - generic [ref=e2227]:
+                          - img "Cleromancy" [ref=e2228]
+                          - img [ref=e2229]
+                        - generic [ref=e2237]:
+                          - generic [ref=e2239]:
+                            - img "Heavenly Sevens" [ref=e2240]
+                            - img [ref=e2241]
+                          - generic [ref=e2251]:
+                            - img "Five is Alive" [ref=e2252]
+                            - img [ref=e2253]
+                          - generic [ref=e2263]:
+                            - img "Mighty Nine" [ref=e2264]
+                            - img [ref=e2265]
+                          - generic [ref=e2275]:
+                            - img "Eights of Hel" [ref=e2276]
+                            - img [ref=e2277]
+                    - generic [ref=e2286]:
+                      - generic [ref=e2287]:
+                        - img "presentation" [ref=e2288]
+                        - text: C4SH
+                      - generic [ref=e2289]:
+                        - img "presentation" [ref=e2290]
+                        - text: Onslaughter
+                    - generic [ref=e2293]:
+                      - button "Add to Favorites" [ref=e2294]:
+                        - img [ref=e2295]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e2296]:
+                        - img [ref=e2297]
+                        - text: Share
+                      - link "4" [ref=e2298]:
+                        - /url: /borderlands-4/builds/alab#comments
+                        - img [ref=e2299]
+                        - generic [ref=e2300]: "4"
+                  - generic [ref=e2303] [cursor=pointer]:
+                    - link [ref=e2304]:
+                      - /url: /borderlands-4/builds/ururu
+                    - generic [ref=e2306]:
+                      - generic [ref=e2307]: Ololo
+                      - generic [ref=e2308]:
+                        - text: By
+                        - link "Polly" [ref=e2309]:
+                          - /url: /borderlands-4/profile/winter-storm
+                        - text: ∙
+                        - generic [ref=e2310]: Jul 13, 2026
+                    - generic [ref=e2312]:
+                      - img "presentation" [ref=e2313]
+                      - text: Vex
+                    - generic [ref=e2316]:
+                      - button "Add to Favorites" [ref=e2317]:
+                        - img [ref=e2318]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e2319]:
+                        - img [ref=e2320]
+                        - text: Share
+                      - link "9" [ref=e2321]:
+                        - /url: /borderlands-4/builds/ururu#comments
+                        - img [ref=e2322]
+                        - generic [ref=e2323]: "9"
+                  - generic [ref=e2326] [cursor=pointer]:
+                    - link [ref=e2327]:
+                      - /url: /borderlands-4/builds/bordertestbl4
+                    - generic [ref=e2328]:
+                      - generic [ref=e2329]:
+                        - generic [ref=e2330]: tesstss
+                        - generic [ref=e2331]:
+                          - text: By
+                          - link "VladTrue" [ref=e2332]:
+                            - /url: /borderlands-4/profile/vladtrue777-stbz1y
+                          - text: ∙
+                          - generic [ref=e2333]: Feb 26, 2026
+                      - generic [ref=e2337]:
+                        - img "Incarnate" [ref=e2338]
+                        - img [ref=e2339]
+                    - generic [ref=e2347]:
+                      - generic [ref=e2348]:
+                        - img "presentation" [ref=e2349]
+                        - text: Vex
+                      - generic [ref=e2350]:
+                        - img "presentation" [ref=e2351]
+                        - text: Incarnate
+                    - generic [ref=e2354]:
+                      - button "Add to Favorites" [ref=e2355]:
+                        - img [ref=e2356]
+                        - text: Add to Favorites
+                      - button "Share" [ref=e2357]:
+                        - img [ref=e2358]
+                        - text: Share
+                      - link "0" [ref=e2359]:
+                        - /url: /borderlands-4/builds/bordertestbl4#comments
+                        - img [ref=e2360]
+                        - generic [ref=e2361]: "0"
+                - button "Show more" [ref=e2362] [cursor=pointer]
+              - generic [ref=e2364]:
+                - heading "Discovery Preview Compact V2" [level=2] [ref=e2368]
+                - generic [ref=e2370]:
+                  - generic [ref=e2372] [cursor=pointer]:
+                    - link [ref=e2373]:
+                      - /url: /borderlands-4/builds/ug-content-v2-stas-ovw-int
+                    - generic [ref=e2377]:
+                      - generic [ref=e2378]: Featured UG Content v2 Stas bl int
+                      - generic [ref=e2379]: Updated on Jul 27, 2026
+                  - generic [ref=e2382] [cursor=pointer]:
+                    - link [ref=e2383]:
+                      - /url: /borderlands-4/builds/amara
+                    - generic [ref=e2387]:
+                      - generic [ref=e2388]: My Build vb
+                      - generic [ref=e2389]: Updated on Jul 16, 2026
+                  - generic [ref=e2392] [cursor=pointer]:
+                    - link [ref=e2393]:
+                      - /url: /borderlands-4/builds/alab
+                    - generic [ref=e2397]:
+                      - generic [ref=e2398]: C4sh build
+                      - generic [ref=e2399]: Updated on Jul 16, 2026
+                  - generic [ref=e2402] [cursor=pointer]:
+                    - link [ref=e2403]:
+                      - /url: /borderlands-4/builds/ururu
+                    - generic [ref=e2407]:
+                      - generic [ref=e2408]: Ololo
+                      - generic [ref=e2409]: Updated on Jul 13, 2026
+                  - generic [ref=e2412] [cursor=pointer]:
+                    - link [ref=e2413]:
+                      - /url: /borderlands-4/builds/bordertestbl4
+                    - generic [ref=e2417]:
+                      - generic [ref=e2418]: tesstss
+                      - generic [ref=e2419]: Updated on Feb 26, 2026
+          - generic [ref=e2423]:
+            - generic [ref=e2427]:
+              - heading "Comments" [level=2] [ref=e2428]
+              - generic [ref=e2429]: "1"
+            - generic [ref=e2432]:
+              - generic "select" [ref=e2434]:
+                - combobox [ref=e2437]
+                - button "Newest" [ref=e2440] [cursor=pointer]:
+                  - generic [ref=e2441]: Newest
+                  - img [ref=e2443]
+              - generic [ref=e2446]:
+                - generic [ref=e2447]:
+                  - generic [ref=e2448]:
+                    - img "Venom Alchemist" [ref=e2450] [cursor=pointer]
+                    - button [ref=e2452] [cursor=pointer]:
+                      - img [ref=e2453]
+                  - generic [ref=e2454]:
+                    - generic [ref=e2455]:
+                      - generic [ref=e2456]:
+                        - generic [ref=e2457]: ReWaD
+                        - generic [ref=e2458]: •
+                        - generic [ref=e2459]: 19d ago
+                      - generic [ref=e2460]: Plot Armor
+                    - paragraph [ref=e2463]:
+                      - text: Olololo trololo
+                      - generic [ref=e2468]: A Blur of Fingers and Brass
+                    - generic [ref=e2469]:
+                      - generic [ref=e2470]:
+                        - button [ref=e2471] [cursor=pointer]:
+                          - img [ref=e2472]
+                        - generic [ref=e2473]: "1"
+                        - button [ref=e2474] [cursor=pointer]:
+                          - img [ref=e2475]
+                      - button "Reply" [ref=e2476] [cursor=pointer]:
+                        - img [ref=e2477]
+                        - text: Reply
+                      - button "Share" [ref=e2478] [cursor=pointer]:
+                        - img [ref=e2479]
+                        - text: Share
+                - generic [ref=e2480]:
+                  - generic [ref=e2488]:
+                    - generic [ref=e2490]:
+                      - generic [ref=e2491]: "[deleted]"
+                      - generic [ref=e2492]: •
+                      - generic [ref=e2493]: 19d ago
+                    - paragraph [ref=e2494]: This comment was deleted by its author.
+                  - generic [ref=e2498]:
+                    - img "Venom Alchemist" [ref=e2501] [cursor=pointer]
+                    - generic [ref=e2502]:
+                      - generic [ref=e2503]:
+                        - generic [ref=e2504]:
+                          - generic [ref=e2505]: ReWaD
+                          - generic [ref=e2506]: •
+                          - generic [ref=e2507]: 19d ago
+                        - generic [ref=e2508]: Plot Armor
+                      - paragraph [ref=e2511]: ~_~
+                      - generic [ref=e2512]:
+                        - generic [ref=e2513]:
+                          - button [ref=e2514] [cursor=pointer]:
+                            - img [ref=e2515]
+                          - generic [ref=e2516]: "-1"
+                          - button [ref=e2517] [cursor=pointer]:
+                            - img [ref=e2518]
+                        - button "Reply" [ref=e2519] [cursor=pointer]:
+                          - img [ref=e2520]
+                          - text: Reply
+                        - button "Share" [ref=e2521] [cursor=pointer]:
+                          - img [ref=e2522]
+                          - text: Share
+      - complementary [ref=e2523]
+  - generic:
+    - region "Notifications Alt+T"
+```
+
+# Test source
+
+```ts
+  1  | import { test } from '@playwright/test';
+  2  | 
+  3  | export class Navbar {
+  4  |   constructor(page) {
+  5  |     this.page = page;
+  6  |     this.settingsButton = page.getByRole('img', { name: 'settings' });
+  7  |     this.signInButton = page.getByRole('button', { name: 'sign in' });
+  8  |     this.getPlusButton = page.getByRole('button', { name: 'Get Plus' });
+  9  |     this.removeAdsButton = page.getByRole('button', { name: 'Remove Ads', exact: true });
+  10 |     this.gameList = page.getByTestId('navbar-game-list');
+  11 |     this.profileButton = page.getByRole('link', { name: 'View your profile' });
+  12 |     this.mgpProfileButton = page.locator('a[href*="/profile/"]').first();
+  13 |     this.accountSettingsButton = page.getByRole('link', { name: 'Account Settings' });
+  14 |     this.billingInfoButton = page.getByRole('link', { name: 'Billing Info' });
+  15 |     this.profileNameMenu = (profileName) => page.getByRole('link', { name: `${profileName}` });
+  16 |   }
+  17 | 
+  18 |   async gotoSignInPage() {
+  19 |     await test.step('Go to the Sign In page', async () => {
+> 20 |       await this.signInButton.click();
+     |                               ^ Error: locator.click: Test timeout of 90000ms exceeded.
+  21 |     });
+  22 |   }
+  23 | 
+  24 |   async gotoProfilePage() {
+  25 |     await test.step('Go to Profile page', async () => {
+  26 |       await this.profileButton.click();
+  27 |     });
+  28 |   }
+  29 | 
+  30 |   async gotoMgpProfile() {
+  31 |     await test.step('Go to MGP profile via navbar', async () => {
+  32 |       await this.mgpProfileButton.click();
+  33 |     });
+  34 |   }
+  35 | 
+  36 |   async gotoAccountSettingsPage() {
+  37 |     await test.step('Go to Account Settings page', async () => {
+  38 |       await this.settingsButton.hover();
+  39 |       await this.accountSettingsButton.click();
+  40 |     });
+  41 |   }
+  42 | 
+  43 |   async gotoBillingInfoPage() {
+  44 |     await test.step('Go to Account Settings page', async () => {
+  45 |       await this.settingsButton.hover();
+  46 |       await this.billingInfoButton.click();
+  47 |     });
+  48 |   }
+  49 | 
+  50 |   async clickGetPlus() {
+  51 |     await test.step('Click Get Plus button', async () => {
+  52 |       await this.getPlusButton.click();
+  53 |     });
+  54 |   }
+  55 | 
+  56 |   async clickRemoveAds() {
+  57 |     await test.step('Click Remove Ads button', async () => {
+  58 |       await this.removeAdsButton.click();
+  59 |     });
+  60 |   }
+  61 | }
+  62 | 
+```
