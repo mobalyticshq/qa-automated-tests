@@ -41,9 +41,9 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASE_URL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    video: 'on-first-retry',
+    // trace: 'retain-on-failure',
+    // screenshot: 'only-on-failure',
+    // video: 'on-first-retry',
     // Browser settings:
     userAgent: 'mobalytics-automation-qa',
     browserName: 'chromium',
@@ -55,15 +55,30 @@ export default defineConfig({
     {
       name: 'auth-setup',
       testMatch: '**/auth.setup.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'off',
+        video: 'off',
+      },
     },
     {
       name: 'user-roles-setup',
       testMatch: '**/userRoles.setup.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'off',
+        video: 'off',
+      },
     },
     {
       name: 'ngf-tests',
       dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/ngf.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'on-first-retry',
+      },
     },
     {
       name: 'account-tests',
@@ -72,6 +87,11 @@ export default defineConfig({
       //   storageState: ".auth/userRoleAuth.json",
       // },
       testMatch: 'e2e-tests/account.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'on-first-retry',
+      },
     },
     {
       name: 'payment-tests',
@@ -80,16 +100,31 @@ export default defineConfig({
       //   storageState: ".auth/userRoleAuth.json",
       // },
       testMatch: 'e2e-tests/payment.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'on-first-retry',
+      },
     },
     {
       name: 'others-tests',
       dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/others.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'on-first-retry',
+      },
     },
     {
       name: 'advertisement-tests',
       dependencies: ['user-roles-setup'],
       testMatch: 'e2e-tests/advertisement.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'off',
+      },
     },
     {
       name: 'sitemap-tests',
