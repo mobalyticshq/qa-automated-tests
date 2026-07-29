@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3805","Checking ""New Games"" in the navbar on https://stg.mobalytics.gg","ngf-tests","2026-07-29","passed","2026-07-29","","ngf.test.js","",""
+"","271","setup game manager","auth-setup","2026-07-29","passed","2026-07-29","","setup/auth.setup.test.js","",""
+"","151","setup internal writer","auth-setup","2026-07-29","passed","2026-07-29","","setup/auth.setup.test.js","",""
+"","14126","Delete mobalytics account","account-tests","2026-07-29","passed","2026-07-29","","account.test.js","",""
+"","1002","setup admin","auth-setup","2026-07-29","passed","2026-07-29","","setup/auth.setup.test.js","",""
+"","14241","Change display name","account-tests","2026-07-29","passed","2026-07-29","","account.test.js","",""
