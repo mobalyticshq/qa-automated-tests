@@ -1,13 +1,18 @@
 import { test as setup, expect } from '@playwright/test';
+import fs from 'node:fs/promises';
 
-setup('setup admin', async ({ page, request }) => {
-  let apiEndpoint;
+
+//!!!  переделать данный сетап по аналогии с сетапом ролей !!!
+
+
+setup('setup admin', async ({ request }) => {
+  let endpoint;
   if (process.env.BASE_URL === 'https://mobalytics.gg') {
-    apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
+    endpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
   } else {
-    apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
+    endpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
   }
-  const loginResponse = await request.post(apiEndpoint, {
+  const loginResponse = await request.post(endpoint, {
     data: {
       query: `
           mutation SignIn {
@@ -24,32 +29,17 @@ setup('setup admin', async ({ page, request }) => {
   });
   expect(loginResponse.ok()).toBeTruthy();
 
-  // Извлекаем cookies из ответа
-  const setCookieHeader = loginResponse.headers()['set-cookie'];
-  if (!setCookieHeader) throw new Error('No set-cookie header in login response');
-
-  // Парсим cookies для Playwright
-  const cookies = setCookieHeader.split(/,(?=[^ ]+\=)/).map((cookieStr) => {
-    const [cookiePair, ...attributes] = cookieStr.split(';');
-    const index = cookiePair.indexOf('=');
-    const name = cookiePair.slice(0, index).trim();
-    const value = cookiePair.slice(index + 1).trim();
-    return {
-      name: name.trim(),
-      value: value.trim(),
-      domain: '.mobalytics.gg',
-      path: '/',
-    };
-  });
-
-  // Добавляем cookies в контекст браузера
-  await page.context().addCookies(cookies);
-
-  // Теперь сохраняем storageState с правильными cookies
-  await page.context().storageState({ path: '.auth/adminAuth.json' });
+  const state = await request.storageState();
+  state.origins = [
+    {
+      origin: process.env.BASE_URL,
+      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
+    },
+  ];
+  fs.writeFile('.auth/adminAuth.json', JSON.stringify(state, null, 2));
 });
 
-setup('setup game manager', async ({ page, request }) => {
+setup('setup game manager', async ({ request }) => {
   let apiEndpoint;
   if (process.env.BASE_URL === 'https://mobalytics.gg') {
     apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
@@ -73,32 +63,17 @@ setup('setup game manager', async ({ page, request }) => {
   });
   expect(loginResponse.ok()).toBeTruthy();
 
-  // Извлекаем cookies из ответа
-  const setCookieHeader = loginResponse.headers()['set-cookie'];
-  if (!setCookieHeader) throw new Error('No set-cookie header in login response');
-
-  // Парсим cookies для Playwright
-  const cookies = setCookieHeader.split(/,(?=[^ ]+\=)/).map((cookieStr) => {
-    const [cookiePair, ...attributes] = cookieStr.split(';');
-    const index = cookiePair.indexOf('=');
-    const name = cookiePair.slice(0, index).trim();
-    const value = cookiePair.slice(index + 1).trim();
-    return {
-      name: name.trim(),
-      value: value.trim(),
-      domain: '.mobalytics.gg',
-      path: '/',
-    };
-  });
-
-  // Добавляем cookies в контекст браузера
-  await page.context().addCookies(cookies);
-
-  // Теперь сохраняем storageState с правильными cookies
-  await page.context().storageState({ path: '.auth/gameManagerAuth.json' });
+  const state = await request.storageState();
+  state.origins = [
+    {
+      origin: process.env.BASE_URL,
+      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
+    },
+  ];
+  await fs.writeFile('.auth/gameManagerAuth.json', JSON.stringify(state, null, 2));
 });
 
-setup('setup internal writer', async ({ page, request }) => {
+setup('setup internal writer', async ({ request }) => {
   let apiEndpoint;
   if (process.env.BASE_URL === 'https://mobalytics.gg') {
     apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
@@ -122,29 +97,14 @@ setup('setup internal writer', async ({ page, request }) => {
   });
   expect(loginResponse.ok()).toBeTruthy();
 
-  // Извлекаем cookies из ответа
-  const setCookieHeader = loginResponse.headers()['set-cookie'];
-  if (!setCookieHeader) throw new Error('No set-cookie header in login response');
-
-  // Парсим cookies для Playwright
-  const cookies = setCookieHeader.split(/,(?=[^ ]+\=)/).map((cookieStr) => {
-    const [cookiePair, ...attributes] = cookieStr.split(';');
-    const index = cookiePair.indexOf('=');
-    const name = cookiePair.slice(0, index).trim();
-    const value = cookiePair.slice(index + 1).trim();
-    return {
-      name: name.trim(),
-      value: value.trim(),
-      domain: '.mobalytics.gg',
-      path: '/',
-    };
-  });
-
-  // Добавляем cookies в контекст браузера
-  await page.context().addCookies(cookies);
-
-  // Теперь сохраняем storageState с правильными cookies
-  await page.context().storageState({ path: '.auth/internalWriterAuth.json' });
+  const state = await request.storageState();
+  state.origins = [
+    {
+      origin: process.env.BASE_URL,
+      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
+    },
+  ];
+  await fs.writeFile('.auth/internalWriterAuth.json', JSON.stringify(state, null, 2));
 });
 
 // setup('setup regular user', async ({ page, request }) => {

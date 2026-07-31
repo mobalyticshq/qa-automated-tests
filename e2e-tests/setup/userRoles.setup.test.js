@@ -1,19 +1,24 @@
 import { test as setup, expect } from '@playwright/test';
+import fs from 'node:fs/promises';
 
-setup('setup regular user', async ({ page, request }) => {
-  let apiEndpoint;
-  if (process.env.BASE_URL === 'https://mobalytics.gg') {
-    apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
-  } else {
-    apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
-  }
+const apiEndpoint =
+  process.env.BASE_URL === 'https://mobalytics.gg'
+    ? 'https://account.mobalytics.gg/api/graphql/v1/query'
+    : 'https://stg.mobalytics.gg/api/account/gql/v1/query';
+
+/**
+ * Signs in via GraphQL and saves the resulting storageState to a file.
+ * @param {import('@playwright/test').APIRequestContext} request
+ * @param {{ email: string, password: string, statePath: string }} options
+ */
+async function saveAuthState(request, { email, password, statePath }) {
   const loginResponse = await request.post(apiEndpoint, {
     data: {
       query: `
           mutation SignIn {
             signIn(
-              email: "${process.env.REGULAR_USER_EMAIL}"
-              password: "${process.env.REGULAR_USER_PASSWORD}"
+              email: "${email}"
+              password: "${password}"
             )
           }
         `,
@@ -24,125 +29,36 @@ setup('setup regular user', async ({ page, request }) => {
   });
   expect(loginResponse.ok()).toBeTruthy();
 
-  // Извлекаем cookies из ответа
-  const setCookieHeader = loginResponse.headers()['set-cookie'];
-  if (!setCookieHeader) throw new Error('No set-cookie header in login response');
+  const state = await request.storageState();
+  state.origins = [
+    {
+      origin: process.env.BASE_URL,
+      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
+    },
+  ];
+  await fs.writeFile(statePath, JSON.stringify(state, null, 2));
+}
 
-  // Парсим cookies для Playwright
-  const cookies = setCookieHeader.split(/,(?=[^ ]+\=)/).map((cookieStr) => {
-    const [cookiePair, ...attributes] = cookieStr.split(';');
-    const index = cookiePair.indexOf('=');
-    const name = cookiePair.slice(0, index).trim();
-    const value = cookiePair.slice(index + 1).trim();
-    return {
-      name: name.trim(),
-      value: value.trim(),
-      domain: '.mobalytics.gg',
-      path: '/',
-    };
+setup('setup regular user', async ({ request }) => {
+  await saveAuthState(request, {
+    email: process.env.REGULAR_USER_EMAIL,
+    password: process.env.REGULAR_USER_PASSWORD,
+    statePath: '.auth/regularUserAuth.json',
   });
-
-  // Добавляем cookies в контекст браузера
-  await page.context().addCookies(cookies);
-
-  // Теперь сохраняем storageState с правильными cookies
-  await page.context().storageState({ path: '.auth/regularUserAuth.json' });
 });
 
-setup('setup add free user', async ({ page, request }) => {
-  let apiEndpoint;
-  if (process.env.BASE_URL === 'https://mobalytics.gg') {
-    apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
-  } else {
-    apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
-  }
-  const loginResponse = await request.post(apiEndpoint, {
-    data: {
-      query: `
-          mutation SignIn {
-            signIn(
-              email: "${process.env.ADD_FREE_USER_EMAIL}"
-              password: "${process.env.ADD_FREE_USER_PASSWORD}"
-            )
-          }
-        `,
-    },
-    headers: {
-      'Content-Type': 'application/json',
-    },
+setup('setup add free user', async ({ request }) => {
+  await saveAuthState(request, {
+    email: process.env.ADD_FREE_USER_EMAIL,
+    password: process.env.ADD_FREE_USER_PASSWORD,
+    statePath: '.auth/adFreeUserAuth.json',
   });
-  expect(loginResponse.ok()).toBeTruthy();
-
-  // Извлекаем cookies из ответа
-  const setCookieHeader = loginResponse.headers()['set-cookie'];
-  if (!setCookieHeader) throw new Error('No set-cookie header in login response');
-
-  // Парсим cookies для Playwright
-  const cookies = setCookieHeader.split(/,(?=[^ ]+\=)/).map((cookieStr) => {
-    const [cookiePair, ...attributes] = cookieStr.split(';');
-    const index = cookiePair.indexOf('=');
-    const name = cookiePair.slice(0, index).trim();
-    const value = cookiePair.slice(index + 1).trim();
-    return {
-      name: name.trim(),
-      value: value.trim(),
-      domain: '.mobalytics.gg',
-      path: '/',
-    };
-  });
-
-  // Добавляем cookies в контекст браузера
-  await page.context().addCookies(cookies);
-
-  // Теперь сохраняем storageState с правильными cookies
-  await page.context().storageState({ path: '.auth/adFreeUserAuth.json' });
 });
 
-setup('setup plus user', async ({ page, request }) => {
-  let apiEndpoint;
-  if (process.env.BASE_URL === 'https://mobalytics.gg') {
-    apiEndpoint = 'https://account.mobalytics.gg/api/graphql/v1/query';
-  } else {
-    apiEndpoint = 'https://stg.mobalytics.gg/api/account/gql/v1/query';
-  }
-  const loginResponse = await request.post(apiEndpoint, {
-    data: {
-      query: `
-          mutation SignIn {
-            signIn(
-              email: "${process.env.PLUS_USER_EMAIL}"
-              password: "${process.env.PLUS_USER_PASSWORD}"
-            )
-          }
-        `,
-    },
-    headers: {
-      'Content-Type': 'application/json',
-    },
+setup('setup plus user', async ({ request }) => {
+  await saveAuthState(request, {
+    email: process.env.PLUS_USER_EMAIL,
+    password: process.env.PLUS_USER_PASSWORD,
+    statePath: '.auth/plusUserAuth.json',
   });
-  expect(loginResponse.ok()).toBeTruthy();
-
-  // Извлекаем cookies из ответа
-  const setCookieHeader = loginResponse.headers()['set-cookie'];
-  if (!setCookieHeader) throw new Error('No set-cookie header in login response');
-
-  // Парсим cookies для Playwright
-  const cookies = setCookieHeader.split(/,(?=[^ ]+\=)/).map((cookieStr) => {
-    const [cookiePair, ...attributes] = cookieStr.split(';');
-    const index = cookiePair.indexOf('=');
-    const name = cookiePair.slice(0, index).trim();
-    const value = cookiePair.slice(index + 1).trim();
-    return {
-      name: name.trim(),
-      value: value.trim(),
-      domain: '.mobalytics.gg',
-      path: '/',
-    };
-  });
-
-  // Добавляем cookies в контекст браузера
-  await page.context().addCookies(cookies);
-
-  // Теперь сохраняем storageState с правильными cookies
-  await page.context().storageState({ path: '.auth/plusUserAuth.json' });
 });
