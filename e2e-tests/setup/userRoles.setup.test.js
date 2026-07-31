@@ -1,43 +1,5 @@
-import { test as setup, expect } from '@playwright/test';
-import fs from 'node:fs/promises';
-
-const apiEndpoint =
-  process.env.BASE_URL === 'https://mobalytics.gg'
-    ? 'https://account.mobalytics.gg/api/graphql/v1/query'
-    : 'https://stg.mobalytics.gg/api/account/gql/v1/query';
-
-/**
- * Signs in via GraphQL and saves the resulting storageState to a file.
- * @param {import('@playwright/test').APIRequestContext} request
- * @param {{ email: string, password: string, statePath: string }} options
- */
-async function saveAuthState(request, { email, password, statePath }) {
-  const loginResponse = await request.post(apiEndpoint, {
-    data: {
-      query: `
-          mutation SignIn {
-            signIn(
-              email: "${email}"
-              password: "${password}"
-            )
-          }
-        `,
-    },
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  expect(loginResponse.ok()).toBeTruthy();
-
-  const state = await request.storageState();
-  state.origins = [
-    {
-      origin: process.env.BASE_URL,
-      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
-    },
-  ];
-  await fs.writeFile(statePath, JSON.stringify(state, null, 2));
-}
+import { test as setup } from '@playwright/test';
+import { saveAuthState } from '../../src/helpers/auth.js';
 
 setup('setup regular user', async ({ request }) => {
   await saveAuthState(request, {
