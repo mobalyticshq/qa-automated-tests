@@ -1,0 +1,2245 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: hydration.test.js >> Check hydration is successfully for each project >> Check that hydration is ok on Borderlands-4
+- Location: e2e-tests/hydration.test.js:580:3
+
+# Error details
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d1744a61-28c1-47b7-996f-0164d421a310' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d1744a61-28c1-47b7-996f-0164d421a310' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://ib.adnxs.com/getuidj?gdpr=1&gdpr_consent=DBABL~BVQqAAAAAg' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d1744a61-28c1-47b7-996f-0164d421a310' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d1744a61-28c1-47b7-996f-0164d421a310' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://ib.adnxs.com/getuidj?gdpr=1&gdpr_consent=DBABL~BVQqAAAAAg' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/6afd7e35-39ca-48a2-8f73-c590615c5c2a' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Failed to load resource: the server responded with a status of 404 (),Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/6afd7e35-39ca-48a2-8f73-c590615c5c2a' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Failed to load resource: the server responded with a status of 404 (),Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/6afd7e35-39ca-48a2-8f73-c590615c5c2a' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Failed to load resource: the server responded with a status of 404 (),Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/6afd7e35-39ca-48a2-8f73-c590615c5c2a' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Failed to load resource: the server responded with a status of 404 (),Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/501578b2-555a-4a0a-b226-d203a3c23cdf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/501578b2-555a-4a0a-b226-d203a3c23cdf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/501578b2-555a-4a0a-b226-d203a3c23cdf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/501578b2-555a-4a0a-b226-d203a3c23cdf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/5401022d-00c6-4464-95a8-51d7a0fe9ff9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/5401022d-00c6-4464-95a8-51d7a0fe9ff9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/5401022d-00c6-4464-95a8-51d7a0fe9ff9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/5401022d-00c6-4464-95a8-51d7a0fe9ff9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/66c9d695-1ab2-4849-8390-6df4d787038c' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/66c9d695-1ab2-4849-8390-6df4d787038c' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/66c9d695-1ab2-4849-8390-6df4d787038c' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/66c9d695-1ab2-4849-8390-6df4d787038c' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ced85530-d3d1-4909-b3c0-841ce7775259' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ced85530-d3d1-4909-b3c0-841ce7775259' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ced85530-d3d1-4909-b3c0-841ce7775259' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ced85530-d3d1-4909-b3c0-841ce7775259' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/55e2bec9-6ff1-48d9-acd3-d3b4da9a9c47' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/55e2bec9-6ff1-48d9-acd3-d3b4da9a9c47' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/55e2bec9-6ff1-48d9-acd3-d3b4da9a9c47' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/55e2bec9-6ff1-48d9-acd3-d3b4da9a9c47' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b862029-92c3-4db3-976c-ac93df7b8ec9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b862029-92c3-4db3-976c-ac93df7b8ec9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b862029-92c3-4db3-976c-ac93df7b8ec9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b862029-92c3-4db3-976c-ac93df7b8ec9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/598c4bfc-41f9-4485-83b8-5d877033ce2b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/598c4bfc-41f9-4485-83b8-5d877033ce2b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/598c4bfc-41f9-4485-83b8-5d877033ce2b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/598c4bfc-41f9-4485-83b8-5d877033ce2b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2de79812-1c79-4ac3-9f63-0b2d26da0568' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2de79812-1c79-4ac3-9f63-0b2d26da0568' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2de79812-1c79-4ac3-9f63-0b2d26da0568' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2de79812-1c79-4ac3-9f63-0b2d26da0568' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9c0e42f1-b26d-46d2-9fe7-f9116a5715f8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9c0e42f1-b26d-46d2-9fe7-f9116a5715f8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9c0e42f1-b26d-46d2-9fe7-f9116a5715f8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9c0e42f1-b26d-46d2-9fe7-f9116a5715f8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/acfb5b28-ee06-470d-b9a1-c7a6b362b9a6' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/acfb5b28-ee06-470d-b9a1-c7a6b362b9a6' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/895d3653-e571-497d-8c8d-4f0f4836dad4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/895d3653-e571-497d-8c8d-4f0f4836dad4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/895d3653-e571-497d-8c8d-4f0f4836dad4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/895d3653-e571-497d-8c8d-4f0f4836dad4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce56613d-2b5c-4837-bcb7-b581d42d9819' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce56613d-2b5c-4837-bcb7-b581d42d9819' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce56613d-2b5c-4837-bcb7-b581d42d9819' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce56613d-2b5c-4837-bcb7-b581d42d9819' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9ba6432b-cfdf-4200-840c-812e94c4993f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9ba6432b-cfdf-4200-840c-812e94c4993f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9ba6432b-cfdf-4200-840c-812e94c4993f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9ba6432b-cfdf-4200-840c-812e94c4993f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/81a04de5-bd52-4c0a-98a9-004fc353865d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/81a04de5-bd52-4c0a-98a9-004fc353865d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/81a04de5-bd52-4c0a-98a9-004fc353865d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/81a04de5-bd52-4c0a-98a9-004fc353865d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/cf4605dc-41c6-4883-b52d-2b96124a6d57' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/cf4605dc-41c6-4883-b52d-2b96124a6d57' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/75413583-9097-4762-bf15-6d8749ea0fd6' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/75413583-9097-4762-bf15-6d8749ea0fd6' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/75413583-9097-4762-bf15-6d8749ea0fd6' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/75413583-9097-4762-bf15-6d8749ea0fd6' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/393f2f05-8372-4826-834f-4593401fb87e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/393f2f05-8372-4826-834f-4593401fb87e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/0efb1f11-ac27-4f20-b194-675c797c7803' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/0efb1f11-ac27-4f20-b194-675c797c7803' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/0efb1f11-ac27-4f20-b194-675c797c7803' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/0efb1f11-ac27-4f20-b194-675c797c7803' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/f375cd03-6171-4c8c-bcd8-6c37d885fb66' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/f375cd03-6171-4c8c-bcd8-6c37d885fb66' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9d779c87-a339-4a31-a00b-1107f4495f6e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9d779c87-a339-4a31-a00b-1107f4495f6e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ae9aad88-4bdd-43c0-a528-4a988cbc039b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ae9aad88-4bdd-43c0-a528-4a988cbc039b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/b457d647-5433-486c-893c-1989412c5ddf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/b457d647-5433-486c-893c-1989412c5ddf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/b457d647-5433-486c-893c-1989412c5ddf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/b457d647-5433-486c-893c-1989412c5ddf' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c509d455-2763-46cb-9bbe-5a1a1d9e91b4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c509d455-2763-46cb-9bbe-5a1a1d9e91b4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c509d455-2763-46cb-9bbe-5a1a1d9e91b4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c509d455-2763-46cb-9bbe-5a1a1d9e91b4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/34be7268-bdc6-417b-a53e-cce01f3a9926' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/34be7268-bdc6-417b-a53e-cce01f3a9926' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/34be7268-bdc6-417b-a53e-cce01f3a9926' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/34be7268-bdc6-417b-a53e-cce01f3a9926' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/260f64a6-1710-47ea-9299-5ba38142c968' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/260f64a6-1710-47ea-9299-5ba38142c968' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/260f64a6-1710-47ea-9299-5ba38142c968' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/260f64a6-1710-47ea-9299-5ba38142c968' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/574ea63b-f66c-4f75-8d8f-714b6ba8c3be' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/574ea63b-f66c-4f75-8d8f-714b6ba8c3be' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/574ea63b-f66c-4f75-8d8f-714b6ba8c3be' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/574ea63b-f66c-4f75-8d8f-714b6ba8c3be' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c7f746a7-a616-4864-a378-3301d1beed1f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c7f746a7-a616-4864-a378-3301d1beed1f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c7f746a7-a616-4864-a378-3301d1beed1f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/c7f746a7-a616-4864-a378-3301d1beed1f' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/46b08631-f8b9-4d01-a442-483ef09f7141' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/46b08631-f8b9-4d01-a442-483ef09f7141' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/46b08631-f8b9-4d01-a442-483ef09f7141' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/46b08631-f8b9-4d01-a442-483ef09f7141' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/f2fe1394-d440-42a8-9969-ea6022384019' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/f2fe1394-d440-42a8-9969-ea6022384019' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/3ad29c3d-f8d6-4899-91ce-242ab554e999' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/3ad29c3d-f8d6-4899-91ce-242ab554e999' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/3ad29c3d-f8d6-4899-91ce-242ab554e999' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/3ad29c3d-f8d6-4899-91ce-242ab554e999' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9a5aaa35-cb17-44d9-8b94-55d398afd810' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9a5aaa35-cb17-44d9-8b94-55d398afd810' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9a5aaa35-cb17-44d9-8b94-55d398afd810' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9a5aaa35-cb17-44d9-8b94-55d398afd810' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/962fde33-1e1a-4277-8a12-02a731386cc8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/962fde33-1e1a-4277-8a12-02a731386cc8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/962fde33-1e1a-4277-8a12-02a731386cc8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/962fde33-1e1a-4277-8a12-02a731386cc8' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1b57199c-2a82-44dd-9998-a4927f902971' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1b57199c-2a82-44dd-9998-a4927f902971' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1b57199c-2a82-44dd-9998-a4927f902971' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1b57199c-2a82-44dd-9998-a4927f902971' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a47d779b-6eae-4591-b8e9-657489738d51' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a47d779b-6eae-4591-b8e9-657489738d51' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a47d779b-6eae-4591-b8e9-657489738d51' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a47d779b-6eae-4591-b8e9-657489738d51' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a912ffa0-e7f2-4283-b1fa-f0ae7f6e33e9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a912ffa0-e7f2-4283-b1fa-f0ae7f6e33e9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a912ffa0-e7f2-4283-b1fa-f0ae7f6e33e9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/a912ffa0-e7f2-4283-b1fa-f0ae7f6e33e9' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/25d6abdd-4c22-4efb-8956-dd35a9f30099' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/25d6abdd-4c22-4efb-8956-dd35a9f30099' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/25d6abdd-4c22-4efb-8956-dd35a9f30099' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/25d6abdd-4c22-4efb-8956-dd35a9f30099' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1f3e93d2-c28b-4033-82b5-2311288fd13e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1f3e93d2-c28b-4033-82b5-2311288fd13e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1f3e93d2-c28b-4033-82b5-2311288fd13e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/1f3e93d2-c28b-4033-82b5-2311288fd13e' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b55c949-1965-49f7-9ee3-7fc69df7d124' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b55c949-1965-49f7-9ee3-7fc69df7d124' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b55c949-1965-49f7-9ee3-7fc69df7d124' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/2b55c949-1965-49f7-9ee3-7fc69df7d124' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d2ec70fd-f771-4162-bf6d-e024523553f4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d2ec70fd-f771-4162-bf6d-e024523553f4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d2ec70fd-f771-4162-bf6d-e024523553f4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/d2ec70fd-f771-4162-bf6d-e024523553f4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/60dfdc14-20a7-4f14-b33b-7b49f045f743' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/60dfdc14-20a7-4f14-b33b-7b49f045f743' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/60dfdc14-20a7-4f14-b33b-7b49f045f743' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/60dfdc14-20a7-4f14-b33b-7b49f045f743' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e253fcc8-d3c2-40b4-84b1-e576a04627a1' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e253fcc8-d3c2-40b4-84b1-e576a04627a1' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e253fcc8-d3c2-40b4-84b1-e576a04627a1' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e253fcc8-d3c2-40b4-84b1-e576a04627a1' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/4427b800-5089-4380-addb-dbf4f9b0844d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/4427b800-5089-4380-addb-dbf4f9b0844d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/4427b800-5089-4380-addb-dbf4f9b0844d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/4427b800-5089-4380-addb-dbf4f9b0844d' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e75e16ad-5003-4a55-bf57-3af33cf39ac3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e75e16ad-5003-4a55-bf57-3af33cf39ac3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e75e16ad-5003-4a55-bf57-3af33cf39ac3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/e75e16ad-5003-4a55-bf57-3af33cf39ac3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/65617e79-4ca1-4f99-9bad-9faa4ddc4af4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/65617e79-4ca1-4f99-9bad-9faa4ddc4af4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/65617e79-4ca1-4f99-9bad-9faa4ddc4af4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/65617e79-4ca1-4f99-9bad-9faa4ddc4af4' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/919c03a1-557f-414c-92b1-35f97565a3f3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/919c03a1-557f-414c-92b1-35f97565a3f3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/919c03a1-557f-414c-92b1-35f97565a3f3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/919c03a1-557f-414c-92b1-35f97565a3f3' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce77915c-a5e5-4a8f-8b61-7aaa798a2b21' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce77915c-a5e5-4a8f-8b61-7aaa798a2b21' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce77915c-a5e5-4a8f-8b61-7aaa798a2b21' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/ce77915c-a5e5-4a8f-8b61-7aaa798a2b21' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9143c811-4075-48fa-bbc3-0feddba50a5b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9143c811-4075-48fa-bbc3-0feddba50a5b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9143c811-4075-48fa-bbc3-0feddba50a5b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/9143c811-4075-48fa-bbc3-0feddba50a5b' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /Minified React error #(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/94d2aa01-fc5b-4401-97c7-b1c46a487278' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/94d2aa01-fc5b-4401-97c7-b1c46a487278' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+```
+Error: expect(received).not.toMatch(expected)
+
+Expected pattern: not /#(418|423)/i
+Received string:      "Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/94d2aa01-fc5b-4401-97c7-b1c46a487278' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Console error: 
+[error]: Access to fetch at 'https://cdn.api.btloader.com/device?orgid=5163601465966592&fullVersionList=%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22148.0.7778.96%22%7D%2C%7B%22brand%22%3A%22Not%2FA%29Brand%22%2C%22version%22%3A%2299.0.0.0%22%7D%5D&upapi=true' from origin 'https://mobalytics.gg' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.,Console error: 
+[error]: Failed to load resource: net::ERR_FAILED,Console error: 
+[error]: Loading the script 'blob:https://mobalytics.gg/94d2aa01-fc5b-4401-97c7-b1c46a487278' violates the following Content Security Policy directive: \"script-src * 'unsafe-inline' 'unsafe-eval'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. Note that '*' matches only URLs with network schemes ('http', 'https', 'ws', 'wss'), or URLs whose scheme matches `self`'s scheme. The scheme 'blob:' must be added explicitly. The action has been blocked.,Page error: 
+[Error]: \"Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\""
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link "Mobalytics" [ref=e6] [cursor=pointer]:
+          - /url: /borderlands-4
+          - img "Mobalytics" [ref=e7]
+        - generic [ref=e9]:
+          - link "League of Legends LoL" [ref=e11] [cursor=pointer]:
+            - /url: https://mobalytics.gg/lol
+            - generic [ref=e13]:
+              - img "League of Legends" [ref=e14]
+              - generic [ref=e15]: LoL
+          - link "Teamfight Tactics TFT" [ref=e17] [cursor=pointer]:
+            - /url: https://mobalytics.gg/tft
+            - generic [ref=e19]:
+              - img "Teamfight Tactics" [ref=e20]
+              - generic [ref=e21]: TFT
+          - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+            - /url: https://mobalytics.gg/diablo-4
+            - generic [ref=e25]:
+              - img "Diablo 4" [ref=e26]
+              - generic [ref=e27]: Diablo 4
+          - link "Path of Exile 2 PoE 2" [ref=e29] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe-2
+            - generic [ref=e31]:
+              - img "Path of Exile 2" [ref=e32]
+              - generic [ref=e33]: PoE 2
+          - link "Path of Exile PoE" [ref=e35] [cursor=pointer]:
+            - /url: https://mobalytics.gg/poe
+            - generic [ref=e37]:
+              - img "Path of Exile" [ref=e38]
+              - generic [ref=e39]: PoE
+          - link "Destiny 2 Destiny 2" [ref=e41] [cursor=pointer]:
+            - /url: https://mobalytics.gg/destiny-2
+            - generic [ref=e43]:
+              - img "Destiny 2" [ref=e44]
+              - generic [ref=e45]: Destiny 2
+          - link "Marathon Marathon" [ref=e47] [cursor=pointer]:
+            - /url: https://mobalytics.gg/marathon
+            - generic [ref=e49]:
+              - img "Marathon" [ref=e50]
+              - generic [ref=e51]: Marathon
+          - link "Slay the Spire 2 STS 2" [ref=e53] [cursor=pointer]:
+            - /url: https://mobalytics.gg/slay-the-spire-2
+            - generic [ref=e55]:
+              - img "Slay the Spire 2" [ref=e56]
+              - generic [ref=e57]: STS 2
+          - link "Deadlock Deadlock" [ref=e59] [cursor=pointer]:
+            - /url: https://mobalytics.gg/deadlock
+            - generic [ref=e61]:
+              - img "Deadlock" [ref=e62]
+              - generic [ref=e63]: Deadlock
+          - link "Overwatch Overwatch" [ref=e65] [cursor=pointer]:
+            - /url: https://mobalytics.gg/overwatch
+            - generic [ref=e67]:
+              - img "Overwatch" [ref=e68]
+              - generic [ref=e69]: Overwatch
+          - link "Borderlands 4 Borderlands 4" [ref=e71] [cursor=pointer]:
+            - /url: https://mobalytics.gg/borderlands-4
+            - generic [ref=e73]:
+              - img "Borderlands 4" [ref=e74]
+              - generic [ref=e75]: Borderlands 4
+          - link "Valorant VAL" [ref=e77] [cursor=pointer]:
+            - /url: https://mobalytics.gg/valorant
+            - generic [ref=e79]:
+              - img "Valorant" [ref=e80]
+              - generic [ref=e81]: VAL
+          - link "Neverness to Everness NTE New" [ref=e83] [cursor=pointer]:
+            - /url: https://mobalytics.gg/neverness-to-everness
+            - generic [ref=e85]:
+              - img "Neverness to Everness" [ref=e86]
+              - generic [ref=e87]: NTE
+              - generic [ref=e89]: New
+          - 'link "Arknights: Endfield Endfield" [ref=e91] [cursor=pointer]':
+            - /url: https://mobalytics.gg/arknights-endfield
+            - generic [ref=e93]:
+              - 'img "Arknights: Endfield" [ref=e94]'
+              - generic [ref=e95]: Endfield
+          - link "Elden Ring Nightreign Nightreign" [ref=e97] [cursor=pointer]:
+            - /url: https://mobalytics.gg/elden-ring-nightreign
+            - generic [ref=e99]:
+              - img "Elden Ring Nightreign" [ref=e100]
+              - generic [ref=e101]: Nightreign
+          - button [ref=e102] [cursor=pointer]:
+            - img [ref=e103]
+          - generic:
+            - link "Monster Hunter Wilds Monster Hunter Wilds":
+              - /url: https://mobalytics.gg/mhw
+              - generic:
+                - generic:
+                  - img "Monster Hunter Wilds"
+                  - generic: Monster Hunter Wilds
+          - generic:
+            - link "Hades 2 Hades 2":
+              - /url: https://mobalytics.gg/hades-2
+              - generic:
+                - generic:
+                  - img "Hades 2"
+                  - generic: Hades 2
+          - generic:
+            - link "The Bazaar The Bazaar":
+              - /url: https://mobalytics.gg/the-bazaar
+              - generic:
+                - generic:
+                  - img "The Bazaar"
+                  - generic: The Bazaar
+          - generic:
+            - link "Marvel Rivals Marvel Rivals":
+              - /url: https://mobalytics.gg/marvel-rivals
+              - generic:
+                - generic:
+                  - img "Marvel Rivals"
+                  - generic: Marvel Rivals
+          - generic:
+            - link "Zenless Zone Zero ZZZ":
+              - /url: https://mobalytics.gg/zzz
+              - generic:
+                - generic:
+                  - img "Zenless Zone Zero"
+                  - generic: ZZZ
+          - generic:
+            - link "2XKO 2XKO":
+              - /url: https://mobalytics.gg/2xko
+              - generic:
+                - generic:
+                  - img "2XKO"
+                  - generic: 2XKO
+          - generic:
+            - link "Riftbound Riftbound":
+              - /url: https://mobalytics.gg/riftbound
+              - generic:
+                - generic:
+                  - img "Riftbound"
+                  - generic: Riftbound
+          - generic:
+            - link "Genshin Impact Genshin New":
+              - /url: https://mobalytics.gg/genshin-impact
+              - generic:
+                - generic:
+                  - img "Genshin Impact"
+                  - generic: Genshin
+                  - generic:
+                    - generic: New
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e107]:
+            - generic [ref=e110] [cursor=pointer]:
+              - button "plus Rewards" [ref=e111]:
+                - img "plus" [ref=e113]
+                - generic [ref=e114]: Rewards
+              - generic [ref=e116]: New
+            - generic [ref=e118] [cursor=pointer]:
+              - img [ref=e119]:
+                - generic [ref=e142]: ✓
+              - generic [ref=e143]: New challenge available
+          - link "DOWNLOAD APP" [ref=e144] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-borderlands-4&utm_medium=homepage&utm_source=web
+            - button "DOWNLOAD APP" [ref=e146]:
+              - img [ref=e147]
+              - text: DOWNLOAD APP
+          - link "Gamebase" [ref=e149] [cursor=pointer]:
+            - /url: /gamebase
+            - generic [ref=e150]: Gamebase
+        - generic [ref=e152]:
+          - button "Sign In" [ref=e154] [cursor=pointer]
+          - button [ref=e156] [cursor=pointer]:
+            - img [ref=e158]
+          - button "Theme" [ref=e160] [cursor=pointer]:
+            - img "Theme" [ref=e162]
+      - generic [ref=e164]:
+        - link "Home" [ref=e167] [cursor=pointer]:
+          - /url: /borderlands-4
+          - img "Home" [ref=e169]
+        - link "Profile" [ref=e172] [cursor=pointer]:
+          - /url: /borderlands-4/profile
+          - img "Profile" [ref=e174]
+        - link "Build Planner" [ref=e177] [cursor=pointer]:
+          - /url: /borderlands-4/planner/builds
+          - img "Build Planner" [ref=e179]
+        - link "Legendaries" [ref=e182] [cursor=pointer]:
+          - /url: /borderlands-4/guides/legendary-weapons-and-gear
+          - img "Legendaries" [ref=e184]
+        - link "Builds" [ref=e187] [cursor=pointer]:
+          - /url: /borderlands-4/builds
+          - img "Builds" [ref=e189]
+        - link "Vault Hunters" [ref=e192] [cursor=pointer]:
+          - /url: /borderlands-4/vault-hunters
+          - img "Vault Hunters" [ref=e194]
+        - link "Guides" [ref=e197] [cursor=pointer]:
+          - /url: /borderlands-4/guides
+          - img "Guides" [ref=e199]
+        - link "SHiFT Codes" [ref=e202] [cursor=pointer]:
+          - /url: /borderlands-4/shift-codes-borderlands-4
+          - img "SHiFT Codes" [ref=e204]
+        - link "Wiki" [ref=e207] [cursor=pointer]:
+          - /url: /borderlands-4/wiki
+          - img "Wiki" [ref=e209]
+        - link "Creators" [ref=e212] [cursor=pointer]:
+          - /url: /borderlands-4/creators
+          - img "Creators" [ref=e214]
+      - generic [ref=e216]:
+        - main [ref=e217]:
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - button "Borderlands 4 Zero-Point Harlowe Builds Explore the best Zero-Point builds for Harlowe in Borderlands 4. Our builds cater to a variety of playstyles and purposes, ranging from leveling to endgame. Each build is a detailed guide on skill trees, weapons, progression, and more." [ref=e223]:
+                - generic [ref=e228]:
+                  - heading "Borderlands 4 Zero-Point Harlowe Builds" [level=1] [ref=e229]:
+                    - generic [ref=e230]: Borderlands 4
+                    - generic [ref=e231]: Zero-Point Harlowe Builds
+                  - paragraph [ref=e239]: Explore the best Zero-Point builds for Harlowe in Borderlands 4. Our builds cater to a variety of playstyles and purposes, ranging from leveling to endgame. Each build is a detailed guide on skill trees, weapons, progression, and more.
+              - generic [ref=e242]:
+                - generic [ref=e248]:
+                  - link "Verified Builds" [ref=e250] [cursor=pointer]:
+                    - /url: /borderlands-4/builds
+                    - generic [ref=e251]: Verified Builds
+                  - link "Community Builds" [ref=e253] [cursor=pointer]:
+                    - /url: /borderlands-4/community-builds
+                    - generic [ref=e254]: Community Builds
+                - generic [ref=e256]:
+                  - heading "Verified Zero-Point Builds" [level=2] [ref=e260]
+                  - generic [ref=e262]:
+                    - generic [ref=e265] [cursor=pointer]:
+                      - link [ref=e266]:
+                        - /url: /borderlands-4/builds/cryohawk-zero-point-harlowe
+                      - generic [ref=e267]:
+                        - generic [ref=e268]:
+                          - generic [ref=e269]: Cryohawk (Zero-Point Cryo Harlowe)
+                          - generic [ref=e270]:
+                            - text: By
+                            - link "Sapingö" [ref=e271]:
+                              - /url: /borderlands-4/profile/shiny-crown-lp867z
+                            - text: ∙
+                            - generic [ref=e272]: Updated on
+                            - generic [ref=e273]: Mar 3, 2026
+                        - generic [ref=e275]:
+                          - generic [ref=e277]:
+                            - img "Zero-Point" [ref=e278]
+                            - img [ref=e279]
+                          - generic [ref=e287]:
+                            - generic [ref=e289]:
+                              - img "Inertia" [ref=e290]
+                              - img [ref=e291]
+                            - generic [ref=e301]:
+                              - img "Cold Plunge" [ref=e302]
+                              - img [ref=e303]
+                      - generic [ref=e311]:
+                        - generic [ref=e313]:
+                          - button "25 Favorites" [ref=e314]:
+                            - img [ref=e315]
+                            - text: 25 Favorites
+                          - button "Share" [ref=e316]:
+                            - img [ref=e317]
+                            - text: Share
+                          - link "0" [ref=e318]:
+                            - /url: /borderlands-4/builds/cryohawk-zero-point-harlowe#comments
+                            - img [ref=e319]
+                            - generic [ref=e320]: "0"
+                        - generic [ref=e321]:
+                          - generic [ref=e322]:
+                            - img "presentation" [ref=e323]
+                            - text: Harlowe
+                          - generic [ref=e324]:
+                            - img "presentation" [ref=e325]
+                            - text: Zero-Point
+                          - generic [ref=e326]: End Game
+                          - generic [ref=e327]: Creator
+                    - generic [ref=e330] [cursor=pointer]:
+                      - link [ref=e331]:
+                        - /url: /borderlands-4/builds/zero-point-cryo-cooldown-acerangeralex
+                      - generic [ref=e332]:
+                        - generic [ref=e333]:
+                          - generic [ref=e334]: Space Jam Harlowe
+                          - generic [ref=e335]:
+                            - text: By
+                            - link "CoolBlade" [ref=e336]:
+                              - /url: /borderlands-4/profile/cool-blade-u8oprn
+                            - text: ∙
+                            - generic [ref=e337]: Updated on
+                            - generic [ref=e338]: Sep 26, 2025
+                        - generic [ref=e340]:
+                          - generic [ref=e342]:
+                            - img "Zero-Point" [ref=e343]
+                            - img [ref=e344]
+                          - generic [ref=e352]:
+                            - generic [ref=e354]:
+                              - img "Cold Storage" [ref=e355]
+                              - img [ref=e356]
+                            - generic [ref=e366]:
+                              - img "Cold Plunge" [ref=e367]
+                              - img [ref=e368]
+                      - generic [ref=e376]:
+                        - generic [ref=e378]:
+                          - button "5 Favorites" [ref=e379]:
+                            - img [ref=e380]
+                            - text: 5 Favorites
+                          - button "Share" [ref=e381]:
+                            - img [ref=e382]
+                            - text: Share
+                          - link "0" [ref=e383]:
+                            - /url: /borderlands-4/builds/zero-point-cryo-cooldown-acerangeralex#comments
+                            - img [ref=e384]
+                            - generic [ref=e385]: "0"
+                        - generic [ref=e386]:
+                          - generic [ref=e387]:
+                            - img "presentation" [ref=e388]
+                            - text: Harlowe
+                          - generic [ref=e389]:
+                            - img "presentation" [ref=e390]
+                            - text: Zero-Point
+                          - generic [ref=e391]: End Game
+                - generic [ref=e393]:
+                  - heading "Community Zero-Point Builds" [level=2] [ref=e397]
+                  - generic [ref=e399]:
+                    - generic [ref=e402] [cursor=pointer]:
+                      - link [ref=e403]:
+                        - /url: /borderlands-4/profile/fresh-golem-5okuwy/builds/45b7f569-7c82-430d-bdae-92c9633747a0
+                      - generic [ref=e404]:
+                        - generic [ref=e405]:
+                          - generic [ref=e406]: (Not Finished)Halo Harlowe(Halowe)
+                          - generic [ref=e407]:
+                            - text: By
+                            - link "ziek_freek" [ref=e408]:
+                              - /url: /borderlands-4/profile/fresh-golem-5okuwy
+                            - text: ∙
+                            - generic [ref=e409]: Updated on
+                            - generic [ref=e410]: Jul 23, 2026
+                        - generic [ref=e412]:
+                          - generic [ref=e414]:
+                            - img "Zero-Point" [ref=e415]
+                            - img [ref=e416]
+                          - generic [ref=e424]:
+                            - generic [ref=e426]:
+                              - img "Wildcat Destabilization" [ref=e427]
+                              - img [ref=e428]
+                            - generic [ref=e438]:
+                              - img "Cold Plunge" [ref=e439]
+                              - img [ref=e440]
+                      - generic [ref=e448]:
+                        - generic [ref=e450]:
+                          - button "1 Favorite" [ref=e451]:
+                            - img [ref=e452]
+                            - text: 1 Favorite
+                          - button "Share" [ref=e453]:
+                            - img [ref=e454]
+                            - text: Share
+                          - link "0" [ref=e455]:
+                            - /url: /borderlands-4/profile/fresh-golem-5okuwy/builds/45b7f569-7c82-430d-bdae-92c9633747a0#comments
+                            - img [ref=e456]
+                            - generic [ref=e457]: "0"
+                        - generic [ref=e458]:
+                          - generic [ref=e459]:
+                            - img "presentation" [ref=e460]
+                            - text: Harlowe
+                          - generic [ref=e461]:
+                            - img "presentation" [ref=e462]
+                            - text: Zero-Point
+                          - generic [ref=e463]: End Game
+                    - generic [ref=e466] [cursor=pointer]:
+                      - link [ref=e467]:
+                        - /url: /borderlands-4/profile/wrw713-x2lprc/builds/0068fabe-da2c-4c66-8fbe-9c7cd36d72b8
+                      - generic [ref=e468]:
+                        - generic [ref=e469]:
+                          - generic [ref=e470]: Bubble Tea Harlowe | Stasis Harlowe [LVL 60 UVHM7]
+                          - generic [ref=e471]:
+                            - text: By
+                            - link "wrw713" [ref=e472]:
+                              - /url: /borderlands-4/profile/wrw713-x2lprc
+                            - text: ∙
+                            - generic [ref=e473]: Updated on
+                            - generic [ref=e474]: Jun 11, 2026
+                        - generic [ref=e476]:
+                          - generic [ref=e478]:
+                            - img "Zero-Point" [ref=e479]
+                            - img [ref=e480]
+                          - generic [ref=e490]:
+                            - img "Strange Attractor" [ref=e491]
+                            - img [ref=e492]
+                      - generic [ref=e501]:
+                        - generic [ref=e503]:
+                          - button "18 Favorites" [ref=e504]:
+                            - img [ref=e505]
+                            - text: 18 Favorites
+                          - button "Share" [ref=e506]:
+                            - img [ref=e507]
+                            - text: Share
+                          - link "0" [ref=e508]:
+                            - /url: /borderlands-4/profile/wrw713-x2lprc/builds/0068fabe-da2c-4c66-8fbe-9c7cd36d72b8#comments
+                            - img [ref=e509]
+                            - generic [ref=e510]: "0"
+                        - generic [ref=e511]:
+                          - generic [ref=e512]:
+                            - img "presentation" [ref=e513]
+                            - text: Harlowe
+                          - generic [ref=e514]:
+                            - img "presentation" [ref=e515]
+                            - text: Zero-Point
+                          - generic [ref=e516]: End Game
+                    - generic [ref=e519] [cursor=pointer]:
+                      - generic [ref=e520]:
+                        - generic [ref=e521]:
+                          - generic [ref=e522]: UVH6 Blue Tree Wildcat Harlowe
+                          - generic [ref=e523]:
+                            - text: By
+                            - text: ∙
+                            - generic [ref=e524]: Updated on
+                            - generic [ref=e525]: Apr 23, 2026
+                        - generic [ref=e527]:
+                          - generic [ref=e529]:
+                            - img "Zero-Point" [ref=e530]
+                            - img [ref=e531]
+                          - generic [ref=e539]:
+                            - generic [ref=e541]:
+                              - img "Wildcat Destabilization" [ref=e542]
+                              - img [ref=e543]
+                            - generic [ref=e553]:
+                              - img "Cold Plunge" [ref=e554]
+                              - img [ref=e555]
+                      - generic [ref=e563]:
+                        - button "2 Favorites" [ref=e566]:
+                          - img [ref=e567]
+                          - text: 2 Favorites
+                        - generic [ref=e568]:
+                          - generic [ref=e569]:
+                            - img "presentation" [ref=e570]
+                            - text: Harlowe
+                          - generic [ref=e571]: End Game
+                          - generic [ref=e572]:
+                            - img "presentation" [ref=e573]
+                            - text: Zero-Point
+                    - generic [ref=e576] [cursor=pointer]:
+                      - link [ref=e577]:
+                        - /url: /borderlands-4/profile/cool-gun-jqjpj4/builds/2f5ddd4a-5a5f-45c6-a602-d068ffaf1005
+                      - generic [ref=e578]:
+                        - generic [ref=e579]:
+                          - generic [ref=e580]: Ali's Harlow Build
+                          - generic [ref=e581]:
+                            - text: By
+                            - link "ehagebock29" [ref=e582]:
+                              - /url: /borderlands-4/profile/cool-gun-jqjpj4
+                            - text: ∙
+                            - generic [ref=e583]: Updated on
+                            - generic [ref=e584]: Mar 29, 2026
+                        - generic [ref=e586]:
+                          - generic [ref=e588]:
+                            - img "Zero-Point" [ref=e589]
+                            - img [ref=e590]
+                          - generic [ref=e598]:
+                            - generic [ref=e600]:
+                              - img "Strange Attractor" [ref=e601]
+                              - img [ref=e602]
+                            - generic [ref=e612]:
+                              - img "Falling Bodies" [ref=e613]
+                              - img [ref=e614]
+                      - generic [ref=e622]:
+                        - generic [ref=e624]:
+                          - button "Add to Favorites" [ref=e625]:
+                            - img [ref=e626]
+                            - text: Add to Favorites
+                          - button "Share" [ref=e627]:
+                            - img [ref=e628]
+                            - text: Share
+                          - link "0" [ref=e629]:
+                            - /url: /borderlands-4/profile/cool-gun-jqjpj4/builds/2f5ddd4a-5a5f-45c6-a602-d068ffaf1005#comments
+                            - img [ref=e630]
+                            - generic [ref=e631]: "0"
+                        - generic [ref=e632]:
+                          - generic [ref=e633]:
+                            - img "presentation" [ref=e634]
+                            - text: Harlowe
+                          - generic [ref=e635]:
+                            - img "presentation" [ref=e636]
+                            - text: Zero-Point
+                          - generic [ref=e637]: Leveling
+                    - generic [ref=e640] [cursor=pointer]:
+                      - link [ref=e641]:
+                        - /url: /borderlands-4/profile/fierce-golem-d3jhbm/builds/4efcb6ac-3b4d-4cb9-9061-94feb2c7f11d
+                      - generic [ref=e642]:
+                        - generic [ref=e643]:
+                          - generic [ref=e644]: Stasis harlowe
+                          - generic [ref=e645]:
+                            - text: By
+                            - link "Ben" [ref=e646]:
+                              - /url: /borderlands-4/profile/fierce-golem-d3jhbm
+                            - text: ∙
+                            - generic [ref=e647]: Updated on
+                            - generic [ref=e648]: Feb 8, 2026
+                        - generic [ref=e650]:
+                          - generic [ref=e652]:
+                            - img "Zero-Point" [ref=e653]
+                            - img [ref=e654]
+                          - generic [ref=e662]:
+                            - generic [ref=e664]:
+                              - img "Inertia" [ref=e665]
+                              - img [ref=e666]
+                            - generic [ref=e676]:
+                              - img "Ground State" [ref=e677]
+                              - img [ref=e678]
+                      - generic [ref=e686]:
+                        - generic [ref=e688]:
+                          - button "1 Favorite" [ref=e689]:
+                            - img [ref=e690]
+                            - text: 1 Favorite
+                          - button "Share" [ref=e691]:
+                            - img [ref=e692]
+                            - text: Share
+                          - link "0" [ref=e693]:
+                            - /url: /borderlands-4/profile/fierce-golem-d3jhbm/builds/4efcb6ac-3b4d-4cb9-9061-94feb2c7f11d#comments
+                            - img [ref=e694]
+                            - generic [ref=e695]: "0"
+                        - generic [ref=e696]:
+                          - generic [ref=e697]:
+                            - img "presentation" [ref=e698]
+                            - text: Harlowe
+                          - generic [ref=e699]: End Game
+                          - generic [ref=e700]:
+                            - img "presentation" [ref=e701]
+                            - text: Zero-Point
+                  - button "Show more" [ref=e702] [cursor=pointer]
+                - generic [ref=e704]:
+                  - heading "All Vault Hunter Builds" [level=2] [ref=e708]
+                  - generic [ref=e710]:
+                    - link "Vex The Siren" [ref=e711] [cursor=pointer]:
+                      - /url: /borderlands-4/vex-builds
+                      - generic [ref=e715]:
+                        - generic "Vex" [ref=e716]
+                        - generic "The Siren" [ref=e717]
+                    - link "Rafa The Exo-Soldier" [ref=e718] [cursor=pointer]:
+                      - /url: /borderlands-4/rafa-builds
+                      - generic [ref=e722]:
+                        - generic "Rafa" [ref=e723]
+                        - generic "The Exo-Soldier" [ref=e724]
+                    - link "Amon The Forgeknight" [ref=e725] [cursor=pointer]:
+                      - /url: /borderlands-4/amon-builds
+                      - generic [ref=e729]:
+                        - generic "Amon" [ref=e730]
+                        - generic "The Forgeknight" [ref=e731]
+                    - link "Harlowe The Gravitar" [ref=e732] [cursor=pointer]:
+                      - /url: /borderlands-4/harlowe-builds
+                      - generic [ref=e736]:
+                        - generic "Harlowe" [ref=e737]
+                        - generic "The Gravitar" [ref=e738]
+                    - link "C4SH The Rogue" [ref=e739] [cursor=pointer]:
+                      - /url: /borderlands-4/c4sh-builds
+                      - generic [ref=e743]:
+                        - generic "C4SH" [ref=e744]
+                        - generic "The Rogue" [ref=e745]
+                - generic [ref=e747]:
+                  - heading "All Action Skills Builds" [level=2] [ref=e751]
+                  - generic [ref=e753]:
+                    - link "Phase Phamiliar Vex" [ref=e754] [cursor=pointer]:
+                      - /url: /borderlands-4/phase-phamiliar-builds
+                      - generic [ref=e758]:
+                        - generic "Phase Phamiliar" [ref=e759]
+                        - generic "Vex" [ref=e760]
+                    - link "Incarnate Vex" [ref=e761] [cursor=pointer]:
+                      - /url: /borderlands-4/incarnate-builds
+                      - generic [ref=e765]:
+                        - generic "Incarnate" [ref=e766]
+                        - generic "Vex" [ref=e767]
+                    - link "Dead Ringer Vex" [ref=e768] [cursor=pointer]:
+                      - /url: /borderlands-4/dead-ringer-builds
+                      - generic [ref=e772]:
+                        - generic "Dead Ringer" [ref=e773]
+                        - generic "Vex" [ref=e774]
+                    - link "Apophis Lance Rafa" [ref=e775] [cursor=pointer]:
+                      - /url: /borderlands-4/apophis-lance-builds
+                      - generic [ref=e779]:
+                        - generic "Apophis Lance" [ref=e780]
+                        - generic "Rafa" [ref=e781]
+                    - link "Peacebreaker Cannons Rafa" [ref=e782] [cursor=pointer]:
+                      - /url: /borderlands-4/peacebreaker-cannons-builds
+                      - generic [ref=e786]:
+                        - generic "Peacebreaker Cannons" [ref=e787]
+                        - generic "Rafa" [ref=e788]
+                    - link "Arc-Knives Rafa" [ref=e789] [cursor=pointer]:
+                      - /url: /borderlands-4/arc-knives-builds
+                      - generic [ref=e793]:
+                        - generic "Arc-Knives" [ref=e794]
+                        - generic "Rafa" [ref=e795]
+                    - link "Onslaughter Amon" [ref=e796] [cursor=pointer]:
+                      - /url: /borderlands-4/onslaughter-builds
+                      - generic [ref=e800]:
+                        - generic "Onslaughter" [ref=e801]
+                        - generic "Amon" [ref=e802]
+                    - link "Scourge Amon" [ref=e803] [cursor=pointer]:
+                      - /url: /borderlands-4/scourge-builds
+                      - generic [ref=e807]:
+                        - generic "Scourge" [ref=e808]
+                        - generic "Amon" [ref=e809]
+                    - link "Crucible Amon" [ref=e810] [cursor=pointer]:
+                      - /url: /borderlands-4/crucible-builds
+                      - generic [ref=e814]:
+                        - generic "Crucible" [ref=e815]
+                        - generic "Amon" [ref=e816]
+                    - link "CHROMA Accelerator Harlowe" [ref=e817] [cursor=pointer]:
+                      - /url: /borderlands-4/chroma-accelerator-builds
+                      - generic [ref=e821]:
+                        - generic "CHROMA Accelerator" [ref=e822]
+                        - generic "Harlowe" [ref=e823]
+                    - link "Zero-Point Harlowe" [ref=e824] [cursor=pointer]:
+                      - /url: /borderlands-4/zero-point-builds
+                      - generic [ref=e828]:
+                        - generic "Zero-Point" [ref=e829]
+                        - generic "Harlowe" [ref=e830]
+                    - link "Flux Generator Harlowe" [ref=e831] [cursor=pointer]:
+                      - /url: /borderlands-4/flux-generator-builds
+                      - generic [ref=e835]:
+                        - generic "Flux Generator" [ref=e836]
+                        - generic "Harlowe" [ref=e837]
+                    - link "Cross-Fire C4SH" [ref=e838] [cursor=pointer]:
+                      - /url: /borderlands-4/cross-fire-builds
+                      - generic [ref=e842]:
+                        - generic "Cross-Fire" [ref=e843]
+                        - generic "C4SH" [ref=e844]
+                    - link "Sleight of Hand C4SH" [ref=e845] [cursor=pointer]:
+                      - /url: /borderlands-4/sleight-of-hand-builds
+                      - generic [ref=e849]:
+                        - generic "Sleight of Hand" [ref=e850]
+                        - generic "C4SH" [ref=e851]
+                    - link "Cleromancy C4SH" [ref=e852] [cursor=pointer]:
+                      - /url: /borderlands-4/cleromancy-builds
+                      - generic [ref=e856]:
+                        - generic "Cleromancy" [ref=e857]
+                        - generic "C4SH" [ref=e858]
+            - status [ref=e859]
+        - complementary [ref=e865]:
+          - generic [ref=e866]:
+            - generic [ref=e868]:
+              - generic [ref=e870] [cursor=pointer]:
+                - generic [ref=e871]: Advertisement
+                - generic [ref=e872]: Remove Ads
+              - generic [ref=e876] [cursor=pointer]:
+                - generic [ref=e877]: Remove all ads
+                - generic [ref=e878]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e879]
+            - generic [ref=e881]:
+              - generic [ref=e883] [cursor=pointer]:
+                - generic [ref=e884]: Advertisement
+                - generic [ref=e885]: Remove Ads
+              - generic [ref=e889] [cursor=pointer]:
+                - generic [ref=e890]: Remove all ads
+                - generic [ref=e891]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                - button "Remove ads" [ref=e892]
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e895]:
+    - banner [ref=e896]:
+      - generic [ref=e897] [cursor=pointer]:
+        - generic [ref=e898]: Advertisement
+        - generic [ref=e899]: Remove Ads
+    - generic [ref=e902] [cursor=pointer]:
+      - generic [ref=e903]: Remove all ads
+      - generic [ref=e904]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e905]
+```
+
+# Test source
+
+```ts
+  532 |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  533 |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  534 |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  535 |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  536 | 
+  537 |       filteredLinks = arrayLinks
+  538 |         .filter((match) => {
+  539 |           const filterPattern = /mobalytics\.gg\/poe-2\/(builds|guides|tier-lists)\/[-a-z]+$/;
+  540 |           return filterPattern.test(match.groups.link);
+  541 |         })
+  542 |         .slice(0, quantityLinks);
+  543 |     });
+  544 | 
+  545 |     for (const takeLink of filteredLinks) {
+  546 |       const consoleMessages = [];
+  547 |       const pageErrors = [];
+  548 |       page.on('console', (msg) => {
+  549 |         if (msg.type() === 'error') {
+  550 |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  551 |           // console.log(consoleInfo);
+  552 |           consoleMessages.push(consoleInfo);
+  553 |         }
+  554 |       });
+  555 |       page.on('pageerror', (error) => {
+  556 |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  557 |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  558 |         //   console.log(errorInfo);
+  559 |         // }
+  560 |         pageErrors.push(errorInfo);
+  561 |       });
+  562 |       const { link } = takeLink.groups; // extract groupName for convenient usage
+  563 | 
+  564 |       await test.step(`Open parsed page: ${link}`, async () => {
+  565 |         await page.goto(link);
+  566 |         await page.waitForTimeout(1000);
+  567 |       });
+  568 | 
+  569 |       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+  570 | 
+  571 |       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+  572 |         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+  573 |         expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+  574 |         expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+  575 |         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+  576 |       });
+  577 |     }
+  578 |   });
+  579 | 
+  580 |   test(`Check that hydration is ok on Borderlands-4`, async ({ page, request }) => {
+  581 |     let filteredLinks;
+  582 | 
+  583 |     await test.step(`Parse up to ${quantityLinks} links from Borderlands-4 sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async () => {
+  584 |       const response = await request.get(`${process.env.BASE_URL}/borderlands-4/sitemap.xml`);
+  585 |       await test.step(`Expected Result: ${process.env.BASE_URL}/borderlands-4/sitemap.xml returns with ${response.status()}`, async () => {
+  586 |         expect(response.ok()).toBeTruthy();
+  587 |       });
+  588 |       const xmlData = await response.text();
+  589 |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  590 |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  591 |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  592 |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  593 | 
+  594 |       filteredLinks = arrayLinks
+  595 |         .filter((match) => {
+  596 |           const filterPattern = /mobalytics\.gg\/borderlands-4/;
+  597 |           return filterPattern.test(match.groups.link);
+  598 |         })
+  599 |         .slice(0, quantityLinks);
+  600 |     });
+  601 | 
+  602 |     for (const takeLink of filteredLinks) {
+  603 |       const consoleMessages = [];
+  604 |       const pageErrors = [];
+  605 |       page.on('console', (msg) => {
+  606 |         if (msg.type() === 'error') {
+  607 |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  608 |           // console.log(consoleInfo);
+  609 |           consoleMessages.push(consoleInfo);
+  610 |         }
+  611 |       });
+  612 |       page.on('pageerror', (error) => {
+  613 |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  614 |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  615 |         //   console.log(errorInfo);
+  616 |         // }
+  617 |         pageErrors.push(errorInfo);
+  618 |       });
+  619 |       const { link } = takeLink.groups; // extract groupName for convenient usage
+  620 | 
+  621 |       await test.step(`Open parsed page: ${link}`, async () => {
+  622 |         await page.goto(link);
+  623 |         await page.waitForTimeout(1000);
+  624 |       });
+  625 | 
+  626 |       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+  627 | 
+  628 |       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+  629 |         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+  630 |         expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+  631 |         expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+> 632 |         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      |                                               ^ Error: expect(received).not.toMatch(expected)
+  633 |       });
+  634 |     }
+  635 |   });
+  636 | 
+  637 |   test(`Check that hydration is ok on News`, async ({ page, request }) => {
+  638 |     let filteredLinks;
+  639 | 
+  640 |     await test.step(`Parse up to ${quantityLinks} links from News sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async () => {
+  641 |       const response = await request.get(`${process.env.BASE_URL}/news/sitemap.xml`);
+  642 |       await test.step(`Expected Result: ${process.env.BASE_URL}/news/sitemap.xml returns with ${response.status()}`, async () => {
+  643 |         expect(response.ok()).toBeTruthy();
+  644 |       });
+  645 |       const xmlData = await response.text();
+  646 |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  647 |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  648 |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  649 |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  650 | 
+  651 |       filteredLinks = arrayLinks
+  652 |         .filter((match) => {
+  653 |           const filterPattern = /mobalytics\.gg\/news/;
+  654 |           return filterPattern.test(match.groups.link);
+  655 |         })
+  656 |         .slice(0, quantityLinks);
+  657 |     });
+  658 | 
+  659 |     for (const takeLink of filteredLinks) {
+  660 |       const consoleMessages = [];
+  661 |       const pageErrors = [];
+  662 |       page.on('console', (msg) => {
+  663 |         if (msg.type() === 'error') {
+  664 |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  665 |           // console.log(consoleInfo);
+  666 |           consoleMessages.push(consoleInfo);
+  667 |         }
+  668 |       });
+  669 |       page.on('pageerror', (error) => {
+  670 |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  671 |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  672 |         //   console.log(errorInfo);
+  673 |         // }
+  674 |         pageErrors.push(errorInfo);
+  675 |       });
+  676 |       const { link } = takeLink.groups; // extract groupName for convenient usage
+  677 | 
+  678 |       await test.step(`Open parsed page: ${link}`, async () => {
+  679 |         await page.goto(link);
+  680 |         await page.waitForTimeout(1000);
+  681 |       });
+  682 | 
+  683 |       const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+  684 | 
+  685 |       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+  686 |         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+  687 |         expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
+  688 |         expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+  689 |         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+  690 |       });
+  691 |     }
+  692 |   });
+  693 | 
+  694 |   test(`Check that hydration is ok on ZZZ`, async ({ page, request }) => {
+  695 |     let filteredLinks;
+  696 | 
+  697 |     await test.step(`Parse up to ${quantityLinks} links from ZZZ sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async () => {
+  698 |       const response = await request.get(`${process.env.BASE_URL}/zzz/sitemap.xml`);
+  699 |       await test.step(`Expected Result: ${process.env.BASE_URL}/zzz/sitemap.xml returns with ${response.status()}`, async () => {
+  700 |         expect(response.ok()).toBeTruthy();
+  701 |       });
+  702 |       const xmlData = await response.text();
+  703 |       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+  704 |       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+  705 |       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+  706 |       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+  707 | 
+  708 |       filteredLinks = arrayLinks
+  709 |         .filter((match) => {
+  710 |           const filterPattern = /mobalytics\.gg\/zzz/;
+  711 |           return filterPattern.test(match.groups.link);
+  712 |         })
+  713 |         .slice(0, quantityLinks);
+  714 |     });
+  715 | 
+  716 |     for (const takeLink of filteredLinks) {
+  717 |       const consoleMessages = [];
+  718 |       const pageErrors = [];
+  719 |       page.on('console', (msg) => {
+  720 |         if (msg.type() === 'error') {
+  721 |           const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+  722 |           // console.log(consoleInfo);
+  723 |           consoleMessages.push(consoleInfo);
+  724 |         }
+  725 |       });
+  726 |       page.on('pageerror', (error) => {
+  727 |         const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+  728 |         // if (error.message.match(/Minified React error #(418|423)/i)) {
+  729 |         //   console.log(errorInfo);
+  730 |         // }
+  731 |         pageErrors.push(errorInfo);
+  732 |       });
+```
