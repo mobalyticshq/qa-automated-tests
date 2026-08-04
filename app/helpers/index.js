@@ -1,4 +1,6 @@
 export * from './projects';
 export * from './sitemap';
 export * from './projectSectionLinks';
-export * from './user.builder';
+export * from './userBuilder.js';
+export * from './auth.js';
+export * from './stCleanup.js';

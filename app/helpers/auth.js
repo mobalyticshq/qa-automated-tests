@@ -2,8 +2,6 @@ import { expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-export const AUTH_DIR = '.auth';
-
 const apiEndpoint =
   process.env.BASE_URL === 'https://mobalytics.gg'
     ? 'https://account.mobalytics.gg/api/graphql/v1/query'

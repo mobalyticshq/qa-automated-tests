@@ -36,7 +36,6 @@ env:
 
 jobs:
   ngf-tests:
-    # timeout-minutes: 30
     runs-on: ubuntu-latest
     env:
       REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/ngf
@@ -56,38 +55,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # Caching npm-dependecies to speed up subsequent builds
-      # - uses: actions/cache@v3
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-npm-
-
       - name: Install npm
         run: npm i
 
       - name: Install PW with dependencies
         run: npx playwright install --with-deps
-
-      # - name: Cache Playwright browsers
-      #   uses: actions/cache@v3
-      #   id: cache-pw
-      #   with:
-      #     path: ~/.cache/ms-playwright
-      #     key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-playwright-
-
-      # If cache miss, download browsers + deps
-      # - name: Install Playwright (full)
-      #   if: steps.cache-pw.outputs.cache-hit != 'true'
-      #   run: npx playwright install --with-deps
-
-      # If cache hit, only install OS deps
-      # - name: Install Playwright (OS deps only)
-      #   if: steps.cache-pw.outputs.cache-hit == 'true'
-      #   run: npx playwright install-deps
 
       - name: Launch auto-tests with ENV-override
         timeout-minutes: 30
@@ -103,7 +75,7 @@ jobs:
 
           INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
-        run: npm test -- --project account-tests ngf-tests others-tests
+        run: npm test -- --project account-tests ngf-tests specific-tests
 
       # - name: Run advertisement tests (desktop >1412px)
       #   if: always()

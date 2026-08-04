@@ -73,7 +73,7 @@ export default defineConfig({
     {
       name: 'ngf-tests',
       dependencies: ['auth-setup'],
-      testMatch: 'e2e-tests/ngf.test.js',
+      testDir: 'e2e-tests/ngf',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
@@ -86,7 +86,7 @@ export default defineConfig({
       // use: {
       //   storageState: ".auth/userRoleAuth.json",
       // },
-      testMatch: 'e2e-tests/account.test.js',
+      testDir: 'e2e-tests/accounts',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
@@ -99,7 +99,7 @@ export default defineConfig({
       // use: {
       //   storageState: ".auth/userRoleAuth.json",
       // },
-      testMatch: 'e2e-tests/payment.test.js',
+      testDir: 'e2e-tests/payments',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
@@ -107,9 +107,9 @@ export default defineConfig({
       },
     },
     {
-      name: 'others-tests',
+      name: 'specific-tests',
       dependencies: ['auth-setup'],
-      testMatch: 'e2e-tests/others.test.js',
+      testMatch: 'e2e-tests/specific.test.js',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
@@ -119,7 +119,7 @@ export default defineConfig({
     {
       name: 'advertisement-tests',
       dependencies: ['user-roles-setup'],
-      testMatch: 'e2e-tests/advertisement.test.js',
+      testDir: 'e2e-tests/advertisement',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',

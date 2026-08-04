@@ -1,5 +1,5 @@
 import { test as setup } from '@playwright/test';
-import { saveAuthState } from '../../src/helpers/auth.js';
+import { saveAuthState } from '../../app/helpers/index';
 
 setup('setup regular user', async ({ request }) => {
   await saveAuthState(request, {

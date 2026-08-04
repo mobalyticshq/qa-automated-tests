@@ -2,7 +2,9 @@ const projectList = [
   {
     game: 'LoL',
     projectPath: '/lol',
-    staticDataStPage: '/lol/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/lol/qa-check-static-data-not-delete',
+    },
     features: {
       classic: true,
       build: false,
@@ -17,7 +19,9 @@ const projectList = [
   {
     game: 'Val',
     projectPath: '/valorant',
-    staticDataStPage: '/valorant/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/valorant/qa-check-static-data-not-delete',
+    },
     features: {
       build: true,
       guide: true,
@@ -31,7 +35,9 @@ const projectList = [
   {
     game: 'TFT',
     projectPath: '/tft',
-    staticDataStPage: '/tft/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/tft/qa-check-static-data-not-delete',
+    },
     features: {
       build: true,
       guide: true,
@@ -45,7 +51,10 @@ const projectList = [
   {
     game: 'Riftbound',
     projectPath: '/riftbound',
-    staticDataStPage: '/riftbound/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/riftbound/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Acceleration Gate',
+    },
     features: {
       build: false,
       guide: true,
@@ -59,7 +68,10 @@ const projectList = [
   {
     game: '2XKO',
     projectPath: '/2xko',
-    staticDataStPage: '/2xko/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/2xko/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Blitzcrank',
+    },
     features: {
       build: true,
       guide: true,
@@ -73,7 +85,9 @@ const projectList = [
   {
     game: 'Marvel Rivals',
     projectPath: '/marvel-rivals',
-    staticDataStPage: '/marvel-rivals/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/marvel-rivals/qa-check-static-data-not-delete',
+    },
     features: {
       build: true,
       guide: true,
@@ -87,7 +101,10 @@ const projectList = [
   {
     game: 'ZZZ',
     projectPath: '/zzz',
-    staticDataStPage: '/zzz/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/zzz/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Alice',
+    },
     features: {
       build: true,
       guide: true,
@@ -101,7 +118,10 @@ const projectList = [
   {
     game: 'Diablo 4',
     projectPath: '/diablo-4',
-    staticDataStPage: '/diablo-4/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/diablo-4/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Amethyst',
+    },
     features: {
       build: true,
       guide: true,
@@ -115,7 +135,10 @@ const projectList = [
   {
     game: 'Nightreign',
     projectPath: '/elden-ring-nightreign',
-    staticDataStPage: '/elden-ring-nightreign/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/elden-ring-nightreign/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Blood Loss',
+    },
     features: {
       build: true,
       guide: true,
@@ -126,29 +149,75 @@ const projectList = [
       advertisement: true,
     },
   },
-  // { //* Waiting for when Destiny 2 will be integrated into MGP
-  //   game: 'Destiny 2',
-  //   projectPath: '/destiny-2',
-  //   staticDataStPage: '/destiny-2/qa-check-static-data-not-delete',
-  //   features: {
-  //     build: true,
-  //     guide: true,
-  //     tierList: true,
-  //     team: false,
-  //     deck: false,
-  //     staticData: false,
-  //     advertisement: true,
-  //   },
-  // },
+  {
+    //* Waiting for when Destiny 2 will be integrated into MGP
+    game: 'Destiny 2',
+    projectPath: '/destiny-2',
+    staticData: {
+      staticDataStPage: '/destiny-2/qa-check-static-data-not-delete',
+      gameSpecificItem: 'item',
+    },
+    features: {
+      build: false,
+      guide: false,
+      tierList: false,
+      team: false,
+      deck: false,
+      staticData: false,
+      advertisement: true,
+    },
+  },
   {
     game: 'Monster Hunter Wilds',
     projectPath: '/mhw',
-    staticDataStPage: '/mhw/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/mhw/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Dragon',
+      exactMatch: true,
+    },
     features: {
       build: true,
       guide: true,
       tierList: true,
       team: false,
+      deck: false,
+      staticData: true,
+      advertisement: true,
+    },
+  },
+  {
+    game: 'NTE',
+    projectPath: '/neverness-to-everness',
+    staticData: {
+      staticDataStPage: '/neverness-to-everness/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Adler',
+      exactMatch: true,
+    },
+    features: {
+      character: true,
+      build: false,
+      guide: true,
+      tierList: true,
+      team: true,
+      deck: false,
+      staticData: true,
+      advertisement: true,
+    },
+  },
+  {
+    game: 'Genshin',
+    projectPath: '/genshin-impact',
+    staticData: {
+      staticDataStPage: '/genshin-impact/qa-check-static-data-not-delete',
+      gameSpecificItem: 'ATK',
+      exactMatch: true,
+    },
+    features: {
+      character: true,
+      build: false,
+      guide: true,
+      tierList: true,
+      team: true,
       deck: false,
       staticData: true,
       advertisement: true,
@@ -157,7 +226,10 @@ const projectList = [
   {
     game: 'Hades 2',
     projectPath: '/hades-2',
-    staticDataStPage: '/hades-2/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/hades-2/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Frinos',
+    },
     features: {
       build: true,
       guide: true,
@@ -171,7 +243,10 @@ const projectList = [
   {
     game: 'Borderlands 4',
     projectPath: '/borderlands-4',
-    staticDataStPage: '/borderlands-4/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/borderlands-4/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Entanglement',
+    },
     features: {
       build: true,
       guide: true,
@@ -185,7 +260,10 @@ const projectList = [
   {
     game: 'Deadlock',
     projectPath: '/deadlock',
-    staticDataStPage: '/deadlock/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/deadlock/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Alchemical Fire',
+    },
     features: {
       build: true,
       guide: true,
@@ -199,7 +277,10 @@ const projectList = [
   {
     game: 'PoE 2',
     projectPath: '/poe-2',
-    staticDataStPage: '/poe-2/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/poe-2/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Acolyte of Chayula',
+    },
     features: {
       build: true,
       guide: true,
@@ -213,7 +294,10 @@ const projectList = [
   {
     game: 'PoE',
     projectPath: '/poe',
-    staticDataStPage: '/poe/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/poe/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Ascendant',
+    },
     features: {
       build: true,
       guide: true,
@@ -227,7 +311,10 @@ const projectList = [
   {
     game: 'The Bazaar',
     projectPath: '/the-bazaar',
-    staticDataStPage: '/the-bazaar/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/the-bazaar/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Dooley',
+    },
     features: {
       build: true,
       guide: true,
@@ -241,7 +328,10 @@ const projectList = [
   {
     game: 'Endfield',
     projectPath: '/arknights-endfield',
-    staticDataStPage: '/arknights-endfield/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/arknights-endfield/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Akekuri',
+    },
     features: {
       build: false,
       guide: true,
@@ -256,7 +346,10 @@ const projectList = [
   {
     game: 'Marathon',
     projectPath: '/marathon',
-    staticDataStPage: '/marathon/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/marathon/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Light Rounds',
+    },
     features: {
       build: true,
       guide: true,
@@ -271,7 +364,10 @@ const projectList = [
   {
     game: 'Overwatch',
     projectPath: '/overwatch',
-    staticDataStPage: '/overwatch/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/overwatch/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Light Rounds',
+    },
     features: {
       build: true,
       guide: true,
@@ -286,7 +382,10 @@ const projectList = [
   {
     game: 'STS 2',
     projectPath: '/slay-the-spire-2',
-    staticDataStPage: '/slay-the-spire-2/qa-check-static-data-not-delete',
+    staticData: {
+      staticDataStPage: '/slay-the-spire-2/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Defect',
+    },
     features: {
       build: true,
       guide: true,

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { projectListFromSitemap, projectSectionLinks } from '../src/helpers/index';
+import { projectListFromSitemap, projectSectionLinks } from '../app/helpers/index';
 
 test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ page }) => {
   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';

@@ -1,6 +1,5 @@
-import { expect } from '@playwright/test';
-import { test } from '../src/fixtures/fixture';
-import { projectSectionLinks as hydrationLinks } from '../src/helpers/projectSectionLinks';
+import { test, expect } from './fixtures/fixture';
+import { projectSectionLinks as hydrationLinks } from '../app/helpers/projectSectionLinks';
 
 test.describe('Check hydration is successfully for each project', () => {
   test.describe.configure({ timeout: 600_000 });
