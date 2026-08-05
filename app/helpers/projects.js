@@ -53,7 +53,7 @@ const projectList = [
     projectPath: '/riftbound',
     staticData: {
       staticDataStPage: '/riftbound/qa-check-static-data-not-delete',
-      gameSpecificItem: 'Acceleration Gate',
+      gameSpecificItem: 'Acceptable Losses',
     },
     features: {
       build: false,
@@ -366,7 +366,7 @@ const projectList = [
     projectPath: '/overwatch',
     staticData: {
       staticDataStPage: '/overwatch/qa-check-static-data-not-delete',
-      gameSpecificItem: 'Light Rounds',
+      gameSpecificItem: 'Ana',
     },
     features: {
       build: true,
@@ -375,7 +375,7 @@ const projectList = [
       team: false,
       deck: false,
       character: false,
-      staticData: false,
+      staticData: true,
       advertisement: true,
     },
   },
