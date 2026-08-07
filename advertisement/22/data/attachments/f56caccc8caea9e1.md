@@ -1,0 +1,283 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advertisement/ad-adFree-user.test.js >> Verify ad blocks for ad-free user >> Check advertisement blocks for ad free user - LoL in desktop at 800x800 viewport size
+- Location: e2e-tests/advertisement/ad-adFree-user.test.js:1257:5
+
+# Error details
+
+```
+Error: expect(locator).toBeAttached() failed
+
+Locator: locator('#lol-video-all-pages').or(locator('#lol-nitro-video'))
+Expected: attached
+Timeout: 15000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "soft toBeAttached" with timeout 15000ms
+  - waiting for locator('#lol-video-all-pages').or(locator('#lol-nitro-video'))
+
+```
+
+```yaml
+- main:
+  - img "Icon for mobalytics.gg"
+  - heading "mobalytics.gg" [level=1]
+  - heading "Performing security verification" [level=2]
+  - paragraph: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+- contentinfo:
+  - text: "Ray ID:"
+  - code: a273a0bb189dc65e
+  - text: Performance and Security by
+  - link "Cloudflare, opens in a new tab":
+    - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+    - text: Cloudflare
+  - link "Privacy, opens in a new tab":
+    - /url: https://www.cloudflare.com/privacypolicy/
+    - text: Privacy
+```
+
+```
+Error: expect(locator).toBeAttached() failed
+
+Locator: locator('#web-lol-display-footer-d').or(locator('#lol-nitro-anchor'))
+Expected: attached
+Timeout: 15000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "soft toBeAttached" with timeout 15000ms
+  - waiting for locator('#web-lol-display-footer-d').or(locator('#lol-nitro-anchor'))
+
+```
+
+```yaml
+- main:
+  - img "Icon for mobalytics.gg"
+  - heading "mobalytics.gg" [level=1]
+  - heading "Performing security verification" [level=2]
+  - paragraph: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+- contentinfo:
+  - text: "Ray ID:"
+  - code: a273a0bb189dc65e
+  - text: Performance and Security by
+  - link "Cloudflare, opens in a new tab":
+    - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+    - text: Cloudflare
+  - link "Privacy, opens in a new tab":
+    - /url: https://www.cloudflare.com/privacypolicy/
+    - text: Privacy
+```
+
+# Test source
+
+```ts
+  1237 |           //       .not.toBeVisible();
+  1238 |           //   });
+  1239 |           //   await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  1240 |           //     await expect
+  1241 |           //       .soft(
+  1242 |           //         page
+  1243 |           //           .locator('#web-elden-ring-nightreign-display-footer-d')
+  1244 |           //           .or(page.locator('#elden-ring-nightreign-nitro-anchor'))
+  1245 |           //       )
+  1246 |           //                       .not.toBeVisible();
+  1247 |           //   });
+  1248 |           //   break;
+  1249 |         }
+  1250 |       } finally {
+  1251 |         await adFreeUserContext.close();
+  1252 |       }
+  1253 |     });
+  1254 |   });
+  1255 | 
+  1256 |   filterProjectsByAdvertisement('advertisement').forEach(({ game, projectPath }) => {
+  1257 |     test(`Check advertisement blocks for ad free user - ${game} in desktop at 800x800 viewport size`, async ({
+  1258 |       browser,
+  1259 |     }) => {
+  1260 |       const adFreeUserContext = await browser.newContext({ storageState: '.auth/adFreeUserAuth.json' });
+  1261 |       const page = await adFreeUserContext.newPage();
+  1262 |       await page.setViewportSize({ width: 800, height: 800 });
+  1263 | 
+  1264 |       await test.step(`Open project url: "${process.env.BASE_URL}${projectPath}"`, async () => {
+  1265 |         await page.goto(`${process.env.BASE_URL}${projectPath}`, {
+  1266 |           waitUntil: 'domcontentloaded',
+  1267 |         });
+  1268 |       });
+  1269 | 
+  1270 |       try {
+  1271 |         switch (game) {
+  1272 |           case 'STS 2':
+  1273 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  1274 |               await expect
+  1275 |                 .soft(
+  1276 |                   page
+  1277 |                     .locator('#slay-the-spire-2-video-all-pages')
+  1278 |                     .or(page.locator('#slay-the-spire-2-nitro-video').locator('xpath=..'))
+  1279 |                 )
+  1280 |                 .not.toBeVisible();
+  1281 |             });
+  1282 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  1283 |               await expect
+  1284 |                 .soft(
+  1285 |                   page
+  1286 |                     .locator('#slay-the-spire-2-display-all-pages')
+  1287 |                     .or(page.locator('#slay-the-spire-2-nitro-l'))
+  1288 |                     .or(page.locator('#slay-the-spire-2-nitro-3'))
+  1289 |                     .first()
+  1290 |                 )
+  1291 |                 .not.toBeVisible();
+  1292 |             });
+  1293 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  1294 |               await expect
+  1295 |                 .soft(
+  1296 |                   page
+  1297 |                     .locator('#slay-the-spire-2-display-small-all-pages')
+  1298 |                     .or(page.locator('#slay-the-spire-2-nitro-m'))
+  1299 |                 )
+  1300 |                 .not.toBeVisible();
+  1301 |             });
+  1302 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  1303 |               await expect
+  1304 |                 .soft(
+  1305 |                   page
+  1306 |                     .locator('#web-slay-the-spire-2-display-footer-d')
+  1307 |                     .or(page.locator('#slay-the-spire-2-nitro-anchor'))
+  1308 |                 )
+  1309 |                 .not.toBeVisible();
+  1310 |             });
+  1311 |             break;
+  1312 |           case 'LoL':
+  1313 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  1314 |               await expect
+  1315 |                 .soft(page.locator('#lol-video-all-pages').or(page.locator('#lol-nitro-video')))
+  1316 |                 .toBeAttached();
+  1317 |             });
+  1318 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  1319 |               await expect
+  1320 |                 .soft(
+  1321 |                   page
+  1322 |                     .locator('#lol-display-all-pages')
+  1323 |                     .or(page.locator('#lol-nitro-l'))
+  1324 |                     .or(page.locator('#lol-nitro-3'))
+  1325 |                     .first()
+  1326 |                 )
+  1327 |                 .not.toBeVisible();
+  1328 |             });
+  1329 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  1330 |               await expect
+  1331 |                 .soft(page.locator('#lol-display-small-all-pages').or(page.locator('#lol-nitro-m')))
+  1332 |                 .not.toBeVisible();
+  1333 |             });
+  1334 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  1335 |               await expect
+  1336 |                 .soft(page.locator('#web-lol-display-footer-d').or(page.locator('#lol-nitro-anchor')))
+> 1337 |                 .toBeAttached();
+       |                  ^ Error: expect(locator).toBeAttached() failed
+  1338 |             });
+  1339 |             break;
+  1340 |           case 'ZZZ':
+  1341 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  1342 |               await expect
+  1343 |                 .soft(page.locator('#zzz-video-all-pages').or(page.locator('#zzz-nitro-video').locator('xpath=..')))
+  1344 |                 .not.toBeVisible();
+  1345 |             });
+  1346 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  1347 |               await expect
+  1348 |                 .soft(
+  1349 |                   page
+  1350 |                     .locator('#zzz-display-all-pages')
+  1351 |                     .or(page.locator('#zzz-nitro-l'))
+  1352 |                     .or(page.locator('#zzz-nitro-3'))
+  1353 |                     .first()
+  1354 |                 )
+  1355 |                 .not.toBeVisible();
+  1356 |             });
+  1357 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  1358 |               await expect
+  1359 |                 .soft(page.locator('#zzz-display-small-all-pages').or(page.locator('#zzz-nitro-m')))
+  1360 |                 .not.toBeVisible();
+  1361 |             });
+  1362 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  1363 |               await expect
+  1364 |                 .soft(page.locator('#web-zzz-display-footer-d').or(page.locator('#zzz-nitro-anchor')))
+  1365 |                 .not.toBeVisible();
+  1366 |             });
+  1367 |             break;
+  1368 |           case 'Val':
+  1369 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  1370 |               await expect
+  1371 |                 .soft(
+  1372 |                   page
+  1373 |                     .locator('#valorant-video-all-pages')
+  1374 |                     .or(page.locator('#valorant-nitro-video').locator('xpath=..'))
+  1375 |                 )
+  1376 |                 .not.toBeVisible();
+  1377 |             });
+  1378 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  1379 |               await expect
+  1380 |                 .soft(
+  1381 |                   page
+  1382 |                     .locator('#valorant-display-all-pages')
+  1383 |                     .or(page.locator('#valorant-nitro-l'))
+  1384 |                     .or(page.locator('#valorant-nitro-3'))
+  1385 |                     .first()
+  1386 |                 )
+  1387 |                 .not.toBeVisible();
+  1388 |             });
+  1389 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  1390 |               await expect
+  1391 |                 .soft(page.locator('#valorant-display-small-all-pages').or(page.locator('#valorant-nitro-m')))
+  1392 |                 .not.toBeVisible();
+  1393 |             });
+  1394 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  1395 |               await expect
+  1396 |                 .soft(page.locator('#web-valorant-display-footer-d').or(page.locator('#valorant-nitro-anchor')))
+  1397 |                 .not.toBeVisible();
+  1398 |             });
+  1399 |             break;
+  1400 |           case 'TFT':
+  1401 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  1402 |               await expect
+  1403 |                 .soft(page.locator('#tft-video-all-pages').or(page.locator('#tft-nitro-video').locator('xpath=..')))
+  1404 |                 .toBeVisible();
+  1405 |             });
+  1406 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  1407 |               await expect
+  1408 |                 .soft(
+  1409 |                   page
+  1410 |                     .locator('#tft-display-all-pages')
+  1411 |                     .or(page.locator('#tft-nitro-l'))
+  1412 |                     .or(page.locator('#tft-nitro-3'))
+  1413 |                     .first()
+  1414 |                 )
+  1415 |                 .not.toBeVisible();
+  1416 |             });
+  1417 |             await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  1418 |               await expect
+  1419 |                 .soft(page.locator('#tft-display-small-all-pages').or(page.locator('#tft-nitro-m')))
+  1420 |                 .not.toBeVisible();
+  1421 |             });
+  1422 |             await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  1423 |               await expect
+  1424 |                 .soft(page.locator('#web-tft-display-footer-d').or(page.locator('#tft-nitro-anchor')))
+  1425 |                 .toBeAttached();
+  1426 |             });
+  1427 |             break;
+  1428 |           case 'PoE':
+  1429 |             await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  1430 |               await expect
+  1431 |                 .soft(page.locator('#poe-video-all-pages').or(page.locator('#poe-nitro-video').locator('xpath=..')))
+  1432 |                 .not.toBeVisible();
+  1433 |             });
+  1434 |             await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  1435 |               await expect
+  1436 |                 .soft(
+  1437 |                   page
+```
