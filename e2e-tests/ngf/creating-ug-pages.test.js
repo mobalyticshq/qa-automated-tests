@@ -81,7 +81,6 @@ test.describe('Creating UG Pages', () => {
 
   filterProjectsByTeams('team').forEach(({ game, projectPath }) => {
     test(`Create a team page on ${game} project`, async ({ page }) => {
-      test.fixme(game === 'Genshin', 'Currently there is an issus with UG: Teams doc for Genshin project');
       const uniqueId = uuidv4();
       const pageName = `qa-automation-team-page-${uniqueId}`;
       const moba = new Moba(page);

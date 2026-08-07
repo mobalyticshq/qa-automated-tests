@@ -33,8 +33,8 @@ export const test = base.extend({
   },
 
   // Per-game ST page cleanup — see makeStCleanup in app/helpers/stCleanup.js
-  cleanupStSts2Pages: makeStCleanup((urls) => urls.openAdminSts2Page()),
   cleanupStPoE2Pages: makeStCleanup((urls) => urls.openAdminPoe2Page()),
+  cleanupStSts2Pages: makeStCleanup((urls) => urls.openAdminSts2Page()),
   cleanupStOverwatchPages: makeStCleanup((urls) => urls.openAdminOverwatchPage()),
   cleanupStMarathonPages: makeStCleanup((urls) => urls.openAdminMarathonPage()),
   cleanupStEndfieldPages: makeStCleanup((urls) => urls.openAdminEndfieldPage()),
