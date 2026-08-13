@@ -5,8 +5,6 @@ import { Moba } from '../../app/page-object/moba';
 test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)));
 
 test.describe('Creating ST Pages', () => {
-  test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
-
   //* Added new locator for header widget. It needs for testing purpose this locater
   test(`Create a structure page on STS 2 project`, async ({ cleanupStSts2Pages }) => {
     const uniqueId = uuidv4();

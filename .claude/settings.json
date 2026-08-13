@@ -15,14 +15,14 @@
       "Bash(cat:*)",
       "Bash(grep:*)",
       "Bash(rg:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(node -p \"require\\('@playwright/test/package.json'\\).version\")"
     ],
     "deny": [
       "Read(./.env)"
     ]
   },
   "enableAllProjectMcpServers": true,
-  "outputStyle": "Explanatory",
   "hooks": {
     "Stop": [
       {
@@ -34,5 +34,6 @@
         ]
       }
     ]
-  }
+  },
+  "outputStyle": "Explanatory"
 }

@@ -2,8 +2,6 @@ import { test, expect } from '../fixtures/fixture';
 import { Moba } from '../../app/page-object/moba';
 import { filterProjectsByFeatureStatus as filterProjectsByAvailableStaticData } from '../../app/helpers/index';
 
-test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
-
 filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticData }) => {
   const { staticDataStPage, gameSpecificItem, exactMatch } = staticData;
 

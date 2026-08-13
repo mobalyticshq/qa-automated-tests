@@ -75,6 +75,7 @@ export default defineConfig({
       dependencies: ['auth-setup'],
       testDir: 'e2e-tests/ngf',
       use: {
+        storageState: '.auth/adminAuth.json',
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
         video: 'on-first-retry',
@@ -83,11 +84,9 @@ export default defineConfig({
     {
       name: 'account-tests',
       // dependencies: ["setup"],
-      // use: {
-      //   storageState: ".auth/userRoleAuth.json",
-      // },
       testDir: 'e2e-tests/accounts',
       use: {
+        //   storageState: ".auth/userRoleAuth.json",
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
         video: 'on-first-retry',
@@ -96,11 +95,9 @@ export default defineConfig({
     {
       name: 'payment-tests',
       // dependencies: ["setup"],
-      // use: {
-      //   storageState: ".auth/userRoleAuth.json",
-      // },
       testDir: 'e2e-tests/payments',
       use: {
+        // storageState: '.auth/userRoleAuth.json',
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
         video: 'on-first-retry',

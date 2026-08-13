@@ -13,8 +13,6 @@ import {
 test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)));
 
 test.describe('Creating UG Pages', () => {
-  test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
-
   filterProjectsByBuilds('build').forEach(({ game, projectPath }) => {
     test(`Create a build page on ${game} project`, async ({ page }) => {
       const uniqueId = uuidv4();
