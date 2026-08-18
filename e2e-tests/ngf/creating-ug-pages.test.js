@@ -11,6 +11,17 @@ import {
 } from '../../app/helpers/index';
 
 test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)));
+test.beforeEach(async ({ page }) => {
+  const rewardsSidebar = page.getByText('Reward Pass & Challenges');
+
+  await page.addLocatorHandler(
+    rewardsSidebar,
+    async () => {
+      await page.getByRole('button', { name: 'plus Rewards' }).click();
+    },
+    { noWaitAfter: false }
+  );
+});
 
 test.describe('Creating UG Pages', () => {
   filterProjectsByBuilds('build').forEach(({ game, projectPath }) => {

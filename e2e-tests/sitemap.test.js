@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { projectListFromSitemap, projectSectionLinks } from '../app/helpers/index';
+import XMLParser from '@nodable/flexible-xml-parser';
 
-test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ page }) => {
+test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ page, request }) => {
   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
 
   await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
-    await page.goto(process.env.URL_SITEMAP);
+    const response = await page.goto(process.env.URL_SITEMAP);
+    expect(response.ok()).toBeTruthy();
   });
 
   for (const { project, isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
@@ -23,1178 +25,1320 @@ test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, 
       });
     }
   }
+
+  for (const { project, isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
+    let response;
+    if (isProd && isPresentInProdSitemap === true) {
+      await test.step(`Request link: ${process.env.URL_SITEMAP}${project}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
+      });
+      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${project} returns a successful status code ${response.status()}`, async () => {
+        expect.soft(response.ok()).toBeTruthy();
+      });
+    } else if (isProd && isPresentInProdSitemap === false) {
+      await test.step(`Request link: ${process.env.URL_SITEMAP}${project}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
+      });
+      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${project} returns a unsuccessful status code ${response.status()} due this project is missing in sitemap`, async () => {
+        expect.soft(response.ok()).toBeFalsy();
+      });
+    } else {
+      await test.step(`Request link: ${process.env.URL_SITEMAP}${project}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
+      });
+      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${project} returns a successful status code`, async () => {
+        expect.soft(response.ok()).toBeTruthy();
+      });
+    }
+  }
 });
 
-test.describe('Sitemap links return a successful status code for each project', async () => {
-  test.describe.configure({ timeout: 500_000 });
-  const quantityLinks = 100;
-
-  projectSectionLinks.forEach((element) => {
-    test(`Verify main pages for each project: ${process.env.BASE_URL}${element} return a successful status code`, async ({
-      request,
-    }) => {
-      let response;
-      await test.step(`Send a GET request to ${process.env.BASE_URL}${element}`, async () => {
-        response = await request.get(`${process.env.BASE_URL}${element}`);
-      });
-      await test.step(`Response returns with status code: ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-    });
-  });
-
-  test(`Verify that all ${quantityLinks} links in the diablo-4-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from diablo-4-sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/diablo-4/sitemap.xml`);
-      await test.step(`Expected Result: Response diablo-4-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/diablo-4\/builds/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract groupName for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the borderlands-4-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from borderlands-4-sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/borderlands-4/sitemap.xml`);
-      await test.step(`Expected Result: Response borderlands-4-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/borderlands-4\/wiki\/[a-z-]+(\/[a-z-]+)?/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract groupName for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the sitemap_index-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from sitemap_index-sitemap: ${process.env.BASE_URL}/sitemap_index.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/sitemap_index.xml`);
-      await test.step(`Expected Result: Response sitemap_index-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern =
-            /mobalytics\.gg\/(?!post|the-bazaar|marvel-rivals|2xko|diablo-4|news_category|valorant_category|tft_game|overwatch-)[\w-]+\-sitemap\.xml$/; //* added some links to exceptions because they are bugged
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract groupName for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the champions-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/champions-sitemap.xml`);
-      await test.step(`Expected Result: Response champions-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/lol\/champions/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the valorant-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from valorant-sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/valorant/sitemap.xml`);
-      await test.step(`Expected Result: Response valorant-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/valorant\/[a-z-]+/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the tft-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from tft-sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
-      await test.step(`Expected Result: Response tft-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/tft\/[a-z-]+/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the tft-set16-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from tft-set16-sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/tft/set16/sitemap.xml`);
-      await test.step(`Expected Result: Response tft-set16-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/tft\/set16/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the tft-set4-5-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from tft-set4-5-sitemap: ${process.env.BASE_URL}/tft/set4-5/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/tft/set4-5/sitemap.xml`);
-      await test.step(`Expected Result: Response tft-set4-5-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/tft\/set4-5/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the destiny-2-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from destiny-2-sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/destiny-2/sitemap.xml`);
-      await test.step(`Expected Result: Response destiny-2-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/destiny-2\/builds\/[a-z-]+\/[a-z-]+\/[a-z-]+$/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the arknights-endfield-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from arknights-endfield-sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
-      await test.step(`Expected Result: Response arknights-endfield-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/arknights-endfield\/(characters|guides)?/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the 2xko-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from 2xko-sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/2xko/sitemap.xml`);
-      await test.step(`Expected Result: Response 2xko-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/2xko/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the example-game-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    test.skip(process.env.BASE_URL === 'https://mobalytics.gg', 'Skip example-game project on production');
-
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from example-game-sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/example-game/sitemap.xml`);
-      await test.step(`Expected Result: Response example-game-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/example-game/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the riftbound-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from riftbound-sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/riftbound/sitemap.xml`);
-      await test.step(`Expected Result: Response riftbound-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/riftbound/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the poe-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from poe-sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/poe/sitemap.xml`);
-      await test.step(`Expected Result: Response poe-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/poe(\/builds)?/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the hades-2-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from hades-2-sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/hades-2/sitemap.xml`);
-      await test.step(`Expected Result: Response hades-2-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/hades-2(\/builds)?/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the news-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from news-sitemap: ${process.env.BASE_URL}/news/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/news/sitemap.xml`);
-      await test.step(`Expected Result: Response news-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/news/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the zzz-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from zzz-sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/zzz/sitemap.xml`);
-      await test.step(`Expected Result: Response zzz-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/zzz\/(characters)?/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the elden-ring-nightreign-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from elden-ring-nightreign-sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`);
-      await test.step(`Expected Result: Response elden-ring-nightreign-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/elden-ring-nightreign\/wiki\/catalysts/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the mhw-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from mhw-sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/mhw/sitemap.xml`);
-      await test.step(`Expected Result: Response mhw-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/mhw/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the marvel-rivals-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from marvel-rivals-sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/marvel-rivals/sitemap.xml`);
-      await test.step(`Expected Result: Response marvel-rivals-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/marvel-rivals/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the deadlock-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from deadlock-sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/deadlock/sitemap.xml`);
-      await test.step(`Expected Result: Response deadlock-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/deadlock/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the poe-2-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from poe-2-sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/poe-2/sitemap.xml`);
-      await test.step(`Expected Result: Response poe-2-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/poe-2\/builds/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the the-bazaar-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from the-bazaar-sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/the-bazaar/sitemap.xml`);
-      await test.step(`Expected Result: Response the-bazaar-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/the-bazaar\/(builds|guides)/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the endfield-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from endfield-sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
-      await test.step(`Expected Result: Response endfield-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/arknights-endfield/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the marathon-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from marathon-sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/marathon/sitemap.xml`);
-      await test.step(`Expected Result: Response marathon-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/marathon/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the overwatch-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    test.skip(process.env.BASE_URL === 'https://mobalytics.gg', 'Skip this test on prod sitemap');
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from overwatch-sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/overwatch/sitemap.xml`);
-      await test.step(`Expected Result: Response overwatch-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/overwatch/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the product-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from product-sitemap: ${process.env.BASE_URL}/product-sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/product-sitemap.xml`);
-      await test.step(`Expected Result: Response product-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/lol/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-
-  test(`Verify that all ${quantityLinks} links in the sts2-sitemap return a successful status code`, async ({
-    request,
-  }) => {
-    let filteredLinks;
-
-    await test.step(`Parse ${quantityLinks} links from product-sitemap: ${process.env.BASE_URL}/product-sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/slay-the-spire-2/sitemap.xml`);
-      await test.step(`Expected Result: Response product-sitemap returns with ${response.status()}`, async () => {
-        expect(response.ok()).toBeTruthy();
-      });
-      const xmlData = await response.text();
-      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-      filteredLinks = arrayLinks
-        .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/slay-the-spire-2/;
-          return filterPattern.test(match.groups.link);
-        })
-        .slice(0, quantityLinks);
-
-      await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
-        expect(filteredLinks.length).toBeGreaterThan(0);
-      });
-    });
-
-    for (const takeLink of filteredLinks) {
-      const { link } = takeLink.groups; // extract group name for convenient usage
-      let response;
-
-      await test.step(`Send a GET request to ${link}`, async () => {
-        response = await request.get(link);
-      });
-      await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    }
-  });
-});
+// test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ request }) => {
+//   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
+//   const parser = new XMLParser();
+//   let sitemapUrls;
+
+//   await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
+//     const response = await request.get(process.env.URL_SITEMAP);
+//     expect(response.ok()).toBeTruthy();
+//     const parsed = parser.parse(await response.text());
+//     sitemapUrls = [].concat(parsed.urlset?.url ?? parsed.sitemapindex?.sitemap ?? []).map((n) => n.loc);
+//   });
+
+//   await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${sitemapUrls.length}`, async () => {
+//     expect(sitemapUrls.length).toBeGreaterThan(0);
+//   });
+
+//   for (const { project, isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
+//     const expectedUrl = `${process.env.BASE_URL}${pathUrl}`;
+//     const shouldBePresent = !(isProd && isPresentInProdSitemap === false);
+
+//     await test.step(`Expected Result: ${project} is ${shouldBePresent ? 'present' : 'not present'} in ${process.env.URL_SITEMAP}`, async () => {
+//       if (shouldBePresent) {
+//         expect.soft(sitemapUrls).toContain(expectedUrl);
+//       } else {
+//         expect.soft(sitemapUrls).not.toContain(expectedUrl);
+//       }
+//     });
+//   }
+// });
+
+// test.describe('Sitemap links return a successful status code for each project', async () => {
+//   test.describe.configure({ timeout: 500_000 });
+//   const quantityLinks = 100;
+
+//   projectSectionLinks.forEach((element) => {
+//     test(`Verify main pages for each project: ${process.env.BASE_URL}${element} return a successful status code`, async ({
+//       request,
+//     }) => {
+//       let response;
+//       await test.step(`Send a GET request to ${process.env.BASE_URL}${element}`, async () => {
+//         response = await request.get(`${process.env.BASE_URL}${element}`);
+//       });
+//       await test.step(`Response returns with status code: ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//     });
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the diablo-4-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from diablo-4-sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/diablo-4/sitemap.xml`);
+//       await test.step(`Expected Result: Response diablo-4-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // console.log(arrayLinks);
+
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/diablo-4\/builds/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract groupName for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the genshin-impact-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from genshin-impact-sitemap: ${process.env.BASE_URL}/genshin-impact/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/genshin-impact/sitemap.xml`);
+//       await test.step(`Expected Result: Response genshin-impact-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // console.log(arrayLinks);
+
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/genshin-impact\/characters/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract groupName for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the borderlands-4-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from borderlands-4-sitemap: ${process.env.BASE_URL}/borderlands-4/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/borderlands-4/sitemap.xml`);
+//       await test.step(`Expected Result: Response borderlands-4-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/borderlands-4\/wiki\/[a-z-]+(\/[a-z-]+)?/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract groupName for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the sitemap_index-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from sitemap_index-sitemap: ${process.env.BASE_URL}/sitemap_index.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/sitemap_index.xml`);
+//       await test.step(`Expected Result: Response sitemap_index-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern =
+//             /mobalytics\.gg\/(?!post|the-bazaar|marvel-rivals|2xko|diablo-4|news_category|valorant_category|tft_game|overwatch-)[\w-]+\-sitemap\.xml$/; //* added some links to exceptions because they are bugged
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract groupName for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the champions-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from champions-sitemap: ${process.env.BASE_URL}/champions-sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/champions-sitemap.xml`);
+//       await test.step(`Expected Result: Response champions-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/lol\/champions/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the valorant-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from valorant-sitemap: ${process.env.BASE_URL}/valorant/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/valorant/sitemap.xml`);
+//       await test.step(`Expected Result: Response valorant-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/valorant\/[a-z-]+/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the tft-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from tft-sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
+//       await test.step(`Expected Result: Response tft-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/tft\/[a-z-]+/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the tft-set16-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from tft-set16-sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/tft/set16/sitemap.xml`);
+//       await test.step(`Expected Result: Response tft-set16-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/tft\/set16/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the tft-set17-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from tft-set17-sitemap: ${process.env.BASE_URL}/tft/set17/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/tft/set17/sitemap.xml`);
+//       await test.step(`Expected Result: Response tft-set17-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/tft\/set17/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the tft-set18-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from tft-set18-sitemap: ${process.env.BASE_URL}/tft/set18/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/tft/set18/sitemap.xml`);
+//       await test.step(`Expected Result: Response tft-set18-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/tft\/set18/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the destiny-2-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from destiny-2-sitemap: ${process.env.BASE_URL}/destiny-2/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/destiny-2/sitemap.xml`);
+//       await test.step(`Expected Result: Response destiny-2-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/destiny-2\/builds\/[a-z-]+\/[a-z-]+\/[a-z-]+$/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the arknights-endfield-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from arknights-endfield-sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
+//       await test.step(`Expected Result: Response arknights-endfield-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/arknights-endfield\/(characters|guides)?/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the 2xko-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from 2xko-sitemap: ${process.env.BASE_URL}/2xko/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/2xko/sitemap.xml`);
+//       await test.step(`Expected Result: Response 2xko-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/2xko/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the example-game-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     test.skip(process.env.BASE_URL === 'https://mobalytics.gg', 'Skip example-game project on production');
+
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from example-game-sitemap: ${process.env.BASE_URL}/example-game/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/example-game/sitemap.xml`);
+//       await test.step(`Expected Result: Response example-game-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/example-game/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the riftbound-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from riftbound-sitemap: ${process.env.BASE_URL}/riftbound/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/riftbound/sitemap.xml`);
+//       await test.step(`Expected Result: Response riftbound-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/riftbound/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the poe-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from poe-sitemap: ${process.env.BASE_URL}/poe/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/poe/sitemap.xml`);
+//       await test.step(`Expected Result: Response poe-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/poe(\/builds)?/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the hades-2-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from hades-2-sitemap: ${process.env.BASE_URL}/hades-2/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/hades-2/sitemap.xml`);
+//       await test.step(`Expected Result: Response hades-2-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/hades-2(\/builds)?/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the gamebase-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from gamebase-sitemap: ${process.env.BASE_URL}/gamebase/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/gamebase/sitemap.xml`);
+//       await test.step(`Expected Result: Response gamebase-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/gamebase/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the zzz-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from zzz-sitemap: ${process.env.BASE_URL}/zzz/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/zzz/sitemap.xml`);
+//       await test.step(`Expected Result: Response zzz-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/zzz\/(characters)?/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the elden-ring-nightreign-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from elden-ring-nightreign-sitemap: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`);
+//       await test.step(`Expected Result: Response elden-ring-nightreign-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/elden-ring-nightreign\/wiki\/catalysts/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the mhw-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from mhw-sitemap: ${process.env.BASE_URL}/mhw/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/mhw/sitemap.xml`);
+//       await test.step(`Expected Result: Response mhw-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/mhw/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the marvel-rivals-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from marvel-rivals-sitemap: ${process.env.BASE_URL}/marvel-rivals/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/marvel-rivals/sitemap.xml`);
+//       await test.step(`Expected Result: Response marvel-rivals-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/marvel-rivals/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the deadlock-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from deadlock-sitemap: ${process.env.BASE_URL}/deadlock/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/deadlock/sitemap.xml`);
+//       await test.step(`Expected Result: Response deadlock-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/deadlock/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the poe-2-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from poe-2-sitemap: ${process.env.BASE_URL}/poe-2/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/poe-2/sitemap.xml`);
+//       await test.step(`Expected Result: Response poe-2-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/poe-2\/builds/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the the-bazaar-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from the-bazaar-sitemap: ${process.env.BASE_URL}/the-bazaar/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/the-bazaar/sitemap.xml`);
+//       await test.step(`Expected Result: Response the-bazaar-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/the-bazaar\/(builds|guides)/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the endfield-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from endfield-sitemap: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
+//       await test.step(`Expected Result: Response endfield-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/arknights-endfield/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the marathon-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from marathon-sitemap: ${process.env.BASE_URL}/marathon/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/marathon/sitemap.xml`);
+//       await test.step(`Expected Result: Response marathon-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/marathon/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the overwatch-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     test.skip(process.env.BASE_URL === 'https://mobalytics.gg', 'Skip this test on prod sitemap');
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from overwatch-sitemap: ${process.env.BASE_URL}/overwatch/sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/overwatch/sitemap.xml`);
+//       await test.step(`Expected Result: Response overwatch-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/overwatch/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the product-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from product-sitemap: ${process.env.BASE_URL}/product-sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/product-sitemap.xml`);
+//       await test.step(`Expected Result: Response product-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/lol/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+
+//   test(`Verify that all ${quantityLinks} links in the sts2-sitemap return a successful status code`, async ({
+//     request,
+//   }) => {
+//     let filteredLinks;
+
+//     await test.step(`Parse ${quantityLinks} links from product-sitemap: ${process.env.BASE_URL}/product-sitemap.xml`, async () => {
+//       const response = await request.get(`${process.env.BASE_URL}/slay-the-spire-2/sitemap.xml`);
+//       await test.step(`Expected Result: Response product-sitemap returns with ${response.status()}`, async () => {
+//         expect(response.ok()).toBeTruthy();
+//       });
+//       const xmlData = await response.text();
+//       const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+//       const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+//       // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+//       // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+//       filteredLinks = arrayLinks
+//         .filter((match) => {
+//           const filterPattern = /mobalytics\.gg\/slay-the-spire-2/;
+//           return filterPattern.test(match.groups.link);
+//         })
+//         .slice(0, quantityLinks);
+
+//       await test.step(`Expected Result: Total parsed links greater than 0 in sitemap: ${arrayLinks.length}`, async () => {
+//         expect(filteredLinks.length).toBeGreaterThan(0);
+//       });
+//     });
+
+//     for (const takeLink of filteredLinks) {
+//       const { link } = takeLink.groups; // extract group name for convenient usage
+//       let response;
+
+//       await test.step(`Send a GET request to ${link}`, async () => {
+//         response = await request.get(link);
+//       });
+//       await test.step(`Expected Result: Response ${link} returns with status: ${response.status()}`, async () => {
+//         expect.soft(response.ok()).toBeTruthy();
+//       });
+//     }
+//   });
+// });
 
 // sitemapList.forEach(({ linkInList, isPresentInSitemap, pathUrl }) => {
 //   test(`Sitemap: ${process.env.BASE_URL}${pathUrl} is opened successfully`, async ({ page }) => {

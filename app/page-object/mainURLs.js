@@ -130,7 +130,7 @@ export class MainURLs {
 
   async openAdminBazaarPage() {
     await test.step(`Open 'Bazaar' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/the-bazaar/admin`, {
+      await this.page.goto(`${process.env.BASE_URL}/the-bazaar/admin?beta-v2`, {
         waitUntil: 'domcontentloaded',
       });
     });
@@ -450,7 +450,7 @@ export class MainURLs {
 
   async openBorderlands4Page() {
     await test.step(`Open url: ${process.env.BASE_URL}/borderlands-4`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/borderlands-4`, {
+      await this.page.goto(`${process.env.BASE_URL}/borderlands-4?beta-v2`, {
         waitUntil: 'domcontentloaded',
       });
     });

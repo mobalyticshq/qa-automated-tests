@@ -2,11 +2,23 @@ import { test, expect } from '../fixtures/fixture';
 import { Moba } from '../../app/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
+test.beforeEach(async ({ page }) => {
+  const rewardsSidebar = page.getByText('Reward Pass & Challenges');
+
+  await page.addLocatorHandler(
+    rewardsSidebar,
+    async () => {
+      await page.getByRole('button', { name: 'plus Rewards' }).click();
+    },
+    { noWaitAfter: false }
+  );
+});
+
 test('Delete mobalytics account', async ({ page, registerAccount }) => {
   const moba = registerAccount;
 
   await expect(moba.navbar.mgpProfileButton).toBeVisible();
-  await page.goto(`${process.env.BASE_URL}/mhw/account-settings/account-information`);
+  await page.goto(`${process.env.BASE_URL}/mhw/account-settings/account-information?beta-v2`);
   //! await moba.navbar.gotoAccountSettingsPage();
   await moba.accountInformationTab.deleteAccount();
 

@@ -1,5 +1,5 @@
 # Name workflow
-name: ngf-tests
+name: common-tests
 
 # When launch auto-tests
 on:
@@ -9,7 +9,7 @@ on:
     branches: [main, master]
   schedule:
     - cron: '00 4 * * *'
-    - cron: '50 8 * * 2,4'
+    - cron: '20 9 * * 2,4'
 
   # Manual hook for launch
   workflow_dispatch:
@@ -75,7 +75,7 @@ jobs:
 
           INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
-        run: npm test -- --project account-tests ngf-tests specific-tests
+        run: npm test -- --project account-tests ngf-tests specific-tests sitemap-tests
 
       # - name: Run advertisement tests (desktop >1412px)
       #   if: always()

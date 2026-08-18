@@ -4,6 +4,19 @@ import { Moba } from '../../app/page-object/moba';
 
 test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)));
 
+// Reward Pass sidebar can pop up at any moment and block clicks — auto-close it whenever it appears
+test.beforeEach(async ({ page }) => {
+  const rewardsSidebar = page.getByText('Reward Pass & Challenges');
+
+  await page.addLocatorHandler(
+    rewardsSidebar,
+    async () => {
+      await page.getByRole('button', { name: 'plus Rewards' }).click();
+    },
+    { noWaitAfter: false }
+  );
+});
+
 test.describe('Creating ST Pages', () => {
   //* Added new locator for header widget. It needs for testing purpose this locater
   test(`Create a structure page on STS 2 project`, async ({ cleanupStSts2Pages }) => {

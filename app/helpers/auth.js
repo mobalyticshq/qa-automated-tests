@@ -66,13 +66,15 @@ export const authByRole =
     state.origins = [
       {
         origin: process.env.BASE_URL,
-        localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
+        localStorage: [
+          { name: 'battle-pass-should-open-sidebar-on-load', value: '8b3ba68c-967e-4f9d-b140-ba360d2dfec3' },
+        ],
       },
     ];
 
     await context.addCookies(state.cookies);
     await context.addInitScript(() => {
-      window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', 'false');
+      window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', '8b3ba68c-967e-4f9d-b140-ba360d2dfec3');
     });
     await use();
   };

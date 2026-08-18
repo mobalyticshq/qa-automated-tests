@@ -1,54 +1,4 @@
-// const sitemapList = [
-//   { linkInList: `${process.env.BASE_URL}/lol/tier-list`, isPresentInProdSitemap: true, pathUrl: '/product-sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/valorant/maps`, isPresentInProdSitemap: true, pathUrl: '/valorant/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/post-sitemap.xml`, isPresentInProdSitemap: true, pathUrl: '/sitemap_index.xml' },
-//   { linkInList: `${process.env.BASE_URL}/zzz`, isPresentInProdSitemap: true, pathUrl: '/zzz/sitemap.xml' },
-//   {
-//     linkInList: `${process.env.BASE_URL}/lol/champions/swain/build`,
-//     isPresentInProdSitemap: true,
-//     pathUrl: '/champions-sitemap.xml',
-//   },
-//   { linkInList: `${process.env.BASE_URL}/tft/tier-list/items`, isPresentInProdSitemap: true, pathUrl: '/tft/sitemap.xml' },
-//   {
-//     linkInList: `${process.env.BASE_URL}/tft/set16/items`,
-//     isPresentInProdSitemap: true,
-//     pathUrl: '/tft/set16/sitemap.xml',
-//   },
-//   { linkInList: `${process.env.BASE_URL}/destiny-2`, isPresentInProdSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
-//   {
-//     linkInList: `${process.env.BASE_URL}/example-game`,
-//     isPresentInProdSitemap: false,
-//     pathUrl: '/example-game/sitemap.xml',
-//   },
-//   { linkInList: `${process.env.BASE_URL}/diablo-4`, isPresentInProdSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
-//   {
-//     linkInList: `${process.env.BASE_URL}/elden-ring-nightreign`,
-//     isPresentInProdSitemap: true,
-//     pathUrl: '/elden-ring-nightreign/sitemap.xml',
-//   },
-//   {
-//     linkInList: `${process.env.BASE_URL}/marvel-rivals`,
-//     isPresentInProdSitemap: true,
-//     pathUrl: '/marvel-rivals/sitemap.xml',
-//   },
-//   { linkInList: `${process.env.BASE_URL}/mhw`, isPresentInProdSitemap: true, pathUrl: '/mhw/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/hades-2`, isPresentInProdSitemap: true, pathUrl: '/hades-2/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/news`, isPresentInProdSitemap: true, pathUrl: '/news/sitemap.xml' },
-//   {
-//     linkInList: `${process.env.BASE_URL}/borderlands-4`,
-//     isPresentInProdSitemap: true,
-//     pathUrl: '/borderlands-4/sitemap.xml',
-//   },
-//   { linkInList: `${process.env.BASE_URL}/deadlock`, isPresentInProdSitemap: true, pathUrl: '/deadlock/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/poe-2`, isPresentInProdSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/the-bazaar`, isPresentInProdSitemap: true, pathUrl: '/the-bazaar/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/poe`, isPresentInProdSitemap: true, pathUrl: '/poe/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/riftbound`, isPresentInProdSitemap: true, pathUrl: '/riftbound/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/2xko`, isPresentInProdSitemap: true, pathUrl: '/2xko/sitemap.xml' },
-//   { linkInList: `${process.env.BASE_URL}/arknights-endfield`, isPresentInProdSitemap: true, pathUrl: '/arknights-endfield/sitemap.xml' },
-// ];
-
-const projectListFromSitemap = [
+export const projectListFromSitemap = [
   { project: 'ZZZ', isPresentInProdSitemap: true, pathUrl: '/zzz/sitemap.xml' },
   { project: 'Example Game', isPresentInProdSitemap: false, pathUrl: '/example-game/sitemap.xml' },
   { project: 'Valorant', isPresentInProdSitemap: true, pathUrl: '/valorant/sitemap.xml' },
@@ -64,7 +14,6 @@ const projectListFromSitemap = [
   { project: 'Marvel Rivals', isPresentInProdSitemap: true, pathUrl: '/marvel-rivals/sitemap.xml' },
   { project: 'Monster Hunter Wilds', isPresentInProdSitemap: true, pathUrl: '/mhw/sitemap.xml' },
   { project: 'Hades 2', isPresentInProdSitemap: true, pathUrl: '/hades-2/sitemap.xml' },
-  { project: 'News', isPresentInProdSitemap: true, pathUrl: '/news/sitemap.xml' },
   { project: 'Borderlands 4', isPresentInProdSitemap: true, pathUrl: '/borderlands-4/sitemap.xml' },
   { project: 'Deadlock', isPresentInProdSitemap: true, pathUrl: '/deadlock/sitemap.xml' },
   { project: 'PoE 2', isPresentInProdSitemap: true, pathUrl: '/poe-2/sitemap.xml' },
@@ -76,6 +25,9 @@ const projectListFromSitemap = [
   { project: 'Marathon', isPresentInProdSitemap: true, pathUrl: '/marathon/sitemap.xml' },
   { project: 'Overwatch', isPresentInProdSitemap: true, pathUrl: '/overwatch/sitemap.xml' },
   { project: 'STS2', isPresentInProdSitemap: true, pathUrl: '/slay-the-spire-2/sitemap.xml' },
+  { project: 'Genshin', isPresentInProdSitemap: true, pathUrl: '/genshin-impact/sitemap.xml' },
+  { project: 'Set 17', isPresentInProdSitemap: true, pathUrl: '/tft/set17/sitemap.xml' },
+  { project: 'Set 16', isPresentInProdSitemap: true, pathUrl: '/tft/set16/sitemap.xml' },
+  { project: 'Set 18', isPresentInProdSitemap: true, pathUrl: '/tft/set18/sitemap.xml' },
+  { project: 'Gamebase', isPresentInProdSitemap: true, pathUrl: '/gamebase/sitemap.xml' },
 ];
-
-export { projectListFromSitemap };
