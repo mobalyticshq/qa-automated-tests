@@ -130,7 +130,7 @@ export class MainURLs {
 
   async openAdminBazaarPage() {
     await test.step(`Open 'Bazaar' ST admin page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/the-bazaar/admin?beta-v2`, {
+      await this.page.goto(`${process.env.BASE_URL}/the-bazaar/admin`, {
         waitUntil: 'domcontentloaded',
       });
     });
