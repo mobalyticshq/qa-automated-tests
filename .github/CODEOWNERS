@@ -1,4 +1,0 @@
-# CODEOWNERS
-# Auto-requests review from @mobalyticshq/devops on any change under .github/
-# Managed centrally across the mobalyticshq org — keep in sync.
-/.github/ @mobalyticshq/devops

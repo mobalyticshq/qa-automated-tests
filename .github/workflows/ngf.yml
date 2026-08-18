@@ -35,7 +35,7 @@ env:
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
 jobs:
-  ngf-tests:
+  common-tests:
     runs-on: ubuntu-latest
     env:
       REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/ngf
