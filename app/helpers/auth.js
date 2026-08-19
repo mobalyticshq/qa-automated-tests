@@ -28,10 +28,12 @@ export async function saveAuthState(request, { email, password, statePath }) {
   const state = await request.storageState();
   expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
 
+  const uid = await getAccountUid(request);
+
   state.origins = [
     {
       origin: process.env.BASE_URL,
-      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: 'false' }],
+      localStorage: [{ name: 'battle-pass-should-open-sidebar-on-load', value: uid }],
     },
   ];
 
@@ -63,18 +65,24 @@ export const authByRole =
     const state = await request.storageState();
     expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
 
-    state.origins = [
-      {
-        origin: process.env.BASE_URL,
-        localStorage: [
-          { name: 'battle-pass-should-open-sidebar-on-load', value: 'false' },
-        ],
-      },
-    ];
+    const uid = await getAccountUid(request);
 
     await context.addCookies(state.cookies);
-    await context.addInitScript(() => {
-      window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', 'false');
-    });
+    await context.addInitScript((value) => {
+      window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', value);
+    }, uid);
     await use();
   };
+
+export async function getAccountUid(request) {
+  const response = await request.post(apiEndpoint, {
+    data: {
+      query: '{ account { uid } }',
+    },
+    headers: { 'Content-Type': 'application/json' },
+  });
+  expect(response.ok(), `AccountInfoQuery failed: ${response.status()}`).toBeTruthy();
+
+  const body = await response.json();
+  return body.data.account.uid;
+}

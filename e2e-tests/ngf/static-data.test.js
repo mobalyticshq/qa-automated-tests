@@ -2,18 +2,6 @@ import { test, expect } from '../fixtures/fixture';
 import { Moba } from '../../app/page-object/moba';
 import { filterProjectsByFeatureStatus as filterProjectsByAvailableStaticData } from '../../app/helpers/index';
 
-test.beforeEach(async ({ page }) => {
-  const rewardsSidebar = page.getByText('Reward Pass & Challenges');
-
-  await page.addLocatorHandler(
-    rewardsSidebar,
-    async () => {
-      await page.getByRole('button', { name: 'plus Rewards' }).click();
-    },
-    { noWaitAfter: false }
-  );
-});
-
 filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticData }) => {
   const { staticDataStPage, gameSpecificItem, exactMatch } = staticData;
 

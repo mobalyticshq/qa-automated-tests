@@ -54,7 +54,7 @@ export default defineConfig({
   projects: [
     {
       name: 'auth-setup',
-      testMatch: '**/auth.setup.test.js',
+      testMatch: '**/authByPermissions.setup.test.js',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'off',
@@ -63,7 +63,7 @@ export default defineConfig({
     },
     {
       name: 'user-roles-setup',
-      testMatch: '**/userRoles.setup.test.js',
+      testMatch: '**/authByUserRoles.setup.test.js',
       use: {
         trace: 'retain-on-failure',
         screenshot: 'off',

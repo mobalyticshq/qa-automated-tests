@@ -2,17 +2,6 @@ import { test, expect, devices } from '@playwright/test';
 import { filterProjectsByFeatureStatus as filterProjectsByAdvertisement } from '../../app/helpers/index';
 const { defaultBrowserType: _1, ...galaxyS24 } = devices['Galaxy S24']; // 360x780 viewport size
 
-test.beforeEach(async ({ page }) => {
-  const rewardsSidebar = page.getByText('Reward Pass & Challenges');
-
-  await page.addLocatorHandler(
-    rewardsSidebar,
-    async () => {
-      await page.getByRole('button', { name: 'plus Rewards' }).click();
-    },
-    { noWaitAfter: false }
-  );
-});
 
 test.describe('Verify ad blocks for guest user', async () => {
   test.use({ ...galaxyS24 }); // set up the mobile device 360x780 viewport size

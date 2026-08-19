@@ -3,17 +3,6 @@ import { test, expect } from '../fixtures/fixture';
 import { Moba } from '../../app/page-object/moba';
 
 test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)));
-test.beforeEach(async ({ page }) => {
-  const rewardsSidebar = page.getByText('Reward Pass & Challenges');
-
-  await page.addLocatorHandler(
-    rewardsSidebar,
-    async () => {
-      await page.getByRole('button', { name: 'plus Rewards' }).click();
-    },
-    { noWaitAfter: false }
-  );
-});
 
 test.describe('Admin permission', () => {
   test.use({ storageState: '.auth/adminAuth.json' }); // add admin auth
