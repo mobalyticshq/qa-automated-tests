@@ -24,11 +24,19 @@ export async function saveAuthState(request, { email, password, statePath }) {
     },
   });
   expect(loginResponse.ok()).toBeTruthy();
-
   const state = await request.storageState();
   expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
 
-  const uid = await getAccountUid(request);
+  // const uid = await getAccountUid(request);
+  const response = await request.post(apiEndpoint, {
+    data: {
+      query: '{ account { uid } }',
+    },
+    headers: { 'Content-Type': 'application/json' },
+  });
+  expect(response.ok(), `AccountInfoQuery failed: ${response.status()}`).toBeTruthy();
+  const body = await response.json();
+  const uid = body.data.account.uid;
 
   state.origins = [
     {
@@ -65,7 +73,16 @@ export const authByRole =
     const state = await request.storageState();
     expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
 
-    const uid = await getAccountUid(request);
+    // const uid = await getAccountUid(request);
+    const response = await request.post(apiEndpoint, {
+      data: {
+        query: '{ account { uid } }',
+      },
+      headers: { 'Content-Type': 'application/json' },
+    });
+    expect(response.ok(), `AccountInfoQuery failed: ${response.status()}`).toBeTruthy();
+    const body = await response.json();
+    const uid = body.data.account.uid;
 
     await context.addCookies(state.cookies);
     await context.addInitScript((value) => {
@@ -73,16 +90,3 @@ export const authByRole =
     }, uid);
     await use();
   };
-
-export async function getAccountUid(request) {
-  const response = await request.post(apiEndpoint, {
-    data: {
-      query: '{ account { uid } }',
-    },
-    headers: { 'Content-Type': 'application/json' },
-  });
-  expect(response.ok(), `AccountInfoQuery failed: ${response.status()}`).toBeTruthy();
-
-  const body = await response.json();
-  return body.data.account.uid;
-}
