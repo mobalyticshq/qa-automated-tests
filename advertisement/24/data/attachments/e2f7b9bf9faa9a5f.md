@@ -1,0 +1,283 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: advertisement/ad-unauthorized-user.test.js >> Verify ad blocks for guest user >> Check video block & footer banner for unauthorized user - Borderlands 4 in mobile at 360x780 viewport size
+- Location: e2e-tests/advertisement/ad-unauthorized-user.test.js:10:5
+
+# Error details
+
+```
+Error: expect(locator).toBeAttached() failed
+
+Locator: locator('#bl4-video-all-pages-mobile').or(locator('#borderlands-4-nitro-video'))
+Expected: attached
+Timeout: 15000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "soft toBeAttached" with timeout 15000ms
+  - waiting for locator('#bl4-video-all-pages-mobile').or(locator('#borderlands-4-nitro-video'))
+
+```
+
+```yaml
+- main:
+  - img "Icon for mobalytics.gg"
+  - heading "mobalytics.gg" [level=1]
+  - heading "Performing security verification" [level=2]
+  - paragraph: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+- contentinfo:
+  - text: "Ray ID:"
+  - code: a2e71d326b92ebe5
+  - text: Performance and Security by
+  - link "Cloudflare, opens in a new tab":
+    - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+    - text: Cloudflare
+  - link "Privacy, opens in a new tab":
+    - /url: https://www.cloudflare.com/privacypolicy/
+    - text: Privacy
+```
+
+```
+Error: expect(locator).toBeAttached() failed
+
+Locator: locator('#web-borderlands-4-display-footer-m').or(locator('#borderlands-4-nitro-anchor-mobile'))
+Expected: attached
+Timeout: 15000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "soft toBeAttached" with timeout 15000ms
+  - waiting for locator('#web-borderlands-4-display-footer-m').or(locator('#borderlands-4-nitro-anchor-mobile'))
+
+```
+
+```yaml
+- main:
+  - img "Icon for mobalytics.gg"
+  - heading "mobalytics.gg" [level=1]
+  - heading "Performing security verification" [level=2]
+  - paragraph: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+- contentinfo:
+  - text: "Ray ID:"
+  - code: a2e71d326b92ebe5
+  - text: Performance and Security by
+  - link "Cloudflare, opens in a new tab":
+    - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+    - text: Cloudflare
+  - link "Privacy, opens in a new tab":
+    - /url: https://www.cloudflare.com/privacypolicy/
+    - text: Privacy
+```
+
+# Test source
+
+```ts
+  360 |                   .first()
+  361 |               )
+  362 |               .not.toBeVisible();
+  363 |           });
+  364 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  365 |             await expect
+  366 |               .soft(page.locator('#deadlock-display-small-all-pages').or(page.locator('#deadlock-nitro-m')))
+  367 |               .not.toBeVisible();
+  368 |           });
+  369 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  370 |             await expect
+  371 |               .soft(page.locator('#web-deadlock-display-footer-m').or(page.locator('#deadlock-nitro-anchor-mobile')))
+  372 |               .toBeAttached();
+  373 |           });
+  374 |           break;
+  375 |         case 'Diablo 4':
+  376 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  377 |             await expect
+  378 |               .soft(page.locator('#diablo-4-video-all-pages-mobile').or(page.locator('#diablo-4-nitro-video')))
+  379 |               .toBeAttached();
+  380 |           });
+  381 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  382 |             await expect
+  383 |               .soft(
+  384 |                 page
+  385 |                   .locator('#diablo-4-display-all-pages')
+  386 |                   .or(page.locator('#diablo-4-nitro-l'))
+  387 |                   .or(page.locator('#diablo-4-nitro-3'))
+  388 |                   .first()
+  389 |               )
+  390 |               .not.toBeVisible();
+  391 |           });
+  392 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  393 |             await expect
+  394 |               .soft(page.locator('#diablo-4-display-small-all-pages').or(page.locator('#diablo-4-nitro-m')))
+  395 |               .not.toBeVisible();
+  396 |           });
+  397 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  398 |             await expect
+  399 |               .soft(page.locator('#web-diablo-4-display-footer-m').or(page.locator('#diablo-4-nitro-anchor-mobile')))
+  400 |               .toBeAttached();
+  401 |           });
+  402 |           break;
+  403 |         case 'Destiny 2':
+  404 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  405 |             await expect
+  406 |               .soft(page.locator('#destiny-2-video-all-pages-mobile').or(page.locator('#destiny-2-nitro-video')))
+  407 |               .toBeAttached();
+  408 |           });
+  409 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  410 |             await expect
+  411 |               .soft(
+  412 |                 page
+  413 |                   .locator('#destiny-2-display-all-pages')
+  414 |                   .or(page.locator('#destiny-2-nitro-l'))
+  415 |                   .or(page.locator('#destiny-2-nitro-3'))
+  416 |                   .first()
+  417 |               )
+  418 |               .not.toBeVisible();
+  419 |           });
+  420 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  421 |             await expect
+  422 |               .soft(page.locator('#destiny-2-display-small-all-pages').or(page.locator('#destiny-2-nitro-m')))
+  423 |               .not.toBeVisible();
+  424 |           });
+  425 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  426 |             await expect
+  427 |               .soft(page.locator('#web-destiny-2-display-footer-m').or(page.locator('#destiny-2-nitro-anchor-mobile')))
+  428 |               .toBeAttached();
+  429 |           });
+  430 |           break;
+  431 |         case 'Borderlands 4':
+  432 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  433 |             await expect
+  434 |               .soft(page.locator('#bl4-video-all-pages-mobile').or(page.locator('#borderlands-4-nitro-video')))
+  435 |               .toBeAttached();
+  436 |           });
+  437 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  438 |             await expect
+  439 |               .soft(
+  440 |                 page
+  441 |                   .locator('#bl4-display-all-pages')
+  442 |                   .or(page.locator('#borderlands-4-nitro-l'))
+  443 |                   .or(page.locator('#borderlands-4-nitro-3'))
+  444 |                   .first()
+  445 |               )
+  446 |               .not.toBeVisible();
+  447 |           });
+  448 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  449 |             await expect
+  450 |               .soft(page.locator('#bl4-display-small-all-pages').or(page.locator('#borderlands-4-nitro-m')))
+  451 |               .not.toBeVisible();
+  452 |           });
+  453 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  454 |             await expect
+  455 |               .soft(
+  456 |                 page
+  457 |                   .locator('#web-borderlands-4-display-footer-m')
+  458 |                   .or(page.locator('#borderlands-4-nitro-anchor-mobile'))
+  459 |               )
+> 460 |               .toBeAttached();
+      |                ^ Error: expect(locator).toBeAttached() failed
+  461 |           });
+  462 |           break;
+  463 |         case 'Hades 2':
+  464 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  465 |             await expect
+  466 |               .soft(page.locator('#hades-2-video-all-pages-mobile').or(page.locator('#hades-2-nitro-video')))
+  467 |               .toBeAttached();
+  468 |           });
+  469 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  470 |             await expect
+  471 |               .soft(
+  472 |                 page
+  473 |                   .locator('#hades-2-display-all-pages')
+  474 |                   .or(page.locator('#hades-2-nitro-l'))
+  475 |                   .or(page.locator('#hades-2-nitro-3'))
+  476 |                   .first()
+  477 |               )
+  478 |               .not.toBeVisible();
+  479 |           });
+  480 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  481 |             await expect
+  482 |               .soft(page.locator('#hades-2-display-small-all-pages').or(page.locator('#hades-2-nitro-m')))
+  483 |               .not.toBeVisible();
+  484 |           });
+  485 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  486 |             await expect
+  487 |               .soft(page.locator('#web-hades-2-display-footer-m').or(page.locator('#hades-2-nitro-anchor-mobile')))
+  488 |               .toBeAttached();
+  489 |           });
+  490 |           break;
+  491 |         case 'Endfield':
+  492 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  493 |             await expect
+  494 |               .soft(
+  495 |                 page.locator('#endfield-video-all-pages-mobile').or(page.locator('#arknights-endfield-nitro-video'))
+  496 |               )
+  497 |               .toBeAttached();
+  498 |           });
+  499 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  500 |             await expect
+  501 |               .soft(
+  502 |                 page
+  503 |                   .locator('#endfield-display-all-pages')
+  504 |                   .or(page.locator('#arknights-endfield-nitro-l'))
+  505 |                   .or(page.locator('#arknights-endfield-nitro-3'))
+  506 |                   .first()
+  507 |               )
+  508 |               .not.toBeVisible();
+  509 |           });
+  510 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  511 |             await expect
+  512 |               .soft(page.locator('#endfield-display-small-all-pages').or(page.locator('#arknights-endfield-nitro-m')))
+  513 |               .not.toBeVisible();
+  514 |           });
+  515 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  516 |             await expect
+  517 |               .soft(
+  518 |                 page
+  519 |                   .locator('#web-arknights-endfield-display-footer-m')
+  520 |                   .or(page.locator('#arknights-endfield-nitro-anchor-mobile'))
+  521 |               )
+  522 |               .toBeAttached();
+  523 |           });
+  524 |           break;
+  525 |         case 'Marathon':
+  526 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  527 |             await expect
+  528 |               .soft(page.locator('#marathon-video-all-pages-mobile').or(page.locator('#marathon-nitro-video')))
+  529 |               .toBeAttached();
+  530 |           });
+  531 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  532 |             await expect
+  533 |               .soft(
+  534 |                 page
+  535 |                   .locator('#marathon-display-all-pages')
+  536 |                   .or(page.locator('#marathon-nitro-l'))
+  537 |                   .or(page.locator('#marathon-nitro-3'))
+  538 |                   .first()
+  539 |               )
+  540 |               .not.toBeVisible();
+  541 |           });
+  542 |           await test.step(`Expected Result: Small vertical banner isn't present on the page`, async () => {
+  543 |             await expect
+  544 |               .soft(page.locator('#marathon-display-small-all-pages').or(page.locator('#marathon-nitro-m')))
+  545 |               .not.toBeVisible();
+  546 |           });
+  547 |           await test.step(`Expected Result: Footer banner is present on the page`, async () => {
+  548 |             await expect
+  549 |               .soft(page.locator('#web-marathon-display-footer-m').or(page.locator('#marathon-nitro-anchor-mobile')))
+  550 |               .toBeAttached();
+  551 |           });
+  552 |           break;
+  553 |         case 'Overwatch':
+  554 |           await test.step(`Expected Result: Video banner is present on the page`, async () => {
+  555 |             await expect
+  556 |               .soft(page.locator('#overwatch-video-all-pages-mobile').or(page.locator('#overwatch-nitro-video')))
+  557 |               .toBeAttached();
+  558 |           });
+  559 |           await test.step(`Expected Result: Big vertical banner isn't present on the page`, async () => {
+  560 |             await expect
+```
