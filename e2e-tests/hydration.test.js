@@ -84,23 +84,26 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -142,23 +145,26 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -199,23 +205,26 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -256,23 +265,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -313,23 +326,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -370,23 +387,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -427,23 +448,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -484,23 +509,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -541,23 +570,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -598,23 +631,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -655,23 +692,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -712,23 +753,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -769,23 +814,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -826,23 +875,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -883,23 +936,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -940,23 +997,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -1054,23 +1115,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {
@@ -1111,23 +1176,27 @@ test.describe('Check hydration is successfully for each project', () => {
         .slice(0, quantityLinks);
     });
 
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
     for (const takeLink of filteredLinks) {
-      const consoleMessages = [];
-      const pageErrors = [];
-      page.on('console', (msg) => {
-        if (msg.type() === 'error') {
-          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-          // console.log(consoleInfo);
-          consoleMessages.push(consoleInfo);
-        }
-      });
-      page.on('pageerror', (error) => {
-        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-        // if (error.message.match(/Minified React error #(418|423)/i)) {
-        //   console.log(errorInfo);
-        // }
-        pageErrors.push(errorInfo);
-      });
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
       const { link } = takeLink.groups; // extract groupName for convenient usage
 
       await test.step(`Open parsed page: ${link}`, async () => {

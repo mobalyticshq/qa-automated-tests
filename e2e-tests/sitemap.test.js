@@ -1,11 +1,41 @@
 import { test, expect } from '@playwright/test';
-import { projectListFromSitemap, projectSectionLinks } from '../app/helpers/index';
-import XMLParser from '@nodable/flexible-xml-parser';
+import { projectListFromSitemap } from '../app/helpers/index';
+// import XMLParser from '@nodable/flexible-xml-parser';
 
-test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, async ({ page, request }) => {
+test(`Each project sitemap.xml returns the expected status code`, async ({ request }) => {
   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
 
-  await test.step(`Open sitemap url: ${process.env.URL_SITEMAP}`, async () => {
+  for (const { project, isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
+    let response;
+    if (isProd && isPresentInProdSitemap === true) {
+      await test.step(`Request link: ${process.env.BASE_URL}${pathUrl}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
+      });
+      await test.step(`Expected Result: ${process.env.BASE_URL}${pathUrl} returns a successful status code ${response.status()}`, async () => {
+        expect.soft(response.ok()).toBeTruthy();
+      });
+    } else if (isProd && isPresentInProdSitemap === false) {
+      await test.step(`Request link: ${process.env.BASE_URL}${pathUrl}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
+      });
+      await test.step(`Expected Result: ${process.env.BASE_URL}${pathUrl} returns a unsuccessful status code ${response.status()} due this project is missing in sitemap`, async () => {
+        expect.soft(response.ok()).toBeFalsy();
+      });
+    } else {
+      await test.step(`Request link: ${process.env.BASE_URL}${project}`, async () => {
+        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
+      });
+      await test.step(`Expected Result: ${process.env.BASE_URL}${project} returns a successful status code`, async () => {
+        expect.soft(response.ok()).toBeTruthy();
+      });
+    }
+  }
+});
+
+test(`Sitemap index lists the expected project sitemaps`, async ({ page }) => {
+  const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
+
+  await test.step(`Open sitemap.xml: ${process.env.URL_SITEMAP}`, async () => {
     const response = await page.goto(process.env.URL_SITEMAP);
     expect(response.ok()).toBeTruthy();
   });
@@ -22,32 +52,6 @@ test(`Check project links in the main sitemap list ${process.env.URL_SITEMAP}`, 
     } else {
       await test.step(`Expected Result: ${project} is present in ${process.env.URL_SITEMAP}`, async () => {
         await expect.soft(page.locator('#folder0')).toContainText(`${process.env.BASE_URL}${pathUrl}`);
-      });
-    }
-  }
-
-  for (const { project, isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
-    let response;
-    if (isProd && isPresentInProdSitemap === true) {
-      await test.step(`Request link: ${process.env.URL_SITEMAP}${project}`, async () => {
-        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
-      });
-      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${project} returns a successful status code ${response.status()}`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
-      });
-    } else if (isProd && isPresentInProdSitemap === false) {
-      await test.step(`Request link: ${process.env.URL_SITEMAP}${project}`, async () => {
-        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
-      });
-      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${project} returns a unsuccessful status code ${response.status()} due this project is missing in sitemap`, async () => {
-        expect.soft(response.ok()).toBeFalsy();
-      });
-    } else {
-      await test.step(`Request link: ${process.env.URL_SITEMAP}${project}`, async () => {
-        response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
-      });
-      await test.step(`Expected Result: ${process.env.URL_SITEMAP}${project} returns a successful status code`, async () => {
-        expect.soft(response.ok()).toBeTruthy();
       });
     }
   }
