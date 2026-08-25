@@ -18,7 +18,7 @@ Hey, folks! There are two ways to launch tests:
 4. Select environment: PROD or STG in the dropdown. Then click the green **Run workflow** button.
 
    > You will see a message indicating "Workflow run was successfully requested."
-   > ![alt text](/images/worklow_run.png)
+   > ![alt text](app/images/worklow_run.png)
 
 5. Refresh the page and navigate to the running workflow _(a yellow circle indicates the workflow is running)_.
 
