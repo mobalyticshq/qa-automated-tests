@@ -18,7 +18,7 @@ Hey, folks! There are two ways to launch tests:
 4. Select environment: PROD or STG in the dropdown. Then click the green **Run workflow** button.
 
    > You will see a message indicating "Workflow run was successfully requested."
-   > ![alt text](src/images/worklow_run.png)
+   > ![alt text](/images/worklow_run.png)
 
 5. Refresh the page and navigate to the running workflow _(a yellow circle indicates the workflow is running)_.
 
@@ -26,17 +26,17 @@ Hey, folks! There are two ways to launch tests:
 
    > You will see each step of the running job in progress.
 
-   ![alt text](src/images/job-steps.png)
+   ![alt text](app/images/job-steps.png)
 
 Once the job is completed, you will receive one of two results:
 
 - A green checkmark ✅ means all tests passed successfully.
 
-  ![alt text](src/images/green.png)
+  ![alt text](app/images/green.png)
 
 - A red cross ❌ means some tests failed or are broken.
 
-  ![alt text](src/images/red.png)
+  ![alt text](app/images/red.png)
 
 ### Steps to Access the Allure Report
 
@@ -49,7 +49,7 @@ Once the job is completed, you will receive one of two results:
 4. Click the link in the **deploy** job.
 
    > Your Allure Report will open, displaying the results from the latest test run.
-   > ![alt text](src/images/allure-report.png)
+   > ![alt text](app/images/allure-report.png)
 
 <br>
 <br>
@@ -67,7 +67,7 @@ Once the job is completed, you will receive one of two results:
    git clone --branch main --single-branch https://github.com/mobalyticshq/qa-automated-tests.git .
    ```
 
-   > After the repository has been cloned successfully, you will see the new folders & files in your created folder and **done** status messages in the terminal process.![alt text](src/images/cloned-repo.png)
+   > After the repository has been cloned successfully, you will see the new folders & files in your created folder and **done** status messages in the terminal process.![alt text](app/images/cloned-repo.png)
 
 3. **Install Dependencies**
 
@@ -80,7 +80,7 @@ Once the job is completed, you will receive one of two results:
    ```
 
    > After installing dependencies, you will see the following messages in the terminal.
-   > ![alt text](src/images/install-dependecies.png)
+   > ![alt text](app/images/install-dependecies.png)
 
 4. **Set Up the `.env` File**
    - Rename the file `.env.example` to `.env`, retrieve the correct credentials from the #team-qa Slack channel, and update your .env with those values.
@@ -93,7 +93,7 @@ Once the job is completed, you will receive one of two results:
    ```
 
    > You will see the results of all executed tests displayed in the terminal.
-   > ![alt text](src/images/results.png)
+   > ![alt text](app/images/results.png)
 
 ### Steps to Access the Allure Report
 
@@ -104,9 +104,9 @@ npm run generate-report
 ```
 
 > Allure Report will be generated and opened in a new window
-> ![> src/images/allure-results.png](src/images/allure-results.png)
+> ![> app/images/allure-results.png](app/images/allure-results.png)
 
    <br>
    <br>
 
-> NOTE: To change the environment, navigate to the root project & find **.env** file then comment or uncomment the environment variables depending where you want to run tests STG or PROD![alt text](src/images/env.png)
+> NOTE: To change the environment, navigate to the root project & find **.env** file then comment or uncomment the environment variables depending where you want to run tests STG or PROD![alt text](app/images/env.png)

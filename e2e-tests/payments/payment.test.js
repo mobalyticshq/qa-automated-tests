@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/fixture';
 import { Moba } from '../../app/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
-test('Purchase Ad Free on MHW page', async ({ registerAccount, page }) => {
+test('Purchase Ad Free on MHW page', async ({ registerAccount }) => {
   const moba = registerAccount;
 
   await moba.navbar.gotoBillingInfoPage();
