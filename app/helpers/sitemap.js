@@ -27,7 +27,6 @@ export const projectListFromSitemap = [
   { project: 'STS2', isPresentInProdSitemap: true, pathUrl: '/slay-the-spire-2/sitemap.xml' },
   { project: 'Genshin', isPresentInProdSitemap: true, pathUrl: '/genshin-impact/sitemap.xml' },
   { project: 'Set 17', isPresentInProdSitemap: true, pathUrl: '/tft/set17/sitemap.xml' },
-  { project: 'Set 16', isPresentInProdSitemap: true, pathUrl: '/tft/set16/sitemap.xml' },
   { project: 'Set 18', isPresentInProdSitemap: true, pathUrl: '/tft/set18/sitemap.xml' },
   { project: 'Gamebase', isPresentInProdSitemap: true, pathUrl: '/gamebase/sitemap.xml' },
 ];

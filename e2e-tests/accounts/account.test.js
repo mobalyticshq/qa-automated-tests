@@ -2,8 +2,8 @@ import { test, expect } from '../fixtures/fixture';
 import { Moba } from '../../app/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
-test('Delete mobalytics account', async ({ page, registerAccount }) => {
-  const moba = registerAccount;
+test('Delete mobalytics account', async ({ page, uiRegisterAccount }) => {
+  const moba = uiRegisterAccount;
 
   await expect(moba.navbar.mgpProfileButton).toBeVisible();
   await page.goto(`${process.env.BASE_URL}/mhw/account-settings/account-information?beta-v2`);
