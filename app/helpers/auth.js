@@ -4,17 +4,10 @@ import { Moba } from '../../app/page-object/moba';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-export const apiEndpointV1 =
-  process.env.BASE_URL === 'https://mobalytics.gg'
-    ? 'https://mobalytics.gg/api/account/gql/v1/query'
-    : 'https://stg.mobalytics.gg/api/account/gql/v1/query';
-export const apiEndpointV2 =
-  process.env.BASE_URL === 'https://mobalytics.gg'
-    ? 'https://mobalytics.gg/api/accounts/v2/graphql/query'
-    : 'https://stg.mobalytics.gg/api/accounts/v2/graphql/query';
+export const apiEndpoint = `${process.env.BASE_URL}/api/accounts/v2/graphql/query`;
 
 export async function saveAuthState(request, { email, password, statePath }) {
-  const loginResponse = await request.post(apiEndpointV2, {
+  const loginResponse = await request.post(apiEndpoint, {
     data: {
       query: `
           mutation SignIn($input: AccountsSignInInput) {
@@ -41,16 +34,16 @@ export async function saveAuthState(request, { email, password, statePath }) {
   const state = await request.storageState();
   expect(state.cookies.length, `Session cookie isn't empty`).toBeGreaterThan(0);
 
-  const response = await request.post(apiEndpointV1, {
+  const response = await request.post(apiEndpoint, {
     data: {
-      query: '{ account { uid } }',
+      query: '{ accounts { currentUser { user { id } } } }',
     },
     headers: { 'Content-Type': 'application/json' },
   });
   expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
   const body = await response.json();
   expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
-  const uid = body.data.account.uid;
+  const uid = body.data.accounts.currentUser.user.id;
 
   state.origins = [
     {
@@ -66,8 +59,9 @@ export async function saveAuthState(request, { email, password, statePath }) {
 
 export const authByRole =
   (email, password) =>
-  async ({ request, context }, use) => {
-    const loginResponse = await request.post(apiEndpointV2, {
+  async ({ page, request, context }, use) => {
+    const moba = new Moba(page);
+    const loginResponse = await request.post(apiEndpoint, {
       data: {
         query: `
           mutation SignIn($input: AccountsSignInInput) {
@@ -94,22 +88,22 @@ export const authByRole =
     const state = await request.storageState();
     expect(state.cookies.length, `Session cookie isn't empty`).toBeGreaterThan(0);
 
-    const response = await request.post(apiEndpointV1, {
+    const response = await request.post(apiEndpoint, {
       data: {
-        query: '{ account { uid } }',
+        query: '{ accounts { currentUser { user { id } } } }',
       },
       headers: { 'Content-Type': 'application/json' },
     });
     expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
     const body = await response.json();
     expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
-    const uid = body.data.account.uid;
+    const uid = body.data.accounts.currentUser.user.id;
 
     await context.addCookies(state.cookies);
     await context.addInitScript((value) => {
       window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', value);
     }, uid);
-    await use();
+    await use(moba);
   };
 
 export const registerAccount = (typeRegister) => {
@@ -121,7 +115,7 @@ export const registerAccount = (typeRegister) => {
       const name = `ns+${uniqueId}@mobalyticshq.com`;
       const password = `ns+${uniqueId}@mobalyticshq.com`;
 
-      const signUpResponse = await request.post(apiEndpointV2, {
+      const signUpResponse = await request.post(apiEndpoint, {
         data: {
           query: `
           mutation SignUp {
@@ -147,16 +141,16 @@ export const registerAccount = (typeRegister) => {
       const state = await request.storageState();
       expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
 
-      const response = await request.post(apiEndpointV1, {
+      const response = await request.post(apiEndpoint, {
         data: {
-          query: '{ account { uid } }',
+          query: '{ accounts { currentUser { user { id } } } }',
         },
         headers: { 'Content-Type': 'application/json' },
       });
       expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
       const body = await response.json();
       expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
-      const uid = body.data.account.uid;
+      const uid = body.data.accounts.currentUser.user.id;
 
       await context.addCookies(state.cookies);
       await context.addInitScript((value) => {

@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
 import { makeStCleanup, authByRole, registerAccount } from '../../app/helpers/index';
 export { expect } from '@playwright/test';
 
@@ -8,6 +8,7 @@ export const test = base.extend({
   apiAuthAdmin: authByRole(process.env.ADMIN_EMAIL, process.env.ADMIN_PASSWORD),
   apiAuthGameManager: authByRole(process.env.GAME_MANAGER_EMAIL, process.env.GAME_MANAGER_PASSWORD),
   apiAuthInternalWriter: authByRole(process.env.INTERNAL_WRITER_EMAIL, process.env.INTERNAL_WRITER_PASSWORD),
+  apiPlusUser: authByRole(process.env.PLUS_USER_EMAIL, process.env.PLUS_USER_PASSWORD),
 
   cleanupStPoE2Pages: makeStCleanup((urls) => urls.openAdminPoe2Page()),
   cleanupStSts2Pages: makeStCleanup((urls) => urls.openAdminSts2Page()),
