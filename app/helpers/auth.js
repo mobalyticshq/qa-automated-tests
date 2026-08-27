@@ -1,4 +1,6 @@
 import { expect } from '@playwright/test';
+import { v4 as uuidv4 } from 'uuid';
+import { Moba } from '../../app/page-object/moba';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -110,45 +112,73 @@ export const authByRole =
     await use();
   };
 
-// export const apiRegisterAccount =
-//   (email, name, password) =>
-// async ({ request, context }, use) => {
-//   const signUpResponse = await request.post(apiRegisterAccEndpoint, {
-//     data: {
-//       query: `
-//         mutation SignUp{
-//           accounts {
-//             signUp(input: { "${email}", "${name}", "${password} "}) {
-//               error
-//             }
-//           }
-//         }
-//       `,
-//     },
-//     headers: { 'Content-type': 'application/json' },
-//   });
-//   const json = await signUpResponse.json();
-//   console.log(signUpResponse);
-//   console.log(json);
-//   expect(signUpResponse.ok()).toBeTruthy();
+export const registerAccount = (typeRegister) => {
+  if (typeRegister === 'api') {
+    return async ({ page, request, context }, use) => {
+      const moba = new Moba(page);
+      const uniqueId = uuidv4().substring(0, 4);
+      const email = `ns+${uniqueId}@mobalyticshq.com`;
+      const name = `ns+${uniqueId}@mobalyticshq.com`;
+      const password = `ns+${uniqueId}@mobalyticshq.com`;
 
-//   const state = await request.storageState();
-//   expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
+      const signUpResponse = await request.post(apiEndpointV2, {
+        data: {
+          query: `
+          mutation SignUp {
+            accounts {
+              signUp(input: { email: "${email}", password: "${password}", name: "${name}" }) {
+                error
+                user {
+                  id
+                  email
+                }
+              }
+            }
+          }
+        `,
+        },
+        headers: { 'Content-Type': 'application/json' },
+      });
+      expect(signUpResponse.ok(), `Status Code: ${signUpResponse.status()}`).toBeTruthy();
+      const json = await signUpResponse.json();
+      expect(json.errors, `GraphQL errors is missing: ${JSON.stringify(json.errors)}`).toBeFalsy();
+      expect(json.data?.accounts?.signUp?.error, `SignUp has no errors fo ${email}`).toBeFalsy();
 
-//   const response = await request.post(apiEndpoint, {
-//     data: {
-//       query: '{ account { uid } }',
-//     },
-//     headers: { 'Content-Type': 'application/json' },
-//   });
-//   expect(response.ok(), `AccountInfoQuery failed: ${response.status()}`).toBeTruthy();
-//   const body = await response.json();
-//   const uid = body.data.account.uid;
+      const state = await request.storageState();
+      expect(state.cookies.length, `no session cookie received for ${email}`).toBeGreaterThan(0);
 
-//   await context.addCookies(state.cookies);
-//   await context.addInitScript((value) => {
-//     window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', value);
-//   }, uid);
+      const response = await request.post(apiEndpointV1, {
+        data: {
+          query: '{ account { uid } }',
+        },
+        headers: { 'Content-Type': 'application/json' },
+      });
+      expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
+      const body = await response.json();
+      expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
+      const uid = body.data.account.uid;
 
-//   await use();
-// };
+      await context.addCookies(state.cookies);
+      await context.addInitScript((value) => {
+        window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', value);
+      }, uid);
+
+      await use(moba);
+    };
+  }
+
+  if (typeRegister === 'ui') {
+    return async ({ page }, use) => {
+      const credentials = `ns+${uuidv4().substring(0, 4)}@mobalyticshq.com`;
+      const moba = new Moba(page);
+
+      await moba.mainURLs.openMhwPage();
+      await moba.navbar.gotoSignInPage();
+      await moba.authorizePage.registerAccount(credentials);
+
+      await use(moba);
+    };
+  }
+
+  throw new Error(`registerAccount: unknown typeRegister "${typeRegister}", expected 'api' or 'ui'`);
+};

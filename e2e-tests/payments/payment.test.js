@@ -1,10 +1,11 @@
 import { test, expect } from '../fixtures/fixture';
-import { Moba } from '../../app/page-object/moba';
+// import { Moba } from '../../app/page-object/moba';
 import { v4 as uuidv4 } from 'uuid';
 
-test('Purchase Ad Free on MHW page', async ({ registerAccount }) => {
-  const moba = registerAccount;
+test('Purchase Ad Free on MHW page', async ({ page, apiRegisterAccount }) => {
+  const moba = apiRegisterAccount;
 
+  await moba.mainURLs.openDiablo4Page()
   await moba.navbar.gotoBillingInfoPage();
   await moba.navbar.clickRemoveAds();
   await moba.paymentPage.fillCardDetails('4242 4242 4242 4242', '12 30', '123');
