@@ -78,7 +78,7 @@ export default defineConfig({
         storageState: '.auth/adminAuth.json',
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
-        video: 'on-first-retry',
+        video: 'off',
       },
     },
     {
@@ -89,7 +89,7 @@ export default defineConfig({
         //   storageState: ".auth/userRoleAuth.json",
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
-        video: 'on-first-retry',
+        video: 'off',
       },
     },
     {
@@ -100,7 +100,7 @@ export default defineConfig({
         // storageState: '.auth/userRoleAuth.json',
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
-        video: 'on-first-retry',
+        video: 'off',
       },
     },
     {
@@ -110,7 +110,7 @@ export default defineConfig({
       use: {
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
-        video: 'on-first-retry',
+        video: 'off',
       },
     },
     {

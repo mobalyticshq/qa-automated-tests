@@ -5,7 +5,9 @@ import { test, expect } from '../fixtures/fixture';
 test.use({ storageState: { cookies: [], origins: [] } });
 
 test('Activate tracking build modal appears for unauthorized user', async ({ page }) => {
-  await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear');
+  await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear', {
+    waitUntil: 'domcontentloaded',
+  });
   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
   await expect
     .soft(

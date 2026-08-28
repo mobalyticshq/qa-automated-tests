@@ -26,7 +26,7 @@ export async function saveAuthState(request, { email, password, statePath }) {
       'Content-Type': 'application/json',
     },
   });
-  expect(loginResponse.ok(), `Status Code: ${loginResponse.status()}`).toBeTruthy();
+  expect(loginResponse.ok(), `Sign In status code: ${loginResponse.status()}`).toBeTruthy();
   const json = await loginResponse.json();
   expect(json.errors, `GraphQL errors is missing: ${JSON.stringify(json.errors)}`).toBeFalsy();
   expect(json.data?.accounts?.signIn?.error, `SignIn has no errors for ${email}`).toBeFalsy();
@@ -40,7 +40,7 @@ export async function saveAuthState(request, { email, password, statePath }) {
     },
     headers: { 'Content-Type': 'application/json' },
   });
-  expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
+  expect(response.ok(), `AccountInfoQuery status сode: ${response.status()}`).toBeTruthy();
   const body = await response.json();
   expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
   const uid = body.data.accounts.currentUser.user.id;
@@ -80,7 +80,7 @@ export const authByRole =
         'Content-Type': 'application/json',
       },
     });
-    expect(loginResponse.ok(), `Status Code: ${loginResponse.status()}`).toBeTruthy();
+    expect(loginResponse.ok(), `Sign In status code: ${loginResponse.status()}`).toBeTruthy();
     const json = await loginResponse.json();
     expect(json.errors, `GraphQL errors is missing: ${JSON.stringify(json.errors)}`).toBeFalsy();
     expect(json.data?.accounts?.signIn?.error, `SignIn has no errors for ${email}`).toBeFalsy();
@@ -94,7 +94,7 @@ export const authByRole =
       },
       headers: { 'Content-Type': 'application/json' },
     });
-    expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
+    expect(response.ok(), `AccountInfoQuery status code: ${response.status()}`).toBeTruthy();
     const body = await response.json();
     expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
     const uid = body.data.accounts.currentUser.user.id;
@@ -133,7 +133,7 @@ export const registerAccount = (typeRegister) => {
         },
         headers: { 'Content-Type': 'application/json' },
       });
-      expect(signUpResponse.ok(), `Status Code: ${signUpResponse.status()}`).toBeTruthy();
+      expect(signUpResponse.ok(), `Sign Up status code: ${signUpResponse.status()}`).toBeTruthy();
       const json = await signUpResponse.json();
       expect(json.errors, `GraphQL errors is missing: ${JSON.stringify(json.errors)}`).toBeFalsy();
       expect(json.data?.accounts?.signUp?.error, `SignUp has no errors fo ${email}`).toBeFalsy();
@@ -147,7 +147,7 @@ export const registerAccount = (typeRegister) => {
         },
         headers: { 'Content-Type': 'application/json' },
       });
-      expect(response.ok(), `AccountInfoQuery is passed with status: ${response.status()}`).toBeTruthy();
+      expect(response.ok(), `AccountInfoQuery status code: ${response.status()}`).toBeTruthy();
       const body = await response.json();
       expect(body.errors, `GraphQL errors is missing: ${JSON.stringify(body.errors)}`).toBeFalsy();
       const uid = body.data.accounts.currentUser.user.id;
