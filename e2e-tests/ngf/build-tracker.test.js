@@ -8,14 +8,17 @@ test('Activate tracking build modal appears for unauthorized user', async ({ pag
   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear', {
     waitUntil: 'domcontentloaded',
   });
-  await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
-  await expect
-    .soft(
+
+  await expect(async () => {
+    await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+    await expect(
       page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
       `Activate Tracking button is present`
-    )
-    .toBeVisible();
+    ).toBeVisible();
+  }).toPass({ intervals: [1_000, 2_000], timeout: 20_000 });
+
   await page.locator('.x10l6tqk.x8l1umf').click();
+
   await expect
     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
     .toBeVisible();
