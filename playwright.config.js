@@ -5,6 +5,44 @@ import dotenv from 'dotenv';
 
 dotenv.config({ quiet: true });
 
+/**
+ * Playwright AI agents (planner / generator / healer) drive a paused "seed" test to
+ * explore the app and generate specs. Seed projects live behind PW_AGENT_MODE so a
+ * normal `npm test` never runs them; the agents get the flag from .mcp.json.
+ * Manual use:  PW_AGENT_MODE=1 npm test -- --project seed-admin
+ */
+const agentSeedProjects = process.env.PW_AGENT_MODE
+  ? [
+      {
+        name: 'seed-anonymous',
+        testDir: 'e2e-tests/agent-seeds',
+        testMatch: '**/anonymous.seed.test.js',
+        use: { trace: 'off', screenshot: 'off', video: 'off' },
+      },
+      {
+        name: 'seed-admin',
+        testDir: 'e2e-tests/agent-seeds',
+        testMatch: '**/admin.seed.test.js',
+        dependencies: ['auth-setup'],
+        use: { storageState: '.auth/adminAuth.json', trace: 'off', screenshot: 'off', video: 'off' },
+      },
+      {
+        name: 'seed-regular-user',
+        testDir: 'e2e-tests/agent-seeds',
+        testMatch: '**/regular-user.seed.test.js',
+        dependencies: ['user-roles-setup'],
+        use: { storageState: '.auth/regularUserAuth.json', trace: 'off', screenshot: 'off', video: 'off' },
+      },
+      {
+        name: 'seed-plus-user',
+        testDir: 'e2e-tests/agent-seeds',
+        testMatch: '**/plus-user.seed.test.js',
+        dependencies: ['user-roles-setup'],
+        use: { storageState: '.auth/plusUserAuth.json', trace: 'off', screenshot: 'off', video: 'off' },
+      },
+    ]
+  : [];
+
 export default defineConfig({
   timeout: 90_000,
   expect: { timeout: 15_000 },
@@ -141,5 +179,6 @@ export default defineConfig({
         trace: 'off',
       },
     },
+    ...agentSeedProjects,
   ],
 });

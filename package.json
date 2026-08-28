@@ -6,6 +6,8 @@
   "scripts": {
     "test": "npx playwright test",
     "ui": "npx playwright test --ui",
+    "seeds": "PW_AGENT_MODE=1 npx playwright test --project seed-anonymous --project seed-admin --project seed-regular-user --project seed-plus-user",
+    "agents:init": "PW_AGENT_MODE=1 npx playwright init-agents --loop=claude --project=seed-anonymous",
     "generate-report": "npx allure generate allure-results -o allure-report && npx allure open ./allure-report/",
     "open-report": "npx allure open ./allure-report/",
     "telegram": "java -DconfigFile=notifications/config.json -jar notifications/allure-notifications-4.9.0.jar"
