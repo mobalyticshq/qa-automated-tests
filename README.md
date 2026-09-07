@@ -110,3 +110,67 @@ npm run generate-report
    <br>
 
 > NOTE: To change the environment, navigate to the root project & find **.env** file then comment or uncomment the environment variables depending where you want to run tests STG or PROD![alt text](app/images/env.png)
+
+## Writing Tests From a Manual QA Spec (AI-Assisted)
+
+You do not need to write Playwright code to add a test. Write the test case as Markdown in
+`specs/`, and Playwright's AI agents explore the live app, execute your steps in a real
+browser, and produce a normal `*.test.js` file for review.
+
+**The AI runs once, when the test is authored. CI runs plain Playwright — no model, no API
+key, no extra cost per run.**
+
+```
+specs/your-feature.md          you write this
+        │
+        ▼  /qa-spec specs/your-feature.md      (in Claude Code)
+e2e-tests/<area>/<scenario>.test.js            reviewed in a PR, committed
+        │
+        ▼  npm test
+Allure report
+```
+
+### Start here
+
+1. Read [`specs/README.md`](specs/README.md) — the spec format, with the rules for writing
+   good steps.
+2. Copy [`specs/_TEMPLATE.md`](specs/_TEMPLATE.md) and fill it in.
+   [`specs/plus-upsell.md`](specs/plus-upsell.md) is a worked example.
+3. Pick the seed that matches the login state your case needs (anonymous, admin, regular
+   user, Plus user).
+4. In Claude Code, run `/qa-spec specs/your-feature.md`.
+5. Review the generated test, then open a PR.
+
+Don't know the flow well enough to write the spec? Run `/qa-plan <feature>` and the planner
+agent will explore the app and draft one for you to correct.
+
+### One-time setup
+
+```bash
+npm install && npx playwright install --with-deps
+```
+
+A `.env` file with `BASE_URL` and the role credentials is required — the agents drive the real
+app, so without it the seed tests fail with `Cannot navigate to invalid URL`. See
+[`.env.example`](.env.example); values are in the `team-qa` Slack channel.
+
+Claude Code must be restarted after the first checkout so it picks up the `playwright-test`
+MCP server from [`.mcp.json`](.mcp.json), and you have to approve the server when prompted.
+
+Check the plumbing before writing a spec:
+
+```bash
+npm run seeds
+```
+
+All four seed tests must pass. If a seed fails, the agents cannot generate anything — fix the
+environment first (usually a missing `.env` value or a stale `.auth/` state).
+
+### For automation engineers
+
+- [`specs/CONVENTIONS.md`](specs/CONVENTIONS.md) — the house rules generated code is held to,
+  and the review checklist.
+- `/qa-heal <project|file|test title>` — diagnose and fix a failing test.
+- `npm run agents:init` — regenerate the agent definitions after a Playwright upgrade. This
+  overwrites `.claude/agents/*.md`, so never hand-edit those files; repo-specific rules live
+  in `specs/CONVENTIONS.md` and in the seed file comments.
