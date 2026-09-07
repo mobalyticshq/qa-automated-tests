@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/build-tracker
-      TESTS_NAME: 'NGF'
+      TESTS_NAME: 'Build-Tracker'
     steps:
       - name: Clone the code from repository into runner (virtual machine)
         uses: actions/checkout@v6.0.2
