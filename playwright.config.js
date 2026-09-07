@@ -83,7 +83,7 @@ export default defineConfig({
     },
     {
       name: 'account-tests',
-      // dependencies: ["setup"],
+      // dependencies: ["auth-setup"],
       testDir: 'e2e-tests/accounts',
       use: {
         //   storageState: ".auth/userRoleAuth.json",
@@ -94,10 +94,21 @@ export default defineConfig({
     },
     {
       name: 'payment-tests',
-      // dependencies: ["setup"],
+      // dependencies: ["auth-setup"],
       testDir: 'e2e-tests/payments',
       use: {
         // storageState: '.auth/userRoleAuth.json',
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'off',
+      },
+    },
+    {
+      name: 'build-tracker-tests',
+      dependencies: ['auth-setup'],
+      testDir: 'e2e-tests/build-tracker',
+      use: {
+        storageState: '.auth/userRoleAuth.json',
         trace: 'retain-on-failure',
         screenshot: 'only-on-failure',
         video: 'off',
