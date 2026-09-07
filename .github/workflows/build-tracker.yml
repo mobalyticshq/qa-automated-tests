@@ -3,13 +3,8 @@ name: build-tracker-tests
 
 # When launch auto-tests
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
   schedule:
-    - cron: '00 4 * * *'
-    - cron: '00 10 * * 2,4'
+    - cron: '00 4 * * 5'
 
   # Manual hook for launch
   workflow_dispatch:
@@ -21,12 +16,10 @@ on:
         options:
           - STG
           - PROD
-        default: 'STG'
+        default: 'PROD'
 
 permissions:
   contents: write
-  pull-requests: write
-  checks: write
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
