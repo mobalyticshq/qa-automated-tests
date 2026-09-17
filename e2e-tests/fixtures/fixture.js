@@ -10,6 +10,7 @@ export const test = base.extend({
   apiAuthInternalWriter: authByRole(process.env.INTERNAL_WRITER_EMAIL, process.env.INTERNAL_WRITER_PASSWORD),
   apiPlusUser: authByRole(process.env.PLUS_USER_EMAIL, process.env.PLUS_USER_PASSWORD),
 
+  cleanupStWoWPages: makeStCleanup((urls) => urls.openAdminWoWPage()),
   cleanupStPoE2Pages: makeStCleanup((urls) => urls.openAdminPoe2Page()),
   cleanupStSts2Pages: makeStCleanup((urls) => urls.openAdminSts2Page()),
   cleanupStOverwatchPages: makeStCleanup((urls) => urls.openAdminOverwatchPage()),
