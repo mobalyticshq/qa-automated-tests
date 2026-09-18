@@ -25,6 +25,8 @@ export class UgBuildPage {
     this.descriptionBuildOverviewVariants = page.locator('span[data-lexical-text="true"]');
     this.getDescriptionBuildOverviewVariants = (text) =>
       page.locator('span[data-lexical-text="true"]').filter({ hasText: text });
+    this.commentButton = page.getByRole('button', { name: 'Comment', exact: true });
+
   }
 
   async createUgDraftPage(pageName) {
@@ -48,6 +50,11 @@ export class UgBuildPage {
     });
   }
 
+  async postEmptyComment() {
+    await test.step('Post empty comment', async ()=> {
+      await this.commentButton.click();
+    } )
+  }
   // getDescriptionBuildOverviewVariants(text) {
   //   return this.descriptionBuildOverviewVariants.filter({ hasText: text });
   // }

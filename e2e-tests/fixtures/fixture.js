@@ -1,5 +1,6 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
 import { makeStCleanup, authByRole, registerAccount } from '../../app/helpers/index';
+import { Moba } from '../../app/page-object/moba';
 export { expect } from '@playwright/test';
 
 export const test = base.extend({
@@ -31,4 +32,15 @@ export const test = base.extend({
   cleanupStBazaarPages: makeStCleanup((urls) => urls.openAdminBazaarPage()),
   cleanupStZzzPages: makeStCleanup((urls) => urls.openAdminZzzPage()),
   cleanupStRiftboundPages: makeStCleanup((urls) => urls.openAdminRiftboundPage()),
+
+  postComment: async({ apiAuthAdmin }, use) => {
+    const moba = apiAuthAdmin;
+    const textComment = 'Hello Katia';
+
+    await moba.mainURLs.openUgCommentsWidget();
+    await moba.commentsWidget.postComments(textComment);
+    await expect(moba.commentsWidget.textComment(textComment).first()).toBeVisible();
+    
+    await use(moba);
+  }
 });
