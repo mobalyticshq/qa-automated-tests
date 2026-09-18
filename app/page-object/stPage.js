@@ -93,7 +93,9 @@ export class StPage {
     this.richTextButton = page.locator('[data-key="NgfDocumentCmWidgetRichTextV2"]');
     this.staticDataButton = page.getByTestId('toolbar-plugin-static-data');
     this.dropdownStaticData = page.getByTestId('suggestion-static-data-menu');
-  }
+    this.perimeterMapButton = page.getByAltText('Perimeter Map');
+    this.closeMapModalButton = page.getByTestId('image-preview-modal-icon-close');
+  } 
 
   async updateDescriptionRichTextWidget(text) {
     await test.step(`Update description in the rich text widget on the ST page`, async () => {
