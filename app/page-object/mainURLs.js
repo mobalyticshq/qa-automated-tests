@@ -79,7 +79,15 @@ export class MainURLs {
       });
     });
   }
-
+  
+  async openMarathonPerimeterMapPage() {
+    await test.step('Open Marathon perimeter map page', async () => {
+      await this.page.goto(`${process.env.BASE_URL}/marathon/maps/perimeter`, { 
+        waitUntil: 'load'
+      });
+    });
+  }
+  
   async openAdminEndfieldPage() {
     await test.step(`Open 'Endfield' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/arknights-endfield/admin`, {
