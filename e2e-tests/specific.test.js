@@ -2,128 +2,126 @@ import { v4 as uuidv4 } from 'uuid';
 import { test, expect } from './fixtures/fixture';
 import { Moba } from '../app/page-object/moba';
 
-test.fixme(
-  'Check x-moba-ssr-cache header & new content are present on MHW build page',
-  {
-    annotation: {
-      type: 'Issue',
-      description: 'Currently ssr-cache feature is reworking,should be fixed after reworking is done',
-    },
-  },
-  async ({ browser }) => {
-    test.skip(
-      process.env.BASE_URL === 'https://mobalytics.gg',
-      'Skipping on production environment or when BASE_URL is not defined'
-    );
+test('Check cf-cache-status & new content are present on MHW build page', async ({ browser }) => {
+  test.skip(
+    process.env.BASE_URL === 'https://mobalytics.gg',
+    'Skipping on production environment or when BASE_URL is not defined'
+  );
 
-    const uniqueId = uuidv4();
-    const text = `uniqueText-${uniqueId}`;
-    const pageName = `/mhw/x-moba-ssr-cache`;
+  const uniqueId = uuidv4();
+  const text = `uniqueText-${uniqueId}`;
+  const pageName = `/mhw/x-moba-ssr-cache`;
 
-    // Create guest context (no cookies)
-    const guestContext = await browser.newContext();
-    const guestPage = await guestContext.newPage();
-    const guest = new Moba(guestPage);
-    // Create admin context with cookies
-    const adminContext = await browser.newContext({
-      storageState: '.auth/adminAuth.json',
-    });
-    const adminPage = await adminContext.newPage();
-    const admin = new Moba(adminPage);
+  // Create guest context (no cookies & clean storage)
+  const guestContext = await browser.newContext({
+    userAgent: 'moba-warrior',
+  });
+  const guestPage = await guestContext.newPage();
+  const guest = new Moba(guestPage);
+  // Create admin context with cookies
+  const adminContext = await browser.newContext({
+    storageState: '.auth/adminAuth.json',
+    userAgent: 'mobalytics-automation-qa',
+  });
+  const adminPage = await adminContext.newPage();
+  const admin = new Moba(adminPage);
 
-    let headerFound = false;
-    let ssrCacheValue = null;
+  let headerFound = false;
+  let CfCacheValue = null;
+  const maxAttempts = 10;
+
+  await test.step('Open ST page multiple times as a guest until "cf-cache-status = HIT"', async () => {
     const maxAttempts = 10;
+    let headerFound = false;
+    let CfCacheValue;
 
-    await test.step('Open ST page multiple times as a guest until "x-moba-ssr-cache" header appears', async () => {
-      const maxAttempts = 10;
-      let headerFound = false;
-      let ssrCacheValue = null;
-
-      for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
-        console.log(`Attempt ${attempt}/${maxAttempts}: Opening ${process.env.BASE_URL}${pageName}`);
-        const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
-          waitUntil: 'domcontentloaded',
-        });
-
-        const headers = response.headers();
-        if (headers['x-moba-ssr-cache']) {
-          headerFound = true;
-          ssrCacheValue = headers['x-moba-ssr-cache'];
-          console.log(`✓ Header found on attempt ${attempt}: x-moba-ssr-cache = ${ssrCacheValue}`);
-        } else {
-          console.log(`✗ Header not found on attempt ${attempt}`);
-        }
-      }
-      expect(headerFound, `Header x-moba-ssr-cache is found`).toBe(true);
-      expect(ssrCacheValue, `x-moba-ssr-cache value: ${ssrCacheValue}`).not.toBeNull();
-    });
-    await test.step('Update the ST page by admin', async () => {
-      await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
+    for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
+      console.log(`Attempt ${attempt}/${maxAttempts}: Opening ${process.env.BASE_URL}${pageName}`);
+      const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
         waitUntil: 'domcontentloaded',
       });
-      await admin.stPage.updateDescriptionRichTextWidget(text);
-      await expect(admin.stPage.descriptionRichTextWidget(text)).toContainText(text);
-      console.log('ST page updated by admin');
-    });
-    await test.step("Open updated ST page as a guest multiple times until 'x-moba-ssr-cache' header & new description are present", async () => {
-      let headerFound = false;
-      const maxAttempts = 10;
 
-      for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
-        console.log(`Attempt ${attempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
-
-        const reloadResponse = await guestPage.reload();
-        const headers = reloadResponse.headers();
-
-        if (headers['x-moba-ssr-cache']) {
-          try {
-            await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
-            headerFound = true;
-            let ssrCacheValue = headers['x-moba-ssr-cache'];
-            console.log(`✓ Header and text found on attempt ${attempt}: x-moba-ssr-cache = ${ssrCacheValue}`);
-          } catch (error) {
-            console.log(`✗ Header found but text not visible on attempt ${attempt}`);
-          }
-        } else {
-          console.log(`✗ Header not found on attempt ${attempt}`);
-        }
+      let headers = response.headers();
+      console.log(headers);
+      if (headers['cf-cache-status'] === 'HIT') {
+        headerFound = true;
+        CfCacheValue = headers['cf-cache-status'];
+        console.log(`✓ Header 'cf-cache-status = HIT' on attempt ${attempt}: cf-cache-status = ${CfCacheValue}`);
+      } else {
+        console.log(`✗ cf-cache-status: ${headers['cf-cache-status']} on attempt ${attempt}`);
       }
+    }
+    expect(CfCacheValue, `cf-cache-status: ${CfCacheValue}`).toBe('HIT');
+  });
+  await test.step('Update the ST page by admin', async () => {
+    await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
+      waitUntil: 'domcontentloaded',
     });
-    await test.step("Open updated ST page as a guest 10 times to be sure that 'x-moba-ssr-cache' header & new description are present within all attempts", async () => {
-      for (let currentAttempt = 1; currentAttempt <= maxAttempts; currentAttempt++) {
-        console.log(`Attempt ${currentAttempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
-        const reloadResponse = await guestPage.reload();
-        const headers = reloadResponse.headers();
+    await admin.stPage.updateDescriptionRichTextWidget(text);
+    await expect(admin.stPage.descriptionRichTextWidget(text)).toContainText(text);
+    console.log('ST page updated by admin');
+  });
+  await test.step("Open updated ST page as a guest multiple times until 'cf-cache-status = HIT' header & new description are present", async () => {
+    let headerFound = false;
+    const maxAttempts = 10;
 
-        if (headers['x-moba-ssr-cache']) {
+    for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
+      console.log(`Attempt ${attempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
+
+      const reloadResponse = await guestPage.reload();
+      const headers = reloadResponse.headers();
+
+      if (headers['cf-cache-status'] === 'HIT') {
+        try {
+          await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
           headerFound = true;
-          ssrCacheValue = headers['x-moba-ssr-cache'];
-          try {
-            await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
-            console.log(`✓ Header and text found on attempt ${currentAttempt}: x-moba-ssr-cache = ${ssrCacheValue}`);
-          } catch (error) {
-            console.log(`✗ Header found but text not visible on attempt ${currentAttempt}`);
-          }
-        } else {
-          headerFound = false;
-          ssrCacheValue = null;
-          console.log(`✗ Header not found on attempt ${currentAttempt}`);
+          let CfCacheValue = headers['cf-cache-status'];
+          console.log(`✓ Header 'cf-cache-status = HIT' found on attempt ${attempt}: cf-cache-status: ${CfCacheValue}`);
+        } catch (error) {
+          console.log(
+            `✗ Header: cf-cache-status:${headers['cf-cache-status']} & text not visible on attempt ${attempt}`
+          );
         }
+      } else {
+        console.log(`✗ Header: cf-cache-status:${headers['cf-cache-status']} not found on attempt ${attempt}`);
       }
-    });
+    }
+  });
+  await test.step("Open updated ST page as a guest 10 times to be sure that 'cf-cache-status = HIT' & new description are present within all attempts", async () => {
+    for (let currentAttempt = 1; currentAttempt <= maxAttempts; currentAttempt++) {
+      console.log(`Attempt ${currentAttempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
+      const reloadResponse = await guestPage.reload();
+      const headers = reloadResponse.headers();
 
-    await test.step(`Expected Result: Header x-moba-ssr-cache is present on all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-      expect(headerFound).toBe(true);
-    });
-    await test.step(`Expected Result: x-moba-ssr-cache has a key: ${ssrCacheValue} on all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-      expect(ssrCacheValue).not.toBeNull();
-    });
-    await test.step(`Expected Result: New description is updated in rich text widget for a guest within all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-      await expect(guest.stPage.descriptionRichTextWidget(text)).toContainText(text);
-    });
-  }
-);
+      if (headers['cf-cache-status'] === 'HIT') {
+        headerFound = true;
+        CfCacheValue = headers['cf-cache-status'];
+        try {
+          await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
+          console.log(
+            `✓ Header 'cf-cache-status = HIT' found on attempt ${currentAttempt}: cf-cache-status: ${CfCacheValue}`
+          );
+        } catch (error) {
+          console.log(`✗ Header found but text not visible on attempt ${currentAttempt}`);
+        }
+      } else {
+        headerFound = false;
+        CfCacheValue = null;
+        console.log(`✗ Header not found on attempt ${currentAttempt}`);
+      }
+    }
+  });
+
+  await test.step(`Expected Result: Header 'cf-cache-status = HIT' on all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
+    expect(headerFound).toBe(true);
+  });
+  await test.step(`Expected Result: Header 'cf-cache-status' has a key: ${CfCacheValue} on all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
+    expect(CfCacheValue).not.toBeNull();
+  });
+  await test.step(`Expected Result: New description is updated in rich text widget for a guest within all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
+    await expect(guest.stPage.descriptionRichTextWidget(text)).toContainText(text);
+  });
+});
 
 test('Error validation: 404 status code & title on usual page', async ({ page }) => {
   let response;
