@@ -1,0 +1,89 @@
+Attempt 1/10: Opening https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+{
+  'alt-svc': 'h3=":443"; ma=86400',
+  'cache-control': 'no-store',
+  'cdn-cache-control': 'public, s-maxage=604800, stale-while-revalidate=86400',
+  'cf-cache-status': 'MISS',
+  'cf-ray': 'a3f6cbc4cc6498d8-ORD',
+  'content-encoding': 'br',
+  'content-security-policy': "default-src * 'unsafe-inline' 'unsafe-eval' data: blob: data:; child-src *; frame-src *; connect-src * blob: data:; font-src *; img-src * blob: data:; media-src * blob: data:; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; worker-src * blob: data:; manifest-src *; frame-ancestors *; form-action *; base-uri *;",
+  'content-type': 'text/html; charset=utf-8',
+  date: 'Wed, 23 Sep 2026 04:27:17 GMT',
+  link: '</static/js/runtime.39435779.js>; rel=preload; as=script, </static/js/lexical.a12556a7.js>; rel=preload; as=script, </static/js/706.9d439a7f.js>; rel=preload; as=script, </static/js/315.14685eaf.js>; rel=preload; as=script, </static/css/main.87099569.css>; rel=preload; as=style, </static/js/main.df6902b0.js>; rel=preload; as=script',
+  server: 'cloudflare',
+  'strict-transport-security': 'max-age=2592000; preload',
+  vary: 'accept-encoding',
+  'x-content-type-options': 'nosniff',
+  'x-envoy-upstream-service-time': '684',
+  'x-moba-page-game': 'mhw',
+  'x-moba-page-name': 'Ngf struct document',
+  'x-moba-ssr-data-loading': 'true',
+  'x-powered-by': 'Express'
+}
+✗ cf-cache-status: MISS on attempt 1
+Attempt 2/10: Opening https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+{
+  'alt-svc': 'h3=":443"; ma=86400',
+  'cache-control': 'no-store',
+  'cdn-cache-control': 'public, s-maxage=604800, stale-while-revalidate=86400',
+  'cf-cache-status': 'HIT',
+  'cf-ray': 'a3f6cbcf3f164c91-MSP',
+  'content-encoding': 'br',
+  'content-security-policy': "default-src * 'unsafe-inline' 'unsafe-eval' data: blob: data:; child-src *; frame-src *; connect-src * blob: data:; font-src *; img-src * blob: data:; media-src * blob: data:; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; worker-src * blob: data:; manifest-src *; frame-ancestors *; form-action *; base-uri *;",
+  'content-type': 'text/html; charset=utf-8',
+  date: 'Wed, 23 Sep 2026 04:27:18 GMT',
+  link: '</static/js/runtime.39435779.js>; rel=preload; as=script, </static/js/lexical.a12556a7.js>; rel=preload; as=script, </static/js/706.9d439a7f.js>; rel=preload; as=script, </static/js/315.14685eaf.js>; rel=preload; as=script, </static/css/main.87099569.css>; rel=preload; as=style, </static/js/main.df6902b0.js>; rel=preload; as=script',
+  priority: 'u=0,i',
+  server: 'cloudflare',
+  'server-timing': 'cfExtPri',
+  'strict-transport-security': 'max-age=2592000; preload',
+  vary: 'accept-encoding',
+  'x-content-type-options': 'nosniff',
+  'x-envoy-upstream-service-time': '684',
+  'x-moba-page-game': 'mhw',
+  'x-moba-page-name': 'Ngf struct document',
+  'x-moba-ssr-data-loading': 'true',
+  'x-powered-by': 'Express'
+}
+✓ Header 'cf-cache-status = HIT' on attempt 2: cf-cache-status = HIT
+ST page updated by admin
+Attempt 1/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 1
+Attempt 2/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:MISS not found on attempt 2
+Attempt 3/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 3
+Attempt 4/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 4
+Attempt 5/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 5
+Attempt 6/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 6
+Attempt 7/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 7
+Attempt 8/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 8
+Attempt 9/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 9
+Attempt 10/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header: cf-cache-status:HIT & text not visible on attempt 10
+Attempt 1/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 1
+Attempt 2/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 2
+Attempt 3/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 3
+Attempt 4/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 4
+Attempt 5/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 5
+Attempt 6/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 6
+Attempt 7/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 7
+Attempt 8/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 8
+Attempt 9/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 9
+Attempt 10/10: Reload ST page: https://stg.mobalytics.gg/mhw/x-moba-ssr-cache
+✗ Header found but text not visible on attempt 10
