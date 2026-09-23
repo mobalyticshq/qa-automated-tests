@@ -7,7 +7,6 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
     process.env.BASE_URL === 'https://mobalytics.gg',
     'Skipping on production environment or when BASE_URL is not defined'
   );
-
   const uniqueId = uuidv4();
   const text = `uniqueText-${uniqueId}`;
   const pageName = `/mhw/x-moba-ssr-cache`;
@@ -26,11 +25,7 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
   const adminPage = await adminContext.newPage();
   const admin = new Moba(adminPage);
 
-  let headerFound = false;
-  let CfCacheValue = null;
-  const maxAttempts = 10;
-
-  await test.step('Open ST page multiple times as a guest until "cf-cache-status = HIT"', async () => {
+  await test.step('Open ST page multiple times as a guest until the header appears: "cf-cache-status = HIT"', async () => {
     const maxAttempts = 10;
     let headerFound = false;
     let CfCacheValue;
@@ -42,26 +37,27 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
       });
 
       let headers = response.headers();
-      console.log(headers);
       if (headers['cf-cache-status'] === 'HIT') {
         headerFound = true;
         CfCacheValue = headers['cf-cache-status'];
-        console.log(`✓ Header 'cf-cache-status = HIT' on attempt ${attempt}: cf-cache-status = ${CfCacheValue}`);
+        console.log(`✓ Header cf-cache-status: ${CfCacheValue} found on attempt ${attempt}`);
       } else {
         console.log(`✗ cf-cache-status: ${headers['cf-cache-status']} on attempt ${attempt}`);
       }
     }
     expect(CfCacheValue, `cf-cache-status: ${CfCacheValue}`).toBe('HIT');
   });
+
   await test.step('Update the ST page by admin', async () => {
     await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
       waitUntil: 'domcontentloaded',
     });
     await admin.stPage.updateDescriptionRichTextWidget(text);
-    await expect(admin.stPage.descriptionRichTextWidget(text)).toContainText(text);
-    console.log('ST page updated by admin');
+    await expect(admin.stPage.descriptionRichTextWidget(text)).toBeVisible();
+    console.log('ST page is updated by admin');
   });
-  await test.step("Open updated ST page as a guest multiple times until 'cf-cache-status = HIT' header & new description are present", async () => {
+
+  await test.step("Open updated ST page as a guest multiple times until the header: 'cf-cache-status = HIT' appears & new description are present", async () => {
     let headerFound = false;
     const maxAttempts = 10;
 
@@ -73,23 +69,29 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
 
       if (headers['cf-cache-status'] === 'HIT') {
         try {
-          await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
+          await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
           headerFound = true;
           let CfCacheValue = headers['cf-cache-status'];
-          console.log(`✓ Header 'cf-cache-status = HIT' found on attempt ${attempt}: cf-cache-status: ${CfCacheValue}`);
+          console.log(`✓ Header cf-cache-status: ${CfCacheValue} found on attempt ${attempt}`);
         } catch (error) {
           console.log(
-            `✗ Header: cf-cache-status:${headers['cf-cache-status']} & text not visible on attempt ${attempt}`
+            `✗ Header: cf-cache-status: ${headers['cf-cache-status']} & text not visible on attempt ${attempt}`
           );
         }
       } else {
-        console.log(`✗ Header: cf-cache-status:${headers['cf-cache-status']} not found on attempt ${attempt}`);
+        console.log(`✗ Header cf-cache-status:${headers['cf-cache-status']} not found on attempt ${attempt}`);
       }
     }
   });
+
+  let headerFound = false;
+  let CfCacheValue = null;
+  const maxAttempts = 10;
+
   await test.step("Open updated ST page as a guest 10 times to be sure that 'cf-cache-status = HIT' & new description are present within all attempts", async () => {
     for (let currentAttempt = 1; currentAttempt <= maxAttempts; currentAttempt++) {
       console.log(`Attempt ${currentAttempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
+
       const reloadResponse = await guestPage.reload();
       const headers = reloadResponse.headers();
 
@@ -97,12 +99,12 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
         headerFound = true;
         CfCacheValue = headers['cf-cache-status'];
         try {
-          await expect(guest.stPage.descriptionRichTextWidget).toContainText(text);
-          console.log(
-            `✓ Header 'cf-cache-status = HIT' found on attempt ${currentAttempt}: cf-cache-status: ${CfCacheValue}`
-          );
+          await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
+          console.log(`✓ Header cf-cache-status: ${CfCacheValue} found on attempt ${currentAttempt}`);
         } catch (error) {
-          console.log(`✗ Header found but text not visible on attempt ${currentAttempt}`);
+          console.log(
+            `✗ Header cf-cache-status: ${CfCacheValue} found but text not visible on attempt ${currentAttempt}`
+          );
         }
       } else {
         headerFound = false;
@@ -119,7 +121,7 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
     expect(CfCacheValue).not.toBeNull();
   });
   await test.step(`Expected Result: New description is updated in rich text widget for a guest within all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-    await expect(guest.stPage.descriptionRichTextWidget(text)).toContainText(text);
+    await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
   });
 });
 
