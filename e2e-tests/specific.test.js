@@ -9,7 +9,7 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
   );
   const uniqueId = uuidv4();
   const text = `uniqueText-${uniqueId}`;
-  const pageName = `/mhw/x-moba-ssr-cache`;
+  const pageName = `/mhw/check-cf-cache-status-autotests`;
 
   // Create guest context (no cookies & clean storage)
   const guestContext = await browser.newContext({
@@ -25,27 +25,20 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
   const adminPage = await adminContext.newPage();
   const admin = new Moba(adminPage);
 
-  await test.step('Open ST page multiple times as a guest until the header appears: "cf-cache-status = HIT"', async () => {
-    const maxAttempts = 10;
-    let headerFound = false;
-    let CfCacheValue;
+  const maxAttempts = 10;
+  let attemptFirstStep = 1;
+  await expect(async () => {
+    console.log(`Attempt ${attemptFirstStep++}/${maxAttempts}: Opening ${process.env.BASE_URL}${pageName} as a guest`);
+    const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
+      waitUntil: 'domcontentloaded',
+    });
 
-    for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
-      console.log(`Attempt ${attempt}/${maxAttempts}: Opening ${process.env.BASE_URL}${pageName}`);
-      const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
-        waitUntil: 'domcontentloaded',
-      });
+    let headers = response.headers();
 
-      let headers = response.headers();
-      if (headers['cf-cache-status'] === 'HIT') {
-        headerFound = true;
-        CfCacheValue = headers['cf-cache-status'];
-        console.log(`✓ Header cf-cache-status: ${CfCacheValue} found on attempt ${attempt}`);
-      } else {
-        console.log(`✗ cf-cache-status: ${headers['cf-cache-status']} on attempt ${attempt}`);
-      }
-    }
-    expect(CfCacheValue, `cf-cache-status: ${CfCacheValue}`).toBe('HIT');
+    expect(headers['cf-cache-status'], `cf-cache-status: ${headers['cf-cache-status']}`).toBe('HIT');
+  }, `Open ST page ${pageName} as a guest until "cf-cache-status: HIT"`).toPass({
+    intervals: [2_000],
+    timeout: 10_000,
   });
 
   await test.step('Update the ST page by admin', async () => {
@@ -57,70 +50,29 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
     console.log('ST page is updated by admin');
   });
 
-  await test.step("Open updated ST page as a guest multiple times until the header: 'cf-cache-status = HIT' appears & new description are present", async () => {
-    let headerFound = false;
-    const maxAttempts = 10;
+  let CfCacheValue;
+  let attemptLastStep = 1;
+  await expect(async () => {
+    console.log(
+      `Attempt ${attemptLastStep++}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName} as a guest`
+    );
+    const reloadResponse = await guestPage.reload();
+    const headers = reloadResponse.headers();
+    CfCacheValue = headers['cf-cache-status'];
 
-    for (let attempt = 1; !headerFound && attempt <= maxAttempts; attempt++) {
-      console.log(`Attempt ${attempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
-
-      const reloadResponse = await guestPage.reload();
-      const headers = reloadResponse.headers();
-
-      if (headers['cf-cache-status'] === 'HIT') {
-        try {
-          await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
-          headerFound = true;
-          let CfCacheValue = headers['cf-cache-status'];
-          console.log(`✓ Header cf-cache-status: ${CfCacheValue} found on attempt ${attempt}`);
-        } catch (error) {
-          console.log(
-            `✗ Header: cf-cache-status: ${headers['cf-cache-status']} & text not visible on attempt ${attempt}`
-          );
-        }
-      } else {
-        console.log(`✗ Header cf-cache-status:${headers['cf-cache-status']} not found on attempt ${attempt}`);
-      }
+    expect(CfCacheValue, `cf-cache-status: ${CfCacheValue}`).toBe('HIT');
+    await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible({ timeout: 2_000 });
+  }, `Open updated ST page as a guest multiple times until the header: 'cf-cache-status = HIT' appears & new description is present`).toPass(
+    {
+      intervals: [1_000],
+      timeout: 12_000,
     }
+  );
+
+  await test.step(`Expected Result: Header contains correct value "HIT", cf-cache-status: ${CfCacheValue}`, async () => {
+    expect(CfCacheValue).toBe('HIT');
   });
-
-  let headerFound = false;
-  let CfCacheValue = null;
-  const maxAttempts = 10;
-
-  await test.step("Open updated ST page as a guest 10 times to be sure that 'cf-cache-status = HIT' & new description are present within all attempts", async () => {
-    for (let currentAttempt = 1; currentAttempt <= maxAttempts; currentAttempt++) {
-      console.log(`Attempt ${currentAttempt}/${maxAttempts}: Reload ST page: ${process.env.BASE_URL}${pageName}`);
-
-      const reloadResponse = await guestPage.reload();
-      const headers = reloadResponse.headers();
-
-      if (headers['cf-cache-status'] === 'HIT') {
-        headerFound = true;
-        CfCacheValue = headers['cf-cache-status'];
-        try {
-          await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
-          console.log(`✓ Header cf-cache-status: ${CfCacheValue} found on attempt ${currentAttempt}`);
-        } catch (error) {
-          console.log(
-            `✗ Header cf-cache-status: ${CfCacheValue} found but text not visible on attempt ${currentAttempt}`
-          );
-        }
-      } else {
-        headerFound = false;
-        CfCacheValue = null;
-        console.log(`✗ Header not found on attempt ${currentAttempt}`);
-      }
-    }
-  });
-
-  await test.step(`Expected Result: Header 'cf-cache-status = HIT' on all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-    expect(headerFound).toBe(true);
-  });
-  await test.step(`Expected Result: Header 'cf-cache-status' has a key: ${CfCacheValue} on all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
-    expect(CfCacheValue).not.toBeNull();
-  });
-  await test.step(`Expected Result: New description is updated in rich text widget for a guest within all attempts: ${maxAttempts}/${maxAttempts}`, async () => {
+  await test.step(`Expected Result: New description is updated in rich text widget for a guest`, async () => {
     await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
   });
 });
