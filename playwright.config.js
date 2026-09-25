@@ -116,7 +116,6 @@ export default defineConfig({
     },
     {
       name: 'specific-tests',
-      dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/specific.test.js',
       use: {
         trace: 'retain-on-failure',

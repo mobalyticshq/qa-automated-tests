@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { test, expect } from './fixtures/fixture';
 import { Moba } from '../app/page-object/moba';
 
-test('Check cf-cache-status & new content are present on MHW build page', async ({ browser }) => {
+test('Check cf-cache-status: MISS & HIT, also new content is received', async ({ browser }) => {
   test.skip(
     process.env.BASE_URL === 'https://mobalytics.gg',
     'Skipping on production environment or when BASE_URL is not defined'
@@ -25,6 +25,15 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
   const adminPage = await adminContext.newPage();
   const admin = new Moba(adminPage);
 
+  const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
+    waitUntil: 'domcontentloaded',
+  });
+  let headers = response.headers();
+  expect(
+    headers['cf-cache-status'],
+    `Expected Result: cf-cache-status should be MISS: ${headers['cf-cache-status']}`
+  ).toBe('MISS');
+
   const maxAttempts = 10;
   let attemptFirstStep = 1;
   await expect(async () => {
@@ -35,19 +44,19 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
 
     let headers = response.headers();
 
-    expect(headers['cf-cache-status'], `cf-cache-status: ${headers['cf-cache-status']}`).toBe('HIT');
+    expect(headers['cf-cache-status'], `Expected Result: cf-cache-status: ${headers['cf-cache-status']}`).toBe('HIT');
   }, `Open ST page ${pageName} as a guest until "cf-cache-status: HIT"`).toPass({
     intervals: [2_000],
     timeout: 10_000,
   });
 
-  await test.step('Update the ST page by admin', async () => {
+  await test.step('Update ST page by admin', async () => {
     await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
       waitUntil: 'domcontentloaded',
     });
     await admin.stPage.updateDescriptionRichTextWidget(text);
     await expect(admin.stPage.descriptionRichTextWidget(text)).toBeVisible();
-    console.log('ST page is updated by admin');
+    console.log('Expected Result: ST page is updated by admin');
   });
 
   let CfCacheValue;
@@ -60,7 +69,7 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
     const headers = reloadResponse.headers();
     CfCacheValue = headers['cf-cache-status'];
 
-    expect(CfCacheValue, `cf-cache-status: ${CfCacheValue}`).toBe('HIT');
+    expect(CfCacheValue, `Expected Result: cf-cache-status should be HIT: ${CfCacheValue}`).toBe('HIT');
     await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible({ timeout: 2_000 });
   }, `Open updated ST page as a guest multiple times until the header: 'cf-cache-status = HIT' appears & new description is present`).toPass(
     {
@@ -75,6 +84,16 @@ test('Check cf-cache-status & new content are present on MHW build page', async 
   await test.step(`Expected Result: New description is updated in rich text widget for a guest`, async () => {
     await expect(guest.stPage.descriptionRichTextWidget(text)).toBeVisible();
   });
+});
+
+test('Check header cf-cache-status: BYPASS', async ({ page }) => {
+  const response = await page.goto(`${process.env.BASE_URL}/mhw?force_ssr=1`);
+  const headers = response.headers();
+
+  expect(
+    headers['cf-cache-status'],
+    'cf-cache-status: BYPASS is received, opening the page with query param: ?force_ssr=1'
+  ).toBe('BYPASS');
 });
 
 test('Error validation: 404 status code & title on usual page', async ({ page }) => {
