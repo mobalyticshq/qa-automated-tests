@@ -1,5 +1,0 @@
-Attempt 1/10: Opening https://stg.mobalytics.gg/mhw/check-cf-cache-status-autotests as a guest
-Expected Result: ST page is updated by admin
-Attempt 1/10: Reload ST page: https://stg.mobalytics.gg/mhw/check-cf-cache-status-autotests as a guest
-Attempt 2/10: Reload ST page: https://stg.mobalytics.gg/mhw/check-cf-cache-status-autotests as a guest
-Attempt 3/10: Reload ST page: https://stg.mobalytics.gg/mhw/check-cf-cache-status-autotests as a guest
