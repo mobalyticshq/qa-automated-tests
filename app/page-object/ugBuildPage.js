@@ -22,9 +22,23 @@ export class UgBuildPage {
     this.editButton = page.getByTestId('ug-document-edit-button');
     this.inputBuildOverviewVariants = page.getByRole('textbox').nth(1);
     this.updateButton = page.getByTestId('ug-document-update-button');
+    this.focusModeButton = page.getByRole('button', { name: 'Focus Mode', exact: true });
+    this.exitFocusModeButton = page.getByRole('button', { name: 'Exit Focus Mode' });
     this.descriptionBuildOverviewVariants = page.locator('span[data-lexical-text="true"]');
     this.getDescriptionBuildOverviewVariants = (text) =>
       page.locator('span[data-lexical-text="true"]').filter({ hasText: text });
+  }
+
+  async openFocusMode() {
+    await test.step('Open Focus Mode', async () => {
+      await this.focusModeButton.click();
+    });
+  }
+
+  async exitFocusMode() {
+    await test.step('Exit Focus Mode', async () => {
+      await this.exitFocusModeButton.click();
+    });
   }
 
   async createUgDraftPage(pageName) {
