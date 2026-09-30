@@ -1,15 +1,10 @@
 # Name workflow
-name: common-tests
+name: build-tracker-tests
 
 # When launch auto-tests
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
   schedule:
-    - cron: '00 4 * * *'
-    - cron: '00 10 * * 2,4'
+    - cron: '00 4 * * 5'
 
   # Manual hook for launch
   workflow_dispatch:
@@ -21,12 +16,10 @@ on:
         options:
           - STG
           - PROD
-        default: 'STG'
+        default: 'PROD'
 
 permissions:
   contents: write
-  pull-requests: write
-  checks: write
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -35,11 +28,11 @@ env:
   SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
 jobs:
-  common-tests:
+  build-tracker-tests:
     runs-on: ubuntu-latest
     env:
-      REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/ngf
-      TESTS_NAME: 'NGF'
+      REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/build-tracker
+      TESTS_NAME: 'Build-Tracker'
     steps:
       - name: Clone the code from repository into runner (virtual machine)
         uses: actions/checkout@v6.0.2
@@ -75,22 +68,7 @@ jobs:
 
           INTERNAL_WRITER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_EMAIL || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_EMAIL || secrets.STG_INTERNAL_WRITER_EMAIL }}
           INTERNAL_WRITER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_INTERNAL_WRITER_PASSWORD || github.event_name == 'schedule' && secrets.STG_INTERNAL_WRITER_PASSWORD || secrets.STG_INTERNAL_WRITER_PASSWORD }}
-        run: npm test -- --project account-tests ngf-tests specific-tests sitemap-tests
-
-      # - name: Run advertisement tests (desktop >1412px)
-      #   if: always()
-      #   env:
-      #     BASE_URL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_URL || github.event_name == 'schedule' && secrets.STG_URL || secrets.STG_URL }}
-
-      #     REGULAR_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_EMAIL || github.event_name == 'schedule' && secrets.STG_REGULAR_USER_EMAIL || secrets.STG_REGULAR_USER_EMAIL }}
-      #     REGULAR_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_REGULAR_USER_PASSWORD || github.event_name == 'schedule' && secrets.STG_REGULAR_USER_PASSWORD || secrets.STG_REGULAR_USER_PASSWORD }}
-
-      #     ADD_FREE_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADD_FREE_USER_EMAIL || github.event_name == 'schedule' && secrets.STG_ADD_FREE_USER_EMAIL || secrets.STG_ADD_FREE_USER_EMAIL }}
-      #     ADD_FREE_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_ADD_FREE_USER_PASSWORD || github.event_name == 'schedule' && secrets.STG_ADD_FREE_USER_PASSWORD || secrets.STG_ADD_FREE_USER_PASSWORD }}
-
-      #     PLUS_USER_EMAIL: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_PLUS_USER_EMAIL || github.event_name == 'schedule' && secrets.STG_PLUS_USER_EMAIL || secrets.STG_PLUS_USER_EMAIL }}
-      #     PLUS_USER_PASSWORD: ${{ github.event.inputs.environment == 'PROD' && secrets.PROD_PLUS_USER_PASSWORD || github.event_name == 'schedule' && secrets.STG_PLUS_USER_PASSWORD || secrets.STG_PLUS_USER_PASSWORD }}
-      #   run: npm test -- --project advertisement-tests --grep "Check video block, footer banner, L vertical banner, S vertical banner for unauthorized user"
+        run: npm test -- --project build-tracker-tests
 
       - name: Get previous report Allure history
         uses: actions/checkout@v6.0.2
@@ -108,7 +86,7 @@ jobs:
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
-          subfolder: ngf
+          subfolder: build-tracker
           keep_reports: 10
 
       - name: Deploy report to GitHub Pages
@@ -117,8 +95,8 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: allure-history/ngf
-          destination_dir: ngf
+          publish_dir: allure-history/build-tracker
+          destination_dir: build-tracker
 
       - name: Generate config.json with the secrets
         if: always()

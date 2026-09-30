@@ -56,6 +56,14 @@ export class MainURLs {
     });
   }
 
+  async openAdminWoWPage() {
+    await test.step(`Open 'WoW Forever' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/wow-forever/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
   async openAdminPoePage() {
     await test.step(`Open 'PoE' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe/admin`, {

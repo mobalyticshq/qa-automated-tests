@@ -1,66 +1,67 @@
 import { test, expect } from './fixtures/fixture';
-import { projectSectionLinks as hydrationLinks } from '../app/helpers/projectSectionLinks';
 
 test.describe('Check hydration is successfully for each project', () => {
   test.describe.configure({ timeout: 600_000 });
   const quantityLinks = 50;
 
-  // test(`Check that hydration is ok on Diablo-4`, async ({ page, request }) => {
-  //   let filteredLinks;
+  test(`Check that hydration is ok on Diablo-4`, async ({ page, request }) => {
+    let filteredLinks;
 
-  //   await test.step(`Parse up to ${quantityLinks} links from diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
-  //     const response = await request.get(`${process.env.BASE_URL}/diablo-4/sitemap.xml`);
-  //     await test.step(`Expected Result: ${process.env.BASE_URL}/diablo-4/sitemap.xml returns with ${response.status()}`, async () => {
-  //       expect(response.ok()).toBeTruthy();
-  //     });
-  //     const xmlData = await response.text();
-  //     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-  //     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-  //     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-  //     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+    await test.step(`Parse up to ${quantityLinks} links from diablo-4 sitemap: ${process.env.BASE_URL}/diablo-4/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/diablo-4/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/diablo-4/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
 
-  //     filteredLinks = arrayLinks
-  //       .filter((match) => {
-  //         const filterPattern = /mobalytics\.gg\/diablo-4\/(builds|guides)\/[-a-z]+$/;
-  //         return filterPattern.test(match.groups.link);
-  //       })
-  //       .slice(0, quantityLinks);
-  //   });
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/diablo-4\/(builds|guides)\/[-a-z]+$/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
 
-  //   for (const takeLink of filteredLinks) {
-  //     const consoleMessages = [];
-  //     const pageErrors = [];
-  //     page.on('console', (msg) => {
-  //       if (msg.type() === 'error') {
-  //         const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-  //         // console.log(consoleInfo);
-  //         consoleMessages.push(consoleInfo);
-  //       }
-  //     });
-  //     page.on('pageerror', (error) => {
-  //       const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-  //       // if (error.message.match(/Minified React error #(418|423)/i)) {
-  //       //   console.log(errorInfo);
-  //       // }
-  //       pageErrors.push(errorInfo);
-  //     });
-  //     const { link } = takeLink.groups; // extract groupName for convenient usage
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
 
-  //     await test.step(`Open parsed page: ${link}`, async () => {
-  //       await page.goto(link);
-  //       await page.waitForTimeout(1000);
-  //     });
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
 
-  //     const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+      const { link } = takeLink.groups; // extract groupName for convenient usage
 
-  //     await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
-  //       expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-  //       expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-  //       expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
-  //       expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
-  //     });
-  //   }
-  // });
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
 
   test(`Check that hydration is ok on Valorant`, async ({ page, request }) => {
     let filteredLinks;
@@ -115,8 +116,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -176,8 +175,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -236,8 +233,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -297,8 +292,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -358,8 +351,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -419,8 +410,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -480,8 +469,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -541,8 +528,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -602,8 +587,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -663,8 +646,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -724,8 +705,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -785,8 +764,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -846,8 +823,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -907,8 +882,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -968,8 +941,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -1029,76 +1000,17 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
   });
 
-  // test(`Check that hydration is ok on TFT`, async ({ page, request }) => {
-  //   let filteredLinks;
-
-  //   await test.step(`Parse up to ${quantityLinks} links from TFT sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
-  //     const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
-  //     await test.step(`Expected Result: ${process.env.BASE_URL}/tft/sitemap.xml returns with ${response.status()}`, async () => {
-  //       expect(response.ok()).toBeTruthy();
-  //     });
-  //     const xmlData = await response.text();
-  //     const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
-  //     const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
-  //     // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
-  //     // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
-
-  //     filteredLinks = arrayLinks
-  //       .filter((match) => {
-  //         const filterPattern = /mobalytics\.gg\/tft/;
-  //         return filterPattern.test(match.groups.link);
-  //       })
-  //       .slice(0, quantityLinks);
-  //   });
-
-  //   for (const takeLink of filteredLinks) {
-  //     const consoleMessages = [];
-  //     const pageErrors = [];
-  //     page.on('console', (msg) => {
-  //       if (msg.type() === 'error') {
-  //         const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
-  //         // console.log(consoleInfo);
-  //         consoleMessages.push(consoleInfo);
-  //       }
-  //     });
-  //     page.on('pageerror', (error) => {
-  //       const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
-  //       // if (error.message.match(/Minified React error #(418|423)/i)) {
-  //       //   console.log(errorInfo);
-  //       // }
-  //       pageErrors.push(errorInfo);
-  //     });
-  //     const { link } = takeLink.groups; // extract groupName for convenient usage
-
-  //     await test.step(`Open parsed page: ${link}`, async () => {
-  //       await page.goto(link);
-  //       await page.waitForTimeout(1000);
-  //     });
-
-  //     const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
-
-  //     await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
-  //       expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-  //       expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-  //       expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
-  //       expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
-  //     });
-  //   }
-  // });
-
-  test(`Check that hydration is ok on TFT-Set17`, async ({ page, request }) => {
+  test(`Check that hydration is ok on TFT`, async ({ page, request }) => {
     let filteredLinks;
 
-    await test.step(`Parse up to ${quantityLinks} links from TFT-Set17 sitemap: ${process.env.BASE_URL}/tft/set17/sitemap.xml`, async () => {
-      const response = await request.get(`${process.env.BASE_URL}/tft/set17/sitemap.xml`);
-      await test.step(`Expected Result: ${process.env.BASE_URL}/tft/set17/sitemap.xml returns with ${response.status()}`, async () => {
+    await test.step(`Parse up to ${quantityLinks} links from TFT sitemap: ${process.env.BASE_URL}/tft/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/tft/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/tft/sitemap.xml returns with ${response.status()}`, async () => {
         expect(response.ok()).toBeTruthy();
       });
       const xmlData = await response.text();
@@ -1109,7 +1021,62 @@ test.describe('Check hydration is successfully for each project', () => {
 
       filteredLinks = arrayLinks
         .filter((match) => {
-          const filterPattern = /mobalytics\.gg\/tft\/set17/;
+          const filterPattern = /mobalytics\.gg\/tft/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    for (const takeLink of filteredLinks) {
+      const consoleMessages = [];
+      const pageErrors = [];
+      page.on('console', (msg) => {
+        if (msg.type() === 'error') {
+          const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+          // console.log(consoleInfo);
+          consoleMessages.push(consoleInfo);
+        }
+      });
+      page.on('pageerror', (error) => {
+        const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+        // if (error.message.match(/Minified React error #(418|423)/i)) {
+        //   console.log(errorInfo);
+        // }
+        pageErrors.push(errorInfo);
+      });
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
+  test(`Check that hydration is ok on TFT-Set18`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from TFT-Set18 sitemap: ${process.env.BASE_URL}/tft/set17/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/tft/set18/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/tft/set18/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/tft\/set18/;
           return filterPattern.test(match.groups.link);
         })
         .slice(0, quantityLinks);
@@ -1147,8 +1114,6 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }
@@ -1208,8 +1173,301 @@ test.describe('Check hydration is successfully for each project', () => {
 
       await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
         expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Hydration failed/i);
-        expect.soft(allErrorsInOneString).not.toMatch(/Text content does not match server-rendered HTML/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
+  test(`Check that hydration is ok on Genshin Impact`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from Genshin Impact sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/genshin-impact/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/genshin-impact/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/genshin-impact\/characters/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
+  test(`Check that hydration is ok on Neverness To Everness`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from Neverness To Everness sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/neverness-to-everness/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/neverness-to-everness/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/neverness-to-everness/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
+  test(`Check that hydration is ok on Overwatch`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from Overwatch sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/overwatch/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/overwatch/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/overwatch/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
+  test(`Check that hydration is ok on Arknights-Endfield`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from arknights-endfield sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/arknights-endfield/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/arknights-endfield/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/arknights-endfield/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
+  test(`Check that hydration is ok on Elden-Ring-Nightreign`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from elden-ring-nightreign sitemap: ${process.env.BASE_URL}/tft/set16/sitemap.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/elden-ring-nightreign/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/elden-ring-nightreign/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
         expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
       });
     }

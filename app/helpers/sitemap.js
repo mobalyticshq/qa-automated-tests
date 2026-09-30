@@ -1,4 +1,5 @@
 export const projectListFromSitemap = [
+  { project: 'WoW Forever', isPresentInProdSitemap: true, pathUrl: '/wow-forever/sitemap.xml' },
   { project: 'ZZZ', isPresentInProdSitemap: true, pathUrl: '/zzz/sitemap.xml' },
   { project: 'Example Game', isPresentInProdSitemap: false, pathUrl: '/example-game/sitemap.xml' },
   { project: 'Valorant', isPresentInProdSitemap: true, pathUrl: '/valorant/sitemap.xml' },
