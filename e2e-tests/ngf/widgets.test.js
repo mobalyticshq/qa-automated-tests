@@ -14,15 +14,7 @@ test('User can open and close the perimeter map modal', async ({ page }) => {
 });
 
 test.describe('Focus Mode for published UG documents', () => {
-    test('User can open Focus Mode for published PoE 2 build', async ({ page, apiAuthAdmin }) => {
-        const moba = new Moba(page);
-
-        await moba.mainURLs.openUgPoe2PublishedBuildPage();
-        await moba.ugBuildPage.openFocusMode();
-        await expect(moba.ugBuildPage.exitFocusModeButton).toBeVisible();
-    });
-
-    test('User can exit Focus Mode for published PoE 2 build', async ({ page, apiAuthAdmin }) => {
+    test('User can open and exit Focus Mode for published PoE 2 build', async ({ page, apiAuthAdmin }) => {
         const moba = new Moba(page);
 
         await moba.mainURLs.openUgPoe2PublishedBuildPage();
