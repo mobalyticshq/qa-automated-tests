@@ -124,6 +124,16 @@ export default defineConfig({
       },
     },
     {
+      name: 'cf-cache-tests',
+      dependencies: ['auth-setup'],
+      testMatch: 'e2e-tests/cf-cache-status.test.js',
+      use: {
+        trace: 'retain-on-failure',
+        screenshot: 'only-on-failure',
+        video: 'off',
+      },
+    },
+    {
       name: 'advertisement-tests',
       dependencies: ['user-roles-setup'],
       testDir: 'e2e-tests/advertisement',
