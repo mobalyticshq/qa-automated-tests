@@ -32,7 +32,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Build page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Build`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Build`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -53,7 +53,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Guide page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Guide`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Guide`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -74,7 +74,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Tier-list page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Tier List`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Tier List`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -95,7 +95,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Team page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Team`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Team`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -116,7 +116,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Team page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Classic`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Classic`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -137,7 +137,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Class`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Class`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -158,7 +158,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Raid`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Raid`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -179,7 +179,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Dungeon`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Dungeon`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -200,7 +200,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.header).toContainText(`${game} Quest`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Quest`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -216,7 +216,7 @@ test.describe('Creating UG Pages', () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Character page with the name: ${pageName} is created on Endfield project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Endfield Character');
+      await expect(moba.ugBuildPage.widgetHeader).toContainText('Endfield Character');
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -231,7 +231,7 @@ test.describe('Creating UG Pages', () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Deck page with the name: ${pageName} is created on Riftbound project`, async () => {
-      await expect(moba.ugBuildPage.header).toContainText('Riftbound Deck');
+      await expect(moba.ugBuildPage.widgetHeader).toContainText('Riftbound Deck');
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
