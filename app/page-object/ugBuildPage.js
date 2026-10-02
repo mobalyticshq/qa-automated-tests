@@ -26,6 +26,7 @@ export class UgBuildPage {
     this.updateButton = page.getByTestId('ug-document-update-button');
     this.focusModeButton = page.getByRole('button', { name: 'Focus Mode', exact: true });
     this.exitFocusModeButton = page.getByRole('button', { name: 'Exit Focus Mode' });
+    this.getStatusBadge = (status) => this.controlPanel.getByText(status, { exact: true });
     this.descriptionBuildOverviewVariants = page.locator('span[data-lexical-text="true"]');
     this.getDescriptionBuildOverviewVariants = (text) =>
       page.locator('span[data-lexical-text="true"]').filter({ hasText: text });

@@ -314,7 +314,15 @@ export class MainURLs {
 
   async openUgPoe2PublishedBuildPage() {
     await test.step(`Open published Poe 2 build page`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/poe-2/profile/bright-shield-aisan7/builds/0f0da88a-57c3-4345-99a5-01ddd870b316`, {
+      await this.page.goto(`${process.env.BASE_URL}/poe-2/profile/spy-man/builds/autotests-focus-mode-published`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openUgPoe2DraftBuildPage() {
+    await test.step(`Open draft Poe 2 build page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/poe-2/profile/spy-man/builds/autotests-focus-mode-draft`, {
         waitUntil: 'domcontentloaded',
       });
     });
