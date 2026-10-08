@@ -15,7 +15,7 @@ test('User can open and close the perimeter map modal', async ({ page }) => {
 
 test.describe('Focus Mode', () => {
     test.describe('for published UG documents', () => {
-        test('User can open and exit Focus Mode for published PoE 2 build', async ({ page, apiAuthAdmin }) => {
+        test('Admin can open and exit Focus Mode for published PoE 2 build', async ({ page, apiAuthAdmin }) => {
             const moba = new Moba(page);
 
             await moba.mainURLs.openUgPoe2PublishedBuildPage();
@@ -26,8 +26,20 @@ test.describe('Focus Mode', () => {
             await expect(moba.ugBuildPage.exitFocusModeButton).toBeHidden();
             await expect(moba.ugBuildPage.focusModeButton).toBeVisible();
         })
+
+        test('Unlogged-in user can open and exit Focus Mode for published WoW build', async ({ page }) => {
+            const moba = new Moba(page);
+
+            await moba.mainURLs.openUgPoe2PublishedBuildPage();
+            await moba.ugBuildPage.openFocusMode();
+            await expect(moba.ugBuildPage.exitFocusModeButton).toBeVisible();
+            await moba.ugBuildPage.exitFocusMode();
+            await expect(moba.ugBuildPage.exitFocusModeButton).toBeHidden();
+            await expect(moba.ugBuildPage.focusModeButton).toBeVisible();
+        })
     });
-    test.describe('for draft UG documents', () => {
+
+test.describe('for draft UG documents', () => {
         test('User cant open Focus Mode for draft PoE 2 build', async ({ page, apiAuthAdmin }) => {
             const moba = new Moba(page);
 
