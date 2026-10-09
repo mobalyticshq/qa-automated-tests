@@ -553,8 +553,8 @@ export class MainURLs {
   }
 
   async openUgCommentsWidget() {
-    await test.step(`Open url: ${process.env.BASE_URL}/borderlands-4/profile/bright-shield-aisan7/builds/8b5f070c-6693-4f1b-9af4-4d65d787ea67`, async () => {
-      await this.page.goto(`${process.env.BASE_URL}/borderlands-4/profile/bright-shield-aisan7/builds/8b5f070c-6693-4f1b-9af4-4d65d787ea67`, {
+    await test.step(`Open url: ${process.env.BASE_URL}/borderlands-4/profile/spy-man/builds/qa-test-comments-widget`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/borderlands-4/profile/spy-man/builds/qa-test-comments-widget`, {
         waitUntil: 'domcontentloaded',
       });
     });

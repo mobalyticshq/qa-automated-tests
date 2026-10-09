@@ -2,6 +2,8 @@ import { test as base, expect } from '@playwright/test';
 import { makeStCleanup, authByRole, registerAccount } from '../../app/helpers/index';
 import { Moba } from '../../app/page-object/moba';
 export { expect } from '@playwright/test';
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const test = base.extend({
   uiRegisterAccount: registerAccount('ui'),
@@ -35,12 +37,12 @@ export const test = base.extend({
 
   postComment: async({ apiAuthAdmin }, use) => {
     const moba = apiAuthAdmin;
-    const textComment = 'Hello Katia';
+    const textComment = `Hello Katia ${uuidv4()}`;
 
     await moba.mainURLs.openUgCommentsWidget();
     await moba.commentsWidget.postComments(textComment);
     await expect(moba.commentsWidget.textComment(textComment).first()).toBeVisible();
     
-    await use(moba);
+    await use({moba, textComment });
   }
 });

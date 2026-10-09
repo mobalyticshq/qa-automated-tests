@@ -15,19 +15,58 @@ test.describe('Comments Widget', () => {
     });
         
    test('Delete Own Comment', async ({ postComment }) => {
-        const moba = postComment;
-        const textComment = 'Hello Katia';
-        
-        await moba.mainURLs.openUgCommentsWidget()
-        await expect(moba.commentsWidget.textComment(textComment).first()).toBeVisible();
+        const { moba, textComment } = postComment;
+        await moba.ugBuildPage.deleteComment(textComment);
 
-
-        // await page.locator('button[aria-label="More actions"]').first().click();
-        // await page.getByRole('menuitem', { name: 'Remove' }).click();
-
-        // await expect(comment).toHaveCount(0);
+        await expect(moba.commentsWidget.textComment(textComment)).toHaveCount(0);
     })
 });
+
+test ('Up Comment Rate', async ({ postComment }) =>{
+    const { moba, textComment } = postComment;
+    
+    await moba.ugBuildPage.commentUp(textComment);
+
+    await expect(moba.ugBuildPage.countCommentText(textComment)).toContainText('1');
+} )
+
+// test ('Sorting comments', async ({ postComment }) => {
+//     const { moba, textComment } = postComment;
+
+//     const newerComment = `Hello Katia newer ${uuidv4()}`;
+//     const commentPosition = async (text) =>
+//         (await moba.ugBuildPage.commentItems.allInnerTexts()).findIndex((item) => item.includes(text));
+
+//     await moba.ugBuildPage.commentUp(textComment);
+//     await expect(moba.ugBuildPage.countCommentText(textComment)).toHaveText('1');
+  
+//     // a newer comment with 0 rating is above the upvoted one in "Newest", only "Top" can move it down
+//     await moba.commentsWidget.postComments(newerComment);
+//     try {
+//         expect(await commentPosition(newerComment)).toBeLessThan(await commentPosition(textComment));
+        
+//         await moba.ugBuildPage.sortComments('Top');
+//         await moba.ugBuildPage.loadAllComments();
+
+//         await expect
+//             .poll(async () => {
+//                 const upvotedPosition = await commentPosition(textComment);
+//                 const newerPosition = await commentPosition(newerComment);
+//                 return upvotedPosition !== -1 && newerPosition !== -1 && upvotedPosition < newerPosition;
+//             })
+//             .toBe(true);
+//         await expect
+//             .poll(async () => {
+//                 const ratings = await moba.ugBuildPage.getCommentRatings();
+//                 return ratings.every((rating, i) => i === 0 || ratings[i - 1] >= rating);
+//             })
+//             .toBe(true);
+//     } finally {
+//         // the newest comment is always on the first page in "Newest" order
+//         await moba.ugBuildPage.sortComments('Newest');
+//         await moba.ugBuildPage.deleteComment(newerComment);
+//     }
+// });
 
 //     test.describe('Delete Comment as Admin', () => {
     
