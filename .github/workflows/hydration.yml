@@ -1,4 +1,4 @@
-# Name workflow
+# # Name workflow
 name: sitemap-hydration-tests
 
 # When launch auto-tests
@@ -59,7 +59,7 @@ jobs:
         env:
           URL_SITEMAP: ${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && secrets.PROD_SITEMAP_URL || secrets.STG_SITEMAP_URL }}
           BASE_URL: ${{ (github.event.inputs.environment == 'PROD' || github.event_name == 'schedule') && secrets.PROD_URL || secrets.STG_URL }}
-        run: npm test -- --project sitemap-tests hydration-tests
+        run: npm test -- --project hydration-tests
 
       - name: Get previous report Allure history
         uses: actions/checkout@v6.0.2
@@ -70,7 +70,7 @@ jobs:
           path: gh-pages
 
       - name: Create allure-report from allure-results
-        uses: simple-elf/allure-report-action@385367cde61ac68c2568a117f7579f7f148dc459
+        uses: simple-elf/allure-report-action@v1.15
         if: always()
         with:
           allure_results: allure-results
@@ -82,7 +82,7 @@ jobs:
 
       - name: Deploy report to GitHub Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages

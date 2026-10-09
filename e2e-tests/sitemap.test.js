@@ -5,7 +5,7 @@ import { projectListFromSitemap } from '../app/helpers/index';
 test(`Each project sitemap.xml returns the expected status code`, async ({ request }) => {
   const isProd = process.env.BASE_URL === 'https://mobalytics.gg';
 
-  for (const { project, isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
+  for (const { isPresentInProdSitemap, pathUrl } of projectListFromSitemap) {
     let response;
     if (isProd && isPresentInProdSitemap === true) {
       await test.step(`Request link: ${process.env.BASE_URL}${pathUrl}`, async () => {
@@ -22,10 +22,10 @@ test(`Each project sitemap.xml returns the expected status code`, async ({ reque
         expect.soft(response.ok()).toBeFalsy();
       });
     } else {
-      await test.step(`Request link: ${process.env.BASE_URL}${project}`, async () => {
+      await test.step(`Request link: ${process.env.BASE_URL}${pathUrl}`, async () => {
         response = await request.get(`${process.env.BASE_URL}${pathUrl}`);
       });
-      await test.step(`Expected Result: ${process.env.BASE_URL}${project} returns a successful status code`, async () => {
+      await test.step(`Expected Result: ${process.env.BASE_URL}${pathUrl} returns a successful status code ${response.status()}`, async () => {
         expect.soft(response.ok()).toBeTruthy();
       });
     }

@@ -56,6 +56,14 @@ export class MainURLs {
     });
   }
 
+  async openAdminWoWPage() {
+    await test.step(`Open 'WoW Forever' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/wow-forever/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
   async openAdminPoePage() {
     await test.step(`Open 'PoE' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe/admin`, {
@@ -68,6 +76,14 @@ export class MainURLs {
     await test.step(`Open 'Overwatch' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/overwatch/admin`, {
         waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openMarathonPerimeterMapPage() {
+    await test.step('Open Marathon perimeter map page', async () => {
+      await this.page.goto(`${process.env.BASE_URL}/marathon/maps/perimeter`, {
+        waitUntil: 'load'
       });
     });
   }
@@ -291,6 +307,14 @@ export class MainURLs {
   async openUgPoe2Page() {
     await test.step(`Open 'PoE 2' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2/profile`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openUgPoe2PublishedBuildPage() {
+    await test.step(`Open published Poe 2 build page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/poe-2/profile/bright-shield-aisan7/builds/0f0da88a-57c3-4345-99a5-01ddd870b316`, {
         waitUntil: 'domcontentloaded',
       });
     });

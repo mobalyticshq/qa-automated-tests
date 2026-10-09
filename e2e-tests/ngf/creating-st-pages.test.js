@@ -6,6 +6,24 @@ test.beforeEach(() => new Promise((resolve) => setTimeout(() => resolve(), 1000)
 
 test.describe('Creating ST Pages', () => {
   //* Added new locator for header widget. It needs for testing purpose this locater
+  test(`Create a structure page on WoW Forever project`, async ({ cleanupStWoWPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const { moba, addPageForCleanup } = cleanupStWoWPages;
+
+    await moba.mainURLs.openAdminWoWPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on WoW Forever project`, async () => {
+      await expect(moba.stPage.headerSts2).toContainText('WoW Forever');
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a structure page on STS 2 project`, async ({ cleanupStSts2Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;

@@ -24,8 +24,48 @@ export class UgProfilePage {
     this.characterButton = page.getByRole('menuitem', {
       name: 'Character Create a Character',
     });
+    this.classButton = page.getByRole('menuitem', {
+      name: 'Create a Class Guide',
+    });
+    this.dungeonButton = page.getByRole('menuitem', {
+      name: 'Create a Dungeon Guide',
+    });
+    this.questButton = page.getByRole('menuitem', {
+      name: 'Create a Quest Guide',
+    });
+    this.raidButton = page.getByRole('menuitem', {
+      name: 'Create a Raid Guide',
+    });
     this.deckButton = page.getByRole('menuitem', { name: 'Create a Deck' });
     this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
+  }
+
+  async gotoQuestsPlannerPage() {
+    await test.step('Go to Quest Planner Page', async () => {
+      await this.createButton.click();
+      await this.questButton.click();
+    });
+  }
+
+  async gotoDungeonsPlannerPage() {
+    await test.step('Go to Dungeon Planner Page', async () => {
+      await this.createButton.click();
+      await this.dungeonButton.click();
+    });
+  }
+
+  async gotoRaidsPlannerPage() {
+    await test.step('Go to Raid Planner Page', async () => {
+      await this.createButton.click();
+      await this.raidButton.click();
+    });
+  }
+
+  async gotoClassesPlannerPage() {
+    await test.step('Go to Class Planner Page', async () => {
+      await this.createButton.click();
+      await this.classButton.click();
+    });
   }
 
   async gotoBuildPlannerPage() {

@@ -397,6 +397,24 @@ const projectList = [
       advertisement: true,
     },
   },
+  {
+    game: 'WoW Forever',
+    projectPath: '/wow-forever',
+    staticData: {
+      staticDataStPage: '/wow-forever/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Druid',
+    },
+    features: {
+      classes: true,
+      dungeons: true,
+      guides: true,
+      quests: true,
+      raids: true,
+      tierList: true,
+      staticData: true,
+      advertisement: true,
+    },
+  },
 ];
 
 export const filterProjectsByFeatureStatus = (featureStatus) => {

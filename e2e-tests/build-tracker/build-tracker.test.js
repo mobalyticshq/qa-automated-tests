@@ -2,18 +2,38 @@ import { test, expect } from '../fixtures/fixture';
 // import { Moba } from '../../app/page-object/moba';
 // import { v4 as uuidv4 } from 'uuid';
 
-test.use({ storageState: { cookies: [], origins: [] } });
+test.use({
+  storageState: {
+    cookies: [],
+    origins: [
+      {
+        origin: 'https://stg.mobalytics.gg',
+        localStorage: [
+          {
+            name: 'battle-pass-should-open-sidebar-on-load',
+            value: 'anonymous',
+          },
+        ],
+      },
+    ],
+  },
+});
 
 test('Activate tracking build modal appears for unauthorized user', async ({ page }) => {
-  await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear');
-  await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
-  await expect
-    .soft(
+  await page.goto('https://stg.mobalytics.gg/diablo-4/builds/necromancer-blood-surge?beta-v2', {
+    waitUntil: 'domcontentloaded',
+  });
+
+  await expect(async () => {
+    await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+    await expect(
       page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
       `Activate Tracking button is present`
-    )
-    .toBeVisible();
+    ).toBeVisible();
+  }).toPass({ intervals: [1_000, 2_000], timeout: 10_000 });
+
   await page.locator('.x10l6tqk.x8l1umf').click();
+
   await expect
     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
     .toBeVisible();
@@ -23,7 +43,7 @@ test('Activate tracking build modal appears for unauthorized user', async ({ pag
 });
 
 test('Activate tracking build modal appears for regular user', async ({ page, apiRegisterAccount }) => {
-  await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear');
+  await page.goto('https://stg.mobalytics.gg/diablo-4/builds/necromancer-blood-surge');
   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
 
   await expect
