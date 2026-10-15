@@ -14,7 +14,6 @@ export class UgBuildPage {
       name: 'Save and Publish',
     });
     this.widgetHeader = page.getByTestId('document-ug-widget-header');
-    // this.viewHeader = (buildName) => page.getByRole('button', { name: `Diablo 4 Build ${buildName}` });
     this.controlPanel = page.getByTestId('document-controls-panel');
     this.mainPage = page.getByRole('main');
     this.coverImage = page

@@ -108,8 +108,7 @@ export const authByRole =
 
 export const registerAccount = (typeRegister) => {
   if (typeRegister === 'api') {
-    return async ({ page, request, context }, use) => {
-      const moba = new Moba(page);
+    return async ({ request, context }, use) => {
       const uniqueId = uuidv4().substring(0, 4);
       const email = `ns+${uniqueId}@mobalyticshq.com`;
       const name = `ns+${uniqueId}@mobalyticshq.com`;
@@ -157,7 +156,7 @@ export const registerAccount = (typeRegister) => {
         window.localStorage.setItem('battle-pass-should-open-sidebar-on-load', value);
       }, uid);
 
-      await use(moba);
+      await use();
     };
   }
 
