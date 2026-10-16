@@ -56,7 +56,7 @@ export default defineConfig({
       name: 'auth-setup',
       testMatch: '**/authByPermissions.setup.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'off',
         video: 'off',
       },
@@ -65,7 +65,7 @@ export default defineConfig({
       name: 'user-roles-setup',
       testMatch: '**/authByUserRoles.setup.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'off',
         video: 'off',
       },
@@ -76,7 +76,7 @@ export default defineConfig({
       testDir: 'e2e-tests/ngf',
       use: {
         storageState: '.auth/adminAuth.json',
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -87,7 +87,7 @@ export default defineConfig({
       testDir: 'e2e-tests/accounts',
       use: {
         //   storageState: ".auth/userRoleAuth.json",
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -98,7 +98,7 @@ export default defineConfig({
       testDir: 'e2e-tests/payments',
       use: {
         // storageState: '.auth/userRoleAuth.json',
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -109,7 +109,7 @@ export default defineConfig({
       testDir: 'e2e-tests/build-tracker',
       use: {
         storageState: '.auth/userRoleAuth.json',
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -118,7 +118,7 @@ export default defineConfig({
       name: 'specific-tests',
       testMatch: 'e2e-tests/specific.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -128,7 +128,7 @@ export default defineConfig({
       dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/cf-cache-status.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -138,7 +138,7 @@ export default defineConfig({
       dependencies: ['user-roles-setup'],
       testDir: 'e2e-tests/advertisement',
       use: {
-        trace: 'retain-on-failure',
+        trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         video: 'off',
       },
