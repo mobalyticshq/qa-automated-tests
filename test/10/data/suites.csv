@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","284","setup admin","auth-setup","2026-10-19","passed","2026-10-19","","setup/authByPermissions.setup.test.js","",""
+"","90639","Create a structure page on PoE 2 project","ngf-tests","2026-10-19","broken","2026-10-19","Creating ST Pages","ngf/creating-st-pages.test.js","",""
+"","213","setup game manager","auth-setup","2026-10-19","passed","2026-10-19","","setup/authByPermissions.setup.test.js","",""
+"","186","setup internal writer","auth-setup","2026-10-19","passed","2026-10-19","","setup/authByPermissions.setup.test.js","",""
