@@ -103,6 +103,7 @@ jobs:
         continue-on-error: true
         run: |
           mkdir -p notifications/tmp
+          APP_VERSION=$(sed -n "s/^App\\\\ Version=//p" allure-results/environment.properties 2>/dev/null)
           sed \
             -e "s|\$TESTS_NAME|${{ env.TESTS_NAME }}|g" \
             -e "s|\$SLACK_CHAT_ID|${{ secrets.SLACK_CHAT_ID }}|g" \
@@ -111,6 +112,7 @@ jobs:
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
             -e "s|\$REPORT_LINK_SLACK|${{ secrets.GH_PAGES_BASE_URL }}/${{ env.REPORT_NAME }}|g" \
             -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://stg.mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
+            -e "s|\$APP_VERSION|${APP_VERSION:-unknown}|g" \
             notifications/config.json > notifications/tmp/config.json
 
       - name: Send Telegram & Slack notification

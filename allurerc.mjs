@@ -4,6 +4,9 @@ export default defineConfig({
   name: 'Allure Report 3',
   output: './allure-report',
   historyPath: './allure-history.jsonl',
+  variables: {
+    'App Version': process.env.APP_VERSION,
+  },
   plugins: {
     awesome: {
       options: {

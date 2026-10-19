@@ -2,7 +2,7 @@
   "base": {
     "project": "$TESTS_NAME",
     "environment": "$BASE_URL",
-    "comment": "some comment",
+    "comment": "App Version: $APP_VERSION",
     "reportLink": "$REPORT_LINK_SLACK",
     "language": "en",
     "allureFolder": "allure-report",
