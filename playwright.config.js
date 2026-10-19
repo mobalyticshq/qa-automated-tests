@@ -44,12 +44,12 @@ export default defineConfig({
       'allure-playwright',
       {
         environmentInfo: {
-          os_platform: os.platform(),
+          'App Version': process.env.APP_VERSION,
+          environment: process.env.BASE_URL === 'https://mobalytics.gg' ? 'PROD' : 'STG',
           os_release: os.release(),
           os_version: os.version(),
           node_version: process.version,
-          environment: process.env.BASE_URL === 'https://mobalytics.gg' ? 'PROD' : 'STG',
-          'App Version': process.env.APP_VERSION,
+          os_platform: os.platform(),
         },
       },
     ],
