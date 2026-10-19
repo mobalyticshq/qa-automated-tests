@@ -63,7 +63,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'off',
         video: 'off',
@@ -76,7 +76,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'off',
         video: 'off',
@@ -91,7 +91,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
@@ -106,7 +106,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
@@ -121,7 +121,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
@@ -136,7 +136,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
@@ -149,7 +149,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
@@ -163,7 +163,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
@@ -177,7 +177,7 @@ export default defineConfig({
         trace: {
           mode: 'on-first-retry',
           screenshots: false,
-          snapshots: { dom: true, aria: true, screen: false },
+          snapshots: true,
         },
         screenshot: 'only-on-failure',
         video: 'off',
