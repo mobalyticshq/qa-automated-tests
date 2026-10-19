@@ -41,7 +41,11 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASE_URL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    // trace: 'retain-on-failure',
+    // trace: {
+    //    mode: 'on-first-retry',
+    //    screenshots: false,
+    //    snapshots: { dom: true, aria: true, screen: false },
+    // },
     // screenshot: 'only-on-failure',
     // video: 'on-first-retry',
     // Browser settings:
@@ -56,7 +60,11 @@ export default defineConfig({
       name: 'auth-setup',
       testMatch: '**/authByPermissions.setup.test.js',
       use: {
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'off',
         video: 'off',
       },
@@ -65,7 +73,11 @@ export default defineConfig({
       name: 'user-roles-setup',
       testMatch: '**/authByUserRoles.setup.test.js',
       use: {
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'off',
         video: 'off',
       },
@@ -76,7 +88,11 @@ export default defineConfig({
       testDir: 'e2e-tests/ngf',
       use: {
         storageState: '.auth/adminAuth.json',
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -87,7 +103,11 @@ export default defineConfig({
       testDir: 'e2e-tests/accounts',
       use: {
         //   storageState: ".auth/userRoleAuth.json",
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -98,7 +118,11 @@ export default defineConfig({
       testDir: 'e2e-tests/payments',
       use: {
         // storageState: '.auth/userRoleAuth.json',
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -109,7 +133,11 @@ export default defineConfig({
       testDir: 'e2e-tests/build-tracker',
       use: {
         storageState: '.auth/userRoleAuth.json',
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -118,7 +146,11 @@ export default defineConfig({
       name: 'specific-tests',
       testMatch: 'e2e-tests/specific.test.js',
       use: {
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -128,7 +160,11 @@ export default defineConfig({
       dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/cf-cache-status.test.js',
       use: {
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -138,7 +174,11 @@ export default defineConfig({
       dependencies: ['user-roles-setup'],
       testDir: 'e2e-tests/advertisement',
       use: {
-        trace: 'on-first-retry',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true, screen: false },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },

@@ -53,7 +53,7 @@ jobs:
         run: npm i
 
       - name: Install PW with dependencies
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
 
       - name: Run advertisement tests
         env:
