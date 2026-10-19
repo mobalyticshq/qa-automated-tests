@@ -38,8 +38,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     env:
-      REPORT_LINK_SLACK: ${{ secrets.GH_PAGES_BASE_URL }}/ngf
-      TESTS_NAME: 'NGF'
+      REPORT_NAME: test
+      TESTS_NAME: 'Test'
     steps:
       - name: Clone the code from repository into runner (virtual machine)
         uses: actions/checkout@v6.0.2
@@ -101,7 +101,7 @@ jobs:
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
-          subfolder: test
+          subfolder: ${{ env.REPORT_NAME }}
           keep_reports: 10
 
       - name: Deploy report to GitHub Pages
@@ -110,8 +110,8 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: allure-history/test
-          destination_dir: test
+          publish_dir: allure-history/${{ env.REPORT_NAME }}
+          destination_dir: ${{ env.REPORT_NAME }}
 
       - name: Generate config.json with the secrets
         if: always()
@@ -124,7 +124,7 @@ jobs:
             -e "s|\$SLACK_TOKEN|${{ secrets.SLACK_TOKEN }}|g" \
             -e "s|\$TELEGRAM_BOT_TOKEN|${{ secrets.TELEGRAM_BOT_TOKEN }}|g" \
             -e "s|\$TELEGRAM_CHAT_ID|${{ secrets.TELEGRAM_CHAT_ID }}|g" \
-            -e "s|\$REPORT_LINK_SLACK|${{ env.REPORT_LINK_SLACK }}|g" \
+            -e "s|\$REPORT_LINK_SLACK|${{ secrets.GH_PAGES_BASE_URL }}/${{ env.REPORT_NAME }}|g" \
             -e "s|\$BASE_URL|${{ github.event.inputs.environment == 'PROD' && 'https://mobalytics.gg' || github.event_name == 'schedule' && 'https://stg.mobalytics.gg' || 'https://stg.mobalytics.gg' }}|g" \
             notifications/config.json > notifications/tmp/config.json
 
