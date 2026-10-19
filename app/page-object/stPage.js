@@ -17,11 +17,8 @@ export class StPage {
         exact: true,
       })
       .getByRole('button', { name: 'Choose file' });
-    this.addSectionButtonInModal = page.getByRole('button', {
-      name: 'Add Section',
-      exact: true,
-    });
-    this.addSectionButton = page.getByRole('button', { name: 'Add section', exact: true });
+    this.addSectionButtonInModal = page.getByRole('dialog').getByRole('button', { name: 'Add Section' });
+    this.addSectionButton = page.getByRole('button', { name: 'Add section' });
     this.editButton = page.getByTestId('ngf-st-edit-button');
     this.publishButton = page.getByTestId('ngf-st-publish-button');
     this.buttonPublishInModal = page
@@ -95,7 +92,7 @@ export class StPage {
     this.dropdownStaticData = page.getByTestId('suggestion-static-data-menu');
     this.perimeterMapButton = page.getByAltText('Perimeter Map');
     this.closeMapModalButton = page.getByTestId('image-preview-modal-icon-close');
-  } 
+  }
 
   async updateDescriptionRichTextWidget(text) {
     await test.step(`Update description in the rich text widget on the ST page`, async () => {
