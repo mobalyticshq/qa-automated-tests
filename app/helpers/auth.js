@@ -169,7 +169,7 @@ export const registerAccount = (typeRegister) => {
       await moba.navbar.gotoSignInPage();
       await moba.authorizePage.registerAccount(credentials);
 
-      await use(moba);
+      await use({ moba, credentials });
     };
   }
 

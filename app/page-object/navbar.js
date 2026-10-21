@@ -3,13 +3,13 @@ import { test } from '@playwright/test';
 export class Navbar {
   constructor(page) {
     this.page = page;
-    this.settingsButton = page.getByRole('img', { name: 'settings' });
+    this.settingsButton = page.getByRole('link', { name: 'Settings' });
     this.signInButton = page.getByRole('button', { name: 'sign in' });
     this.getPlusButton = page.getByRole('button', { name: 'Get Plus' });
     this.removeAdsButton = page.getByRole('button', { name: 'Remove Ads', exact: true });
     this.gameList = page.getByTestId('navbar-game-list');
     this.profileButton = page.getByRole('link', { name: 'View your profile' });
-    this.mgpProfileButton = page.locator('a[href*="/profile/"]').first();
+    this.mgpProfileButton = (profileName) => page.getByRole('button', { name: profileName });
     this.accountSettingsButton = page.getByRole('link', { name: 'Account Settings' });
     this.billingInfoButton = page.getByRole('link', { name: 'Billing Info' });
     this.profileNameMenu = (profileName) => page.getByRole('link', { name: `${profileName}` });
@@ -27,22 +27,22 @@ export class Navbar {
     });
   }
 
-  async gotoMgpProfile() {
+  async gotoMgpProfile(profileName) {
     await test.step('Go to MGP profile via navbar', async () => {
-      await this.mgpProfileButton.click();
+      await this.mgpProfileButton(profileName).click();
     });
   }
 
-  async gotoAccountSettingsPage() {
+  async gotoAccountSettingsPage(profileName) {
     await test.step('Go to Account Settings page', async () => {
-      await this.settingsButton.hover();
-      await this.accountSettingsButton.click();
+      await this.mgpProfileButton(profileName).click();
+      await this.settingsButton.click();
     });
   }
 
   async gotoBillingInfoPage() {
     await test.step('Go to Account Settings page', async () => {
-      await this.settingsButton.hover();
+      await this.settingsButton.click();
       await this.billingInfoButton.click();
     });
   }

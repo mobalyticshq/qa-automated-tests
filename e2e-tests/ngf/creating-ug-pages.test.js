@@ -22,7 +22,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-build-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         // await moba.mainURLs.openTftPage();
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
@@ -44,7 +44,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-guide-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -65,7 +65,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-tier-list-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -86,7 +86,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-team-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -107,7 +107,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-classic-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -128,7 +128,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-class-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -149,7 +149,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-raid-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -170,7 +170,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-dungeon-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -191,7 +191,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-quest-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
