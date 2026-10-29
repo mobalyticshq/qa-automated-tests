@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { test, expect } from './fixtures/fixture';
 import { Moba } from '../app/page-object/moba';
 
-test.use({ userAgent: 'moba-warrior' });
+// test.use({ userAgent: 'moba-warrior' });
 
 test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after editing ST page', async ({ browser }) => {
   test.skip(

@@ -4,7 +4,7 @@ name: sitemap-hydration-tests
 # When launch auto-tests
 on:
   schedule:
-    - cron: '00 4 * * 5'
+    - cron: '00 5 * * 5'
 
   # Manual hook for launch
   workflow_dispatch:
