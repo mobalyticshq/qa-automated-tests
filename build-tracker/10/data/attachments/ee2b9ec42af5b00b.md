@@ -1,0 +1,282 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: build-tracker/build-tracker.test.js >> Activate tracking build modal appears for regular user
+- Location: e2e-tests/build-tracker/build-tracker.test.js:45:1
+
+# Error details
+
+```
+Test timeout of 90000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 90000ms exceeded.
+Call log:
+  - waiting for getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Ready for a New ARPG? Play the Darkhaven Demo Now!2 → Try Demo Close":
+        - /url: https://store.steampowered.com/app/4356650/Darkhaven_Demo/
+        - generic [ref=e4] [cursor=pointer]:
+          - generic [ref=e5]:
+            - textbox [ref=e10]:
+              - paragraph [ref=e11]: Ready for a New ARPG? Play the Darkhaven Demo Now!2
+            - button "→ Try Demo" [ref=e12]
+          - img "Close" [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e16]:
+          - link [ref=e18] [cursor=pointer]:
+            - /url: /diablo-4
+            - img "Mobalytics" [ref=e19]
+          - generic [ref=e21]:
+            - link "League of Legends LoL" [ref=e23] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/lol
+              - generic [ref=e25]:
+                - img "League of Legends" [ref=e27]
+                - generic [ref=e28]: LoL
+            - link "Teamfight Tactics TFT" [ref=e30] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/tft
+              - generic [ref=e32]:
+                - img "Teamfight Tactics" [ref=e34]
+                - generic [ref=e35]: TFT
+            - link "Diablo 4 Diablo 4" [ref=e37] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/diablo-4
+              - generic [ref=e39]:
+                - img "Diablo 4" [ref=e41]
+                - generic [ref=e42]: Diablo 4
+            - link "Path of Exile 2 PoE 2" [ref=e44] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe-2
+              - generic [ref=e46]:
+                - img "Path of Exile 2" [ref=e48]
+                - generic [ref=e49]: PoE 2
+            - link "Path of Exile PoE" [ref=e51] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe
+              - generic [ref=e53]:
+                - img "Path of Exile" [ref=e55]
+                - generic [ref=e56]: PoE
+            - 'link "World of Warcraft: Forever WoW Forever New" [ref=e58] [cursor=pointer]':
+              - /url: https://stg.mobalytics.gg/wow-forever
+              - generic [ref=e60]:
+                - 'img "World of Warcraft: Forever" [ref=e62]'
+                - generic [ref=e63]: WoW Forever
+                - generic [ref=e64]: New
+            - link "Destiny 2 Destiny 2" [ref=e67] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/destiny-2
+              - generic [ref=e69]:
+                - img "Destiny 2" [ref=e71]
+                - generic [ref=e72]: Destiny 2
+            - link "Marathon Marathon" [ref=e74] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/marathon
+              - generic [ref=e76]:
+                - img "Marathon" [ref=e78]
+                - generic [ref=e79]: Marathon
+            - link "Slay the Spire 2 STS 2" [ref=e81] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/slay-the-spire-2
+              - generic [ref=e83]:
+                - img "Slay the Spire 2" [ref=e85]
+                - generic [ref=e86]: STS 2
+            - link "Deadlock Deadlock" [ref=e88] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/deadlock
+              - generic [ref=e90]:
+                - img "Deadlock" [ref=e92]
+                - generic [ref=e93]: Deadlock
+            - link "Overwatch Overwatch" [ref=e95] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/overwatch
+              - generic [ref=e97]:
+                - img "Overwatch" [ref=e99]
+                - generic [ref=e100]: Overwatch
+            - button [ref=e102] [cursor=pointer]
+          - link "Gamebase Gamebase Reviews, Previews, & More" [ref=e105] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/gamebase
+            - generic [ref=e106]:
+              - img "Gamebase" [ref=e108]
+              - generic [ref=e109]: Gamebase
+              - generic [ref=e110]: Reviews, Previews, & More
+        - generic [ref=e111]:
+          - link [ref=e112] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?utm_campaign=eRtDdtB&utm_medium=owaa&utm_source=app
+            - button "Download App" [ref=e114]
+          - button "Play & Get Free Rewards" [ref=e117] [cursor=pointer]
+          - generic [ref=e120]:
+            - button "Get Plus" [ref=e121] [cursor=pointer]
+            - button "ns+5983@mobalyticshq.com" [ref=e123] [cursor=pointer]:
+              - generic [ref=e125]:
+                - generic [ref=e126]: "N"
+                - generic [ref=e128]: ns+5983@mobalyticshq.com
+            - button "Notifications" [ref=e131] [cursor=pointer]
+        - generic [ref=e134]:
+          - link [ref=e137] [cursor=pointer]:
+            - /url: /diablo-4
+            - img "Home" [ref=e138]
+            - generic: Home
+          - link [ref=e141] [cursor=pointer]:
+            - /url: /diablo-4/profile
+            - img "Profile" [ref=e142]
+            - generic: Profile
+          - link [ref=e145] [cursor=pointer]:
+            - /url: /diablo-4/planner/builds
+            - img "Build Planner" [ref=e146]
+            - generic: Build Planner
+          - link [ref=e149] [cursor=pointer]:
+            - /url: /diablo-4/tier-list
+            - img "Tier List" [ref=e150]
+            - generic: Tier List
+          - link [ref=e153] [cursor=pointer]:
+            - /url: /diablo-4/builds
+            - img "Builds" [ref=e154]
+            - generic: Builds
+          - link [ref=e157] [cursor=pointer]:
+            - /url: /diablo-4/leveling-builds
+            - img "Leveling Builds" [ref=e158]
+            - generic: Leveling Builds
+          - link [ref=e161] [cursor=pointer]:
+            - /url: /diablo-4/guides
+            - img "Guides" [ref=e162]
+            - generic: Guides
+          - link [ref=e165] [cursor=pointer]:
+            - /url: /diablo-4/loot-filters
+            - img "Loot Filters" [ref=e166]
+            - generic: Loot Filters
+          - link [ref=e169] [cursor=pointer]:
+            - /url: /diablo-4/news
+            - img "News" [ref=e170]
+            - generic: News
+          - link [ref=e173] [cursor=pointer]:
+            - /url: /diablo-4/creators
+            - img "Creators" [ref=e174]
+            - generic: Creators
+        - generic [ref=e176]:
+          - main [ref=e177]:
+            - generic [ref=e181]:
+              - 'heading "error: something went terribly wrong..." [level=2] [ref=e182]':
+                - generic [ref=e183]: "error:"
+                - text: something wentterribly wrong...
+              - paragraph [ref=e184]:
+                - generic [ref=e185]: Sorry for any inconvenience, we are trying our best but this isstill work in progress and there might be issues.
+            - generic [ref=e187] [cursor=pointer]
+          - complementary [ref=e191]:
+            - generic [ref=e192]:
+              - generic [ref=e194]:
+                - generic [ref=e196] [cursor=pointer]:
+                  - generic [ref=e197]: Advertisement
+                  - generic [ref=e198]: Remove Ads
+                - generic [ref=e204] [cursor=pointer]:
+                  - generic [ref=e205]: Remove all ads
+                  - generic [ref=e206]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e207]
+              - generic [ref=e209]:
+                - generic [ref=e211] [cursor=pointer]:
+                  - generic [ref=e212]: Advertisement
+                  - generic [ref=e213]: Remove Ads
+                - generic [ref=e219] [cursor=pointer]:
+                  - generic [ref=e220]: Remove all ads
+                  - generic [ref=e221]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e222]
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e223]:
+    - generic [ref=e224] [cursor=pointer]
+    - generic [ref=e226]:
+      - banner [ref=e227]:
+        - generic [ref=e228] [cursor=pointer]:
+          - generic [ref=e229]: Advertisement
+          - generic [ref=e230]: Remove Ads
+      - generic [ref=e234] [cursor=pointer]:
+        - generic [ref=e235]: Remove all ads
+        - generic [ref=e236]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+        - button "Remove ads" [ref=e237]
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '../fixtures/fixture';
+  2  | // import { Moba } from '../../app/page-object/moba';
+  3  | // import { v4 as uuidv4 } from 'uuid';
+  4  | 
+  5  | test.use({
+  6  |   storageState: {
+  7  |     cookies: [],
+  8  |     origins: [
+  9  |       {
+  10 |         origin: 'https://stg.mobalytics.gg',
+  11 |         localStorage: [
+  12 |           {
+  13 |             name: 'battle-pass-should-open-sidebar-on-load',
+  14 |             value: 'anonymous',
+  15 |           },
+  16 |         ],
+  17 |       },
+  18 |     ],
+  19 |   },
+  20 | });
+  21 | 
+  22 | test('Activate tracking build modal appears for unauthorized user', async ({ page }) => {
+  23 |   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/necromancer-blood-surge?beta-v2', {
+  24 |     waitUntil: 'domcontentloaded',
+  25 |   });
+  26 | 
+  27 |   await expect(async () => {
+  28 |     await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+  29 |     await expect(
+  30 |       page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
+  31 |       `Activate Tracking button is present`
+  32 |     ).toBeVisible();
+  33 |   }).toPass({ intervals: [1_000, 2_000], timeout: 10_000 });
+  34 | 
+  35 |   await page.locator('.x10l6tqk.x8l1umf').click();
+  36 | 
+  37 |   await expect
+  38 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
+  39 |     .toBeVisible();
+  40 |   await expect
+  41 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Tracking' }))
+  42 |     .not.toBeVisible();
+  43 | });
+  44 | 
+  45 | test('Activate tracking build modal appears for regular user', async ({ page, apiRegisterAccount }) => {
+  46 |   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/necromancer-blood-surge');
+> 47 |   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+     |                                                                                                    ^ Error: locator.click: Test timeout of 90000ms exceeded.
+  48 | 
+  49 |   await expect
+  50 |     .soft(
+  51 |       page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
+  52 |       `Activate Tracking button is present`
+  53 |     )
+  54 |     .toBeVisible();
+  55 |   await page.locator('.x10l6tqk.x8l1umf').click();
+  56 |   await expect
+  57 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
+  58 |     .toBeVisible();
+  59 |   await expect
+  60 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Tracking' }))
+  61 |     .not.toBeVisible();
+  62 | });
+  63 | 
+  64 | // test('Activate tracking build feature  for plus user', async ({ page, apiPlusUser }) => {
+  65 | //   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear');
+  66 | //   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+  67 | 
+  68 | //   await expect
+  69 | //     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
+  70 | //     .not.toBeVisible();
+  71 | //   await expect
+  72 | //     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Tracking' }))
+  73 | //     .toBeVisible();
+  74 | // });
+  75 | 
+```
