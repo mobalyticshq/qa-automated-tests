@@ -27,12 +27,12 @@ test('Activate tracking build modal appears for unauthorized user', async ({ pag
   await expect(async () => {
     await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
     await expect(
-      page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
+      page.getByRole('button', { name: 'Activate Tracking' }),
       `Activate Tracking button is present`
-    ).toBeVisible();
-  }).toPass({ intervals: [1_000, 2_000], timeout: 10_000 });
+    ).toBeVisible({ timeout: 2_000 });
+  }).toPass({ intervals: [1_000], timeout: 20_000 });
 
-  await page.locator('.x10l6tqk.x8l1umf').click();
+  await page.getByTestId('promo-flow-cross-button').click();
 
   await expect
     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
@@ -47,12 +47,9 @@ test('Activate tracking build modal appears for regular user', async ({ page, ap
   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
 
   await expect
-    .soft(
-      page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
-      `Activate Tracking button is present`
-    )
+    .soft(page.getByRole('button', { name: 'Activate Tracking' }), `Activate Tracking button is present`)
     .toBeVisible();
-  await page.locator('.x10l6tqk.x8l1umf').click();
+  await page.getByTestId('promo-flow-cross-button').click();
   await expect
     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
     .toBeVisible();

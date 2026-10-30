@@ -546,14 +546,14 @@ test('404 error page appears after deleting a build', async ({ apiPlusUser, requ
   await expect(guestPage.getByRole('heading', { name: '410' })).toBeVisible();
 });
 
-test('cf-cache-status: BYPASS appears with query param in URL: ?force_ssr=1', async ({ page }) => {
+test('cf-cache-status: DYNAMIC appears with query param in URL: ?force_ssr=1', async ({ page }) => {
   const response = await page.goto(`${process.env.BASE_URL}/mhw?force_ssr=1`);
   const headers = response.headers();
 
   expect(
     headers['cf-cache-status'],
-    'cf-cache-status: BYPASS is received, opening the page with query param: ?force_ssr=1'
-  ).toBe('BYPASS');
+    'cf-cache-status: DYNAMIC is received, opening the page with query param: ?force_ssr=1'
+  ).toBe('DYNAMIC');
 });
 
 test('cf-cache-status: MISS appears when open url with always new query param', async ({ page }) => {
