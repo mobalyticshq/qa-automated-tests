@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1320","Error validation: 404 status code & title on NGF page","specific-tests","2026-10-30","failed","2026-10-30","","specific.test.js","",""
+"","1572","Error validation: 404 status code & title on usual page","specific-tests","2026-10-30","failed","2026-10-30","","specific.test.js","",""
+"","7780","Change display name","account-tests","2026-10-30","passed","2026-10-30","","accounts/account.test.js","",""
+"","226","setup admin","auth-setup","2026-10-30","passed","2026-10-30","","setup/authByPermissions.setup.test.js","",""
+"","591","setup internal writer","auth-setup","2026-10-30","passed","2026-10-30","","setup/authByPermissions.setup.test.js","",""
+"","8789","Delete mobalytics account","account-tests","2026-10-30","passed","2026-10-30","","accounts/account.test.js","",""
+"","490","setup game manager","auth-setup","2026-10-30","passed","2026-10-30","","setup/authByPermissions.setup.test.js","",""
