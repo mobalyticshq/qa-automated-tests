@@ -79,7 +79,7 @@ jobs:
           path: gh-pages
 
       - name: Create allure-report from allure-results
-        uses: simple-elf/allure-report-action@v1.15
+        uses: ./.github/actions/allure-report-action
         if: always()
         with:
           allure_results: allure-results
