@@ -1,0 +1,618 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: build-tracker/build-tracker.test.js >> Activate tracking build modal appears for regular user
+- Location: e2e-tests/build-tracker/build-tracker.test.js:45:1
+
+# Error details
+
+```
+Error: Activate Tracking button is present
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' })
+Expected: visible
+Timeout: 15000ms
+Error: element(s) not found
+
+Call log:
+  - Activate Tracking button is present locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }) with timeout 15000ms
+  - waiting for locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' })
+
+```
+
+```yaml
+- link "Ready for a New ARPG? Play the Darkhaven Demo Now!3 → Try Demo Close":
+  - /url: https://store.steampowered.com/app/4356650/Darkhaven_Demo/
+  - textbox:
+    - paragraph: Ready for a New ARPG? Play the Darkhaven Demo Now!3
+  - button "→ Try Demo"
+  - img "Close"
+- link "Mobalytics":
+  - /url: /diablo-4
+  - img "Mobalytics"
+- link "League of Legends LoL":
+  - /url: https://stg.mobalytics.gg/lol
+  - img "League of Legends"
+  - text: LoL
+- link "Teamfight Tactics TFT":
+  - /url: https://stg.mobalytics.gg/tft
+  - img "Teamfight Tactics"
+  - text: TFT
+- link "Diablo 4 Diablo 4":
+  - /url: https://stg.mobalytics.gg/diablo-4
+  - img "Diablo 4"
+  - text: Diablo 4
+- link "Path of Exile 2 PoE 2":
+  - /url: https://stg.mobalytics.gg/poe-2
+  - img "Path of Exile 2"
+  - text: PoE 2
+- link "Path of Exile PoE":
+  - /url: https://stg.mobalytics.gg/poe
+  - img "Path of Exile"
+  - text: PoE
+- 'link "World of Warcraft: Forever WoW Forever New"':
+  - /url: https://stg.mobalytics.gg/wow-forever
+  - 'img "World of Warcraft: Forever"'
+  - text: WoW Forever New
+- link "Destiny 2 Destiny 2":
+  - /url: https://stg.mobalytics.gg/destiny-2
+  - img "Destiny 2"
+  - text: Destiny 2
+- link "Marathon Marathon":
+  - /url: https://stg.mobalytics.gg/marathon
+  - img "Marathon"
+  - text: Marathon
+- link "Slay the Spire 2 STS 2":
+  - /url: https://stg.mobalytics.gg/slay-the-spire-2
+  - img "Slay the Spire 2"
+  - text: STS 2
+- link "Deadlock Deadlock":
+  - /url: https://stg.mobalytics.gg/deadlock
+  - img "Deadlock"
+  - text: Deadlock
+- link "Overwatch Overwatch":
+  - /url: https://stg.mobalytics.gg/overwatch
+  - img "Overwatch"
+  - text: Overwatch
+- button:
+  - img
+- link "Gamebase Gamebase Reviews, Previews, & More":
+  - /url: https://stg.mobalytics.gg/gamebase
+  - img "Gamebase"
+  - text: Gamebase Reviews, Previews, & More
+- link "Download App":
+  - /url: /lol/glp/download-welcome?utm_campaign=eRtDdtB&utm_medium=owaa&utm_source=app
+  - button "Download App":
+    - img
+    - text: Download App
+- button "Play & Get Free Rewards"
+- button "Get Plus"
+- button "ns+ce23@mobalyticshq.com": N ns+ce23@mobalyticshq.com
+- button "Notifications":
+  - img
+- link "Home Home":
+  - /url: /diablo-4
+  - img "Home"
+  - text: Home
+- link "Profile Profile":
+  - /url: /diablo-4/profile
+  - img "Profile"
+  - text: Profile
+- link "Build Planner Build Planner":
+  - /url: /diablo-4/planner/builds
+  - img "Build Planner"
+  - text: Build Planner
+- link "Tier List Tier List":
+  - /url: /diablo-4/tier-list
+  - img "Tier List"
+  - text: Tier List
+- link "Builds Builds":
+  - /url: /diablo-4/builds
+  - img "Builds"
+  - text: Builds
+- link "Leveling Builds Leveling Builds":
+  - /url: /diablo-4/leveling-builds
+  - img "Leveling Builds"
+  - text: Leveling Builds
+- link "Guides Guides":
+  - /url: /diablo-4/guides
+  - img "Guides"
+  - text: Guides
+- link "Loot Filters Loot Filters":
+  - /url: /diablo-4/loot-filters
+  - img "Loot Filters"
+  - text: Loot Filters
+- link "News News":
+  - /url: /diablo-4/news
+  - img "News"
+  - text: News
+- link "Creators Creators":
+  - /url: /diablo-4/creators
+  - img "Creators"
+  - text: Creators
+- main:
+  - navigation:
+    - list:
+      - listitem:
+        - link "Diablo 4":
+          - /url: /diablo-4
+      - listitem:
+        - link "Builds":
+          - /url: /diablo-4/builds
+      - listitem: Omega Blood Surge
+  - button "Diablo 4 Build Omega Blood Surge presentation Necromancer Speed Farm End Game Kay Season 12 Verified By Nikita Lodyanoy Follow Updated on Mar 11, 2026 Track Build 8.0 K Favorites 0 Share Focus Mode":
+    - text: Diablo 4 Build
+    - heading "Omega Blood Surge" [level=1]
+    - img "presentation"
+    - text: Necromancer Speed Farm End Game Kay Season 12 Verified By
+    - link "Nikita Lodyanoy":
+      - /url: /diablo-4/profile/grim-shadow-ctosns/builds
+    - button "Follow":
+      - img
+      - text: Follow
+    - text: Updated on Mar 11, 2026
+    - button "Track Build":
+      - img
+      - text: Track Build
+    - button "8.0 K Favorites":
+      - img
+      - text: 8.0 K Favorites
+    - button "0":
+      - img
+      - text: "0"
+    - button "Share":
+      - img
+      - text: Share
+    - button:
+      - img
+    - button "Focus Mode":
+      - img
+      - text: Focus Mode
+  - heading "Build Overview" [level=2]
+  - textbox:
+    - paragraph: This build is design to go insanely fast while dealing loads of damage with Blood Surge . This build got some buffs this season which makes it a bit better, though in raw DPS its still behind the higher tier builds.
+    - list:
+      - listitem:
+        - text: ▶️Full build guide & gameplay on
+        - link "YouTube":
+          - /url: https://www.youtube.com/@goblin-inc
+  - heading "Strengths and Weaknesses" [level=2]
+  - textbox:
+    - list:
+      - listitem: Extremely Fast Farming
+      - listitem: Amazing AOE
+      - listitem: Easy to play
+      - listitem: Extremely Tanky
+      - listitem: Objectively Coolest Necromancer Build
+  - textbox:
+    - list:
+      - listitem: Peak DPS Is a bit low
+      - listitem: Takes Longer to reach end game
+  - heading "Build Variants" [level=2]
+  - tablist:
+    - tablist:
+      - tab "Torment 4" [selected]
+      - tab "End Game"
+      - tab "Push"
+  - textbox:
+    - paragraph: The build still functions as normal without uber uniques, so we just need to replace them with good aspects.
+  - heading "Aspect & Uniques" [level=2]
+  - button "Focus Mode New":
+    - img
+    - text: Focus Mode New
+  - tablist:
+    - tablist:
+      - tab "Torment 4" [selected]
+      - tab "End Game"
+      - tab "Push"
+  - img
+  - img
+  - text: 3 Helm Juggernaut's Aspect
+  - img
+  - img
+  - text: 4 Chest armor Aspect of Hardened Bones 5 Gloves Cruor's Embrace
+  - img
+  - text: 1 Pants Aspect of the Embalmer 6 Boots Aspect of the Cursed Aura
+  - img
+  - text: 8 Amulet Sacrificial Aspect
+  - img
+  - text: 7 Ring 1 Aspect of Rathma's Chosen 2 Ring 2 Aspect of Exposed Flesh
+  - img
+  - text: 10 Weapon Cadaverous Aspect 9 Offhand Blood-bathed Aspect Equipment Priority
+  - button "Track Build":
+    - img
+    - text: Track Build
+  - button "Show All":
+    - text: Show All
+    - img
+  - textbox:
+    - paragraph: This setup is designed to deal loads of damage while having the survivability to clear harder content.
+    - paragraph:
+      - text: Your priority for
+      - strong: Bloodied Affixes
+      - text: "are as follows:"
+    - list:
+      - listitem:
+        - text: Every 25 kills, gain
+        - strong: Berserking
+      - listitem:
+        - strong: Movement Speed
+        - text: per Kill Streak tier
+      - listitem:
+        - strong: Cooldown Reduction
+        - text: per Kill Streak tier
+      - listitem:
+        - strong: Increased Experience
+        - text: per Killstreak tier
+  - heading "Skills & Rotation" [level=2]
+  - tablist:
+    - tablist:
+      - tab "Torment 4" [selected]
+      - tab "End Game"
+      - tab "Push"
+  - text: Primary 1 5 Secondary 5 1 1 1 Book of the Dead Skeletal Warriors
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio [checked]
+  - radio
+  - radio
+  - radio
+  - text: Skeletal Mages
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio [checked]
+  - text: Skeletal Golems
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio
+  - radio [checked]
+  - textbox:
+    - paragraph:
+      - text: Make sure you put the random darkness skills on your bar for procing
+      - strong: Reaper's Pursuit
+  - heading "Skill Tree" [level=2]
+  - button "Focus Mode New":
+    - img
+    - text: Focus Mode New
+  - tablist:
+    - tablist:
+      - tab "Torment 4" [selected]
+      - tab "End Game"
+      - tab "Push"
+  - text: Available 12 (0) Spent 69 (2) Leveling Path
+  - switch "Leveling Path"
+  - button "Track Build":
+    - img
+    - text: Track Build
+  - heading "Paragon Board" [level=2]
+  - button "Focus Mode New":
+    - img
+    - text: Focus Mode New
+  - tablist:
+    - tablist:
+      - tab "Torment 4" [selected]
+      - tab "End Game"
+      - tab "Push"
+  - text: Spent 0
+  - listitem: Str 66
+  - listitem: Int 69
+  - listitem: Dex 66
+  - listitem: Will 67
+  - text: Leveling Path
+  - switch "Leveling Path" [disabled]
+  - button "Track Build":
+    - img
+    - text: Track Build
+  - textbox:
+    - paragraph: This Paragon Board has extra points just to show priority. With remaining points just grab extra Int nodes
+  - heading "Mercenaries" [level=2]
+  - button "Focus Mode New":
+    - img
+    - text: Focus Mode New
+  - tablist:
+    - tablist:
+      - tab "Torment 4" [selected]
+      - tab "End Game"
+      - tab "Push"
+  - text: Hired Mercenary Subo Reinforcement Aldkin Skill Opportunity
+  - heading "Frequently Asked Questions" [level=2]
+  - textbox:
+    - paragraph: Blood Surge was massively buffed going into season 11, and now the build is actually fairly strong again. Its my favorite Necromancer build and its super to play. It has great AOE farming potential, relatively decent single target damage, and a very fun progression through the torments that will be challenging but rewarding. Once you get it fully online, you'll be cruising through Torment 4 with one of Necromancer's fastest farming builds. Blood Surge also features one of the coolest engines in any build, relying on rapidly spawning and consuming corpses to massively increase its damage and essence generation.
+    - heading "Leveling and Early Game" [level=4]
+    - paragraph:
+      - text: For leveling and Early Game, check out [this build] (
+      - link "https://mobalytics.gg/diablo-4/profile/294d6a05-33c1-4191-be52-75f1a5f2c639/builds/6c7833ba-fe5e-4bf3-b1c4-84398b3269ce":
+        - /url: /diablo-4/profile/294d6a05-33c1-4191-be52-75f1a5f2c639/builds/6c7833ba-fe5e-4bf3-b1c4-84398b3269ce
+      - text: )
+    - heading "Move While Casting" [level=4]
+    - paragraph:
+      - text: There's currently a "feature" if you use keyboard movement where you can cast while moving. You need to lead your character spam click to cast, all while making sure your cursor doesn't hover over an enemy. If done correctly, you will be able to spam Blood Surge while running. For a full breakdown, check out this video guide.
+      - link "https://www.youtube.com/watch?v=XCDJyYXl2MM":
+        - /url: https://www.youtube.com/watch?v=XCDJyYXl2MM
+    - heading "Resource issues" [level=4]
+    - paragraph: If you are having any resource issue you can add Iron Maiden to the build. This will allow your Aspect of the Cursed Aura to automatically apply Iron Maiden and proc the resource generation.
+    - heading "Corpse Loop" [level=4]
+    - paragraph:
+      - text: This build utilizes the synergy between Cruor's Embrace and Hewed Flesh to generate and consume an inane amount of corpses. Thanks to Aspect of the Embalmer when we consume corpses we also spawn
+      - strong: Blood Orbs
+      - text: ", and by picking those up we both reset the cooldown on Rathma's Vigor"
+      - strong
+      - text: and proc Blood Begets Blood .
+    - heading "Bossing" [level=4]
+    - paragraph: Blood Surge has become a very weak bossing skill with the new Season 11 changes, and there's not much you can do anymore to fix this. In general, I would just recommend using the armory and having another build setup that you can easily swap to for killing bosses.
+    - heading "Uniques" [level=4]
+    - paragraph:
+      - text: Cruor's Embrace
+      - strong: ":"
+      - text: Though steeply nerfed with the masterwork changes in Season 11 they are still so much damage while also being a key piece of our Corpse Consumption Combo.
+    - paragraph:
+      - text: Heir of Perdition
+      - strong: ":"
+      - text: This Mythic Unique gives a 60% damage multiplier as well as some good stats in the form of Crit Chance, Movement Speed, and Lucky Hit Chance. Shroud of False Death 1 to all passives as well as a high HP and all stat roll makes this item give way too much tankiness and damage to pass up. Ring of Starless Skies
+      - strong: ":"
+      - text: This Mythic gives more damage than any other available option while also giving 50% resource cost reduction and a nice lucky hit roll. Cannot pass this up.
+    - heading "Mythic Priority Order" [level=4]
+    - paragraph:
+      - text: Ring of Starless Skies
+      - strong
+      - text: "> Heir of Perdition > Shroud of False Death"
+    - heading "Elixirs and Incenses" [level=4]
+    - paragraph: With the abundance of herbs now in the game it is now very easy to grab some consumables to either shore up big weakness with your character or to massively increase your strengths. I highly recommend you regularly keep Elixirs and Incenses running. Below I laid out the best consumables to use for every situation.
+    - heading "Elixirs" [level=4]
+    - paragraph:
+      - text: If you need more of any specific resistance or armor, use those elixirs first. Once your armor capped and resistance capped, look to use the
+      - strong: Elixir of Advantage
+      - text: for the extra attack speed. If you're having trouble staying alive and your armor capped and resistance capped, you can use the
+      - strong: Elixir of Fortitude
+      - text: to gain a 20% hp multiplier.
+    - heading "Incenses" [level=4]
+    - paragraph: For incense you have a couple of options, depending on what your character needs.
+    - heading "Core Stat" [level=4]
+    - list:
+      - listitem:
+        - strong: Sage's Whisper
+        - text: ": Generally the best option as it gives the most amount of damage."
+      - listitem:
+        - strong: Spiral Morning
+        - text: ": Not a bad alternative, as the all stat gives some armor and also helps hit breakpoints in paragon tree. Only use if there's specific paragon nodes you're trying to reach."
+    - heading "Resistance" [level=4]
+    - list:
+      - listitem:
+        - strong: Soothing Spices
+        - text: ": Best all around option as it gives +10% all resistances and +2% max resistance to everything. Only use another option if needed to hit resistance caps."
+    - heading "Defensive" [level=4]
+    - list:
+      - listitem:
+        - strong: Song of the Mountain
+        - text: ": Great early game option for the +300 Armor"
+      - listitem:
+        - strong: Reddamine Buzz
+        - text: ": Gives +750hp, best option if you are already armor capped."
+    - heading "Defensive Layers" [level=4]
+    - paragraph: Always make sure you have 1000 armor and 75% all resistances as your number one defensive priority!
+    - paragraph:
+      - text: Our defense is highly reliant on our skill tree and paragon board. Stand Alone from our passive tree is the single strongest defensive passive in the entire game. We also generate lots of barrier from Necrotic Fortitude due to dealing so many instances of damage, leading to high amounts of
+      - strong: Lucky Hit
+      - text: procs. In this vein, we are also able to generate all of our
+      - strong: Fortify
+      - text: from a combination of Necrotic Carapace and Hewed Flesh .
+    - paragraph:
+      - text: From the paragon board we get lots of maximum life percentage, making it very important to get
+      - strong: Maximum Life
+      - text: rolls on gear as these two things scale well together. We are also getting lots of damage reduction from Scent of Death and the other damage reduction nodes on that board. Finally, we get access to
+      - strong: Damage Reduction While Fortified
+      - text: nodes from the Bloodbath board.
+    - paragraph: All in all this build is wildy tanky, and can clear the hardest content with ease.
+    - heading "FAQ" [level=4]
+  - heading "Changelog" [level=2]
+  - textbox:
+    - heading "2026-03-10" [level=4]
+    - list:
+      - listitem: Added socials to Introduction
+    - heading "2026-03-09" [level=4]
+    - list:
+      - listitem: Minor fixes to formatting
+    - heading "2026-03-08" [level=4]
+    - list:
+      - listitem: Updated for season 12
+    - heading "2026-03-05" [level=4]
+    - list:
+      - listitem: Guide ownership transferred from Ruse to kay
+  - heading "Comments" [level=2]
+  - text: "0"
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - button:
+    - img
+  - textbox:
+    - paragraph
+  - text: Share your thoughts...Type @ to try game data 1000 characters remaining
+  - button "Comment"
+  - button "Newest":
+    - text: Newest
+    - img
+  - heading "Table of Contents" [level=2]
+  - link "1. Build Overview":
+    - /url: /diablo-4/builds/necromancer-blood-surge#15-build-overview-0
+  - link "2. Strengths and Weaknesses":
+    - /url: /diablo-4/builds/necromancer-blood-surge#14-strengths-and-weaknesses-0
+  - link "3. Build Variants":
+    - /url: /diablo-4/builds/necromancer-blood-surge#1-build-variants-0
+  - link "4. Aspect & Uniques":
+    - /url: /diablo-4/builds/necromancer-blood-surge#ab718646-d18e-4ca9-93bb-8ea74d271d95-aspect-and-uniques-0
+  - link "5. Skills & Rotation":
+    - /url: /diablo-4/builds/necromancer-blood-surge#a2c30520-c418-4b67-8e26-abbc10d98679-skills-and-rotation-0
+  - link "6. Skill Tree":
+    - /url: /diablo-4/builds/necromancer-blood-surge#2c0cee3c-524e-4f49-b7be-97a657ee4aa6-skill-tree-0
+  - link "7. Paragon Board":
+    - /url: /diablo-4/builds/necromancer-blood-surge#efd4caba-ed32-4370-961e-1c50489d447b-paragon-board-0
+  - link "8. Mercenaries":
+    - /url: /diablo-4/builds/necromancer-blood-surge#c1004d73-b65e-4532-8ee0-f4dcda79a644-mercenaries-0
+  - link "9. Frequently Asked Questions":
+    - /url: /diablo-4/builds/necromancer-blood-surge#17-frequently-asked-questions-1
+  - link "10. Changelog":
+    - /url: /diablo-4/builds/necromancer-blood-surge#18-changelog-2
+  - link "11. Comments":
+    - /url: /diablo-4/builds/necromancer-blood-surge#ac4c21ea-f833-55a6-b457-35d3259874ea-comments-0
+  - button "Back to top"
+  - heading "Featured Builds" [level=2]
+  - link:
+    - /url: /diablo-4/builds/test-01
+  - text: Test Stas int d4 apollo migration 1.750.2-rc.6 Updated on Oct 29, 2026
+  - link:
+    - /url: /diablo-4/builds/sorcerer-ball-lightning
+  - text: Ball Lightning - Mekuna's Ballkuna Updated on Oct 29, 2026
+  - link:
+    - /url: /diablo-4/builds/druid-storm-lightning-wolf
+  - text: Stormslide Updated on Oct 26, 2026
+  - link:
+    - /url: /diablo-4/builds/og-image-test-for-build
+  - text: Og image test build Updated on Oct 20, 2026
+  - link:
+    - /url: /diablo-4/builds/ssrtesttest
+  - text: Equipment Updated on Oct 12, 2026
+  - link "View All":
+    - /url: /diablo-4/builds
+  - link "Become a Creator Want to earn rewards by sharing your builds with your community? Join Creator Program":
+    - /url: https://form.typeform.com/to/iDJST6r5#email=xxxxx
+    - paragraph: Become a Creator
+    - paragraph: Want to earn rewards by sharing your builds with your community?
+    - button "Join Creator Program"
+  - status
+- complementary:
+  - text: Advertisement Remove Ads Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+  - button "Remove ads"
+  - text: Advertisement Remove Ads Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+  - button "Remove ads"
+- img
+- banner: Know Exactly What Item Is Next - Track Your Build Want to min/max your grind? This feature lets you easily track your Build and know exactly what you need next.
+- img
+- text: Equipment Autotracker New Hover an equipped item to automatically compare it to your tracked build when using our Desktop App.
+- img "check"
+- text: Track Your Build
+- img "check"
+- text: See Build completion as a % score
+- button "Activate Tracking":
+  - img
+  - text: Activate Tracking
+- region "Notifications Alt+T"
+- banner: Advertisement Remove Ads
+- text: Remove all ads Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+- button "Remove ads"
+- button "Do Not Sell or Share My Personal Information":
+  - paragraph: Do Not Sell or Share My Personal Information
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '../fixtures/fixture';
+  2  | // import { Moba } from '../../app/page-object/moba';
+  3  | // import { v4 as uuidv4 } from 'uuid';
+  4  | 
+  5  | test.use({
+  6  |   storageState: {
+  7  |     cookies: [],
+  8  |     origins: [
+  9  |       {
+  10 |         origin: 'https://stg.mobalytics.gg',
+  11 |         localStorage: [
+  12 |           {
+  13 |             name: 'battle-pass-should-open-sidebar-on-load',
+  14 |             value: 'anonymous',
+  15 |           },
+  16 |         ],
+  17 |       },
+  18 |     ],
+  19 |   },
+  20 | });
+  21 | 
+  22 | test('Activate tracking build modal appears for unauthorized user', async ({ page }) => {
+  23 |   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/necromancer-blood-surge?beta-v2', {
+  24 |     waitUntil: 'domcontentloaded',
+  25 |   });
+  26 | 
+  27 |   await expect(async () => {
+  28 |     await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+  29 |     await expect(
+  30 |       page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
+  31 |       `Activate Tracking button is present`
+  32 |     ).toBeVisible();
+  33 |   }).toPass({ intervals: [1_000, 2_000], timeout: 10_000 });
+  34 | 
+  35 |   await page.locator('.x10l6tqk.x8l1umf').click();
+  36 | 
+  37 |   await expect
+  38 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
+  39 |     .toBeVisible();
+  40 |   await expect
+  41 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Tracking' }))
+  42 |     .not.toBeVisible();
+  43 | });
+  44 | 
+  45 | test('Activate tracking build modal appears for regular user', async ({ page, apiRegisterAccount }) => {
+  46 |   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/necromancer-blood-surge');
+  47 |   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+  48 | 
+  49 |   await expect
+  50 |     .soft(
+  51 |       page.locator('.ModalBox').getByRole('button', { name: 'Activate Tracking' }),
+  52 |       `Activate Tracking button is present`
+  53 |     )
+> 54 |     .toBeVisible();
+     |      ^ Error: Activate Tracking button is present
+  55 |   await page.locator('.x10l6tqk.x8l1umf').click();
+  56 |   await expect
+  57 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
+  58 |     .toBeVisible();
+  59 |   await expect
+  60 |     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Tracking' }))
+  61 |     .not.toBeVisible();
+  62 | });
+  63 | 
+  64 | // test('Activate tracking build feature  for plus user', async ({ page, apiPlusUser }) => {
+  65 | //   await page.goto('https://stg.mobalytics.gg/diablo-4/builds/sorcerer-mekuna-lightning-spear');
+  66 | //   await page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }).click();
+  67 | 
+  68 | //   await expect
+  69 | //     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Track Build' }))
+  70 | //     .not.toBeVisible();
+  71 | //   await expect
+  72 | //     .soft(page.getByTestId('document-ug-widget-header').getByRole('button', { name: 'Tracking' }))
+  73 | //     .toBeVisible();
+  74 | // });
+  75 | 
+```
