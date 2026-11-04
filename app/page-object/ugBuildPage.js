@@ -106,7 +106,6 @@ export class UgBuildPage {
   async updateUgDocumentName(text) {
     await test.step('Change name UG document', async () => {
       await this.editButton.click();
-      // await this.inputUgDocumentName.click();
       await this.inputUgDocumentName.fill(text);
       await this.page.waitForTimeout(1_000);
       await this.updateButton.click();

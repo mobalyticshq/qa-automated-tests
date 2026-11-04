@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { test, expect } from './fixtures/fixture';
 import { Moba } from '../app/page-object/moba';
 
-// test.use({ userAgent: 'moba-warrior' });
+test.use({ userAgent: 'moba-warrior' });
 
 test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after editing ST page', async ({ browser }) => {
   test.skip(
@@ -27,7 +27,7 @@ test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after ed
   const admin = new Moba(adminPage);
 
   await expect(async () => {
-    const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
+    const response = await guestPage.goto(pageName, {
       waitUntil: 'domcontentloaded',
     });
     let headers = response.headers();
@@ -40,7 +40,7 @@ test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after ed
   });
 
   await test.step('Update content on ST page by author', async () => {
-    await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
+    await adminPage.goto(pageName, {
       waitUntil: 'domcontentloaded',
     });
     await admin.stPage.updateDescriptionRichTextWidget(text);
@@ -180,74 +180,6 @@ test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after ed
   );
 });
 
-// test('Check cf-cache-status: HIT & new content is taken from the cache on UG page', async ({ browser }) => {
-//   test.skip(
-//     process.env.BASE_URL === 'https://mobalytics.gg',
-//     'Skipping on production environment or when BASE_URL is not defined'
-//   );
-//   const uniqueId = uuidv4();
-//   const text = `uniqueText-${uniqueId}`;
-//   const pageName = `/diablo-4/profile/bold-flame-c2mepg/builds/00fe7176-8383-4159-8143-a2b8dfbfb85e`;
-
-//   // Create guest context (no cookies & clean storage)
-//   const guestContext = await browser.newContext({
-//     userAgent: 'moba-warrior',
-//   });
-//   const guestPage = await guestContext.newPage();
-//   const guest = new Moba(guestPage);
-//   // Create admin context with cookies
-//   const adminContext = await browser.newContext({
-//     storageState: '.auth/gameManagerAuth.json',
-//   });
-//   const adminPage = await adminContext.newPage();
-//   const admin = new Moba(adminPage);
-
-//   await expect(async () => {
-//     console.log(`Opening ${process.env.BASE_URL}${pageName} as a guest`);
-//     const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
-//       waitUntil: 'domcontentloaded',
-//     });
-
-//     let headers = response.headers();
-//     expect(headers['cf-cache-status'], `Expected Result: cf-cache-status: ${headers['cf-cache-status']}`).toBe('HIT');
-//   }, `Open ST page ${pageName} as a guest until the header "cf-cache-status: HIT" appears`).toPass({
-//     intervals: [2_000],
-//     timeout: 10_000,
-//   });
-
-//   await test.step('Update UG page by admin', async () => {
-//     await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
-//       waitUntil: 'domcontentloaded',
-//     });
-//     await admin.ugBuildPage.updateDescriptionBuildOverviewWidget(text);
-//     await expect(admin.ugBuildPage.viewBuildOverviewWidget(text)).toBeVisible();
-//     console.log('Expected Result: UG page is updated by admin');
-//   });
-
-//   let CfCacheValue;
-//   await expect(async () => {
-//     console.log(`Reload UG page: ${process.env.BASE_URL}${pageName} as a guest`);
-//     const reloadResponse = await guestPage.reload();
-//     const headers = reloadResponse.headers();
-//     CfCacheValue = headers['cf-cache-status'];
-
-//     expect(CfCacheValue, `Expected Result: cf-cache-status should be HIT: ${CfCacheValue}`).toBe('HIT');
-//     await expect(guest.ugBuildPage.viewBuildOverviewWidget(text)).toBeVisible({ timeout: 2_000 });
-//   }, `Open updated UG page as a guest until the header: "cf-cache-status = HIT" appears & new content is updated`).toPass(
-//     {
-//       intervals: [1_000],
-//       timeout: 14_000,
-//     }
-//   );
-
-//   await test.step(`Expected Result: Header contains correct value "HIT", cf-cache-status: ${CfCacheValue}`, async () => {
-//     expect(CfCacheValue).toBe('HIT');
-//   });
-//   await test.step(`Expected Result: New description is updated in rich text widget for a guest`, async () => {
-//     await expect(guest.ugBuildPage.viewBuildOverviewWidget(text)).toBeVisible();
-//   });
-// });
-
 test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after editing UG featured page', async ({
   browser,
 }) => {
@@ -361,7 +293,7 @@ test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after ed
   const admin = new Moba(adminPage);
 
   await expect(async () => {
-    const response = await guestPage.goto(`${process.env.BASE_URL}${pageName}`, {
+    const response = await guestPage.goto(`${pageName}`, {
       waitUntil: 'domcontentloaded',
     });
     let headers = response.headers();
@@ -374,7 +306,7 @@ test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) after ed
   });
 
   await test.step('Update UG document name by author', async () => {
-    await adminPage.goto(`${process.env.BASE_URL}${pageName}`, {
+    await adminPage.goto(`${pageName}`, {
       waitUntil: 'domcontentloaded',
     });
 
@@ -423,7 +355,7 @@ test('404 error page appears after deleting a build', async ({ apiPlusUser, requ
   });
   const guestPage = await guestContext.newPage();
 
-  const createBuildResponse = await request.post(`${process.env.BASE_URL}/api/diablo4/v4/graphql/query`, {
+  const createBuildResponse = await request.post(`/api/diablo4/v4/graphql/query`, {
     data: {
       operationName: 'Diablo4UgDocumentCreateMutation',
       query: `
@@ -471,7 +403,7 @@ test('404 error page appears after deleting a build', async ({ apiPlusUser, requ
     category: 'UG',
   });
 
-  const buildStatusResponse = await request.post(`${process.env.BASE_URL}/api/diablo4/v4/graphql/query`, {
+  const buildStatusResponse = await request.post(`/api/diablo4/v4/graphql/query`, {
     data: {
       query: `
         mutation Diablo4UgDocumentSetStatusMutation($input: Diablo4UserGeneratedDocumentSetStatusInput!) {
@@ -505,7 +437,7 @@ test('404 error page appears after deleting a build', async ({ apiPlusUser, requ
   expect(resultStatus.errorMessage).toBeNull();
   expect(resultStatus.data.status).toBe('PUBLISHED');
 
-  const deleteBuildResponse = await request.post(`${process.env.BASE_URL}/api/diablo4/v4/graphql/query`, {
+  const deleteBuildResponse = await request.post(`/api/diablo4/v4/graphql/query`, {
     data: {
       query: `
         mutation Diablo4UgDocumentSetStatusMutation($input: Diablo4UserGeneratedDocumentSetStatusInput!) {
@@ -539,7 +471,7 @@ test('404 error page appears after deleting a build', async ({ apiPlusUser, requ
   expect(resultDeletedStatus.errorMessage).toBeNull();
   expect(resultDeletedStatus.data.status).toBe('ARCHIVED');
 
-  await guestPage.goto(`${process.env.BASE_URL}/diablo-4/profile/bold-robot-uaxekz/builds/${buildId}`, {
+  await guestPage.goto(`/diablo-4/profile/bold-robot-uaxekz/builds/${buildId}`, {
     waitUntil: 'domcontentloaded',
   });
 
@@ -547,7 +479,7 @@ test('404 error page appears after deleting a build', async ({ apiPlusUser, requ
 });
 
 test('cf-cache-status: DYNAMIC appears with query param in URL: ?force_ssr=1', async ({ page }) => {
-  const response = await page.goto(`${process.env.BASE_URL}/mhw?force_ssr=1`);
+  const response = await page.goto(`/mhw?force_ssr=1`);
   const headers = response.headers();
 
   expect(
@@ -559,10 +491,108 @@ test('cf-cache-status: DYNAMIC appears with query param in URL: ?force_ssr=1', a
 test('cf-cache-status: MISS appears when open url with always new query param', async ({ page }) => {
   const CfCacheValue = await test.step('Open url with always new query param', async () => {
     const uuid = uuidv4();
-    const response = await page.goto(`${process.env.BASE_URL}/mhw?${uuid}`);
+    const response = await page.goto(`/mhw?${uuid}`);
     const headers = response.headers();
     return headers['cf-cache-status'];
   });
 
   expect(CfCacheValue, 'Expected Result: cf-cache-status: MISS is received').toBe('MISS');
+});
+
+test('Check cf-cache-status: cache is purged (MISS) and re-cached (HIT) on the profile page after editing UG document name as creator', async ({
+  browser,
+}) => {
+  test.skip(
+    process.env.BASE_URL === 'https://mobalytics.gg',
+    'Skipping on production environment or when BASE_URL is not defined'
+  );
+  const uniqueId = uuidv4();
+  const text = `buildName-${uniqueId}`;
+  const profilePage = '/diablo-4/profile/pyp3emli/builds';
+  const urlBuild = '/diablo-4/profile/pyp3emli/builds/test-build-1';
+
+  // Create guest context (no cookies & clean storage)
+  const guestContext = await browser.newContext({
+    userAgent: 'moba-warrior',
+  });
+  const guestPage = await guestContext.newPage();
+  const guest = new Moba(guestPage);
+  // Create admin context with cookies
+  const adminContext = await browser.newContext({
+    storageState: '.auth/adminAuth.json',
+  });
+  const adminPage = await adminContext.newPage();
+  const admin = new Moba(adminPage);
+
+  await expect(async () => {
+    const response = await guestPage.goto(profilePage, {
+      waitUntil: 'domcontentloaded',
+    });
+    let headers = response.headers();
+    console.log(`1: Opening ${process.env.BASE_URL}${profilePage} as a guest: ${headers['cf-cache-status']}`);
+
+    expect(headers['cf-cache-status'], `Expected Result: cf-cache-status: ${headers['cf-cache-status']}`).toBe('HIT');
+  }, `Open UG document ${process.env.BASE_URL}${profilePage} as a guest until the header "cf-cache-status: HIT" appears`).toPass(
+    {
+      intervals: [2_000],
+      timeout: 10_000,
+    }
+  );
+
+  await test.step('Update content on UG document by author', async () => {
+    await adminPage.goto(urlBuild, {
+      waitUntil: 'domcontentloaded',
+    });
+    await admin.ugBuildPage.updateUgDocumentName(text);
+    await expect(
+      admin.ugBuildPage.widgetHeader,
+      `Expected Result: UG document name is updated by author successfully`
+    ).toContainText(text, {
+      timeout: 2_000,
+    });
+    console.log('2: UG document name is updated by author');
+  });
+
+  let CfCacheValueMiss;
+  await expect(async () => {
+    const reloadResponse = await guestPage.reload();
+    const headers = reloadResponse.headers();
+
+    CfCacheValueMiss = headers['cf-cache-status'];
+    console.log(`3: Open profile ${process.env.BASE_URL}${profilePage} as a guest: ${CfCacheValueMiss}`);
+
+    expect(CfCacheValueMiss, `Expected Result: cf-cache-status should be MISS: ${CfCacheValueMiss}`).toBe('MISS');
+    await expect(guest.ugProfilePage.profilePage, `Expected Result: Updated UG document name is visible`).toContainText(
+      text,
+      {
+        timeout: 2_000,
+      }
+    );
+  }, `Open profile page as a guest until the header: "cf-cache-status: MISS" appears & new UG document name is updated`).toPass(
+    {
+      intervals: [1_000],
+      timeout: 20_000,
+    }
+  );
+
+  let CfCacheValueHit;
+  await expect(async () => {
+    const reloadResponse = await guestPage.reload();
+    const headers = reloadResponse.headers();
+    CfCacheValueHit = headers['cf-cache-status'];
+    console.log(`4: Reload ST page: ${process.env.BASE_URL}${profilePage} as a guest: ${CfCacheValueHit}`);
+
+    expect(CfCacheValueHit, `Expected Result: cf-cache-status should be HIT: ${CfCacheValueHit}`).toBe('HIT');
+    await expect(guest.ugProfilePage.profilePage, `Expected Result: Updated description is visible`).toContainText(
+      text,
+      {
+        timeout: 2_000,
+      }
+    );
+  }, `Open updated UG document as a guest until the header: "cf-cache-status: HIT" appears & UG document name is updated`).toPass(
+    {
+      intervals: [1_000],
+      timeout: 20_000,
+    }
+  );
 });
