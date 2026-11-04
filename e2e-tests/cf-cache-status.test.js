@@ -488,6 +488,26 @@ test('cf-cache-status: DYNAMIC appears with query param in URL: ?force_ssr=1', a
   ).toBe('DYNAMIC');
 });
 
+test(`cf-cache-status: BYPASS appears for regular author profile page (not creators)`, async ({ page }) => {
+  const response = await page.goto(`/diablo-4/profile/fresh-robot-m83bsc/builds`);
+  const headers = response.headers();
+
+  expect(
+    headers['cf-cache-status'],
+    'cf-cache-status: BYPASS is received, opening the regular author profile page'
+  ).toBe('BYPASS');
+});
+
+test(`cf-cache-status: BYPASS appears for regular author's builds (not creators)`, async ({ page }) => {
+  const response = await page.goto(`/diablo-4/profile/fresh-robot-m83bsc/builds/8abb8f47-1d60-4d34-8ce2-3bd36996b950`);
+  const headers = response.headers();
+
+  expect(
+    headers['cf-cache-status'],
+    'cf-cache-status: BYPASS is received, opening the regular author profile page'
+  ).toBe('BYPASS');
+});
+
 test('cf-cache-status: MISS appears when open url with always new query param', async ({ page }) => {
   const CfCacheValue = await test.step('Open url with always new query param', async () => {
     const uuid = uuidv4();
