@@ -16,9 +16,7 @@ export class UgBuildPage {
     this.widgetHeader = page.getByTestId('document-ug-widget-header');
     this.controlPanel = page.getByTestId('document-controls-panel');
     this.mainPage = page.getByRole('main');
-    this.coverImage = page
-      .getByRole('button', { name: 'ZZZ Build /qa-automation-' })
-      .locator('div[style*="cdn.mobalytics.gg"]');
+    this.coverImage = page.getByTestId('document-ug-widget-header').locator('div[style*="cdn.mobalytics.gg"]');
     this.videoGuideWidget = page.getByRole('heading', { name: 'Video Guide' });
     this.editButton = page.getByTestId('ug-document-edit-button');
     this.inputBuildOverviewVariants = page.getByRole('textbox').nth(1);
