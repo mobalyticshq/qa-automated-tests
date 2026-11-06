@@ -14,18 +14,16 @@ export class UgBuildPage {
       name: 'Save and Publish',
     });
     this.widgetHeader = page.getByTestId('document-ug-widget-header');
-    // this.viewHeader = (buildName) => page.getByRole('button', { name: `Diablo 4 Build ${buildName}` });
     this.controlPanel = page.getByTestId('document-controls-panel');
     this.mainPage = page.getByRole('main');
-    this.coverImage = page
-      .getByRole('button', { name: 'ZZZ Build /qa-automation-' })
-      .locator('div[style*="cdn.mobalytics.gg"]');
+    this.coverImage = page.getByTestId('document-ug-widget-header').locator('div[style*="cdn.mobalytics.gg"]');
     this.videoGuideWidget = page.getByRole('heading', { name: 'Video Guide' });
     this.editButton = page.getByTestId('ug-document-edit-button');
     this.inputBuildOverviewVariants = page.getByRole('textbox').nth(1);
     this.updateButton = page.getByTestId('ug-document-update-button');
     this.focusModeButton = page.getByRole('button', { name: 'Focus Mode', exact: true });
     this.exitFocusModeButton = page.getByRole('button', { name: 'Exit Focus Mode' });
+    this.getStatusBadge = (status) => this.controlPanel.getByText(status, { exact: true });
     this.descriptionBuildOverviewVariants = page.locator('span[data-lexical-text="true"]');
     this.getDescriptionBuildOverviewVariants = (text) =>
       page.locator('span[data-lexical-text="true"]').filter({ hasText: text });
@@ -132,7 +130,6 @@ export class UgBuildPage {
   async updateUgDocumentName(text) {
     await test.step('Change name UG document', async () => {
       await this.editButton.click();
-      // await this.inputUgDocumentName.click();
       await this.inputUgDocumentName.fill(text);
       await this.page.waitForTimeout(1_000);
       await this.updateButton.click();

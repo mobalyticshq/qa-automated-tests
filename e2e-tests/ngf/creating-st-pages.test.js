@@ -199,7 +199,7 @@ test.describe('Creating ST Pages', () => {
     addPageForCleanup(pageName); // Register page for deleting
 
     await test.step(`Expected Result: Structure page with the name: ${pageName} is created on Valorant project`, async () => {
-      await expect(moba.stPage.headerValorant).toContainText('Val');
+      await expect(moba.stPage.headerValorant).toContainText('VAL');
       await expect(moba.stPage.controlPanel).toContainText(pageName);
     });
   });

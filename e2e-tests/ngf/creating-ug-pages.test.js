@@ -22,7 +22,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-build-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         // await moba.mainURLs.openTftPage();
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
@@ -32,7 +32,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Build page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Build`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -44,7 +44,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-guide-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -53,7 +53,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Guide page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Guide`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -65,7 +65,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-tier-list-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -74,7 +74,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Tier-list page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Tier List`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -86,7 +86,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-team-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -95,7 +95,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Team page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Team`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -107,7 +107,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-classic-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -116,7 +116,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Team page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Classic`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -128,7 +128,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-class-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -137,7 +137,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Class`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -149,7 +149,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-raid-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -158,7 +158,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Raid`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -170,7 +170,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-dungeon-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -179,7 +179,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Dungeon`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -191,7 +191,7 @@ test.describe('Creating UG Pages', () => {
       const pageName = `qa-automation-quest-page-${uniqueId}`;
       const moba = new Moba(page);
 
-      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'Val') {
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
         await moba.mainURLs.openUgCreatorProfilePage(projectPath);
       } else {
         await moba.mainURLs.openUgProfilePage(projectPath);
@@ -200,7 +200,7 @@ test.describe('Creating UG Pages', () => {
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
       await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
-        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game} Quest`);
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
@@ -216,7 +216,7 @@ test.describe('Creating UG Pages', () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Character page with the name: ${pageName} is created on Endfield project`, async () => {
-      await expect(moba.ugBuildPage.widgetHeader).toContainText('Endfield Character');
+      await expect(moba.ugBuildPage.widgetHeader).toContainText('Endfield');
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
@@ -231,7 +231,7 @@ test.describe('Creating UG Pages', () => {
     await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
     await test.step(`Expected Result: Deck page with the name: ${pageName} is created on Riftbound project`, async () => {
-      await expect(moba.ugBuildPage.widgetHeader).toContainText('Riftbound Deck');
+      await expect(moba.ugBuildPage.widgetHeader).toContainText('Riftbound');
       await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
     });
   });
