@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","161","setup game manager","auth-setup","2026-11-06","passed","2026-11-06","","setup/authByPermissions.setup.test.js","",""
+"","355","setup admin","auth-setup","2026-11-06","passed","2026-11-06","","setup/authByPermissions.setup.test.js","",""
+"","146","setup internal writer","auth-setup","2026-11-06","passed","2026-11-06","","setup/authByPermissions.setup.test.js","",""
+"","7089","Activate tracking build modal appears for regular user","build-tracker-tests","2026-11-06","passed","2026-11-06","","build-tracker/build-tracker.test.js","",""
+"","4499","Activate tracking build modal appears for unauthorized user","build-tracker-tests","2026-11-06","passed","2026-11-06","","build-tracker/build-tracker.test.js","",""
