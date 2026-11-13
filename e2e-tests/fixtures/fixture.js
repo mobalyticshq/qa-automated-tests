@@ -35,6 +35,7 @@ export const test = base.extend({
   cleanupStBazaarPages: makeStCleanup((urls) => urls.openAdminBazaarPage()),
   cleanupStZzzPages: makeStCleanup((urls) => urls.openAdminZzzPage()),
   cleanupStRiftboundPages: makeStCleanup((urls) => urls.openAdminRiftboundPage()),
+  cleanupStHsrPages: makeStCleanup((urls) => urls.openAdminHsrPage()),
 
   postComment: async({ apiAuthAdmin }, use) => {
     const moba = apiAuthAdmin;
@@ -45,5 +46,23 @@ export const test = base.extend({
     await expect(moba.commentsWidget.textComment(textComment).first()).toBeVisible();
     
     await use({moba, textComment });
+  },
+
+  commentFromGameManager: async ({ browser }, use, testInfo) => {
+    const gameManagerContext = await browser.newContext({
+      storageState: '.auth/gameManagerAuth.json',
+      userAgent: testInfo.project.use.userAgent,
+      viewport: testInfo.project.use.viewport,
+    });
+    const gameManager = new Moba(await gameManagerContext.newPage());
+    const textComment = `Hello Katia ${uuidv4()}`;
+
+    await gameManager.mainURLs.openUgCommentsWidget();
+    await gameManager.commentsWidget.postComments(textComment);
+
+    await use(textComment);
+
+    await gameManager.ugBuildPage.deleteComment(textComment);
+    await gameManagerContext.close();
   }
 });
