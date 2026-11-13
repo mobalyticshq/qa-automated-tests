@@ -21,6 +21,8 @@ import {
   PaymentPage,
   Sidebar,
   MgpProfile,
+  CommentsWidget,
+  ProfileRequiredModal,
 } from './index';
 
 export class Moba {
@@ -47,5 +49,7 @@ export class Moba {
     this.paymentPage = new PaymentPage(page);
     this.sidebar = new Sidebar(page);
     this.mgpProfile = new MgpProfile(page);
+    this.commentsWidget = new CommentsWidget(page);
+    this.profileRequiredModal = new ProfileRequiredModal(page);
   }
 }

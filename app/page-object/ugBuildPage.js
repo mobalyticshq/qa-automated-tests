@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 export class UgBuildPage {
   constructor(page) {
@@ -43,6 +43,19 @@ export class UgBuildPage {
       .getByRole('textbox');
     this.viewBuildOverviewWidget = (text) => page.getByText(`Build Overview${text}`);
     this.inputUgDocumentName = page.locator('#title-id');
+     this.commentButton = page.getByRole('button', { name: 'Comment', exact: true });
+    this.removeCommentButton = page.getByRole('menuitem', { name: 'Remove' });
+    this.commentItem = (text) => page.getByTestId('comment-widget-item-block').filter({ hasText: text });
+    this.countCommentText = (text) => this.commentItem(text).locator('[data-testid="comment-widget-up"] + span');
+    this.commentMoreActionsButton = (text) => this.commentItem(text).getByTestId('comment-widget-actions-menu');
+    this.upCommentRateButton = (text) => this.commentItem(text).getByTestId('comment-widget-up');
+    this.downCommentCounterButton = (text) => this.commentItem(text).getByTestId('comment-widget-down');
+    // button name changes to the selected option, so it's matched by its listbox popup
+    this.sortingButton = page.locator('button[aria-haspopup="listbox"]').filter({ hasText: /^(Top|Newest|Oldest)$/ });
+    this.sortingOption = (name) => page.getByRole('option', { name, exact: true });
+    this.commentItems = page.getByTestId('comment-widget-item-block');
+    this.commentRatings = page.locator('[data-testid="comment-widget-item-block"] [data-testid="comment-widget-up"] + span');
+    this.showMoreCommentsButton = page.getByRole('button', { name: 'Show more comments' });
   }
 
   async openFocusMode() {
@@ -55,6 +68,19 @@ export class UgBuildPage {
     await test.step('Exit Focus Mode', async () => {
       await this.exitFocusModeButton.click();
     });
+    this.commentButton = page.getByRole('button', { name: 'Comment', exact: true });
+    this.removeCommentButton = page.getByRole('menuitem', { name: 'Remove' });
+    this.commentItem = (text) => page.getByTestId('comment-widget-item-block').filter({ hasText: text });
+    this.countCommentText = (text) => this.commentItem(text).locator('[data-testid="comment-widget-up"] + span');
+    this.commentMoreActionsButton = (text) => this.commentItem(text).getByTestId('comment-widget-actions-menu');
+    this.upCommentRateButton = (text) => this.commentItem(text).getByTestId('comment-widget-up');
+    this.downCommentCounterButton = (text) => this.commentItem(text).getByTestId('comment-widget-down');
+    // button name changes to the selected option, so it's matched by its listbox popup
+    this.sortingButton = page.locator('button[aria-haspopup="listbox"]').filter({ hasText: /^(Top|Newest|Oldest)$/ });
+    this.sortingOption = (name) => page.getByRole('option', { name, exact: true });
+    this.commentItems = page.getByTestId('comment-widget-item-block');
+    this.commentRatings = page.locator('[data-testid="comment-widget-item-block"] [data-testid="comment-widget-up"] + span');
+    this.showMoreCommentsButton = page.getByRole('button', { name: 'Show more comments' });
   }
 
   async createUgDraftPage(pageName) {

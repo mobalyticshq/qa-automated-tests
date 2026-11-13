@@ -415,6 +415,24 @@ const projectList = [
       advertisement: true,
     },
   },
+  {
+    game: 'HSR',
+    projectPath: '/honkai-star-rail',
+    staticData: {
+      staticDataStPage: '/honkai-star-rail/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Fire',
+    },
+    features: {
+      character: true,
+      guide: true,
+      tierList: true,
+      team: true,
+      deck: false,
+      build: false,
+      staticData: true,
+      advertisement: true,
+    },
+  },
 ];
 
 export const filterProjectsByFeatureStatus = (featureStatus) => {

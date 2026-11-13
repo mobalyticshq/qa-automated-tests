@@ -17,3 +17,5 @@ export * from './pricingPage';
 export * from './paymentPage';
 export * from './sidebar';
 export * from './mgpProfile';
+export * from './widgets';
+export * from './profileRequiredModal'

@@ -3,7 +3,7 @@ import { Moba } from '../../app/page-object/moba';
 import { filterProjectsByFeatureStatus as filterProjectsByAvailableStaticData } from '../../app/helpers/index';
 
 filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticData }) => {
-  const { staticDataStPage, gameSpecificItem, exactMatch } = staticData;
+  const { staticDataStPage, gameSpecificItem, exactMatch, openViaMention } = staticData;
 
   test(`Check static data on NGF ${game}`, async ({ page }) => {
     const moba = new Moba(page);
@@ -19,7 +19,7 @@ filterProjectsByAvailableStaticData('staticData').forEach(({ game, staticData })
     });
 
     await test.step(`Expected Result: "${gameSpecificItem}" is visible on the page`, async () => {
-      await expect(page.getByText(gameSpecificItem, { exact: Boolean(exactMatch) })).toBeVisible();
+     await expect(page.getByText(gameSpecificItem, { exact: Boolean(exactMatch) })).toBeVisible();
     });
   });
 });
