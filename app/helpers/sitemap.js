@@ -30,4 +30,6 @@ export const projectListFromSitemap = [
   { project: 'Set 17', isPresentInProdSitemap: true, pathUrl: '/tft/set17/sitemap.xml' },
   { project: 'Set 18', isPresentInProdSitemap: true, pathUrl: '/tft/set18/sitemap.xml' },
   { project: 'Gamebase', isPresentInProdSitemap: true, pathUrl: '/gamebase/sitemap.xml' },
+  { project: 'HSR', isPresentInProdSitemap: true, pathUrl: '/honkai-star-rail/sitemap.xml' },
+  { project: 'Wuwa', isPresentInProdSitemap: true, pathUrl: '/wuthering-waves/sitemap.xml' },
 ];

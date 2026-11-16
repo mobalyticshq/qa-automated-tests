@@ -199,25 +199,31 @@ test.describe('Creating UG Pages', () => {
       await moba.ugProfilePage.gotoQuestsPlannerPage();
       await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-      await test.step(`Expected Result: Class page with the name: ${pageName} is created on ${game} project`, async () => {
+      await test.step(`Expected Result: Quest page with the name: ${pageName} is created on ${game} project`, async () => {
         await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
         await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
       });
     });
   });
 
-  test(`Create a character page on Endfield project`, async ({ page }) => {
-    const uniqueId = uuidv4();
-    const pageName = `qa-automation-character-page-${uniqueId}`;
-    const moba = new Moba(page);
+filterProjectsByQuest('character').forEach(({ game, projectPath }) => {
+    test(`Create a character page on ${game} project`, async ({ page }) => {
+      const uniqueId = uuidv4();
+      const pageName = `qa-automation-character-page-${uniqueId}`;
+      const moba = new Moba(page);
 
-    await moba.mainURLs.openUgEndfieldPage();
-    await moba.ugProfilePage.gotoCharacterPlannerPage();
-    await moba.ugBuildPlanner.createUgDraftPage(pageName);
+      if (game === 'LoL' || game === 'TFT' || game === 'Destiny 2' || game === 'VAL') {
+        await moba.mainURLs.openUgCreatorProfilePage(projectPath);
+      } else {
+        await moba.mainURLs.openUgProfilePage(projectPath);
+      }
+      await moba.ugProfilePage.gotoCharacterPlannerPage();
+      await moba.ugBuildPlanner.createUgDraftPage(pageName);
 
-    await test.step(`Expected Result: Character page with the name: ${pageName} is created on Endfield project`, async () => {
-      await expect(moba.ugBuildPage.widgetHeader).toContainText('Endfield');
-      await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      await test.step(`Expected Result: Character page with the name: ${pageName} is created on ${game} project`, async () => {
+        await expect(moba.ugBuildPage.widgetHeader).toContainText(`${game}`);
+        await expect(moba.ugBuildPage.controlPanel).toContainText(pageName);
+      });
     });
   });
 

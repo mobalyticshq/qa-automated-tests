@@ -48,6 +48,23 @@ export class MainURLs {
     });
   }
 
+    async openAdminHsrPage() {
+    await test.step(`Open 'HSR' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/honkai-star-rail/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+     async openAdminWuwaPage() {
+    await test.step(`Open 'Wuwa' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/wuthering-waves/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+
   async openAdminSts2Page() {
     await test.step(`Open 'STS 2' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/slay-the-spire-2/admin`, {
@@ -579,6 +596,30 @@ export class MainURLs {
   async openPoE2StPlanner() {
     await test.step(`Open url: ${process.env.BASE_URL}/poe-2/planner/st`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2/planner/st`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+  async openUgCommentsWidget() {
+    await test.step(`Open url: ${process.env.BASE_URL}/borderlands-4/profile/spy-man/builds/qa-test-comments-widget`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/borderlands-4/profile/spy-man/builds/qa-test-comments-widget`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+   async openHsrPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/honkai-star-rail`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/honkai-star-rail`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+   async openWuwaPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/wuthering-waves`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/wuthering-waves`, {
         waitUntil: 'domcontentloaded',
       });
     });
