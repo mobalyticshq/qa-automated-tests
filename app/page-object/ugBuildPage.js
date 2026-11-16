@@ -43,6 +43,16 @@ export class UgBuildPage {
       .getByRole('textbox');
     this.viewBuildOverviewWidget = (text) => page.getByText(`Build Overview${text}`);
     this.inputUgDocumentName = page.locator('#title-id');
+    this.trackBuildButton = this.widgetHeader.getByRole('button', { name: 'Track Build', exact: true });
+    this.focusModeHeader = page.getByTestId('document-ug-widget-header');
+    this.focusModeTabs = this.focusModeHeader.getByRole('tablist');
+    this.getFocusModeTab = (name) => this.focusModeHeader.getByRole('tab', { name, exact: true });
+  }
+
+  async selectFocusModeTab(name) {
+    await test.step(`Select "${name}" tab in Focus Mode`, async () => {
+      await this.getFocusModeTab(name).click();
+    });
   }
 
   async openFocusMode() {

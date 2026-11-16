@@ -90,7 +90,7 @@ export class StPage {
     this.richTextButton = page.locator('[data-key="NgfDocumentCmWidgetRichTextV2"]');
     this.staticDataButton = page.getByTestId('toolbar-plugin-static-data');
     this.dropdownStaticData = page.getByTestId('suggestion-static-data-menu');
-    this.perimeterMapButton = page.getByAltText('Perimeter Map');
+    this.perimeterMapButton = page.getByAltText('interecept panel perimeter');
     this.closeMapModalButton = page.getByTestId('image-preview-modal-icon-close');
   }
 
