@@ -91,7 +91,7 @@ export class MainURLs {
   async openMarathonPerimeterMapPage() {
     await test.step('Open Marathon perimeter map page', async () => {
       await this.page.goto(`${process.env.BASE_URL}/marathon/maps/perimeter`, {
-        waitUntil: 'load'
+        waitUntil: 'load',
       });
     });
   }

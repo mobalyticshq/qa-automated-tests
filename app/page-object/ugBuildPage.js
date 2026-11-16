@@ -54,6 +54,16 @@ export class UgBuildPage {
     this.commentItems = page.getByTestId('comment-widget-item-block');
     this.commentRatings = page.locator('[data-testid="comment-widget-item-block"] [data-testid="comment-widget-up"] + span');
     this.showMoreCommentsButton = page.getByRole('button', { name: 'Show more comments' });
+    this.trackBuildButton = this.widgetHeader.getByRole('button', { name: 'Track Build', exact: true });
+    this.focusModeHeader = page.getByTestId('document-ug-widget-header');
+    this.focusModeTabs = this.focusModeHeader.getByRole('tablist');
+    this.getFocusModeTab = (name) => this.focusModeHeader.getByRole('tab', { name, exact: true });
+  }
+
+  async selectFocusModeTab(name) {
+    await test.step(`Select "${name}" tab in Focus Mode`, async () => {
+      await this.getFocusModeTab(name).click();
+    });
   }
 
   async openFocusMode() {
