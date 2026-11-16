@@ -36,6 +36,7 @@ export const test = base.extend({
   cleanupStZzzPages: makeStCleanup((urls) => urls.openAdminZzzPage()),
   cleanupStRiftboundPages: makeStCleanup((urls) => urls.openAdminRiftboundPage()),
   cleanupStHsrPages: makeStCleanup((urls) => urls.openAdminHsrPage()),
+  cleanupStWuwaPages: makeStCleanup((urls) => urls.openAdminWuwaPage()),
 
   postComment: async({ apiAuthAdmin }, use) => {
     const moba = apiAuthAdmin;

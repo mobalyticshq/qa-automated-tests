@@ -85,6 +85,7 @@ export class StPage {
     this.headerMarvelRivals = page.locator('#container').getByText('Marvel Rivals');
     this.headerMhw = page.locator('#container').getByText('Monster Hunter Wilds');
     this.headerHsr = page.locator('#container').getByText('HSR');
+    this.headerWuwa = page.locator('#container').getByText('Wuwa');
     this.inputRichTextWidget = page.getByTestId('column-section').getByRole('textbox');
     this.descriptionRichTextWidget = (text) => page.getByText(text);
     // this.descriptionRichTextWidget = page.locator('span[data-lexical-text="true"]');

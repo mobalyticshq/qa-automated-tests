@@ -433,11 +433,29 @@ const projectList = [
       advertisement: true,
     },
   },
+  {
+    game: 'Wuwa',
+    projectPath: '/wuthering-waves',
+    staticData: {
+      staticDataStPage: '/wuthering-waves/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Celestial Light',
+    },
+    features: {
+      character: true,
+      guide: true,
+      tierList: true,
+      team: true,
+      deck: false,
+      build: false,
+      staticData: true,
+      advertisement: true,
+    },
+  },
 ];
-
 export const filterProjectsByFeatureStatus = (featureStatus) => {
   return projectList.filter((project) => project.features[featureStatus] === true);
 };
+;
 
 // export const filterProjectsByFeatureStatus = (...featureStatuses) => {
 //   return projectList.filter((project) => featureStatuses.some((status) => project.features[status] === true));

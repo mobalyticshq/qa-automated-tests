@@ -56,6 +56,15 @@ export class MainURLs {
     });
   }
 
+     async openAdminWuwaPage() {
+    await test.step(`Open 'Wuwa' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/wuthering-waves/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+
   async openAdminSts2Page() {
     await test.step(`Open 'STS 2' ST admin page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/slay-the-spire-2/admin`, {
@@ -603,6 +612,14 @@ export class MainURLs {
    async openHsrPage() {
     await test.step(`Open url: ${process.env.BASE_URL}/honkai-star-rail`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/honkai-star-rail`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
+   async openWuwaPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/wuthering-waves`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/wuthering-waves`, {
         waitUntil: 'domcontentloaded',
       });
     });
