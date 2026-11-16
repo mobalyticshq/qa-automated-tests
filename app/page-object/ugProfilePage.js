@@ -38,6 +38,7 @@ export class UgProfilePage {
     });
     this.deckButton = page.getByRole('menuitem', { name: 'Create a Deck' });
     this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
+    this.profilePage = page.locator('#container');
   }
 
   async gotoQuestsPlannerPage() {

@@ -17,7 +17,7 @@ const projectList = [
     },
   },
   {
-    game: 'Val',
+    game: 'VAL',
     projectPath: '/valorant',
     staticData: {
       staticDataStPage: '/valorant/qa-check-static-data-not-delete',

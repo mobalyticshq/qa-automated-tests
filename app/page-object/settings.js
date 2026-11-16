@@ -29,8 +29,8 @@ export class ProfileTab {
     this.changeDisplayNameButton = page.getByRole('button', { name: 'Change Display Name' });
     this.modalInputDisplayName = page.getByRole('textbox', { name: 'Display name' });
     this.modalChangeButton = page.getByRole('button', { name: 'Change', exact: true });
-    this.previewProfileDisplayName = (displayName) => page.getByText(displayName).first();
-    this.widgetDisplayName = (displayName) => page.getByText(displayName).nth(1);
+    this.previewProfileDisplayName = (displayName) => page.getByText(displayName).nth(2);
+    this.widgetDisplayName = (displayName) => page.getByText(displayName).nth(3);
   }
 
   async changeDisplayName(displayName) {

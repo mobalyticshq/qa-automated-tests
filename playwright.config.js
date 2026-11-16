@@ -5,6 +5,23 @@ import dotenv from 'dotenv';
 
 dotenv.config({ quiet: true });
 
+// The SSR HTML of game pages embeds the frontend env config, including "APP_VERSION":"x.y.z".
+// The config is loaded by the runner and by every worker; workers inherit process.env from the runner,
+// so the page is fetched only once per run.
+const fetchAppVersion = async () => {
+  try {
+    const res = await fetch(`${process.env.BASE_URL}/lol`, {
+      headers: { 'User-Agent': 'mobalytics-automation-qa' },
+      signal: AbortSignal.timeout(15_000),
+    });
+    return (await res.text()).match(/"APP_VERSION":"([^"]+)"/)?.[1] ?? 'unknown';
+  } catch {
+    return 'unknown';
+  }
+};
+
+process.env.APP_VERSION ||= await fetchAppVersion();
+
 export default defineConfig({
   timeout: 90_000,
   expect: { timeout: 15_000 },
@@ -27,11 +44,12 @@ export default defineConfig({
       'allure-playwright',
       {
         environmentInfo: {
-          os_platform: os.platform(),
+          'App Version': process.env.APP_VERSION,
+          environment: process.env.BASE_URL === 'https://mobalytics.gg' ? 'PROD' : 'STG',
           os_release: os.release(),
           os_version: os.version(),
           node_version: process.version,
-          environment: process.env.BASE_URL === 'https://mobalytics.gg' ? 'PROD' : 'STG',
+          os_platform: os.platform(),
         },
       },
     ],
@@ -41,7 +59,11 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASE_URL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    // trace: 'retain-on-failure',
+    // trace: {
+    //    mode: 'on-first-retry',
+    //    screenshots: false,
+    //    snapshots: { dom: true, aria: true },
+    // },
     // screenshot: 'only-on-failure',
     // video: 'on-first-retry',
     // Browser settings:
@@ -56,7 +78,11 @@ export default defineConfig({
       name: 'auth-setup',
       testMatch: '**/authByPermissions.setup.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'off',
         video: 'off',
       },
@@ -65,7 +91,11 @@ export default defineConfig({
       name: 'user-roles-setup',
       testMatch: '**/authByUserRoles.setup.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'off',
         video: 'off',
       },
@@ -76,9 +106,13 @@ export default defineConfig({
       testDir: 'e2e-tests/ngf',
       use: {
         storageState: '.auth/adminAuth.json',
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
-        video: 'off',
+        video: 'on-first-retry',
       },
     },
     {
@@ -87,7 +121,11 @@ export default defineConfig({
       testDir: 'e2e-tests/accounts',
       use: {
         //   storageState: ".auth/userRoleAuth.json",
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -98,7 +136,11 @@ export default defineConfig({
       testDir: 'e2e-tests/payments',
       use: {
         // storageState: '.auth/userRoleAuth.json',
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -109,7 +151,11 @@ export default defineConfig({
       testDir: 'e2e-tests/build-tracker',
       use: {
         storageState: '.auth/userRoleAuth.json',
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -118,7 +164,11 @@ export default defineConfig({
       name: 'specific-tests',
       testMatch: 'e2e-tests/specific.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -128,7 +178,11 @@ export default defineConfig({
       dependencies: ['auth-setup'],
       testMatch: 'e2e-tests/cf-cache-status.test.js',
       use: {
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },
@@ -138,7 +192,11 @@ export default defineConfig({
       dependencies: ['user-roles-setup'],
       testDir: 'e2e-tests/advertisement',
       use: {
-        trace: 'retain-on-failure',
+        trace: {
+          mode: 'on-first-retry',
+          screenshots: false,
+          snapshots: { dom: true, aria: true },
+        },
         screenshot: 'only-on-failure',
         video: 'off',
       },

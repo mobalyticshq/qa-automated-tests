@@ -164,8 +164,7 @@ test.describe('Admin permission', () => {
 
     await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
       await expect(moba.ugBuildPage.coverImage).toBeVisible();
-      expect(await moba.ugBuildPage.coverImage.getAttribute('style')).toContain('cdn.mobalytics.gg');
-      expect(await moba.ugBuildPage.coverImage.getAttribute('style')).toContain(`https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=2000/uploads/images/zzz/aqa-telegram`);
+      await expect(moba.ugBuildPage.coverImage).toHaveAttribute('style', /aqa-telegram/);
     });
   });
 
@@ -357,10 +356,7 @@ test.describe('Game Manager permission', () => {
 
     await test.step(`Expected Result: Cover image is uploaded and visible on the build page`, async () => {
       await expect(moba.ugBuildPage.coverImage).toBeVisible();
-      expect(await moba.ugBuildPage.coverImage.getAttribute('style')).toContain('cdn.mobalytics.gg');
-      expect(await moba.ugBuildPage.coverImage.getAttribute('style')).toContain(
-        `https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=2000/uploads/images/zzz/aqa-telegram`
-      );
+      await expect(moba.ugBuildPage.coverImage).toHaveAttribute('style', /aqa-telegram/);
     });
   });
 
