@@ -13,6 +13,24 @@ export class Navbar {
     this.accountSettingsButton = page.getByRole('link', { name: 'Account Settings' });
     this.billingInfoButton = page.getByRole('link', { name: 'Billing Info' });
     this.profileNameMenu = (profileName) => page.getByRole('link', { name: `${profileName}` });
+    this.notificationsButton = page.getByRole('button', { name: 'Notifications' });
+    this.notificationsPanel = page
+      .locator('div')
+      .filter({ has: page.getByText('Notifications', { exact: true }) })
+      .filter({ has: page.getByRole('button', { name: 'Mark all as read' }) })
+      .last();
+    this.commentNotification = (commentText) =>
+      this.notificationsPanel
+        .locator('div')
+        .filter({ hasText: 'commented on your document' })
+        .filter({ hasText: commentText })
+        .last();
+  }
+
+  async openNotifications() {
+    await test.step('Open notifications', async () => {
+      await this.notificationsButton.click();
+    });
   }
 
   async gotoSignInPage() {

@@ -391,6 +391,24 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
+  test(`Create a structure page on HSR project`, async ({ cleanupStHsrPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const { moba, addPageForCleanup } = cleanupStHsrPages;
+
+    await moba.mainURLs.openAdminHsrPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on HSR project`, async () => {
+      await expect(moba.stPage.headerHsr).toContainText('HSR');
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test(`Create a structure page on Borderlands 4 project`, async ({ cleanupStBorderlands4Pages }) => {
     const uniqueId = uuidv4();
     const pageName = `/qa-automation-st-page-${uniqueId}`;
@@ -423,6 +441,7 @@ test.describe('Creating ST Pages', () => {
     });
   });
 });
+
 
 // test('delete ST page', async ({ playwright }) => {
 //   const api = await playwright.request.newContext({ storageState: '.auth/adminAuth.json' });

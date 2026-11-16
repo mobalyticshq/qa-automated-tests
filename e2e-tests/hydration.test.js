@@ -1473,6 +1473,65 @@ test.describe('Check hydration is successfully for each project', () => {
     }
   });
 
+  test(`Check that hydration is ok on HSR`, async ({ page, request }) => {
+    let filteredLinks;
+
+    await test.step(`Parse up to ${quantityLinks} links from honkai-star-rail sitemap: ${process.env.BASE_URL}/honkai-star-rail.xml`, async () => {
+      const response = await request.get(`${process.env.BASE_URL}/honkai-star-rail/sitemap.xml`);
+      await test.step(`Expected Result: ${process.env.BASE_URL}/honkai-star-rail/sitemap.xml returns with ${response.status()}`, async () => {
+        expect(response.ok()).toBeTruthy();
+      });
+      const xmlData = await response.text();
+      const linkRegex = /<loc>(?<link>.*?)<\/loc>/g;
+      const arrayLinks = Array.from(xmlData.matchAll(linkRegex));
+      // First step: Object [RegExp String Iterator] {} which creating while matchAll method applies
+      // Second step: Transform Object [RegExp String Iterator] {} into array with object matches
+
+      filteredLinks = arrayLinks
+        .filter((match) => {
+          const filterPattern = /mobalytics\.gg\/honkai-star-rail/;
+          return filterPattern.test(match.groups.link);
+        })
+        .slice(0, quantityLinks);
+    });
+
+    const consoleMessages = [];
+    const pageErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') {
+        const consoleInfo = `Console error: \n[${msg.type()}]: ${msg.text()}`;
+        // console.log(consoleInfo);
+        consoleMessages.push(consoleInfo);
+      }
+    });
+    page.on('pageerror', (error) => {
+      const errorInfo = `Page error: \n[${error.name}]: "${error.message}"`;
+      // if (error.message.match(/Minified React error #(418|423)/i)) {
+      //   console.log(errorInfo);
+      // }
+      pageErrors.push(errorInfo);
+    });
+
+    for (const takeLink of filteredLinks) {
+      consoleMessages.length = 0;
+      pageErrors.length = 0;
+
+      const { link } = takeLink.groups; // extract groupName for convenient usage
+
+      await test.step(`Open parsed page: ${link}`, async () => {
+        await page.goto(link);
+        await page.waitForTimeout(1000);
+      });
+
+      const allErrorsInOneString = [...consoleMessages, ...pageErrors].join();
+
+      await test.step('Expected Result: No hydration errors (418 or 423) are present in the console', async () => {
+        expect.soft(allErrorsInOneString).not.toMatch(/Minified React error #(418|423)/i);
+        expect.soft(allErrorsInOneString).not.toMatch(/#(418|423)/i);
+      });
+    }
+  });
+
   // test(`Check that hydration is ok on Champions-Sitemap`, async ({ page, request }) => {
   //   let filteredLinks;
 

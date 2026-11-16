@@ -1,6 +1,9 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
 import { makeStCleanup, authByRole, registerAccount } from '../../app/helpers/index';
+import { Moba } from '../../app/page-object/moba';
 export { expect } from '@playwright/test';
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const test = base.extend({
   uiRegisterAccount: registerAccount('ui'),
@@ -32,4 +35,34 @@ export const test = base.extend({
   cleanupStBazaarPages: makeStCleanup((urls) => urls.openAdminBazaarPage()),
   cleanupStZzzPages: makeStCleanup((urls) => urls.openAdminZzzPage()),
   cleanupStRiftboundPages: makeStCleanup((urls) => urls.openAdminRiftboundPage()),
+  cleanupStHsrPages: makeStCleanup((urls) => urls.openAdminHsrPage()),
+
+  postComment: async({ apiAuthAdmin }, use) => {
+    const moba = apiAuthAdmin;
+    const textComment = `Hello Katia ${uuidv4()}`;
+
+    await moba.mainURLs.openUgCommentsWidget();
+    await moba.commentsWidget.postComments(textComment);
+    await expect(moba.commentsWidget.textComment(textComment).first()).toBeVisible();
+    
+    await use({moba, textComment });
+  },
+
+  commentFromGameManager: async ({ browser }, use, testInfo) => {
+    const gameManagerContext = await browser.newContext({
+      storageState: '.auth/gameManagerAuth.json',
+      userAgent: testInfo.project.use.userAgent,
+      viewport: testInfo.project.use.viewport,
+    });
+    const gameManager = new Moba(await gameManagerContext.newPage());
+    const textComment = `Hello Katia ${uuidv4()}`;
+
+    await gameManager.mainURLs.openUgCommentsWidget();
+    await gameManager.commentsWidget.postComments(textComment);
+
+    await use(textComment);
+
+    await gameManager.ugBuildPage.deleteComment(textComment);
+    await gameManagerContext.close();
+  }
 });
