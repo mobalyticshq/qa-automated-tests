@@ -8,7 +8,6 @@ export const projectListFromSitemap = [
   { project: 'Sitemap', isPresentInProdSitemap: true, pathUrl: '/sitemap_index.xml' },
   { project: 'Champions', isPresentInProdSitemap: true, pathUrl: '/champions-sitemap.xml' },
   { project: 'TFT', isPresentInProdSitemap: true, pathUrl: '/tft/sitemap.xml' },
-  { project: 'Set17', isPresentInProdSitemap: true, pathUrl: '/tft/set17/sitemap.xml' },
   { project: 'Destiny 2', isPresentInProdSitemap: true, pathUrl: '/destiny-2/sitemap.xml' },
   { project: 'Diablo 4', isPresentInProdSitemap: true, pathUrl: '/diablo-4/sitemap.xml' },
   { project: 'Nightreign', isPresentInProdSitemap: true, pathUrl: '/elden-ring-nightreign/sitemap.xml' },
@@ -27,7 +26,9 @@ export const projectListFromSitemap = [
   { project: 'Overwatch', isPresentInProdSitemap: true, pathUrl: '/overwatch/sitemap.xml' },
   { project: 'STS2', isPresentInProdSitemap: true, pathUrl: '/slay-the-spire-2/sitemap.xml' },
   { project: 'Genshin', isPresentInProdSitemap: true, pathUrl: '/genshin-impact/sitemap.xml' },
-  { project: 'Set 17', isPresentInProdSitemap: true, pathUrl: '/tft/set17/sitemap.xml' },
+  { project: 'Set 19', isPresentInProdSitemap: true, pathUrl: '/tft/set19/sitemap.xml' },
   { project: 'Set 18', isPresentInProdSitemap: true, pathUrl: '/tft/set18/sitemap.xml' },
   { project: 'Gamebase', isPresentInProdSitemap: true, pathUrl: '/gamebase/sitemap.xml' },
+  { project: 'HSR', isPresentInProdSitemap: false, pathUrl: '/honkai-star-rail/sitemap.xml' },
+  { project: 'WUW', isPresentInProdSitemap: false, pathUrl: '/wuthering-waves/sitemap.xml' },
 ];
