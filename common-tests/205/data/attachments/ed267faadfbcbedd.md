@@ -1,0 +1,638 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ngf/creating-st-pages.test.js >> Creating ST Pages >> Create a structure page on PoE project
+- Location: e2e-tests/ngf/creating-st-pages.test.js:244:3
+
+# Error details
+
+```
+TimeoutError: locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+  - waiting for getByTestId('admin-page-st-document-item-card').filter({ hasText: '/qa-automation-st-page-9766c391-fafe-4ccf-bc55-bf161afb41a6' }) to be hidden
+    - locator resolved to visible <div data-testid="admin-page-st-document-item-card" class="xh8yej3 x78zum5 x1q0g3np x1w9t9sz x6s0dn4 x1slt461 x1nhvcw1 x1a02dak x1vctgw6 x17gf9bc x614542 x1hv8zah xe8ttls x139jznd x1ypdohk x9zwv14">…</div>
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=f29e1]:
+  - generic [ref=f29e2]:
+    - generic [ref=f29e3]:
+      - link "We're giving away more prizes to players who have finished the Logitech G PRO Pass! → Learn more Close":
+        - /url: /gamebase/dev-blogs/logitech-g-pro-reward-pass-giveaway
+        - generic [ref=f29e4] [cursor=pointer]:
+          - generic [ref=f29e5]:
+            - paragraph [ref=f29e11]: We're giving away more prizes to players who have finished the Logitech G PRO Pass!
+            - button "→ Learn more" [ref=f29e12]
+          - img "Close" [ref=f29e13]
+      - generic [ref=f29e14]:
+        - generic [ref=f29e16]:
+          - link [ref=f29e18] [cursor=pointer]:
+            - /url: /poe
+            - img "Mobalytics" [ref=f29e19]
+          - generic [ref=f29e21]:
+            - link "Diablo 4 Diablo 4" [ref=f29e23] [cursor=pointer]:
+              - /url: https://mobalytics.gg/diablo-4
+              - generic [ref=f29e25]:
+                - img "Diablo 4" [ref=f29e27]
+                - generic [ref=f29e28]: Diablo 4
+            - link "Path of Exile 2 PoE 2" [ref=f29e30] [cursor=pointer]:
+              - /url: https://mobalytics.gg/poe-2
+              - generic [ref=f29e32]:
+                - img "Path of Exile 2" [ref=f29e34]
+                - generic [ref=f29e35]: PoE 2
+            - link "Deadlock Deadlock" [ref=f29e37] [cursor=pointer]:
+              - /url: https://mobalytics.gg/deadlock
+              - generic [ref=f29e39]:
+                - img "Deadlock" [ref=f29e41]
+                - generic [ref=f29e42]: Deadlock
+            - link "League of Legends LoL" [ref=f29e45] [cursor=pointer]:
+              - /url: https://mobalytics.gg/lol
+              - generic [ref=f29e47]:
+                - img "League of Legends" [ref=f29e49]
+                - generic [ref=f29e50]: LoL
+            - link "Teamfight Tactics TFT" [ref=f29e52] [cursor=pointer]:
+              - /url: https://mobalytics.gg/tft
+              - generic [ref=f29e54]:
+                - img "Teamfight Tactics" [ref=f29e56]
+                - generic [ref=f29e57]: TFT
+            - link "Path of Exile PoE" [ref=f29e59] [cursor=pointer]:
+              - /url: https://mobalytics.gg/poe
+              - generic [ref=f29e61]:
+                - img "Path of Exile" [ref=f29e63]
+                - generic [ref=f29e64]: PoE
+            - 'link "World of Warcraft: Forever WoW Forever New" [ref=f29e66] [cursor=pointer]':
+              - /url: https://mobalytics.gg/wow-forever
+              - generic [ref=f29e68]:
+                - 'img "World of Warcraft: Forever" [ref=f29e70]'
+                - generic [ref=f29e71]: WoW Forever
+                - generic [ref=f29e72]: New
+            - link "Destiny 2 Destiny 2" [ref=f29e75] [cursor=pointer]:
+              - /url: https://mobalytics.gg/destiny-2
+              - generic [ref=f29e77]:
+                - img "Destiny 2" [ref=f29e79]
+                - generic [ref=f29e80]: Destiny 2
+            - link "Marathon Marathon" [ref=f29e82] [cursor=pointer]:
+              - /url: https://mobalytics.gg/marathon
+              - generic [ref=f29e84]:
+                - img "Marathon" [ref=f29e86]
+                - generic [ref=f29e87]: Marathon
+            - link "Slay the Spire 2 STS 2" [ref=f29e89] [cursor=pointer]:
+              - /url: https://mobalytics.gg/slay-the-spire-2
+              - generic [ref=f29e91]:
+                - img "Slay the Spire 2" [ref=f29e93]
+                - generic [ref=f29e94]: STS 2
+            - button [ref=f29e96] [cursor=pointer]
+          - link "Gamebase Gamebase Reviews, Previews, & More" [ref=f29e99] [cursor=pointer]:
+            - /url: https://mobalytics.gg/gamebase
+            - generic [ref=f29e100]:
+              - img "Gamebase" [ref=f29e102]
+              - generic [ref=f29e103]: Gamebase
+              - generic [ref=f29e104]: Reviews, Previews, & More
+        - generic [ref=f29e105]:
+          - link [ref=f29e106] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?Channel=web_dl_btn&utm_campaign=top-poe&utm_medium=homepage&utm_source=web
+            - button "Download App" [ref=f29e108]
+          - generic [ref=f29e110]:
+            - button "Play & Get Free Rewards" [ref=f29e111] [cursor=pointer]
+            - button "New Challenge Available" [ref=f29e114] [cursor=pointer]
+          - generic [ref=f29e117]:
+            - button "Remove Ads" [ref=f29e118] [cursor=pointer]
+            - button "Connect GGG Account" [ref=f29e119] [cursor=pointer]
+            - button "spy-man" [ref=f29e121] [cursor=pointer]:
+              - generic [ref=f29e123]:
+                - generic [ref=f29e124]: S
+                - generic [ref=f29e126]: spy-man
+            - button "Notifications" [ref=f29e129] [cursor=pointer]
+        - generic [ref=f29e132]:
+          - link [ref=f29e135] [cursor=pointer]:
+            - /url: /poe
+            - img "Home" [ref=f29e136]
+            - generic: Home
+          - link [ref=f29e139] [cursor=pointer]:
+            - /url: /poe/profile
+            - img "Profile" [ref=f29e140]
+            - generic: Profile
+          - link [ref=f29e143] [cursor=pointer]:
+            - /url: /poe/planner/builds
+            - img "Build Planner" [ref=f29e144]
+            - generic: Build Planner
+          - link [ref=f29e147] [cursor=pointer]:
+            - /url: /poe/tier-list
+            - img "Tier List" [ref=f29e148]
+            - generic: Tier List
+          - link [ref=f29e151] [cursor=pointer]:
+            - /url: /poe/starter-builds
+            - img "Starter Builds" [ref=f29e152]
+            - generic: Starter Builds
+          - link [ref=f29e155] [cursor=pointer]:
+            - /url: /poe/builds
+            - img "Builds" [ref=f29e156]
+            - generic: Builds
+          - link [ref=f29e159] [cursor=pointer]:
+            - /url: /poe/guides
+            - img "Guides" [ref=f29e160]
+            - generic: Guides
+          - link [ref=f29e163] [cursor=pointer]:
+            - /url: /poe/creators
+            - img "Creators" [ref=f29e164]
+            - generic: Creators
+        - generic [ref=f29e166]:
+          - main [ref=f29e167]:
+            - generic [ref=f29e168]:
+              - img "poe logitech free refresh takeover version a" [ref=f29e169] [cursor=pointer]
+              - generic [ref=f29e172]:
+                - generic [ref=f29e173]:
+                  - heading "Structure Pages" [level=1] [ref=f29e174]
+                  - link "Create Page" [ref=f29e176] [cursor=pointer]:
+                    - /url: /poe/planner/st
+                - generic [ref=f29e179]:
+                  - generic [ref=f29e180] [cursor=pointer]:
+                    - generic [ref=f29e181]: /ascendant-builds
+                    - generic [ref=f29e183]:
+                      - link "Edit" [ref=f29e184]:
+                        - /url: /poe/ascendant-builds
+                      - button [ref=f29e186]
+                  - generic [ref=f29e188] [cursor=pointer]:
+                    - generic [ref=f29e189]: /ascendant-starter-builds
+                    - generic [ref=f29e191]:
+                      - link "Edit" [ref=f29e192]:
+                        - /url: /poe/ascendant-starter-builds
+                      - button [ref=f29e194]
+                  - generic [ref=f29e196] [cursor=pointer]:
+                    - generic [ref=f29e197]: /assassin-builds
+                    - generic [ref=f29e199]:
+                      - link "Edit" [ref=f29e200]:
+                        - /url: /poe/assassin-builds
+                      - button [ref=f29e202]
+                  - generic [ref=f29e204] [cursor=pointer]:
+                    - generic [ref=f29e205]: /assassin-starter-builds
+                    - generic [ref=f29e207]:
+                      - link "Edit" [ref=f29e208]:
+                        - /url: /poe/assassin-starter-builds
+                      - button [ref=f29e210]
+                  - generic [ref=f29e212] [cursor=pointer]:
+                    - generic [ref=f29e213]: /berserker-builds
+                    - generic [ref=f29e215]:
+                      - link "Edit" [ref=f29e216]:
+                        - /url: /poe/berserker-builds
+                      - button [ref=f29e218]
+                  - generic [ref=f29e220] [cursor=pointer]:
+                    - generic [ref=f29e221]: /berserker-starter-builds
+                    - generic [ref=f29e223]:
+                      - link "Edit" [ref=f29e224]:
+                        - /url: /poe/berserker-starter-builds
+                      - button [ref=f29e226]
+                  - generic [ref=f29e228] [cursor=pointer]:
+                    - generic [ref=f29e229]: /builds
+                    - generic [ref=f29e231]:
+                      - link "Edit" [ref=f29e232]:
+                        - /url: /poe/builds
+                      - button [ref=f29e234]
+                  - generic [ref=f29e236] [cursor=pointer]:
+                    - generic [ref=f29e237]: /champion-builds
+                    - generic [ref=f29e239]:
+                      - link "Edit" [ref=f29e240]:
+                        - /url: /poe/champion-builds
+                      - button [ref=f29e242]
+                  - generic [ref=f29e244] [cursor=pointer]:
+                    - generic [ref=f29e245]: /champion-starter-builds
+                    - generic [ref=f29e247]:
+                      - link "Edit" [ref=f29e248]:
+                        - /url: /poe/champion-starter-builds
+                      - button [ref=f29e250]
+                  - generic [ref=f29e252] [cursor=pointer]:
+                    - generic [ref=f29e253]: /chieftain-builds
+                    - generic [ref=f29e255]:
+                      - link "Edit" [ref=f29e256]:
+                        - /url: /poe/chieftain-builds
+                      - button [ref=f29e258]
+                  - generic [ref=f29e260] [cursor=pointer]:
+                    - generic [ref=f29e261]: /chieftain-starter-builds
+                    - generic [ref=f29e263]:
+                      - link "Edit" [ref=f29e264]:
+                        - /url: /poe/chieftain-starter-builds
+                      - button [ref=f29e266]
+                  - generic [ref=f29e268] [cursor=pointer]:
+                    - generic [ref=f29e269]: /community-builds
+                    - generic [ref=f29e271]:
+                      - link "Edit" [ref=f29e272]:
+                        - /url: /poe/community-builds
+                      - button [ref=f29e274]
+                  - generic [ref=f29e276] [cursor=pointer]:
+                    - generic [ref=f29e277]: /creator-builds
+                    - generic [ref=f29e279]:
+                      - link "Edit" [ref=f29e280]:
+                        - /url: /poe/creator-builds
+                      - button [ref=f29e282]
+                  - generic [ref=f29e284] [cursor=pointer]:
+                    - generic [ref=f29e285]: /creators
+                    - generic [ref=f29e287]:
+                      - link "Edit" [ref=f29e288]:
+                        - /url: /poe/creators
+                      - button [ref=f29e290]
+                  - generic [ref=f29e292] [cursor=pointer]:
+                    - generic [ref=f29e293]: /creator-starter-builds
+                    - generic [ref=f29e295]:
+                      - link "Edit" [ref=f29e296]:
+                        - /url: /poe/creator-starter-builds
+                      - button [ref=f29e298]
+                  - generic [ref=f29e300] [cursor=pointer]:
+                    - generic [ref=f29e301]: /deadeye-builds
+                    - generic [ref=f29e303]:
+                      - link "Edit" [ref=f29e304]:
+                        - /url: /poe/deadeye-builds
+                      - button [ref=f29e306]
+                  - generic [ref=f29e308] [cursor=pointer]:
+                    - generic [ref=f29e309]: /deadeye-starter-builds
+                    - generic [ref=f29e311]:
+                      - link "Edit" [ref=f29e312]:
+                        - /url: /poe/deadeye-starter-builds
+                      - button [ref=f29e314]
+                  - generic [ref=f29e316] [cursor=pointer]:
+                    - generic [ref=f29e317]: /duelist-builds
+                    - generic [ref=f29e319]:
+                      - link "Edit" [ref=f29e320]:
+                        - /url: /poe/duelist-builds
+                      - button [ref=f29e322]
+                  - generic [ref=f29e324] [cursor=pointer]:
+                    - generic [ref=f29e325]: /duelist-starter-builds
+                    - generic [ref=f29e327]:
+                      - link "Edit" [ref=f29e328]:
+                        - /url: /poe/duelist-starter-builds
+                      - button [ref=f29e330]
+                  - generic [ref=f29e332] [cursor=pointer]:
+                    - generic [ref=f29e333]: /elementalist-builds
+                    - generic [ref=f29e335]:
+                      - link "Edit" [ref=f29e336]:
+                        - /url: /poe/elementalist-builds
+                      - button [ref=f29e338]
+                  - generic [ref=f29e340] [cursor=pointer]:
+                    - generic [ref=f29e341]: /elementalist-starter-builds
+                    - generic [ref=f29e343]:
+                      - link "Edit" [ref=f29e344]:
+                        - /url: /poe/elementalist-starter-builds
+                      - button [ref=f29e346]
+                  - generic [ref=f29e348] [cursor=pointer]:
+                    - generic [ref=f29e349]: /gladiator-builds
+                    - generic [ref=f29e351]:
+                      - link "Edit" [ref=f29e352]:
+                        - /url: /poe/gladiator-builds
+                      - button [ref=f29e354]
+                  - generic [ref=f29e356] [cursor=pointer]:
+                    - generic [ref=f29e357]: /gladiator-starter-builds
+                    - generic [ref=f29e359]:
+                      - link "Edit" [ref=f29e360]:
+                        - /url: /poe/gladiator-starter-builds
+                      - button [ref=f29e362]
+                  - generic [ref=f29e364] [cursor=pointer]:
+                    - generic [ref=f29e365]: /guardian-builds
+                    - generic [ref=f29e367]:
+                      - link "Edit" [ref=f29e368]:
+                        - /url: /poe/guardian-builds
+                      - button [ref=f29e370]
+                  - generic [ref=f29e372] [cursor=pointer]:
+                    - generic [ref=f29e373]: /guides
+                    - generic [ref=f29e375]:
+                      - link "Edit" [ref=f29e376]:
+                        - /url: /poe/guides
+                      - button [ref=f29e378]
+                  - generic [ref=f29e380] [cursor=pointer]:
+                    - generic [ref=f29e381]: /hierophant-builds
+                    - generic [ref=f29e383]:
+                      - link "Edit" [ref=f29e384]:
+                        - /url: /poe/hierophant-builds
+                      - button [ref=f29e386]
+                  - generic [ref=f29e388] [cursor=pointer]:
+                    - generic [ref=f29e389]: /hierophant-starter-builds
+                    - generic [ref=f29e391]:
+                      - link "Edit" [ref=f29e392]:
+                        - /url: /poe/hierophant-starter-builds
+                      - button [ref=f29e394]
+                  - generic [ref=f29e396] [cursor=pointer]:
+                    - generic [ref=f29e397]: /home
+                    - generic [ref=f29e399]:
+                      - link "Edit" [ref=f29e400]:
+                        - /url: /poe/home
+                      - button [ref=f29e402]
+                  - generic [ref=f29e404] [cursor=pointer]:
+                    - generic [ref=f29e405]: /inquisitor-builds
+                    - generic [ref=f29e407]:
+                      - link "Edit" [ref=f29e408]:
+                        - /url: /poe/inquisitor-builds
+                      - button [ref=f29e410]
+                  - generic [ref=f29e412] [cursor=pointer]:
+                    - generic [ref=f29e413]: /inquisitor-starter-builds
+                    - generic [ref=f29e415]:
+                      - link "Edit" [ref=f29e416]:
+                        - /url: /poe/inquisitor-starter-builds
+                      - button [ref=f29e418]
+                  - generic [ref=f29e420] [cursor=pointer]:
+                    - generic [ref=f29e421]: /juggernaut-builds
+                    - generic [ref=f29e423]:
+                      - link "Edit" [ref=f29e424]:
+                        - /url: /poe/juggernaut-builds
+                      - button [ref=f29e426]
+                  - generic [ref=f29e428] [cursor=pointer]:
+                    - generic [ref=f29e429]: /juggernaut-starter-builds
+                    - generic [ref=f29e431]:
+                      - link "Edit" [ref=f29e432]:
+                        - /url: /poe/juggernaut-starter-builds
+                      - button [ref=f29e434]
+                  - generic [ref=f29e436] [cursor=pointer]:
+                    - generic [ref=f29e437]: /luminary-builds
+                    - generic [ref=f29e439]:
+                      - link "Edit" [ref=f29e440]:
+                        - /url: /poe/luminary-builds
+                      - button [ref=f29e442]
+                  - generic [ref=f29e444] [cursor=pointer]:
+                    - generic [ref=f29e445]: /luminary-starter-builds
+                    - generic [ref=f29e447]:
+                      - link "Edit" [ref=f29e448]:
+                        - /url: /poe/luminary-starter-builds
+                      - button [ref=f29e450]
+                  - generic [ref=f29e452] [cursor=pointer]:
+                    - generic [ref=f29e453]: /marauder-builds
+                    - generic [ref=f29e455]:
+                      - link "Edit" [ref=f29e456]:
+                        - /url: /poe/marauder-builds
+                      - button [ref=f29e458]
+                  - generic [ref=f29e460] [cursor=pointer]:
+                    - generic [ref=f29e461]: /marauder-starter-builds
+                    - generic [ref=f29e463]:
+                      - link "Edit" [ref=f29e464]:
+                        - /url: /poe/marauder-starter-builds
+                      - button [ref=f29e466]
+                  - generic [ref=f29e468] [cursor=pointer]:
+                    - generic [ref=f29e469]: /necromancer-builds
+                    - generic [ref=f29e471]:
+                      - link "Edit" [ref=f29e472]:
+                        - /url: /poe/necromancer-builds
+                      - button [ref=f29e474]
+                  - generic [ref=f29e476] [cursor=pointer]:
+                    - generic [ref=f29e477]: /necromancer-starter-builds
+                    - generic [ref=f29e479]:
+                      - link "Edit" [ref=f29e480]:
+                        - /url: /poe/necromancer-starter-builds
+                      - button [ref=f29e482]
+                  - generic [ref=f29e484] [cursor=pointer]:
+                    - generic [ref=f29e485]: /occultist-builds
+                    - generic [ref=f29e487]:
+                      - link "Edit" [ref=f29e488]:
+                        - /url: /poe/occultist-builds
+                      - button [ref=f29e490]
+                  - generic [ref=f29e492] [cursor=pointer]:
+                    - generic [ref=f29e493]: /occultist-starter-builds
+                    - generic [ref=f29e495]:
+                      - link "Edit" [ref=f29e496]:
+                        - /url: /poe/occultist-starter-builds
+                      - button [ref=f29e498]
+                  - generic [ref=f29e500] [cursor=pointer]:
+                    - generic [ref=f29e501]: /pathfinder-builds
+                    - generic [ref=f29e503]:
+                      - link "Edit" [ref=f29e504]:
+                        - /url: /poe/pathfinder-builds
+                      - button [ref=f29e506]
+                  - generic [ref=f29e508] [cursor=pointer]:
+                    - generic [ref=f29e509]: /pathfinder-starter-builds
+                    - generic [ref=f29e511]:
+                      - link "Edit" [ref=f29e512]:
+                        - /url: /poe/pathfinder-starter-builds
+                      - button [ref=f29e514]
+                  - generic [ref=f29e516] [cursor=pointer]:
+                    - generic [ref=f29e517]: /phrecia-builds
+                    - generic [ref=f29e519]:
+                      - link "Edit" [ref=f29e520]:
+                        - /url: /poe/phrecia-builds
+                      - button [ref=f29e522]
+                  - generic [ref=f29e524] [cursor=pointer]:
+                    - generic [ref=f29e525]: /qa-automation-st-page-20550040-16be-4d53-bc10-230e9582f60e
+                    - generic [ref=f29e527]:
+                      - link "Edit" [ref=f29e528]:
+                        - /url: /poe/qa-automation-st-page-20550040-16be-4d53-bc10-230e9582f60e
+                      - button [ref=f29e530]
+                  - generic [ref=f29e532] [cursor=pointer]:
+                    - generic [ref=f29e533]: /qa-check-static-data-not-delete
+                    - generic [ref=f29e535]:
+                      - link "Edit" [ref=f29e536]:
+                        - /url: /poe/qa-check-static-data-not-delete
+                      - button [ref=f29e538]
+                  - generic [ref=f29e540] [cursor=pointer]:
+                    - generic [ref=f29e541]: /ranger-builds
+                    - generic [ref=f29e543]:
+                      - link "Edit" [ref=f29e544]:
+                        - /url: /poe/ranger-builds
+                      - button [ref=f29e546]
+                  - generic [ref=f29e548] [cursor=pointer]:
+                    - generic [ref=f29e549]: /ranger-starter-builds
+                    - generic [ref=f29e551]:
+                      - link "Edit" [ref=f29e552]:
+                        - /url: /poe/ranger-starter-builds
+                      - button [ref=f29e554]
+                  - generic [ref=f29e556] [cursor=pointer]:
+                    - generic [ref=f29e557]: /reliquarian-builds
+                    - generic [ref=f29e559]:
+                      - link "Edit" [ref=f29e560]:
+                        - /url: /poe/reliquarian-builds
+                      - button [ref=f29e562]
+                  - generic [ref=f29e564] [cursor=pointer]:
+                    - generic [ref=f29e565]: /reliquarian-starter-builds
+                    - generic [ref=f29e567]:
+                      - link "Edit" [ref=f29e568]:
+                        - /url: /poe/reliquarian-starter-builds
+                      - button [ref=f29e570]
+                  - generic [ref=f29e572] [cursor=pointer]:
+                    - generic [ref=f29e573]: /saboteur-builds
+                    - generic [ref=f29e575]:
+                      - link "Edit" [ref=f29e576]:
+                        - /url: /poe/saboteur-builds
+                      - button [ref=f29e578]
+                  - generic [ref=f29e580] [cursor=pointer]:
+                    - generic [ref=f29e581]: /saboteur-starter-builds
+                    - generic [ref=f29e583]:
+                      - link "Edit" [ref=f29e584]:
+                        - /url: /poe/saboteur-starter-builds
+                      - button [ref=f29e586]
+                  - generic [ref=f29e588] [cursor=pointer]:
+                    - generic [ref=f29e589]: /scion-builds
+                    - generic [ref=f29e591]:
+                      - link "Edit" [ref=f29e592]:
+                        - /url: /poe/scion-builds
+                      - button [ref=f29e594]
+                  - generic [ref=f29e596] [cursor=pointer]:
+                    - generic [ref=f29e597]: /scion-starter-builds
+                    - generic [ref=f29e599]:
+                      - link "Edit" [ref=f29e600]:
+                        - /url: /poe/scion-starter-builds
+                      - button [ref=f29e602]
+                  - generic [ref=f29e604] [cursor=pointer]:
+                    - generic [ref=f29e605]: /shadow-builds
+                    - generic [ref=f29e607]:
+                      - link "Edit" [ref=f29e608]:
+                        - /url: /poe/shadow-builds
+                      - button [ref=f29e610]
+                  - generic [ref=f29e612] [cursor=pointer]:
+                    - generic [ref=f29e613]: /shadow-starter-builds
+                    - generic [ref=f29e615]:
+                      - link "Edit" [ref=f29e616]:
+                        - /url: /poe/shadow-starter-builds
+                      - button [ref=f29e618]
+                  - generic [ref=f29e620] [cursor=pointer]:
+                    - generic [ref=f29e621]: /slayer-builds
+                    - generic [ref=f29e623]:
+                      - link "Edit" [ref=f29e624]:
+                        - /url: /poe/slayer-builds
+                      - button [ref=f29e626]
+                  - generic [ref=f29e628] [cursor=pointer]:
+                    - generic [ref=f29e629]: /slayer-starter-builds
+                    - generic [ref=f29e631]:
+                      - link "Edit" [ref=f29e632]:
+                        - /url: /poe/slayer-starter-builds
+                      - button [ref=f29e634]
+                  - generic [ref=f29e636] [cursor=pointer]:
+                    - generic [ref=f29e637]: /starter-builds
+                    - generic [ref=f29e639]:
+                      - link "Edit" [ref=f29e640]:
+                        - /url: /poe/starter-builds
+                      - button [ref=f29e642]
+                  - generic [ref=f29e644] [cursor=pointer]:
+                    - generic [ref=f29e645]: /templar-builds
+                    - generic [ref=f29e647]:
+                      - link "Edit" [ref=f29e648]:
+                        - /url: /poe/templar-builds
+                      - button [ref=f29e650]
+                  - generic [ref=f29e652] [cursor=pointer]:
+                    - generic [ref=f29e653]: /templar-starter-builds
+                    - generic [ref=f29e655]:
+                      - link "Edit" [ref=f29e656]:
+                        - /url: /poe/templar-starter-builds
+                      - button [ref=f29e658]
+                  - generic [ref=f29e660] [cursor=pointer]:
+                    - generic [ref=f29e661]: /tier-list
+                    - generic [ref=f29e663]:
+                      - link "Edit" [ref=f29e664]:
+                        - /url: /poe/tier-list
+                      - button [ref=f29e666]
+                  - generic [ref=f29e668] [cursor=pointer]:
+                    - generic [ref=f29e669]: /trickster-builds
+                    - generic [ref=f29e671]:
+                      - link "Edit" [ref=f29e672]:
+                        - /url: /poe/trickster-builds
+                      - button [ref=f29e674]
+                  - generic [ref=f29e676] [cursor=pointer]:
+                    - generic [ref=f29e677]: /trickster-starter-builds
+                    - generic [ref=f29e679]:
+                      - link "Edit" [ref=f29e680]:
+                        - /url: /poe/trickster-starter-builds
+                      - button [ref=f29e682]
+                  - generic [ref=f29e684] [cursor=pointer]:
+                    - generic [ref=f29e685]: /warden-builds
+                    - generic [ref=f29e687]:
+                      - link "Edit" [ref=f29e688]:
+                        - /url: /poe/warden-builds
+                      - button [ref=f29e690]
+                  - generic [ref=f29e692] [cursor=pointer]:
+                    - generic [ref=f29e693]: /warden-starter-builds
+                    - generic [ref=f29e695]:
+                      - link "Edit" [ref=f29e696]:
+                        - /url: /poe/warden-starter-builds
+                      - button [ref=f29e698]
+                  - generic [ref=f29e700] [cursor=pointer]:
+                    - generic [ref=f29e701]: /witch-builds
+                    - generic [ref=f29e703]:
+                      - link "Edit" [ref=f29e704]:
+                        - /url: /poe/witch-builds
+                      - button [ref=f29e706]
+                  - generic [ref=f29e708] [cursor=pointer]:
+                    - generic [ref=f29e709]: /witch-starter-builds
+                    - generic [ref=f29e711]:
+                      - link "Edit" [ref=f29e712]:
+                        - /url: /poe/witch-starter-builds
+                      - button [ref=f29e714]
+            - generic [ref=f29e717] [cursor=pointer]
+          - complementary [ref=f29e720]:
+            - generic [ref=f29e721]:
+              - generic [ref=f29e723]:
+                - generic [ref=f29e725] [cursor=pointer]:
+                  - generic [ref=f29e726]: Advertisement
+                  - generic [ref=f29e727]: Remove Ads
+                - generic [ref=f29e731] [cursor=pointer]:
+                  - generic [ref=f29e732]: Remove all ads
+                  - generic [ref=f29e733]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=f29e734]
+              - generic [ref=f29e736]:
+                - generic [ref=f29e738] [cursor=pointer]:
+                  - generic [ref=f29e739]: Advertisement
+                  - generic [ref=f29e740]: Remove Ads
+                - generic [ref=f29e744] [cursor=pointer]:
+                  - generic [ref=f29e745]: Remove all ads
+                  - generic [ref=f29e746]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=f29e747]
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=f29e748]:
+    - generic [ref=f29e749] [cursor=pointer]
+    - generic [ref=f29e751]:
+      - banner [ref=f29e752]:
+        - generic [ref=f29e753] [cursor=pointer]:
+          - generic [ref=f29e754]: Advertisement
+          - generic [ref=f29e755]: Remove Ads
+      - generic [ref=f29e759] [cursor=pointer]:
+        - generic [ref=f29e760]: Remove all ads
+        - generic [ref=f29e761]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+        - button "Remove ads" [ref=f29e762]
+  - button "Do Not Sell or Share My Personal Information" [ref=f29e766] [cursor=pointer]:
+    - paragraph [ref=f29e768]: Do Not Sell or Share My Personal Information
+```
+
+# Test source
+
+```ts
+  1  | import { expect } from '@playwright/test';
+  2  | import { Moba } from '../page-object/moba';
+  3  | 
+  4  | /**
+  5  |  * Builds an ST-pages cleanup fixture for a single game.
+  6  |  *
+  7  |  * The returned fixture hands the test `{ moba, addPageForCleanup }`; every page name registered
+  8  |  * via `addPageForCleanup` is deleted through that game's ST admin panel after the test finishes.
+  9  |  *
+  10 |  * NOTE: the returned function must keep `({ page }, use)` in its source — Playwright detects
+  11 |  * fixture dependencies by parsing the function text, so destructuring `page` is what wires it up.
+  12 |  *
+  13 |  * @param {(urls: Moba['mainURLs']) => Promise<void>} openAdminPage — navigates to the game's ST admin panel
+  14 |  */
+  15 | export const makeStCleanup =
+  16 |   (openAdminPage) =>
+  17 |   async ({ page }, use) => {
+  18 |     const moba = new Moba(page);
+  19 |     const pagesToCleanup = [];
+  20 | 
+  21 |     const addPageForCleanup = (pageName) => {
+  22 |       pagesToCleanup.push(pageName);
+  23 |     };
+  24 | 
+  25 |     await use({ moba, addPageForCleanup });
+  26 | 
+  27 |     // Cleanup after test
+  28 |     if (pagesToCleanup.length === 0) return;
+  29 | 
+  30 |     await openAdminPage(moba.mainURLs);
+  31 | 
+  32 |     for (const pageName of pagesToCleanup) {
+  33 |       await moba.stAdminPage.deleteStCardWidget(pageName);
+> 34 |       await moba.stAdminPage.stCardWidget(pageName).waitFor({ state: 'hidden', timeout: 2000 }); // Wait for the widget to disappear from DOM
+     |                                                     ^ TimeoutError: locator.waitFor: Timeout 2000ms exceeded.
+  35 | 
+  36 |       await expect(moba.stAdminPage.stCardWidget(pageName)).not.toBeVisible();
+  37 |     }
+  38 |   };
+  39 | 
+```
