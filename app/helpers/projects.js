@@ -172,7 +172,7 @@ const projectList = [
     projectPath: '/mhw',
     staticData: {
       staticDataStPage: '/mhw/qa-check-static-data-not-delete',
-      gameSpecificItem: 'Dragon',
+      gameSpecificItem: 'Dragon Attack',
       exactMatch: true,
     },
     features: {
