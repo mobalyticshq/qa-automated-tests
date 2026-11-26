@@ -409,6 +409,24 @@ test.describe('Creating ST Pages', () => {
     });
   });
 
+  test(`Create a structure page on NRW project`, async ({ cleanupStNrwPages }) => {
+    const uniqueId = uuidv4();
+    const pageName = `/qa-automation-st-page-${uniqueId}`;
+    const { moba, addPageForCleanup } = cleanupStNrwPages;
+
+    await moba.mainURLs.openAdminNrwPage();
+    await moba.stAdminPage.gotoStPlannerPage();
+    await moba.stPage.addHeaderWidget();
+    await moba.stPage.createStPage(pageName);
+
+    addPageForCleanup(pageName); // Register page for deleting
+
+    await test.step(`Expected Result: Structure page with the name: ${pageName} is created on NRW project`, async () => {
+      await expect(moba.stPage.headerNrw).toContainText('No Rest for the Wicked');
+      await expect(moba.stPage.controlPanel).toContainText(pageName);
+    });
+  });
+
   test('Check error state for empty "CardGrid" widget', async ({ page }) => {
     const moba = new Moba(page);
     const uniqueId = uuidv4();

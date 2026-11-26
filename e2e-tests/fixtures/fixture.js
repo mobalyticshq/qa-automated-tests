@@ -32,4 +32,5 @@ export const test = base.extend({
   cleanupStBazaarPages: makeStCleanup((urls) => urls.openAdminBazaarPage()),
   cleanupStZzzPages: makeStCleanup((urls) => urls.openAdminZzzPage()),
   cleanupStRiftboundPages: makeStCleanup((urls) => urls.openAdminRiftboundPage()),
+  cleanupStNrwPages: makeStCleanup((urls) => urls.openAdminNrwPage()),
 });

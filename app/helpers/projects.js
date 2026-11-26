@@ -415,6 +415,21 @@ const projectList = [
       advertisement: true,
     },
   },
+  {
+    game: 'No Rest for the Wicked',
+    projectPath: '/no-rest-for-the-wicked',
+    staticData: {
+      staticDataStPage: '/no-rest-for-the-wicked/qa-check-static-data-not-delete',
+      gameSpecificItem: 'Faith',
+    },
+    features: {
+      guide: true,
+      build: true,
+      tierList: true,
+      staticData: true,
+      advertisement: true,
+    },
+  },
 ];
 
 export const filterProjectsByFeatureStatus = (featureStatus) => {

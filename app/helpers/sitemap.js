@@ -31,4 +31,5 @@ export const projectListFromSitemap = [
   { project: 'Gamebase', isPresentInProdSitemap: true, pathUrl: '/gamebase/sitemap.xml' },
   { project: 'HSR', isPresentInProdSitemap: false, pathUrl: '/honkai-star-rail/sitemap.xml' },
   { project: 'WUW', isPresentInProdSitemap: false, pathUrl: '/wuthering-waves/sitemap.xml' },
+  { project: 'NRW', isPresentInProdSitemap: false, pathUrl: '/no-rest-for-the-wicked/sitemap.xml' }
 ];
