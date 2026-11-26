@@ -1,0 +1,402 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ngf/creating-ug-pages.test.js >> Creating UG Pages >> Create a guide page on Endfield project
+- Location: e2e-tests/ngf/creating-ug-pages.test.js:42:5
+
+# Error details
+
+```
+Test timeout of 90000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 90000ms exceeded.
+Call log:
+  - waiting for getByRole('menuitem', { name: 'Guide Create a Guide' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link "Play games to unlock free Logitech G Pro gear, skins, and Amazon/Steam Cards → Activate Pass Close":
+        - /url: https://mobalytics.gg/reward-pass/01a1a4a6-7885-7cc1-95a4-e0b3aa0bc53e
+        - generic [ref=e4] [cursor=pointer]:
+          - generic [ref=e5]:
+            - paragraph [ref=e11]: Play games to unlock free Logitech G Pro gear, skins, and Amazon/Steam Cards
+            - button "→ Activate Pass" [ref=e12]
+          - img "Close" [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e16]:
+          - link [ref=e18] [cursor=pointer]:
+            - /url: /arknights-endfield
+            - img "Mobalytics" [ref=e19]
+          - generic [ref=e21]:
+            - link "Diablo 4 Diablo 4" [ref=e23] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/diablo-4
+              - generic [ref=e25]:
+                - img "Diablo 4" [ref=e27]
+                - generic [ref=e28]: Diablo 4
+            - link "Path of Exile 2 PoE 2" [ref=e30] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe-2
+              - generic [ref=e32]:
+                - img "Path of Exile 2" [ref=e34]
+                - generic [ref=e35]: PoE 2
+            - link "Path of Exile PoE" [ref=e37] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/poe
+              - generic [ref=e39]:
+                - img "Path of Exile" [ref=e41]
+                - generic [ref=e42]: PoE
+            - link "Deadlock Deadlock" [ref=e44] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/deadlock
+              - generic [ref=e46]:
+                - img "Deadlock" [ref=e48]
+                - generic [ref=e49]: Deadlock
+            - link "Riftbound Riftbound" [ref=e51] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/riftbound
+              - generic [ref=e53]:
+                - img "Riftbound" [ref=e55]
+                - generic [ref=e56]: Riftbound
+            - link "Zenless Zone Zero ZZZ" [ref=e58] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/zzz
+              - generic [ref=e60]:
+                - img "Zenless Zone Zero" [ref=e62]
+                - generic [ref=e63]: ZZZ
+            - link "Marvel Rivals Marvel Rivals" [ref=e65] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/marvel-rivals
+              - generic [ref=e67]:
+                - img "Marvel Rivals" [ref=e69]
+                - generic [ref=e70]: Marvel Rivals
+            - link "The Bazaar The Bazaar" [ref=e72] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/the-bazaar
+              - generic [ref=e74]:
+                - img "The Bazaar" [ref=e76]
+                - generic [ref=e77]: The Bazaar
+            - link "2XKO 2XKO" [ref=e79] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/2xko
+              - generic [ref=e81]:
+                - img "2XKO" [ref=e83]
+                - generic [ref=e84]: 2XKO
+            - link "Hades 2 Hades 2" [ref=e86] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/hades-2
+              - generic [ref=e88]:
+                - img "Hades 2" [ref=e90]
+                - generic [ref=e91]: Hades 2
+            - link "Overwatch Overwatch" [ref=e93] [cursor=pointer]:
+              - /url: https://stg.mobalytics.gg/overwatch
+              - generic [ref=e95]:
+                - img "Overwatch" [ref=e97]
+                - generic [ref=e98]: Overwatch
+            - button [ref=e100] [cursor=pointer]
+          - link "Gamebase Gamebase Reviews, Previews, & More" [ref=e103] [cursor=pointer]:
+            - /url: https://stg.mobalytics.gg/gamebase
+            - generic [ref=e104]:
+              - img "Gamebase" [ref=e106]
+              - generic [ref=e107]: Gamebase
+              - generic [ref=e108]: Reviews, Previews, & More
+        - generic [ref=e109]:
+          - link [ref=e110] [cursor=pointer]:
+            - /url: /lol/glp/download-welcome?Channel=web_dl_btn&isElectron=true&utm_campaign=top-arknights-endfield&utm_medium=homepage&utm_source=web
+            - button "Download App" [ref=e112]
+          - button "Play & Get Free Rewards" [ref=e115] [cursor=pointer]
+          - generic [ref=e118]:
+            - button "Remove Ads" [ref=e119] [cursor=pointer]
+            - button "admin_auto_tests+stg+ns@mobalyticshq.com" [ref=e121] [cursor=pointer]:
+              - generic [ref=e123]:
+                - generic [ref=e124]: A
+                - generic [ref=e126]: admin_auto_tests+stg+ns@mobalyticshq.com
+            - button "Notifications" [ref=e129] [cursor=pointer]
+        - generic [ref=e132]:
+          - link [ref=e135] [cursor=pointer]:
+            - /url: /arknights-endfield
+            - img "Home" [ref=e136]
+            - generic: Home
+          - link [ref=e139] [cursor=pointer]:
+            - /url: /arknights-endfield/profile
+            - img "Profile" [ref=e140]
+            - generic: Profile
+          - link [ref=e143] [cursor=pointer]:
+            - /url: /arknights-endfield/characters
+            - img "Characters" [ref=e144]
+            - generic: Characters
+          - link [ref=e147] [cursor=pointer]:
+            - /url: /arknights-endfield/tier-list
+            - img "Tier List" [ref=e148]
+            - generic: Tier List
+          - link [ref=e151] [cursor=pointer]:
+            - /url: /arknights-endfield/bases
+            - img "Bases" [ref=e152]
+            - generic: Bases
+          - link [ref=e155] [cursor=pointer]:
+            - /url: /arknights-endfield/teams
+            - img "Teams" [ref=e156]
+            - generic: Teams
+          - link [ref=e159] [cursor=pointer]:
+            - /url: /arknights-endfield/weapons
+            - img "Weapons" [ref=e160]
+            - generic: Weapons
+          - link [ref=e163] [cursor=pointer]:
+            - /url: /arknights-endfield/gear
+            - img "Gear" [ref=e164]
+            - generic: Gear
+          - link [ref=e167] [cursor=pointer]:
+            - /url: /arknights-endfield/guides
+            - img "Guides" [ref=e168]
+            - generic: Guides
+        - generic [ref=e170]:
+          - main [ref=e171]:
+            - generic [ref=e172]:
+              - img "end rp2 takeover" [ref=e173] [cursor=pointer]
+              - generic [ref=e175]:
+                - generic [ref=e178]:
+                  - generic [ref=e180]:
+                    - generic [ref=e181]: A
+                    - generic [ref=e183]: admin_auto_tests+stg+ns@mobalyticshq.com
+                    - generic [ref=e185]:
+                      - button "Copy UUID" [ref=e186] [cursor=pointer]
+                      - link "Edit profile" [ref=e188] [cursor=pointer]:
+                        - /url: /arknights-endfield/account-settings/profile
+                    - generic [ref=e190]: 1 Follower
+                    - generic [ref=e192]:
+                      - generic [ref=e193]: spy-man
+                      - generic [ref=e194]: ∙
+                      - generic [ref=e195]: Member Since Dec 4, 2025
+                    - paragraph [ref=e203]: "11111"
+                  - generic [ref=e204]:
+                    - tablist [ref=e206]:
+                      - tab [ref=e207] [cursor=pointer]:
+                        - link "Overview" [ref=e209]:
+                          - /url: https://stg.mobalytics.gg/profile/spy-man
+                      - tab [ref=e210] [cursor=pointer]:
+                        - link [ref=e212]:
+                          - /url: https://stg.mobalytics.gg/diablo-4/profile/spy-man
+                      - tab [ref=e215] [cursor=pointer]:
+                        - link [ref=e217]:
+                          - /url: https://stg.mobalytics.gg/poe-2/profile/spy-man
+                      - tab [ref=e220] [cursor=pointer]:
+                        - link [ref=e222]:
+                          - /url: https://stg.mobalytics.gg/poe/profile/spy-man
+                      - tab [ref=e225] [cursor=pointer]:
+                        - link [ref=e227]:
+                          - /url: https://stg.mobalytics.gg/deadlock/profile/spy-man
+                      - tab [ref=e230] [cursor=pointer]:
+                        - link [ref=e232]:
+                          - /url: https://stg.mobalytics.gg/riftbound/profile/spy-man
+                      - tab [ref=e235] [cursor=pointer]:
+                        - link [ref=e237]:
+                          - /url: https://stg.mobalytics.gg/zzz/profile/spy-man
+                      - tab [ref=e240] [cursor=pointer]:
+                        - link [ref=e242]:
+                          - /url: https://stg.mobalytics.gg/marvel-rivals/profile/spy-man
+                      - tab [ref=e245] [cursor=pointer]:
+                        - link [ref=e247]:
+                          - /url: https://stg.mobalytics.gg/the-bazaar/profile/spy-man
+                      - tab [ref=e250] [cursor=pointer]:
+                        - link [ref=e252]:
+                          - /url: https://stg.mobalytics.gg/2xko/profile/spy-man
+                      - tab [ref=e255] [cursor=pointer]:
+                        - link [ref=e257]:
+                          - /url: https://stg.mobalytics.gg/hades-2/profile/spy-man
+                      - tab [ref=e260] [cursor=pointer]:
+                        - link [ref=e262]:
+                          - /url: https://stg.mobalytics.gg/overwatch/profile/spy-man
+                      - tab [ref=e265] [cursor=pointer]:
+                        - link [ref=e267]:
+                          - /url: https://stg.mobalytics.gg/mhw/profile/spy-man
+                      - tab [ref=e270] [cursor=pointer]:
+                        - link [ref=e272]:
+                          - /url: https://stg.mobalytics.gg/elden-ring-nightreign/profile/spy-man
+                      - tab [ref=e275] [cursor=pointer]:
+                        - link [ref=e277]:
+                          - /url: https://stg.mobalytics.gg/borderlands-4/profile/spy-man
+                    - tablist [ref=e281]:
+                      - tab [selected] [ref=e282] [cursor=pointer]:
+                        - link [ref=e284]:
+                          - /url: https://stg.mobalytics.gg/arknights-endfield/profile/spy-man
+                - generic [ref=e289]:
+                  - generic [ref=e290]:
+                    - generic [ref=e291]:
+                      - button "Create" [active] [ref=e296] [cursor=pointer]
+                      - tablist [ref=e305]:
+                        - tab "Characters" [selected] [ref=e306] [cursor=pointer]
+                        - tab "Guides" [ref=e309] [cursor=pointer]
+                        - tab "Tier Lists" [ref=e311] [cursor=pointer]
+                        - tab "Teams" [ref=e313] [cursor=pointer]
+                    - generic [ref=e320]:
+                      - radiogroup [ref=e322]:
+                        - generic [ref=e326] [cursor=pointer]:
+                          - radio "Favorite Characters" [checked] [ref=e328]
+                          - generic [ref=e329]: Favorite Characters
+                        - generic [ref=e334] [cursor=pointer]:
+                          - radio "Following" [ref=e336]
+                          - generic [ref=e337]: Following
+                        - generic [ref=e341] [cursor=pointer]:
+                          - radio "My Characters" [ref=e343]
+                          - generic [ref=e344]: My Characters
+                      - generic "select" [ref=e349]:
+                        - combobox [ref=e352]
+                        - button "Topic" [ref=e355] [cursor=pointer]
+                  - generic [ref=e362]:
+                    - generic [ref=e363]: Your favorites are private. Only you can see them
+                    - generic [ref=e366]:
+                      - generic [ref=e367]: No favorite Characters
+                      - generic [ref=e368]: You don’t have have any favorite Characters that match active filters
+            - generic [ref=e370] [cursor=pointer]
+          - complementary [ref=e374]:
+            - generic [ref=e375]:
+              - generic [ref=e377]:
+                - generic [ref=e379] [cursor=pointer]:
+                  - generic [ref=e380]: Advertisement
+                  - generic [ref=e381]: Remove Ads
+                - generic [ref=e387] [cursor=pointer]:
+                  - generic [ref=e388]: Remove all ads
+                  - generic [ref=e389]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e390]
+              - generic [ref=e392]:
+                - generic [ref=e394] [cursor=pointer]:
+                  - generic [ref=e395]: Advertisement
+                  - generic [ref=e396]: Remove Ads
+                - generic [ref=e402] [cursor=pointer]:
+                  - generic [ref=e403]: Remove all ads
+                  - generic [ref=e404]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+                  - button "Remove ads" [ref=e405]
+    - generic:
+      - region "Notifications Alt+T"
+  - generic [ref=e408]:
+    - banner [ref=e409]:
+      - generic [ref=e410] [cursor=pointer]:
+        - generic [ref=e411]: Advertisement
+        - generic [ref=e412]: Remove Ads
+    - generic [ref=e416] [cursor=pointer]:
+      - generic [ref=e417]: Remove all ads
+      - generic [ref=e418]: Say goodbye to ads, support our team, see exclusive sneak peeks, and get a shiny new Discord role.
+      - button "Remove ads" [ref=e419]
+```
+
+# Test source
+
+```ts
+  17  |     });
+  18  |     this.guideButton = page.getByRole('menuitem', {
+  19  |       name: 'Guide Create a Guide',
+  20  |     });
+  21  |     this.tierListButton = page.getByRole('menuitem', {
+  22  |       name: 'Tier List Create a Tier List',
+  23  |     });
+  24  |     this.characterButton = page.getByRole('menuitem', {
+  25  |       name: 'Character Create a Character',
+  26  |     });
+  27  |     this.classButton = page.getByRole('menuitem', {
+  28  |       name: 'Create a Class Guide',
+  29  |     });
+  30  |     this.dungeonButton = page.getByRole('menuitem', {
+  31  |       name: 'Create a Dungeon Guide',
+  32  |     });
+  33  |     this.questButton = page.getByRole('menuitem', {
+  34  |       name: 'Create a Quest Guide',
+  35  |     });
+  36  |     this.raidButton = page.getByRole('menuitem', {
+  37  |       name: 'Create a Raid Guide',
+  38  |     });
+  39  |     this.deckButton = page.getByRole('menuitem', { name: 'Create a Deck' });
+  40  |     this.buildWidget = (pageName) => page.getByRole('main').filter({ hasText: `${pageName}` });
+  41  |     this.profilePage = page.locator('#container');
+  42  |   }
+  43  | 
+  44  |   async gotoQuestsPlannerPage() {
+  45  |     await test.step('Go to Quest Planner Page', async () => {
+  46  |       await this.createButton.click();
+  47  |       await this.questButton.click();
+  48  |     });
+  49  |   }
+  50  | 
+  51  |   async gotoDungeonsPlannerPage() {
+  52  |     await test.step('Go to Dungeon Planner Page', async () => {
+  53  |       await this.createButton.click();
+  54  |       await this.dungeonButton.click();
+  55  |     });
+  56  |   }
+  57  | 
+  58  |   async gotoRaidsPlannerPage() {
+  59  |     await test.step('Go to Raid Planner Page', async () => {
+  60  |       await this.createButton.click();
+  61  |       await this.raidButton.click();
+  62  |     });
+  63  |   }
+  64  | 
+  65  |   async gotoClassesPlannerPage() {
+  66  |     await test.step('Go to Class Planner Page', async () => {
+  67  |       await this.createButton.click();
+  68  |       await this.classButton.click();
+  69  |     });
+  70  |   }
+  71  | 
+  72  |   async gotoBuildPlannerPage() {
+  73  |     await test.step('Go to Build Planner Page', async () => {
+  74  |       await this.createButton.click();
+  75  |       await this.buildButton.click();
+  76  |     });
+  77  |   }
+  78  | 
+  79  |   async gotoDeckPlannerPage() {
+  80  |     await test.step('Go to Deck Planner Page', async () => {
+  81  |       await this.createButton.click();
+  82  |       await this.deckButton.click();
+  83  |     });
+  84  |   }
+  85  | 
+  86  |   async gotoCharacterPlannerPage() {
+  87  |     await test.step('Go to Character Planner Page', async () => {
+  88  |       await this.createButton.click();
+  89  |       await this.characterButton.click();
+  90  |     });
+  91  |   }
+  92  | 
+  93  |   async gotoTeamPlannerPage() {
+  94  |     await test.step('Go to Team Planner Page', async () => {
+  95  |       await this.createButton.click();
+  96  |       await this.teamButton.click();
+  97  |     });
+  98  |   }
+  99  | 
+  100 |   async gotoClassicPlannerPage() {
+  101 |     await test.step('Go to Classic Planner Page', async () => {
+  102 |       await this.createButton.click();
+  103 |       await this.classicButton.click();
+  104 |     });
+  105 |   }
+  106 | 
+  107 |   async gotoTierListPlannerPage() {
+  108 |     await test.step('Go to Tier List Planner Page', async () => {
+  109 |       await this.createButton.click();
+  110 |       await this.tierListButton.click();
+  111 |     });
+  112 |   }
+  113 | 
+  114 |   async gotoGuidePlannerPage() {
+  115 |     await test.step('Go to Guide Planner Page', async () => {
+  116 |       await this.createButton.click();
+> 117 |       await this.guideButton.click();
+      |                              ^ Error: locator.click: Test timeout of 90000ms exceeded.
+  118 |     });
+  119 |   }
+  120 | 
+  121 |   async deleteBuild(pageName) {
+  122 |     await test.step(`Delete ${pageName} build page`, async () => {
+  123 |       await this.dotesButton.click();
+  124 |       await this.deleteButton.click();
+  125 |       await this.buttonDeleteInModal.click();
+  126 |     });
+  127 |   }
+  128 | }
+  129 | 
+```
