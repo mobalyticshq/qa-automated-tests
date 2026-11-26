@@ -232,6 +232,14 @@ export class MainURLs {
     });
   }
 
+  async openAdminNrwPage() {
+    await test.step(`Open 'NRW' ST admin page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/no-rest-for-the-wicked/admin`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
   async openUgZzzPage() {
     await test.step(`Open 'ZZZ' UG page`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/zzz/profile`, {
@@ -416,6 +424,14 @@ export class MainURLs {
     });
   }
 
+  async openUgNrwPage() {
+    await test.step(`Open 'NRW' UG page`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/no-rest-for-the-wicked/creator-profile`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }
+
   async openPoe2Page() {
     await test.step(`Open url: ${process.env.BASE_URL}/poe-2`, async () => {
       await this.page.goto(`${process.env.BASE_URL}/poe-2`, {
@@ -567,6 +583,14 @@ export class MainURLs {
       });
     });
   }
+
+  async openNrwPage() {
+    await test.step(`Open url: ${process.env.BASE_URL}/no-rest-for-the-wicked`, async () => {
+      await this.page.goto(`${process.env.BASE_URL}/no-rest-for-the-wicked`, {
+        waitUntil: 'domcontentloaded',
+      });
+    });
+  }  
 
   async openMhwBuildPlanner() {
     await test.step(`Open url: ${process.env.BASE_URL}/mhw/planner/builds`, async () => {
